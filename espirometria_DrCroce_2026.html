@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espirometría — Dr. L. Croce 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f2ed;
+  --bg2: #edeae3;
+  --bg3: #e4e0d8;
+  --surface: #ffffff;
+  --surface2: #f9f7f4;
+  --border: #d8d3c8;
+  --border2: #c8c2b6;
+  --text: #1a1714;
+  --text2: #3d3830;
+  --text3: #6b6356;
+  --accent: #2c5f8a;
+  --accent2: #1e4a6e;
+  --accent-light: #ddeaf5;
+  --red: #b5281c; --red-bg: #fdf0ef; --red-border: #f0c4c0;
+  --orange: #c15a00; --orange-bg: #fef5ec; --orange-border: #f5d9b8;
+  --yellow: #8a6d00; --yellow-bg: #fdf8e6; --yellow-border: #f0e4a0;
+  --green: #1a6b3a; --green-bg: #eef8f1; --green-border: #b8e4c8;
+  --blue: #1e4f88; --blue-bg: #edf4fd; --blue-border: #b8d4f5;
+  --cyan: #0a6870; --cyan-bg: #e8f7f8; --cyan-border: #9edde2;
+  --purple: #5c3b8a; --purple-bg: #f2eefc; --purple-border: #c8b8f0;
+  --emerald: #0e6655; --emerald-bg: #e8f8f4; --emerald-border: #8ed8c8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;color:var(--text)}
+
+/* ===== ACCESS SCREEN ===== */
+#access-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0d2137,#1a3a5c,#0d2137);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
+.access-box{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:40px 36px;max-width:400px;width:100%;text-align:center}
+.access-logo{font-size:48px;margin-bottom:16px}
+.access-title{font-family:'Libre Baskerville',serif;font-size:22px;color:#fff;margin-bottom:6px}
+.access-sub{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:28px}
+.access-input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:13px 16px;color:#fff;font-size:15px;font-family:'DM Sans',sans-serif;outline:none;text-align:center;letter-spacing:3px;margin-bottom:14px}
+.access-input::placeholder{color:rgba(255,255,255,.35);letter-spacing:0}
+.access-input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.12)}
+.access-btn{width:100%;background:linear-gradient(135deg,#2c7bb5,#1e5a8a);border:none;border-radius:10px;padding:13px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
+.access-btn:hover{background:linear-gradient(135deg,#3a8fc8,#2c6ea0);transform:translateY(-1px)}
+.access-err{color:#ff8a80;font-size:13px;margin-top:10px;min-height:20px}
+.access-hint{font-size:11px;color:rgba(255,255,255,.3);margin-top:20px}
+
+/* ===== HEADER ===== */
+#main-app{display:none}
+.header{background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 50%,#0d2b45 100%);padding:28px 20px 0;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.header-top{max-width:900px;margin:0 auto 16px}
+.header-row1{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.header-icon{width:54px;height:54px;background:rgba(255,255,255,.12);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.header-title{color:#fff}
+.header-title h1{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;margin-bottom:3px;line-height:1.2}
+.header-title p{font-size:12px;color:rgba(255,255,255,.6)}
+.badge-row{display:flex;gap:6px;flex-wrap:wrap}
+.hbadge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:600;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85)}
+.hbadge-new{background:rgba(16,185,129,.25);color:#6ee7b7;animation:pulse-badge 2s infinite}
+@keyframes pulse-badge{0%,100%{opacity:1}50%{opacity:.65}}
+.tag-new{display:inline-block;background:var(--emerald-bg);color:var(--emerald);border:1px solid var(--emerald-border);border-radius:4px;font-size:9px;font-weight:700;padding:1px 6px;vertical-align:middle;animation:pulse-badge 2s infinite}
+
+/* ===== TABS ===== */
+.tab-scroll-hint{text-align:center;font-size:10px;color:rgba(255,255,255,.4);padding:4px 0 0;letter-spacing:.5px}
+.tabs-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:900px;margin:0 auto}
+.tabs-wrapper::-webkit-scrollbar{display:none}
+.tabs{display:flex;gap:0;min-width:max-content;padding-bottom:0}
+.tab{padding:10px 16px;color:rgba(255,255,255,.55);font-size:12px;font-weight:500;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;font-family:'DM Sans',sans-serif}
+.tab:hover{color:rgba(255,255,255,.85)}
+.tab.active{color:#fff;border-bottom-color:#60aff0}
+
+/* ===== CONTENT ===== */
+.content{max-width:900px;margin:0 auto;padding:20px 16px 40px}
+.panel{display:none}
+.panel.active{display:block}
+
+/* ===== CARDS ===== */
+.card{background:var(--surface);border-radius:12px;border:1px solid var(--border);margin-bottom:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card-header{padding:14px 18px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.card-header:hover{background:var(--surface2)}
+.card-header-left{display:flex;align-items:center;gap:10px}
+.card-icon{font-size:18px}
+.card-title{font-family:'Libre Baskerville',serif;font-size:14px;font-weight:700;color:var(--text)}
+.card-body{padding:16px 18px;border-top:1px solid var(--border);display:none}
+.card-body.open{display:block}
+.card-arrow{color:var(--text3);font-size:16px;transition:transform .2s}
+.card-arrow.open{transform:rotate(90deg)}
+
+/* Colored cards */
+.card-red{border-color:var(--red-border);background:var(--red-bg)}
+.card-red .card-header{background:var(--red-bg)}
+.card-red .card-header:hover{background:#fde6e4}
+.card-red .card-title{color:var(--red)}
+.card-orange{border-color:var(--orange-border);background:var(--orange-bg)}
+.card-orange .card-header{background:var(--orange-bg)}
+.card-orange .card-title{color:var(--orange)}
+.card-yellow{border-color:var(--yellow-border);background:var(--yellow-bg)}
+.card-yellow .card-header{background:var(--yellow-bg)}
+.card-yellow .card-title{color:var(--yellow)}
+.card-green{border-color:var(--green-border);background:var(--green-bg)}
+.card-green .card-header{background:var(--green-bg)}
+.card-green .card-title{color:var(--green)}
+.card-blue{border-color:var(--blue-border);background:var(--blue-bg)}
+.card-blue .card-header{background:var(--blue-bg)}
+.card-blue .card-title{color:var(--blue)}
+.card-cyan{border-color:var(--cyan-border);background:var(--cyan-bg)}
+.card-cyan .card-header{background:var(--cyan-bg)}
+.card-cyan .card-title{color:var(--cyan)}
+.card-purple{border-color:var(--purple-border);background:var(--purple-bg)}
+.card-purple .card-header{background:var(--purple-bg)}
+.card-purple .card-title{color:var(--purple)}
+.card-emerald{border-color:var(--emerald-border);background:var(--emerald-bg)}
+.card-emerald .card-header{background:var(--emerald-bg)}
+.card-emerald .card-title{color:var(--emerald)}
+
+/* ===== TYPOGRAPHY ===== */
+.section-title{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--text);margin:24px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--border)}
+p{font-size:14px;line-height:1.75;color:var(--text2);margin-bottom:10px}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{font-size:14px;line-height:1.7;color:var(--text2);margin-bottom:3px}
+strong{color:var(--text);font-weight:600}
+.mono{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent2);background:var(--accent-light);padding:1px 5px;border-radius:4px}
+.alert{border-radius:8px;padding:12px 16px;margin-bottom:12px;font-size:13px;line-height:1.65}
+.alert-red{background:var(--red-bg);border-left:4px solid var(--red);color:var(--red)}
+.alert-green{background:var(--green-bg);border-left:4px solid var(--green);color:var(--green)}
+.alert-blue{background:var(--blue-bg);border-left:4px solid var(--blue);color:var(--blue)}
+.alert-orange{background:var(--orange-bg);border-left:4px solid var(--orange);color:var(--orange)}
+.alert-yellow{background:var(--yellow-bg);border-left:4px solid var(--yellow);color:var(--yellow)}
+.alert-emerald{background:var(--emerald-bg);border-left:4px solid var(--emerald);color:var(--emerald)}
+.alert-purple{background:var(--purple-bg);border-left:4px solid var(--purple);color:var(--purple)}
+
+/* ===== TABLES ===== */
+.table-wrap{overflow-x:auto;margin-bottom:14px;border-radius:10px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:400px}
+th{background:linear-gradient(135deg,#1a3a5c,#0d2b45);color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:12px}
+td{padding:9px 12px;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--surface2)}
+.td-red{color:var(--red);font-weight:600}
+.td-green{color:var(--green);font-weight:600}
+.td-blue{color:var(--blue);font-weight:600}
+.td-orange{color:var(--orange);font-weight:600}
+
+/* ===== STEPS ===== */
+.steps{counter-reset:step}
+.step{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.step-num{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#2c5f8a,#1e4a6e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-body{flex:1}
+.step-title{font-weight:600;font-size:14px;color:var(--text);margin-bottom:4px}
+.step-text{font-size:13px;color:var(--text2);line-height:1.65}
+
+/* ===== CALCULATORS ===== */
+.calc-box{background:var(--surface);border:1px solid var(--cyan-border);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.calc-title{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--cyan);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.calc-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:480px){.calc-grid,.calc-grid-3{grid-template-columns:1fr}}
+.calc-field label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:4px}
+.calc-field input,.calc-field select{width:100%;border:1px solid var(--border2);border-radius:8px;padding:9px 11px;font-size:14px;font-family:'JetBrains Mono',monospace;color:var(--text);background:var(--bg);outline:none;transition:border-color .2s}
+.calc-field input:focus,.calc-field select:focus{border-color:var(--cyan)}
+.calc-btn{background:linear-gradient(135deg,var(--cyan),#0a5a62);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;transition:all .2s}
+.calc-btn:hover{opacity:.9;transform:translateY(-1px)}
+.calc-result{background:var(--cyan-bg);border:1px solid var(--cyan-border);border-radius:8px;padding:14px;margin-top:12px;display:none}
+.calc-result-val{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:600;color:var(--cyan);margin-bottom:4px}
+.calc-result-label{font-size:12px;color:var(--text3);margin-bottom:8px}
+.calc-result-interp{font-size:13px;color:var(--text2);line-height:1.6;padding-top:8px;border-top:1px solid var(--cyan-border)}
+
+/* ===== QUIZ ===== */
+.quiz-selector{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.qsel-btn{flex:1;min-width:140px;padding:10px 14px;border:2px solid var(--border2);border-radius:10px;background:var(--surface);color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;text-align:center}
+.qsel-btn:hover{border-color:var(--accent);color:var(--accent)}
+.qsel-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}
+.quiz-container{background:var(--surface);border-radius:14px;border:1px solid var(--border);padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.quiz-info{font-size:12px;color:var(--text3)}
+.quiz-score-badge{background:var(--accent-light);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.progress-bar{height:6px;background:var(--bg3);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#60aff0);border-radius:3px;transition:width .4s ease}
+.question-text{font-family:'Libre Baskerville',serif;font-size:15px;line-height:1.65;color:var(--text);margin-bottom:18px}
+.case-block{background:var(--bg2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--text2);line-height:1.65}
+.options{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.option{padding:12px 16px;border:1px solid var(--border2);border-radius:10px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .2s;background:var(--surface);text-align:left;font-family:'DM Sans',sans-serif;line-height:1.5}
+.option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
+.option.correct{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.option.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red)}
+.feedback{background:var(--blue-bg);border:1px solid var(--blue-border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text2);line-height:1.7;display:none;margin-bottom:14px}
+.feedback.show{display:block}
+.feedback strong{color:var(--blue)}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.qnav-btn{padding:10px 20px;border-radius:8px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.qnav-prev{background:var(--bg3);color:var(--text2)}
+.qnav-prev:hover{background:var(--border)}
+.qnav-next{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.qnav-next:hover{opacity:.9}
+.qnav-reset{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.qnav-reset:hover{background:var(--orange-border)}
+.quiz-result{text-align:center;padding:30px 20px}
+.quiz-result-emoji{font-size:56px;margin-bottom:16px}
+.quiz-result-score{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.quiz-result-msg{font-size:15px;color:var(--text2);margin-bottom:20px}
+
+/* ===== FLOW DIAGRAM ===== */
+.flow{display:flex;flex-direction:column;gap:0;align-items:center}
+.flow-node{border-radius:10px;padding:12px 20px;text-align:center;font-size:13px;font-weight:600;max-width:340px;width:100%;line-height:1.45}
+.flow-arrow{font-size:20px;color:var(--text3);line-height:1.2;padding:2px 0}
+.flow-branch{display:flex;gap:16px;justify-content:center;width:100%;flex-wrap:wrap}
+.flow-branch-item{display:flex;flex-direction:column;align-items:center;flex:1;min-width:140px;max-width:220px}
+.flow-label{font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
+
+/* ===== MISC ===== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.chip{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;margin:2px}
+.chip-blue{background:var(--blue-bg);color:var(--blue)}
+.chip-green{background:var(--green-bg);color:var(--green)}
+.chip-red{background:var(--red-bg);color:var(--red)}
+.chip-orange{background:var(--orange-bg);color:var(--orange)}
+.chip-purple{background:var(--purple-bg);color:var(--purple)}
+.chip-emerald{background:var(--emerald-bg);color:var(--emerald)}
+.evidence-badge{display:inline-block;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;margin-left:6px;vertical-align:middle}
+.ev-a{background:#1a6b3a;color:#fff}
+.ev-b{background:#1e4f88;color:#fff}
+.ev-c{background:#6b6356;color:#fff}
+.divider{border:none;border-top:1px solid var(--border);margin:18px 0}
+.footer-note{text-align:center;font-size:11px;color:var(--text3);margin-top:30px;padding-top:20px;border-top:1px solid var(--border);line-height:1.8}
+</style>
+</head>
+<body>
+
+<!-- ACCESS SCREEN -->
+<div id="access-screen">
+  <div class="access-box">
+    <div class="access-logo">🌬️</div>
+    <div class="access-title">Espirometría<br>Interpretación Práctica</div>
+    <div class="access-sub">Dr. L. Croce · Medicina Interna y Urgencias<br>ATS/ERS 2022 · GOLD 2025 · GLI 2022</div>
+    <input type="password" id="pwd-input" class="access-input" placeholder="Ingrese la clave" autocomplete="off">
+    <button class="access-btn" onclick="checkAccess()">Acceder al módulo</button>
+    <div id="access-err" class="access-err"></div>
+    <div class="access-hint">Módulo de uso educativo · Acceso restringido</div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="main-app">
+<div class="header">
+  <div class="header-top">
+    <div class="header-row1">
+      <div class="header-icon">🌬️</div>
+      <div class="header-title">
+        <h1>Espirometría — Aspectos Prácticos para su Interpretación</h1>
+        <p>Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</p>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="hbadge">ATS/ERS 2022</span>
+      <span class="hbadge">GOLD 2025</span>
+      <span class="hbadge">GLI 2022</span>
+      <span class="hbadge-new">★ NUEVO 2022–2025</span>
+    </div>
+  </div>
+  <div class="tab-scroll-hint">← deslice para ver más pestañas →</div>
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <div class="tab active" onclick="showTab(0,this)">📋 Conceptos</div>
+      <div class="tab" onclick="showTab(1,this)">📊 Parámetros</div>
+      <div class="tab" onclick="showTab(2,this)">🔍 Interpretación</div>
+      <div class="tab" onclick="showTab(3,this)">📐 Patrones</div>
+      <div class="tab" onclick="showTab(4,this)">💊 Broncodilatador</div>
+      <div class="tab" onclick="showTab(5,this)">🧮 Calculadoras</div>
+      <div class="tab" onclick="showTab(6,this)">📋 Protocolo</div>
+      <div class="tab" onclick="showTab(7,this)">⚖️ Guías vs Guías</div>
+      <div class="tab" onclick="showTab(8,this)">📝 Quiz</div>
+    </div>
+  </div>
+</div>
+<div class="content">
+
+<!-- ===================== PANEL 0: CONCEPTOS ===================== -->
+<div class="panel active" id="panel-0">
+<div class="section-title">🌬️ Conceptos Fundamentales de Espirometría</div>
+
+<div class="alert alert-blue"><strong>Guía vigente:</strong> ATS/ERS Technical Standard on Interpretive Strategies for Routine Lung Function Tests — <em>European Respiratory Journal</em>, julio 2022. Reemplaza el estándar previo de 2005. Las actualizaciones más importantes se señalan con <span class="tag-new">NUEVO 2022</span></div>
+
+<div class="card card-purple">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🫁</span><span class="card-title">¿Qué es la espirometría y para qué sirve?</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>La espirometría es la prueba de función pulmonar más utilizada en la práctica clínica. Mide los <strong>volúmenes y flujos de aire</strong> generados durante maniobras respiratorias forzadas, permitiendo evaluar la mecánica ventilatoria.</p>
+    <p><strong>Indicaciones principales:</strong></p>
+    <ul>
+      <li>Diagnóstico y seguimiento de EPOC, asma y otras enfermedades pulmonares crónicas</li>
+      <li>Evaluación de disnea de causa no clara</li>
+      <li>Cribado en pacientes con exposición a tabaco u ocupacional</li>
+      <li>Evaluación preoperatoria de riesgo pulmonar</li>
+      <li>Monitoreo de respuesta al tratamiento</li>
+      <li>Evaluación de discapacidad respiratoria</li>
+    </ul>
+    <div class="alert alert-orange"><strong>Limitación importante:</strong> La espirometría evalúa solo función ventilatoria. No mide DLCO (difusión de CO), volúmenes pulmonares absolutos (TLC, RV) ni intercambio gaseoso. Estas pruebas complementan el diagnóstico en casos seleccionados.</div>
+  </div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">💨</span><span class="card-title">Volúmenes pulmonares clave — contexto anatómico</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <div class="table-wrap"><table>
+      <tr><th>Volumen / Capacidad</th><th>Definición</th><th>Valor normal aprox.</th></tr>
+      <tr><td><strong>VT (Tidal Volume)</strong></td><td>Volumen respirado en reposo</td><td class="td-blue">0.5 L</td></tr>
+      <tr><td><strong>IRV (Reserva Inspiratoria)</strong></td><td>Aire inspirado adicional tras VT normal</td><td class="td-blue">~3 L</td></tr>
+      <tr><td><strong>ERV (Reserva Espiratoria)</strong></td><td>Aire espirado adicional tras VT normal</td><td class="td-blue">~1.2 L</td></tr>
+      <tr><td><strong>RV (Volumen Residual)</strong></td><td>Aire que queda tras espiración máxima — <em>no medible por espirometría</em></td><td class="td-blue">~1.2 L</td></tr>
+      <tr><td><strong>FVC (CVF)</strong></td><td>Capacidad Vital Forzada — volumen total espirado en maniobra forzada</td><td class="td-green">≥ LLN (z > −1.645)</td></tr>
+      <tr><td><strong>FEV₁ (VEF₁)</strong></td><td>Volumen espirado forzado en 1 segundo</td><td class="td-green">≥ LLN (z > −1.645)</td></tr>
+      <tr><td><strong>TLC (CPT)</strong></td><td>Capacidad Pulmonar Total — solo por pletismografía o dilución de gas</td><td class="td-blue">~6 L ♂ adulto</td></tr>
+    </table></div>
+    <div class="alert alert-yellow"><strong>Punto clave:</strong> La espirometría forzada mide FVC, FEV₁ y su cociente. El TLC y el RV requieren pletismografía corporal o técnicas de dilución de gas — esenciales para confirmar restricción verdadera.</div>
+  </div>
+</div>
+
+<div class="card card-emerald">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">GLI 2022 — Ecuaciones de referencia race-neutral <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El estándar ATS/ERS 2022 adopta las ecuaciones de la <strong>Global Lung Initiative (GLI) 2022</strong> como referencia primaria recomendada, reemplazando las ecuaciones NHANES III y las ecuaciones basadas en raza de GLI 2012.</p>
+    <div class="alert alert-emerald"><strong>Cambio fundamental:</strong> Las ecuaciones GLI 2022 son <strong>race-neutral (sin ajuste por raza)</strong>. Solo utilizan <em>edad, talla y sexo</em>. El ajuste por raza/etnia se abandona porque refleja construcción social, no diferencias biológicas intrínsecas, y perpetúa disparidades en salud.</div>
+    <p><strong>Rango de edad cubierto:</strong> 3 a 95 años.</p>
+    <p><strong>Implicación práctica:</strong> Pacientes de grupos étnicos que antes tenían valores de referencia menores (ej. población negra) ahora pueden reclasificarse de «normal» a «alterado». Esto aumenta la sensibilidad diagnóstica y reduce el subdiagnóstico histórico en estas poblaciones.</p>
+    <div class="alert alert-yellow"><strong>En contexto LATAM / Ecuador:</strong> Las ecuaciones GLI 2022 race-neutral son más apropiadas para nuestra población mestiza que las ecuaciones NHANES III (derivadas de población anglosajona). Aun así, algunos equipos locales siguen usando ecuaciones antiguas — siempre verificar qué referencia usa el equipo del laboratorio.</div>
+  </div>
+</div>
+
+<div class="card card-red">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">⚠️</span><span class="card-title">Criterios de calidad de la maniobra espirométrica</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Una espirometría solo es interpretable si cumple criterios de <strong>aceptabilidad y reproducibilidad</strong> según ATS/ERS 2019 (estándar técnico vigente para realización de la maniobra).</p>
+    <p><strong>Criterios de aceptabilidad por maniobra:</strong></p>
+    <ul>
+      <li>Inicio explosivo (back-extrapolated volume &lt; 5% FVC o &lt; 150 mL)</li>
+      <li>Sin artefactos (tos, cierre glótico, esfuerzo variable)</li>
+      <li>Espiración ≥ 6 segundos en adultos (3 s en niños) <strong>o</strong> meseta en curva volumen-tiempo</li>
+      <li>Fin de maniobra aceptable</li>
+    </ul>
+    <p><strong>Criterios de reproducibilidad (entre mejores maniobras aceptables):</strong></p>
+    <ul>
+      <li>Diferencia entre las 2 mejores FVC: <span class="mono">&lt; 150 mL</span></li>
+      <li>Diferencia entre los 2 mejores FEV₁: <span class="mono">&lt; 150 mL</span></li>
+    </ul>
+    <div class="alert alert-red"><strong>Trampa clínica:</strong> Si el informe no menciona el grado de calidad (A–F), sospeche que la maniobra puede ser subóptima. Nunca interprete una espirometría sin verificar su calidad técnica — resultados inaceptables pueden conducir a diagnósticos erróneos.</div>
+    <p><strong>Calificación de calidad (ATS/ERS 2019):</strong></p>
+    <div class="table-wrap"><table>
+      <tr><th>Grado</th><th>Criterio</th><th>Confiabilidad</th></tr>
+      <tr><td class="td-green">A</td><td>≥ 3 maniobras aceptables; reproducibilidad &lt; 150 mL</td><td class="td-green">Alta</td></tr>
+      <tr><td class="td-blue">B</td><td>≥ 2 maniobras aceptables; reproducibilidad &lt; 150 mL</td><td class="td-blue">Adecuada</td></tr>
+      <tr><td class="td-orange">C</td><td>≥ 2 maniobras aceptables; reproducibilidad 150–200 mL</td><td class="td-orange">Marginal</td></tr>
+      <tr><td class="td-orange">D</td><td>Solo 1 maniobra aceptable</td><td class="td-orange">Baja</td></tr>
+      <tr><td class="td-red">E/F</td><td>Ninguna maniobra aceptable</td><td class="td-red">No interpretable</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card card-orange">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🔬</span><span class="card-title">Contraindicaciones de la espirometría</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Contraindicaciones absolutas:</strong></p>
+    <ul>
+      <li>Neumotórax activo o reciente (&lt; 4 semanas)</li>
+      <li>Hemoptisis activa de causa desconocida</li>
+      <li>IAM agudo o inestabilidad hemodinámica reciente (&lt; 1 semana)</li>
+      <li>Disección o aneurisma aórtico conocido</li>
+    </ul>
+    <p><strong>Contraindicaciones relativas (diferir o precaución):</strong></p>
+    <ul>
+      <li>Cirugía abdominal o torácica reciente (&lt; 4 semanas)</li>
+      <li>Cirugía ocular reciente (desprendimiento de retina)</li>
+      <li>Hemoptisis conocida de causa identificada</li>
+      <li>Enfermedad cardiovascular inestable</li>
+      <li>Tuberculosis activa (riesgo de contagio)</li>
+    </ul>
+  </div>
+</div>
+</div><!-- /panel-0 -->
+
+<!-- ===================== PANEL 1: PARÁMETROS ===================== -->
+<div class="panel" id="panel-1">
+<div class="section-title">📊 Parámetros Espirométricos Principales</div>
+
+<div class="alert alert-emerald"><strong>Cambio ATS/ERS 2022:</strong> El estándar recomienda expresar resultados como <strong>z-scores</strong> en lugar de porcentajes del predicho. El límite inferior de normalidad (LLN) se define como z-score &lt; −1.645 (percentil 5). <span class="tag-new">NUEVO 2022</span></div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">📏</span><span class="card-title">FEV₁ — Volumen Espiratorio Forzado en 1 segundo</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El FEV₁ es el <strong>volumen de aire espirado en el primer segundo</strong> de una maniobra espiratoria forzada, a partir de una inspiración máxima.</p>
+    <div class="alert alert-blue">Es el parámetro más reproducible de la espirometría y el más usado para seguimiento longitudinal y clasificación de severidad.</div>
+    <p><strong>Factores fisiológicos que lo determinan:</strong></p>
+    <ul>
+      <li>Resistencia de vías aéreas (factor dominante en obstrucción)</li>
+      <li>Retracción elástica pulmonar</li>
+      <li>Tamaño pulmonar (correlaciona con talla y edad)</li>
+      <li>Fuerza muscular respiratoria</li>
+    </ul>
+    <div class="table-wrap"><table>
+      <tr><th>Expresión del resultado</th><th>Método 2005 (obsoleto)</th><th>Método 2022 (actual)</th></tr>
+      <tr><td>Límite de normalidad</td><td>% predicho &lt; 80%</td><td class="td-green">z-score &lt; −1.645 (LLN)</td></tr>
+      <tr><td>Severidad leve</td><td>70–79% predicho</td><td class="td-green">z ≥ −2.5</td></tr>
+      <tr><td>Severidad moderada</td><td>50–69% predicho</td><td class="td-green">z entre −2.5 y −4</td></tr>
+      <tr><td>Severidad grave</td><td>&lt; 50% predicho</td><td class="td-red">z &lt; −4</td></tr>
+    </table></div>
+    <div class="alert alert-yellow"><strong>Nota práctica:</strong> En la mayoría de los laboratorios de Ecuador se sigue usando el % predicho. Ambas expresiones son aceptables, pero el z-score es más preciso en personas mayores y en los extremos de edad/talla.</div>
+  </div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">📏</span><span class="card-title">FVC — Capacidad Vital Forzada</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>La FVC es el <strong>volumen total de aire espirado</strong> durante una maniobra espiratoria forzada máxima desde capacidad pulmonar total (TLC) hasta volumen residual (RV).</p>
+    <p><strong>Hallazgos clave según el patrón:</strong></p>
+    <ul>
+      <li><strong>Patrón obstructivo:</strong> FVC puede ser normal o reducida (por atrapamiento aéreo — el RV aumenta y el TLC generalmente se preserva)</li>
+      <li><strong>Patrón restrictivo verdadero:</strong> FVC reducida + TLC reducida (requiere confirmación con pletismografía)</li>
+      <li><strong>Patrón no específico:</strong> FVC reducida con cociente FEV₁/FVC normal — no indica restricción sin TLC</li>
+    </ul>
+    <div class="alert alert-orange"><strong>Trampa clínica:</strong> Una FVC baja NO equivale automáticamente a restricción. La restricción solo se confirma con <strong>TLC baja</strong> en pletismografía. Una FVC reducida con cociente normal puede reflejar obstrucción severa con atrapamiento, trastorno restrictivo o patrón no específico.</div>
+  </div>
+</div>
+
+<div class="card card-emerald">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Cociente FEV₁/FVC — El parámetro diagnóstico central <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El cociente FEV₁/FVC determina si existe <strong>obstrucción al flujo aéreo</strong>. Es el parámetro diagnóstico más importante de la espirometría.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Criterio</th><th>Método fijo (GOLD)</th><th>LLN — ATS/ERS 2022</th></tr>
+      <tr><td>Valor de corte</td><td>FEV₁/FVC &lt; 0.70 post-BD</td><td>z-score FEV₁/FVC &lt; −1.645</td></tr>
+      <tr><td>Ventaja</td><td>Simple, universal</td><td>Ajustado por edad, talla, sexo</td></tr>
+      <tr><td>Limitación</td><td>Sobrediagnóstica en ancianos; subdiagnóstica en jóvenes</td><td>Requiere ecuaciones GLI disponibles</td></tr>
+      <tr><td>Quién lo recomienda</td><td>GOLD 2025</td><td>ATS/ERS 2022</td></tr>
+    </table></div>
+    <div class="alert alert-emerald"><strong>Posición ATS/ERS 2022:</strong> Se recomienda el LLN (z-score &lt; −1.645) como criterio de obstrucción, abandonando el umbral fijo de 0.70. Sin embargo, GOLD 2025 mantiene el umbral de 0.70 post-broncodilatador para diagnóstico de EPOC. Esta divergencia es real y activa — ambas aproximaciones tienen validez clínica dependiendo del contexto.</div>
+    <div class="alert alert-yellow"><strong>En la práctica:</strong> En ancianos (&gt;70 años) el cociente FEV₁/FVC normal puede caer por debajo de 0.70 fisiológicamente. El LLN evita el sobrediagnóstico de EPOC en este grupo. En jóvenes, el umbral fijo puede subdiagnosticar obstrucción leve.</div>
+  </div>
+</div>
+
+<div class="card card-cyan">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">📈</span><span class="card-title">Curva flujo-volumen — interpretación visual</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>La curva flujo-volumen complementa los valores numéricos y permite detectar patrones cualitativos. La parte superior (espiratoria) es la más relevante clínicamente.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Patrón visual</th><th>Descripción</th><th>Interpretación</th></tr>
+      <tr><td>Normal</td><td>Pico flujo rápido, descenso lineal suave</td><td class="td-green">Normal</td></tr>
+      <tr><td>Cóncava / excavada</td><td>Descenso acelerado tras el pico — curva con forma de cucharón</td><td class="td-red">Obstrucción</td></tr>
+      <tr><td>Reducida proporcionalmente</td><td>Curva pequeña pero forma normal</td><td class="td-orange">Restricción o esfuerzo submáximo</td></tr>
+      <tr><td>Meseta inspiratoria y espiratoria</td><td>Aplanamiento de ambas ramas</td><td class="td-red">Obstrucción fija de vía aérea central (ej. estenosis traqueal)</td></tr>
+      <tr><td>Meseta solo inspiratoria</td><td>Rama inspiratoria aplanada</td><td class="td-orange">Obstrucción variable extratorrácica (parálisis cuerdas vocales)</td></tr>
+      <tr><td>Meseta solo espiratoria</td><td>Rama espiratoria aplanada</td><td class="td-orange">Obstrucción variable intratorrácica</td></tr>
+    </table></div>
+    <p><strong>Otros flujos espirométricos:</strong></p>
+    <ul>
+      <li><span class="mono">FEF 25-75%</span>: Flujo espiratorio forzado entre el 25% y 75% de la FVC — refleja vías aéreas pequeñas, alta variabilidad, uso clínico limitado según ATS/ERS 2022</li>
+      <li><span class="mono">PEF</span>: Flujo espiratorio pico — útil para monitoreo de asma en domicilio</li>
+      <li><span class="mono">FEV₆</span>: Alternativa a FVC en pacientes que no pueden espirar 6 segundos</li>
+    </ul>
+    <div class="alert alert-yellow"><strong>Sobre el FEF 25-75%:</strong> ATS/ERS 2022 no recomienda su uso rutinario para diagnóstico por su alta variabilidad. No es suficiente para diagnosticar obstrucción de vías aéreas pequeñas de forma aislada.</div>
+  </div>
+</div>
+
+<div class="card card-yellow">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">📉</span><span class="card-title">Z-score: qué es y cómo interpretarlo <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El z-score (puntuación estándar) expresa <strong>cuántas desviaciones estándar</strong> se aleja el valor del paciente de la media predicha para su grupo de referencia (misma edad, talla y sexo).</p>
+    <p><strong>Fórmula:</strong> <span class="mono">z = (valor medido − valor predicho) / SD del predicho</span></p>
+    <div class="table-wrap"><table>
+      <tr><th>Z-score</th><th>Interpretación</th><th>Equivalente aproximado % predicho</th></tr>
+      <tr><td class="td-green">&gt; −1.645</td><td class="td-green">Normal (sobre el LLN, percentil &gt;5)</td><td>&gt; ~80% (variable por edad)</td></tr>
+      <tr><td>−1.645 a −2.5</td><td>Alteración leve</td><td>Aproximadamente 65–80% en adultos jóvenes</td></tr>
+      <tr><td>−2.5 a −4.0</td><td>Alteración moderada</td><td>Aproximadamente 50–65%</td></tr>
+      <tr><td class="td-red">&lt; −4.0</td><td class="td-red">Alteración grave</td><td>&lt; ~50%</td></tr>
+    </table></div>
+    <div class="alert alert-blue"><strong>Ventaja del z-score:</strong> Un FEV₁ de 75% del predicho tiene significado muy diferente en un paciente de 30 años (claramente anormal — z ≈ −2.5) versus uno de 75 años (posiblemente dentro del LLN — z ≈ −1.2). El % predicho no captura esta diferencia; el z-score sí.</div>
+  </div>
+</div>
+</div><!-- /panel-1 -->
+
+<!-- ===================== PANEL 2: INTERPRETACIÓN ===================== -->
+<div class="panel" id="panel-2">
+<div class="section-title">🔍 Enfoque Sistemático de Interpretación — ATS/ERS 2022</div>
+
+<div class="alert alert-emerald"><strong>ATS/ERS 2022</strong> establece un algoritmo de interpretación en pasos secuenciales. La clave es no saltar pasos y siempre correlacionar con el contexto clínico. <span class="tag-new">NUEVO 2022</span></div>
+
+<div class="card card-green">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">1️⃣</span><span class="card-title">Paso 1 — Verificar calidad de la maniobra</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Antes de interpretar cualquier valor, confirme:</p>
+    <ul>
+      <li>Grado de calidad: A o B (aceptable); C o D (marginal, interpretar con cautela); E/F (no interpretable)</li>
+      <li>Inicio explosivo de la maniobra</li>
+      <li>Duración mínima de espiración ≥ 6 segundos o meseta en curva volumen-tiempo</li>
+      <li>Reproducibilidad: diferencia FEV₁ y FVC &lt; 150 mL entre las 2 mejores maniobras</li>
+    </ul>
+    <div class="alert alert-red"><strong>Si la calidad es inaceptable:</strong> Informe los valores solo con advertencia explícita de limitación técnica. No emita diagnóstico espirométrico definitivo con estudios grado E o F.</div>
+  </div>
+</div>
+
+<div class="card card-green">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">2️⃣</span><span class="card-title">Paso 2 — Evaluar el cociente FEV₁/FVC</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El cociente determina si existe <strong>obstrucción al flujo aéreo</strong>:</p>
+    <div class="table-wrap"><table>
+      <tr><th>Resultado</th><th>Interpretación inicial</th></tr>
+      <tr><td class="td-red">FEV₁/FVC &lt; LLN (z &lt; −1.645)</td><td class="td-red">→ Patrón obstructivo presente</td></tr>
+      <tr><td class="td-green">FEV₁/FVC ≥ LLN (z ≥ −1.645)</td><td class="td-green">→ No hay obstrucción — pasar al paso 3</td></tr>
+    </table></div>
+    <p>Si se usa el criterio fijo (GOLD): <span class="mono">FEV₁/FVC &lt; 0.70</span> post-broncodilatador indica obstrucción.</p>
+    <div class="alert alert-orange"><strong>Importante:</strong> Evaluar siempre el cociente post-broncodilatador para diagnóstico definitivo de EPOC (GOLD 2025). La espirometría pre-BD puede mostrar obstrucción que revierte completamente en asmáticos.</div>
+  </div>
+</div>
+
+<div class="card card-green">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">3️⃣</span><span class="card-title">Paso 3 — Evaluar FVC si el cociente es normal</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Si FEV₁/FVC ≥ LLN, evalúe la FVC:</p>
+    <div class="table-wrap"><table>
+      <tr><th>Resultado FVC</th><th>Interpretación</th><th>Acción</th></tr>
+      <tr><td class="td-green">FVC ≥ LLN</td><td class="td-green">Espirometría normal</td><td>No se requieren más estudios si clínica concuerda</td></tr>
+      <tr><td class="td-orange">FVC &lt; LLN + FEV₁ &lt; LLN</td><td class="td-orange">Patrón no específico (NSP)</td><td>Solicitar TLC para confirmar/descartar restricción verdadera</td></tr>
+      <tr><td class="td-orange">FVC &lt; LLN + FEV₁ normal</td><td class="td-orange">Posible restricción o NSP</td><td>Solicitar TLC</td></tr>
+    </table></div>
+    <div class="alert alert-emerald"><strong>Patrón No Específico (NSP) — NUEVO 2022:</strong> Reemplaza al antiguo «patrón restrictivo por espirometría». Se define como FVC &lt; LLN con cociente FEV₁/FVC ≥ LLN. <strong>No indica restricción</strong> — la restricción solo se confirma con TLC &lt; LLN por pletismografía. El NSP puede reflejar obstrucción severa con atrapamiento, debilidad muscular, enfermedad intersticial u otras causas. <span class="tag-new">NUEVO 2022</span></div>
+  </div>
+</div>
+
+<div class="card card-green">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">4️⃣</span><span class="card-title">Paso 4 — Clasificar severidad</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>ATS/ERS 2022 — Severidad por z-score (3 categorías):</strong> <span class="tag-new">NUEVO 2022</span></p>
+    <div class="table-wrap"><table>
+      <tr><th>Severidad</th><th>Z-score FEV₁ (obstrucción) o TLC (restricción)</th><th>% predicho aproximado</th></tr>
+      <tr><td class="td-blue">Leve</td><td>≥ −2.5 (y &lt; LLN)</td><td>Aprox. &gt; 65–70%</td></tr>
+      <tr><td class="td-orange">Moderada</td><td>−2.5 a −4.0</td><td>Aprox. 50–65%</td></tr>
+      <tr><td class="td-red">Grave</td><td>&lt; −4.0</td><td>Aprox. &lt; 50%</td></tr>
+    </table></div>
+    <p><strong>GOLD 2025 — Severidad EPOC por FEV₁ % predicho (post-BD, 4 categorías):</strong></p>
+    <div class="table-wrap"><table>
+      <tr><th>GOLD</th><th>FEV₁ % predicho (post-BD)</th><th>Descripción</th></tr>
+      <tr><td class="td-blue">GOLD 1</td><td>≥ 80%</td><td>Leve</td></tr>
+      <tr><td class="td-blue">GOLD 2</td><td>50–79%</td><td>Moderada</td></tr>
+      <tr><td class="td-orange">GOLD 3</td><td>30–49%</td><td>Grave</td></tr>
+      <tr><td class="td-red">GOLD 4</td><td>&lt; 30%</td><td>Muy grave</td></tr>
+    </table></div>
+    <div class="alert alert-yellow">GOLD mantiene 4 categorías y clasifica por % predicho, no por z-score — divergencia con ATS/ERS 2022. En la práctica, el GOLD es más usado clínicamente para EPOC por su mayor implantación en guías de tratamiento.</div>
+  </div>
+</div>
+
+<div class="card card-green">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">5️⃣</span><span class="card-title">Paso 5 — Evaluar respuesta broncodilatadora</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Ver detalles completos en la pestaña «💊 Broncodilatador». En resumen:</p>
+    <ul>
+      <li>Administrar salbutamol 400 mcg (4 puffs) y esperar 15–20 minutos antes de post-BD</li>
+      <li>Respuesta significativa: aumento FEV₁ o FVC ≥ 10% del valor predicho <span class="tag-new">NUEVO 2022</span></li>
+      <li>La respuesta broncodilatadora no diferencia EPOC de asma por sí sola</li>
+      <li>El término «reversibilidad» se abandona — se prefiere «respuesta broncodilatadora» <span class="tag-new">NUEVO 2022</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="card card-yellow">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🧠</span><span class="card-title">Correlación clínica — el paso más importante</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>ATS/ERS 2022 enfatiza que <strong>la espirometría no diagnostica enfermedades, describe patrones fisiológicos</strong>. El diagnóstico definitivo requiere integración clínica.</p>
+    <div class="alert alert-yellow"><strong>Ejemplo:</strong> Un patrón obstructivo puede corresponder a EPOC, asma, bronquiectasias, bronquitis crónica, obliteración bronquiolar, o ser normal en anciano. El z-score bajo no hace el diagnóstico; lo sugiere. La historia, la imagen y la evolución lo confirman.</div>
+    <ul>
+      <li>Preguntar siempre: ¿tabaquismo? ¿exposición ocupacional? ¿síntomas? ¿atopia?</li>
+      <li>Considerar la variabilidad biológica del test (el FEV₁ puede variar ±8% entre sesiones)</li>
+      <li>Comparar con espirometrías previas del mismo paciente cuando estén disponibles</li>
+    </ul>
+  </div>
+</div>
+</div><!-- /panel-2 -->
+
+<!-- ===================== PANEL 3: PATRONES ===================== -->
+<div class="panel" id="panel-3">
+<div class="section-title">📐 Patrones Espirométricos — ATS/ERS 2022</div>
+
+<div class="alert alert-emerald"><strong>Novedad ATS/ERS 2022:</strong> Se incorporan formalmente el <strong>Patrón No Específico (NSP)</strong> y el <strong>Patrón Mixto</strong> con confirmación por TLC. Se abandona el diagnóstico de «restricción por espirometría». <span class="tag-new">NUEVO 2022</span></div>
+
+<div class="card card-red">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🔴</span><span class="card-title">Patrón Obstructivo</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Criterio diagnóstico:</strong> <span class="mono">FEV₁/FVC &lt; LLN (z &lt; −1.645)</span></p>
+    <p>Refleja reducción del flujo espiratorio por aumento de la resistencia en vías aéreas, pérdida de retracción elástica o ambos.</p>
+    <div class="table-wrap"><table>
+      <tr><th>Parámetro</th><th>Hallazgo típico</th></tr>
+      <tr><td>FEV₁/FVC</td><td class="td-red">&lt; LLN (reducido)</td></tr>
+      <tr><td>FEV₁</td><td class="td-orange">Reducido (variable — puede ser normal en obstrucción leve)</td></tr>
+      <tr><td>FVC</td><td>Normal o reducida (por atrapamiento aéreo)</td></tr>
+      <tr><td>Curva flujo-volumen</td><td>Cóncava, excavada</td></tr>
+      <tr><td>TLC (pletismografía)</td><td>Normal o aumentada (hiperinsuflación)</td></tr>
+      <tr><td>RV</td><td>Aumentado (atrapamiento aéreo)</td></tr>
+    </table></div>
+    <p><strong>Causas principales:</strong></p>
+    <div class="grid2">
+      <div>
+        <p><strong>Más frecuentes:</strong></p>
+        <ul>
+          <li>EPOC (tabaquismo, exposición)</li>
+          <li>Asma bronquial</li>
+          <li>Bronquiectasias</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>Menos frecuentes:</strong></p>
+        <ul>
+          <li>Bronquiolitis obliterante</li>
+          <li>Fibrosis quística</li>
+          <li>Compresión extrínseca bronquial</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-orange"><strong>EPOC vs Asma:</strong> Ambos son obstructivos. La distinción clave: EPOC tiene obstrucción irreversible post-BD (FEV₁/FVC &lt; 0.70 post-BD en GOLD); asma puede mostrar obstrucción reversible significativa, variabilidad circadiana del PEF, e historia atópica. La prueba de broncodilatador NO diferencia de forma definitiva.</div>
+  </div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🔵</span><span class="card-title">Patrón Restrictivo (confirmado)</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Criterio diagnóstico:</strong> <span class="mono">TLC &lt; LLN</span> por pletismografía corporal o técnica de dilución de gas (helio o nitrógeno)</p>
+    <div class="alert alert-red"><strong>REGLA FUNDAMENTAL:</strong> La restricción NO puede diagnosticarse solo por espirometría. Una FVC baja con cociente normal genera un <strong>Patrón No Específico (NSP)</strong>, no diagnóstico de restricción. Se requiere <strong>TLC &lt; LLN</strong> para confirmar.</div>
+    <div class="table-wrap"><table>
+      <tr><th>Parámetro</th><th>Hallazgo típico en restricción verdadera</th></tr>
+      <tr><td>FEV₁/FVC</td><td class="td-green">Normal o elevado (cociente preservado)</td></tr>
+      <tr><td>FVC</td><td class="td-red">Reducida (&lt; LLN)</td></tr>
+      <tr><td>FEV₁</td><td class="td-orange">Reducido (proporcional a FVC)</td></tr>
+      <tr><td>TLC</td><td class="td-red">&lt; LLN — CRITERIO DIAGNÓSTICO</td></tr>
+      <tr><td>RV</td><td>Normal o reducido</td></tr>
+      <tr><td>DLCO</td><td>Reducida en enfermedad intersticial; normal en restricción extrapulmonar</td></tr>
+    </table></div>
+    <p><strong>Causas principales según mecanismo:</strong></p>
+    <div class="table-wrap"><table>
+      <tr><th>Mecanismo</th><th>Ejemplos</th><th>DLCO</th></tr>
+      <tr><td>Parenquimatosa</td><td>Fibrosis pulmonar (IPF, sarcoidosis, neumonitis), linfangitis</td><td class="td-red">Reducida</td></tr>
+      <tr><td>Pleural</td><td>Derrame pleural masivo, paquipleuritis, mesothelioma</td><td>Normal</td></tr>
+      <tr><td>Pared torácica</td><td>Cifoescoliosis severa, obesidad mórbida, anquilosing spondylitis</td><td>Normal</td></tr>
+      <tr><td>Neuromuscular</td><td>ELA, distrofia muscular, miastenia, síndrome de Guillain-Barré</td><td>Normal</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card card-emerald">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Patrón No Específico (NSP) — Nuevo concepto <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Criterio:</strong> <span class="mono">FEV₁/FVC ≥ LLN</span> + <span class="mono">FVC &lt; LLN</span> (con TLC normal o no disponible)</p>
+    <p>El NSP es uno de los cambios más importantes de ATS/ERS 2022. Reemplaza el antiguo «patrón restrictivo espirométrico» que inducía a error diagnóstico.</p>
+    <div class="alert alert-emerald"><strong>¿Por qué el cambio?</strong> Muchos pacientes con NSP tienen TLC normal al medirse por pletismografía — no tienen restricción real. El patrón puede reflejar: obstrucción severa con colapso aéreo prematuro, debilidad muscular inspiratoria, esfuerzo submáximo, obesidad, o enfermedad intersticial incipiente. Sin TLC, no se puede afirmar restricción.</div>
+    <div class="table-wrap"><table>
+      <tr><th>NSP → TLC disponible</th><th>Interpretación final</th></tr>
+      <tr><td>TLC &lt; LLN</td><td class="td-orange">Patrón restrictivo confirmado</td></tr>
+      <tr><td>TLC ≥ LLN</td><td class="td-blue">NSP sin restricción (causa no definida por espirometría)</td></tr>
+      <tr><td>TLC no disponible</td><td class="td-orange">NSP — restricción no confirmable ni descartable</td></tr>
+    </table></div>
+    <p><strong>Prevalencia:</strong> Estudios en LATAM muestran que el NSP aparece en 2–9% de espirometrías en adultos. No todos tienen restricción verdadera.</p>
+  </div>
+</div>
+
+<div class="card card-purple">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🟣</span><span class="card-title">Patrón Mixto (obstructivo + restrictivo) <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Criterio:</strong> <span class="mono">FEV₁/FVC &lt; LLN</span> + <span class="mono">TLC &lt; LLN</span></p>
+    <div class="alert alert-purple"><strong>Importante:</strong> El patrón mixto requiere demostración de obstrucción (FEV₁/FVC &lt; LLN) Y restricción (TLC &lt; LLN). No se puede afirmar patrón mixto solo con espirometría — se necesita pletismografía.</div>
+    <p>La FVC reducida en contexto de obstrucción puede deberse a atrapamiento aéreo (TLC normal o alta), no a restricción. El patrón mixto verdadero es menos frecuente de lo que históricamente se reportaba.</p>
+    <p><strong>Causas:</strong></p>
+    <ul>
+      <li>EPOC + fibrosis pulmonar combinada (Síndrome CPFE)</li>
+      <li>Sarcoidosis (puede generar obstrucción y restricción)</li>
+      <li>Bronquiectasias + fibrosis</li>
+      <li>EPOC + obesidad mórbida</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card card-orange">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🔶</span><span class="card-title">PRISm y Pre-COPD — Conceptos emergentes GOLD 2025 <span class="tag-new">NUEVO 2025</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>GOLD 2025 introduce dos entidades en el espectro de la enfermedad pulmonar crónica:</p>
+    <div class="alert alert-orange"><strong>PRISm (Preserved Ratio Impaired Spirometry):</strong> FEV₁/FVC ≥ 0.70 pero FEV₁ &lt; 80% predicho. Riesgo aumentado de progresión a EPOC. No es lo mismo que NSP — es una categoría de riesgo, no un patrón fisiológico formal. Prevalencia: ~8–10% de adultos fumadores.</div>
+    <div class="alert alert-yellow"><strong>Pre-COPD:</strong> Presencia de lesiones estructurales (enfisema, gas trapping) y/o fisiológicas (FEV₁ bajo, hiperinsuflación, DLCO reducida) sin criterio espirométrico de EPOC (FEV₁/FVC ≥ 0.70 post-BD). Concepto aún en evolución — no reemplaza al diagnóstico espirométrico de EPOC.</div>
+    <p>Ambos conceptos enfatizan que el daño pulmonar precede al umbral diagnóstico espirométrico convencional y justifican vigilancia activa en fumadores con espirometría «normal».</p>
+  </div>
+</div>
+
+<div class="card card-yellow">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">⚡</span><span class="card-title">Resumen — Tabla de patrones en un vistazo</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <div class="table-wrap"><table>
+      <tr><th>Patrón</th><th>FEV₁/FVC</th><th>FVC</th><th>FEV₁</th><th>TLC</th></tr>
+      <tr><td><strong>Normal</strong></td><td class="td-green">≥ LLN</td><td class="td-green">≥ LLN</td><td class="td-green">≥ LLN</td><td>Normal</td></tr>
+      <tr><td><strong>Obstructivo</strong></td><td class="td-red">&lt; LLN</td><td>N o ↓</td><td class="td-red">↓</td><td>N o ↑</td></tr>
+      <tr><td><strong>Restrictivo</strong></td><td class="td-green">≥ LLN</td><td class="td-red">↓</td><td class="td-orange">↓ proporcional</td><td class="td-red">&lt; LLN ★</td></tr>
+      <tr><td><strong>NSP</strong></td><td class="td-green">≥ LLN</td><td class="td-red">↓</td><td class="td-orange">↓</td><td>¿? (no disponible)</td></tr>
+      <tr><td><strong>Mixto</strong></td><td class="td-red">&lt; LLN</td><td class="td-red">↓</td><td class="td-red">↓↓</td><td class="td-red">&lt; LLN ★</td></tr>
+    </table></div>
+    <p style="font-size:12px;color:var(--text3)">★ Requiere pletismografía para confirmar TLC. LLN = z-score &lt; −1.645 (percentil 5).</p>
+  </div>
+</div>
+</div><!-- /panel-3 -->
+
+<!-- ===================== PANEL 4: BRONCODILATADOR ===================== -->
+<div class="panel" id="panel-4">
+<div class="section-title">💊 Prueba de Respuesta Broncodilatadora — ATS/ERS 2022</div>
+
+<div class="alert alert-emerald"><strong>Cambio mayor ATS/ERS 2022:</strong> El criterio de respuesta positiva cambia de «≥ 12% Y ≥ 200 mL de aumento en FEV₁ o FVC (del valor basal)» a <strong>«≥ 10% del valor predicho»</strong>. Se abandona el término «reversibilidad». <span class="tag-new">NUEVO 2022</span></div>
+
+<div class="card card-emerald">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Nuevo criterio de respuesta broncodilatadora <span class="tag-new">NUEVO 2022</span></span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>El criterio anterior (2005) usaba cambios relativos al valor basal, lo que favorecía falsos positivos en pacientes con valores basales bajos y falsos negativos en valores altos.</p>
+    <p><strong>Criterio ATS/ERS 2022 — Respuesta significativa:</strong></p>
+    <div class="alert alert-emerald">Aumento en FEV₁ o FVC <strong>≥ 10% del valor predicho</strong>, expresado como:<br>
+    <span class="mono">Respuesta = (post-BD − pre-BD) / predicho × 100 ≥ 10%</span></div>
+    <p><strong>Ejemplo (del estándar ATS/ERS 2022):</strong></p>
+    <ul>
+      <li>Hombre, 50 años, talla 170 cm</li>
+      <li>FEV₁ pre-BD: 2.0 L; FEV₁ post-BD: 2.4 L</li>
+      <li>FEV₁ predicho (GLI 2012 «other»): 3.32 L</li>
+      <li>Respuesta: (2.4 − 2.0) / 3.32 × 100 = <strong>12.1%</strong> → Respuesta significativa ✓</li>
+    </ul>
+    <div class="table-wrap"><table>
+      <tr><th>Criterio</th><th>ATS/ERS 2005 (obsoleto)</th><th>ATS/ERS 2022 (vigente)</th></tr>
+      <tr><td>Referencia del cambio</td><td>% del valor basal</td><td class="td-green">% del valor predicho</td></tr>
+      <tr><td>Umbral FEV₁</td><td>≥ 12% basal Y ≥ 200 mL</td><td class="td-green">≥ 10% predicho</td></tr>
+      <tr><td>Umbral FVC</td><td>≥ 12% basal Y ≥ 200 mL</td><td class="td-green">≥ 10% predicho</td></tr>
+      <tr><td>Criterio dual (volumen absoluto)</td><td>Sí (Y ≥ 200 mL)</td><td class="td-green">No requerido</td></tr>
+      <tr><td>Término «reversibilidad»</td><td>Usado</td><td class="td-red">Abandonado</td></tr>
+    </table></div>
+    <div class="alert alert-yellow"><strong>¿Por qué cambió?</strong> El criterio 2005 era sensible al valor basal: pacientes con FEV₁ muy bajo necesitaban cambios mayores en porcentaje y en volumen absoluto para responder (doble umbral difícil de alcanzar). El nuevo criterio normalizado por el predicho es más equitativo y matemáticamente más robusto.</div>
+  </div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">💉</span><span class="card-title">Protocolo estándar de administración del broncodilatador</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p><strong>Broncodilatador de elección:</strong></p>
+    <ul>
+      <li><strong>Salbutamol (albuterol):</strong> 400 mcg (4 puffs de 100 mcg) mediante pMDI con espaciador</li>
+      <li>Alternativa: ipratropio 160 mcg (4 puffs de 40 mcg)</li>
+      <li>En algunos protocolos: combinación salbutamol + ipratropio para mayor sensibilidad</li>
+    </ul>
+    <p><strong>Tiempos de espera post-administración:</strong></p>
+    <ul>
+      <li>Salbutamol: <span class="mono">15–20 minutos</span></li>
+      <li>Ipratropio: <span class="mono">30 minutos</span></li>
+    </ul>
+    <p><strong>Medicamentos a suspender antes de la prueba:</strong></p>
+    <div class="table-wrap"><table>
+      <tr><th>Medicamento</th><th>Tiempo de suspensión</th></tr>
+      <tr><td>SABA (salbutamol)</td><td>4–6 horas</td></tr>
+      <tr><td>SAMA (ipratropio)</td><td>12 horas</td></tr>
+      <tr><td>LABA (salmeterol, formoterol)</td><td>12–24 horas</td></tr>
+      <tr><td>LAMA (tiotropio, umeclidinio)</td><td>24–48 horas</td></tr>
+      <tr><td>Teofilina oral</td><td>24–48 horas</td></tr>
+    </table></div>
+    <div class="alert alert-orange"><strong>Trampa clínica:</strong> Si el paciente no suspendió sus broncodilatadores, la prueba post-BD puede arrojar una respuesta falsamente negativa (ya está en estado post-BD). Consignar siempre el uso de medicamentos previo a la espirometría.</div>
+  </div>
+</div>
+
+<div class="card card-yellow">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🧩</span><span class="card-title">Interpretación clínica de la respuesta broncodilatadora</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <div class="alert alert-yellow"><strong>La respuesta broncodilatadora NO diferencia EPOC de asma de forma definitiva.</strong> Algunos pacientes con EPOC muestran respuesta significativa; algunos asmáticos no la muestran en un día determinado. La respuesta varía con el día y el estado clínico.</div>
+    <div class="table-wrap"><table>
+      <tr><th>Resultado</th><th>Interpretación clínica</th><th>Implicación</th></tr>
+      <tr><td class="td-green">Respuesta significativa (≥10% predicho)</td><td>Mayor componente reversible de la obstrucción</td><td>Favorece asma; no descarta EPOC; guía broncodilatador de mantenimiento</td></tr>
+      <tr><td class="td-orange">Sin respuesta significativa</td><td>Obstrucción predominantemente fija</td><td>Más consistente con EPOC; no descarta asma</td></tr>
+      <tr><td class="td-blue">Respuesta en FVC (&gt; 10% predicho)</td><td>Disminución de atrapamiento aéreo</td><td>Importante en EPOC — mejora funcional clínicamente relevante aunque FEV₁ no cambie</td></tr>
+    </table></div>
+    <p><strong>Conceptos abandonados por ATS/ERS 2022:</strong></p>
+    <ul>
+      <li>«Obstrucción reversible» → reemplazado por <strong>«respuesta broncodilatadora significativa»</strong></li>
+      <li>«Test de reversibilidad» → reemplazado por <strong>«prueba de respuesta broncodilatadora (BDR testing)»</strong></li>
+    </ul>
+    <div class="alert alert-blue"><strong>Respuesta significativa en FVC:</strong> En pacientes con EPOC, la mejoría de la FVC post-BD (sin cambio en FEV₁) indica reducción del atrapamiento aéreo — clínicamente importante para la disnea y la tolerancia al ejercicio, aunque el FEV₁ no supere el umbral del 10%.</div>
+  </div>
+</div>
+
+<div class="card card-orange">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">⚡</span><span class="card-title">Errores frecuentes en la prueba broncodilatadora</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <ul>
+      <li>No suspender broncodilatadores previos → resultado inválido</li>
+      <li>Usar criterio antiguo (12% basal + 200 mL) en lugar del nuevo (10% predicho)</li>
+      <li>Interpretar respuesta positiva como diagnóstico definitivo de asma</li>
+      <li>Interpretar ausencia de respuesta como EPOC sin evaluación clínica completa</li>
+      <li>No medir la FVC post-BD (solo reportar FEV₁) — pérdida de información sobre atrapamiento</li>
+      <li>No consignar el tiempo de espera entre administración y segunda maniobra</li>
+      <li>Administrar el broncodilatador sin espaciador — técnica inhalatoria inadecuada reduce la biodisponibilidad</li>
+    </ul>
+  </div>
+</div>
+</div><!-- /panel-4 -->
+
+<!-- ===================== PANEL 5: CALCULADORAS ===================== -->
+<div class="panel" id="panel-5">
+<div class="section-title">🧮 Calculadoras Espirométricas Interactivas</div>
+
+<!-- CALC 1: FEV1 predicho simplificado -->
+<div class="calc-box">
+  <div class="calc-title">🫁 Calculadora 1 — FEV₁ y FVC predichos (ecuaciones simplificadas)</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:14px">Aproximación basada en ecuaciones de referencia clásicas para uso orientativo. Para uso clínico formal, utilice las ecuaciones GLI 2022 en el software del espirómetro.</p>
+  <div class="calc-grid-3">
+    <div class="calc-field"><label>Sexo</label>
+      <select id="c1-sexo"><option value="m">Masculino</option><option value="f">Femenino</option></select>
+    </div>
+    <div class="calc-field"><label>Edad (años)</label>
+      <input type="number" id="c1-edad" placeholder="ej. 55" min="18" max="95">
+    </div>
+    <div class="calc-field"><label>Talla (cm)</label>
+      <input type="number" id="c1-talla" placeholder="ej. 168" min="140" max="210">
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calcFEV1()">Calcular valores predichos</button>
+  <div class="calc-result" id="c1-result">
+    <div class="calc-result-val" id="c1-fev1-val"></div>
+    <div class="calc-result-label">FEV₁ predicho (L)</div>
+    <div class="calc-result-interp" id="c1-interp"></div>
+  </div>
+</div>
+
+<!-- CALC 2: Respuesta broncodilatadora -->
+<div class="calc-box">
+  <div class="calc-title">💊 Calculadora 2 — Respuesta Broncodilatadora (criterio ATS/ERS 2022)</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:14px">Criterio vigente: cambio ≥ 10% del valor predicho (no del basal). Abandona el criterio 2005 de ≥12% + ≥200 mL.</p>
+  <div class="calc-grid">
+    <div class="calc-field"><label>FEV₁ Pre-BD (L)</label>
+      <input type="number" id="c2-pre" placeholder="ej. 1.80" step="0.01">
+    </div>
+    <div class="calc-field"><label>FEV₁ Post-BD (L)</label>
+      <input type="number" id="c2-post" placeholder="ej. 2.10" step="0.01">
+    </div>
+    <div class="calc-field"><label>FEV₁ Predicho (L)</label>
+      <input type="number" id="c2-pred" placeholder="ej. 3.20" step="0.01">
+    </div>
+    <div class="calc-field"><label>FVC Pre-BD (L)</label>
+      <input type="number" id="c2-fvc-pre" placeholder="ej. 2.90" step="0.01">
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field"><label>FVC Post-BD (L)</label>
+      <input type="number" id="c2-fvc-post" placeholder="ej. 3.20" step="0.01">
+    </div>
+    <div class="calc-field"><label>FVC Predicha (L)</label>
+      <input type="number" id="c2-fvc-pred" placeholder="ej. 4.10" step="0.01">
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calcBDR()">Evaluar respuesta broncodilatadora</button>
+  <div class="calc-result" id="c2-result">
+    <div class="calc-result-val" id="c2-val"></div>
+    <div class="calc-result-label" id="c2-label"></div>
+    <div class="calc-result-interp" id="c2-interp"></div>
+  </div>
+</div>
+
+<!-- CALC 3: Cociente FEV1/FVC y patrón -->
+<div class="calc-box">
+  <div class="calc-title">📐 Calculadora 3 — Identificación de Patrón Espirométrico</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:14px">Ingrese los valores medidos y predichos para determinar el patrón. Use valores post-broncodilatador para diagnóstico definitivo.</p>
+  <div class="calc-grid-3">
+    <div class="calc-field"><label>FEV₁ medido (L)</label>
+      <input type="number" id="c3-fev1" placeholder="ej. 1.60" step="0.01">
+    </div>
+    <div class="calc-field"><label>FVC medida (L)</label>
+      <input type="number" id="c3-fvc" placeholder="ej. 3.20" step="0.01">
+    </div>
+    <div class="calc-field"><label>FEV₁ predicho (L)</label>
+      <input type="number" id="c3-fev1pred" placeholder="ej. 3.00" step="0.01">
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-field"><label>FVC predicha (L)</label>
+      <input type="number" id="c3-fvcpred" placeholder="ej. 3.80" step="0.01">
+    </div>
+    <div class="calc-field"><label>¿Tiene TLC medido?</label>
+      <select id="c3-tlc-yn"><option value="no">No disponible</option><option value="low">TLC < LLN (bajo)</option><option value="normal">TLC ≥ LLN (normal)</option></select>
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calcPatron()">Identificar patrón espirométrico</button>
+  <div class="calc-result" id="c3-result">
+    <div class="calc-result-val" id="c3-patron"></div>
+    <div class="calc-result-label" id="c3-label"></div>
+    <div class="calc-result-interp" id="c3-interp"></div>
+  </div>
+</div>
+
+<!-- CALC 4: Severidad GOLD -->
+<div class="calc-box">
+  <div class="calc-title">📊 Calculadora 4 — Clasificación de Severidad (GOLD 2025 + ATS/ERS 2022)</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:14px">Solo aplica cuando ya se confirmó obstrucción (FEV₁/FVC post-BD &lt; 0.70 o &lt; LLN).</p>
+  <div class="calc-grid">
+    <div class="calc-field"><label>FEV₁ % predicho (post-BD)</label>
+      <input type="number" id="c4-pct" placeholder="ej. 58" min="1" max="150">
+    </div>
+    <div class="calc-field"><label>FEV₁ z-score (si disponible)</label>
+      <input type="number" id="c4-z" placeholder="ej. -2.8" step="0.1">
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calcSeveridad()">Clasificar severidad</button>
+  <div class="calc-result" id="c4-result">
+    <div class="calc-result-val" id="c4-gold"></div>
+    <div class="calc-result-label" id="c4-label"></div>
+    <div class="calc-result-interp" id="c4-interp"></div>
+  </div>
+</div>
+
+<!-- CALC 5: Criterio 2005 vs 2022 -->
+<div class="calc-box">
+  <div class="calc-title">⚖️ Calculadora 5 — Comparativa Criterio BD: 2005 vs 2022</div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:14px">Demuestra la diferencia entre ambos criterios en un mismo caso clínico.</p>
+  <div class="calc-grid-3">
+    <div class="calc-field"><label>FEV₁ Pre-BD (L)</label>
+      <input type="number" id="c5-pre" placeholder="ej. 1.20" step="0.01">
+    </div>
+    <div class="calc-field"><label>FEV₁ Post-BD (L)</label>
+      <input type="number" id="c5-post" placeholder="ej. 1.35" step="0.01">
+    </div>
+    <div class="calc-field"><label>FEV₁ Predicho (L)</label>
+      <input type="number" id="c5-pred" placeholder="ej. 2.80" step="0.01">
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calcComparativa()">Comparar criterios</button>
+  <div class="calc-result" id="c5-result">
+    <div class="calc-result-interp" id="c5-interp"></div>
+  </div>
+</div>
+</div><!-- /panel-5 -->
+
+<!-- ===================== PANEL 6: PROTOCOLO ===================== -->
+<div class="panel" id="panel-6">
+<div class="section-title">📋 Protocolo Paso a Paso — Interpretación Espirométrica</div>
+
+<div class="alert alert-blue">Algoritmo basado en ATS/ERS 2022 con referencia a GOLD 2025 para contexto clínico de EPOC. Aplicable en consulta de medicina interna y urgencias.</div>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">🔍 Verificar calidad técnica del estudio</div>
+      <div class="step-text">Confirmar grado A o B (aceptable). Grados C-D: interpretar con advertencia. Grados E-F: no interpretable — solicitar repetición si es posible. Verificar inicio explosivo, duración ≥ 6s y reproducibilidad FEV₁/FVC &lt; 150 mL entre las 2 mejores maniobras.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">📊 Evaluar el cociente FEV₁/FVC</div>
+      <div class="step-text"><strong>¿FEV₁/FVC &lt; LLN (z &lt; −1.645)?</strong><br>
+      SÍ → Patrón obstructivo presente → ir al paso 4.<br>
+      NO → Cociente normal → ir al paso 3.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">📏 Evaluar FVC (si cociente es normal)</div>
+      <div class="step-text"><strong>¿FVC ≥ LLN?</strong><br>
+      SÍ → Espirometría normal (si FEV₁ también ≥ LLN) → correlacionar clínicamente.<br>
+      NO (FVC &lt; LLN) → Patrón No Específico (NSP) → Solicitar TLC por pletismografía.<br>
+      &nbsp;&nbsp;• TLC &lt; LLN → Restricción confirmada.<br>
+      &nbsp;&nbsp;• TLC ≥ LLN → NSP sin restricción.<br>
+      &nbsp;&nbsp;• TLC no disponible → NSP, restricción no confirmable.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">🔴 Confirmar y clasificar el patrón obstructivo</div>
+      <div class="step-text">Calcular severidad por FEV₁ z-score (ATS/ERS) o % predicho (GOLD):<br>
+      • GOLD 1: FEV₁ ≥ 80% predicho (leve)<br>
+      • GOLD 2: FEV₁ 50–79% (moderado)<br>
+      • GOLD 3: FEV₁ 30–49% (grave)<br>
+      • GOLD 4: FEV₁ &lt; 30% (muy grave)<br>
+      Evaluar si la FVC también está reducida → considerar atrapamiento aéreo o patrón mixto.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">💊 Evaluar respuesta broncodilatadora (si se realizó)</div>
+      <div class="step-text">Aplicar criterio ATS/ERS 2022: respuesta significativa = aumento FEV₁ o FVC ≥ 10% del valor predicho.<br>
+      • Respuesta significativa: mayor componente reversible — considerar asma, optimizar broncodilatadores.<br>
+      • Sin respuesta: obstrucción más fija — más consistente con EPOC.<br>
+      <strong>Recordar:</strong> la respuesta BD no diferencia EPOC de asma de forma definitiva.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-title">🔬 Solicitar estudios complementarios según patrón</div>
+      <div class="step-text">
+      <strong>Patrón obstructivo:</strong> TLC/RV si se sospecha hiperinsuflación; DLCO para evaluar enfisema vs asma.<br>
+      <strong>NSP / Restricción probable:</strong> TLC por pletismografía (confirmar); DLCO (distinguir origen parenquimatoso vs extrapulmonar).<br>
+      <strong>Normal con síntomas:</strong> Espirometría en ejercicio; FeNO; metacolina (sospecha asma).</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <div class="step-title">🧠 Correlacionar con clínica y emitir interpretación integrada</div>
+      <div class="step-text">La espirometría describe fisiología — no diagnostica enfermedades. Integrar siempre con:<br>
+      • Historia clínica (tabaquismo, exposición, síntomas, evolución)<br>
+      • Examen físico<br>
+      • Imagen (RxTx, TC tórax)<br>
+      • Evolución temporal comparando con espirometrías previas<br>
+      Emitir interpretación con: patrón fisiológico, severidad, respuesta BD, y correlación clínica sugerida.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">🗺️ Árbol de Decisión Visual</div>
+<div class="card card-blue" style="padding:0">
+  <div class="card-body open" style="padding:20px">
+    <div class="flow">
+      <div class="flow-node" style="background:linear-gradient(135deg,#1a3a5c,#2c5f8a);color:#fff">📋 Espirometría recibida</div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-node" style="background:var(--orange-bg);border:1px solid var(--orange-border);color:var(--orange)">¿Calidad aceptable (A–B)?</div>
+      <div class="flow-branch">
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--red)">NO (C-E)</div>
+          <div class="flow-node" style="background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);font-size:12px">Interpretar con advertencia o solicitar repetición</div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--green)">SÍ</div>
+          <div class="flow-node" style="background:var(--blue-bg);border:1px solid var(--blue-border);color:var(--blue)">FEV₁/FVC &lt; LLN?</div>
+        </div>
+      </div>
+      <div class="flow-branch" style="margin-top:8px">
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--red)">SÍ</div>
+          <div class="flow-node" style="background:var(--red-bg);border:1px solid var(--red-border);color:var(--red)">🔴 PATRÓN OBSTRUCTIVO<br><span style="font-size:11px">→ Clasificar GOLD 1-4<br>→ Evaluar respuesta BD</span></div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--green)">NO</div>
+          <div class="flow-node" style="background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--yellow)">FVC &lt; LLN?</div>
+        </div>
+      </div>
+      <div class="flow-branch" style="margin-top:8px">
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--green)">NO</div>
+          <div class="flow-node" style="background:var(--green-bg);border:1px solid var(--green-border);color:var(--green)">✅ NORMAL<br><span style="font-size:11px">Correlacionar clínica</span></div>
+        </div>
+        <div class="flow-branch-item">
+          <div class="flow-label" style="color:var(--orange)">SÍ</div>
+          <div class="flow-node" style="background:var(--orange-bg);border:1px solid var(--orange-border);color:var(--orange)">🟠 NSP → Pletismografía<br><span style="font-size:11px">TLC&lt;LLN: restricción<br>TLC≥LLN: NSP sin restricción</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!-- /panel-6 -->
+
+<!-- ===================== PANEL 7: GUÍAS VS GUÍAS ===================== -->
+<div class="panel" id="panel-7">
+<div class="section-title">⚖️ Comparativa de Guías — ATS/ERS 2005 vs 2022 vs GOLD 2025</div>
+
+<div class="alert alert-orange"><strong>Divergencia real y vigente:</strong> ATS/ERS 2022 y GOLD 2025 tienen diferencias metodológicas importantes que generan confusión clínica. Esta pestaña las clarifica con aplicabilidad práctica.</div>
+
+<div class="card card-emerald">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Cambios clave: ATS/ERS 2005 → 2022</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <div class="table-wrap"><table>
+      <tr><th>Aspecto</th><th>ATS/ERS 2005 (obsoleto)</th><th>ATS/ERS 2022 (vigente)</th></tr>
+      <tr><td>Ecuaciones de referencia</td><td>NHANES III (raza-específicas)</td><td class="td-green">GLI 2022 race-neutral (edad + talla + sexo)</td></tr>
+      <tr><td>LLN (límite inferior normalidad)</td><td>% predicho &lt; 80% (FEV₁/FVC &lt; 70%)</td><td class="td-green">z-score &lt; −1.645 (percentil 5)</td></tr>
+      <tr><td>Expresión de severidad</td><td>5 categorías (leve/moderada/moderada-grave/grave/muy grave)</td><td class="td-green">3 categorías (leve/moderada/grave) por z-score</td></tr>
+      <tr><td>Respuesta broncodilatadora</td><td>≥ 12% basal Y ≥ 200 mL</td><td class="td-green">≥ 10% del predicho</td></tr>
+      <tr><td>Término para RBD positiva</td><td>«Reversibilidad / Obstrucción reversible»</td><td class="td-green">«Respuesta broncodilatadora significativa»</td></tr>
+      <tr><td>Restricción por espirometría</td><td>FVC &lt; 80% con cociente normal → «restricción»</td><td class="td-green">FVC &lt; LLN con cociente normal → NSP (no restricción)</td></tr>
+      <tr><td>Patrón Mixto</td><td>FEV₁/FVC bajo + FVC baja</td><td class="td-green">Requiere TLC &lt; LLN + cociente &lt; LLN</td></tr>
+      <tr><td>Ajuste por raza</td><td>Factores correctores raciales incluidos</td><td class="td-green">Eliminado — ecuaciones race-neutral</td></tr>
+    </table></div>
+  </div>
+</div>
+
+<div class="card card-orange">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">⚖️</span><span class="card-title">ATS/ERS 2022 vs GOLD 2025 — ¿Cuándo usar cuál?</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <div class="table-wrap"><table>
+      <tr><th>Dimensión</th><th>ATS/ERS 2022</th><th>GOLD 2025</th></tr>
+      <tr><td>Criterio de obstrucción</td><td class="td-blue">FEV₁/FVC &lt; LLN (z &lt; −1.645)</td><td class="td-orange">FEV₁/FVC &lt; 0.70 post-BD (fijo)</td></tr>
+      <tr><td>Expresión de severidad</td><td class="td-blue">Z-score (3 niveles)</td><td class="td-orange">% predicho (GOLD 1–4)</td></tr>
+      <tr><td>Enfoque</td><td>Fisiológico / Poblacional / Diagnóstico</td><td>Clínico / EPOC / Tratamiento</td></tr>
+      <tr><td>Problema del umbral fijo</td><td>Evita sobrediagnóstico en ancianos</td><td>Mantiene 0.70 por simplicidad y datos históricos</td></tr>
+      <tr><td>Espirometría pre-BD</td><td>Sin énfasis específico</td><td class="td-green">NUEVO 2025: si pre-BD es normal, no requiere post-BD salvo sospecha alta</td></tr>
+      <tr><td>Conceptos nuevos</td><td>NSP, Mixto confirmado, Race-neutral</td><td>PRISm, Pre-COPD</td></tr>
+    </table></div>
+    <div class="alert alert-orange"><strong>Recomendación práctica:</strong> Use <strong>ATS/ERS 2022</strong> para la interpretación fisiológica formal del estudio (especialmente en extremos de edad). Use <strong>GOLD 2025</strong> para estadificación y decisiones de tratamiento en EPOC establecido. En la mayoría de pacientes adultos de 30-65 años, ambos criterios coinciden.</div>
+  </div>
+</div>
+
+<div class="card card-blue">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">📊</span><span class="card-title">Impacto clínico de los cambios en la práctica real</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Estudio multicéntrico LATAM (Argentina, Chile, Colombia, México — <em>Archivos de Bronconeumología</em>, 2025, N=79,039 espirometrías):</p>
+    <ul>
+      <li>La transición de ATS 2005 a ATS 2022 reclasificó una <strong>proporción significativa</strong> de estudios previos</li>
+      <li>El cambio en criterio de RBD afectó especialmente a pacientes con FEV₁ basal muy bajo (antes difícilmente positivos con el doble criterio)</li>
+      <li>El NSP como categoría nueva eliminó el sobrediagnóstico de «restricción por espirometría»</li>
+    </ul>
+    <div class="alert alert-blue"><strong>Implicación en Ecuador:</strong> Pacientes con espirometría reportada como «restrictiva» bajo criterios 2005 pueden ser reclasificados como NSP bajo 2022. Esto cambia el plan diagnóstico (solicitar TLC) y puede evitar diagnósticos erróneos de fibrosis pulmonar u otras enfermedades restrictivas.</div>
+  </div>
+</div>
+
+<div class="card card-purple">
+  <div class="card-header" onclick="toggleCard(this)">
+    <div class="card-header-left"><span class="card-icon">🌍</span><span class="card-title">GLI 2022 race-neutral — implicaciones para LATAM</span></div>
+    <span class="card-arrow">›</span>
+  </div>
+  <div class="card-body">
+    <p>Históricamente, las ecuaciones de referencia se derivaron principalmente de poblaciones anglosajona y europea. La población latinoamericana (mestiza, indígena, afrodescendiente) no estaba bien representada.</p>
+    <ul>
+      <li>Las ecuaciones GLI 2022 race-neutral eliminan el factor de corrección racial que artificialmente bajaba los valores de referencia para ciertas etnias</li>
+      <li>En Ecuador y LATAM, esto puede llevar a una mayor tasa de diagnósticos de obstrucción o restricción en grupos anteriormente subdiagnosticados</li>
+      <li>La ERS recomienda validación local de las ecuaciones GLI en cada región — hay proyectos en curso en LATAM (Proyecto PLATINO)</li>
+    </ul>
+    <div class="alert alert-purple"><strong>Punto de debate vigente:</strong> Algunos expertos latinoamericanos argumentan que se necesitan ecuaciones derivadas localmente para nuestra población. Mientras tanto, GLI 2022 race-neutral es la mejor opción disponible y la recomendada por ATS/ERS.</div>
+  </div>
+</div>
+</div><!-- /panel-7 -->
+
+<!-- ===================== PANEL 8: QUIZ ===================== -->
+<div class="panel" id="panel-8">
+<div class="section-title">📝 Quiz de Autoevaluación</div>
+
+<div class="quiz-selector">
+  <button class="qsel-btn active" id="qsel-1" onclick="selectQuiz(1)">Quiz 1<br><span style="font-size:11px;font-weight:400">Conceptos fundamentales</span></button>
+  <button class="qsel-btn" id="qsel-2" onclick="selectQuiz(2)">Quiz 2<br><span style="font-size:11px;font-weight:400">Parámetros e interpretación</span></button>
+  <button class="qsel-btn" id="qsel-3" onclick="selectQuiz(3)">Quiz 3<br><span style="font-size:11px;font-weight:400">Casos clínicos</span></button>
+</div>
+
+<div class="quiz-container" id="quiz-container">
+  <div class="quiz-header">
+    <span class="quiz-info" id="quiz-info">Pregunta 1 de 10</span>
+    <span class="quiz-score-badge" id="quiz-score">Puntuación: 0</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+  <div id="quiz-body"></div>
+  <div class="quiz-nav">
+    <button class="qnav-btn qnav-prev" id="btn-prev" onclick="quizPrev()">← Anterior</button>
+    <button class="qnav-btn qnav-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    <button class="qnav-btn qnav-next" id="btn-next" onclick="quizNext()">Siguiente →</button>
+  </div>
+</div>
+</div><!-- /panel-8 -->
+
+<div class="footer-note">
+  Módulo educativo interactivo · Espirometría — Aspectos Prácticos para su Interpretación<br>
+  <strong>Dr. Luis E. Croce</strong> · Medicina Interna y Urgencias · Guayaquil, Ecuador<br>
+  Basado en: ATS/ERS Technical Standard 2022 · GOLD 2025 · GLI 2022 (race-neutral equations)<br>
+  Generado con asistencia de Claude (Anthropic) · Junio 2026 · Solo uso educativo
+</div>
+</div><!-- /content -->
+</div><!-- /main-app -->
+
+<script>
+// ===== ACCESS =====
+var CLAVES = ['CROCE2024','MEDICO01','URGENCIAS1'];
+function checkAccess(){
+  var v=document.getElementById('pwd-input').value.trim().toUpperCase();
+  if(CLAVES.includes(v)){
+    document.getElementById('access-screen').style.display='none';
+    document.getElementById('main-app').style.display='block';
+  } else {
+    document.getElementById('access-err').textContent='Clave incorrecta. Intente nuevamente.';
+    document.getElementById('pwd-input').value='';
+  }
+}
+document.getElementById('pwd-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkAccess();});
+
+// ===== TABS =====
+function showTab(n,el){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('panel-'+n).classList.add('active');
+  el.classList.add('active');
+}
+
+// ===== CARDS =====
+function toggleCard(h){
+  var b=h.nextElementSibling;
+  var a=h.querySelector('.card-arrow');
+  b.classList.toggle('open');
+  a.classList.toggle('open');
+}
+
+// ===== CALCULADORAS =====
+function calcFEV1(){
+  var s=document.getElementById('c1-sexo').value;
+  var age=parseFloat(document.getElementById('c1-edad').value);
+  var ht=parseFloat(document.getElementById('c1-talla').value);
+  if(isNaN(age)||isNaN(ht)||age<18||ht<140){alert('Ingrese edad (18-95) y talla (140-210 cm) válidos.');return;}
+  var fev1,fvc;
+  // Ecuaciones simplificadas Quanjer (referencia orientativa)
+  if(s==='m'){
+    fev1 = (0.0395*ht) - (0.025*age) - 2.60;
+    fvc  = (0.0576*ht) - (0.026*age) - 4.34;
+  } else {
+    fev1 = (0.0278*ht) - (0.021*age) - 0.67;
+    fvc  = (0.0443*ht) - (0.026*age) - 2.89;
+  }
+  fev1=Math.max(fev1,0.5); fvc=Math.max(fvc,0.8);
+  var ratio=(fev1/fvc*100).toFixed(1);
+  var lln_fev1=(fev1*0.80).toFixed(2);
+  var lln_fvc=(fvc*0.80).toFixed(2);
+  document.getElementById('c1-fev1-val').textContent=fev1.toFixed(2)+' L (FEV₁)   /   '+fvc.toFixed(2)+' L (FVC)';
+  document.getElementById('c1-interp').innerHTML=
+    '<strong>FEV₁ predicho:</strong> '+fev1.toFixed(2)+' L &nbsp;|&nbsp; <strong>FVC predicha:</strong> '+fvc.toFixed(2)+' L<br>'+
+    '<strong>Cociente predicho:</strong> '+ratio+'%<br>'+
+    '<strong>LLN orientativo (≈80%):</strong> FEV₁ ≥ '+lln_fev1+' L &nbsp;|&nbsp; FVC ≥ '+lln_fvc+' L<br>'+
+    '<em style="color:var(--text3)">Nota: valores orientativos. Use ecuaciones GLI 2022 del software del espirómetro para uso clínico formal.</em>';
+  document.getElementById('c1-result').style.display='block';
+}
+
+function calcBDR(){
+  var pre=parseFloat(document.getElementById('c2-pre').value);
+  var post=parseFloat(document.getElementById('c2-post').value);
+  var pred=parseFloat(document.getElementById('c2-pred').value);
+  var fvcPre=parseFloat(document.getElementById('c2-fvc-pre').value);
+  var fvcPost=parseFloat(document.getElementById('c2-fvc-post').value);
+  var fvcPred=parseFloat(document.getElementById('c2-fvc-pred').value);
+  if(isNaN(pre)||isNaN(post)||isNaN(pred)||pred<=0){alert('Ingrese FEV₁ pre-BD, post-BD y predicho.');return;}
+  var bdrFEV1=((post-pre)/pred*100).toFixed(1);
+  var pos1=(parseFloat(bdrFEV1)>=10);
+  var html='<strong>Respuesta BD FEV₁ (ATS/ERS 2022):</strong> '+(post-pre).toFixed(2)+' L = '+bdrFEV1+'% del predicho<br>';
+  html+='→ <strong style="color:'+(pos1?'var(--green)':'var(--red))">'+(pos1?'✅ RESPUESTA SIGNIFICATIVA':'❌ Sin respuesta significativa')+'</strong><br><br>';
+  if(!isNaN(fvcPre)&&!isNaN(fvcPost)&&!isNaN(fvcPred)&&fvcPred>0){
+    var bdrFVC=((fvcPost-fvcPre)/fvcPred*100).toFixed(1);
+    var pos2=(parseFloat(bdrFVC)>=10);
+    html+='<strong>Respuesta BD FVC (ATS/ERS 2022):</strong> '+(fvcPost-fvcPre).toFixed(2)+' L = '+bdrFVC+'% del predicho<br>';
+    html+='→ <strong style="color:'+(pos2?'var(--green)':'var(--red))">'+(pos2?'✅ RESPUESTA SIGNIFICATIVA en FVC':'❌ Sin respuesta significativa en FVC')+'</strong><br>';
+    if(pos2&&!pos1) html+='<br><em>Respuesta en FVC sin respuesta en FEV₁: sugiere reducción de atrapamiento aéreo — clínicamente relevante en EPOC.</em>';
+  }
+  html+='<br><em style="color:var(--text3)">Criterio ATS/ERS 2022: ≥10% del predicho. Criterio anterior 2005 (obsoleto): ≥12% del basal Y ≥200 mL.</em>';
+  document.getElementById('c2-val').textContent='BDR FEV₁: '+bdrFEV1+'% del predicho';
+  document.getElementById('c2-label').textContent=pos1?'✅ Respuesta broncodilatadora SIGNIFICATIVA':'❌ Sin respuesta significativa';
+  document.getElementById('c2-interp').innerHTML=html;
+  document.getElementById('c2-result').style.display='block';
+}
+
+function calcPatron(){
+  var fev1=parseFloat(document.getElementById('c3-fev1').value);
+  var fvc=parseFloat(document.getElementById('c3-fvc').value);
+  var fev1pred=parseFloat(document.getElementById('c3-fev1pred').value);
+  var fvcpred=parseFloat(document.getElementById('c3-fvcpred').value);
+  var tlc=document.getElementById('c3-tlc-yn').value;
+  if(isNaN(fev1)||isNaN(fvc)||isNaN(fev1pred)||isNaN(fvcpred)){alert('Complete todos los campos.');return;}
+  var ratio=fev1/fvc;
+  var ratioPred=0.75; // LLN aproximado de ratio
+  var pctFEV1=(fev1/fev1pred*100).toFixed(1);
+  var pctFVC=(fvc/fvcpred*100).toFixed(1);
+  var llnRatio=(ratio<ratioPred);
+  var llnFVC=(parseFloat(pctFVC)<80);
+  var llnFEV1=(parseFloat(pctFEV1)<80);
+  var patron,color,interp;
+  if(llnRatio){
+    if(tlc==='low'){patron='PATRÓN MIXTO';color='var(--purple)';
+      interp='FEV₁/FVC reducido + TLC baja confirmada → Obstrucción + Restricción simultáneas. Evaluar causas combinadas (ej. CPFE, sarcoidosis, EPOC + fibrosis).';}
+    else{patron='PATRÓN OBSTRUCTIVO';color='var(--red)';
+      interp='FEV₁/FVC reducido indica obstrucción al flujo aéreo. FEV₁ '+pctFEV1+'% predicho. Clasificar severidad (GOLD 1-4). Evaluar respuesta broncodilatadora. Diagnóstico diferencial: EPOC, asma, bronquiectasias.';}
+  } else if(llnFVC){
+    if(tlc==='low'){patron='RESTRICCIÓN CONFIRMADA';color='var(--blue)';
+      interp='Cociente FEV₁/FVC normal + TLC baja → Restricción verdadera confirmada. Solicitar DLCO: reducida sugiere enfermedad parenquimatosa (fibrosis); normal sugiere restricción extrapulmonar (pleural, pared torácica, neuromuscular).';}
+    else if(tlc==='normal'){patron='NSP sin restricción';color='var(--orange)';
+      interp='Patrón No Específico (NSP): FVC baja con cociente normal, pero TLC normal. No hay restricción. Causas: obstrucción severa con colapso aéreo, debilidad muscular, esfuerzo submáximo, obesidad. Correlacionar clínicamente.';}
+    else{patron='PATRÓN NO ESPECÍFICO (NSP)';color='var(--orange)';
+      interp='FVC < LLN con cociente FEV₁/FVC normal. Clasificación 2022: NSP. NO indica restricción sin TLC. Solicitar pletismografía: TLC<LLN confirma restricción; TLC≥LLN descarta restricción. No emitir diagnóstico de restricción sin TLC.';}
+  } else {
+    patron='ESPIROMETRÍA NORMAL';color='var(--green)';
+    interp='FEV₁/FVC y FVC dentro del límite inferior de normalidad. FEV₁ '+pctFEV1+'% predicho; FVC '+pctFVC+'% predicho. Correlacionar con clínica. Si persisten síntomas, considerar estudios adicionales (prueba de ejercicio, metacolina, FeNO).';}
+  document.getElementById('c3-patron').textContent=patron;
+  document.getElementById('c3-patron').style.color=color;
+  document.getElementById('c3-label').textContent='FEV₁/FVC: '+(ratio*100).toFixed(1)+'% | FEV₁: '+pctFEV1+'% predicho | FVC: '+pctFVC+'% predicho';
+  document.getElementById('c3-interp').innerHTML=interp;
+  document.getElementById('c3-result').style.display='block';
+}
+
+function calcSeveridad(){
+  var pct=parseFloat(document.getElementById('c4-pct').value);
+  var z=parseFloat(document.getElementById('c4-z').value);
+  if(isNaN(pct)){alert('Ingrese FEV₁ % predicho post-BD.');return;}
+  var gold,goldColor;
+  if(pct>=80){gold='GOLD 1 — Leve';goldColor='var(--blue)';}
+  else if(pct>=50){gold='GOLD 2 — Moderado';goldColor='var(--orange)';}
+  else if(pct>=30){gold='GOLD 3 — Grave';goldColor='var(--red)';}
+  else{gold='GOLD 4 — Muy grave';goldColor='var(--red)';}
+  var atsGrav='';
+  if(!isNaN(z)){
+    if(z>=-2.5)atsGrav='Leve (z ≥ −2.5)';
+    else if(z>=-4.0)atsGrav='Moderada (z −2.5 a −4.0)';
+    else atsGrav='Grave (z < −4.0)';
+  }
+  document.getElementById('c4-gold').textContent=gold;
+  document.getElementById('c4-gold').style.color=goldColor;
+  document.getElementById('c4-label').textContent='FEV₁: '+pct+'% predicho post-BD'+(atsGrav?' | ATS/ERS 2022: '+atsGrav:'');
+  document.getElementById('c4-interp').innerHTML='Estadificación GOLD 2025 (basada en FEV₁ % predicho post-BD, solo cuando FEV₁/FVC < 0.70).<br>'+
+    '<br>Recuerde: GOLD estadifica severidad espirométrica. El grupo ABE (síntomas + exacerbaciones) determina el tratamiento en EPOC establecido — no solo la espirometría.';
+  document.getElementById('c4-result').style.display='block';
+}
+
+function calcComparativa(){
+  var pre=parseFloat(document.getElementById('c5-pre').value);
+  var post=parseFloat(document.getElementById('c5-post').value);
+  var pred=parseFloat(document.getElementById('c5-pred').value);
+  if(isNaN(pre)||isNaN(post)||isNaN(pred)||pred<=0){alert('Complete todos los campos.');return;}
+  var delta=post-pre;
+  var pctBasal=(delta/pre*100).toFixed(1);
+  var pctPredicho=(delta/pred*100).toFixed(1);
+  var pos2005=(parseFloat(pctBasal)>=12 && delta*1000>=200);
+  var pos2022=(parseFloat(pctPredicho)>=10);
+  var html='<table style="width:100%;font-size:13px;border-collapse:collapse">'+
+    '<tr><th style="text-align:left;padding:6px 8px;background:#f0f0f0">Parámetro</th><th style="padding:6px 8px;background:#f0f0f0">Valor</th></tr>'+
+    '<tr><td style="padding:6px 8px">FEV₁ pre-BD</td><td style="padding:6px 8px">'+pre.toFixed(2)+' L</td></tr>'+
+    '<tr><td style="padding:6px 8px">FEV₁ post-BD</td><td style="padding:6px 8px">'+post.toFixed(2)+' L</td></tr>'+
+    '<tr><td style="padding:6px 8px">FEV₁ predicho</td><td style="padding:6px 8px">'+pred.toFixed(2)+' L</td></tr>'+
+    '<tr><td style="padding:6px 8px">Cambio absoluto</td><td style="padding:6px 8px">'+(delta*1000).toFixed(0)+' mL</td></tr>'+
+    '<tr><td style="padding:6px 8px">Cambio % del basal</td><td style="padding:6px 8px">'+pctBasal+'%</td></tr>'+
+    '<tr><td style="padding:6px 8px">Cambio % del predicho</td><td style="padding:6px 8px">'+pctPredicho+'%</td></tr>'+
+    '<tr style="background:'+(pos2005?'var(--green-bg)':'var(--red-bg)')+'"><td style="padding:8px;font-weight:600">Criterio 2005 (obsoleto)</td><td style="padding:8px;font-weight:700;color:'+(pos2005?'var(--green)':'var(--red))')+'">'+(pos2005?'✅ POSITIVO':'❌ NEGATIVO')+'</td></tr>'+
+    '<tr style="background:'+(pos2022?'var(--green-bg)':'var(--red-bg)')+'"><td style="padding:8px;font-weight:600">Criterio 2022 (vigente)</td><td style="padding:8px;font-weight:700;color:'+(pos2022?'var(--green)':'var(--red))')+'">'+(pos2022?'✅ POSITIVO':'❌ NEGATIVO')+'</td></tr>'+
+    '</table>';
+  if(pos2005!==pos2022) html+='<br><div class="alert alert-orange"><strong>¡Discordancia entre criterios!</strong> '+
+    (pos2022&&!pos2005?'El criterio 2022 detecta respuesta que el 2005 perdería. Esto es especialmente frecuente en pacientes con FEV₁ basal muy bajo donde el doble umbral 2005 era difícil de alcanzar.':
+    'El criterio 2005 clasifica como positivo pero el 2022 no. Reconsidere la relevancia clínica del cambio.')+'</div>';
+  else html+='<br><div class="alert alert-green"><strong>Ambos criterios coinciden.</strong> En este caso clínico, el cambio de criterio no modifica la interpretación.</div>';
+  document.getElementById('c5-interp').innerHTML=html;
+  document.getElementById('c5-result').style.display='block';
+}
+</script>
+
+<script>
+// ===== QUIZ DATA =====
+var QUIZZES = {
+1: [
+  {q:'¿Cuál es el parámetro espirométrico más reproducible y útil para el seguimiento longitudinal de enfermedades pulmonares?',
+   o:['FVC (Capacidad Vital Forzada)','FEV₁ (Volumen Espiratorio Forzado en 1 segundo)','FEF 25-75% (Flujo mesoespiratorio)','PEF (Flujo espiratorio pico)'],
+   a:1,
+   f:'El FEV₁ es el parámetro espirométrico más reproducible. Su variabilidad biológica intraindividual es de ±8%, la más baja entre los parámetros espirométricos. Es el estándar para clasificar severidad (GOLD 1-4) y evaluar evolución en EPOC y asma. El FEF 25-75% tiene alta variabilidad y no se recomienda como criterio diagnóstico aislado (ATS/ERS 2022).'},
+  {q:'Según ATS/ERS 2022, ¿cuál es el límite inferior de normalidad (LLN) definido por z-score para los parámetros espirométricos?',
+   o:['z-score < −2.0 (percentil 2.3)','z-score < −1.645 (percentil 5)','z-score < −1.0 (percentil 15.9)','z-score < −2.5 (percentil 0.6)'],
+   a:1,
+   f:'ATS/ERS 2022 define el LLN como z-score < −1.645, equivalente al percentil 5 de la distribución de referencia. Este umbral garantiza que solo el 5% de individuos sanos sean clasificados como anormales. El z-score −1.645 corresponde aproximadamente al 80% del predicho en adultos jóvenes, pero puede ser mayor o menor según la edad — por eso el z-score es superior al umbral fijo de 80%.'},
+  {q:'¿Cuál es la principal novedad de las ecuaciones GLI 2022 respecto a las anteriores ecuaciones de referencia espirométricas?',
+   o:['Incorporan la altitud sobre el nivel del mar como variable','Son ecuaciones race-neutral: solo usan edad, talla y sexo','Amplían el rango de edad hasta los 100 años','Incluyen el tabaquismo como factor corrector'],
+   a:1,
+   f:'Las ecuaciones GLI 2022 son race-neutral: eliminan el ajuste por raza/etnia que existía en las ecuaciones anteriores (NHANES III, GLI 2012). La raza es una construcción social, no biológica, y su uso como variable de ajuste puede perpetuar disparidades en salud. Las nuevas ecuaciones solo requieren edad, talla y sexo, y son aplicables a la población de 3-95 años. ATS/ERS 2022 las adopta como estándar recomendado.'},
+  {q:'Un paciente presenta FEV₁/FVC de 0.82 (z-score −0.5), FVC de 2.1 L (78% predicho, z-score −1.4), FEV₁ de 1.72 L (75% predicho). No hay TLC disponible. Según ATS/ERS 2022, ¿cuál es el patrón correcto?',
+   o:['Patrón restrictivo (FVC < 80%)','Patrón obstructivo leve','Patrón No Específico (NSP)','Espirometría normal'],
+   a:2,
+   f:'Este caso ilustra el Patrón No Específico (NSP), nuevo en ATS/ERS 2022. El cociente FEV₁/FVC está por encima del LLN (z = −0.5, sin obstrucción), pero la FVC está por debajo del LLN (z = −1.4). Sin TLC disponible, NO se puede diagnosticar restricción — ese era el error del criterio 2005. El NSP tiene múltiples causas posibles: obstrucción severa con atrapamiento, debilidad muscular, esfuerzo submáximo. Se debe solicitar pletismografía para confirmar o descartar restricción verdadera.'},
+  {q:'¿Cuántas categorías de severidad establece ATS/ERS 2022 para la clasificación de la obstrucción o restricción?',
+   o:['5 categorías (igual que el estándar 2005)','4 categorías (leve, leve-moderada, moderada, grave)','3 categorías (leve, moderada, grave)','2 categorías (leve, grave)'],
+   a:2,
+   f:'ATS/ERS 2022 reduce de 5 a 3 categorías de severidad: leve (z ≥ −2.5), moderada (z −2.5 a −4.0) y grave (z < −4.0). Este cambio simplifica la clasificación y la hace más consistente entre parámetros. GOLD 2025, en cambio, mantiene 4 categorías (GOLD 1-4) para EPOC basadas en FEV₁ % predicho — esta divergencia es una fuente frecuente de confusión clínica.'},
+  {q:'¿Cuál es el criterio diagnóstico de GOLD 2025 para confirmar obstrucción al flujo aéreo en EPOC?',
+   o:['FEV₁/FVC < 0.70 pre-broncodilatador','FEV₁/FVC < LLN post-broncodilatador','FEV₁/FVC < 0.70 post-broncodilatador','FEV₁ < 80% predicho post-broncodilatador'],
+   a:2,
+   f:'GOLD 2025 mantiene el criterio de FEV₁/FVC < 0.70 POST-broncodilatador para el diagnóstico de EPOC. El uso del valor post-BD es crítico — la obstrucción que revierte completamente con broncodilatador no define EPOC. GOLD 2025 también introduce que si la espirometría pre-BD no muestra obstrucción, la espirometría post-BD no es necesaria salvo sospecha clínica muy alta. Este criterio fijo difiere del LLN propuesto por ATS/ERS 2022.'},
+  {q:'¿Qué calidad mínima de maniobra espirométrica (grados ATS/ERS) es necesaria para una interpretación confiable?',
+   o:['Grado A únicamente','Grados A o B','Grados A, B o C','Cualquier grado es interpretable'],
+   a:1,
+   f:'Los grados A y B garantizan al menos 2-3 maniobras aceptables con reproducibilidad < 150 mL entre las mejores, lo cual asegura confiabilidad. El grado C tiene reproducibilidad de 150-200 mL y puede interpretarse con cautela explícita. Los grados D (solo 1 maniobra aceptable) y E-F (ninguna maniobra aceptable) son de muy baja confiabilidad — los resultados no deben usarse para diagnóstico definitivo.'},
+  {q:'¿Cuál de los siguientes es un criterio de aceptabilidad de la maniobra espiratoria forzada?',
+   o:['FEV₁ > 80% predicho','Espiración forzada ≥ 6 segundos o presencia de meseta en curva volumen-tiempo','Dos maniobras con diferencia < 200 mL en FEV₁','Cociente FEV₁/FVC > 0.70'],
+   a:1,
+   f:'La espiración forzada debe durar al menos 6 segundos en adultos (3 segundos en niños), o hasta alcanzar una meseta en la curva volumen-tiempo (sin cambio > 25 mL en 1 segundo). Los otros criterios son de reproducibilidad (diferencia < 150 mL entre las 2 mejores maniobras) y de inicio (back-extrapolated volume < 5% FVC). El FEV₁ % predicho y el cociente son resultados, no criterios de calidad.'},
+  {q:'¿Cuál de estos hallazgos en la curva flujo-volumen es característico del patrón obstructivo?',
+   o:['Reducción proporcional de la curva manteniendo su forma','Concavidad (excavación) de la rama espiratoria','Aplanamiento de ambas ramas (meseta inspiratoria y espiratoria)','Pico flujo elevado con descenso rápido'],
+   a:1,
+   f:'La concavidad o excavación de la rama espiratoria (forma de «cucharón» o «gaviota») es el patrón clásico de la obstrucción. Refleja el colapso dinámico de vías aéreas durante la espiración forzada. La reducción proporcional sugiere restricción o esfuerzo submáximo. El aplanamiento de ambas ramas indica obstrucción fija de vía aérea central (ej. estenosis traqueal). El aplanamiento solo de la rama inspiratoria sugiere obstrucción variable extratorrácica (ej. parálisis de cuerdas vocales).'},
+  {q:'¿Cuál de las siguientes afirmaciones sobre el FEF 25-75% es correcta según ATS/ERS 2022?',
+   o:['Es el mejor parámetro para detectar obstrucción de vías aéreas pequeñas en la práctica clínica','No se recomienda su uso rutinario para diagnóstico por su alta variabilidad','Es más reproducible que el FEV₁ y debe reemplazarlo como parámetro principal','Un FEF 25-75% < 65% predicho confirma obstrucción aunque el cociente sea normal'],
+   a:1,
+   f:'ATS/ERS 2022 no recomienda el uso rutinario del FEF 25-75% (flujo mesoespiratorio) para diagnóstico por su alta variabilidad (puede variar ±25% entre maniobras aceptables). Si bien refleja el comportamiento de las vías aéreas pequeñas, su variabilidad limita su utilidad clínica individual. No es suficiente para diagnosticar obstrucción de vías aéreas pequeñas de forma aislada. El FEV₁ y FEV₁/FVC siguen siendo los parámetros principales.'}
+],
+2: [
+  {q:'¿Cuál es el nuevo criterio de respuesta broncodilatadora significativa según ATS/ERS 2022?',
+   o:['Aumento de FEV₁ ≥ 12% del valor basal Y ≥ 200 mL','Aumento de FEV₁ ≥ 10% del valor predicho','Aumento de FEV₁ ≥ 15% del valor predicho','Aumento de FEV₁ ≥ 200 mL independientemente del porcentaje'],
+   a:1,
+   f:'ATS/ERS 2022 cambia el criterio de respuesta broncodilatadora de «≥12% del basal Y ≥200 mL» (2005) a «≥10% del valor predicho». La diferencia es metodológicamente importante: el criterio 2022 normaliza el cambio respecto al predicho, evitando que pacientes con FEV₁ basal muy bajo nunca alcancen el doble umbral del criterio 2005. Ejemplo: si predicho = 3.32 L, la respuesta debe ser ≥ 332 mL para ser significativa (no importa cuánto sea el % del basal).'},
+  {q:'Un paciente tiene FEV₁ pre-BD de 0.90 L, FEV₁ post-BD de 1.02 L, FEV₁ predicho de 2.80 L. ¿Cuál es la conclusión según ATS/ERS 2022?',
+   o:['Respuesta positiva: aumentó 13.3% del basal','Respuesta negativa: aumentó solo 4.3% del predicho','Respuesta positiva: aumentó > 10% del predicho','Respuesta no evaluable sin FVC'],
+   a:1,
+   f:'Aplicando el criterio 2022: cambio = 1.02 - 0.90 = 0.12 L = 120 mL. Porcentaje del predicho = (0.12/2.80) × 100 = 4.3%. Como 4.3% < 10%, la respuesta NO es significativa según ATS/ERS 2022. Curiosamente, el cambio relativo al basal sería 13.3%, que con el criterio 2005 podría considerarse positivo si se alcanzaran 200 mL (no alcanzados: solo 120 mL). Este caso ilustra cómo el criterio 2022 es más riguroso para pacientes con FEV₁ basal muy bajo.'},
+  {q:'¿Cuál de los siguientes hallazgos confirma un patrón restrictivo verdadero según ATS/ERS 2022?',
+   o:['FVC < 80% predicho con cociente FEV₁/FVC normal','FVC < LLN con FEV₁/FVC < LLN','TLC < LLN medida por pletismografía + FEV₁/FVC ≥ LLN','FEV₁ < 50% predicho con cociente FEV₁/FVC normal'],
+   a:2,
+   f:'La restricción verdadera se confirma únicamente con TLC < LLN medida por pletismografía corporal o dilución de gas. Una FVC baja con cociente normal genera el Patrón No Específico (NSP) — no restricción. Este es uno de los cambios más importantes de ATS/ERS 2022, que abandona el concepto de «restricción espirométrica» sin TLC. El patrón mixto requiere FEV₁/FVC < LLN + TLC < LLN.'},
+  {q:'¿Cuál es la diferencia entre PRISm y el Patrón No Específico (NSP) según las guías actuales?',
+   o:['Son sinónimos — ambos describen FVC baja con cociente normal','PRISm (GOLD 2025) es una categoría de riesgo clínico; NSP (ATS/ERS 2022) es un patrón fisiológico formal','PRISm implica TLC reducida; NSP no','PRISm aplica solo en asmáticos; NSP solo en EPOC'],
+   a:1,
+   f:'PRISm (Preserved Ratio Impaired Spirometry, GOLD 2025) se define como FEV₁/FVC ≥ 0.70 pero FEV₁ < 80% predicho — es una categoría epidemiológica de riesgo para desarrollar EPOC. NSP (ATS/ERS 2022) es un patrón fisiológico formal: FVC < LLN con FEV₁/FVC ≥ LLN, sin TLC disponible. Aunque pueden superponerse, conceptualmente son diferentes: PRISm es una entidad clínica de riesgo; NSP es una descripción fisiológica que señala la necesidad de TLC para completar el diagnóstico.'},
+  {q:'¿Qué tiempo de espera se recomienda entre la administración de salbutamol y la espirometría post-broncodilatador?',
+   o:['5-10 minutos','15-20 minutos','30-45 minutos','60 minutos'],
+   a:1,
+   f:'El estándar para salbutamol (SABA) es esperar 15-20 minutos tras la administración de 400 mcg (4 puffs) con espaciador antes de realizar la espirometría post-BD. Para ipratropio (SAMA) se esperan 30 minutos por su inicio de acción más lento. Tiempos menores pueden subestimar la respuesta; tiempos mayores pueden perder el pico de efecto. Esta estandarización es esencial para la comparabilidad entre centros.'},
+  {q:'Un laboratorio reporta: FEV₁/FVC 0.62 (LLN 0.68), FEV₁ 65% predicho, FVC 92% predicho. ¿Cuál es el patrón correcto y su severidad según GOLD 2025?',
+   o:['Patrón restrictivo moderado','Patrón obstructivo GOLD 2 (moderado)','Patrón no específico, requiere TLC','Patrón obstructivo GOLD 1 (leve)'],
+   a:1,
+   f:'El cociente FEV₁/FVC 0.62 está por debajo del LLN 0.68 → patrón obstructivo confirmado. La FVC es normal (92%), descartando NSP. El FEV₁ es 65% predicho → GOLD 2 (50-79%) según GOLD 2025. En ATS/ERS 2022, la severidad se clasificaría por z-score: si FEV₁ z-score está entre −1.645 y −2.5, sería leve; entre −2.5 y −4.0, moderada. En la práctica, GOLD se usa para estadificación y tratamiento de EPOC establecido.'},
+  {q:'¿Cuál de las siguientes situaciones puede producir una FVC reducida con cociente FEV₁/FVC NORMAL (Patrón NSP)?',
+   o:['Asma bronquial moderada','Obstrucción severa con colapso aéreo prematuro en espiración forzada','EPOC con hiperinsuflación','Estenosis traqueal fija'],
+   a:1,
+   f:'La obstrucción severa puede producir un NSP porque el colapso dinámico de las vías aéreas durante la espiración forzada limita el vaciamiento pulmonar — tanto el FEV₁ como la FVC se reducen, preservando el cociente. Este fenómeno se observa especialmente en EPOC avanzado. El asma y la estenosis traqueal generalmente producen cociente reducido (obstrucción franca). La hiperinsuflación en EPOC paradójicamente aumenta el TLC, no lo reduce — por eso no genera NSP típicamente.'},
+  {q:'¿Cuál es la principal ventaja del z-score sobre el porcentaje del predicho para expresar los resultados espirométricos?',
+   o:['Es más fácil de calcular manualmente','Ajusta el resultado según la edad, talla y sexo del paciente — más preciso en extremos de edad','Es el único método aceptado por GOLD 2025','Evita la necesidad de ecuaciones de referencia'],
+   a:1,
+   f:'El z-score expresa cuántas desviaciones estándar se aleja el valor del paciente de la media predicha para su grupo de referencia (misma edad, talla, sexo). Esto es crítico en extremos de edad: un FEV₁ de 75% predicho en un paciente de 30 años es claramente anormal (z ≈ −2.5), mientras que en uno de 75 años puede estar dentro del LLN (z ≈ −1.2). El % predicho usa una SD asumida constante del 10% — una simplificación que introduce error en ancianos y jóvenes.'},
+  {q:'¿Cuál de las siguientes NO es una indicación habitual de espirometría?',
+   o:['Evaluación de disnea de causa no clara','Diagnóstico y seguimiento de EPOC','Evaluación del intercambio gaseoso en hipoxemia','Cribado en fumadores mayores de 40 años'],
+   a:2,
+   f:'La espirometría mide volúmenes y flujos ventilatorios, pero NO evalúa el intercambio gaseoso. La hipoxemia se evalúa con gasometría arterial y la capacidad de difusión con DLCO (difusión de monóxido de carbono). La espirometría no mide PaO₂, PaCO₂ ni DLCO — estas pruebas complementan la evaluación pulmonar integral. Las otras opciones sí son indicaciones establecidas de espirometría según ATS/ERS 2022.'},
+  {q:'Según GOLD 2025, ¿en qué situación NO es necesario realizar espirometría post-broncodilatador para el diagnóstico de EPOC?',
+   o:['Cuando el paciente tiene FEV₁/FVC < 0.70 pre-BD','Cuando la espirometría pre-BD no muestra obstrucción y la sospecha clínica no es alta','Cuando el paciente es mayor de 65 años','Cuando ya existe diagnóstico de asma previo'],
+   a:1,
+   f:'GOLD 2025 introduce una novedad práctica: si la espirometría pre-broncodilatador NO muestra obstrucción (cociente ≥ 0.70), no es necesario realizar espirometría post-BD para descartar EPOC, a menos que la sospecha clínica sea muy alta (en cuyo caso la respuesta volumétrica post-BD puede revelar obstrucción oculta). Si pre-BD muestra obstrucción, sí debe confirmarse con post-BD. Esto simplifica el flujo diagnóstico y reduce exposición innecesaria a broncodilatadores en el laboratorio.'}
+],
+3: [
+  {q:'CASO: Hombre, 58 años, fumador activo 40 paquetes-año, disnea CF II-III de 2 años de evolución. Espirometría: FEV₁/FVC 0.58 post-BD, FEV₁ 42% predicho post-BD, FVC 72% predicho. ¿Cuál es la clasificación correcta según GOLD 2025?',
+   o:['GOLD 1 — Leve (FEV₁ ≥ 80%)','GOLD 2 — Moderado (FEV₁ 50-79%)','GOLD 3 — Grave (FEV₁ 30-49%)','NSP — solicitar TLC antes de clasificar'],
+   a:2,
+   f:'FEV₁/FVC 0.58 < 0.70 post-BD → obstrucción confirmada (COPD). FEV₁ 42% predicho → entre 30-49% → GOLD 3 (Grave). La FVC también está reducida (72%), posiblemente por atrapamiento aéreo. Con este grado de obstrucción y síntomas CF II-III, el paciente probablemente sea GOLD ABE grupo E (si tiene ≥2 exacerbaciones/año o ≥1 hospitalización). El manejo incluiría triple terapia inhalatoria (LAMA + LABA + ICS) según GOLD 2025.'},
+  {q:'CASO: Mujer, 45 años, asma bronquial conocida, sin broncodilatador 8 horas. Espirometría: FEV₁/FVC 0.68 (LLN 0.72), FEV₁ 2.10 L (78% predicho, predicho: 2.69 L), FVC 3.09 L (91% predicho). Post-BD: FEV₁ 2.45 L. ¿Hay respuesta broncodilatadora significativa según ATS/ERS 2022?',
+   o:['Sí: aumentó 16.7% del basal (> 12%) y 131 mL no alcanza los 200 mL — criterio 2005 negativo','Sí: aumentó (2.45-2.10)/2.69 × 100 = 13.0% del predicho — criterio 2022 positivo','No: el aumento es solo 131 mL, insuficiente','No: el cociente post-BD es normal, no aplica evaluar RBD'],
+   a:1,
+   f:'Aplicando criterio ATS/ERS 2022: cambio = 2.45 - 2.10 = 0.35 L = 350 mL. Porcentaje del predicho = (0.35/2.69) × 100 = 13.0% ≥ 10% → RESPUESTA SIGNIFICATIVA. Con el criterio 2005: 16.7% del basal cumple ≥12%, Y 350 mL > 200 mL → también positivo con ambos criterios. Este caso muestra obstrucción (cociente < LLN) con respuesta broncodilatadora significativa — consistente con asma, aunque no descarta EPOC con componente reversible.'},
+  {q:'CASO: Varón, 72 años, sin síntomas respiratorios, espirometría de cribado. FEV₁/FVC 0.68, FEV₁ 84% predicho, FVC 98% predicho. LLN del cociente para su edad/talla/sexo (GLI 2022): 0.65. ¿Cómo interpretar este resultado?',
+   o:['Patrón obstructivo leve (cociente < 0.70, criterio fijo GOLD)','Espirometría normal (cociente ≥ LLN 0.65, criterio ATS/ERS 2022)','Patrón no específico (FEV₁ < LLN)','NSP — requiere TLC para confirmar'],
+   a:1,
+   f:'Este caso ilustra el sobrediagnóstico del umbral fijo en ancianos. El cociente 0.68 está por DEBAJO del umbral fijo de GOLD (0.70), pero está POR ENCIMA del LLN calculado por GLI 2022 para este paciente de 72 años (LLN = 0.65). ATS/ERS 2022 clasifica esto como NORMAL. GOLD podría diagnosticarlo como «COPD GOLD 1» — un sobrediagnóstico. En pacientes ancianos sin síntomas, el LLN (ATS/ERS 2022) es más apropiado que el umbral fijo para evitar diagnósticos erróneos.'},
+  {q:'CASO: Mujer, 38 años, disnea progresiva de 18 meses, no fumadora. Rx tórax: patrón intersticial bilateral. Espirometría: FEV₁/FVC 0.82 (LLN 0.72), FVC 1.95 L (68% predicho, z = −2.1), FEV₁ 1.60 L (72% predicho). TLC por pletismografía: 3.20 L (LLN 3.95 L). DLCO: 52% predicho. ¿Cuál es la interpretación correcta?',
+   o:['Patrón obstructivo moderado — asma probable','Patrón no específico — no se puede diagnosticar restricción','Patrón restrictivo confirmado con TLC baja — probable fibrosis pulmonar','Espirometría normal — la disnea es extrapulmonar'],
+   a:2,
+   f:'Patrón restrictivo confirmado: FEV₁/FVC ≥ LLN (sin obstrucción) + FVC < LLN + TLC < LLN (3.20 < 3.95) → restricción verdadera. La DLCO baja (52%) con restricción orientan fuertemente a enfermedad intersticial parenquimatosa (ej. fibrosis pulmonar idiopática o neumonitis por hipersensibilidad). Si la DLCO fuera normal con restricción, se consideraría origen extrapulmonar (pleura, pared torácica, neuromuscular). Este caso justifica TC tórax de alta resolución y evaluación por neumología.'},
+  {q:'CASO: Hombre, 65 años, EPOC conocido, FEV₁ basal 0.85 L (predicho: 2.90 L). Post-BD: FEV₁ 0.93 L. ¿Es significativa la respuesta broncodilatadora según ATS/ERS 2022?',
+   o:['Sí: aumentó 9.4% del basal (casi 10%) — margen clínico','No: aumentó (0.93-0.85)/2.90 × 100 = 2.8% del predicho — insuficiente','Sí: porque aumentó 80 mL en valor absoluto','No evaluable en EPOC grave — cociente post-BD siempre < 0.70'],
+   a:1,
+   f:'Criterio ATS/ERS 2022: cambio = 0.93 - 0.85 = 0.08 L = 80 mL. Porcentaje del predicho = (0.08/2.90) × 100 = 2.8%. Como 2.8% < 10%, la respuesta NO es significativa. Con el criterio 2005: 9.4% del basal < 12% Y solo 80 mL < 200 mL — también negativo. Este es un ejemplo frecuente en EPOC grave donde el FEV₁ basal muy bajo hace que incluso un cambio porcentual basal aparentemente alto (9.4%) representa un cambio absoluto y relativo al predicho pequeño.'},
+  {q:'CASO: Varón, 50 años, obeso (IMC 38), disnea de esfuerzo. Sin tabaquismo. Espirometría: FEV₁/FVC 0.79 (LLN 0.72), FVC 2.80 L (73% predicho), FEV₁ 2.21 L (74% predicho). TLC pletismografía: 4.90 L (LLN 4.80 L). ¿Cuál es la interpretación final?',
+   o:['Restricción confirmada (FVC baja)','Patrón No Específico con TLC en límite — NSP sin restricción demostrada','Patrón mixto (obstructivo + restrictivo)','Patrón obstructivo leve'],
+   a:1,
+   f:'NSP con TLC normal: FEV₁/FVC ≥ LLN (sin obstrucción) + FVC < LLN = NSP. TLC 4.90 L está por encima del LLN 4.80 L → NO hay restricción. En un paciente obeso, la FVC puede estar reducida por el efecto mecánico de la obesidad sobre la respiración (reducción de volumen espiratorio de reserva, ERV), sin reducción de TLC. El NSP sin restricción es frecuente en obesidad mórbida. Manejo: optimizar peso; nueva espirometría tras reducción ponderal significativa.'},
+  {q:'CASO: Mujer, 32 años, médica residente, programada para espirometría de control anual. El laboratorio reporta calidad Grado D (solo 1 maniobra aceptable, reproducibilidad FEV₁ = 310 mL). FEV₁/FVC 0.74 (LLN 0.73), FEV₁ 3.10 L (98% predicho). ¿Cuál es la conducta correcta?',
+   o:['Interpretar como normal dado que los valores son normales','Solicitar repetición del estudio — baja calidad técnica invalida la interpretación','Clasificar como patrón obstructivo borderline','Solicitar TLC para confirmar el patrón'],
+   a:1,
+   f:'Grado D (solo 1 maniobra aceptable) con reproducibilidad de 310 mL (muy por encima del límite de 150 mL) indica baja confiabilidad. ATS/ERS exige al menos 2 maniobras aceptables para reproducibilidad aceptable. Los valores numéricos «normales» no compensan la mala calidad técnica — una sola maniobra no garantiza que sea el esfuerzo máximo real. La conducta correcta es repetir el estudio en condiciones óptimas. En la práctica, muchos laboratorios de Ecuador no consignan el grado de calidad — siempre solicitarlo.'},
+  {q:'CASO: Hombre, 48 años, ex-fumador (15 paquetes-año, dejó hace 8 años). TC tórax: enfisema leve centrolobulillar. Espirometría post-BD: FEV₁/FVC 0.73 (fijo), LLN calculado por GLI 2022: 0.70. FEV₁ 88% predicho. GOLD diagnosticaría COPD GOLD 1. ¿Cuál es la posición de ATS/ERS 2022?',
+   o:['Confirma EPOC GOLD 1 — el umbral fijo es más sensible','La espirometría es normal según LLN (cociente ≥ LLN 0.70) — no hay obstrucción','NSP — FVC debe evaluarse','Patrón mixto — requiere TLC'],
+   a:1,
+   f:'Según ATS/ERS 2022 con LLN, el cociente 0.73 ≥ LLN 0.70 → espirometría NORMAL (sin obstrucción). GOLD con umbral fijo 0.70 clasificaría COPD GOLD 1. Esta discordancia es real: en pacientes de mediana edad con exposición moderada al tabaco, el umbral fijo puede sobrediagnosticar EPOC. El concepto de «Pre-COPD» (GOLD 2025) es más apropiado aquí: lesiones estructurales presentes (enfisema en TC) sin criterio espirométrico formal de COPD. Seguimiento activo y cese definitivo del tabaco son prioritarios.'},
+  {q:'CASO: Paciente programado para espirometría. Toma salmeterol/fluticasona 50/500 mcg cada 12 horas y tiotropio 18 mcg/día. ¿Cuánto tiempo antes de la prueba debe suspender el tiotropio?',
+   o:['No es necesario suspenderlo','4-6 horas (igual que salbutamol)','24-48 horas','12 horas (igual que LABA)'],
+   a:2,
+   f:'El tiotropio es un LAMA (anticolinérgico de larga duración) con vida media de ~35 horas y efecto broncodilatador que persiste >24 horas. El estándar ATS/ERS recomienda suspender LAMA (tiotropio, umeclidinio, glicopirronio) 24-48 horas antes de la espirometría con prueba BD. Si no se suspende, la espirometría post-BD no evaluará respuesta adicional (ya el paciente está en efecto máximo del LAMA). El salmeterol (LABA) debe suspenderse 12-24 horas antes. Si los medicamentos no se pueden suspender, consignarlo explícitamente en el informe.'},
+  {q:'CASO: Informe espirométrico de paciente con disnea. Dice: «Patrón restrictivo moderado — FVC 68% predicho con cociente FEV₁/FVC 0.82, sin TLC disponible». ¿Qué error contiene este informe?',
+   o:['El cociente debería ser menor para hablar de restricción','El diagnóstico de restricción sin TLC es incorrecto según ATS/ERS 2022 — debe decir NSP','Debería solicitar espirometría post-BD antes de clasificar','El FVC de 68% es normal y no justifica ningún patrón'],
+   a:1,
+   f:'Este informe comete el error clásico que ATS/ERS 2022 explícitamente corrige: diagnosticar «restricción» sin TLC. FVC < LLN con cociente normal → Patrón No Específico (NSP), no restricción. La restricción solo puede confirmarse con TLC < LLN por pletismografía. La clasificación como «moderada» agrava el error al dar una falsa precisión. El informe debería decir: «Patrón No Específico (NSP) — se recomienda pletismografía para confirmar o descartar restricción verdadera». Este tipo de error diagnóstico puede llevar a investigaciones innecesarias de fibrosis pulmonar en pacientes que en realidad tienen NSP por obesidad u otras causas.'}
+]};
+
+// ===== QUIZ ENGINE =====
+var curQuiz=1, curQ=0, answers={}, score=0, answered=[];
+
+function selectQuiz(n){
+  curQuiz=n; curQ=0; answers={}; score=0; answered=[];
+  document.querySelectorAll('.qsel-btn').forEach(function(b,i){b.classList.toggle('active',i===n-1);});
+  renderQuestion();
+}
+
+function renderQuestion(){
+  var qs=QUIZZES[curQuiz];
+  var q=qs[curQ];
+  var total=qs.length;
+  document.getElementById('quiz-info').textContent='Pregunta '+(curQ+1)+' de '+total;
+  document.getElementById('quiz-score').textContent='Puntuación: '+score+'/'+total;
+  document.getElementById('progress-fill').style.width=(((curQ+1)/total)*100)+'%';
+  var isCase=q.q.startsWith('CASO:');
+  var html='';
+  if(isCase) html='<div class="case-block">'+q.q.replace('CASO:','<strong>📋 CASO CLÍNICO:</strong>')+'</div>';
+  else html='<div class="question-text">'+q.q+'</div>';
+  html+='<div class="options">';
+  q.o.forEach(function(opt,i){
+    var cls='option';
+    if(answered.includes(curQ)){
+      if(i===q.a) cls+=' correct';
+      else if(answers[curQ]===i&&i!==q.a) cls+=' wrong';
+    }
+    html+='<button class="'+cls+'" onclick="selectOption('+i+')" '+(answered.includes(curQ)?'disabled':'')+'>'+String.fromCharCode(65+i)+') '+opt+'</button>';
+  });
+  html+='</div>';
+  if(answered.includes(curQ)){
+    var correct=(answers[curQ]===q.a);
+    html+='<div class="feedback show"><strong>'+(correct?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta es la opción '+String.fromCharCode(65+q.a))+'</strong><br><br>'+q.f+'</div>';
+  }
+  document.getElementById('quiz-body').innerHTML=html;
+  document.getElementById('btn-prev').style.display=curQ>0?'':'none';
+  document.getElementById('btn-next').textContent=(curQ===total-1)?'Ver resultado →':'Siguiente →';
+}
+
+function selectOption(i){
+  if(answered.includes(curQ)) return;
+  answers[curQ]=i;
+  answered.push(curQ);
+  if(i===QUIZZES[curQuiz][curQ].a) score++;
+  renderQuestion();
+}
+
+function quizNext(){
+  var qs=QUIZZES[curQuiz];
+  if(curQ<qs.length-1){curQ++;renderQuestion();}
+  else showResult();
+}
+
+function quizPrev(){if(curQ>0){curQ--;renderQuestion();}}
+
+function resetQuiz(){curQ=0;answers={};score=0;answered=[];renderQuestion();}
+
+function showResult(){
+  var total=QUIZZES[curQuiz].length;
+  var pct=Math.round(score/total*100);
+  var emoji=pct>=90?'🏆':pct>=70?'⭐':pct>=50?'📚':'💪';
+  var msg=pct>=90?'Excelente dominio del tema. Rendimiento de especialista.':
+          pct>=70?'Buen desempeño. Repase los conceptos incorrectos.':
+          pct>=50?'Desempeño regular. Revise la teoría antes de volver a intentar.':
+          'Revisar el módulo completo antes de repetir el quiz.';
+  document.getElementById('quiz-body').innerHTML=
+    '<div class="quiz-result">'+
+    '<div class="quiz-result-emoji">'+emoji+'</div>'+
+    '<div class="quiz-result-score">'+score+'/'+total+' — '+pct+'%</div>'+
+    '<div class="quiz-result-msg">'+msg+'</div>'+
+    '<button class="qnav-btn qnav-next" onclick="resetQuiz()" style="margin:0 auto;display:block">↺ Repetir Quiz '+curQuiz+'</button>'+
+    '</div>';
+  document.getElementById('progress-fill').style.width='100%';
+  document.getElementById('btn-prev').style.display='none';
+  document.getElementById('btn-next').style.display='none';
+}
+
+// Init
+selectQuiz(1);
+</script>
+</body>
+</html>
