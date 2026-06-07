@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abordaje Clínico: Emergencia Hipertensiva</title>
+    <style>
+        :root {
+            --primary-clinical: #2b4c7e;
+            --primary-light: #eef4fc;
+            --success-clinical: #2e7d32;
+            --success-light: #e8f5e9;
+            --error-clinical: #c62828;
+            --error-light: #ffebee;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #dddddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Pantalla de Autenticación */
+        .login-container {
+            max-width: 420px;
+            margin: 100px auto;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 5px solid var(--primary-clinical);
+        }
+
+        .login-container h2 {
+            color: var(--primary-clinical);
+            margin-bottom: 10px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0 10px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .login-btn {
+            background-color: var(--primary-clinical);
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .login-btn:hover {
+            background-color: #1e355b;
+        }
+
+        .error-message {
+            color: var(--error-clinical);
+            background-color: var(--error-light);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Estructura de la Aplicación Principal */
+        .app-container {
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .app-header {
+            background-color: var(--primary-clinical);
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .app-header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        .app-header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Sistema de Pestañas */
+        .tabs-nav {
+            display: flex;
+            background: #ffffff;
+            border-bottom: 2px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            background-color: #f8f9fa;
+            color: var(--primary-clinical);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-clinical);
+            border-bottom: 3px solid var(--primary-clinical);
+            background-color: var(--primary-light);
+        }
+
+        .tab-content {
+            display: none;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Tarjetas Acordeón (Guía Clínica) */
+        .accordion-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .accordion-header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            font-weight: 600;
+            color: var(--primary-clinical);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--primary-light);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .accordion-card.expanded .accordion-content {
+            display: block;
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .accordion-card.expanded .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        /* Estilos de la Calculadora */
+        .calc-box {
+            background: var(--primary-light);
+            border: 1px solid #c2dbf3;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .inputs-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-clinical);
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+
+        .results-box h4 {
+            margin: 0 0 15px 0;
+            color: var(--primary-clinical);
+            border-bottom: 1px solid #c2dbf3;
+            padding-bottom: 5px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #dbe7f6;
+            font-size: 1.05rem;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: var(--primary-clinical);
+        }
+
+        /* ==========================================
+           ESTILOS ESPECÍFICOS DEL QUIZ (ENVIADOS POR USTED)
+           ========================================== */
+        .quiz-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-sel-btn {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .quiz-sel-btn.active {
+            background-color: var(--primary-clinical);
+            color: #ffffff;
+            border-color: var(--primary-clinical);
+        }
+
+        .question-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        .option-item {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .option-item:hover {
+            background-color: var(--primary-light);
+        }
+
+        .option-item.correct {
+            background-color: var(--success-light) !important;
+            border-color: var(--success-clinical) !important;
+            color: var(--success-clinical);
+            font-weight: 600;
+        }
+
+        .option-item.incorrect {
+            background-color: var(--error-light) !important;
+            border-color: var(--error-clinical) !important;
+            color: var(--error-clinical);
+        }
+
+        .feedback-box {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #fff9db;
+            border-left: 4px solid #f59f00;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #664d03;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.primary {
+            background-color: var(--primary-clinical);
+            color: #ffffff;
+            border-color: var(--primary-clinical);
+        }
+
+        .score-screen {
+            text-align: center;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: var(--primary-clinical);
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            border: 3px solid var(--primary-clinical);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="login-container">
+        <h2>Ingreso Médico</h2>
+        <p style="color: var(--text-muted); font-size:0.9rem;">Módulo de Emergencias Hipertensivas</p>
+        <input type="password" id="pass-input" placeholder="INGRESE LA CLAVE">
+        <button class="login-btn" onclick="verificarClave()">Validar Credenciales</button>
+        <div id="login-err-msg" class="error-message">Clave incorrecta. Intente de nuevo.</div>
+    </div>
+
+    <div id="app-screen" class="app-container" style="display: none;">
+        
+        <header class="app-header">
+            <h1>Protocolo de Actuación en Urgencias</h1>
+            <p>Manejo de Crisis Hipertensivas y Daño de Órgano Diana (DOD)</p>
+        </header>
+
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(0)">Guía Clínica</button>
+            <button class="tab-btn" onclick="switchTab(1)">Calculadora de PAM</button>
+            <button class="tab-btn" onclick="switchTab(2)">Evaluación Académica</button>
+        </nav>
+
+        <main style="margin-top: 20px;">
+            
+            <div class="tab-content active">
+                <h3 style="color: var(--primary-clinical); margin-top:0;">Directrices de Evidencia Científica</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Haga clic en cada sección para expandir la información diagnóstica y terapéutica.</p>
+
+                <div class="accordion-card">
+                    <div class="accordion-header" onclick="toggleCard(this)">1. Diferenciación Crítica: Emergencia vs Urgencia</div>
+                    <div class="accordion-content">
+                        <strong>Urgencia Hipertensiva:</strong> Elevación severa de la PA (PAS &ge; 180 mmHg o PAD &ge; 120 mmHg) <strong>sin</strong> evidencia de Daño de Órgano Diana (DOD) agudo. El manejo es con fármacos vía oral y reducción gradual en 24-48 horas.<br><br>
+                        <strong>Emergencia Hipertensiva:</strong> Cifras elevadas de PA acompañadas de <strong>DOD agudo y evolutivo</strong>. Requiere manejo inmediato en cuidados críticos y terapia intravenosa titrable.
+                    </div>
+                </div>
+
+                <div class="accordion-card">
+                    <div class="accordion-header" onclick="toggleCard(this)">2. Metas Generales de Reducción</div>
+                    <div class="accordion-content">
+                        Como regla general protectora para evitar la hipoperfusión tisular, la Presión Arterial Media (PAM) debe reducirse un <strong>máximo de 20% a 25% dentro de la primera hora</strong>, estabilizando luego hacia cifras de 160/100 mmHg en las siguientes 2 a 6 horas.
+                    </div>
+                </div>
+
+                <div class="accordion-card">
+                    <div class="accordion-header" onclick="toggleCard(this)">3. Escenarios Excepcionales (Reglas Clínicas Estrictas)</div>
+                    <div class="accordion-content">
+                        * <strong>Disección Aórtica Aguda:</strong> Reducción inmediata y drástica. Meta: PAS &lt; 120 mmHg y Frecuencia Cardíaca &lt; 60 lpm en 5 a 10 minutos. Fármacos de elección: Esmolol o Labetalol.<br><br>
+                        * <strong>Eclampsia / Preclampsia Grave:</strong> Reducción rápida de la PAS &lt; 160 mmHg. El sulfato de magnesio es obligatorio para la prevención de crisis convulsivas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <h3 style="color: var(--primary-clinical); margin-top:0;">Calculadora de Perfusión y Metas Hemodinámicas</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Introduzca los valores del paciente para calcular automáticamente la PAM basal y los límites seguros de descenso en la primera hora.</p>
+                
+                <div class="calc-box">
+                    <div class="inputs-row">
+                        <div class="input-group">
+                            <label for="pas-in">PAS (mmHg):</label>
+                            <input type="number" id="pas-in" placeholder="Ej: 210" oninput="calcularMetas()">
+                        </div>
+                        <div class="input-group">
+                            <label for="pad-in">PAD (mmHg):</label>
+                            <input type="number" id="pad-in" placeholder="Ej: 130" oninput="calcularMetas()">
+                        </div>
+                    </div>
+
+                    <div class="results-box">
+                        <h4>Análisis Hemodinámico</h4>
+                        <div class="result-item">
+                            <span>PAM Inicial del Paciente:</span>
+                            <span class="result-value" id="pam-actual">0.0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Meta - Reducción del 20% (Límite Superior):</span>
+                            <span class="result-value" id="pam-meta-20">0.0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Meta - Reducción del 25% (Límite Máximo Seguro):</span>
+                            <span class="result-value" id="pam-meta-25">0.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <h3 style="color: var(--primary-clinical); margin-top:0;">Evaluación de Competencias Clínicas</h3>
+                
+                <div class="quiz-selector">
+                    <button class="quiz-sel-btn active" id="btn-q-0" onclick="selectQuiz(0)">Quiz 1: Fisiopatología</button>
+                    <button class="quiz-sel-btn" id="btn-q-1" onclick="selectQuiz(1)">Quiz 2: Cardio y Gestación</button>
+                </div>
+                                
+                <div class="question-card" id="quiz-wrapper">
+                    <div id="quiz-container">
+                        <div class="question-text" id="question-text">Seleccione un quiz para comenzar.</div>
+                        <div class="options-list" id="options-list"></div>
+                        <div class="feedback-box" id="feedback-box" style="display: none;"></div>
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="nav-btn" id="prev-btn" onclick="changeQuestion(-1)" disabled>Anterior</button>
+                        <button class="nav-btn primary" id="next-btn" onclick="changeQuestion(1)" disabled>Siguiente</button>
+                    </div>
+                </div>
+                                
+                <div class="score-screen" id="score-screen" style="display: none;">
+                    <div class="score-circle" id="score-circle">0%</div>
+                    <h3>¡Evaluación Finalizada!</h3>
+                    <p id="score-text" style="margin-bottom: 20px; color: var(--text-muted);"></p>
+                    <button class="nav-btn primary" onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // ==========================================
+        // 1. SISTEMA DE ACCESO Y SEGURIDAD
+        // ==========================================
+        function verificarClave() {
+            const claveCorrecta = "URGENCIAS"; 
+            const passInput = document.getElementById("pass-input");
+            if (!passInput) {
+                selectQuiz(0);
+                return;
+            }
+
+            const input = passInput.value.trim().toUpperCase();
+            const errorMsg = document.getElementById("login-err-msg");
+            
+            if (input === claveCorrecta) {
+                const loginScreen = document.getElementById("login-screen");
+                const appScreen = document.getElementById("app-screen");
+                
+                if (loginScreen) loginScreen.style.display = "none";
+                if (appScreen) appScreen.style.display = "block";
+                
+                calcularMetas();
+                selectQuiz(0);
+                switchTab(0); // Abre en la Guía Clínica por defecto al ingresar
+            } else {
+                if (errorMsg) errorMsg.style.display = "block";
+            }
+        }
+
+        const passInputEl = document.getElementById("pass-input");
+        if (passInputEl) {
+            passInputEl.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") verificarClave();
+            });
+        }
+
+        // ==========================================
+        // 2. NAVEGACIÓN DINÁMICA POR PESTAÑAS
+        // ==========================================
+        function switchTab(tabIndex) {
+            const tabs = document.querySelectorAll(".tab-content");
+            const buttons = document.querySelectorAll(".tab-btn");
+            
+            tabs.forEach((tab, index) => {
+                tab.classList.toggle("active", index === tabIndex);
+            });
+            
+            buttons.forEach((btn, index) => {
+                btn.classList.toggle("active", index === tabIndex);
+            });
+        }
+
+        // ==========================================
+        // 3. TARJETAS ACORDÉÓN (EXPANDIBLES)
+        // ==========================================
+        function toggleCard(headerElement) {
+            const card = headerElement.parentElement;
+            if (card) card.classList.toggle("expanded");
+        }
+
+        // ==========================================
+        // 4. CALCULADORA DINÁMICA DE METAS PAM
+        // ==========================================
+        function calcularMetas() {
+            const pasIn = document.getElementById("pas-in");
+            const padIn = document.getElementById("pad-in");
+            
+            if (!pasIn || !padIn) return; 
+
+            const pas = parseFloat(pasIn.value) || 0;
+            const pad = parseFloat(padIn.value) || 0;
+            
+            const pamActualEl = document.getElementById("pam-actual");
+            const pamMeta20El = document.getElementById("pam-meta-20");
+            const pamMeta25El = document.getElementById("pam-meta-25");
+
+            if (pas > 0 && pad > 0) {
+                const pamActual = pad + ((pas - pad) / 3);
+                const meta20 = pamActual * 0.80; 
+                const meta25 = pamActual * 0.75; 
+                
+                if (pamActualEl) pamActualEl.textContent = pamActual.toFixed(1);
+                if (pamMeta20El) pamMeta20El.textContent = meta20.toFixed(1);
+                if (pamMeta25El) pamMeta25El.textContent = meta25.toFixed(1);
+            } else {
+                if (pamActualEl) pamActualEl.textContent = "0.0";
+                if (pamMeta20El) pamMeta20El.textContent = "0.0";
+                if (pamMeta25El) pamMeta25El.textContent = "0.0";
+            }
+        }
+
+        // ==========================================
+        // 5. BANCO DE PREGUNTAS INTERACTIVO (QUIZ)
+        // ==========================================
+        const quizzes = [
+            {
+                title: "Quiz 1: Fisiopatología",
+                questions: [
+                    {
+                        q: "¿Cuál es el elemento diferenciador crítico entre una Emergencia y una Urgencia Hipertensiva?",
+                        options: [
+                            "La cifra absoluta transitoria de PAS > 220 mmHg",
+                            "La presencia evidente de daño agudo y evolutivo a órgano diana (DOD)",
+                            "La velocidad de instauración cronológica del pico hipertensivo",
+                            "La carga genética y antecedentes cardiovasculares directos"
+                        ],
+                        correct: 1,
+                        feedback: "Correcto. La afectación aguda de órgano diana (cerebro, miocardio, aorta, riñón o retina) define la emergencia clínica e impone el uso inmediato de terapia endovenosa."
+                    },
+                    {
+                        q: "Al descender de forma drástica la PA en un hipertenso crónico severo por debajo de sus límites basales, ¿qué riesgo yatrógeno inminente se induce?",
+                        options: [
+                            "Hemorragia subaracnoidea refleja",
+                            "Hipoperfusión tisular cerebral crítica con riesgo de infarto isquémico",
+                            "Edema agudo de pulmón por sobrecarga súbita de la precarga",
+                            "Encefalopatía hipertensiva de rebote"
+                        ],
+                        correct: 1,
+                        feedback: "Correcto. En hipertensos crónicos, la curva de autorregulación del flujo sanguíneo cerebral está desplazada a la derecha. Un descenso rápido > 25% compromete gravemente la perfusión cerebral."
+                    }
+                ]
+            },
+            {
+                title: "Quiz 2: Cardio y Gestación",
+                questions: [
+                    {
+                        q: "En una Disección Aórtica Aguda, ¿cuál es el abordaje cronológico de primera línea exigido?",
+                        options: [
+                            "Iniciar Nitroprusiato de Sodio puro de inmediato para tumbar la PA.",
+                            "Controlar primero la FC (< 60 lpm) con beta-bloqueadores (Esmolol/Labetalol) y luego reducir la PAS (< 120 mmHg).",
+                            "Administrar dosis masivas de diuréticos de asa EV antes de los vasodilatadores.",
+                            "Mantener la PAM elevada para garantizar el flujo en las falsas luces."
+                        ],
+                        correct: 1,
+                        feedback: "Correcto. El uso de vasodilatadores puros sin bloqueo beta previo induce taquicardia refleja y aumenta la fuerza de eyección ventricular (dP/dt), lo que expande y propaga la disección de la íntima."
+                    }
+                ]
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+
+        function selectQuiz(quizIdx) {
+            currentQuizIndex = quizIdx;
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            
+            const btnQ0 = document.getElementById("btn-q-0");
+            const btnQ1 = document.getElementById("btn-q-1");
+            if (btnQ0) btnQ0.classList.toggle("active", quizIdx === 0);
+            if (btnQ1) btnQ1.classList.toggle("active", quizIdx === 1);
+            
+            const scoreScreen = document.getElementById("score-screen");
+            const quizWrapper = document.getElementById("quiz-wrapper");
+            
+            if (scoreScreen) scoreScreen.style.display = "none";
+            if (quizWrapper) quizWrapper.style.display = "block";
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const quiz = quizzes[currentQuizIndex];
+            const qData = quiz.questions[currentQuestionIndex];
+            
+            const qTextEl = document.getElementById("question-text");
+            if (qTextEl) qTextEl.textContent = qData.q;
+            
+            const optionsList = document.getElementById("options-list");
+            if (!optionsList) return;
+            optionsList.innerHTML = "";
+            
+            const feedbackBox = document.getElementById("feedback-box");
+            if (feedbackBox) feedbackBox.style.display = "none";
+            
+            qData.options.forEach((option, idx) => {
+                const div = document.createElement("div");
+                div.className = "option-item";
+                div.textContent = option;
+                
+                if (userAnswers[currentQuestionIndex] !== undefined) {
+                    if (idx === qData.correct) div.classList.add("correct");
+                    if (userAnswers[currentQuestionIndex] === idx && idx !== qData.correct) div.classList.add("incorrect");
+                } else {
+                    div.onclick = () => checkAnswer(idx);
+                }
+                
+                optionsList.appendChild(div);
+            });
+            
+            if (userAnswers[currentQuestionIndex] !== undefined && feedbackBox) {
+                feedbackBox.textContent = qData.feedback;
+                feedbackBox.style.display = "block";
+            }
+            
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+            
+            if (prevBtn) prevBtn.disabled = currentQuestionIndex === 0;
+            if (nextBtn) {
+                nextBtn.disabled = userAnswers[currentQuestionIndex] === undefined;
+                if (currentQuestionIndex === quiz.questions.length - 1) {
+                    nextBtn.textContent = "Finalizar Evaluación";
+                } else {
+                    nextBtn.textContent = "Siguiente Pregunta";
+                }
+            }
+        }
+
+        function checkAnswer(selectedIdx) {
+            userAnswers[currentQuestionIndex] = selectedIdx;
+            loadQuestion();
+        }
+
+        function changeQuestion(direction) {
+            const quiz = quizzes[currentQuizIndex];
+            currentQuestionIndex += direction;
+            
+            if (currentQuestionIndex >= quiz.questions.length) {
+                showScore();
+            } else {
+                loadQuestion();
+            }
+        }
+
+        // Ajuste en showScore para respetar la estética dentro de la pestaña
+        function showScore() {
+            const quiz = quizzes[currentQuizIndex];
+            let correctCount = 0;
+            
+            quiz.questions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correct) correctCount++;
+            });
+            
+            const percentage = Math.round((correctCount / quiz.questions.length) * 100);
+            
+            const quizWrapper = document.getElementById("quiz-wrapper");
+            const scoreScreen = document.getElementById("score-screen");
+            
+            if (quizWrapper) quizWrapper.style.display = "none";
+            if (scoreScreen) scoreScreen.style.display = "block";
+            
+            const scoreCircle = document.getElementById("score-circle");
+            const scoreText = document.getElementById("score-text");
+            
+            if (scoreCircle) scoreCircle.textContent = percentage + "%";
+            if (scoreText) scoreText.textContent = `Ha contestado correctamente ${correctCount} de ${quiz.questions.length} planteamientos clínicos.`;
+        }
+
+        function reiniciarQuiz() {
+            selectQuiz(currentQuizIndex);
+        }
+
+        // Inicialización segura
+        window.addEventListener('DOMContentLoaded', () => {
+            const loginScreen = document.getElementById("login-screen");
+            if (!loginScreen || loginScreen.style.display === "none") {
+                selectQuiz(0);
+                calcularMetas();
+            }
+        });
+    </script>
+</body>
+</html>
