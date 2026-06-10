@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumonía Adquirida en la Comunidad · Dr. Luis E. Croce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.65;color:#1e293b;background:#f0f4f8}
+#pw-screen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0c2340 0%,#1a4a7a 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+.pw-box{background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:44px 40px;max-width:440px;width:100%;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.4)}
+.pw-icon{font-size:56px;margin-bottom:16px;display:block}
+.pw-title{font-family:'Lora',serif;font-size:26px;color:#fff;font-weight:700;margin-bottom:6px}
+.pw-sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:28px}
+.pw-input{width:100%;padding:14px 18px;border-radius:10px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:15px;letter-spacing:2px;text-align:center;font-family:'Source Sans 3',sans-serif;outline:none;transition:border .2s}
+.pw-input::placeholder{color:rgba(255,255,255,.4);letter-spacing:0}
+.pw-input:focus{border-color:#38bdf8}
+.pw-btn{margin-top:14px;width:100%;padding:13px;border-radius:10px;border:none;background:linear-gradient(135deg,#1d6fa4,#0ea5e9);color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:'Source Sans 3',sans-serif}
+.pw-btn:hover{opacity:.88}
+.pw-error{color:#fca5a5;font-size:13px;margin-top:10px;min-height:18px}
+#app{display:none}
+.hero{background:linear-gradient(135deg,#0c2340 0%,#1a4a7a 45%,#1e6fa4 100%);color:#fff;padding:48px 24px 36px;text-align:center;position:relative}
+.hero-back{position:absolute;top:16px;left:20px;color:rgba(255,255,255,.75);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.hero-back:hover{color:#fff}
+.hero-icon{font-size:72px;margin-bottom:12px;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.hero h1{font-family:'Lora',serif;font-size:clamp(24px,5vw,38px);font-weight:700;margin-bottom:8px;letter-spacing:-.5px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-sub{font-size:clamp(13px,2vw,17px);opacity:.85;margin-bottom:10px;font-weight:300}
+.hero-author{font-size:13px;opacity:.8;margin-bottom:16px;font-style:italic}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:4px}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;letter-spacing:.3px}
+.tabs{display:flex;overflow-x:auto;background:#1a4a7a;position:sticky;top:0;z-index:100;scrollbar-width:none;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:14px 18px;color:rgba(255,255,255,.7);font-size:13px;font-weight:600;cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;font-family:'Source Sans 3',sans-serif}
+.tab-btn:hover{color:#fff;background:rgba(255,255,255,.08)}
+.tab-btn.active{color:#38bdf8;border-bottom-color:#38bdf8;background:rgba(56,189,248,.1)}
+.section{display:none;max-width:960px;margin:0 auto;padding:28px 20px 60px}
+.section.active{display:block}
+.section-title{font-family:'Lora',serif;font-size:26px;font-weight:700;color:#0c2340;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.section-lead{color:#475569;font-size:15px;margin-bottom:24px;border-left:3px solid #38bdf8;padding-left:12px}
+.card{background:#fff;border-radius:14px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e2e8f0}
+.card-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;transition:background .2s}
+.card-header:hover{background:#f8fafc}
+.card-header.blue-dark{background:linear-gradient(135deg,#1a4a7a,#1e6fa4);color:#fff}
+.card-header.blue-dark:hover{opacity:.92}
+.card-title{font-family:'Lora',serif;font-weight:600;font-size:16px;display:flex;align-items:center;gap:8px}
+.card-arrow{font-size:18px;transition:transform .3s;opacity:.6}
+.card-header.open .card-arrow{transform:rotate(180deg)}
+.card-body{padding:20px;display:none;border-top:1px solid #e2e8f0}
+.card-body.show{display:block}
+.card-header.blue-dark+.card-body{border-top:none}
+.alert-red{background:#fef2f2;border-left:4px solid #ef4444;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;color:#7f1d1d}
+.alert-amber{background:#fffbeb;border-left:4px solid #f59e0b;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;color:#78350f}
+.alert-green{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;color:#14532d}
+.alert-blue{background:#eff6ff;border-left:4px solid #3b82f6;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;color:#1e3a8a}
+.alert-red strong,.alert-amber strong,.alert-green strong,.alert-blue strong{font-family:'Lora',serif}
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,.08)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:400px}
+th{background:#0c2340;color:#fff;padding:11px 14px;text-align:left;font-weight:600;font-size:13px}
+td{padding:10px 14px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+tr:last-child td{border-bottom:none}
+table td strong{color:#0c2340}
+.steps{counter-reset:step}
+.step{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.step-num{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px;box-shadow:0 2px 6px rgba(217,119,6,.35)}
+.step-body{flex:1}
+.step-body strong{display:block;color:#0c2340;font-size:15px;margin-bottom:3px}
+.step-body p,.step-body ul{font-size:14px;color:#475569}
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;margin:2px}
+.pill-red{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+.pill-green{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.pill-blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.pill-amber{background:#fffbeb;color:#b45309;border:1px solid #fde68a}
+.pill-gray{background:#f1f5f9;color:#475569;border:1px solid #e2e8f0}
+.pill-purple{background:#faf5ff;color:#7c3aed;border:1px solid #e9d5ff}
+.warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+@media(max-width:500px){.warn-grid{grid-template-columns:1fr}}
+.warn-item{background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:14px;color:#7f1d1d;display:flex;align-items:flex-start;gap:8px}
+.warn-item span:first-child{font-size:18px;flex-shrink:0}
+.protocol-box{background:linear-gradient(135deg,#0c2340,#1a4a7a);color:#fff;border-radius:14px;padding:22px;margin:14px 0}
+.protocol-box h4{font-family:'Lora',serif;color:#38bdf8;margin-bottom:14px;font-size:16px}
+.protocol-row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14px;gap:10px}
+.protocol-row:last-child{border-bottom:none}
+.protocol-row .drug{font-weight:600;color:#7dd3fc;min-width:160px}
+.protocol-row .dose{color:rgba(255,255,255,.85);font-size:13px}
+.sev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.sev-card{border-radius:12px;padding:16px;text-align:center}
+.sev-card.leve{background:#f0fdf4;border:1.5px solid #22c55e}
+.sev-card.moderado{background:#fffbeb;border:1.5px solid #f59e0b}
+.sev-card.grave{background:#fff7ed;border:1.5px solid #f97316}
+.sev-card.critico{background:#fef2f2;border:1.5px solid #ef4444}
+.sev-card .sev-label{font-family:'Lora',serif;font-weight:700;font-size:15px;margin-bottom:6px}
+.sev-card.leve .sev-label{color:#15803d}
+.sev-card.moderado .sev-label{color:#b45309}
+.sev-card.grave .sev-label{color:#c2410c}
+.sev-card.critico .sev-label{color:#b91c1c}
+.sev-card .sev-curb{font-size:22px;font-weight:700;margin:4px 0}
+.sev-card .sev-action{font-size:12px;margin-top:4px;font-weight:600}
+.checklist{list-style:none;margin:10px 0}
+.checklist li{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'☐';font-size:16px;color:#1a4a7a;flex-shrink:0;margin-top:1px}
+.quiz-set{margin-bottom:32px}
+.quiz-title{font-family:'Lora',serif;font-size:18px;color:#0c2340;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #e2e8f0}
+.quiz-q{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid #e2e8f0;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.quiz-q .q-text{font-size:15px;font-weight:600;color:#1e293b;margin-bottom:14px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.opt-btn{text-align:left;padding:10px 14px;border-radius:8px;border:1.5px solid #e2e8f0;background:#f8fafc;cursor:pointer;font-size:14px;font-family:'Source Sans 3',sans-serif;transition:all .2s;color:#374151}
+.opt-btn:hover:not(:disabled){background:#eff6ff;border-color:#3b82f6;color:#1d4ed8}
+.opt-btn.correct{background:#f0fdf4;border-color:#22c55e;color:#15803d;font-weight:600}
+.opt-btn.wrong{background:#fef2f2;border-color:#ef4444;color:#b91c1c}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:8px;font-size:14px;line-height:1.6;display:none}
+.feedback.show{display:block}
+.feedback.ok-fb{background:#f0fdf4;color:#14532d;border-left:3px solid #22c55e}
+.feedback.no-fb{background:#fef2f2;color:#7f1d1d;border-left:3px solid #ef4444}
+ul.content-list{padding-left:20px;margin:8px 0}
+ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.mini-title{font-family:'Lora',serif;font-weight:700;color:#0c2340;font-size:14px;margin-bottom:6px}
+.highlight-box{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1px solid #93c5fd;border-radius:12px;padding:16px;margin:12px 0}
+.highlight-box .hl-title{font-family:'Lora',serif;color:#1d4ed8;font-weight:700;font-size:15px;margin-bottom:8px}
+.score-box{background:#fff;border-radius:12px;border:1px solid #e2e8f0;padding:16px;margin:12px 0}
+.score-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:14px}
+.score-row:last-child{border-bottom:none}
+.score-num{background:#0c2340;color:#fff;border-radius:8px;padding:3px 10px;font-weight:700;font-size:14px;min-width:36px;text-align:center}
+.footer{text-align:center;padding:32px 20px;font-size:12px;background:#0c2340;color:rgba(255,255,255,.5);margin-top:40px;line-height:1.8}
+@media(max-width:768px){.tab-btn{padding:12px 14px;font-size:12px}.section{padding:20px 14px 50px}.pw-box{padding:32px 24px}}
+</style>
+</head>
+<body>
+<div id="pw-screen">
+  <div class="pw-box">
+    <span class="pw-icon">🫁</span>
+    <div class="pw-title">Guía NAC · Dr. Croce</div>
+    <div class="pw-sub">Neumonía Adquirida en la Comunidad<br>Ingrese su clave de acceso</div>
+    <input class="pw-input" id="pw-input" type="password" placeholder="Clave de acceso" maxlength="20">
+    <button class="pw-btn" onclick="checkPW()">Ingresar →</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
+<div id="app">
+<div class="hero">
+  <a class="hero-back" href="index.html">← Portal de guías</a>
+  <span class="hero-icon">🫁</span>
+  <h1>Neumonía Adquirida en la Comunidad</h1>
+  <div class="hero-sub">Diagnóstico · Estratificación de Severidad · Manejo Antibiótico · UCI</div>
+  <div class="hero-author">Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador</div>
+  <div class="hero-badges">
+    <span class="badge">ATS 2025</span>
+    <span class="badge">ATS/IDSA 2019</span>
+    <span class="badge">OPS/OMS 2024</span>
+    <span class="badge">CURB-65 · PSI</span>
+  </div>
+</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('fisio',this)">🔬 Fisiopatología</button>
+  <button class="tab-btn" onclick="showTab('clinica',this)">🩺 Clínica y Clasificación</button>
+  <button class="tab-btn" onclick="showTab('lab',this)">🧪 Laboratorio y Diagnóstico</button>
+  <button class="tab-btn" onclick="showTab('manejo',this)">🚨 Manejo en Emergencia</button>
+  <button class="tab-btn" onclick="showTab('complicaciones',this)">⚡ Complicaciones</button>
+  <button class="tab-btn" onclick="showTab('egreso',this)">📋 Egreso y Seguimiento</button>
+  <button class="tab-btn" onclick="showTab('quiz',this)">❓ Autoevaluación</button>
+</div>
+<!-- ===== TAB 1: FISIOPATOLOGÍA ===== -->
+<div class="section active" id="fisio">
+  <div class="section-title">🔬 Fisiopatología</div>
+  <div class="section-lead">La NAC es un proceso inflamatorio del parénquima pulmonar que emerge de la interacción entre la virulencia del patógeno, la disbiosis del microbioma pulmonar y la respuesta inmune del huésped. (ATS 2025)</div>
+
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">
+      <span class="card-title">🦠 Concepto Moderno del Microbioma Pulmonar</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body show">
+      <p style="font-size:14px;color:#475569;margin-bottom:12px">El pulmón ya no se considera un compartimento estéril. La guía ATS 2025 establece que la neumonía surge de tres elementos convergentes:</p>
+      <div class="highlight-box">
+        <div class="hl-title">Tríada Patogénica (ATS 2025)</div>
+        <div class="two-col">
+          <div>
+            <div class="mini-title">1. Susceptibilidad del huésped</div>
+            <ul class="content-list">
+              <li>Alteración del aclaramiento mucociliar</li>
+              <li>Disfunción de macrófagos alveolares</li>
+              <li>Microaspiración de secreciones orofaríngeas</li>
+              <li>Inmunosenescencia en adultos mayores</li>
+            </ul>
+          </div>
+          <div>
+            <div class="mini-title">2. Disbiosis del microbioma</div>
+            <ul class="content-list">
+              <li>Desbalance entre comensales y patógenos</li>
+              <li>Predominio de Streptococcus o Staphylococcus</li>
+              <li>Interacciones polimicrobianas</li>
+              <li>Infecciones virales que alteran el ecosistema</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <div class="mini-title">3. Inflamación por respuesta inmune desregulada</div>
+          <p style="font-size:14px;color:#374151;margin-top:4px">La respuesta inflamatoria excesiva (no solo el patógeno) causa la mayor parte del daño tisular. Esto explica por qué los corticosteroides pueden beneficiar la NAC grave.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🔄 Mecanismos de Infección Pulmonar</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Mecanismo</th><th>Prevalencia</th><th>Patógenos asociados</th></tr>
+        <tr><td><strong>Microaspiración</strong> de flora orofaríngea</td><td><span class="pill pill-red">70–80%</span></td><td>S. pneumoniae, H. influenzae, anaerobios</td></tr>
+        <tr><td><strong>Inhalación</strong> de aerosoles infectados</td><td><span class="pill pill-amber">15–20%</span></td><td>Legionella, M. tuberculosis, virus respiratorios</td></tr>
+        <tr><td><strong>Diseminación hematógena</strong></td><td><span class="pill pill-gray">5%</span></td><td>S. aureus (MRSA), gram negativos</td></tr>
+        <tr><td><strong>Extensión directa</strong> desde foco contiguo</td><td><span class="pill pill-gray">Raro</span></td><td>Empiema, mediastinitis</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🧬 Cascada Inflamatoria y Consolidación Alveolar</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Colonización e invasión alveolar</strong><p>El patógeno supera las defensas: macrófagos alveolares saturados → liberación de IL-1β, TNF-α, IL-6 → reclutamiento masivo de neutrófilos al espacio alveolar.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Exudación alveolar (hepatización roja)</strong><p>Aumento de permeabilidad capilar → edema intraalveolar rico en fibrina, eritrocitos y neutrófilos → consolidación radiológica visible en Rx/POCUS.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Deterioro del intercambio gaseoso</strong><p>Unidades alveolares con relación V/Q baja → cortocircuito intrapulmonar → hipoxemia progresiva. Si grave: síndrome de distrés respiratorio agudo (SDRA).</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Resolución o progresión</strong><p>Resolución: macrófagos eliminan detritos (hepatización gris → lisis → restitución). Progresión: necrosis tisular → absceso, empiema, o sepsis si bacteriemia.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🦠 Etiología y Patógenos Frecuentes</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Patógeno</th><th>Frecuencia</th><th>Escenario clínico típico</th></tr>
+        <tr><td><strong>Streptococcus pneumoniae</strong></td><td><span class="pill pill-red">30–40%</span></td><td>Más frecuente en toda severidad. Inicio agudo, fiebre alta, dolor pleurítico</td></tr>
+        <tr><td><strong>Atípicos</strong> (Mycoplasma, Chlamydophila, Legionella)</td><td><span class="pill pill-amber">20–30%</span></td><td>Adultos jóvenes, cuadro insidioso. Legionella: >65 años, fumadores, inmunosuprimidos</td></tr>
+        <tr><td><strong>Virus</strong> (Influenza, RSV, SARS-CoV-2)</td><td><span class="pill pill-blue">15–20%</span></td><td>Epidemias estacionales. Pueden sobreinfectarse con bacterias</td></tr>
+        <tr><td><strong>Haemophilus influenzae</strong></td><td><span class="pill pill-gray">10–15%</span></td><td>EPOC, tabaquismo, adultos mayores</td></tr>
+        <tr><td><strong>Staphylococcus aureus</strong></td><td><span class="pill pill-purple">5–10%</span></td><td>Post-influenza, MRSA comunitario, UDVP, formas necrotizantes</td></tr>
+        <tr><td><strong>Klebsiella pneumoniae</strong></td><td><span class="pill pill-gray">3–5%</span></td><td>Alcoholismo, DM, neumonía lóbulo superior, esputo "jalea de grosella"</td></tr>
+        <tr><td><strong>Sin identificación</strong></td><td><span class="pill pill-gray">30–50%</span></td><td>Tratamiento empírico basado en severidad y factores de riesgo</td></tr>
+      </table></div>
+      <div class="alert-amber">
+        <strong>⚠️ Importante en Ecuador/Latinoamérica:</strong> Considerar Mycobacterium tuberculosis en el diagnóstico diferencial, especialmente en pacientes con curso subagudo, pérdida de peso, sudoración nocturna o contacto con TBC. No iniciar fluoroquinolonas empíricamente sin descartar TBC (riesgo de monoterapia encubierta).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB 2: CLÍNICA ===== -->
+<div class="section" id="clinica">
+  <div class="section-title">🩺 Clínica y Clasificación</div>
+  <div class="section-lead">La presentación varía según el patógeno, la edad y el estado inmune. La estratificación de severidad mediante CURB-65 guía el lugar de atención y la intensidad del tratamiento.</div>
+
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">
+      <span class="card-title">📋 Definición y Presentación Clínica</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body show">
+      <div class="alert-blue">
+        <strong>Definición (ATS/IDSA 2019):</strong> Infección aguda del parénquima pulmonar adquirida fuera del entorno hospitalario, con confirmación radiológica de nuevo infiltrado + al menos 2 síntomas compatibles (fiebre, tos, expectoración, disnea, dolor pleurítico, signos de consolidación).
+      </div>
+      <div class="two-col" style="margin-top:14px">
+        <div>
+          <div class="mini-title">🌡️ Presentación Típica (S. pneumoniae)</div>
+          <ul class="content-list">
+            <li>Fiebre de inicio agudo (&gt;38.5°C) con escalofríos</li>
+            <li>Tos productiva con esputo purulento/herrumbroso</li>
+            <li>Dolor torácico pleurítico</li>
+            <li>Disnea progresiva</li>
+            <li>Matidez + crepitantes + soplo tubárico al examen</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">🌿 Presentación Atípica (Mycoplasma, Legionella)</div>
+          <ul class="content-list">
+            <li>Inicio insidioso (días–semanas)</li>
+            <li>Tos seca persistente</li>
+            <li>Cefalea, mialgias, artralgias prominentes</li>
+            <li>Síntomas extrapulmonares (diarrea, rash, hiponatremia)</li>
+            <li>Respuesta pobre a beta-lactámicos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert-amber" style="margin-top:12px">
+        <strong>⚠️ Presentación atípica en adultos mayores:</strong> Puede no haber fiebre (20–30%), tos mínima; presentación dominante es confusión, caídas o deterioro funcional. Siempre sospechar NAC en anciano con alteración del sensorio sin causa aparente.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">📊 Estratificación CURB-65</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="score-box">
+        <div class="score-row"><div class="score-num">C</div><div><strong>Confusión</strong> — nuevo estado confusional agudo (AMT ≤8 o nueva desorientación)</div></div>
+        <div class="score-row"><div class="score-num">U</div><div><strong>Urea</strong> — BUN &gt;19 mg/dL (urea &gt;7 mmol/L)</div></div>
+        <div class="score-row"><div class="score-num">R</div><div><strong>Respiración</strong> — frecuencia respiratoria ≥30 rpm</div></div>
+        <div class="score-row"><div class="score-num">B</div><div><strong>Blood pressure</strong> — PAS &lt;90 mmHg o PAD ≤60 mmHg</div></div>
+        <div class="score-row"><div class="score-num">65</div><div><strong>Edad</strong> ≥65 años</div></div>
+      </div>
+      <div class="sev-grid">
+        <div class="sev-card leve"><div class="sev-label">LEVE</div><div class="sev-curb">0–1</div><div>Mortalidad ~1%</div><div class="sev-action" style="color:#15803d">Tratamiento ambulatorio</div></div>
+        <div class="sev-card moderado"><div class="sev-label">MODERADO</div><div class="sev-curb">2</div><div>Mortalidad ~7–8%</div><div class="sev-action" style="color:#b45309">Hospitalización vs ambulatorio supervisado</div></div>
+        <div class="sev-card grave"><div class="sev-label">GRAVE</div><div class="sev-curb">3–4</div><div>Mortalidad ~21–41%</div><div class="sev-action" style="color:#c2410c">Hospitalización urgente</div></div>
+        <div class="sev-card critico"><div class="sev-label">CRÍTICO</div><div class="sev-curb">5</div><div>Mortalidad ~57–60%</div><div class="sev-action" style="color:#b91c1c">UCI inmediata</div></div>
+      </div>
+      <div class="alert-blue">
+        <strong>💡 CRB-65 (sin urea):</strong> Para atención primaria sin laboratorio. Score 0 = baja mortalidad (ambulatorio); score 3–4 = alta mortalidad (ingreso urgente).
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🏥 Criterios de NAC Grave — Ingreso a UCI (ATS/IDSA 2019)</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red"><strong>🚨 UCI directa si 1 criterio MAYOR o ≥3 criterios MENORES</strong></div>
+      <div class="two-col">
+        <div>
+          <div class="mini-title" style="color:#b91c1c">Criterios MAYORES (1 = UCI)</div>
+          <ul class="content-list">
+            <li>Requerimiento de ventilación mecánica invasiva</li>
+            <li>Shock séptico que requiere vasopresores</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title" style="color:#c2410c">Criterios MENORES (≥3 = UCI)</div>
+          <ul class="content-list">
+            <li>FR ≥30 rpm</li>
+            <li>PaO₂/FiO₂ &lt;250</li>
+            <li>Infiltrados multilobares</li>
+            <li>Confusión/desorientación</li>
+            <li>BUN ≥20 mg/dL</li>
+            <li>Leucopenia &lt;4.000/mm³</li>
+            <li>Trombocitopenia &lt;100.000/mm³</li>
+            <li>Hipotermia &lt;36°C</li>
+            <li>Hipotensión que requiere reanimación agresiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">⚠️ Señales de Alarma</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="warn-grid">
+        <div class="warn-item"><span>🫁</span><div><strong>FR ≥30 rpm</strong> — criterio de NAC grave</div></div>
+        <div class="warn-item"><span>💧</span><div><strong>SpO₂ &lt;90%</strong> basal en aire ambiente</div></div>
+        <div class="warn-item"><span>🩸</span><div><strong>PAS &lt;90 mmHg</strong> — inicio de shock</div></div>
+        <div class="warn-item"><span>🧠</span><div><strong>Confusión aguda</strong> — criterio CURB-65 y UCI</div></div>
+        <div class="warn-item"><span>❄️</span><div><strong>Temperatura &lt;36°C</strong> — respuesta séptica</div></div>
+        <div class="warn-item"><span>📈</span><div><strong>Extensión rápida</strong> — &gt;2 lóbulos en 48h</div></div>
+        <div class="warn-item"><span>💉</span><div><strong>Necesidad vasopresores</strong> — UCI inmediata</div></div>
+        <div class="warn-item"><span>🫀</span><div><strong>FC &gt;125 lpm</strong> o arritmia de novo</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">👥 Grupos de Riesgo Especial</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Grupo</th><th>Peculiaridades</th><th>Consideración especial</th></tr>
+        <tr><td><strong>Adultos mayores ≥65 años</strong></td><td>Presentación atípica, sin fiebre hasta 30%, mayor mortalidad</td><td>CURB-65 puede subestimar; considerar PSI. Mayor riesgo de aspiración y anaerobios</td></tr>
+        <tr><td><strong>Embarazo</strong></td><td>Inmunomodulación fisiológica, mayor riesgo de NAC grave, parto prematuro</td><td>Evitar fluoroquinolonas y tetraciclinas; amox-clav + azitromicina es segura. Hospitalización más liberal</td></tr>
+        <tr><td><strong>Inmunosuprimidos / VIH</strong></td><td>Patógenos oportunistas: PCP, Cryptococcus, Nocardia, CMV</td><td>Si CD4 &lt;200: cubrir PCP (TMP/SMX). Guías específicas para inmunocomprometidos</td></tr>
+        <tr><td><strong>Alcohólicos / aspiración</strong></td><td>Klebsiella, anaerobios. Lóbulo superior o segmentos posteriores</td><td>Añadir cobertura anaeróbica (metronidazol o amox-clav)</td></tr>
+        <tr><td><strong>EPOC / fumadores</strong></td><td>H. influenzae, P. aeruginosa (EPOC grave), Moraxella catarrhalis</td><td>En EPOC grave con exacerbaciones frecuentes: cubrir Pseudomonas</td></tr>
+        <tr><td><strong>Insuficiencia renal</strong></td><td>Mayor acumulación de ATB, peor pronóstico</td><td>Ajustar dosis de beta-lactámicos; evitar aminoglucósidos si TFG &lt;30</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div>
+<!-- ===== TAB 3: LABORATORIO ===== -->
+<div class="section" id="lab">
+  <div class="section-title">🧪 Laboratorio y Diagnóstico</div>
+  <div class="section-lead">El diagnóstico requiere confirmación imagenológica más síntomas compatibles. La ATS 2025 incorpora la ecografía pulmonar (POCUS) como alternativa diagnóstica aceptable cuando no hay disponibilidad de Rx o TAC.</div>
+
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">
+      <span class="card-title">🫁 Diagnóstico por Imagen — ATS 2025</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body show">
+      <div class="table-wrap"><table>
+        <tr><th>Método</th><th>Sensibilidad</th><th>Especificidad</th><th>Recomendación ATS 2025</th></tr>
+        <tr><td><strong>Rx de tórax PA/L</strong></td><td>~70%</td><td>~55%</td><td>Primera línea. Detecta consolidación, derrame, patrón intersticial</td></tr>
+        <tr><td><strong>TAC de tórax</strong></td><td>~95%</td><td>~90%</td><td>Ante duda diagnóstica, NAC grave, sospecha de complicaciones o fracaso al tratamiento</td></tr>
+        <tr><td><strong>Ecografía pulmonar (POCUS)</strong></td><td>~95%</td><td>~75%</td><td><span class="pill pill-green">NUEVA 2025</span> Alternativa aceptable cuando Rx/TAC no disponible y existe experticia local (condicional, baja calidad)</td></tr>
+      </table></div>
+      <div class="highlight-box">
+        <div class="hl-title">📡 Hallazgos Ecográficos de NAC (POCUS)</div>
+        <ul class="content-list">
+          <li><strong>Broncograma aéreo dinámico:</strong> movimiento sincrónico con respiración — altamente específico de consolidación infecciosa</li>
+          <li><strong>Signo del shred (shred sign):</strong> borde irregular, fractal entre tejido consolidado y pulmón aireado</li>
+          <li><strong>Líneas B confluentes:</strong> edema intersticial/alveolar adyacente</li>
+          <li><strong>Efusión pleural ipsilateral:</strong> cuantificar para decidir toracocentesis</li>
+          <li><strong>Protocolo:</strong> evaluar 6 ventanas por hemitórax (anterior superior, anterior inferior, lateral — bilateral)</li>
+        </ul>
+        <div class="alert-amber" style="margin-top:8px"><strong>Limitación:</strong> Requiere entrenamiento específico y validación del operador. No reemplaza la Rx en centros con disponibilidad radiológica.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🩸 Exámenes de Laboratorio por Severidad</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Examen</th><th>Ambulatorio</th><th>Hospitalización</th><th>UCI</th></tr>
+        <tr><td>Hemograma completo</td><td>Opcional</td><td>✅ Obligatorio</td><td>✅ Serial</td></tr>
+        <tr><td>PCR / Procalcitonina (PCT)</td><td>Opcional</td><td>✅ PCT guía duración ATB</td><td>✅ PCT serial</td></tr>
+        <tr><td>BUN / Creatinina</td><td>Si hay duda clínica</td><td>✅ (parte de CURB-65)</td><td>✅ c/12–24h</td></tr>
+        <tr><td>Glucosa / Electrolitos</td><td>—</td><td>✅</td><td>✅ c/6–12h</td></tr>
+        <tr><td>LDH, albúmina</td><td>—</td><td>✅ (valor pronóstico)</td><td>✅</td></tr>
+        <tr><td>Hemocultivos x2</td><td>❌</td><td>NAC grave o CURB ≥3</td><td>✅ Antes de ATB</td></tr>
+        <tr><td>Cultivo de esputo</td><td>❌</td><td>NAC grave, sin respuesta</td><td>✅ BAL/aspirado traqueal</td></tr>
+        <tr><td>Antígenos urinarios (Legionella, Neumococo)</td><td>—</td><td>NAC grave o atípica</td><td>✅ Siempre</td></tr>
+        <tr><td>Panel viral PCR respiratorio</td><td>Si síntomas virales</td><td>✅ (ATS 2025: guía decisión de ATB)</td><td>✅</td></tr>
+        <tr><td>Gasometría arterial</td><td>❌</td><td>Si SpO₂ &lt;92%</td><td>✅ Serial</td></tr>
+      </table></div>
+      <div class="alert-blue" style="margin-top:8px">
+        <strong>💡 Procalcitonina (PCT) y duración ATB:</strong><br>
+        PCT &lt;0.25 ng/mL → baja probabilidad bacteriana, considerar no iniciar/suspender<br>
+        PCT 0.25–0.5 ng/mL → zona gris, decisión clínica contextualizada<br>
+        PCT &gt;0.5 ng/mL → infección bacteriana probable, iniciar/mantener ATB<br>
+        <em>Descenso &gt;80% del pico o PCT &lt;0.25 → criterio de suspensión antibiótica</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🦠 Diagnóstico Microbiológico</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Panel molecular respiratorio (PCR múltiple)</strong><p>Detecta en 2–4h: influenza A/B, SARS-CoV-2, RSV, parainfluenza, rinovirus, Legionella, Mycoplasma. <strong>ATS 2025: si positivo para virus en adulto ambulatorio sin comorbilidades → NO dar ATB empíricos.</strong></p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Antígenos urinarios</strong><p>Ag Legionella: serogrupo 1 (70–80% de casos), S: 74%, E: 99%. Ag Neumococo: S: 70–80%, E: &gt;95%. Obtener ANTES del primer ATB en NAC grave.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Hemocultivos</strong><p>2 sets antes de la primera dosis ATB. Indicados en: CURB-65 ≥3, sospecha bacteriemia, inmunosupresión, fracaso a tratamiento empírico.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Esputo / BAL en ventilados</strong><p>Gram y cultivo de esputo profundo (no saliva). En VMI: aspirado traqueal o BAL. Guía desescalada antibiótica con antibiograma.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🔍 Diagnóstico Diferencial</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Diagnóstico alternativo</th><th>Pistas clínicas</th><th>Cómo diferenciarlo</th></tr>
+        <tr><td><strong>Tuberculosis pulmonar</strong></td><td>Curso subagudo, sudoración nocturna, pérdida de peso, hemoptisis, lóbulo superior</td><td>BK esputo x3, ADA, TAC tórax, PPD/IGRA. <span class="pill pill-red">No dar quinolonas sin descartar</span></td></tr>
+        <tr><td><strong>Edema pulmonar cardiogénico</strong></td><td>DPN, ortopnea, antecedente cardíaco, BNP elevado</td><td>POCUS (patrón B difuso bilateral, VI dilatado). BNP/NT-proBNP. Respuesta a diuréticos</td></tr>
+        <tr><td><strong>Embolia pulmonar</strong></td><td>Disnea brusca, dolor pleurítico, sin fiebre alta, inmovilización previa</td><td>Dímero D, TAC-angiografía pulmonar, score Wells</td></tr>
+        <tr><td><strong>Neoplasia con neumonitis post-obstructiva</strong></td><td>Adulto mayor fumador, hemoptisis, pérdida de peso, infiltrado recurrente mismo segmento</td><td>TAC, broncoscopia, citología de esputo</td></tr>
+        <tr><td><strong>Neumonitis por hipersensibilidad</strong></td><td>Exposición a antígenos (aves, hongos), síntomas recurrentes</td><td>Interrogatorio detallado, precipitinas, TCAR vidrio esmerilado</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB 4: MANEJO ===== -->
+<div class="section" id="manejo">
+  <div class="section-title">🚨 Manejo en Emergencia</div>
+  <div class="section-lead">El manejo se estratifica por severidad. La administración precoz del antibiótico correcto (dentro de las primeras 4 horas) es el determinante principal de mortalidad en NAC hospitalizada.</div>
+
+  <div class="card">
+    <div class="card-header blue-dark open" onclick="toggleCard(this)">
+      <span class="card-title" style="color:#fff">⚡ PROTOCOLO INICIAL — Primeros 30 Minutos</span>
+      <span class="card-arrow" style="color:#fff">▼</span>
+    </div>
+    <div class="card-body show">
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Vía aérea y oxigenación</strong><p>Posición semiincorporada (30–45°). O₂ suplementario: <strong>meta SpO₂ 92–96%</strong> (88–92% en EPOC). Evaluar necesidad de HFNO, VMNI o VMI. No demorar intubación si hay insuficiencia respiratoria grave.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Circulación y accesos vasculares</strong><p>Dos accesos venosos ≥18G. Si shock: cristaloides 30 mL/kg en 30 min (protocolo Sepsis). Hemocultivos antes de ATB si CURB ≥3.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>CURB-65 + criterios NAC grave</strong><p>Calcular puntaje. Confirmar si hay criterio mayor o ≥3 menores para UCI. Decidir hospitalización vs ambulatorio vs UCI.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Exámenes antes de ATB</strong><p>Hemograma, BUN, Cr, PCR/PCT, glucosa, Rx tórax. Si NAC grave: hemocultivos x2, antígenos urinarios, panel viral. GA si SpO₂ &lt;92%.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div class="step-body"><strong>🎯 Antibiótico empírico — DENTRO DE LAS PRIMERAS 4 HORAS</strong><p>Ver esquemas por severidad. Antifúngico solo si hay factores de riesgo específicos. Meta: primera dosis en urgencias, no en sala.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🏠 NAC LEVE — Ambulatorio (CURB-65: 0–1)</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-green"><strong>✅ Criterio:</strong> CURB-65 0–1, SpO₂ ≥92%, sin complicaciones, tolera VO, soporte domiciliario adecuado</div>
+      <div class="protocol-box">
+        <h4>Esquemas Orales — NAC Leve (ATS/IDSA 2019 + ATS 2025)</h4>
+        <div class="protocol-row"><span class="drug">Sin comorbilidades</span><span class="dose">Amoxicilina 1 g c/8h VO × 3–5 días*<br>ALT: Azitromicina 500 mg/día × 3–5 días (si sospecha atípicos)</span></div>
+        <div class="protocol-row"><span class="drug">Con comorbilidades (DM, ERC, ICC, EPOC leve)</span><span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO<br>+ Azitromicina 500 mg/día — ambos × 5 días<br>ALT: Levofloxacino 750 mg c/24h VO × 5 días</span></div>
+        <div class="protocol-row"><span class="drug">Sospecha de atípicos (Mycoplasma)</span><span class="dose">Azitromicina 500 mg día 1, luego 250 mg c/24h × 4 días<br>ALT: Doxiciclina 100 mg c/12h VO × 5 días</span></div>
+        <div class="protocol-row"><span class="drug">Alergia a penicilina</span><span class="dose">Levofloxacino 750 mg/día VO × 5 días<br>ALT: Moxifloxacino 400 mg/día VO × 5 días</span></div>
+      </div>
+      <div class="alert-amber"><strong>*NUEVA RECOMENDACIÓN ATS 2025:</strong> Para ambulatorios que alcanzan estabilidad clínica, se sugiere duración &lt;5 días (mínimo 3 días). Evaluar diariamente: si afebril y mejora síntomas al día 3, considerar suspensión (recomendación condicional, evidencia de baja calidad).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🏥 NAC MODERADA — Hospitalización Sala General (CURB-65: 2–3)</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-amber"><strong>⚠️ Criterio:</strong> CURB-65 2–3 sin criterios de UCI, SpO₂ ≥90% con O₂ suplementario, hemodinámicamente estable</div>
+      <div class="protocol-box">
+        <h4>Esquemas IV/VO — NAC Moderada Hospitalizada</h4>
+        <div class="protocol-row"><span class="drug">Primera línea (típicos + atípicos)</span><span class="dose">Ceftriaxona 1–2 g c/24h IV<br>+ Azitromicina 500 mg c/24h IV o VO<br>Descalar a VO cuando haya estabilidad clínica (típicamente 2–3 días)</span></div>
+        <div class="protocol-row"><span class="drug">Con sospecha de aspiración/anaerobios</span><span class="dose">Amoxicilina-clavulánico 2.2 g c/8h IV<br>ALT: Ceftriaxona + Metronidazol 500 mg c/8h IV</span></div>
+        <div class="protocol-row"><span class="drug">Monoterapia (intolerancia a macrólido)</span><span class="dose">Levofloxacino 750 mg c/24h IV/VO<br>ALT: Moxifloxacino 400 mg c/24h IV/VO<br><span style="color:#fbbf24">⚠️ Descartar TBC antes de iniciar quinolonas</span></span></div>
+      </div>
+      <div class="highlight-box">
+        <div class="hl-title">⏱️ Terapia Secuencial IV → VO (Step-down)</div>
+        <p style="font-size:14px">Cambio a VO cuando: temperatura &lt;37.8°C en últimas 24h, FC &lt;100, FR &lt;24, SpO₂ ≥90% sin O₂ extra, tolerancia oral, estado mental normal. Ocurre típicamente al 2°–3° día.</p>
+      </div>
+      <div class="alert-blue"><strong>📏 Duración (ATS 2025):</strong> NAC no grave hospitalizada que alcanza estabilidad clínica: &lt;5 días de ATB (mínimo 3 días). Duración más larga solo en organismos resistentes, necrotizantes o complicaciones.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🚨 NAC GRAVE — UCI (CURB-65 ≥4 o Criterios ATS)</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red"><strong>🔴 URGENCIA:</strong> Iniciar antibiótico DENTRO DE 1 HORA del diagnóstico. Evaluar vasopresores, VMNI o intubación inmediata.</div>
+      <div class="protocol-box">
+        <h4>Esquemas IV — NAC Grave UCI</h4>
+        <div class="protocol-row"><span class="drug">Sin riesgo de Pseudomonas</span><span class="dose">Ceftriaxona 2 g c/24h IV<br>+ Azitromicina 500 mg c/24h IV<br>ALT: Ceftriaxona 2g + Levofloxacino 750 mg c/24h IV</span></div>
+        <div class="protocol-row"><span class="drug">Con riesgo de Pseudomonas*</span><span class="dose">Piperacilina-tazobactam 4.5 g c/6–8h IV (infusión extendida 4h)<br>+ Ciprofloxacino 400 mg c/8h IV<br>ALT: Pip-tazo + Amikacina 15–20 mg/kg/día IV</span></div>
+        <div class="protocol-row"><span class="drug">Con riesgo de MRSA**</span><span class="dose">Agregar Vancomicina 25–30 mg/kg/día IV (meta AUC 400–600)<br>ALT: Linezolid 600 mg c/12h IV</span></div>
+        <div class="protocol-row"><span class="drug">Legionella sospechada/confirmada</span><span class="dose">Levofloxacino 750 mg c/24h IV × 10–14 días<br>ALT: Azitromicina 500 mg c/24h IV</span></div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="mini-title" style="color:#b91c1c">*Factores de riesgo para Pseudomonas</div>
+          <ul class="content-list">
+            <li>EPOC grave (FEV1 &lt;30%) o bronquiectasias</li>
+            <li>ATB de amplio espectro en últimas 4 semanas</li>
+            <li>Hospitalización reciente (&lt;90 días)</li>
+            <li>Corticoides sistémicos crónicos</li>
+            <li>Colonización conocida por Pseudomonas</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title" style="color:#b91c1c">**Factores de riesgo para MRSA</div>
+          <ul class="content-list">
+            <li>NAC post-influenza con cavitación/necrosis</li>
+            <li>Infección cutánea por MRSA reciente</li>
+            <li>Cultivo previo con MRSA en últimas 4 semanas</li>
+            <li>UDVP (uso de drogas por vía parenteral)</li>
+            <li>Sepsis grave con lesiones cutáneas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-box" style="margin-top:14px">
+        <div class="hl-title">💊 CORTICOSTEROIDES en NAC Grave (ATS 2025 — Recomendación Nueva)</div>
+        <div class="table-wrap"><table>
+          <tr><th>Escenario</th><th>Recomendación ATS 2025</th><th>Dosis</th></tr>
+          <tr><td><strong>NAC no grave (sala general)</strong></td><td><span class="pill pill-red">NO USAR</span> Recomendación fuerte — evitar hiperglucemia y efectos adversos</td><td>—</td></tr>
+          <tr><td><strong>NAC grave UCI sin influenza</strong></td><td><span class="pill pill-green">USAR</span> Condicional — NNT 17 para reducción mortalidad (RR 0.62)</td><td>Metilprednisolona 0.5 mg/kg c/12h IV × 5–7 días<br>ALT: Dexametasona 6 mg c/24h × 5–7 días<br>ALT VO: Prednisona 40–50 mg/día × 5 días</td></tr>
+          <tr><td><strong>NAC grave con influenza confirmada</strong></td><td><span class="pill pill-red">NO USAR</span> Mayor mortalidad demostrada en influenza</td><td>—</td></tr>
+        </table></div>
+      </div>
+      <div class="highlight-box">
+        <div class="hl-title">🫁 Soporte Ventilatorio en NAC Grave</div>
+        <div class="table-wrap"><table>
+          <tr><th>Modalidad</th><th>Indicación</th><th>Meta</th></tr>
+          <tr><td>O₂ convencional</td><td>SpO₂ &lt;92%, FR &lt;25, sin trabajo respiratorio excesivo</td><td>SpO₂ 92–96% (88–92% en EPOC)</td></tr>
+          <tr><td>HFNO (High-Flow Nasal)</td><td>Hipoxemia refractaria, FR &gt;25 rpm. Evitar en hipercapnia</td><td>SpO₂ &gt;93%, FR &lt;25 a las 2h; si no mejora → VMNI o VMI</td></tr>
+          <tr><td>VMNI (BiPAP/CPAP)</td><td>EPOC con hipercapnia, acidosis leve. Cautela en NAC grave pura</td><td>pH &gt;7.35, FR &lt;25 en 1–2h; fracaso → intubación sin demora</td></tr>
+          <tr><td>VMI invasiva</td><td>Deterioro en HFNO/VMNI, apnea, trastorno grave de consciencia</td><td>VT 6 mL/kg peso ideal, Pplat &lt;30 cmH₂O (protocolo SDRA si P/F &lt;200)</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">📏 Duración del Tratamiento — Resumen ATS 2025</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Escenario</th><th>Duración</th></tr>
+        <tr><td>Ambulatorio sin comorbilidades + estabilidad</td><td><strong>3–5 días</strong> (mín. 3)</td></tr>
+        <tr><td>Ambulatorio con comorbilidades + estabilidad</td><td><strong>3–5 días</strong></td></tr>
+        <tr><td>Hospitalizado no grave + estabilidad</td><td><strong>&lt;5 días</strong> (mín. 3)</td></tr>
+        <tr><td>NAC grave / UCI</td><td><strong>5–7 días</strong> según respuesta clínica + PCT</td></tr>
+        <tr><td>Legionella</td><td><strong>10–14 días</strong></td></tr>
+        <tr><td>S. aureus / MRSA</td><td><strong>14–21 días</strong></td></tr>
+        <tr><td>NAC necrotizante / absceso</td><td><strong>21–42 días</strong> (individualizar)</td></tr>
+      </table></div>
+      <div class="alert-amber"><strong>⚠️ Principio ATS 2025:</strong> La duración se determina por evaluación diaria de estabilidad clínica, NO por número fijo de días. Estabilidad: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🦠 NAC con Test Viral Positivo — Nueva Conducta ATS 2025</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-blue"><strong>🆕 ATS 2025:</strong> Adulto ambulatorio sin comorbilidades con NAC confirmada y test viral positivo → NO prescribir ATB empíricos (recomendación fuerte, evidencia muy baja calidad).</div>
+      <div class="table-wrap"><table>
+        <tr><th>Escenario</th><th>Conducta ATB</th></tr>
+        <tr><td>Ambulatorio sin comorbilidades + virus positivo</td><td><strong>NO dar ATB</strong> — Oseltamivir si influenza; soporte sintomático</td></tr>
+        <tr><td>Ambulatorio CON comorbilidades + virus positivo</td><td>Individualizar — zona de incertidumbre; factores clínicos pueden justificar ATB</td></tr>
+        <tr><td>Hospitalizado + virus positivo</td><td>Dar ATB empírico (coinfección bacteriana frecuente en hospitalizados)</td></tr>
+        <tr><td>NAC grave UCI + virus positivo</td><td>Siempre ATB + antiviral específico</td></tr>
+      </table></div>
+      <div class="alert-red"><strong>⚠️ EXCEPCIÓN NAC grave:</strong> La recomendación de no dar ATB solo aplica a ambulatorios NO graves. En NAC grave con virus positivo, los antibióticos siempre están indicados por riesgo de coinfección y mortalidad.</div>
+    </div>
+  </div>
+
+  <!-- POBLACIONES ESPECIALES: título separador -->
+  <div style="margin:28px 0 10px;font-family:'Lora',serif;font-size:20px;font-weight:700;color:#0c2340;border-bottom:2px solid #38bdf8;padding-bottom:8px;">
+    👥 NAC en Poblaciones Especiales — Tratamiento Diferenciado
+  </div>
+  <div class="alert-blue" style="margin-bottom:18px">
+    <strong>Principio general:</strong> En todas las poblaciones especiales, el esquema antibiótico se individualiza según el patógeno probable, la función renal, las interacciones farmacológicas y el riesgo de toxicidad. La decisión de hospitalización debe ser más liberal que en pacientes sin factores especiales.
+  </div>
+
+  <!-- DIABÉTICOS -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🩸 NAC en el Paciente Diabético</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-amber">
+        <strong>⚠️ Riesgo elevado:</strong> Los diabéticos tienen mayor riesgo de NAC grave, bacteriemia, organismos inusuales (Klebsiella, S. aureus) y complicaciones supurativas. La hiperglucemia compromete la función fagocítica y la respuesta inmune innata.
+      </div>
+      <div class="two-col" style="margin-top:14px">
+        <div>
+          <div class="mini-title">Patógenos más frecuentes en DM</div>
+          <ul class="content-list">
+            <li><strong>S. pneumoniae</strong> — igual que población general</li>
+            <li><strong>Klebsiella pneumoniae</strong> — mayor prevalencia; neumonía lobar, lóbulo superior, esputo hemoptoico</li>
+            <li><strong>S. aureus</strong> — incluyendo MRSA; especialmente en DM mal controlada</li>
+            <li><strong>Gram negativos entéricos</strong> — E. coli, Enterobacter en DM con complicaciones renales</li>
+            <li><strong>Mucor / Rhizopus</strong> — en cetoacidosis diabética: mucormicosis pulmonar (raro, mortal)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">Criterios de hospitalización en DM (más liberales)</div>
+          <ul class="content-list">
+            <li>CURB-65 ≥1 en DM tipo 1 o DM descompensada</li>
+            <li>Glucemia &gt;300 mg/dL al ingreso</li>
+            <li>Cualquier signo de bacteriemia</li>
+            <li>DM con nefropatía o inmunosupresión asociada</li>
+            <li>SpO₂ &lt;94% (umbral más bajo que en no diabéticos)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-box" style="margin-top:14px">
+        <h4>Antibióticos en NAC + Diabetes — Esquemas por Severidad</h4>
+        <div class="protocol-row">
+          <span class="drug">Leve ambulatoria (CURB 0–1)</span>
+          <span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO × 5 días<br>+ Azitromicina 500 mg/día × 5 días<br><em>No usar amoxicilina sola — riesgo de Klebsiella y productores de beta-lactamasas</em></span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Moderada hospitalizada</span>
+          <span class="dose">Ceftriaxona 1–2 g c/24h IV + Azitromicina 500 mg c/24h IV<br>Si sospecha Klebsiella (lóbulo superior, esputo herrumbroso): mantener ceftriaxona o escalar a cefepime 2g c/8h IV</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Grave UCI</span>
+          <span class="dose">Ceftriaxona 2g c/24h IV + Levofloxacino 750 mg c/24h IV<br>Si sospecha S. aureus o MRSA: agregar Vancomicina 25–30 mg/kg/día IV<br>Si cetoacidosis: descartar mucormicosis con TAC — tratamiento: Anfotericina B liposomal</span>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="hl-title">💊 Interacciones Farmacológicas Críticas en DM + NAC</div>
+        <div class="table-wrap"><table>
+          <tr><th>Medicamento ATB</th><th>Interacción con DM/antidiabéticos</th><th>Manejo</th></tr>
+          <tr><td><strong>Fluoroquinolonas</strong> (levofloxacino, moxifloxacino)</td><td>Disglucemia: hipo e hiperglucemia imprevisibles. Inhiben canales K-ATP en células beta. Efecto amplificado con sulfonilureas (glibenclamida, glipizida)</td><td>Monitoreo glucémico c/4–6h. Evitar con sulfonilureas si es posible. Si se usa, suspender ATD oral temporalmente</td></tr>
+          <tr><td><strong>Macrólidos</strong> (azitromicina)</td><td>Prolongación del QTc — riesgo aumentado si hay neuropatía autonómica cardíaca diabética</td><td>ECG basal. Si QTc &gt;470 ms (mujer) o &gt;450 ms (hombre): evaluar alternativa</td></tr>
+          <tr><td><strong>Corticosteroides</strong> (en NAC grave)</td><td>Hiperglucemia significativa: pueden elevar glucemia 100–200 mg/dL. Riesgo de cetosis en DM tipo 1</td><td>Insulina de corrección horaria. Meta glucemia 140–180 mg/dL en UCI. No omitir corticosteroides si hay indicación — solo controlar glucemia agresivamente</td></tr>
+          <tr><td><strong>Metformina</strong> (antidiabético del paciente)</td><td>Riesgo de acidosis láctica si hay hipoxemia, deterioro renal o uso de contraste</td><td><strong>SUSPENDER METFORMINA</strong> al hospitalizar. Reiniciar solo cuando SpO₂ &gt;92% sin O₂, Cr estable, 48h post-contraste si se usó</td></tr>
+        </table></div>
+      </div>
+
+      <div class="alert-red">
+        <strong>🔴 Control glucémico durante NAC hospitalizada:</strong><br>
+        Meta glucemia en sala general: 140–180 mg/dL<br>
+        Meta en UCI: 140–180 mg/dL (evitar hipoglucemia &lt;70 mg/dL)<br>
+        Monitoreo: c/4h en sala general, c/1–2h en UCI con infusión de insulina<br>
+        <strong>La hiperglucemia no controlada empeora el pronóstico de la NAC independientemente de la severidad</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADULTO MAYOR -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">👴 NAC en el Adulto Mayor (≥65 años)</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red">
+        <strong>🚨 Población de máximo riesgo:</strong> La mortalidad por NAC en mayores de 65 años es 3–5 veces mayor que en adultos jóvenes. La presentación clínica atípica frecuentemente retrasa el diagnóstico. El CURB-65 puede subestimar la gravedad en este grupo.
+      </div>
+
+      <div class="two-col" style="margin-top:14px">
+        <div>
+          <div class="mini-title">Presentación Atípica — No Asumir Ausencia de NAC si:</div>
+          <ul class="content-list">
+            <li>Confusión aguda sin fiebre (20–30% no tienen fiebre)</li>
+            <li>Caídas de repetición sin causa aparente</li>
+            <li>Deterioro funcional agudo ("ya no camina igual")</li>
+            <li>Anorexia y astenia como único síntoma</li>
+            <li>Deshidratación de causa no clara</li>
+            <li>Descompensación de comorbilidades (ICC, DM) sin otra causa</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">Patógenos más frecuentes en Adulto Mayor</div>
+          <ul class="content-list">
+            <li><strong>S. pneumoniae</strong> — sigue siendo el principal</li>
+            <li><strong>H. influenzae</strong> — mayor prevalencia que en jóvenes</li>
+            <li><strong>Gram negativos</strong> (Klebsiella, E. coli) — aspiración, institucionalización</li>
+            <li><strong>Anaerobios</strong> — disfagia, enfermedad periodontal, reflujo</li>
+            <li><strong>Moraxella catarrhalis</strong> — especialmente en EPOC asociado</li>
+            <li><strong>Legionella</strong> — brotes en instituciones de cuidados</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-box" style="margin-top:14px">
+        <h4>Antibióticos en NAC + Adulto Mayor — Ajustes Específicos</h4>
+        <div class="protocol-row">
+          <span class="drug">Leve ambulatoria</span>
+          <span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO × 5 días + Azitromicina 500 mg/día × 5 días<br>Verificar función renal antes de prescribir. PSI ≥III → preferir hospitalización aunque CURB-65 = 1</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Moderada hospitalizada</span>
+          <span class="dose">Ceftriaxona 1–2g c/24h IV + Azitromicina 500 mg c/24h IV<br>Si sospecha de aspiración (disfagia, reflujo, deterioro cognitivo):<br>Amoxicilina-clavulánico 2.2g c/8h IV o agregar Metronidazol 500mg c/8h IV</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Grave UCI</span>
+          <span class="dose">Ceftriaxona 2g c/24h IV + Levofloxacino 750 mg c/24h IV<br>Ajustar si TFG &lt;50. Vigilar ototoxicidad si aminoglucósidos. Evitar vancomicina sin indicación MRSA clara</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">NAC aspirativa confirmada</span>
+          <span class="dose">Amoxicilina-clavulánico 2.2g c/8h IV (primera línea)<br>ALT: Piperacilina-tazobactam 4.5g c/8h IV si hay colonización hospitalaria previa<br>Duración: 7 días mínimo (mayor riesgo de recaída)</span>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="hl-title">💊 Problemas Farmacológicos Específicos del Adulto Mayor</div>
+        <div class="table-wrap"><table>
+          <tr><th>Medicamento</th><th>Problema en adulto mayor</th><th>Alternativa / Manejo</th></tr>
+          <tr><td><strong>Fluoroquinolonas</strong></td><td>Mayor riesgo de: rotura de tendón de Aquiles (especialmente con corticoides), prolongación QTc, neuropatía periférica, delirium, hipoglucemia (en DM). Efecto aditivo en polimedicados</td><td>Usar solo si no hay alternativa. Monitoreo neurológico y cardíaco. Evitar si hay neuropatía periférica previa</td></tr>
+          <tr><td><strong>Macrólidos</strong> (azitromicina)</td><td>QTc prolongado frecuente en adulto mayor. Interacción con digoxina (aumenta niveles). Interacción con warfarina (aumenta INR)</td><td>ECG basal obligatorio. Medir digoxinemia e INR si aplica. Si QTc &gt;470 ms: usar doxiciclina 100 mg c/12h como alternativa para atípicos</td></tr>
+          <tr><td><strong>Beta-lactámicos</strong></td><td>Ajuste por TFG. Riesgo de neurotoxicidad (mioclonías, convulsiones) con dosis altas en insuficiencia renal</td><td>Calcular TFG (Cockcroft-Gault con peso real). Ceftriaxona no requiere ajuste hasta TFG &lt;10</td></tr>
+          <tr><td><strong>Corticosteroides</strong> (NAC grave)</td><td>Mayor riesgo de: hiperglucemia, delirium, debilidad muscular, úlcera gástrica, infección oportunista</td><td>No omitir si hay indicación. Cubrir con IBP. Monitoreo glucemia c/4h. Fisioterapia precoz</td></tr>
+        </table></div>
+      </div>
+
+      <div class="alert-amber">
+        <strong>⚠️ Consideraciones adicionales en el adulto mayor:</strong><br>
+        • <strong>Hidratación:</strong> con cuidado — riesgo de sobrecarga hídrica por ICC o IRC subyacente; usar 1–1.5 L/día si hay duda<br>
+        • <strong>Delirium:</strong> evitar benzodiacepinas; preferir haloperidol 0.5–1 mg VO/IV si agitación intensa<br>
+        • <strong>Movilización precoz:</strong> reducir riesgo de TEP, debilidad adquirida en UCI y úlceras por presión<br>
+        • <strong>Nutrición:</strong> no ayunar; iniciar nutrición enteral precoz si hay disfagia o intubación<br>
+        • <strong>Vacunación de oportunidad:</strong> al alta, vacunar contra neumococo e influenza si no está al día
+      </div>
+    </div>
+  </div>
+
+  <!-- EPOC / FUMADOR -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🚬 NAC en el Paciente con EPOC y/o Fumador</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red">
+        <strong>🚨 Doble amenaza:</strong> La NAC en el paciente con EPOC combina la infección con la exacerbación de la enfermedad de base. Deben manejarse simultáneamente. La mortalidad hospitalaria es el doble que en no-EPOC.
+      </div>
+
+      <div class="two-col" style="margin-top:14px">
+        <div>
+          <div class="mini-title">Patógenos según gravedad del EPOC</div>
+          <ul class="content-list">
+            <li><strong>EPOC leve-moderado (FEV1 &gt;50%):</strong> S. pneumoniae, H. influenzae, Moraxella catarrhalis, virus</li>
+            <li><strong>EPOC grave (FEV1 30–50%):</strong> mismos + K. pneumoniae, Enterobacterias</li>
+            <li><strong>EPOC muy grave (FEV1 &lt;30%) o con bronquiectasias:</strong> mismos + <strong>Pseudomonas aeruginosa</strong> (factor de riesgo independiente)</li>
+            <li><strong>Fumador activo:</strong> H. influenzae (productor de beta-lactamasas), Moraxella, virus influenza</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">Particularidades diagnósticas en EPOC</div>
+          <ul class="content-list">
+            <li>La Rx puede mostrar hiperinsuflación que enmascara el infiltrado — TAC más sensible</li>
+            <li>La SpO₂ basal puede ser ya &lt;92% — usar SpO₂ basal del paciente como referencia</li>
+            <li>La gasometría es esencial: PaCO₂ elevada indica retención crónica de CO₂</li>
+            <li>La POCUS puede identificar consolidaciones no visibles en Rx con hiperinsuflación</li>
+            <li>No asumir que toda exacerbación de EPOC es viral — buscar consolidación activamente</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-box" style="margin-top:14px">
+        <h4>Antibióticos en NAC + EPOC — Esquemas por Severidad del EPOC</h4>
+        <div class="protocol-row">
+          <span class="drug">EPOC leve-moderado (FEV1 &gt;50%) NAC leve</span>
+          <span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO × 5–7 días<br>+ Azitromicina 500 mg/día × 5 días<br><em>Amoxicilina-clavulánico es clave: cubre H. influenzae productor de beta-lactamasas y Moraxella</em></span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">EPOC moderado-grave (FEV1 30–50%) hospitalizado</span>
+          <span class="dose">Ceftriaxona 1–2g c/24h IV + Azitromicina 500 mg/día IV<br>ALT monoterapia: Levofloxacino 750 mg c/24h IV (descartada TBC)<br>Añadir broncodilatadores: salbutamol 2.5 mg NEB c/4–6h + ipratropio 0.5 mg NEB c/6h</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">EPOC muy grave (FEV1 &lt;30%) o con bronquiectasias — NAC grave</span>
+          <span class="dose"><strong>Cobertura anti-Pseudomonas OBLIGATORIA:</strong><br>Piperacilina-tazobactam 4.5g c/6h IV (infusión extendida 4h)<br>+ Ciprofloxacino 400 mg c/8h IV<br>ALT: Cefepime 2g c/8h IV + Amikacina 15–20 mg/kg/día IV</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">EPOC + sospecha de Legionella (institución de cuidados, brote)</span>
+          <span class="dose">Levofloxacino 750 mg c/24h IV × 10–14 días<br>ALT: Azitromicina 500 mg c/24h IV (menor eficacia en NAC grave por Legionella)</span>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="hl-title">💊 Tratamiento NO Antibiótico en EPOC + NAC — Diferencias Críticas</div>
+        <div class="table-wrap"><table>
+          <tr><th>Medicamento</th><th>Indicación y dosis en EPOC + NAC</th><th>Precaución específica</th></tr>
+          <tr><td><strong>Broncodilatadores (SABA + SAMA)</strong></td><td>Salbutamol 2.5 mg NEB c/4–6h + Ipratropio 0.5 mg NEB c/6h. <strong>PRIORIDAD MÁXIMA en EPOC — reducen el broncoespasmo que agrava la hipoxemia</strong></td><td>Salbutamol puede causar taquicardia e hipopotasemia — monitorear K⁺ c/12h si dosis altas</td></tr>
+          <tr><td><strong>Corticosteroides sistémicos</strong></td><td>En EPOC + NAC: indicados en dos contextos: (1) NAC grave UCI sin influenza (dosis antiinflamatoria: metilprednisolona 0.5 mg/kg c/12h) y (2) Exacerbación de EPOC concomitante (prednisona 40 mg/día × 5 días)</td><td>Hiperglucemia. No usar en NAC no grave sin exacerbación de EPOC. Duración máxima 5–7 días</td></tr>
+          <tr><td><strong>Oxigenoterapia</strong></td><td><strong>META ESPECÍFICA EN EPOC: SpO₂ 88–92%</strong> (NO 94–96% como en no-EPOC). O₂ excesivo suprime el estímulo hipóxico en retenedores crónicos de CO₂ → hipercapnia y paro respiratorio</td><td>Gasometría arterial obligatoria. Si PaCO₂ sube con O₂ → VMNI inmediata</td></tr>
+          <tr><td><strong>VMNI (BiPAP)</strong></td><td>Primera línea en EPOC + NAC con hipercapnia (PaCO₂ &gt;45 mmHg) o acidosis respiratoria (pH &lt;7.35). IPAP 14–20 cmH₂O / EPAP 4–8 cmH₂O, titular según respuesta</td><td>En NAC grave pura sin EPOC: mayor cautela con VMNI. Fracaso a 1–2h → intubación sin demora</td></tr>
+          <tr><td><strong>Mucolíticos / NAC</strong></td><td>N-acetilcisteína o ambroxol pueden facilitar el manejo de secreciones en EPOC con hipersecreción. No tienen evidencia directa en NAC</td><td>No reemplazar la fisioterapia respiratoria</td></tr>
+        </table></div>
+      </div>
+
+      <div class="alert-amber">
+        <strong>⚠️ ERROR FRECUENTE — O₂ en EPOC:</strong> Administrar O₂ al 100% o a flujos altos para "corregir" la SpO₂ a 94–96% en un paciente con EPOC retenedor de CO₂ puede desencadenar hipercapnia progresiva y paro respiratorio. Siempre meta SpO₂ 88–92% y gasometría arterial de control. Si el paciente no mejora con VMNI en 2 horas → intubación orotraqueal.
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBARAZO -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🤰 NAC en el Embarazo</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red">
+        <strong>🚨 Doble riesgo:</strong> La NAC en el embarazo aumenta el riesgo de parto prematuro, bajo peso al nacer, pérdida fetal y mortalidad materna. La hospitalización debe ser más liberal (CURB-65 ≥1 en el tercer trimestre o cualquier deterioro).
+      </div>
+      <div class="two-col" style="margin-top:14px">
+        <div>
+          <div class="mini-title">Por qué el embarazo aumenta el riesgo</div>
+          <ul class="content-list">
+            <li>Inmunomodulación fisiológica (tolerancia al feto)</li>
+            <li>Elevación diafragmática → menor capacidad residual funcional</li>
+            <li>Mayor consumo de O₂ (30% más que basal)</li>
+            <li>Edema de mucosas → mayor obstrucción de la vía aérea</li>
+            <li>Influenza especialmente grave en embarazo (mayor mortalidad)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">Meta de SpO₂ en embarazo</div>
+          <ul class="content-list">
+            <li><strong>SpO₂ ≥95%</strong> (umbral más alto que en no embarazadas)</li>
+            <li>PaO₂ &gt;70 mmHg — el feto tolera mal la hipoxemia materna</li>
+            <li>Monitoreo fetal continuo en NAC moderada-grave</li>
+            <li>Posición lateral izquierda en tercer trimestre</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="protocol-box" style="margin-top:14px">
+        <h4>Antibióticos en NAC + Embarazo — Seguros e Inseguros</h4>
+        <div class="protocol-row">
+          <span class="drug">Leve ambulatoria (CURB 0, 1° trimestre sano)</span>
+          <span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO × 5 días<br>+ Azitromicina 500 mg/día × 3–5 días (categoría B — segura en todos los trimestres)</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Moderada hospitalizada (CURB ≥1 en embarazo)</span>
+          <span class="dose">Ceftriaxona 1–2g c/24h IV (cat. B) + Azitromicina 500 mg/día IV (cat. B)<br>Duración: 5 días. Cambio a VO cuando haya estabilidad clínica</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Grave UCI + embarazo</span>
+          <span class="dose">Ceftriaxona 2g c/24h IV + Azitromicina 500 mg/día IV<br>Si influenza: Oseltamivir 75 mg c/12h × 5 días (seguro en embarazo, cat. C — beneficio supera riesgo)<br>Si shock séptico: corticosteroides aceptables (betametasona también madura pulmón fetal si &lt;34 semanas)</span>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <div class="hl-title">🚫 Antibióticos CONTRAINDICADOS en Embarazo + NAC</div>
+        <div class="table-wrap"><table>
+          <tr><th>Medicamento</th><th>Categoría</th><th>Riesgo / Mecanismo</th></tr>
+          <tr><td><strong>Fluoroquinolonas</strong> (levofloxacino, moxifloxacino, ciprofloxacino)</td><td>Cat. C/D</td><td>Daño al cartílago articular fetal en estudios animales. Inhibición de la topoisomerasa II fetal. <strong>Contraindicadas en todos los trimestres</strong></td></tr>
+          <tr><td><strong>Tetraciclinas / Doxiciclina</strong></td><td>Cat. D</td><td>Depósito en hueso y dientes fetales (coloración amarilla permanente). Inhibe crecimiento óseo. <strong>Contraindicadas especialmente &gt;14 semanas</strong></td></tr>
+          <tr><td><strong>Claritromicina</strong></td><td>Cat. C</td><td>Teratogenicidad en estudios animales (cardiopatías, paladar hendido). Usar azitromicina como alternativa siempre</td></tr>
+          <tr><td><strong>Aminoglucósidos</strong> (amikacina, gentamicina)</td><td>Cat. D</td><td>Ototoxicidad y nefrotoxicidad fetal. Solo en infección grave sin alternativa, con consentimiento informado</td></tr>
+          <tr><td><strong>TMP/SMX</strong> (cotrimoxazol)</td><td>Cat. D (3° trimestre)</td><td>Inhibición del folato → defectos del tubo neural (1° trimestre). Kernicterus neonatal (3° trimestre)</td></tr>
+        </table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSUFICIENCIA RENAL CRÓNICA -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🫘 NAC en el Paciente con Insuficiencia Renal Crónica</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-amber">
+        <strong>⚠️ Doble problema:</strong> La IRC predispone a NAC más grave (inmunosupresión urémica, alteración fagocítica) y complica el uso de antibióticos por acumulación y toxicidad. Requiere ajuste de dosis cuidadoso.
+      </div>
+
+      <div class="protocol-box" style="margin-top:14px">
+        <h4>Ajuste de Antibióticos según TFG (ml/min)</h4>
+        <div class="protocol-row">
+          <span class="drug">Ceftriaxona</span>
+          <span class="dose"><strong>Sin ajuste</strong> hasta TFG &lt;10 mL/min. Eliminación principalmente biliar (40–60%). Primera línea ideal en IRC</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Azitromicina</span>
+          <span class="dose"><strong>Sin ajuste</strong> — eliminación hepática y biliar. Usar con precaución en IRC grave por acumulación teórica, pero segura en la práctica clínica</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Levofloxacino</span>
+          <span class="dose">TFG 20–49: 500 mg c/24h (dosis de carga 500 mg)<br>TFG 10–19: 250 mg c/24h<br>TFG &lt;10 o diálisis: 250 mg c/48h</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Moxifloxacino</span>
+          <span class="dose"><strong>Sin ajuste</strong> — eliminación hepática. Alternativa útil en IRC grave. Monitorear QTc</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Amoxicilina-clavulánico</span>
+          <span class="dose">TFG 10–30: 500/125 mg c/12h (no usar presentación c/8h)<br>TFG &lt;10: 500/125 mg c/24h<br>Diálisis: dosis suplementaria post-sesión</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Piperacilina-tazobactam</span>
+          <span class="dose">TFG 20–40: 3.375g c/6h IV<br>TFG &lt;20: 2.25g c/6h IV<br>Diálisis: 2.25g c/12h + 0.75g post-diálisis</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Vancomicina (si MRSA)</span>
+          <span class="dose">Dosis de carga: 25–30 mg/kg IV única<br>Mantenimiento: guiado por niveles (AUC 400–600 mg·h/L)<br>TFG &lt;10: c/48–72h, monitorear niveles. En diálisis: solo dosis post-sesión</span>
+        </div>
+        <div class="protocol-row">
+          <span class="drug">Aminoglucósidos — EVITAR</span>
+          <span class="dose"><strong>Contraindicados en IRC</strong> (TFG &lt;30). Si son imprescindibles: dosis única diaria extendida con monitoreo de niveles valle (&lt;1 mcg/mL)</span>
+        </div>
+      </div>
+
+      <div class="alert-red">
+        <strong>🔴 Antibióticos a evitar o usar con extrema precaución en IRC:</strong><br>
+        • <strong>Aminoglucósidos:</strong> nefrotóxicos, ototóxicos — evitar si TFG &lt;30<br>
+        • <strong>Nitrofurantoína:</strong> no activa con TFG &lt;30 y neuropatía periférica<br>
+        • <strong>Tetraciclinas:</strong> acumulan en IRC, aumentan BUN (catabolismo proteico) — evitar excepto doxiciclina<br>
+        • <strong>Corticosteroides en NAC grave:</strong> no contraindicados, pero vigilar hiperglucemia e hipertensión por retención de sodio
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ===== TAB 5: COMPLICACIONES ===== -->
+<div class="section" id="complicaciones">
+  <div class="section-title">⚡ Complicaciones</div>
+  <div class="section-lead">Las complicaciones de NAC pueden ser pulmonares (empiema, absceso, necrosis) o sistémicas (sepsis, SDRA, fallo multiorgánico). Su reconocimiento precoz modifica el pronóstico.</div>
+
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">
+      <span class="card-title">💧 Derrame Pleural Paraneumónico y Empiema</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body show">
+      <div class="table-wrap"><table>
+        <tr><th>Clasificación</th><th>Características del líquido</th><th>Manejo</th></tr>
+        <tr><td><strong>Exudado no complicado</strong></td><td>pH &gt;7.20, glucosa &gt;60 mg/dL, LDH &lt;1000, Gram negativo</td><td>ATB solos. Control ecográfico en 24–48h</td></tr>
+        <tr><td><strong>Exudado complicado</strong></td><td>pH 7.0–7.20, glucosa 40–60, LDH &gt;1000, Gram positivo</td><td><strong>Drenaje pleural (tubo 20–28 Fr) + ATB</strong></td></tr>
+        <tr><td><strong>Empiema franco</strong></td><td>Pus visible o pH &lt;7.0, glucosa &lt;40, Gram/cultivo positivo</td><td><strong>Drenaje urgente + ATB IV + consulta cirugía torácica</strong></td></tr>
+      </table></div>
+      <div class="alert-red"><strong>⚠️ Toracocentesis diagnóstica:</strong> Derrame ≥10 mm en decúbito lateral O libre ≥5 mm en Rx. Siempre enviar: pH, glucosa, LDH, proteínas, Gram y cultivo (aerobio + anaerobio).</div>
+      <div class="alert-amber"><strong>Fibrinolíticos intrapleurales:</strong> Alteplasa 10 mg + DNasa 5 mg dos veces al día × 3 días si hay loculaciones o drenaje insuficiente. Indicar en conjunto con cirugía torácica.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🦠 Absceso Pulmonar</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-blue"><strong>Definición:</strong> Necrosis del parénquima pulmonar con cavidad &gt;2 cm conteniendo pus. En Rx/TAC: cavidad con nivel hidroaéreo.</div>
+      <div class="two-col">
+        <div>
+          <div class="mini-title">Patógenos frecuentes</div>
+          <ul class="content-list">
+            <li>Polimicrobiano (anaerobios)</li>
+            <li>S. aureus (incluyendo MRSA)</li>
+            <li>Klebsiella pneumoniae</li>
+            <li>Streptococcus milleri group</li>
+            <li>Pseudomonas (inmunodeprimidos)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">Tratamiento</div>
+          <ul class="content-list">
+            <li>Amoxicilina-clavulánico IV total 4–6 semanas</li>
+            <li>ALT: Clindamicina 600 mg c/8h + beta-lactámico</li>
+            <li>Si MRSA: Vancomicina o Linezolid 600 mg c/12h</li>
+            <li>Drenaje percutáneo si &gt;6 cm o sin respuesta a ATB</li>
+            <li>Cirugía si falla drenaje o rotura inminente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🫁 SDRA — Síndrome de Distrés Respiratorio Agudo</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Criterios de Berlín</th><th>Leve</th><th>Moderado</th><th>Grave</th></tr>
+        <tr><td>P/F (con PEEP ≥5)</td><td>201–300</td><td>101–200</td><td>≤100</td></tr>
+        <tr><td>Mortalidad aprox.</td><td>~27%</td><td>~32%</td><td>~45%</td></tr>
+      </table></div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Ventilación protectora (pilar fundamental)</strong><p>VT 6 mL/kg peso ideal. Pplat &lt;30 cmH₂O. Driving pressure &lt;15 cmH₂O. PEEP ≥8 cmH₂O (tabla ARDSNet). FiO₂ mínima para SpO₂ 88–95%.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Pronación en SDRA moderado-grave (P/F &lt;150)</strong><p>Decúbito prono ≥16 horas/día. Reducción de mortalidad ~16% (NNT ~6). Requiere UCI con equipo entrenado.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Corticosteroides (SDRA + NAC grave sin influenza)</strong><p>Metilprednisolona 1 mg/kg/día IV × 7–14 días con reducción gradual. Iniciar dentro de las primeras 72h. NO en influenza.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Manejo de fluidos conservador post-resucitación</strong><p>Balance neutro o negativo (-500 a -1000 mL/día) una vez estabilizado hemodinámicamente. Evitar sobrecarga pulmonar.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">🔴 Sepsis y Shock Séptico por NAC</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-red"><strong>Cuando NAC progresa a sepsis:</strong> Aplicar protocolo Sepsis 1 hora. Ver Guía Sepsis y Shock Séptico del portal para manejo completo.</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Vasopresores (PAS &lt;65 mmHg con fluidos)</strong><p>Noradrenalina 0.01–3 mcg/kg/min infusión continua por acceso central. Meta: PAM ≥65 mmHg. Segunda línea: vasopresina 0.03 U/min fija.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Corticosteroides en shock refractario</strong><p>Hidrocortisona 200 mg/día IV en infusión continua o 50 mg c/6h si noradrenalina &gt;0.25 mcg/kg/min. Suspender cuando vasopresores no se necesiten.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Monitoreo en UCI</strong><p>Lactato c/2–4h hasta &lt;2 mmol/L. Gasto urinario &gt;0.5 mL/kg/h. Evaluación de respuesta a fluidos (PLR o variación PP).</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">📊 Fracaso al Tratamiento — Cuándo Sospechar y Qué Hacer</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="alert-amber"><strong>Definición de fracaso:</strong> Ausencia de mejoría clínica o deterioro después de 48–72h de tratamiento antibiótico adecuado.</div>
+      <div class="table-wrap"><table>
+        <tr><th>Causa probable</th><th>Investigación recomendada</th></tr>
+        <tr><td>Patógeno resistente o no cubierto (MRSA, Pseudomonas)</td><td>Hemocultivos, esputo profundo, BAL, panel molecular ampliado</td></tr>
+        <tr><td>Complicación local (empiema, absceso)</td><td>TAC tórax con contraste, ecografía pleural</td></tr>
+        <tr><td>Diagnóstico incorrecto (TBC, neoplasia, vasculitis)</td><td>BK esputo, TCAR, broncoscopia, biopsia</td></tr>
+        <tr><td>Inmunosupresión no reconocida</td><td>VIH, perfil inmunológico, CD4</td></tr>
+        <tr><td>ATB inadecuado (dosis, vía, adherencia)</td><td>Revisar niveles, switch a IV si duda de absorción VO</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB 6: EGRESO ===== -->
+<div class="section" id="egreso">
+  <div class="section-title">📋 Egreso, Seguimiento y Prevención</div>
+  <div class="section-lead">Los criterios de alta deben cumplirse en su totalidad. El seguimiento ambulatorio garantiza la resolución del infiltrado y detecta complicaciones tardías.</div>
+
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">
+      <span class="card-title">✅ Criterios de Alta Hospitalaria</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body show">
+      <div class="alert-green"><strong>TODOS deben cumplirse antes del alta:</strong></div>
+      <ul class="checklist">
+        <li>Temperatura &lt;37.8°C en las últimas 24 horas sin antipiréticos</li>
+        <li>FC &lt;100 lpm</li>
+        <li>FR &lt;24 rpm</li>
+        <li>SpO₂ ≥90% en aire ambiente (o basal si EPOC)</li>
+        <li>PAS ≥90 mmHg sin vasopresores</li>
+        <li>Estado mental normal (o basal previo)</li>
+        <li>Tolerancia a la vía oral e ingesta adecuada de líquidos</li>
+        <li>Completado mínimo 3 días de antibiótico (NAC leve/moderada)</li>
+        <li>Soporte domiciliario adecuado</li>
+        <li>Educación al paciente sobre signos de alarma y seguimiento</li>
+      </ul>
+      <div class="alert-amber" style="margin-top:12px"><strong>⚠️ NO dar alta si:</strong> SpO₂ &lt;90%, FC &gt;100, FR &gt;24, fiebre persistente, o si el paciente no puede garantizar seguimiento. Cualquier inestabilidad vital indica hospitalización adicional.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">📋 Instrucciones al Paciente al Egreso</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="two-col">
+        <div>
+          <div class="mini-title">✅ Indicaciones</div>
+          <ul class="content-list">
+            <li>Completar el esquema antibiótico prescrito</li>
+            <li>Hidratación oral abundante (2–3 L/día)</li>
+            <li>Reposo relativo los primeros 3–5 días</li>
+            <li>Fisioterapia respiratoria si hay secreciones</li>
+            <li>Control médico en 7 días post-alta</li>
+            <li>Rx de tórax de control en 4–8 semanas</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">🚨 Regresar a urgencias si:</div>
+          <ul class="content-list">
+            <li>Fiebre que reaparece o no cede</li>
+            <li>Dificultad respiratoria que empeora</li>
+            <li>Expectoración con sangre (hemoptisis)</li>
+            <li>Dolor torácico intenso</li>
+            <li>Confusión o alteración del sensorio</li>
+            <li>Imposibilidad de tomar líquidos o medicamento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">📅 Tabla de Seguimiento Ambulatorio</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Tiempo</th><th>Evaluación</th><th>Exámenes</th></tr>
+        <tr><td><strong>7 días post-alta</strong></td><td>Control clínico: síntomas, SpO₂, tolerancia a ATB, adherencia</td><td>Hemograma, PCR si tenía elevación marcada</td></tr>
+        <tr><td><strong>4–6 semanas</strong></td><td>Resolución del infiltrado. En &lt;50 años asintomáticos puede ser acción única</td><td><strong>Rx de tórax obligatoria</strong></td></tr>
+        <tr><td><strong>&gt;50 años o fumador</strong></td><td>Descartar neoplasia si infiltrado no resuelve</td><td>TAC si Rx persiste a 6 semanas. Derivar neumología</td></tr>
+        <tr><td><strong>3 meses</strong></td><td>Completar vacunación, evaluar factores de riesgo modificables</td><td>Espirometría si sospecha EPOC no diagnosticado</td></tr>
+      </table></div>
+      <div class="alert-blue"><strong>💡 Resolución radiológica:</strong> 50% de infiltrados resuelven a 2 semanas; 90% a 6 semanas. Resolución más lenta en: &gt;65 años, bacteriemia confirmada, NAC multilobar, alcoholismo.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">💉 Prevención — Vacunación y Medidas de Control</span>
+      <span class="card-arrow">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap"><table>
+        <tr><th>Vacuna</th><th>Indicación</th><th>Esquema</th></tr>
+        <tr><td><strong>Neumococo conjugada 20v (PCV20) o 15v (PCV15)</strong></td><td>≥65 años, inmunodeprimidos, DM, ERC, EPOC, tabaquismo, asplenia, hepatopatía crónica</td><td>PCV20: dosis única. Si PCV15: seguir con PPSV23 ≥1 año después</td></tr>
+        <tr><td><strong>Neumococo polisacárida 23v (PPSV23)</strong></td><td>Vacunación previa con PCV13/15 en ≥65 años; grupos de riesgo</td><td>Dosis única; revacunar a los 5 años si inmunosupresión</td></tr>
+        <tr><td><strong>Influenza</strong></td><td>Anual para todos (especialmente ≥65 años, embarazo, comorbilidades, personal de salud)</td><td>Vacuna tetravalente inactivada cada año</td></tr>
+        <tr><td><strong>COVID-19</strong></td><td>Según esquema vigente — booster anual para grupos de riesgo</td><td>Actualización anual recomendada para ≥65 años e inmunosuprimidos</td></tr>
+      </table></div>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <div class="mini-title">🚭 Prevención Primaria</div>
+          <ul class="content-list">
+            <li><strong>Cesación tabáquica</strong> — reduce riesgo de NAC hasta 50%</li>
+            <li>Higiene de manos (lavado + alcohol gel)</li>
+            <li>Ventilación adecuada de espacios</li>
+            <li>Nutrición y estado nutricional óptimo</li>
+            <li>Control de comorbilidades (DM, ICC, EPOC)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mini-title">🔄 Prevención Secundaria</div>
+          <ul class="content-list">
+            <li>Vacunación post-NAC (captación de oportunidad)</li>
+            <li>Fisioterapia respiratoria en EPOC</li>
+            <li>Identificar y tratar aspiración crónica</li>
+            <li>Revisar medicamentos que favorecen aspiración (IBP, BZD)</li>
+            <li>Evaluación de deglución en adulto mayor con disfagia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert-amber" style="margin-top:12px">
+        <strong>🇪🇨 Notificación MSP Ecuador:</strong> La NAC en adultos inmunocompetentes NO es de notificación obligatoria individual. SÍ notificar si: brote sospechado (≥3 casos vinculados), NAC por patógeno especial (Legionella), o en el contexto de emergencia epidemiológica declarada.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB 7: QUIZ ===== -->
+<div class="section" id="quiz">
+  <div class="section-title">❓ Autoevaluación</div>
+  <div class="section-lead">Casos clínicos basados en práctica real de emergencias. Retroalimentación inmediata con justificación basada en ATS 2025 y ATS/IDSA 2019.</div>
+
+  <div class="quiz-set">
+    <div class="quiz-title">📋 Módulo 1 — Diagnóstico y Estratificación</div>
+
+    <div class="quiz-q" id="q1">
+      <div class="q-text">1. Hombre 68 años, tos productiva, fiebre 38.9°C, disnea 2 días. FR 28 rpm, SpO₂ 91%, PA 110/70, FC 98, confundido. BUN 22 mg/dL. ¿Cuál es su CURB-65 y la conducta más apropiada?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',1)">A) CURB-65 = 2; tratamiento ambulatorio con levofloxacino</button>
+        <button class="opt-btn" onclick="responder(this,'ok',1)">B) CURB-65 = 3; hospitalización urgente, evaluar criterios de NAC grave/UCI</button>
+        <button class="opt-btn" onclick="responder(this,'no',1)">C) CURB-65 = 4; hospitalización directa en UCI</button>
+        <button class="opt-btn" onclick="responder(this,'no',1)">D) CURB-65 = 2; observación 6h y alta con azitromicina</button>
+      </div>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <div class="q-text">2. Mujer 32 años, sin comorbilidades, tos seca, cefalea y malestar de 5 días. Temp 37.9°C, FR 18, SpO₂ 97%. Rx: infiltrado intersticial bilateral. Panel viral PCR positivo para rinovirus. Según ATS 2025, ¿cuál es la conducta correcta?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',2)">A) Iniciar azitromicina 500 mg/día oral por sospecha de Mycoplasma</button>
+        <button class="opt-btn" onclick="responder(this,'ok',2)">B) No prescribir antibióticos; tratamiento de soporte y seguimiento estrecho</button>
+        <button class="opt-btn" onclick="responder(this,'no',2)">C) Iniciar amoxicilina-clavulánico por ser el esquema más seguro</button>
+        <button class="opt-btn" onclick="responder(this,'no',2)">D) Hospitalizar para completar estudios y esperar hemocultivos</button>
+      </div>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <div class="q-text">3. ¿Cuál hallazgo ecográfico pulmonar (POCUS) es el MÁS específico para consolidación de origen infeccioso en NAC, según ATS 2025?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',3)">A) Líneas B difusas bilaterales</button>
+        <button class="opt-btn" onclick="responder(this,'ok',3)">B) Broncograma aéreo dinámico dentro de la consolidación</button>
+        <button class="opt-btn" onclick="responder(this,'no',3)">C) Derrame pleural unilateral libre</button>
+        <button class="opt-btn" onclick="responder(this,'no',3)">D) Colapso de la vena cava inferior</button>
+      </div>
+      <div class="feedback" id="fb3"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <div class="q-text">4. NAC grave en UCI, P/F 180 (SDRA moderado), requiere VMI. ¿Cuál es el parámetro ventilatorio PRIORITARIO para reducir la mortalidad?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',4)">A) FiO₂ al 100% para mantener SpO₂ &gt;98%</button>
+        <button class="opt-btn" onclick="responder(this,'no',4)">B) PEEP bajo (3–5 cmH₂O) para evitar barotrauma</button>
+        <button class="opt-btn" onclick="responder(this,'ok',4)">C) Volumen corriente 6 mL/kg peso ideal y Pplat &lt;30 cmH₂O</button>
+        <button class="opt-btn" onclick="responder(this,'no',4)">D) FR 25 rpm para hipercapnia permisiva</button>
+      </div>
+      <div class="feedback" id="fb4"></div>
+    </div>
+
+    <div class="quiz-q" id="q5">
+      <div class="q-text">5. Según ATS 2025, ¿en cuál escenario están contraindicados los corticosteroides sistémicos en NAC?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',5)">A) NAC grave que requiere vasopresores, sin resultado viral conocido</button>
+        <button class="opt-btn" onclick="responder(this,'ok',5)">B) NAC grave confirmada por influenza con requerimiento de VMI</button>
+        <button class="opt-btn" onclick="responder(this,'no',5)">C) NAC grave con SDRA moderado, hemocultivo pendiente</button>
+        <button class="opt-btn" onclick="responder(this,'no',5)">D) NAC grave en paciente con DM tipo 2 controlada</button>
+      </div>
+      <div class="feedback" id="fb5"></div>
+    </div>
+  </div>
+
+  <div class="quiz-set">
+    <div class="quiz-title">💊 Módulo 2 — Tratamiento Antibiótico</div>
+
+    <div class="quiz-q" id="q6">
+      <div class="q-text">6. Hombre 55 años, diabético tipo 2, NAC leve (CURB-65 = 1), Rx confirma consolidación LID, SpO₂ 94%, tolera VO. ¿Cuál es el esquema antibiótico más apropiado?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',6)">A) Amoxicilina 500 mg c/8h por 10 días</button>
+        <button class="opt-btn" onclick="responder(this,'ok',6)">B) Amoxicilina-clavulánico 875/125 mg c/12h + azitromicina 500 mg/día por 5 días</button>
+        <button class="opt-btn" onclick="responder(this,'no',6)">C) Ciprofloxacino 500 mg c/12h por 7 días</button>
+        <button class="opt-btn" onclick="responder(this,'no',6)">D) Meropenem IV 1g c/8h y hospitalizar por la DM</button>
+      </div>
+      <div class="feedback" id="fb6"></div>
+    </div>
+
+    <div class="quiz-q" id="q7">
+      <div class="q-text">7. ¿Por qué las fluoroquinolonas NO deben usarse como primera línea empírica en Ecuador sin antes descartar tuberculosis?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',7)">A) Causan mayor hiperglucemia que los beta-lactámicos en diabéticos</button>
+        <button class="opt-btn" onclick="responder(this,'ok',7)">B) Son activas contra M. tuberculosis y pueden generar monoterapia encubierta, seleccionando resistencia a quinolonas en TBC</button>
+        <button class="opt-btn" onclick="responder(this,'no',7)">C) Están contraindicadas en mayores de 65 años por nefrotoxicidad</button>
+        <button class="opt-btn" onclick="responder(this,'no',7)">D) Tienen baja biodisponibilidad oral en NAC por el pH del esputo</button>
+      </div>
+      <div class="feedback" id="fb7"></div>
+    </div>
+
+    <div class="quiz-q" id="q8">
+      <div class="q-text">8. Mujer 28 años, embarazada 20 semanas, NAC moderada (CURB-65 = 2), hospitalizada. ¿Cuál esquema IV es más apropiado?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'ok',8)">A) Ceftriaxona 1–2 g c/24h IV + Azitromicina 500 mg c/24h IV por 5 días</button>
+        <button class="opt-btn" onclick="responder(this,'no',8)">B) Levofloxacino 750 mg c/24h IV monoterapia</button>
+        <button class="opt-btn" onclick="responder(this,'no',8)">C) Claritromicina 500 mg c/12h IV monoterapia</button>
+        <button class="opt-btn" onclick="responder(this,'no',8)">D) Moxifloxacino 400 mg c/24h IV + ceftriaxona</button>
+      </div>
+      <div class="feedback" id="fb8"></div>
+    </div>
+
+    <div class="quiz-q" id="q9">
+      <div class="q-text">9. NAC grave en UCI, 3 días de ceftriaxona + azitromicina IV. Hemocultivo: S. pneumoniae sensible a penicilina (CMI 0.06). ¿Cuál es la conducta correcta de stewardship?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',9)">A) Mantener el esquema sin cambios hasta completar 10 días</button>
+        <button class="opt-btn" onclick="responder(this,'ok',9)">B) Desescalar a penicilina G cristalina o ampicilina IV; duración guiada por estabilidad clínica y PCT</button>
+        <button class="opt-btn" onclick="responder(this,'no',9)">C) Agregar vancomicina por seguridad ante bacteriemia neumocócica</button>
+        <button class="opt-btn" onclick="responder(this,'no',9)">D) Suspender azitromicina e iniciar meropenem para ampliar cobertura</button>
+      </div>
+      <div class="feedback" id="fb9"></div>
+    </div>
+
+    <div class="quiz-q" id="q10">
+      <div class="q-text">10. Hombre 72 años con EPOC grave (FEV1 28%) y 3 hospitalizaciones el último año ingresa con NAC grave. ¿Qué cobertura adicional es prioritaria en el esquema empírico?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',10)">A) Vancomicina por MRSA comunitario en EPOC grave</button>
+        <button class="opt-btn" onclick="responder(this,'ok',10)">B) Cobertura anti-Pseudomonas (piperacilina-tazobactam + ciprofloxacino o amikacina)</button>
+        <button class="opt-btn" onclick="responder(this,'no',10)">C) Antifúngico empírico por inmunosupresión implícita</button>
+        <button class="opt-btn" onclick="responder(this,'no',10)">D) Aciclovir IV por riesgo de reactivación viral en EPOC</button>
+      </div>
+      <div class="feedback" id="fb10"></div>
+    </div>
+  </div>
+
+  <div class="quiz-set">
+    <div class="quiz-title">⚡ Módulo 3 — Complicaciones y Casos Difíciles</div>
+
+    <div class="quiz-q" id="q11">
+      <div class="q-text">11. Paciente 58 años, 4 días hospitalizado con NAC y ceftriaxona + azitromicina. Persiste fiebre 38.5°C, SpO₂ 89%, Rx con derrame pleural derecho moderado. Líquido: pH 7.05, glucosa 38 mg/dL, LDH 2.200. ¿Cuál es la conducta correcta?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',11)">A) Rotar a meropenem + vancomicina y esperar respuesta</button>
+        <button class="opt-btn" onclick="responder(this,'no',11)">B) Agregar metronidazol al esquema actual</button>
+        <button class="opt-btn" onclick="responder(this,'ok',11)">C) Drenaje pleural urgente (tubo torácico) + ajuste ATB + consulta cirugía torácica</button>
+        <button class="opt-btn" onclick="responder(this,'no',11)">D) Toracocentesis diagnóstica de control en 48h más</button>
+      </div>
+      <div class="feedback" id="fb11"></div>
+    </div>
+
+    <div class="quiz-q" id="q12">
+      <div class="q-text">12. Mujer 45 años, sana. Influenza A confirmada hace 5 días, ahora deterioro agudo: fiebre 40°C, FC 128, FR 32, SpO₂ 84%, hemoptisis mínima. Rx: infiltrado bilateral + cavitación LSD. ¿Diagnóstico más probable y tratamiento?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',12)">A) NAC neumocócica grave — ceftriaxona + azitromicina + corticosteroides</button>
+        <button class="opt-btn" onclick="responder(this,'ok',12)">B) NAC necrotizante post-influenza por S. aureus/MRSA — vancomicina o linezolid + oseltamivir, SIN corticosteroides</button>
+        <button class="opt-btn" onclick="responder(this,'no',12)">C) Tuberculosis reactiva — aislar y tomar BK, no dar ATB hasta confirmar</button>
+        <button class="opt-btn" onclick="responder(this,'no',12)">D) Embolia pulmonar séptica — anticoagulación + ceftriaxona</button>
+      </div>
+      <div class="feedback" id="fb12"></div>
+    </div>
+
+    <div class="quiz-q" id="q13">
+      <div class="q-text">13. Según ATS 2025, ¿cuál es la definición correcta de estabilidad clínica para guiar la duración del tratamiento antibiótico y el alta en NAC hospitalizada?</div>
+      <div class="quiz-opts">
+        <button class="opt-btn" onclick="responder(this,'no',13)">A) Rx de tórax con resolución del 50% del infiltrado y PCR en descenso</button>
+        <button class="opt-btn" onclick="responder(this,'ok',13)">B) Afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal, evaluado diariamente</button>
+        <button class="opt-btn" onclick="responder(this,'no',13)">C) Completar 5 días de antibiótico con cualquier mejoría sintomática</button>
+        <button class="opt-btn" onclick="responder(this,'no',13)">D) Leucocitos &lt;11.000 y PCT &lt;0.5 ng/mL independientemente de los signos vitales</button>
+      </div>
+      <div class="feedback" id="fb13"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Guía Clínica Interactiva · Neumonía Adquirida en la Comunidad · Basada en ATS 2025 · ATS/IDSA 2019 · OPS/OMS 2024<br>
+  Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador<br>
+  Uso educativo y de referencia clínica personal
+</div>
+</div><!-- /app -->
+
+<script>
+const CLAVES=['CROCE2024','MEDICO01','URGENCIAS1','CROCE2026','NEUMONIA25'];
+function checkPW(){
+  const v=document.getElementById('pw-input').value.toUpperCase().trim();
+  if(CLAVES.includes(v)){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    window.scrollTo(0,0);
+  } else {
+    document.getElementById('pw-error').textContent='Clave incorrecta. Intente nuevamente.';
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPW();});
+
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleCard(header){
+  const body=header.nextElementSibling;
+  const isOpen=header.classList.contains('open');
+  header.classList.toggle('open',!isOpen);
+  body.classList.toggle('show',!isOpen);
+}
+
+const feedbacks={
+  1:{ok:"✅ <strong>Correcto.</strong> CURB-65 = 3: C✅ (confusión), U✅ (BUN 22 &gt; 19), R❌ (FR 28 &lt; 30), B❌ (PA 110/70 normal), 65✅ (68 años) = 3 puntos → hospitalización urgente. Con SpO₂ 91% y múltiples criterios menores de NAC grave, evaluar ingreso a UCI. La opción B es la más prudente.",
+   no:"❌ <strong>Incorrecto.</strong> CURB-65 = 3: C✅ + U✅ (BUN&gt;19) + R❌ (FR 28 &lt; 30) + B❌ + 65✅ = 3 puntos. CURB-65 ≥3 → hospitalización urgente, evaluar criterios de NAC grave para UCI. El tratamiento ambulatorio es peligroso con esta puntuación y SpO₂ 91%."},
+  2:{ok:"✅ <strong>Correcto.</strong> ATS 2025: adulto ambulatorio sin comorbilidades con NAC confirmada y test viral positivo → NO prescribir ATB empíricos (recomendación fuerte, evidencia muy baja calidad). La coinfección bacteriana es poco probable; el riesgo de ATB innecesarios supera el beneficio.",
+   no:"❌ <strong>Incorrecto.</strong> ATS 2025: en adulto ambulatorio SIN comorbilidades con NAC + test viral positivo, NO prescribir ATB empíricos. La paciente es joven, sin comorbilidades, NAC leve. La resolución espontánea es comparable al tratamiento con beta-lactámicos en este escenario."},
+  3:{ok:"✅ <strong>Correcto.</strong> El broncograma aéreo DINÁMICO (movimiento sincrónico con respiración dentro de la consolidación) es el hallazgo más específico de consolidación infecciosa. Las líneas B difusas sugieren edema cardiogénico. ATS 2025 avala POCUS con S: ~95% y E: ~75% para NAC.",
+   no:"❌ <strong>Incorrecto.</strong> El broncograma aéreo dinámico es el más específico. Líneas B difusas bilaterales sugieren edema cardiogénico. Derrame pleural unilateral puede verse en NAC pero no es específico. La POCUS supera a la Rx en sensibilidad según ATS 2025."},
+  4:{ok:"✅ <strong>Correcto.</strong> Ventilación protectora con VT 6 mL/kg de PESO IDEAL y Pplat &lt;30 cmH₂O es el pilar del manejo del SDRA. Ensayo ARDSNet: reducción de mortalidad del 39% al 31%. Siempre usar peso IDEAL (no real) para evitar volutrauma.",
+   no:"❌ <strong>Incorrecto.</strong> El parámetro prioritario en SDRA es VT 6 mL/kg de PESO IDEAL y Pplat &lt;30 cmH₂O (ARDSNet). FiO₂ alta prolongada genera toxicidad por oxígeno. PEEP bajo empeora reclutamiento alveolar. La FR se ajusta secundariamente al pH."},
+  5:{ok:"✅ <strong>Correcto.</strong> ATS 2025: corticosteroides en NAC grave (UCI) están recomendados, EXCEPTO en influenza confirmada, donde se asocian a mayor mortalidad. En NAC no grave (sala general) tampoco se recomiendan. DM no es contraindicación, solo requiere monitoreo estricto de glucemia.",
+   no:"❌ <strong>Incorrecto.</strong> La única contraindicación de corticosteroides en NAC grave según ATS 2025 es la influenza confirmada. En todos los demás escenarios de NAC grave (incluida DM), los corticosteroides están recomendados (condicional, NNT 17). En NAC no grave (sala) no se recomiendan (recomendación fuerte)."},
+  6:{ok:"✅ <strong>Correcto.</strong> NAC leve ambulatoria CON comorbilidades (DM): amoxicilina-clavulánico (cubre típicos + productores de beta-lactamasas) + azitromicina (cubre atípicos) × 5 días. ATS 2025 sugiere considerar 3–5 días si hay estabilidad clínica temprana.",
+   no:"❌ <strong>Incorrecto.</strong> Con comorbilidades se necesita beta-lactámico de amplio espectro + cobertura atípica. Amoxicilina sola no cubre gérmenes atípicos ni beta-lactamasas. Ciprofloxacino tiene pobre cobertura neumocócica y riesgo de selección de resistencia en TBC. Meropenem IV es innecesario en NAC leve ambulatoria."},
+  7:{ok:"✅ <strong>Correcto.</strong> Las fluoroquinolonas respiratorias tienen actividad bactericida contra M. tuberculosis. En un paciente con TBC no diagnosticada que recibe quinolonas como 'NAC', se genera una monoterapia encubierta que puede suprimir síntomas y seleccionar resistencia a quinolonas, complicando el tratamiento posterior de TBC-MDR.",
+   no:"❌ <strong>Incorrecto.</strong> La razón principal es la actividad anti-TBC de las fluoroquinolonas. Si se usan en TBC sin diagnosticar, se crea una monoterapia encubierta que selecciona resistencia a quinolonas (componente del esquema de TBC-MDR). En Ecuador, endémico para TBC, esto tiene alta relevancia clínica."},
+  8:{ok:"✅ <strong>Correcto.</strong> En embarazo: ceftriaxona (categoría B) + azitromicina (categoría B) es el esquema estándar seguro. Las fluoroquinolonas (cat. C/D) se asocian a efectos sobre cartílago fetal. Claritromicina es cat. C con teratogenicidad en animales; se prefiere siempre azitromicina.",
+   no:"❌ <strong>Incorrecto.</strong> En embarazo la combinación segura es ceftriaxona (cat. B) + azitromicina (cat. B). Fluoroquinolonas contraindicadas (efecto cartilaginoso fetal). Claritromicina tiene teratogenicidad animal (cat. C) — preferir azitromicina siempre en embarazo."},
+  9:{ok:"✅ <strong>Correcto.</strong> Stewardship: con S. pneumoniae sensible a penicilina (CMI ≤0.06), desescalar a penicilina G cristalina o ampicilina IV. Más específico, menor presión selectiva. Duración guiada por estabilidad clínica diaria + descenso de PCT. No se requiere vancomicina ni meropenem.",
+   no:"❌ <strong>Incorrecto.</strong> Con identificación de S. pneumoniae sensible a penicilina, la conducta correcta es DESESCALAR a penicilina/ampicilina. Agregar vancomicina es escalada innecesaria. Meropenem es excesivo. La desescalada es segura, reduce efectos adversos y presión de resistencia antibiótica."},
+  10:{ok:"✅ <strong>Correcto.</strong> EPOC grave (FEV1 &lt;30%) + hospitalizaciones frecuentes = factores de riesgo para Pseudomonas aeruginosa. Esquema: piperacilina-tazobactam 4.5g c/6–8h IV (infusión extendida de 4h para mayor eficacia farmacodinámica) + ciprofloxacino 400mg c/8h IV o amikacina.",
+   no:"❌ <strong>Incorrecto.</strong> EPOC grave + hospitalizaciones frecuentes son factores de riesgo para Pseudomonas. La cobertura anti-Pseudomonas es la adición clave. MRSA requiere factores específicos (post-influenza, lesiones cutáneas). Antifúngicos empíricos no indicados sin inmunosupresión severa o factores fúngicos específicos."},
+  11:{ok:"✅ <strong>Correcto.</strong> pH 7.05 + glucosa 38 + LDH 2.200 = empiema franco (criterios: pH &lt;7.20, glucosa &lt;40, LDH &gt;1000). Requiere DRENAJE con tubo torácico urgente. Los ATB solos son insuficientes — sin drenaje la infección no se controla y la mortalidad aumenta significativamente con riesgo de tabicación.",
+   no:"❌ <strong>Incorrecto.</strong> pH 7.05, glucosa 38 y LDH 2.200 = empiema franco. El manejo es drenaje pleural urgente con tubo torácico 20–28 Fr, no solo cambio de ATB. Demorar el drenaje aumenta mortalidad y puede requerir cirugía mayor (decorticación)."},
+  12:{ok:"✅ <strong>Correcto.</strong> NAC necrotizante post-influenza clásica por S. aureus MRSA: joven sana, post-viral, deterioro brusco, cavitación, hemoptisis. Tratamiento: vancomicina o linezolid + oseltamivir. Corticosteroides CONTRAINDICADOS en influenza confirmada (mayor mortalidad — ATS 2025). UCI inmediata.",
+   no:"❌ <strong>Incorrecto.</strong> NAC necrotizante post-influenza por MRSA: joven + post-influenza + cavitación + hemoptisis + deterioro brusco. Tratar con vancomicina o linezolid + oseltamivir. Los corticosteroides están contraindicados en influenza confirmada según ATS 2025."},
+  13:{ok:"✅ <strong>Correcto.</strong> ATS 2025 define estabilidad clínica como: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal, evaluados DIARIAMENTE. Esta evaluación (no la Rx ni solo PCT) determina cuándo suspender ATB o dar alta. Concepto central: la duración no es número fijo.",
+   no:"❌ <strong>Incorrecto.</strong> ATS 2025 define estabilidad clínica como: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal. La Rx demora semanas en resolver. La PCT es apoyo, no criterio primario. La clave del ATS 2025 es evaluación clínica DIARIA, no duración fija."}
+};
+
+function responder(btn,resultado,n){
+  const q=document.getElementById('q'+n);
+  if(q.dataset.answered)return;
+  q.dataset.answered='1';
+  q.querySelectorAll('.opt-btn').forEach(b=>{
+    b.disabled=true;
+    if(b===btn){b.classList.add(resultado==='ok'?'correct':'wrong');}
+    else if(b.getAttribute('onclick').includes("'ok'")){b.classList.add('correct');}
+  });
+  const fb=document.getElementById('fb'+n);
+  fb.innerHTML=resultado==='ok'?feedbacks[n].ok:feedbacks[n].no;
+  fb.className='feedback show '+(resultado==='ok'?'ok-fb':'no-fb');
+}
+</script>
+</body>
+</html>
