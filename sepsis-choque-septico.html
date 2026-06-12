@@ -551,7 +551,10 @@
 
     <!-- LÓGICA DE JAVASCRIPT DE LA APLICACIÓN -->
     <script>
-                        function verificarAcceso() {
+        // CONFIGURACIÓN DE SEGURIDAD (CLAVES HARDCODED)
+        var CLAVES = ["CROCE2024", "MEDICO01", "URGENCIAS1"];
+
+        function verificarAcceso() {
             var input = document.getElementById("clave-input").value.trim();
             if (CLAVES.includes(input)) {
                 document.getElementById("login-screen").classList.add("hidden");

@@ -1154,6 +1154,8 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 </div><!-- end content-area -->
 </div><!-- end main-app -->
 <script>
+var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
+
 function checkAccess(){
   var v = document.getElementById("pwd-input").value.trim().toUpperCase();
   if(CLAVES.includes(v)){

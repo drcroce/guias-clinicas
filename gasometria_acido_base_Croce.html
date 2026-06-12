@@ -51,7 +51,7 @@ code,.mono{font-family:'JetBrains Mono',monospace}
 .pw-hint{color:rgba(255,255,255,0.35);font-size:.75rem;margin-top:1.2rem}
 
 /* APP (hidden until login) */
-#app{display:block}
+#app{display:none}
 
 /* HEADER */
 .header{background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 50%,#0a3d2e 100%);color:#fff;padding:1.5rem 1.5rem 1rem}
@@ -207,6 +207,18 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
 <body>
 
 <!-- PASSWORD SCREEN -->
+<div id="pw-screen">
+  <div class="pw-box">
+    <div class="pw-logo">🫁 GASOMETRÍA<span>&#xFF0B;ÁB</span></div>
+    <div class="pw-subtitle">Interpretación Sistémica de Gasometría<br>y Trastornos Ácido-Base</div>
+    <label class="pw-label" for="pw-input">Clave de acceso</label>
+    <input class="pw-input" type="password" id="pw-input" placeholder="Ingrese clave..." autocomplete="off">
+    <button class="pw-btn" onclick="checkPW()">INGRESAR →</button>
+    <div class="pw-err" id="pw-err"></div>
+    <div class="pw-hint">Módulo para médicos de emergencias y medicina interna</div>
+  </div>
+</div>
+
 <!-- MAIN APP -->
 <div id="app">
 
@@ -217,7 +229,7 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
       <div>
         <div class="header-title">🫁 Gasometría Arterial &amp; <span>Trastornos Ácido-Base</span></div>
         <div class="header-sub">Interpretación sistémica · Casos clínicos avanzados · Trastornos mixtos</div>
-        <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+        <div class="header-author">Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</div>
       </div>
     </div>
     <div class="badges">

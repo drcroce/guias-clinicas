@@ -10,11 +10,18 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Source Sans 3',sans-serif;font-size:16px;line-height:1.65;color:#1e293b;background:#f0f4f8}
+#pw-screen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0c2340 0%,#1a4a7a 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+.pw-box{background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:44px 40px;max-width:440px;width:100%;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.4)}
+.pw-icon{font-size:56px;margin-bottom:16px;display:block}
+.pw-title{font-family:'Lora',serif;font-size:26px;color:#fff;font-weight:700;margin-bottom:6px}
+.pw-sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:28px}
+.pw-input{width:100%;padding:14px 18px;border-radius:10px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:15px;letter-spacing:2px;text-align:center;font-family:'Source Sans 3',sans-serif;outline:none;transition:border .2s}
 .pw-input::placeholder{color:rgba(255,255,255,.4);letter-spacing:0}
 .pw-input:focus{border-color:#38bdf8}
+.pw-btn{margin-top:14px;width:100%;padding:13px;border-radius:10px;border:none;background:linear-gradient(135deg,#1d6fa4,#0ea5e9);color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:opacity .2s;font-family:'Source Sans 3',sans-serif}
 .pw-btn:hover{opacity:.88}
 .pw-error{color:#fca5a5;font-size:13px;margin-top:10px;min-height:18px}
-#app{display:block}
+#app{display:none}
 .hero{background:linear-gradient(135deg,#0c2340 0%,#1a4a7a 45%,#1e6fa4 100%);color:#fff;padding:48px 24px 36px;text-align:center;position:relative}
 .hero-back{position:absolute;top:16px;left:20px;color:rgba(255,255,255,.75);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .hero-back:hover{color:#fff}
@@ -121,10 +128,20 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
 .score-row:last-child{border-bottom:none}
 .score-num{background:#0c2340;color:#fff;border-radius:8px;padding:3px 10px;font-weight:700;font-size:14px;min-width:36px;text-align:center}
 .footer{text-align:center;padding:32px 20px;font-size:12px;background:#0c2340;color:rgba(255,255,255,.5);margin-top:40px;line-height:1.8}
-@media(max-width:768px){.tab-btn{padding:12px 14px;font-size:12px}.section{padding:20px 14px 50px}}
+@media(max-width:768px){.tab-btn{padding:12px 14px;font-size:12px}.section{padding:20px 14px 50px}.pw-box{padding:32px 24px}}
 </style>
 </head>
 <body>
+<div id="pw-screen">
+  <div class="pw-box">
+    <span class="pw-icon">🫁</span>
+    <div class="pw-title">Guía NAC · Dr. Croce</div>
+    <div class="pw-sub">Neumonía Adquirida en la Comunidad<br>Ingrese su clave de acceso</div>
+    <input class="pw-input" id="pw-input" type="password" placeholder="Clave de acceso" maxlength="20">
+    <button class="pw-btn" onclick="checkPW()">Ingresar →</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
 <div id="app">
 <div class="hero">
   <a class="hero-back" href="index.html">← Portal de guías</a>
@@ -1374,6 +1391,19 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
 </div><!-- /app -->
 
 <script>
+const CLAVES=['CROCE2024','MEDICO01','URGENCIAS1','CROCE2026','NEUMONIA25'];
+function checkPW(){
+  const v=document.getElementById('pw-input').value.toUpperCase().trim();
+  if(CLAVES.includes(v)){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    window.scrollTo(0,0);
+  } else {
+    document.getElementById('pw-error').textContent='Clave incorrecta. Intente nuevamente.';
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPW();});
+
 function showTab(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
