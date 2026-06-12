@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITU en el Adulto · Dr. Luis E. Croce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',sans-serif;background:#f0f4f8;color:#1e293b;font-size:15px;line-height:1.65}
+
+/* ===== LOGIN ===== */
+#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0c2340 0%,#1a3a5c 40%,#0d4a6e 100%)}
+.pw-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;
+  padding:40px 36px;max-width:400px;width:90%;text-align:center;backdrop-filter:blur(10px)}
+.pw-icon{font-size:52px;margin-bottom:12px}
+.pw-box h2{color:#fff;font-family:'Lora',serif;font-size:1.5rem;margin-bottom:6px}
+.pw-box p{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:22px}
+.pw-input{width:100%;padding:12px 16px;border-radius:10px;border:2px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.12);color:#fff;font-size:1rem;text-align:center;letter-spacing:3px;
+  font-weight:600;outline:none;transition:.2s}
+.pw-input:focus{border-color:#38bdf8}
+.pw-input::placeholder{letter-spacing:1px;font-weight:400;opacity:.6}
+.pw-btn{margin-top:14px;width:100%;padding:12px;background:linear-gradient(135deg,#0ea5e9,#0284c7);
+  border:none;border-radius:10px;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:.2s}
+.pw-btn:hover{background:linear-gradient(135deg,#38bdf8,#0ea5e9)}
+.pw-err{color:#fca5a5;font-size:.85rem;margin-top:10px;display:none}
+
+/* ===== APP ===== */
+#app{display:none}
+.hero{background:linear-gradient(135deg,#0c2340 0%,#1a3a5c 45%,#0d4a6e 100%);
+  color:#fff;text-align:center;padding:48px 20px 40px}
+.hero-back{color:rgba(255,255,255,.75);text-decoration:none;font-size:.85rem;
+  display:inline-block;margin-bottom:16px;padding:5px 14px;border:1px solid rgba(255,255,255,.25);
+  border-radius:20px;transition:.2s}
+.hero-back:hover{background:rgba(255,255,255,.15)}
+.hero-icon{font-size:60px;margin-bottom:12px}
+.hero h1{font-family:'Lora',serif;font-size:2rem;font-weight:700;margin-bottom:8px}
+.hero-sub{font-size:1rem;opacity:.85;margin-bottom:10px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:600}
+
+/* ===== TABS ===== */
+.tabs{position:sticky;top:0;z-index:100;background:#1a3a5c;padding:0;
+  overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.tabs::-webkit-scrollbar{height:4px}
+.tabs::-webkit-scrollbar-thumb{background:#38bdf8;border-radius:2px}
+.tab-btn{display:inline-block;padding:14px 18px;color:rgba(255,255,255,.75);font-size:.85rem;
+  font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:.2s;white-space:nowrap}
+.tab-btn:hover,.tab-btn.active{color:#fff;border-bottom-color:#38bdf8}
+
+/* ===== LAYOUT ===== */
+.section{display:none;max-width:960px;margin:0 auto;padding:28px 16px 48px}
+.section.active{display:block}
+.section-title{font-family:'Lora',serif;font-size:1.45rem;color:#0c2340;margin-bottom:20px;
+  padding-bottom:10px;border-bottom:2px solid #0ea5e9}
+
+/* ===== CARDS ===== */
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);margin-bottom:16px;overflow:hidden}
+.card-header{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  background:#fff;font-weight:600;font-size:.95rem;color:#0c2340;transition:.2s}
+.card-header:hover{background:#f0f9ff}
+.card-header .arrow{transition:.3s;font-size:.8rem;color:#0ea5e9}
+.card-header.open .arrow{transform:rotate(180deg)}
+.card-body{display:none;padding:20px;border-top:1px solid #e2e8f0}
+.card-header.open + .card-body{display:block}
+
+/* ===== ALERTS ===== */
+.alert-red{background:#fff5f5;border-left:4px solid #ef4444;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9rem}
+.alert-amber{background:#fffbeb;border-left:4px solid #f59e0b;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9rem}
+.alert-green{background:#f0fdf4;border-left:4px solid #22c55e;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9rem}
+.alert-blue{background:#eff6ff;border-left:4px solid #3b82f6;padding:14px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9rem}
+.alert-red strong,.alert-amber strong,.alert-green strong,.alert-blue strong{display:block;margin-bottom:6px;font-size:.95rem}
+
+/* ===== TABLES ===== */
+.tbl-wrap{overflow-x:auto;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+thead th{background:#0c2340;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+tbody tr:nth-child(even){background:#f8fafc}
+tbody td{padding:9px 12px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+tbody tr:hover{background:#f0f9ff}
+table.compact td,table.compact th{padding:7px 10px;font-size:.82rem}
+
+/* ===== STEPS ===== */
+.step{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.step-num{min-width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0284c7);
+  color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.step-body{flex:1;padding-top:4px}
+
+/* ===== PILLS ===== */
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.75rem;font-weight:600;margin:2px}
+.pill-blue{background:#dbeafe;color:#1d4ed8}
+.pill-red{background:#fee2e2;color:#b91c1c}
+.pill-green{background:#dcfce7;color:#15803d}
+.pill-amber{background:#fef3c7;color:#92400e}
+.pill-purple{background:#ede9fe;color:#6d28d9}
+
+/* ===== WARN GRID ===== */
+.warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+@media(max-width:600px){.warn-grid{grid-template-columns:1fr}}
+.warn-item{background:#fff5f5;border:1px solid #fca5a5;border-radius:8px;padding:12px;font-size:.85rem}
+.warn-item strong{color:#dc2626;display:block;margin-bottom:4px}
+
+/* ===== PROTOCOL BOX ===== */
+.proto-box{background:linear-gradient(135deg,#0c2340,#1a3a5c);color:#fff;border-radius:12px;padding:22px 24px;margin:16px 0}
+.proto-box h4{font-family:'Lora',serif;margin-bottom:14px;font-size:1.05rem;color:#7dd3fc}
+.proto-box .step-num{background:rgba(255,255,255,.2)}
+
+/* ===== DRUG CARDS ===== */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:14px 0}
+.drug-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;border-top:4px solid #0ea5e9}
+.drug-card h4{color:#0c2340;font-size:.95rem;margin-bottom:8px}
+.drug-card p{font-size:.82rem;color:#475569;line-height:1.5}
+.drug-card .dc-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+
+/* ===== QUIZ ===== */
+.quiz-q{background:#fff;border-radius:12px;padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.quiz-q p{font-weight:600;margin-bottom:14px;color:#0c2340;font-family:'Lora',serif}
+.quiz-opt{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;
+  border:2px solid #e2e8f0;border-radius:8px;background:#fff;cursor:pointer;font-size:.9rem;transition:.2s}
+.quiz-opt:hover{border-color:#0ea5e9;background:#f0f9ff}
+.quiz-opt.correct{background:#f0fdf4;border-color:#22c55e;color:#15803d;font-weight:600}
+.quiz-opt.wrong{background:#fff5f5;border-color:#ef4444;color:#dc2626}
+.quiz-feedback{margin-top:12px;padding:14px;border-radius:8px;font-size:.88rem;display:none}
+.quiz-feedback.show{display:block}
+.fb-ok{background:#f0fdf4;border-left:4px solid #22c55e}
+.fb-no{background:#fff5f5;border-left:4px solid #ef4444}
+.quiz-set{display:none}
+.quiz-set.active{display:block}
+.quiz-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.quiz-nav-btn{padding:8px 16px;border-radius:8px;border:2px solid #0ea5e9;background:#fff;
+  color:#0ea5e9;font-weight:600;cursor:pointer;font-size:.85rem;transition:.2s}
+.quiz-nav-btn.active,.quiz-nav-btn:hover{background:#0ea5e9;color:#fff}
+
+/* ===== MISC ===== */
+.subsection-title{font-family:'Lora',serif;font-size:1.1rem;color:#1a3a5c;margin:20px 0 10px;border-bottom:1px solid #cbd5e1;padding-bottom:6px}
+.tag-line{font-size:.8rem;color:#64748b;margin-bottom:16px;font-style:italic}
+ul.checklist{list-style:none;padding:0}
+ul.checklist li{padding:6px 0 6px 28px;position:relative;font-size:.9rem;border-bottom:1px solid #f1f5f9}
+ul.checklist li:before{content:'✓';position:absolute;left:4px;color:#22c55e;font-weight:700}
+ul.ci-list li:before{content:'✗';color:#ef4444}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.grid2{grid-template-columns:1fr}}
+.info-card{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px}
+.info-card h4{color:#1d4ed8;font-size:.9rem;margin-bottom:8px}
+.footer{background:#0c2340;color:rgba(255,255,255,.7);text-align:center;padding:24px 16px;font-size:.8rem;line-height:1.8}
+</style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div id="pw-screen">
+  <div class="pw-box">
+    <div class="pw-icon">🦠</div>
+    <h2>Guía Clínica — ITU en el Adulto</h2>
+    <p>Portal de Guías Clínicas · Dr. Luis E. Croce<br>Ingrese su clave de acceso</p>
+    <input class="pw-input" id="pw-input" type="password" placeholder="Clave de acceso" maxlength="20"
+      onkeydown="if(event.key==='Enter')checkPW()">
+    <button class="pw-btn" onclick="checkPW()">Acceder →</button>
+    <div class="pw-err" id="pw-err">Clave incorrecta. Intente nuevamente.</div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="app">
+
+<!-- HERO -->
+<div class="hero">
+  <a class="hero-back" href="index.html">← Portal de guías</a>
+  <div class="hero-icon">🦠</div>
+  <h1>Infección del Tracto Urinario en el Adulto</h1>
+  <div class="hero-sub">Cistitis · Pielonefritis · Urosepsis · ITU Recurrente · ITU-AC</div>
+  <div style="font-size:13px;opacity:.9;margin-bottom:14px;font-style:italic">
+    Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador
+  </div>
+  <div class="hero-badges">
+    <span class="badge">🇪🇺 EAU 2025/2026</span>
+    <span class="badge">🇺🇸 IDSA 2025</span>
+    <span class="badge">🇺🇸 AUA 2025</span>
+    <span class="badge">⚡ SSC 2021</span>
+    <span class="badge">📋 Sepsis-3</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <span class="tab-btn active" onclick="showTab('fisio')">🔬 Fisiopatología</span>
+  <span class="tab-btn" onclick="showTab('clinica')">🩺 Clínica y Clasificación</span>
+  <span class="tab-btn" onclick="showTab('lab')">🧪 Laboratorio y Dx</span>
+  <span class="tab-btn" onclick="showTab('manejo')">🚨 Manejo</span>
+  <span class="tab-btn" onclick="showTab('compl')">⚡ Complicaciones</span>
+  <span class="tab-btn" onclick="showTab('egreso')">📋 Egreso y Prevención</span>
+  <span class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</span>
+</div>
+
+
+<!-- ==================== FISIOPATOLOGÍA ==================== -->
+<div class="section active" id="tab-fisio">
+  <h2 class="section-title">🔬 Fisiopatología</h2>
+
+  <!-- Definiciones -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">📌 Definiciones Esenciales y Nueva Clasificación EAU 2025 <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-blue"><strong>Infección del Tracto Urinario (ITU)</strong>
+        Respuesta inflamatoria del urotelio ante la invasión y colonización por microorganismos patógenos —predominantemente bacterias— que cursa con bacteriuria significativa <em>y</em> sintomatología clínica evidente. Requiere coexistencia de: (1) evidencia microbiológica y (2) expresión clínica activa. La bacteriuria sin síntomas = bacteriuria asintomática (BA) → en la mayoría de escenarios NO se trata.
+      </div>
+      <div class="alert-amber"><strong>⚠ Cambio Paradigmático EAU 2025 — Abandono de "complicada / no complicada"</strong>
+        La EAU 2025 elimina definitivamente estos términos por ser fuente persistente de confusión clínica. La nueva clasificación se basa en la expresión clínica del episodio.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tipo de ITU</th><th>Definición</th><th>Criterios Clínicos</th><th>Equivalente previo</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill pill-blue">ITU Localizada</span></td><td>Infección confinada al TU sin signos sistémicos</td><td>Disuria, polaquiuria, urgencia, dolor suprapúbico. <strong>Sin fiebre ni signos sistémicos.</strong></td><td>Cistitis aguda</td></tr>
+            <tr><td><span class="pill pill-red">ITU Sistémica</span></td><td>ITU con signos de infección sistémica</td><td>Fiebre ≥ 38 °C, escalofríos, taquicardia, puño-percusión lumbar (+)</td><td>Pielonefritis · Urosepsis</td></tr>
+            <tr><td><span class="pill pill-amber">ITU Recurrente</span></td><td>≥ 2 episodios en 6 meses o ≥ 3 en 12 meses</td><td>Patrón de recidiva o reinfección documentado</td><td>Aplicable a ambos tipos</td></tr>
+            <tr><td><span class="pill pill-purple">Bacteriuria Asintomática</span></td><td>Bacteriuria significativa sin síntomas</td><td>Urocultivo ≥ 10⁵ UFC/mL en 2 muestras. Ausencia total de síntomas.</td><td>Hallazgo incidental</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-red"><strong>🔴 IDSA 2025: El varón ya NO es "automáticamente complicado"</strong>
+        La IDSA 2025 redefine ITU no complicada como "infección confinada a la vejiga en hombres o mujeres afebriles". Un varón afebril con cistitis sin anomalías urológicas puede manejarse como ITU localizada. Los factores de riesgo (DM, inmunosupresión, HPB) ya NO clasifican automáticamente como "complicada" en ausencia de síntomas sistémicos.
+      </div>
+    </div>
+  </div>
+
+  <!-- Mecanismo ascendente -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🔄 Mecanismo Ascendente: Vía Patogénica Principal (95 % de casos) <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <p class="tag-line">Progresión escalonada desde la flora perineal/colónica hasta la bacteriemia</p>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Colonización perineal:</strong> UPEC (E. coli uropatógena) coloniza el introito vaginal y periné, desplazando la flora protectora de Lactobacillus spp.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Migración uretral:</strong> Acceso facilitado por la uretra corta femenina (3–4 cm), actividad sexual, instrumentación o higiene inadecuada.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Adhesión vesical:</strong> Fimbrias Tipo 1 de UPEC se unen a uroplaquinas (UPIa) de las células en paraguas del urotelio → inicio de la infección vesical.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Evasión inmune:</strong> Internalización bacteriana → Comunidades Bacterianas Intracelulares (CBI) → reservorio protegido de antibióticos y defensas del huésped → fuente principal de <em>recidivas</em>.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Inflamación local (cistitis):</strong> TLR-4/5 → NF-κB → IL-1β, IL-6, IL-8 → reclutamiento neutrofílico masivo → <strong>piuria</strong>.</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><strong>Ascenso renal (pielonefritis):</strong> Fimbrias P se unen a glicolípidos renales. Reflujo o parálisis ureteral facilitan el ascenso. Edema intersticial → daño tubular → necrosis papilar si no controlado.</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-body"><strong>Translocación sistémica (urosepsis):</strong> Bacteriemia → respuesta inflamatoria desregulada → disfunción orgánica múltiple → choque séptico.</div></div>
+    </div>
+  </div>
+
+  <!-- Factores de virulencia -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🧬 Factores de Virulencia de E. coli Uropatógena (UPEC) <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Factor de Virulencia</th><th>Función</th><th>Diana Anatómica</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fimbrias Tipo 1</strong></td><td>Adhesión a uroplaquinas (UPIa) del urotelio vesical (manosa-sensibles)</td><td>Vejiga → Cistitis</td></tr>
+            <tr><td><strong>Fimbrias P (Pap)</strong></td><td>Adhesión a glicolípidos P en células tubulares renales (manosa-resistentes)</td><td>Parénquima renal → Pielonefritis</td></tr>
+            <tr><td><strong>Alfa-hemolisina (HlyA)</strong></td><td>Toxina citolítica que perfora membranas; libera nutrientes y facilita invasión tisular</td><td>Uroepitelio · Eritrocitos</td></tr>
+            <tr><td><strong>CNF-1</strong></td><td>Activa GTPasas Rho → altera citoesqueleto → facilita internalización bacteriana</td><td>Células uroteliales</td></tr>
+            <tr><td><strong>Sideróforos</strong> (enterobactina, aerobactina)</td><td>Captación de hierro para el metabolismo bacteriano en orina</td><td>Orina · Parénquima renal</td></tr>
+            <tr><td><strong>Polisacárido capsular K</strong></td><td>Protege de fagocitosis y activación del complemento</td><td>Torrente sanguíneo (urosepsis)</td></tr>
+            <tr><td><strong>CBI</strong> (Comunidades Bacterianas Intracelulares)</td><td>Biofilm intracelular que evade ATB y respuesta inmune; fuente principal de recidivas</td><td>Células uroteliales vesicales</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Respuesta del huésped -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🛡️ Respuesta del Huésped e Inflamación <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <p>La detección de PAMPs bacterianos por <strong>TLR-4</strong> (LPS) y <strong>TLR-5</strong> (flagelina) en el urotelio activa la cascada <strong>NF-κB</strong>, promoviendo síntesis masiva de citocinas proinflamatorias (IL-1β, IL-6) y quimiocinas (IL-8/CXCL8). La IL-8 recluta neutrófilos desde la microvasculatura submucosa hacia la luz vesical, generando la piuria característica.</p>
+      <div class="alert-blue" style="margin-top:14px"><strong>Progresión a Pielonefritis:</strong> El infiltrado inflamatorio intersticial produce edema y libera ROS (especies reactivas del oxígeno) y enzimas proteolíticas que causan daño tubular directo. Sin control adecuado: necrosis papilar → abscesos intraparenquimatosos → cicatrices renales permanentes.</div>
+    </div>
+  </div>
+
+  <!-- Microbiología -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🧫 Microbiología y Resistencia en América Latina <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <h3 class="subsection-title">Patógenos Causales</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Microorganismo</th><th>Frecuencia</th><th>Tipo de ITU</th><th>Particularidades clínicas</th></tr></thead>
+          <tbody>
+            <tr><td><strong>E. coli uropatógena (UPEC)</strong></td><td>70–95 %</td><td>Cistitis · Pielonefritis · Urosepsis</td><td>Fimbrias Tipo 1 (vejiga) y Tipo P (riñón). Frecuentemente BLEE.</td></tr>
+            <tr><td><strong>Klebsiella pneumoniae</strong></td><td>5–10 %</td><td>ITU hospitalaria · ITU-AC</td><td>Alta resistencia en entornos nosocomiales. BLEE · KPC.</td></tr>
+            <tr><td><strong>S. saprophyticus</strong></td><td>5–15 % (mujeres jóvenes)</td><td>Cistitis ambulatoria</td><td>⚠ Nitrito-negativo. Segunda causa en mujeres jóvenes activas sexualmente.</td></tr>
+            <tr><td><strong>Proteus mirabilis</strong></td><td>3–5 %</td><td>ITU en varones · ITU litiásica</td><td>Produce ureasa → alcaliniza orina → litiasis de estruvita.</td></tr>
+            <tr><td><strong>Enterococcus faecalis</strong></td><td>3–5 %</td><td>ITU hospitalaria · ITU-AC</td><td>⚠ Nitrito-negativo. Resistente a cefalosporinas. Usar amoxicilina o ampicilina.</td></tr>
+            <tr><td><strong>Pseudomonas aeruginosa</strong></td><td>1–5 %</td><td>Inmunosuprimidos · UCI</td><td>⚠ Nitrito-negativo. Cobertura antipseudomónica obligatoria en pacientes de riesgo.</td></tr>
+            <tr><td><strong>Candida spp.</strong></td><td>Variable (hospitalario)</td><td>Candiduria · ITU fúngica</td><td>Nueva sección EAU 2026. Solo tratar en inmunosuprimidos sintomáticos o pre-procedimiento.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection-title">Resistencia Antimicrobiana — Crisis Regional en Latinoamérica</h3>
+      <div class="alert-red"><strong>🔴 Realidad Ecuador / América Latina — Datos Críticos</strong>
+        La región enfrenta tasas de resistencia que invalidan el uso empírico de múltiples antibióticos de primera generación.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Mecanismo / Bacteria</th><th>Prevalencia en LATAM</th><th>Implicación Clínica</th></tr></thead>
+          <tbody>
+            <tr><td>E. coli BLEE — comunitaria</td><td><strong>30–35 %</strong> (> 40 % en centros urbanos)</td><td>Invalida aminopenicilinas y cefalosporinas 1.ª–2.ª gen.</td></tr>
+            <tr><td>E. coli resistente a quinolonas</td><td><strong>20–40 %</strong></td><td>Fluoroquinolonas NO deben usarse empíricamente sin datos locales</td></tr>
+            <tr><td>E. coli resistente a TMP/SMX</td><td><strong>> 20–25 %</strong></td><td>Uso condicionado a susceptibilidad local documentada</td></tr>
+            <tr><td>K. pneumoniae BLEE</td><td><strong>> 25 %</strong> aislamientos hospitalarios</td><td>Requiere carbapenémico hasta antibiograma definitivo</td></tr>
+            <tr><td>Enterobacterales KPC</td><td>Emergente > 10 % en UCI</td><td>Agentes de último recurso (ceftazidima-avibactam)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-amber"><strong>⚠ Principio de Epidemiología Antimicrobiana Local</strong>
+        Ninguna guía internacional reemplaza el antibiograma propio de cada institución. En Ecuador y LATAM, reservar quinolonas y aminopenicilinas para uso guiado por cultivo. El mapa de resistencia local es una responsabilidad institucional obligatoria.
+      </div>
+    </div>
+  </div>
+
+  <!-- Factores de riesgo -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">⚠️ Factores de Riesgo para ITU <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Categoría</th><th>Factor de Riesgo</th><th>Mecanismo</th><th>Modificable</th></tr></thead>
+          <tbody>
+            <tr><td>Conductual</td><td>Actividad sexual frecuente</td><td>Masaje uretral retrógrado de flora perineal</td><td><span class="pill pill-green">Sí</span></td></tr>
+            <tr><td>Conductual</td><td>Espermicidas (Nonoxinol-9)</td><td>Elimina Lactobacillus → colonización enterobacterias</td><td><span class="pill pill-green">Sí</span></td></tr>
+            <tr><td>Conductual</td><td>Baja ingesta hídrica</td><td>Reduce efecto de barrido del flujo urinario</td><td><span class="pill pill-green">Sí</span></td></tr>
+            <tr><td>Anatómico</td><td>Uretra femenina corta (3–4 cm)</td><td>Menor distancia de barrera para ascenso bacteriano</td><td><span class="pill pill-red">No</span></td></tr>
+            <tr><td>Anatómico</td><td>HPB / Estenosis uretral</td><td>Vaciamiento incompleto → residuo postmiccional elevado</td><td><span class="pill pill-amber">Parcial</span></td></tr>
+            <tr><td>Iatrogénico</td><td>Catéter urinario permanente</td><td>Biofilm bacteriano; riesgo 3–10 % por día de cateterización</td><td><span class="pill pill-green">Sí</span></td></tr>
+            <tr><td>Hormonal</td><td>Hipoestrogenismo postmenopáusico</td><td>Atrofia epitelial → pérdida de Lactobacillus → colonización enterobacterias</td><td><span class="pill pill-green">Sí</span></td></tr>
+            <tr><td>Sistémico</td><td>Diabetes mellitus</td><td>Glucosuria favorece crecimiento bacteriano; disfunción leucocitaria</td><td><span class="pill pill-amber">Parcial</span></td></tr>
+            <tr><td>Sistémico</td><td>Inmunosupresión</td><td>Déficit de respuesta inmune celular y humoral</td><td><span class="pill pill-amber">Parcial</span></td></tr>
+            <tr><td>Genético</td><td>No secretor de antígenos de grupo sanguíneo</td><td>Mayor densidad de receptores para adhesinas bacterianas en urotelio</td><td><span class="pill pill-red">No</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== CLÍNICA ==================== -->
+<div class="section" id="tab-clinica">
+  <h2 class="section-title">🩺 Clínica y Clasificación</h2>
+
+  <!-- Clasificación ORECON -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🗂️ Sistema ORECON — Clasificación Individual de Factores de Riesgo (EAU) <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Letra</th><th>Significado</th><th>Ejemplos Clínicos</th><th>Implicación Terapéutica</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill pill-green"><strong>O</strong></span></td><td>Sin factores de riesgo (Original)</td><td>Mujer premenopáusica sana, sin comorbilidades</td><td>Tratamiento empírico oral 1.ª línea; sin urocultivo en cistitis</td></tr>
+            <tr><td><span class="pill pill-blue"><strong>R</strong></span></td><td>Riesgo de Recurrencia</td><td>Actividad sexual frecuente, espermicidas, atrofia vaginal</td><td>Profilaxis y corrección de factores modificables</td></tr>
+            <tr><td><span class="pill pill-amber"><strong>E</strong></span></td><td>Factores Extravesicales / Extraurinarios</td><td>DM descompensada, inmunosupresión, embarazo</td><td>Monitorización estrecha; urocultivo siempre</td></tr>
+            <tr><td><span class="pill pill-amber"><strong>C</strong></span></td><td>Tracto urinario Complicado</td><td>HPB, vejiga neurogénica, litiasis, fístulas urológicas</td><td>Evaluación urológica obligatoria; desobstrucción antes del ATB</td></tr>
+            <tr><td><span class="pill pill-red"><strong>O</strong></span></td><td>Oncológico</td><td>Quimioterapia activa, tumor urotelial</td><td>Cobertura antipseudomónica; protocolo neutropenia febril</td></tr>
+            <tr><td><span class="pill pill-red"><strong>N</strong></span></td><td>Nefropatía</td><td>ERC estadios 4–5, trasplante renal</td><td>Ajuste de dosis obligatorio; evitar nefrotóxicos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Espectro clínico -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">📊 Espectro Clínico Según Localización Anatómica <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Síndrome</th><th>Síntomas Cardinales</th><th>Signos Físicos</th><th>Claves Negativas</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="pill pill-blue"><strong>Cistitis Aguda</strong></span><br><small>(ITU Localizada)</small></td>
+              <td>Disuria (ardor miccional), polaquiuria, urgencia miccional, dolor suprapúbico, hematuria macroscópica terminal</td>
+              <td>Sensibilidad suprapúbica leve</td>
+              <td>⚠ <strong>Fiebre ausente.</strong> Giordano negativo.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-amber"><strong>Pielonefritis Aguda</strong></span><br><small>(ITU Sistémica)</small></td>
+              <td>Fiebre ≥ 38 °C, escalofríos intensos, dolor lumbar uni/bilateral, náuseas, vómitos, malestar general</td>
+              <td>Giordano (+). Puño-percusión lumbar dolorosa.</td>
+              <td>Puede presentarse SIN síntomas del tracto inferior</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-red"><strong>Urosepsis</strong></span><br><small>(Emergencia)</small></td>
+              <td>Fiebre o hipotermia, confusión mental, astenia intensa, oliguria</td>
+              <td>Hipotensión (PAS ≤ 100 mmHg), FC > 100 lpm, taquipnea, mala perfusión periférica</td>
+              <td>No siempre hay síntomas urinarios locales</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Señales de alarma -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🔴 Señales de Alarma — Reconocimiento de Urosepsis <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-red"><strong>🔴 Criterios qSOFA — Evaluación Obligatoria en Todo Paciente con Sospecha de ITU</strong>
+        Un puntaje qSOFA ≥ 2 indica manejo urgente en área crítica. El qSOFA tiene <em>baja sensibilidad</em> para detección precoz; complementar con NEWS o escala SOFA completa (SSC 2021).
+      </div>
+      <div class="warn-grid">
+        <div class="warn-item"><strong>FR ≥ 22 rpm</strong> Taquipnea como marcador de afectación sistémica</div>
+        <div class="warn-item"><strong>Glasgow < 15</strong> Alteración del estado mental / delirium</div>
+        <div class="warn-item"><strong>PAS ≤ 100 mmHg</strong> Hipotensión como indicador de choque incipiente</div>
+        <div class="warn-item"><strong>Lactato > 2.0 mmol/L</strong> Marcador de hipoperfusión tisular — indicador pronóstico clave</div>
+        <div class="warn-item"><strong>Oligoanuria < 0.5 mL/kg/h</strong> Señal de disfunción renal aguda</div>
+        <div class="warn-item"><strong>Hipotermia < 36 °C</strong> Presentación atípica de urosepsis grave</div>
+        <div class="warn-item"><strong>Trombocitopenia severa</strong> Indicador de coagulación intravascular diseminada</div>
+        <div class="warn-item"><strong>Leucopenia paradójica</strong> < 4.000/μL indica abrumamiento del sistema inmune</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Presentaciones atípicas -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">👴 Presentaciones Atípicas de Alto Riesgo Diagnóstico <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-red"><strong>🔴 Adulto Mayor: ITU Sin Síntomas Urinarios — "La Gran Simuladora"</strong>
+        Los ancianos frecuentemente NO presentan el síndrome miccional clásico. Síntomas atípicos: delirium de inicio agudo, caídas inexplicables, anorexia, letargia, hipotensión idiopática, distensión abdominal.<br><br>
+        ⚠ <strong>TRAMPA CRÍTICA:</strong> La orina turbia o fétida <em>aislada</em> NO es criterio de ITU ni justifica antibióticos sin síntomas sistémicos claros. La bacteriuria asintomática en ancianos institucionalizados (20–50 %) NO debe tratarse.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Población</th><th>Presentación Atípica</th><th>Error a Evitar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Adulto mayor</strong></td><td>Delirium, caídas, anorexia, letargia, hipotensión</td><td>Tratar orina turbia sin síntomas sistémicos → induce resistencia y C. difficile</td></tr>
+            <tr><td><strong>Lesión medular</strong></td><td>Crisis de disreflexia autonómica (HTA paroxística, sudoración profusa, bradicardia), espasticidad aumentada</td><td>Ignorar síntomas autonómicos como señal de infección activa</td></tr>
+            <tr><td><strong>Embarazada</strong></td><td>Pielonefritis puede debutar sin síntomas urinarios previos. Fiebre aislada.</td><td>No realizar cribado de BA semanas 12–16: riesgo de pielonefritis del 20–30 %</td></tr>
+            <tr><td><strong>Paciente crítico / sedado</strong></td><td>Fiebre aislada, leucocitosis, sin capacidad de referir síntomas locales</td><td>Tratar bacteriuria asintomática sin documentar sintomatología sistémica</td></tr>
+            <tr><td><strong>Varón joven</strong></td><td>Prostatitis puede simular cistitis. Dolor perineal, fiebre.</td><td>Olvidar descartar prostatitis aguda: tacto rectal muy suave (riesgo de bacteriemia)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== LABORATORIO ==================== -->
+<div class="section" id="tab-lab">
+  <h2 class="section-title">🧪 Laboratorio y Diagnóstico</h2>
+
+  <!-- Tira reactiva -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">📋 Tira Reactiva (Dipstick) <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Sensibilidad</th><th>Especificidad</th><th>Interpretación</th><th>Limitaciones</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Esterasa Leucocitaria</strong></td>
+              <td>75–90 %</td><td>70–95 %</td>
+              <td>Marcador indirecto de piuria. Sugiere inflamación urotelial.</td>
+              <td>Falsos positivos en contaminación vaginal y tras ejercicio intenso.</td>
+            </tr>
+            <tr>
+              <td><strong>Nitritos</strong></td>
+              <td>45–60 %</td><td>92–98 %</td>
+              <td>Alta especificidad. Requiere ≥ 4 h de retención vesical para la conversión nitrato → nitrito.</td>
+              <td>⚠ Falso negativo: Enterococcus, Pseudomonas, S. saprophyticus son nitrato-reductasa negativos.</td>
+            </tr>
+            <tr>
+              <td><strong>Hematuria</strong></td>
+              <td>Variable</td><td>Baja</td>
+              <td>Orientadora. Frecuente en cistitis aguda.</td>
+              <td>Presente en litiasis, neoplasias, menstruación. No diagnóstica de ITU aisladamente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-amber"><strong>⚠ Nitritos Negativos NO Excluyen ITU</strong>
+        Enterococcus faecalis, Pseudomonas aeruginosa y S. saprophyticus no producen nitrato reductasa → nitritos siempre negativos. Siempre usar el conjunto clínico + sedimento urinario + tira reactiva.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sedimento -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🔬 Examen General de Orina / Sedimento Urinario <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Hallazgo</th><th>Criterio de Positividad</th><th>Significado Clínico</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Piuria</strong></td><td>> 10 leucocitos/μL (sin centrifugar)<br>o > 10 leuc./CGA (centrifugada)</td><td>Inflamación urotelial activa. Necesaria pero no suficiente para diagnóstico de ITU.</td></tr>
+            <tr><td><strong>Bacteriuria</strong></td><td>Bacterias visibles en sedimento</td><td>Corrobora bacteriuria en el contexto clínico adecuado.</td></tr>
+            <tr style="background:#fff5f5"><td><strong>Cilindros leucocitarios</strong></td><td>Presencia de CUALQUIER cilindro leucocitario</td><td>⚠ <strong>PATOGNOMÓNICO de pielonefritis.</strong> Se forman exclusivamente en los túbulos renales. Diferencia cistitis de pielonefritis.</td></tr>
+            <tr><td><strong>Hematuria</strong></td><td>> 5 eritrocitos/CGA</td><td>Frecuente en cistitis. Puede estar ausente en pielonefritis.</td></tr>
+            <tr><td><strong>Células epiteliales escamosas abundantes</strong></td><td>Presencia masiva</td><td>⚠ Indica contaminación de la muestra: resultado no valorable. Repetir.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Urocultivo -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🏆 Urocultivo con Antibiograma — Estándar de Oro <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <h3 class="subsection-title">Umbrales de Bacteriuria Significativa — EAU 2025 / IDSA 2025</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Método de Recolección / Escenario</th><th>Umbral (UFC/mL)</th><th>Comentario</th></tr></thead>
+          <tbody>
+            <tr><td>Chorro medio — <strong>Cistitis aguda</strong> (mujer sintomática)</td><td><strong>≥ 10³</strong></td><td>Abandona el umbral clásico de Kass de 10⁵. Mayor sensibilidad en pacientes sintomáticas.</td></tr>
+            <tr><td>Chorro medio — <strong>Pielonefritis / ITU sistémica</strong></td><td><strong>≥ 10⁴</strong></td><td>Mayor umbral para confirmar patógeno tisular.</td></tr>
+            <tr><td>Chorro medio — <strong>Bacteriuria Asintomática</strong></td><td><strong>≥ 10⁵</strong> (en 2 muestras)</td><td>Dos cultivos con el mismo microorganismo para confirmar BA.</td></tr>
+            <tr><td>Cateterismo vesical transitorio</td><td><strong>≥ 10²</strong></td><td>Alta especificidad. Cualquier crecimiento es relevante.</td></tr>
+            <tr><td>Punción suprapúbica</td><td><strong>Cualquier crecimiento</strong></td><td>Máxima especificidad diagnóstica disponible.</td></tr>
+            <tr style="background:#fff5f5"><td>Sonda vesical permanente <strong>(ITU-AC)</strong></td><td><strong>≥ 10³</strong></td><td>⚠ Siempre de <strong>sonda NUEVA</strong> recién colocada. NUNCA de la bolsa recolectora.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid2" style="margin-top:16px">
+        <div class="info-card">
+          <h4>✅ Indicaciones Obligatorias de Urocultivo</h4>
+          <ul class="checklist">
+            <li>ITU sistémica (pielonefritis, urosepsis)</li>
+            <li>Mujeres embarazadas (cribado y tratamiento de BA)</li>
+            <li>Varones — toda ITU requiere urocultivo</li>
+            <li>Pacientes inmunosuprimidos</li>
+            <li>Fallo terapéutico o recurrencia tras ATB empírico</li>
+            <li>Cistitis con factores de riesgo (DM, anomalías, catéter)</li>
+            <li>ITU-AC (previa al ATB, tras cambio de sonda)</li>
+          </ul>
+        </div>
+        <div class="info-card" style="background:#f0fdf4;border-color:#bbf7d0">
+          <h4 style="color:#15803d">❌ NO obligatorio en:</h4>
+          <ul class="checklist ci-list">
+            <li>Mujer joven < 65 años, cistitis localizada primer episodio sin comorbilidades</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imagen -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">📷 Estudios de Imagen en ITU <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-green"><strong>💡 Regla Práctica de Imagen en ITU</strong>
+        La imagen NO está indicada de rutina en cistitis aguda ni en pielonefritis que responde en las primeras 48–72 horas. SE INDICA ante: fiebre > 72 h sin respuesta al ATB adecuado, sospecha de obstrucción, patología urológica conocida, o cuadro atípico.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Estudio</th><th>Indicaciones</th><th>Hallazgos Relevantes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ecografía renal y vías urinarias</strong></td><td>Fiebre persistente > 72 h; sospecha de obstrucción o litiasis; caída brusca de TFGe. <em>Primera línea por accesibilidad.</em></td><td>Dilatación sistema colector, absceso perirrenal, litiasis visible</td></tr>
+            <tr><td><strong>TC abdominopélvica con y sin contraste</strong></td><td>Sospecha de absceso renal o perirrenal; pielonefritis enfisematosa; pionefrosis; necrosis papilar; fallo a ATB a las 72 h</td><td>Gas intrarrenal (enfisematosa), colecciones "en anillo", defectos de llenado caliciales (necrosis papilar)</td></tr>
+            <tr><td><strong>RMN renal</strong></td><td>Alternativa sin radiación en embarazadas; alergia a contraste yodado; sospecha de complicación en pacientes jóvenes</td><td>Absceso, edema inflamatorio parenquimatoso, trombosis vena renal</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diagnóstico diferencial -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🔄 Diagnóstico Diferencial <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Patología</th><th>Síntomas Clave</th><th>Sedimento</th><th>Urocultivo</th><th>Clave Diagnóstica</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cistitis bacteriana</strong></td><td>Disuria, polaquiuria, urgencia, dolor suprapúbico ± hematuria</td><td>Piuria franca, bacterias</td><td>Positivo (≥ 10³)</td><td>Inicio brusco, respuesta rápida a ATB</td></tr>
+            <tr><td><strong>Uretritis por ETS</strong> (Chlamydia, N. gonorrhoeae)</td><td>Disuria de curso subagudo, secreción uretral</td><td>Piuria sin bacterias visibles</td><td>NEGATIVO</td><td>"Piuria estéril" en varón joven. Requiere PCR/NAAT.</td></tr>
+            <tr><td><strong>Vaginitis / Cervicitis</strong></td><td>Disuria externa, leucorrea, prurito vaginal, dispareunia</td><td>Normal o células escamosas abundantes</td><td>Negativo</td><td>Examen pélvico diagnóstico</td></tr>
+            <tr><td><strong>Cistitis Intersticial</strong></td><td>Dolor suprapúbico crónico, polaquiuria extrema. Meses de evolución.</td><td>NORMAL. Sin piuria.</td><td>Persistentemente negativo</td><td>Curso crónico. Sin respuesta a ATB. Diagnóstico por cistoscopia.</td></tr>
+            <tr><td><strong>Cólico nefrítico litiásico</strong></td><td>Dolor lumbar paroxístico muy intenso que irradia a genitales</td><td>Hematuria (frecuente). Piuria ausente salvo infección sobreañadida.</td><td>Negativo</td><td>TC sin contraste: litiasis ureteral</td></tr>
+            <tr><td><strong>TBC genitourinaria</strong></td><td>Piuria estéril persistente, hematuria, síntomas sistémicos de TB</td><td>Piuria intensa sin bacterias</td><td>BAAR en cultivo específico (Löwenstein)</td><td>Calcificaciones renales en imagen</td></tr>
+            <tr><td><strong>Prostatitis aguda</strong></td><td>Fiebre alta, dolor perineal, síntomas obstructivos miccionales en varón</td><td>Piuria</td><td>Generalmente positivo</td><td>Tacto rectal muy suave (riesgo bacteriemia)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-amber"><strong>⚠ Piuria Estéril: Diagnóstico Diferencial Obligatorio</strong>
+        Definición: piuria franca con urocultivos bacterianos convencionales persistentemente negativos. Descartar:<br>
+        1. TBC genitourinaria → Urocultivo BAAR × 3 muestras matutinas<br>
+        2. Chlamydia, Mycoplasma, Ureaplasma → PCR/NAAT uretral<br>
+        3. Cistitis intersticial → Cistoscopia diagnóstica<br>
+        4. Litiasis renal crónica<br>
+        5. Candiduria en inmunosuprimidos → Urocultivo en medios para hongos
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== MANEJO ==================== -->
+<div class="section" id="tab-manejo">
+  <h2 class="section-title">🚨 Manejo en Emergencia / Tratamiento</h2>
+
+  <!-- Principio crítico -->
+  <div class="alert-red" style="margin-bottom:16px"><strong>🔴 REGLA CRÍTICA — IDSA 2025 / EAU 2026: Fosfomicina y Nitrofurantoína en ITU Sistémica</strong>
+    Fosfomicina trometamol oral y nitrofurantoína están <strong>CONTRAINDICADAS</strong> en pielonefritis y urosepsis. No alcanzan concentraciones terapéuticas en el parénquima renal ni en el torrente sanguíneo. Su uso en ITU sistémica = fracaso terapéutico con riesgo de progresión a urosepsis. Uso estrictamente restringido a ITU LOCALIZADA (cistitis aguda).
+  </div>
+
+  <!-- Fichas farmacológicas -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">💊 Fichas Farmacológicas de los Antimicrobianos de Elección <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table class="compact">
+          <thead><tr><th>Fármaco</th><th>Mecanismo</th><th>Dosis Estándar</th><th>Vía / Intervalo</th><th>Indicación Principal</th><th>Ajuste TFGe &lt;30</th><th>Contraindicación Clave</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fosfomicina trometamol</strong></td><td>Inhibe MurA (1.er paso síntesis pared celular)</td><td>3 g</td><td>VO / Dosis única</td><td>Cistitis no complicada</td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td>Pielonefritis · TFGe &lt;30</td></tr>
+            <tr><td><strong>Nitrofurantoína</strong> (macrocristales)</td><td>Daño a ADN, ARN y proteínas bacterianas</td><td>100 mg</td><td>VO / c/12 h × 5 días</td><td>Cistitis · Profilaxis recurrente</td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td>TFGe &lt;30 · Déficit G6PD · Embarazo sem. 38–42</td></tr>
+            <tr><td><strong>Ceftriaxona</strong></td><td>Cefalosporina 3.ª gen. Inhibe síntesis de pared (PBPs)</td><td>1–2 g</td><td>IV/IM / c/24 h</td><td>Pielonefritis / ITU sistémica comunitaria</td><td>Sin ajuste renal aislado (excreción dual)</td><td>Falla hepato-renal: máx. 2 g/día</td></tr>
+            <tr><td><strong>Cefepime</strong></td><td>Cefalosporina 4.ª gen. Estable frente a BLEE inducible</td><td>1–2 g</td><td>IV / c/8–12 h</td><td>ITU sistémica nosocomial · neutropenia febril</td><td>Reducir dosis/intervalo</td><td>Hipersensibilidad a cefalosporinas</td></tr>
+            <tr><td><strong>Ertapenem</strong></td><td>Carbapenémico. Inactiva PBPs; resistente a BLEE</td><td>1 g</td><td>IV/IM / c/24 h</td><td>ITU sistémica con riesgo BLEE</td><td>500 mg/24 h</td><td>Hipersensibilidad a carbapenémicos</td></tr>
+            <tr><td><strong>Meropenem</strong></td><td>Carbapenémico amplio espectro. Cubre BLEE y Pseudomonas</td><td>1 g (infusión ext. 3 h)</td><td>IV / c/8 h</td><td>Urosepsis / Choque séptico de origen urinario</td><td>500 mg/12 h (TFGe 10–25)</td><td>Solo en casos graves; desescalar con antibiograma</td></tr>
+            <tr><td><strong>Piperacilina/Tazobactam</strong></td><td>Penicilina antipseudomónica + inhibidor betalactamasa</td><td>4.5 g</td><td>IV / c/6 h</td><td>ITU sistémica hospitalaria sin BLEE</td><td>Reducir dosis si TFGe &lt;40</td><td>No usar si sospecha BLEE</td></tr>
+            <tr><td><strong>Ciprofloxacino</strong></td><td>Fluoroquinolona. Inhibe ADN girasa y topoisomerasa IV</td><td>500 mg VO / 400 mg IV</td><td>VO/IV / c/12 h × 7 d</td><td>Pielonefritis ambulatoria (solo si resist. local &lt;10 %)</td><td>250–500 mg/24 h</td><td>NO en cistitis 1.ª línea · Embarazo · Niños</td></tr>
+            <tr><td><strong>Levofloxacino</strong></td><td>Fluoroquinolona. Igual mecanismo</td><td>750 mg</td><td>VO/IV / c/24 h × 5 d</td><td>Pielonefritis ambulatoria (solo si resist. local &lt;10 %)</td><td>Carga 750 mg, luego 500 mg/48 h</td><td>Igual que ciprofloxacino</td></tr>
+            <tr><td><strong>Amikacina</strong></td><td>Aminoglucósido. Inhibe síntesis proteica (30S)</td><td>15–20 mg/kg</td><td>IV / c/24 h (dosis única)</td><td>Terapia sinérgica en urosepsis grave (máx. 48–72 h)</td><td>Monitorización de niveles. Nefrotóxico.</td><td>No en monoterapia; monitorización renal obligatoria</td></tr>
+            <tr><td><strong>Amoxicilina/Clavulánico</strong></td><td>Aminopenicilina + inhibidor betalactamasa</td><td>500/125 mg</td><td>VO / c/8 h × 5–7 días</td><td>Cistitis en embarazo</td><td>Ajustar intervalo si TFGe &lt;30</td><td>Hipersensibilidad a penicilinas</td></tr>
+            <tr><td><strong>Cefuroxima axetilo</strong></td><td>Cefalosporina 2.ª gen. Estable frente a betalactamasas TEM</td><td>250–500 mg</td><td>VO / c/12 h × 5–7 días</td><td>Cistitis en embarazo · 2.ª línea cistitis</td><td>Ajuste menor si TFGe &lt;20</td><td>Hipersensibilidad a cefalosporinas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Esquemas por síndrome -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">📋 Esquemas Empíricos por Síndrome Clínico <span class="arrow">▼</span></div>
+    <div class="card-body">
+
+      <h3 class="subsection-title">A. Cistitis Aguda Localizada — Mujer Premenopáusica sin Comorbilidades</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Línea</th><th>Fármaco</th><th>Dosis / Duración</th><th>Nivel de Evidencia</th></tr></thead>
+          <tbody>
+            <tr style="background:#f0fdf4"><td><span class="pill pill-green">1.ª Elección</span></td><td><strong>Fosfomicina trometamol</strong></td><td>3 g VO — <strong>Dosis única</strong></td><td>FUERTE / Alto — EAU 2026, IDSA</td></tr>
+            <tr style="background:#f0fdf4"><td><span class="pill pill-green">1.ª Alternativa</span></td><td><strong>Nitrofurantoína</strong> macrocristales</td><td>100 mg VO c/12 h × 5 días</td><td>FUERTE / Alto</td></tr>
+            <tr><td><span class="pill pill-blue">2.ª Línea</span></td><td>Cefadroxilo</td><td>500 mg VO c/12 h × 3–5 días</td><td>MODERADA</td></tr>
+            <tr><td><span class="pill pill-amber">Condicional</span></td><td>TMP/SMX (cotrimoxazol)</td><td>Solo si resist. local &lt;20 % → 160/800 mg c/12 h × 3 días</td><td>CONDICIONAL (resistencia frecuente &gt;20 % en Ecuador)</td></tr>
+            <tr style="background:#fff5f5"><td><span class="pill pill-red">⚠ EVITAR</span></td><td>Fluoroquinolonas (ciprofloxacino, levofloxacino)</td><td>Contraindicadas de forma rutinaria</td><td>FUERTE EN CONTRA — EAU 2026, IDSA 2025, FDA/EMA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection-title">B. Pielonefritis Aguda — Manejo Ambulatorio (ITU Sistémica Estable, Tolera VO)</h3>
+      <div class="alert-blue"><strong>Requisito para Manejo Ambulatorio:</strong> Deben cumplirse TODOS: tolerancia a vía oral demostrada · estabilidad hemodinámica · acceso a seguimiento en 48–72 h · resistencia local a quinolonas &lt;10 % si se planea ese esquema.</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Esquema</th><th>Fármaco</th><th>Dosis / Duración</th><th>Condición</th></tr></thead>
+          <tbody>
+            <tr><td>1.ª Elección (resist. quinolona &lt;10 %)</td><td><strong>Ciprofloxacino</strong></td><td>500 mg VO c/12 h × 7 días</td><td>Verificar sensibilidad local; tasas &gt;20 % en Ecuador</td></tr>
+            <tr><td>Alternativa</td><td>Levofloxacino</td><td>750 mg VO c/24 h × 5 días</td><td>Igual condición anterior</td></tr>
+            <tr><td>Alternativa sin quinolonas</td><td>Cefixima</td><td>400 mg VO c/24 h × 10 días</td><td>Cuando no se pueden usar quinolonas</td></tr>
+            <tr><td>Inicio parenteral + transición oral</td><td>Ceftriaxona 1 g IV/IM → cefalosporina oral</td><td>1 g IV + transición a cefixima × 10 días</td><td>Si resistencia local desconocida o &gt;10 % a quinolonas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection-title">C. Pielonefritis / ITU Sistémica — Requiere Hospitalización (Sin Choque Séptico)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Perfil del Paciente</th><th>Esquema Recomendado</th><th>Duración</th></tr></thead>
+          <tbody>
+            <tr><td>Sin factores de riesgo para BLEE</td><td>Ceftriaxona 1–2 g IV c/24 h<br><em>O bien:</em> Piperacilina/Tazobactam 4.5 g IV c/6 h</td><td>7–10 días (con desescalada a VO cuando tolere)</td></tr>
+            <tr style="background:#fff5f5"><td>Con factores de riesgo para BLEE<br><small>(ATB últimos 90 días, hospitalización reciente, cultivo BLEE previo)</small></td><td><strong>Ertapenem 1 g IV/IM c/24 h</strong></td><td>7–10 días. Desescalada obligatoria con antibiograma.</td></tr>
+            <tr><td>Sospecha de Pseudomonas<br><small>(neutropénico, UCI, bronquiectasias)</small></td><td>Cefepime 2 g IV c/8 h<br><em>O bien:</em> Pip/Tazo 4.5 g IV c/6 h<br><em>O bien (muy grave):</em> Meropenem 1 g IV c/8 h</td><td>10–14 días</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Protocolo Hora 1 UCI -->
+  <div class="proto-box">
+    <h4>🔴 D. Urosepsis y Choque Séptico de Origen Urinario — PROTOCOLO HORA 1 (SSC 2021)</h4>
+    <div class="step"><div class="step-num">1</div><div class="step-body"><strong>HEMOCULTIVOS × 2</strong> (periférico y central si disponible) + <strong>UROCULTIVO</strong> de sonda nueva → <em>ANTES del antibiótico</em></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><strong>LACTATO sérico</strong> — Si &gt; 2 mmol/L: indicar reanimación hídrica inmediata</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><strong>ANTIBIÓTICO EMPÍRICO AMPLIO ESPECTRO</strong> dentro de la <strong>PRIMERA HORA:</strong><br>
+      ⟹ <strong>Meropenem 1 g IV c/8 h</strong> (infusión extendida en 3 h para optimizar farmacodinamia)<br>
+      ⟹ ± <strong>Amikacina 15–20 mg/kg IV</strong> dosis única (terapia sinérgica, máx. 48–72 h)</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><strong>REANIMACIÓN HÍDRICA:</strong> Cristaloides <strong>30 mL/kg IV</strong> en la primera hora si hipotensión o lactato &gt; 2 mmol/L</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><strong>VASOPRESORES:</strong> Noradrenalina (primera línea) si PAM &lt; 65 mmHg a pesar de fluidos</div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-body"><strong>CONTROL DE LA FUENTE:</strong> Ecografía/TC urgente para descartar obstrucción.<br>
+      Si obstrucción → <strong>catéter doble J o nefrostomía percutánea INMEDIATA</strong> (el ATB solo es insuficiente)</div></div>
+    <div class="step"><div class="step-num">7</div><div class="step-body"><strong>DESESCALADA OBLIGATORIA</strong> en cuanto llegue el antibiograma definitivo</div></div>
+  </div>
+
+  <!-- Transición IV→VO -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🔄 Transición Intravenosa → Oral (IV → VO) — IDSA 2025 <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-green"><strong>La transición precoz IV → VO no compromete los resultados clínicos</strong> y reduce costos, estancia hospitalaria y riesgos del acceso venoso. (IDSA 2025)</div>
+      <p style="margin-top:12px;margin-bottom:8px"><strong>Realizar transición cuando se cumplen TODOS:</strong></p>
+      <ul class="checklist">
+        <li>Tolerancia oral demostrada (sin náuseas ni vómitos activos)</li>
+        <li>Mejoría clínica sostenida: afebril ≥ 24–48 h, resolución de síntomas locales</li>
+        <li>Opción oral con actividad demostrada en el antibiograma disponible</li>
+        <li>No necesidad de continuar tratamiento parenteral por otras razones</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Situaciones especiales -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🤰 Situaciones Especiales <span class="arrow">▼</span></div>
+    <div class="card-body">
+
+      <!-- Embarazo -->
+      <h3 class="subsection-title">1. Embarazo</h3>
+      <div class="alert-red"><strong>🔴 Regla de Oro: Bacteriuria Asintomática en Embarazo SIEMPRE SE TRATA</strong>
+        Cribado obligatorio: urocultivo entre semanas 12–16 de gestación. La BA no tratada progresa a pielonefritis en el 20–30 % en el 3.er trimestre → parto pretérmino, bajo peso al nacer, morbimortalidad maternofetal. Toda gestante con pielonefritis: hospitalización obligatoria + ATB IV + monitorización fetal.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Situación</th><th>Fármaco de Elección</th><th>Dosis / Duración</th><th>Seguridad</th></tr></thead>
+          <tbody>
+            <tr><td>Cistitis / BA (1.ª línea)</td><td><strong>Amoxicilina/Ác. Clavulánico</strong></td><td>500/125 mg VO c/8 h × 5–7 días</td><td>Categoría B (seguro)</td></tr>
+            <tr><td>Cistitis / BA (alternativa)</td><td><strong>Cefuroxima axetilo</strong></td><td>250 mg VO c/12 h × 5–7 días</td><td>Categoría B (seguro)</td></tr>
+            <tr><td>Cistitis / BA (dosis única)</td><td><strong>Fosfomicina trometamol</strong></td><td>3 g VO dosis única</td><td>Generalmente aceptado por EAU e IDSA</td></tr>
+            <tr><td>Pielonefritis (hospitalización obligatoria)</td><td><strong>Ceftriaxona</strong></td><td>1–2 g IV c/24 h</td><td>Categoría B — 1.ª línea IV en embarazo</td></tr>
+            <tr><td>Profilaxis (ITU recurrente)</td><td><strong>Nitrofurantoína</strong></td><td>50–100 mg/noche (SOLO semanas 14–36)</td><td>Evitar estrictamente semanas 38–42 (hemólisis neonatal)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-red"><strong>🔴 Fármacos CONTRAINDICADOS en Embarazo</strong></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Fármaco</th><th>Período de Riesgo</th><th>Riesgo Fetal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fluoroquinolonas</strong></td><td>Todos los trimestres</td><td>Artropatía fetal; alteración del cartílago en desarrollo</td></tr>
+            <tr><td><strong>Tetraciclinas</strong></td><td>2.º y 3.er trimestre</td><td>Tinción dental permanente; hipoplasia ósea</td></tr>
+            <tr><td><strong>TMP/SMX</strong></td><td>1.er trimestre</td><td>Antagonismo ácido fólico → defectos del tubo neural</td></tr>
+            <tr><td><strong>TMP/SMX</strong></td><td>3.er trimestre / Parto</td><td>Kernícterus neonatal (desplaza bilirrubina de la albúmina)</td></tr>
+            <tr><td><strong>Nitrofurantoína</strong></td><td>Semanas 38–42 / Parto</td><td>Hemólisis neonatal por inmadurez de eritrocitos fetales</td></tr>
+            <tr><td><strong>Aminoglucósidos</strong></td><td>Todos los trimestres</td><td>Ototoxicidad y nefrotoxicidad fetal</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Adulto mayor -->
+      <h3 class="subsection-title" style="margin-top:20px">2. Adulto Mayor</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Principio</th><th>Detalle Clínico</th></tr></thead>
+          <tbody>
+            <tr><td>NO tratar bacteriuria asintomática</td><td>Piuria + bacteriuria sin síntomas sistémicos en anciano: NO tratar. Genera C. difficile y resistencia.</td></tr>
+            <tr><td>Síntomas atípicos como señal de alarma</td><td>Delirium, caídas, anorexia, hipotensión: descartar ITU sistémica como causa subyacente.</td></tr>
+            <tr><td>Calcular TFGe antes de prescribir</td><td>CKD-EPI en todo anciano antes de prescribir nitrofurantoína, fosfomicina, aminoglucósidos o carbapenémicos.</td></tr>
+            <tr><td>Evitar fluoroquinolonas cuando sea posible</td><td>Mayor riesgo de prolongación QTc, tendinitis, colitis por C. difficile e interacciones farmacológicas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Insuficiencia renal -->
+      <h3 class="subsection-title" style="margin-top:20px">3. Insuficiencia Renal Crónica — Ajuste de Dosis</h3>
+      <div class="tbl-wrap">
+        <table class="compact">
+          <thead><tr><th>TFGe (mL/min)</th><th>Fosfomicina VO</th><th>Nitrofurantoína</th><th>Ceftriaxona</th><th>Ertapenem</th><th>Meropenem</th><th>Ciprofloxacino VO</th></tr></thead>
+          <tbody>
+            <tr><td>&ge; 60</td><td>Dosis estándar</td><td>Dosis estándar</td><td>Sin ajuste</td><td>Sin ajuste</td><td>Sin ajuste</td><td>Sin ajuste</td></tr>
+            <tr><td>30–59</td><td>Con precaución</td><td>Dosis estándar</td><td>Sin ajuste</td><td>Sin ajuste</td><td>Sin ajuste</td><td>Sin ajuste</td></tr>
+            <tr style="background:#fff5f5"><td>10–29</td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td>Sin ajuste renal aislado</td><td>500 mg/24 h</td><td>500 mg/12 h</td><td>250–500 mg/24 h</td></tr>
+            <tr style="background:#fff5f5"><td>&lt; 10 (sin diálisis)</td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td style="color:#dc2626"><strong>CONTRAINDICADA</strong></td><td>Sin ajuste</td><td>500 mg/24 h</td><td>500 mg/24 h</td><td>250 mg/12 h (monitorización)</td></tr>
+            <tr><td>Hemodiálisis</td><td style="color:#dc2626">CONTRAINDICADA</td><td style="color:#dc2626">CONTRAINDICADA</td><td>Sin ajuste (no dializable)</td><td>Post-HD + suplementaria</td><td>Post-HD</td><td>Post-HD</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Catéter -->
+      <h3 class="subsection-title" style="margin-top:20px">4. Portador de Catéter Urinario (ITU-AC)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Principio</th><th>Evidencia / Aplicación Clínica</th></tr></thead>
+          <tbody>
+            <tr><td>Diagnóstico: NUNCA de la bolsa recolectora</td><td>Tomar siempre de sonda nueva mediante punción del puerto de muestreo.</td></tr>
+            <tr><td>Cambiar sonda ANTES del cultivo</td><td>El biofilm de la sonda vieja no refleja el patógeno vesical real.</td></tr>
+            <tr><td>No tratar bacteriuria asintomática en portadores crónicos</td><td>Solo tratar si síntomas sistémicos claros (fiebre, escalofríos, hipotensión) o procedimiento urológico inminente.</td></tr>
+            <tr><td>Retiro precoz del catéter = principal prevención</td><td>Reducir los días de cateterización al mínimo indispensable es la estrategia preventiva con mayor impacto.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Varones -->
+      <h3 class="subsection-title" style="margin-top:20px">5. Varones con ITU</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Escenario</th><th>Clasificación EAU 2025 / IDSA 2025</th><th>Manejo</th></tr></thead>
+          <tbody>
+            <tr><td>Varón afebril, cistitis sin signos sistémicos, sin anomalías urológicas</td><td><strong>ITU Localizada</strong> — puede manejarse como no complicada</td><td>Tratamiento oral 5–7 días. Urocultivo SIEMPRE obligatorio en varones.</td></tr>
+            <tr><td>Varón con fiebre, escalofríos, dolor perineal</td><td><strong>ITU Sistémica.</strong> Descartar prostatitis aguda activamente.</td><td>ATB con penetración prostática (fluoroquinolonas, TMP-SMX) × 2–4 semanas si prostatitis confirmada.</td></tr>
+            <tr style="background:#fff5f5"><td>Prostatitis aguda</td><td>⚠ Tacto rectal SOLO muy suave (riesgo de bacteriemia)</td><td>Fluoroquinolonas × 4 semanas (penetración prostática). Hospitalizar si hay sistemia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Candiduria -->
+      <h3 class="subsection-title" style="margin-top:20px">6. Candiduria — Nueva Sección EAU 2026</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Situación Clínica</th><th>Conducta Recomendada</th></tr></thead>
+          <tbody>
+            <tr><td>Candiduria asintomática sin inmunosupresión ni catéter</td><td>NO tratar. Investigar y corregir factores predisponentes. Retirar catéter si presente.</td></tr>
+            <tr><td>Candiduria asintomática en inmunosuprimido / trasplantado / procedimiento urológico inminente</td><td>TRATAR: Fluconazol 200–400 mg/día VO × 14 días</td></tr>
+            <tr><td>Candiduria sintomática (cistitis fúngica)</td><td>Fluconazol 200–400 mg/día × 14 días. Verificar especie: C. glabrata y C. krusei/auris son resistentes a fluconazol.</td></tr>
+            <tr><td>Candiduria sistémica / Pielonefritis fúngica</td><td>Equinocandina IV inicial → transición a fluconazol oral según especie. Evaluación por Infectología.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Errores frecuentes -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🚫 Errores Críticos y Perlas Clínicas <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-red"><strong>🔴 ERROR #1: Prescribir ATB por orina turbia o maloliente</strong>
+        La orina concentrada o la deshidratación generan orina turbia y fétida sin infección. NUNCA iniciar antibioterapia basándose exclusivamente en el aspecto visual sin síntomas clínicos. Especialmente dañino en ancianos institucionalizados.
+      </div>
+      <div class="alert-red"><strong>🔴 ERROR #2: Quinolonas como primera línea en cistitis simple</strong>
+        Formalmente contraindicadas como primera línea (FDA/EMA, EAU 2026, IDSA 2025). Tasas de resistencia del 20–40 % en LATAM + toxicidades graves (tendinitis, aneurisma aórtico, neuropatía periférica, prolongación QTc).
+      </div>
+      <div class="alert-red"><strong>🔴 ERROR #3: Fosfomicina o Nitrofurantoína en pielonefritis</strong>
+        No alcanzan concentraciones terapéuticas en parénquima renal ni en sangre. Su uso en pielonefritis constituye error terapéutico grave con riesgo de progresión a urosepsis.
+      </div>
+      <div class="alert-red"><strong>🔴 ERROR #4: Tratar bacteriuria asintomática sin indicación clara</strong>
+        La BA solo se trata en: (1) embarazadas y (2) antes de procedimientos urológicos. Tratar BA en ancianos o diabéticos NO mejora resultados y SÍ induce resistencia y C. difficile.
+      </div>
+      <div class="alert-red"><strong>🔴 ERROR #5: No cambiar la sonda antes del urocultivo en ITU-AC</strong>
+        El biofilm de la sonda vieja contamina el cultivo. Cambio de sonda obligatorio ANTES de tomar la muestra.
+      </div>
+      <div class="alert-red"><strong>🔴 ERROR #6: Iniciar ATB sin controlar la fuente obstructiva</strong>
+        En pielonefritis con sistema colector obstruido, el ATB solo es INSUFICIENTE. La desobstrucción urgente (doble J o nefrostomía) es la intervención que salva la vida. URGENCIA UROLÓGICA ABSOLUTA.
+      </div>
+      <div class="alert-green"><strong>💡 PERLA: Ceftriaxona no requiere ajuste renal aislado</strong>
+        Eliminación dual: renal (40 %) + biliar-fecal (60 %). En ERC, la excreción biliar compensa. Solo ajustar si coexiste falla hepática grave (máx. 2 g/día).
+      </div>
+      <div class="alert-green"><strong>💡 PERLA: Cilindros leucocitarios = parénquima renal comprometido</strong>
+        Se forman exclusivamente en los túbulos renales → PATOGNOMÓNICOS de pielonefritis. Diferencian la cistitis de la pielonefritis cuando el cuadro clínico no es claro.
+      </div>
+      <div class="alert-green"><strong>💡 PERLA: Umbral de bacteriuria para cistitis sintomática es 10³ UFC/mL</strong>
+        El umbral clásico de Kass (10⁵) aplica a bacteriuria asintomática. En mujeres con síntomas activos de cistitis, 10³ UFC/mL es el umbral validado por EAU 2025.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== COMPLICACIONES ==================== -->
+<div class="section" id="tab-compl">
+  <h2 class="section-title">⚡ Complicaciones</h2>
+
+  <!-- Tabla de complicaciones -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">📊 Complicaciones Mayores de la ITU <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Complicación</th><th>Fisiopatología</th><th>Diagnóstico</th><th>Factores de Riesgo</th><th>Manejo</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="pill pill-amber"><strong>Absceso Renal / Perinefrítico</strong></span></td>
+              <td>Coalescencia de microabscesos corticales o ruptura hacia el espacio perirrenal</td>
+              <td>TC contrastada: colección con refuerzo periférico "en anillo". Ecografía como tamizaje.</td>
+              <td>DM, obstrucción, pielonefritis no tratada</td>
+              <td>ATB IV prolongada 4–6 semanas. Drenaje percutáneo si diámetro &gt; 3–5 cm. Nefrectomía si refractario.</td>
+            </tr>
+            <tr style="background:#fff5f5">
+              <td><span class="pill pill-red"><strong>Pielonefritis Enfisematosa</strong></span></td>
+              <td>Infección necrotizante con producción de gas por fermentación de glucosa (E. coli, K. pneumoniae)</td>
+              <td>TC sin contraste: gas en parénquima renal o espacio perirrenal. <strong>Mortalidad 21–43 %.</strong></td>
+              <td>DM (&gt;80 % de casos), obstrucción, inmunosupresión</td>
+              <td>UCI + Meropenem. Drenaje percutáneo. Nefrectomía de salvamento si fallo multiorgánico.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-red"><strong>Pionefrosis</strong></span></td>
+              <td>Pus en sistema colector dilatado por obstrucción (litiasis, tumor, estenosis)</td>
+              <td>Ecografía: dilatación con contenido ecogénico. TC: confirma obstrucción y extensión.</td>
+              <td>Litiasis obstructiva, estenosis, tumor urotelial</td>
+              <td style="color:#dc2626"><strong>URGENCIA UROLÓGICA ABSOLUTA.</strong> Drenaje URGENTE (nefrostomía o catéter doble J) + ATB IV. El antibiótico solo es insuficiente.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-amber"><strong>Necrosis Papilar</strong></span></td>
+              <td>Isquemia coagulativa de papilas por edema tisular e inhibición de prostaglandinas. Favorecida por AINEs.</td>
+              <td>Uro-TC: defectos de llenado caliciales. "Signo del anillo" por desprendimiento papilar.</td>
+              <td>DM, anemia de células falciformes, abuso de AINEs, obstrucción</td>
+              <td>ATB IV, suspender AINEs, vigilar obstrucción por fragmentos papilares.</td>
+            </tr>
+            <tr style="background:#fff5f5">
+              <td><span class="pill pill-red"><strong>Urosepsis / Choque Séptico</strong></span></td>
+              <td>Translocación bacteriana → respuesta inflamatoria desregulada → disfunción orgánica</td>
+              <td>Criterios Sepsis-3. SOFA ≥ 2. Lactato &gt; 2 mmol/L.</td>
+              <td>HPB, obstrucción, inmunosupresión, DM, ITU-AC</td>
+              <td>UCI. Protocolo Hora 1 SSC. Carbapenémico IV. Vasopresores. Control de fuente.</td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-red"><strong>Urosepsis Gestacional</strong></span></td>
+              <td>Pielonefritis no tratada = causa más frecuente de sepsis no obstétrica en el embarazo</td>
+              <td>Criterios estándar de sepsis en contexto obstétrico</td>
+              <td>BA no tratada, pielonefritis 2.º–3.er trimestre</td>
+              <td>UCI obstétrica + Ceftriaxona IV + monitorización continua del bienestar fetal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Criterios de hospitalización -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🏥 Criterios de Hospitalización, UCI y Alta <span class="arrow">▼</span></div>
+    <div class="card-body">
+
+      <h3 class="subsection-title">Criterios de Ingreso Hospitalario (sala general)</h3>
+      <div class="alert-amber"><strong>⚠ Ingreso hospitalario si se cumple AL MENOS UNO:</strong></div>
+      <ul class="checklist">
+        <li>Imposibilidad de tolerar vía oral (vómitos incoercibles)</li>
+        <li>Inestabilidad hemodinámica leve–moderada: hipotensión limítrofe o taquicardia persistente</li>
+        <li>Embarazada con cualquier grado de pielonefritis (hospitalización SIEMPRE obligatoria)</li>
+        <li>Paciente anciano o frágil sin red de apoyo familiar</li>
+        <li>Comorbilidades descompensadas: cetoacidosis diabética, ICC, ERC estadios 4–5</li>
+        <li>Necesidad de intervención urológica (drenaje de absceso, doble J, nefrostomía)</li>
+        <li>Fallo del tratamiento ambulatorio: persiste sintomático &gt; 72 h con adherencia confirmada</li>
+      </ul>
+
+      <h3 class="subsection-title" style="margin-top:18px">Criterios de Ingreso a UCI (Traslado inmediato)</h3>
+      <div class="alert-red"><strong>🔴 UCI si se cumple AL MENOS UNO:</strong></div>
+      <ul class="checklist">
+        <li>Requerimiento de vasopresores (Noradrenalina) para PAM ≥ 65 mmHg → Choque séptico</li>
+        <li>Lactato sérico &gt; 2.0 mmol/L persistente tras reanimación inicial</li>
+        <li>Insuficiencia respiratoria aguda: SpO₂ &lt; 92 % o necesidad de soporte ventilatorio</li>
+        <li>Deterioro neurológico severo: Glasgow &lt; 11 por encefalopatía séptica</li>
+        <li>Incremento agudo de SOFA ≥ 2 puntos (Sepsis-3)</li>
+        <li>Oligoanuria (&lt; 0.5 mL/kg/h) no corregida tras reanimación hídrica</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== EGRESO Y PREVENCIÓN ==================== -->
+<div class="section" id="tab-egreso">
+  <h2 class="section-title">📋 Egreso, Seguimiento y Prevención</h2>
+
+  <!-- Criterios de alta -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">✅ Criterios de Alta Hospitalaria — Lista de Verificación <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-green"><strong>Todos los criterios deben cumplirse antes del alta:</strong></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Criterio de Alta</th><th>Umbral Mínimo Requerido</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Estabilidad hemodinámica sostenida</strong></td><td>PAS &gt; 90 mmHg y FC &lt; 100 lpm de forma espontánea durante ≥ 24 h, sin soporte vasopresor</td></tr>
+            <tr><td><strong>Ausencia de fiebre</strong></td><td>Temperatura axilar &lt; 37.8 °C documentada durante ≥ 24–48 h continuas sin antipiréticos intermitentes</td></tr>
+            <tr><td><strong>Tolerancia oral demostrada</strong></td><td>Capacidad comprobada de ingerir alimentos, líquidos y medicamentos VO sin náuseas ni emesis</td></tr>
+            <tr><td><strong>Esquema oral efectivo disponible</strong></td><td>Opción antimicrobiana oral activa según antibiograma confirmado</td></tr>
+            <tr><td><strong>Función renal estabilizada</strong></td><td>Estabilización de creatinina sérica y diuresis horaria respecto a valores basales</td></tr>
+            <tr><td><strong>Red de apoyo garantizada</strong></td><td>Supervisión domiciliaria del tratamiento y acceso asegurado a los fármacos prescritos</td></tr>
+            <tr><td><strong>Seguimiento programado</strong></td><td>Control clínico en 48–72 h post-alta, especialmente si antibiograma definitivo pendiente</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prevención -->
+  <div class="card">
+    <div class="card-header open" onclick="toggleCard(this)">🔄 Prevención de ITU Recurrente <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-blue"><strong>Definición de ITU Recurrente:</strong> ≥ 2 episodios en los últimos 6 meses, o ≥ 3 episodios en los últimos 12 meses. Clasificar según el patrón: <em>recidiva</em> (mismo microorganismo, &lt; 2 semanas) o <em>reinfección</em> (microorganismo diferente o mismo &gt; 2 semanas).</div>
+
+      <h3 class="subsection-title">Estrategias No Farmacológicas — Primera Línea</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Estrategia</th><th>Mecanismo / Beneficio</th><th>Nivel de Evidencia</th><th>Indicación</th></tr></thead>
+          <tbody>
+            <tr style="background:#f0fdf4"><td><strong>Aumento de ingesta hídrica</strong> (&gt; 2 L/día)</td><td>Efecto de barrido urinario; reduce densidad bacteriana y frecuencia de recurrencias</td><td>FUERTE (ECA, metaanálisis)</td><td>Todas las pacientes con ITU recurrente</td></tr>
+            <tr><td><strong>Micción postcoital inmediata</strong></td><td>Eliminación mecánica de bacterias uretrales tras el coito</td><td>MODERADA</td><td>ITU recurrente asociada al coito</td></tr>
+            <tr><td><strong>Suspensión de espermicidas</strong> (Nonoxinol-9)</td><td>Revierte la disbiosis vaginal; recupera Lactobacillus spp.</td><td>FUERTE</td><td>Mujeres con ITU recurrente y uso de espermicidas</td></tr>
+            <tr style="background:#f0fdf4"><td><strong>Terapia estrogénica tópica vaginal</strong> (estriol o estradiol crema)</td><td>Revierte atrofia epitelial → restaura pH ácido → recolonización por Lactobacillus → desplaza enterobacterias</td><td>FUERTE / Alto — EAU 2025, AUA 2025</td><td>Mujeres postmenopáusicas con ITU recurrente — <strong>PRIMERA LÍNEA</strong></td></tr>
+            <tr><td><strong>Inmunoprofilaxis oral</strong> (OM-89 — extracto de E. coli)</td><td>Estimula inmunidad innata y adaptativa frente a antígenos uropatógenos</td><td>MODERADA (ECA positivos)</td><td>ITU recurrente sin respuesta suficiente a medidas previas</td></tr>
+            <tr><td><strong>D-Manosa oral</strong></td><td>Compite con fimbrias Tipo 1 de UPEC por receptores de uroplaquinas</td><td>MODERADA</td><td>ITU recurrente por E. coli — complemento no farmacológico</td></tr>
+            <tr><td><strong>Arándano</strong> (Vaccinium macrocarpon — PAC)</td><td>Proantocianidinas inhiben la adhesión bacteriana (fimbrias Tipo 1)</td><td>DÉBIL / Controversia activa — EAU 2025</td><td>Puede ofrecerse como complemento; no reemplaza tratamiento</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection-title" style="margin-top:18px">Profilaxis Antibiótica — Solo tras Fracaso de Medidas No Farmacológicas</h3>
+      <div class="alert-amber"><strong>⚠ Principio de Prudencia Antibiótica en Profilaxis</strong>
+        La profilaxis ATB continua SOLO debe iniciarse cuando han fracasado todas las estrategias no farmacológicas. El uso prolongado selecciona cepas resistentes y aumenta el riesgo de C. difficile, infecciones fúngicas y resistencia global.
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Modalidad</th><th>Fármaco</th><th>Dosis</th><th>Duración</th></tr></thead>
+          <tbody>
+            <tr style="background:#f0fdf4"><td>Profilaxis postcoital (de elección si recurrencias asociadas al coito)</td><td><strong>Nitrofurantoína</strong></td><td>50–100 mg VO dentro de las 2 h posteriores al coito</td><td>Solo postcoital; no continua</td></tr>
+            <tr><td>Profilaxis postcoital (alternativa)</td><td>TMP/SMX</td><td>80/400 mg VO</td><td>Solo postcoital</td></tr>
+            <tr><td>Profilaxis continua nocturna de baja dosis</td><td>Nitrofurantoína</td><td>50 mg VO/noche</td><td>3–6 meses</td></tr>
+            <tr><td>Profilaxis continua (cada 10 días)</td><td><strong>Fosfomicina trometamol</strong></td><td>3 g VO cada 10 días</td><td>3–6 meses</td></tr>
+            <tr><td>Profilaxis continua (si susceptibilidad documentada)</td><td>TMP/SMX</td><td>40/200 mg VO/noche</td><td>3–6 meses</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-green"><strong>💡 Perla: Profilaxis Postcoital = Equivalente a Profilaxis Diaria con Menor Impacto Ecológico</strong>
+        En mujeres con ITU recurrente claramente asociada al coito, la profilaxis postcoital (una dosis tras el coito) logra igual tasa de prevención que la profilaxis diaria. Reduce el consumo total de ATB en un 80–90 % y minimiza la selección de resistencia.
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificación MSP -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">📣 Notificación Obligatoria y Seguimiento Ambulatorio <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="alert-blue"><strong>Notificación al Sistema de Vigilancia Epidemiológica del Ecuador:</strong><br>
+        La ITU no complicada no es de notificación obligatoria. Sin embargo, la <strong>resistencia bacteriana</strong> (particularmente E. coli BLEE, KPC) debe reportarse al sistema de vigilancia de resistencia antimicrobiana institucional y al ARCSA/MSP Ecuador según la normativa vigente.</div>
+      <h3 class="subsection-title">Seguimiento Ambulatorio Post-Alta</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Momento</th><th>Acción</th><th>Objetivo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>48–72 h post-alta</strong></td><td>Control clínico. Revisión del antibiograma definitivo si pendiente.</td><td>Confirmar mejoría clínica; ajustar ATB si necesario</td></tr>
+            <tr><td><strong>7–14 días post-tratamiento</strong> (embarazadas)</td><td>Urocultivo de control obligatorio</td><td>Confirmar erradicación microbiológica</td></tr>
+            <tr><td><strong>1 mes post-tratamiento</strong> (varones con ITU)</td><td>Control clínico + urocultivo</td><td>Descartar prostatitis crónica o recidiva</td></tr>
+            <tr><td><strong>ITU recurrente</strong> (≥ 2 episodios en 6 meses)</td><td>Urocultivo en cada episodio. Evaluación urológica si no identificada la causa.</td><td>Identificar factores modificables; definir estrategia de profilaxis</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Puntos clave -->
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">🏆 Puntos Clave del Capítulo <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>N°</th><th>Punto Clave</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>La EAU 2025 abandona "complicada / no complicada" en favor de <strong>ITU localizada vs. sistémica</strong> (con o sin síntomas sistémicos).</td></tr>
+            <tr><td>2</td><td>La IDSA 2025 redefine ITU no complicada como "infección confinada a la vejiga en hombres o mujeres afebriles". El varón sin sistemia ya NO es automáticamente "complicado".</td></tr>
+            <tr><td>3</td><td>Fosfomicina trometamol oral y nitrofurantoína están <strong>CONTRAINDICADAS</strong> en pielonefritis y urosepsis: no alcanzan niveles terapéuticos en parénquima renal ni sangre.</td></tr>
+            <tr><td>4</td><td>Las fluoroquinolonas NO son primera línea en cistitis no complicada (restricción FDA/EMA) y no deben usarse empíricamente si la resistencia local supera el 10–20 %.</td></tr>
+            <tr><td>5</td><td>La bacteriuria asintomática solo requiere tratamiento en: (1) embarazadas y (2) antes de procedimientos urológicos con riesgo de mucosa.</td></tr>
+            <tr><td>6</td><td>El qSOFA tiene baja sensibilidad para detección precoz de sepsis; complementar con NEWS o escala SOFA completa (SSC 2021).</td></tr>
+            <tr><td>7</td><td>En ITU obstructiva (litiasis + infección, pionefrosis), el ATB solo es insuficiente. La desobstrucción urgente (nefrostomía o doble J) es la intervención que salva la vida.</td></tr>
+            <tr><td>8</td><td>El urocultivo en ITU-AC siempre debe tomarse de <strong>sonda nueva recién colocada</strong>; NUNCA de la bolsa recolectora ni de la sonda antigua.</td></tr>
+            <tr><td>9</td><td>Los cilindros leucocitarios en el sedimento son PATOGNOMÓNICOS de pielonefritis (se forman exclusivamente en los túbulos renales).</td></tr>
+            <tr><td>10</td><td>La terapia estrogénica tópica vaginal es la estrategia no farmacológica con mayor evidencia para prevenir ITU recurrente en postmenopáusicas (FUERTE, EAU 2025 / AUA 2025).</td></tr>
+            <tr><td>11</td><td>La pielonefritis enfisematosa (gas en el parénquima renal) es una emergencia con mortalidad &gt; 20 %; ocurre casi exclusivamente en diabéticos y requiere UCI + evaluación para nefrectomía.</td></tr>
+            <tr><td>12</td><td>La EAU 2026 incorpora nueva sección sobre candiduria: solo tratar en inmunosuprimidos sintomáticos o antes de procedimientos urológicos. Fluconazol 200–400 mg/día × 14 días.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== AUTOEVALUACIÓN ==================== -->
+<div class="section" id="tab-quiz">
+  <h2 class="section-title">❓ Autoevaluación</h2>
+  <div class="quiz-nav">
+    <button class="quiz-nav-btn active" onclick="showQuiz(1,this)">Quiz 1 — Diagnóstico y Clasificación</button>
+    <button class="quiz-nav-btn" onclick="showQuiz(2,this)">Quiz 2 — Tratamiento</button>
+    <button class="quiz-nav-btn" onclick="showQuiz(3,this)">Quiz 3 — Casos Clínicos</button>
+  </div>
+
+  <!-- QUIZ 1 -->
+  <div class="quiz-set active" id="quiz-1">
+    <div class="quiz-q">
+      <p>1. Mujer de 26 años, sin comorbilidades, con disuria, polaquiuria y urgencia miccional de 2 días. Sin fiebre ni dolor lumbar. Según la clasificación EAU 2025, ¿cómo se clasifica esta infección?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',1)">A) ITU sistémica — requiere hospitalización y ceftriaxona IV</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',1)">B) ITU localizada — sin síntomas de infección sistémica</button>
+      <button class="quiz-opt" onclick="responder(this,'no',1)">C) Bacteriuria asintomática — no requiere tratamiento</button>
+      <button class="quiz-opt" onclick="responder(this,'no',1)">D) ITU complicada — por ser mujer joven activa sexualmente</button>
+      <div class="quiz-feedback fb-ok" id="fb1-ok">✅ Correcto. La EAU 2025 clasifica esta presentación como ITU localizada: infección confinada al tracto urinario SIN signos de infección sistémica (sin fiebre, sin Giordano, sin taquicardia). La clasificación ya no utiliza los términos "complicada/no complicada". La actividad sexual es un factor de riesgo modificable, no un criterio de "complicación".</div>
+      <div class="quiz-feedback fb-no" id="fb1-no">❌ Incorrecto. La EAU 2025 clasifica esta presentación como <strong>ITU localizada</strong>: disuria + polaquiuria + urgencia SIN síntomas sistémicos (sin fiebre, sin Giordano positivo). La nueva clasificación elimina los términos "complicada/no complicada" y se basa exclusivamente en la presencia o ausencia de síntomas sistémicos.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>2. ¿Cuál es el umbral de bacteriuria significativa en el urocultivo de una mujer joven con síntomas activos de cistitis, según EAU 2025?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',2)">A) ≥ 10⁵ UFC/mL (umbral clásico de Kass)</button>
+      <button class="quiz-opt" onclick="responder(this,'no',2)">B) ≥ 10⁴ UFC/mL</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',2)">C) ≥ 10³ UFC/mL</button>
+      <button class="quiz-opt" onclick="responder(this,'no',2)">D) ≥ 10² UFC/mL</button>
+      <div class="quiz-feedback fb-ok" id="fb2-ok">✅ Correcto. La EAU 2025 valida el umbral de ≥ 10³ UFC/mL en mujeres sintomáticas con cistitis aguda, abandonando el umbral clásico de Kass (10⁵) que aplica a bacteriuria asintomática. Este umbral reducido aumenta la sensibilidad diagnóstica en pacientes con síntomas activos.</div>
+      <div class="quiz-feedback fb-no" id="fb2-no">❌ Incorrecto. La EAU 2025 valida el umbral de <strong>≥ 10³ UFC/mL</strong> en mujeres sintomáticas con cistitis aguda. El umbral de Kass (10⁵) aplica a bacteriuria asintomática. El umbral de 10⁴ aplica a pielonefritis/ITU sistémica. El de 10² aplica a cateterismo vesical transitorio.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>3. ¿Cuál de los siguientes hallazgos en el sedimento urinario es PATOGNOMÓNICO de pielonefritis y diferencia esta condición de la cistitis?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',3)">A) Piuria franca (> 10 leucocitos/CGA)</button>
+      <button class="quiz-opt" onclick="responder(this,'no',3)">B) Hematuria microscópica (&gt; 5 eritrocitos/CGA)</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',3)">C) Cilindros leucocitarios</button>
+      <button class="quiz-opt" onclick="responder(this,'no',3)">D) Bacteriuria visible sin centrifugar</button>
+      <div class="quiz-feedback fb-ok" id="fb3-ok">✅ Correcto. Los cilindros leucocitarios son PATOGNOMÓNICOS de pielonefritis porque se forman exclusivamente en los túbulos renales. La piuria puede estar presente en cistitis, uretritis y otras condiciones inflamatorias. Los cilindros confirman la afectación parenquimatosa renal.</div>
+      <div class="quiz-feedback fb-no" id="fb3-no">❌ Incorrecto. Los <strong>cilindros leucocitarios</strong> son PATOGNOMÓNICOS de pielonefritis. Se forman exclusivamente en los túbulos renales y no pueden generarse en vejiga, uretra ni en condiciones inflamatorias no renales. La piuria es un hallazgo inespecífico presente en cistitis, uretritis y otras condiciones.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>4. Mujer de 42 años que presenta piuria franca persistente con urocultivos bacterianos convencionales repetidamente negativos (× 3 muestras). ¿Cuál es el diagnóstico más importante a descartar?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',4)">A) Cistitis bacteriana resistente — cambiar a carbapenémico empírico</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',4)">B) Tuberculosis genitourinaria — solicitar urocultivo BAAR × 3 muestras matutinas</button>
+      <button class="quiz-opt" onclick="responder(this,'no',4)">C) Bacteriuria asintomática — no tratar</button>
+      <button class="quiz-opt" onclick="responder(this,'no',4)">D) Contaminación de muestra — repetir el sedimento</button>
+      <div class="quiz-feedback fb-ok" id="fb4-ok">✅ Correcto. La "piuria estéril" (piuria con urocultivos bacterianos negativos) obliga a descartar activamente: TBC genitourinaria (urocultivo BAAR × 3 en primera micción del día), Chlamydia/Mycoplasma (PCR/NAAT), cistitis intersticial (cistoscopia), y candiduria. No es aceptable continuar diagnosticando "ITU" con cultivos repetidamente negativos.</div>
+      <div class="quiz-feedback fb-no" id="fb4-no">❌ Incorrecto. La "piuria estéril" (piuria con urocultivos bacterianos convencionales negativos) es un escenario que obliga a descartar <strong>TBC genitourinaria</strong> (urocultivo BAAR × 3 muestras de primera micción), Chlamydia, cistitis intersticial y candiduria. Escalar a carbapenémico empíricamente sin cultivo positivo es un error grave.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>5. Varón de 40 años, afebril, con disuria y polaquiuria de 3 días. Sin dolor perineal ni lumbar. Examen físico normal. Según EAU 2025 e IDSA 2025, ¿cómo se clasifica y maneja esta infección?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',5)">A) ITU complicada automáticamente por ser varón; requiere hospitalización y ATB IV</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',5)">B) ITU localizada; urocultivo obligatorio + tratamiento oral 5–7 días</button>
+      <button class="quiz-opt" onclick="responder(this,'no',5)">C) Bacteriuria asintomática; no tratar</button>
+      <button class="quiz-opt" onclick="responder(this,'no',5)">D) Urosepsis; manejo en UCI con carbapenémico</button>
+      <div class="quiz-feedback fb-ok" id="fb5-ok">✅ Correcto. EAU 2025 e IDSA 2025 coinciden: un varón afebril con cistitis sin anomalías urológicas ni síntomas prostáticos se clasifica como ITU localizada y puede manejarse con antibiótico oral 5–7 días. El urocultivo es siempre OBLIGATORIO en varones. La condición de varón NO clasifica automáticamente como ITU complicada.</div>
+      <div class="quiz-feedback fb-no" id="fb5-no">❌ Incorrecto. EAU 2025 e IDSA 2025: un varón afebril con cistitis sin anomalías urológicas = <strong>ITU localizada</strong>, manejable con ATB oral 5–7 días. El urocultivo es siempre obligatorio en varones. El cambio de paradigma clave: el sexo masculino ya NO es criterio automático de "ITU complicada".</div>
+    </div>
+  </div>
+
+  <!-- QUIZ 2 -->
+  <div class="quiz-set" id="quiz-2">
+    <div class="quiz-q">
+      <p>1. Mujer de 28 años sin comorbilidades, cistitis aguda. ¿Cuál es el esquema de primera elección según EAU 2026 e IDSA 2025?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',6)">A) Ciprofloxacino 500 mg VO c/12 h × 3 días</button>
+      <button class="quiz-opt" onclick="responder(this,'no',6)">B) TMP/SMX 160/800 mg c/12 h × 3 días</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',6)">C) Fosfomicina trometamol 3 g VO — dosis única</button>
+      <button class="quiz-opt" onclick="responder(this,'no',6)">D) Ceftriaxona 1 g IV c/24 h × 5 días</button>
+      <div class="quiz-feedback fb-ok" id="fb6-ok">✅ Correcto. La fosfomicina trometamol (3 g VO en dosis única) es la primera elección para cistitis aguda no complicada según EAU 2026 e IDSA 2025. Las quinolonas están contraindicadas como primera línea. TMP/SMX es de uso condicional (resistencia frecuente en LATAM). No está indicado el ATB IV en cistitis localizada.</div>
+      <div class="quiz-feedback fb-no" id="fb6-no">❌ Incorrecto. La <strong>fosfomicina trometamol 3 g VO en dosis única</strong> es la primera elección. Ciprofloxacino está formalmente contraindicado como primera línea en cistitis no complicada (FDA/EMA/EAU). TMP/SMX es condicional (resistencia &gt; 20 % en Ecuador). La ceftriaxona IV no está indicada en cistitis localizada.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>2. ¿Por qué la fosfomicina trometamol oral y la nitrofurantoína están CONTRAINDICADAS en la pielonefritis aguda?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',7)">A) Porque son nefrotóxicas en dosis estándar</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',7)">B) Porque no alcanzan concentraciones terapéuticas en el parénquima renal ni en el torrente sanguíneo</button>
+      <button class="quiz-opt" onclick="responder(this,'no',7)">C) Porque no tienen actividad in vitro contra E. coli</button>
+      <button class="quiz-opt" onclick="responder(this,'no',7)">D) Porque están contraindicadas en todo paciente adulto</button>
+      <div class="quiz-feedback fb-ok" id="fb7-ok">✅ Correcto. Ambos fármacos se excretan activamente hacia la luz del tracto urinario, alcanzando concentraciones vesicales muy elevadas, pero sus niveles en tejido renal y sangre son subterapéuticos. Esto hace que sean excelentes para cistitis pero peligrosamente insuficientes para pielonefritis. IDSA 2025 y EAU 2026 los excluyen explícitamente del manejo de ITU sistémica.</div>
+      <div class="quiz-feedback fb-no" id="fb7-no">❌ Incorrecto. La razón correcta es que <strong>no alcanzan concentraciones terapéuticas en el parénquima renal ni en el torrente sanguíneo</strong>. Tienen excelente actividad antibacteriana in vitro pero su farmacocinética los confina al tracto urinario inferior. Su uso en pielonefritis puede resultar en fracaso terapéutico y progresión a urosepsis.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>3. Paciente con pielonefritis aguda, hospitalizado. Tiene antecedente de uso de cefalosporinas en los últimos 60 días y urocultivo BLEE positivo previo (hace 4 meses). ¿Cuál es el esquema empírico más adecuado mientras llega el antibiograma actual?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',8)">A) Ceftriaxona 1 g IV c/24 h</button>
+      <button class="quiz-opt" onclick="responder(this,'no',8)">B) Piperacilina/Tazobactam 4.5 g IV c/6 h</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',8)">C) Ertapenem 1 g IV/IM c/24 h</button>
+      <button class="quiz-opt" onclick="responder(this,'no',8)">D) Fosfomicina 3 g VO dosis única</button>
+      <div class="quiz-feedback fb-ok" id="fb8-ok">✅ Correcto. Ante factores de riesgo para BLEE (uso de ATB en últimos 90 días, cultivo BLEE previo documentado), el ertapenem es el esquema recomendado. La ceftriaxona y las cefalosporinas son hidrolizadas por BLEE. La piperacilina/tazobactam tampoco debe usarse empíricamente si hay sospecha de BLEE (hidrólisis por BLEE). La fosfomicina VO está contraindicada en ITU sistémica.</div>
+      <div class="quiz-feedback fb-no" id="fb8-no">❌ Incorrecto. Con factores de riesgo para BLEE (ATB reciente + cultivo BLEE previo), el esquema correcto es <strong>Ertapenem 1 g IV/IM c/24 h</strong>. La ceftriaxona y las cefalosporinas son hidrolizadas por las BLEE. El pip/tazo también puede ser hidrolizado por BLEE. Siempre desescalar al recibir el antibiograma definitivo.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>4. Gestante en semana 14, asintomática, con urocultivo en control prenatal: E. coli 10⁵ UFC/mL sensible a cefalosporinas. ¿Cuál es la conducta correcta?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',9)">A) No tratar; es bacteriuria asintomática que no precisa antibióticos en el embarazo</button>
+      <button class="quiz-opt" onclick="responder(this,'no',9)">B) Iniciar Ciprofloxacino 500 mg VO c/12 h × 3 días</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',9)">C) Iniciar Cefuroxima axetilo 250 mg VO c/12 h × 5–7 días + urocultivo de control a los 7–14 días</button>
+      <button class="quiz-opt" onclick="responder(this,'no',9)">D) Repetir el urocultivo sin tratar; si se confirma, entonces iniciar ATB</button>
+      <div class="quiz-feedback fb-ok" id="fb9-ok">✅ Correcto. La bacteriuria asintomática en el embarazo SIEMPRE debe tratarse: riesgo de pielonefritis del 20–30 % en el 3.er trimestre si no se trata, con parto pretérmino y bajo peso al nacer. Las cefalosporinas son seguras (categoría B). Las quinolonas están contraindicadas en embarazo. El urocultivo de control post-tratamiento es obligatorio en gestantes.</div>
+      <div class="quiz-feedback fb-no" id="fb9-no">❌ Incorrecto. La BA en el embarazo <strong>SIEMPRE debe tratarse</strong>. La cefalosporina oral (cefuroxima) es la elección correcta. Las quinolonas están contraindicadas en embarazo (artropatía fetal). Esperar para confirmar con un segundo cultivo no es adecuado cuando ya se tiene un cultivo positivo a ese nivel. El urocultivo de control post-tratamiento es obligatorio.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>5. Mujer postmenopáusica de 62 años con 3 episodios de ITU en los últimos 12 meses. Cultivos recientes con E. coli sensible a múltiples antibióticos. ¿Cuál es la estrategia preventiva de PRIMERA LÍNEA con mayor evidencia según EAU 2025?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',10)">A) Profilaxis antibiótica continua con nitrofurantoína nocturna</button>
+      <button class="quiz-opt" onclick="responder(this,'no',10)">B) Vacuna oral (OM-89) — extracto de E. coli</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',10)">C) Terapia estrogénica tópica vaginal (estriol o estradiol crema)</button>
+      <button class="quiz-opt" onclick="responder(this,'no',10)">D) Consumo diario de arándano (proantocianidinas)</button>
+      <div class="quiz-feedback fb-ok" id="fb10-ok">✅ Correcto. La terapia estrogénica tópica vaginal es la estrategia no farmacológica con mayor nivel de evidencia (FUERTE, EAU 2025 y AUA 2025) para prevenir ITU recurrente en mujeres postmenopáusicas. Mecanismo: revierte la atrofia epitelial vaginal → restaura el pH ácido → recolonización por Lactobacillus → desplazamiento de enterobacterias. Debe intentarse ANTES de profilaxis antibiótica.</div>
+      <div class="quiz-feedback fb-no" id="fb10-no">❌ Incorrecto. Según EAU 2025 y AUA 2025, la estrategia de <strong>primera línea</strong> con mayor evidencia en mujeres postmenopáusicas con ITU recurrente es la <strong>terapia estrogénica tópica vaginal</strong>. La profilaxis antibiótica se reserva cuando fracasan las medidas no farmacológicas. El arándano tiene evidencia débil y controversial. La OM-89 tiene evidencia moderada.</div>
+    </div>
+  </div>
+
+  <!-- QUIZ 3 -->
+  <div class="quiz-set" id="quiz-3">
+    <div class="quiz-q">
+      <p>1. Hombre de 70 años traído por familiares con desorientación y caídas en las últimas 24 h. No refiere disuria. PA 88/55 mmHg, FC 122 lpm, FR 24 rpm. Temperatura 38.8 °C. Sedimento: piuria intensa, bacterias abundantes. Lactato: 3.4 mmol/L. ¿Cuál es la conducta inmediata?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',11)">A) Bacteriuria asintomática en anciano; nitrofurantoína oral y alta con control en 48 h</button>
+      <button class="quiz-opt" onclick="responder(this,'no',11)">B) Cistitis aguda; fosfomicina 3 g VO y alta</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',11)">C) Urosepsis — activar protocolo hora 1 SSC: hemocultivos + urocultivo de sonda nueva, meropenem IV, cristaloides 30 mL/kg, noradrenalina si PAM &lt; 65 mmHg</button>
+      <button class="quiz-opt" onclick="responder(this,'no',11)">D) Prostatitis aguda; tacto rectal vigoroso y quinolona oral</button>
+      <div class="quiz-feedback fb-ok" id="fb11-ok">✅ Correcto. Este anciano con delirium, hipotensión (PA 88/55), taquicardia (FC 122), taquipnea (FR 24) y lactato 3.4 mmol/L con piuria configura una UROSEPSIS. La presentación atípica sin disuria es característica del adulto mayor. Protocolo Hora 1 SSC obligatorio: hemocultivos + urocultivo (sonda nueva), ATB IV de amplio espectro en la primera hora, reanimación hídrica y vasopresores según respuesta.</div>
+      <div class="quiz-feedback fb-no" id="fb11-no">❌ Incorrecto. La presentación configura <strong>urosepsis</strong>: delirium + hipotensión + taquicardia + taquipnea + lactato &gt;2 mmol/L + piuria. La ausencia de disuria es característica en el adulto mayor. El tacto rectal vigoroso en posible prostatitis puede causar bacteriemia. El protocolo Hora 1 SSC es obligatorio inmediatamente.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>2. Paciente con pielonefritis derecha. Al 3.er día de ceftriaxona 2 g IV/día persiste febril (39.2 °C) con dolor lumbar intenso y deterioro del estado general. TC abdominopélvica muestra colección de 4.5 cm con refuerzo periférico "en anillo" adyacente al polo inferior del riñón derecho. ¿Cuál es el manejo correcto?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',12)">A) Duplicar la dosis de ceftriaxona y esperar 48 h más</button>
+      <button class="quiz-opt" onclick="responder(this,'no',12)">B) Añadir metronidazol para cobertura anaeróbica</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',12)">C) Drenaje percutáneo del absceso perirrenal + cambio a carbapenémico (ertapenem o meropenem) + urocultivo definitivo</button>
+      <button class="quiz-opt" onclick="responder(this,'no',12)">D) Alta hospitalaria con ciprofloxacino oral durante 14 días</button>
+      <div class="quiz-feedback fb-ok" id="fb12-ok">✅ Correcto. La falta de respuesta a las 72 h con una colección &gt; 3–5 cm en la TC indica absceso renal/perinefrítico que requiere drenaje percutáneo + escalar el espectro antibiótico. La ceftriaxona puede estar fallando por resistencia o porque el foco no drenable requiere control quirúrgico. No se puede simplemente esperar ni dar alta con ATB oral sin controlar el foco.</div>
+      <div class="quiz-feedback fb-no" id="fb12-no">❌ Incorrecto. Una colección de 4.5 cm con refuerzo "en anillo" representa un <strong>absceso perirrenal</strong>. El manejo correcto es <strong>drenaje percutáneo</strong> + escalada del espectro ATB (carbapenémico) + cultivo del material drenado. Duplicar ceftriaxona no soluciona el foco no drenado. El metronidazol no tiene cobertura relevante para el patógeno probable en este contexto.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>3. Hombre de 55 años, diabético, llega con fiebre alta (39.5 °C), dolor lumbar izquierdo intenso y disuria. La TC abdominal sin contraste muestra gas en el parénquima del riñón izquierdo. ¿Cuál es el diagnóstico y cuál es el pronóstico esperado?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',13)">A) Pionefrosis — urgencia urológica para drenaje; mortalidad &lt; 5 %</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',13)">B) Pielonefritis enfisematosa — emergencia con mortalidad 21–43 % que requiere UCI + evaluación para nefrectomía</button>
+      <button class="quiz-opt" onclick="responder(this,'no',13)">C) Absceso renal simple — drenaje percutáneo electivo en 24–48 h</button>
+      <button class="quiz-opt" onclick="responder(this,'no',13)">D) Artefacto de imagen — repetir TC con contraste antes de decidir</button>
+      <div class="quiz-feedback fb-ok" id="fb13-ok">✅ Correcto. La pielonefritis enfisematosa es una infección necrotizante con producción de gas por fermentación de glucosa por E. coli o K. pneumoniae. Ocurre casi exclusivamente en diabéticos (&gt;80 % de casos). Mortalidad de 21–43 %. Requiere UCI, carbapenémico IV, drenaje percutáneo si posible, y evaluación para nefrectomía de salvamento en casos con fallo multiorgánico.</div>
+      <div class="quiz-feedback fb-no" id="fb13-no">❌ Incorrecto. Gas en el parénquima renal = <strong>pielonefritis enfisematosa</strong>. Esta es una emergencia con mortalidad del 21–43 %. Ocurre casi exclusivamente en diabéticos. La pionefrosis tiene gas en el sistema colector, no en el parénquima. El manejo exige UCI + carbapenémico + evaluación para nefrectomía. No es un absceso simple ni un artefacto.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>4. Mujer de 35 años con catéter urinario desde hace 5 días. Se sospecha ITU-AC por fiebre de 38.5 °C y leucocitosis. ¿Cuál es el paso INICIAL correcto antes de iniciar antibioterapia?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',14)">A) Tomar urocultivo de la bolsa recolectora y luego iniciar antibiótico</button>
+      <button class="quiz-opt" onclick="responder(this,'no',14)">B) Iniciar meropenem IV empírico sin esperar cultivo</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',14)">C) Cambiar la sonda urinaria, tomar urocultivo de la sonda nueva mediante punción del puerto de muestreo, y LUEGO iniciar ATB según clínica</button>
+      <button class="quiz-opt" onclick="responder(this,'no',14)">D) Retirar el catéter y observar sin antibiótico durante 24 h</button>
+      <div class="quiz-feedback fb-ok" id="fb14-ok">✅ Correcto. En la ITU-AC el paso inicial obligatorio es: (1) CAMBIAR la sonda → (2) tomar urocultivo de la sonda NUEVA → (3) iniciar ATB. El biofilm de la sonda vieja contamina el cultivo con flora del dispositivo, no con el patógeno vesical real. La bolsa recolectora acumula flora comensal y NUNCA debe usarse para tomar muestras. Con fiebre ≥ 38.5 °C, la decisión de iniciar ATB es razonable tras obtener la muestra correctamente.</div>
+      <div class="quiz-feedback fb-no" id="fb14-no">❌ Incorrecto. El paso inicial OBLIGATORIO en ITU-AC es <strong>cambiar la sonda, luego tomar urocultivo de la sonda nueva</strong>. La bolsa recolectora acumula flora mixta y nunca debe usarse para diagnóstico. El biofilm de la sonda vieja contamina el cultivo. Meropenem empírico sin cultivo adecuado es un error de gestión antimicrobiana.</div>
+    </div>
+
+    <div class="quiz-q">
+      <p>5. Hombre de 45 años con fiebre de 39 °C, dolor perineal intenso, disuria y retención urinaria aguda. El examen rectal muestra próstata muy dolorosa y edematosa. ¿Cuál es el manejo más adecuado?</p>
+      <button class="quiz-opt" onclick="responder(this,'no',15)">A) Fosfomicina 3 g VO dosis única y alta ambulatoria</button>
+      <button class="quiz-opt" onclick="responder(this,'no',15)">B) Tacto rectal vigoroso con masaje prostático para obtener secreción y cultivar</button>
+      <button class="quiz-opt" onclick="responder(this,'ok',15)">C) Hospitalización + urocultivo (sin masaje prostático) + fluoroquinolona IV (o ceftriaxona si resist. local alta) por 2–4 semanas + cateterismo suprapúbico si hay retención</button>
+      <button class="quiz-opt" onclick="responder(this,'no',15)">D) TC de próstata de rutina antes de iniciar cualquier tratamiento</button>
+      <div class="quiz-feedback fb-ok" id="fb15-ok">✅ Correcto. La prostatitis aguda bacteriana requiere: (1) NO masaje prostático vigoroso (riesgo de bacteriemia y sepsis), (2) hospitalización si hay sistemia, (3) ATB con excelente penetración prostática (fluoroquinolonas × 2–4 semanas), (4) manejo de la retención urinaria con catéter suprapúbico (el catéter transuretral puede empeorar la inflamación prostática). Si hay sospecha de absceso prostático → ecografía transrectal suave o TC.</div>
+      <div class="quiz-feedback fb-no" id="fb15-no">❌ Incorrecto. En prostatitis aguda, el masaje prostático vigoroso puede causar bacteriemia y sepsis → <strong>está contraindicado</strong>. El manejo correcto incluye: hospitalización, urocultivo sin masaje, ATB con penetración prostática (fluoroquinolonas × 2–4 semanas) y manejo de la retención con catéter suprapúbico. La fosfomicina no tiene indicación en este contexto.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Guía Clínica Interactiva · Infección del Tracto Urinario en el Adulto · EAU 2025/2026 · IDSA 2025 · AUA 2025 · SSC 2021<br>
+  Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador<br>
+  Uso educativo y de referencia clínica personal
+</div>
+
+</div><!-- /app -->
+
+<script>
+// ===== AUTH =====
+const CLAVES = ['CROCE2024','MEDICO01','URGENCIAS1','CROCE2026','INFECCIONURINARIA'];
+function checkPW(){
+  const v = document.getElementById('pw-input').value.toUpperCase();
+  if(CLAVES.includes(v)){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+  } else {
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw-input').value='';
+  }
+}
+
+// ===== TABS =====
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ===== ACCORDION =====
+function toggleCard(header){
+  header.classList.toggle('open');
+}
+
+// ===== QUIZ =====
+const feedbacks = {
+  1:{ok:"fb1-ok",no:"fb1-no"},2:{ok:"fb2-ok",no:"fb2-no"},3:{ok:"fb3-ok",no:"fb3-no"},
+  4:{ok:"fb4-ok",no:"fb4-no"},5:{ok:"fb5-ok",no:"fb5-no"},6:{ok:"fb6-ok",no:"fb6-no"},
+  7:{ok:"fb7-ok",no:"fb7-no"},8:{ok:"fb8-ok",no:"fb8-no"},9:{ok:"fb9-ok",no:"fb9-no"},
+  10:{ok:"fb10-ok",no:"fb10-no"},11:{ok:"fb11-ok",no:"fb11-no"},12:{ok:"fb12-ok",no:"fb12-no"},
+  13:{ok:"fb13-ok",no:"fb13-no"},14:{ok:"fb14-ok",no:"fb14-no"},15:{ok:"fb15-ok",no:"fb15-no"}
+};
+function responder(btn,resultado,n){
+  const q = btn.closest('.quiz-q');
+  if(q.dataset.answered) return;
+  q.dataset.answered = '1';
+  q.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+  btn.classList.add(resultado==='ok'?'correct':'wrong');
+  const fbId = feedbacks[n][resultado];
+  const fb = document.getElementById(fbId);
+  if(fb){ fb.classList.add('show'); }
+}
+function showQuiz(n,btn){
+  document.querySelectorAll('.quiz-set').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.quiz-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('quiz-'+n).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
