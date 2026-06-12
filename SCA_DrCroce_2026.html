@@ -145,7 +145,7 @@ body {
 }
 
 /* ===== MAIN APP ===== */
-#app { display: none; }
+#app {display:block}
 
 /* ===== HEADER ===== */
 .app-header {
@@ -829,7 +829,7 @@ strong.hl { color: var(--text); }
   <div class="access-card">
     <div class="access-logo">❤️</div>
     <h1>SCA · GUÍA CLÍNICA</h1>
-    <p>Dr. L. Croce · Medicina Interna & Urgencias</p>
+    <p>Dr. Luis E. Croce A. · Médico Internista · Ecuador</p>
     <input class="access-input" type="password" id="access-key" placeholder="INGRESE CLAVE" maxlength="20"
            onkeydown="if(event.key==='Enter') checkAccess()">
     <button class="access-btn" onclick="checkAccess()">INGRESAR</button>
@@ -846,7 +846,7 @@ strong.hl { color: var(--text); }
     <div class="header-icon">🫀</div>
     <div class="header-text">
       <h1>SÍNDROME CORONARIO AGUDO</h1>
-      <div class="subtitle">GUÍA CLÍNICA INTERACTIVA · DR. L. CROCE · MEDICINA INTERNA &amp; URGENCIAS · GUAYAQUIL, EC</div>
+      <div class="subtitle">GUÍA CLÍNICA INTERACTIVA · Dr. Luis E. Croce A. · Médico Internista · Ecuador, EC</div>
     </div>
     <div class="header-badges">
       <span class="badge badge-esc">ESC 2023</span>
@@ -2605,8 +2605,6 @@ const QUIZZES = {
   ]
 };
 
-// ===== STATE =====
-var CLAVES = ['CROCE2024', 'MEDICO01', 'URGENCIAS1'];
 var currentTab = 0;
 var currentQuiz = 1;
 var currentQ = 0;

@@ -476,7 +476,7 @@ p { margin-bottom: 10px; }
     <input type="password" id="clave-input" placeholder="Ingrese su clave de acceso" onkeydown="if(event.key==='Enter')verificarClave()">
     <button onclick="verificarClave()">Ingresar al Módulo</button>
     <div id="access-error">⚠ Clave incorrecta. Intente nuevamente.</div>
-    <div class="access-footer">Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</div>
+    <div class="access-footer">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   </div>
 </div>
 
@@ -1987,8 +1987,6 @@ p { margin-bottom: 10px; }
 </div><!-- end main-app -->
 
 <script>
-// ---- ACCESO ----
-var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
 function verificarClave(){
   var v=document.getElementById("clave-input").value.trim().toUpperCase();
   if(CLAVES.indexOf(v)>=0){

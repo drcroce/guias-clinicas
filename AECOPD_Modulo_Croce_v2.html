@@ -113,7 +113,7 @@ body {
 .access-hint { color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 20px; }
 
 /* HEADER */
-#app { display: none; }
+#app {display:block}
 .header {
   background: linear-gradient(135deg, #1a3a5c 0%, #0d2a48 100%);
   padding: 28px 24px 20px;
@@ -544,7 +544,7 @@ strong { color: var(--text); font-weight: 700; }
     </div>
     <div class="header-title">🫁 Exacerbación Aguda de EPOC</div>
     <div class="header-sub">Diagnóstico, estratificación y manejo hospitalario basado en evidencia actual</div>
-    <div class="header-author">Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</div>
+    <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   </div>
 </div>
 
@@ -1720,8 +1720,6 @@ strong { color: var(--text); font-weight: 700; }
 </div><!-- end app -->
 
 <script>
-// ── ACCESS ──
-var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
 function checkAccess() {
   var v = document.getElementById("access-key").value.trim().toUpperCase();
   if (CLAVES.indexOf(v) >= 0) {
