@@ -24,14 +24,25 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tex
 h1,h2,h3,h4,h5{font-family:'Lora',serif;line-height:1.3}
 
 /* LOGIN */
+#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#3d0a0a 0%,#6b1515 35%,#8b1a1a 65%,#3d0a0a 100%);
+  background-size:400% 400%;animation:bgShift 8s ease infinite}
 @keyframes bgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.pw-box{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:44px 40px;text-align:center;width:100%;max-width:400px;color:#fff}
+.pw-icon{font-size:52px;margin-bottom:16px}
 .pw-box h2{font-family:'Lora',serif;font-size:1.6rem;margin-bottom:4px}
 .pw-box p{opacity:.75;font-size:.9rem;margin-bottom:28px}
 .pw-box input{width:100%;padding:13px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.25);
   background:rgba(255,255,255,.12);color:#fff;font-size:1.1rem;text-align:center;letter-spacing:3px;outline:none;transition:.2s}
 .pw-box input::placeholder{opacity:.5;letter-spacing:1px}
 .pw-box input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.18)}
+.pw-btn{margin-top:14px;width:100%;padding:13px;background:#8b1a1a;border:none;border-radius:8px;
+  color:#fff;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s;font-family:'Source Sans 3',sans-serif}
 .pw-btn:hover{background:#a52a2a}
+.pw-err{margin-top:12px;padding:10px;background:rgba(255,255,255,.12);border-radius:6px;
+  font-size:.88rem;color:#fca5a5;display:none}
+
 /* APP */
 #app{display:block}
 
@@ -260,7 +271,6 @@ p.txt{margin-bottom:10px;font-size:.92rem}
   <div class="hero-icon">🫀</div>
   <h1>Emergencia Hipertensiva</h1>
   <div class="hero-sub">Diagnóstico · Estratificación · Manejo por Órgano Diana</div>
-  <div style="font-size:13px;opacity:.85;margin-bottom:6px;font-weight:500;letter-spacing:.3px">Guía de Práctica Clínica de Emergencia Hipertensiva</div>
   <div class="hero-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   <div class="hero-badges">
     <span class="badge badge-red">ESC 2024</span>
@@ -1209,7 +1219,22 @@ p.txt{margin-bottom:10px;font-size:.92rem}
 
 <script>
 // ── AUTH ──────────────────────────────────────────────────────────────
-const}
+const CLAVES=['CROCE2024','MEDICO01','URGENCIAS1','CROCE2026','HIPERTENSION','EMERGENCIA'];
+function checkPW(){
+  const v=document.getElementById('pw-input').value.trim().toUpperCase();
+  const err=document.getElementById('pw-err');
+  if(CLAVES.includes(v)){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    initQuiz();
+  } else {
+    err.style.display='block';
+    document.getElementById('pw-input').value='';
+    setTimeout(()=>err.style.display='none',3000);
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkPW()});
+
 // ── TABS ──────────────────────────────────────────────────────────────
 const TAB_ORDER=['fisiop','clinica','lab','manejo','complic','egreso','calc','quiz'];
 function showTab(id){

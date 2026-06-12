@@ -154,7 +154,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
   <div class="access-card">
     <span class="heart-icon">🫀</span>
     <h2>Insuficiencia Cardíaca</h2>
-    <p>Módulo educativo clínico interactivo<br>Dr. Luis E. Croce A. · Médico Internista · Ecuador</p>
+    <p>Módulo educativo clínico interactivo<br>Dr. L. Croce · Medicina Interna y Urgencias</p>
     <input type="password" class="access-input" id="pwd-input" placeholder="Ingrese clave de acceso" onkeydown="if(event.key==='Enter')checkAccess()">
     <button class="access-btn" onclick="checkAccess()">Ingresar →</button>
     <div class="access-error" id="access-error"></div>
@@ -168,7 +168,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
       <div class="header-icon">🫀</div>
       <div class="header-text">
         <h1>Insuficiencia Cardíaca Aguda y Crónica</h1>
-        <div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+        <div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. L. Croce · Medicina Interna y Urgencias</div>
         <div class="badge-row">
           <span class="hbadge">ESC 2021/2023</span>
           <span class="hbadge">AHA/ACC/HFSA 2022</span>
@@ -1153,7 +1153,8 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 
 </div><!-- end content-area -->
 </div><!-- end main-app -->
-<script>function checkAccess(){
+<script>
+function checkAccess(){
   var v = document.getElementById("pwd-input").value.trim().toUpperCase();
   if(CLAVES.includes(v)){
     document.getElementById("access-screen").style.display="none";

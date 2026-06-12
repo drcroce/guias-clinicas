@@ -37,11 +37,19 @@ h1,h2,h3,h4{font-family:'Libre Baskerville',serif}
 code,.mono{font-family:'JetBrains Mono',monospace}
 
 /* PASSWORD SCREEN */
+#pw-screen{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 40%,#0a4a3a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+.pw-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:2.5rem 2rem;max-width:420px;width:100%;text-align:center;backdrop-filter:blur(10px)}
 .pw-logo{font-family:'Libre Baskerville',serif;font-size:2.2rem;color:#fff;margin-bottom:.25rem;letter-spacing:-.5px}
 .pw-logo span{color:#5bc8d4}
+.pw-subtitle{color:rgba(255,255,255,0.55);font-size:.85rem;margin-bottom:1.8rem;font-style:italic}
 .pw-label{display:block;text-align:left;color:rgba(255,255,255,0.7);font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem}
+.pw-input{width:100%;padding:.75rem 1rem;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-family:'JetBrains Mono',monospace;font-size:1rem;letter-spacing:.1em;outline:none;transition:border-color .2s}
 .pw-input:focus{border-color:#5bc8d4}
+.pw-btn{margin-top:1rem;width:100%;padding:.8rem;border-radius:8px;border:none;background:linear-gradient(135deg,#2c7bb5,#0e6655);color:#fff;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s}
 .pw-btn:hover{opacity:.88}
+.pw-err{color:#f07070;font-size:.82rem;margin-top:.6rem;min-height:1.2em}
+.pw-hint{color:rgba(255,255,255,0.35);font-size:.75rem;margin-top:1.2rem}
+
 /* APP (hidden until login) */
 #app{display:block}
 
@@ -1051,7 +1059,19 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
 </div><!-- /app -->
 
 <script>
+// ─── CLAVES ───────────────────────────────────────────────────────────────────
+var CLAVES = ['CROCE2024','MEDICO01','URGENCIAS1','GASOMETRIA','CROCE2026'];
+function checkPW(){
+  var v = document.getElementById('pw-input').value.trim().toUpperCase();
+  if(CLAVES.includes(v)){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+  } else {
+    document.getElementById('pw-err').textContent='Clave incorrecta. Intente nuevamente.';
+  }
 }
+document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPW();});
+
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function showTab(n){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
