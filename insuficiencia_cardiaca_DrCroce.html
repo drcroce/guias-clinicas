@@ -146,6 +146,13 @@ tr:hover td{background:var(--surface2)}
 .ev-C{background:#5c3b8a;color:#fff}
 .study-ref{font-size:11.5px;font-style:italic;color:var(--text3);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
 hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+
+/* ===== PORTAL BACK BUTTON ===== */
+.portal-back{display:inline-block;color:rgba(255,255,255,.75);font-size:12px;
+  text-decoration:none;padding:4px 10px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.3);margin-bottom:10px;
+  transition:background .2s,color .2s;}
+.portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
 
 <style>#access-screen{display:none!important}#app{display:block!important}</style>
@@ -156,6 +163,8 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 <div id="main-app">
 <div class="app-header">
   <div class="header-content">
+  <a class="portal-back" href="index.html">← Portal de guías</a>
+
     <div class="header-top">
       <div class="header-icon">🫀</div>
       <div class="header-text">
