@@ -22,7 +22,7 @@
 .pw-btn:hover{opacity:.88}
 .pw-err{color:#fca5a5;font-size:.82rem;margin-top:.6rem;min-height:1.2em}
 .pw-hint{color:rgba(255,255,255,0.35);font-size:.75rem;margin-top:1.2rem}
-#app{display:none}
+#app{display:block}
 :root{
   --amber:#b45309;
   --amber-light:#fef3c7;
@@ -289,22 +289,12 @@ strong{color:var(--slate);font-weight:600}
 .progress-bar{height:4px;background:var(--amber-light);border-radius:2px;margin-bottom:20px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),#ea580c);border-radius:2px;width:0;transition:width .4s}
 </style>
+
+<style>#pw-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 
 <!-- PASSWORD SCREEN -->
-<div id="pw-screen">
-  <div class="pw-box">
-    <div class="pw-logo">🦟 DENGUE<span> · EC</span></div>
-    <div class="pw-subtitle">Guía Clínica Interactiva<br>Abordaje Integral · Emergencias</div>
-    <label class="pw-label" for="pw-input">Clave de acceso</label>
-    <input class="pw-input" type="password" id="pw-input" placeholder="Ingrese clave..." autocomplete="off">
-    <button class="pw-btn" onclick="checkPW()">INGRESAR →</button>
-    <div class="pw-err" id="pw-err"></div>
-    <div class="pw-hint">Dr. Luis E. Croce · Medicina Interna · Guayaquil</div>
-  </div>
-</div>
-
 <div id="app">
 
 <!-- HERO -->
@@ -313,7 +303,7 @@ strong{color:var(--slate);font-weight:600}
   <div class="hero-icon">🦟</div>
   <h1>Dengue</h1>
   <div class="hero-sub">Fiebre por virus dengue · Abordaje clínico integral · Emergencias</div>
-  <div style="font-size:13px;opacity:.9;margin-bottom:14px;font-style:italic">Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador</div>
+  <div style="font-size:13px;opacity:.9;margin-bottom:14px;font-style:italic">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   <div class="hero-badges">
     <span class="hbadge">OPS/OMS 2024</span>
     <span class="hbadge">CDC 2023</span>
@@ -1320,26 +1310,13 @@ strong{color:var(--slate);font-weight:600}
 <!-- FOOTER -->
 <div class="footer">
   Guía Clínica Interactiva · Dengue · Basada en OPS/OMS 2024 · CDC 2023<br>
-  Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador<br>
+  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br>
   Uso educativo y de referencia clínica personal
 </div>
 
 </div><!-- /app -->
 
 <script>
-// ─── CLAVES ───────────────────────────────────────────────────────────────────
-var CLAVES = ['CROCE2024','MEDICO01','URGENCIAS1','DENGUE','CROCE2026'];
-function checkPW(){
-  var v = document.getElementById('pw-input').value.trim().toUpperCase();
-  if(CLAVES.includes(v)){
-    document.getElementById('pw-screen').style.display='none';
-    document.getElementById('app').style.display='block';
-  } else {
-    document.getElementById('pw-err').textContent='Clave incorrecta. Intente nuevamente.';
-  }
-}
-document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPW();});
-
 // ── TAB NAVIGATION ──
 function showTab(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));

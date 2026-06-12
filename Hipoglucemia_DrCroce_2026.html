@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hipoglucemia — Módulo Clínico Interactivo | Dr. L. Croce</title>
+<title>Hipoglucemia — Módulo Clínico Interactivo | Dr. Luis E. Croce A.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -464,22 +464,12 @@ p { margin-bottom: 10px; }
   .access-card { padding: 32px 20px; }
 }
 </style>
+
+<style>#access-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 
 <!-- PANTALLA DE ACCESO -->
-<div id="access-screen">
-  <div class="access-card">
-    <div class="lock-icon">🔐</div>
-    <h2>Acceso Restringido</h2>
-    <p>Módulo clínico de uso exclusivo para personal médico autorizado</p>
-    <input type="password" id="clave-input" placeholder="Ingrese su clave de acceso" onkeydown="if(event.key==='Enter')verificarClave()">
-    <button onclick="verificarClave()">Ingresar al Módulo</button>
-    <div id="access-error">⚠ Clave incorrecta. Intente nuevamente.</div>
-    <div class="access-footer">Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</div>
-  </div>
-</div>
-
 <!-- MAIN APP -->
 <div id="main-app">
   <!-- HEADER -->
@@ -493,7 +483,7 @@ p { margin-bottom: 10px; }
             <div class="subtitle">Diagnóstico, evaluación laboratorial y manejo terapéutico integral</div>
           </div>
         </div>
-        <div class="author-badge">👨‍⚕️ Dr. L. Croce</div>
+        <div class="author-badge">👨‍⚕️ Dr. Luis E. Croce A.</div>
       </div>
       <div class="header-badges">
         <span class="badge badge-guide">📋 ADA 2026 Standards of Care</span>
@@ -1988,7 +1978,6 @@ p { margin-bottom: 10px; }
 
 <script>
 // ---- ACCESO ----
-var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
 function verificarClave(){
   var v=document.getElementById("clave-input").value.trim().toUpperCase();
   if(CLAVES.indexOf(v)>=0){

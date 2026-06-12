@@ -113,7 +113,7 @@ body {
 .access-hint { color: rgba(255,255,255,0.3); font-size: 11px; margin-top: 20px; }
 
 /* HEADER */
-#app { display: none; }
+#app{display:block}
 .header {
   background: linear-gradient(135deg, #1a3a5c 0%, #0d2a48 100%);
   padding: 28px 24px 20px;
@@ -515,22 +515,11 @@ strong { color: var(--text); font-weight: 700; }
   .tab-panel { display: block !important; page-break-before: always; }
 }
 </style>
+
+<style>#access-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 <!-- ACCESS SCREEN -->
-<div id="access-screen">
-  <div class="access-box">
-    <div class="access-logo">🫁</div>
-    <div class="access-title">Módulo AECOPD</div>
-    <div class="access-sub">Exacerbación Aguda de EPOC — Dr. L. Croce</div>
-    <div class="access-label">Clave de acceso</div>
-    <input class="access-input" type="password" id="access-key" placeholder="Ingrese su clave..." autocomplete="off">
-    <button class="access-btn" onclick="checkAccess()">Acceder al módulo</button>
-    <div class="access-error" id="access-error">Clave incorrecta. Intente nuevamente.</div>
-    <div class="access-hint">Claves: CROCE2024 · MEDICO01 · URGENCIAS1</div>
-  </div>
-</div>
-
 <!-- MAIN APP -->
 <div id="app">
 <div class="header">
@@ -544,7 +533,7 @@ strong { color: var(--text); font-weight: 700; }
     </div>
     <div class="header-title">🫁 Exacerbación Aguda de EPOC</div>
     <div class="header-sub">Diagnóstico, estratificación y manejo hospitalario basado en evidencia actual</div>
-    <div class="header-author">Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</div>
+    <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   </div>
 </div>
 
@@ -1721,18 +1710,6 @@ strong { color: var(--text); font-weight: 700; }
 
 <script>
 // ── ACCESS ──
-var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
-function checkAccess() {
-  var v = document.getElementById("access-key").value.trim().toUpperCase();
-  if (CLAVES.indexOf(v) >= 0) {
-    document.getElementById("access-screen").style.display = "none";
-    document.getElementById("app").style.display = "block";
-  } else {
-    document.getElementById("access-error").style.display = "block";
-  }
-}
-document.getElementById("access-key").addEventListener("keydown", function(e){ if(e.key==="Enter") checkAccess(); });
-
 // ── TABS ──
 function showTab(n, el) {
   document.querySelectorAll(".tab-panel").forEach(function(p){ p.classList.remove("active"); });

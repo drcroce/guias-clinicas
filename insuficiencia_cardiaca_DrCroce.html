@@ -147,19 +147,11 @@ tr:hover td{background:var(--surface2)}
 .study-ref{font-size:11.5px;font-style:italic;color:var(--text3);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
 hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 </style>
+
+<style>#access-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 <!-- ACCESS SCREEN -->
-<div id="access-screen">
-  <div class="access-card">
-    <span class="heart-icon">🫀</span>
-    <h2>Insuficiencia Cardíaca</h2>
-    <p>Módulo educativo clínico interactivo<br>Dr. L. Croce · Medicina Interna y Urgencias</p>
-    <input type="password" class="access-input" id="pwd-input" placeholder="Ingrese clave de acceso" onkeydown="if(event.key==='Enter')checkAccess()">
-    <button class="access-btn" onclick="checkAccess()">Ingresar →</button>
-    <div class="access-error" id="access-error"></div>
-  </div>
-</div>
 <!-- MAIN APP -->
 <div id="main-app">
 <div class="app-header">
@@ -168,7 +160,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
       <div class="header-icon">🫀</div>
       <div class="header-text">
         <h1>Insuficiencia Cardíaca Aguda y Crónica</h1>
-        <div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. L. Croce · Medicina Interna y Urgencias</div>
+        <div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
         <div class="badge-row">
           <span class="hbadge">ESC 2021/2023</span>
           <span class="hbadge">AHA/ACC/HFSA 2022</span>
@@ -1154,18 +1146,6 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 </div><!-- end content-area -->
 </div><!-- end main-app -->
 <script>
-var CLAVES = ["CROCE2024","MEDICO01","URGENCIAS1"];
-
-function checkAccess(){
-  var v = document.getElementById("pwd-input").value.trim().toUpperCase();
-  if(CLAVES.includes(v)){
-    document.getElementById("access-screen").style.display="none";
-    document.getElementById("main-app").style.display="block";
-  } else {
-    document.getElementById("access-error").textContent="Clave incorrecta. Intente nuevamente.";
-  }
-}
-
 function showTab(n){
   document.querySelectorAll(".panel").forEach(function(p,i){p.classList.toggle("active",i===n)});
   document.querySelectorAll(".tab-btn").forEach(function(b,i){b.classList.toggle("active",i===n)});

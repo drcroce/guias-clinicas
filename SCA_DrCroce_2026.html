@@ -145,7 +145,7 @@ body {
 }
 
 /* ===== MAIN APP ===== */
-#app { display: none; }
+#app{display:block}
 
 /* ===== HEADER ===== */
 .app-header {
@@ -821,22 +821,12 @@ strong.hl { color: var(--text); }
   .content { padding: 16px 12px; }
 }
 </style>
+
+<style>#access-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 
 <!-- ACCESS SCREEN -->
-<div id="access-screen">
-  <div class="access-card">
-    <div class="access-logo">❤️</div>
-    <h1>SCA · GUÍA CLÍNICA</h1>
-    <p>Dr. L. Croce · Medicina Interna & Urgencias</p>
-    <input class="access-input" type="password" id="access-key" placeholder="INGRESE CLAVE" maxlength="20"
-           onkeydown="if(event.key==='Enter') checkAccess()">
-    <button class="access-btn" onclick="checkAccess()">INGRESAR</button>
-    <div class="access-error" id="access-error"></div>
-  </div>
-</div>
-
 <!-- MAIN APP -->
 <div id="app">
 
@@ -846,7 +836,7 @@ strong.hl { color: var(--text); }
     <div class="header-icon">🫀</div>
     <div class="header-text">
       <h1>SÍNDROME CORONARIO AGUDO</h1>
-      <div class="subtitle">GUÍA CLÍNICA INTERACTIVA · DR. L. CROCE · MEDICINA INTERNA &amp; URGENCIAS · GUAYAQUIL, EC</div>
+      <div class="subtitle">GUÍA CLÍNICA INTERACTIVA · Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
     </div>
     <div class="header-badges">
       <span class="badge badge-esc">ESC 2023</span>
@@ -2606,7 +2596,6 @@ const QUIZZES = {
 };
 
 // ===== STATE =====
-var CLAVES = ['CROCE2024', 'MEDICO01', 'URGENCIAS1'];
 var currentTab = 0;
 var currentQuiz = 1;
 var currentQ = 0;
@@ -2614,19 +2603,6 @@ var answers = {};
 var quizDone = false;
 
 // ===== ACCESS =====
-function checkAccess() {
-  var key = document.getElementById('access-key').value.trim().toUpperCase();
-  var err = document.getElementById('access-error');
-  if (CLAVES.includes(key)) {
-    document.getElementById('access-screen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    renderQuestion();
-  } else {
-    err.textContent = 'Clave incorrecta. Intente de nuevo.';
-    setTimeout(function(){ err.textContent=''; }, 3000);
-  }
-}
-
 // ===== TABS =====
 function showTab(idx) {
   var panels = document.querySelectorAll('.tab-panel');

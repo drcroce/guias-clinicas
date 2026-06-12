@@ -227,22 +227,12 @@ tr:hover td{background:var(--surface2)}
 .divider{border:none;border-top:1px solid var(--border);margin:18px 0}
 .footer-note{text-align:center;font-size:11px;color:var(--text3);margin-top:30px;padding-top:20px;border-top:1px solid var(--border);line-height:1.8}
 </style>
+
+<style>#access-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
 
 <!-- ACCESS SCREEN -->
-<div id="access-screen">
-  <div class="access-box">
-    <div class="access-logo">🌬️</div>
-    <div class="access-title">Espirometría<br>Interpretación Práctica</div>
-    <div class="access-sub">Dr. L. Croce · Medicina Interna y Urgencias<br>ATS/ERS 2022 · GOLD 2025 · GLI 2022</div>
-    <input type="password" id="pwd-input" class="access-input" placeholder="Ingrese la clave" autocomplete="off">
-    <button class="access-btn" onclick="checkAccess()">Acceder al módulo</button>
-    <div id="access-err" class="access-err"></div>
-    <div class="access-hint">Módulo de uso educativo · Acceso restringido</div>
-  </div>
-</div>
-
 <!-- MAIN APP -->
 <div id="main-app">
 <div class="header">
@@ -251,7 +241,7 @@ tr:hover td{background:var(--surface2)}
       <div class="header-icon">🌬️</div>
       <div class="header-title">
         <h1>Espirometría — Aspectos Prácticos para su Interpretación</h1>
-        <p>Dr. L. Croce · Medicina Interna y Urgencias · Guayaquil, Ecuador</p>
+        <p>Dr. Luis E. Croce A. · Médico Internista · Ecuador</p>
       </div>
     </div>
     <div class="badge-row">
@@ -1236,7 +1226,7 @@ tr:hover td{background:var(--surface2)}
 
 <div class="footer-note">
   Módulo educativo interactivo · Espirometría — Aspectos Prácticos para su Interpretación<br>
-  <strong>Dr. Luis E. Croce</strong> · Medicina Interna y Urgencias · Guayaquil, Ecuador<br>
+  <strong>Dr. Luis E. Croce</strong> · Médico Internista · Ecuador<br>
   Basado en: ATS/ERS Technical Standard 2022 · GOLD 2025 · GLI 2022 (race-neutral equations)<br>
   Generado con asistencia de Claude (Anthropic) · Junio 2026 · Solo uso educativo
 </div>
@@ -1245,19 +1235,6 @@ tr:hover td{background:var(--surface2)}
 
 <script>
 // ===== ACCESS =====
-var CLAVES = ['CROCE2024','MEDICO01','URGENCIAS1'];
-function checkAccess(){
-  var v=document.getElementById('pwd-input').value.trim().toUpperCase();
-  if(CLAVES.includes(v)){
-    document.getElementById('access-screen').style.display='none';
-    document.getElementById('main-app').style.display='block';
-  } else {
-    document.getElementById('access-err').textContent='Clave incorrecta. Intente nuevamente.';
-    document.getElementById('pwd-input').value='';
-  }
-}
-
-
 // ===== TABS =====
 function showTab(n,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
@@ -1627,9 +1604,6 @@ function showResult(){
 
 // Init
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('pwd-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') checkAccess();
-  });
   selectQuiz(1);
 });
 </script>

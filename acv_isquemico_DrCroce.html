@@ -34,7 +34,7 @@ body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tex
 .pw-btn:hover{background:linear-gradient(135deg,#3b82f6,#2563eb);transform:translateY(-1px)}
 .pw-err{color:#fca5a5;font-size:13px;margin-top:12px;min-height:18px}
 .pw-author{font-size:12px;color:rgba(255,255,255,.4);margin-top:28px}
-#app{display:none}
+#app{display:block}
 .hero{background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 60%,var(--brand-light) 100%);
   color:#fff;padding:48px 20px 36px;text-align:center;position:relative;overflow:hidden}
 .hero-back{display:inline-block;color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;
@@ -153,26 +153,17 @@ strong{color:var(--brand-dark)}
 .footer{background:var(--brand-dark);color:rgba(255,255,255,.7);text-align:center;
   padding:28px 20px;font-size:13px;line-height:1.8;margin-top:40px}
 </style>
+
+<style>#pw-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
-<div id="pw-screen">
-  <div class="pw-box">
-    <div class="pw-icon">🧠</div>
-    <div class="pw-title">ACV Isquémico Agudo</div>
-    <div class="pw-sub">Guía Clínica Interactiva · Dr. Luis E. Croce<br>Ingrese la clave de acceso para continuar</div>
-    <input class="pw-input" type="password" id="pw-input" placeholder="Clave de acceso" autocomplete="off">
-    <button class="pw-btn" onclick="checkPW()">Ingresar →</button>
-    <div class="pw-err" id="pw-err"></div>
-    <div class="pw-author">Portal de Guías Clínicas · Guayaquil, Ecuador</div>
-  </div>
-</div>
 <div id="app">
 <div class="hero">
   <a class="hero-back" href="index.html">← Portal de guías</a>
   <div class="hero-icon">🧠</div>
   <h1>ACV Isquémico Agudo</h1>
   <div class="hero-sub">Accidente Cerebrovascular Isquémico — Manejo en Emergencia</div>
-  <div class="hero-author">Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador</div>
+  <div class="hero-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
   <div class="hero-badges">
     <span class="badge badge-gold">⭐ AHA/ASA 2026</span>
     <span class="badge">AHA Prevention 2024</span>
@@ -578,7 +569,7 @@ strong{color:var(--brand-dark)}
         <tr><td>Paciente anticoagulado</td><td>Sin restricción por ACO</td><td>La anticoagulación sistémica NO contraindica trombectomía</td></tr>
         <tr><td>Combinación con tPA</td><td>tPA + trombectomía secuencial</td><td>NO retrasar trombectomía esperando efecto de tPA</td></tr>
       </table>
-      <div class="alert alert-amber"><strong>En Ecuador:</strong> La trombectomía mecánica está disponible en centros de referencia terciarios (Quito, Guayaquil). Ante sospecha de OGV, transferencia urgente con activación simultánea del equipo neurointervencionista. El tiempo de traslado forma parte de la ventana terapéutica.</div>
+      <div class="alert alert-amber"><strong>En Ecuador:</strong> La trombectomía mecánica está disponible en centros de referencia terciarios (Quito, Ecuador). Ante sospecha de OGV, transferencia urgente con activación simultánea del equipo neurointervencionista. El tiempo de traslado forma parte de la ventana terapéutica.</div>
     </div>
   </div>
 
@@ -960,29 +951,13 @@ strong{color:var(--brand-dark)}
 
 <div class="footer">
   Guía Clínica Interactiva · ACV Isquémico Agudo · Basada en AHA/ASA 2026 · AHA Primary Prevention 2024<br>
-  Dr. Luis E. Croce · Médico Internista · Guayaquil, Ecuador<br>
+  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br>
   Uso educativo y de referencia clínica personal
 </div>
 
 </div><!-- #app -->
 
 <script>
-const CLAVES=['CROCE2024','MEDICO01','URGENCIAS1','CROCE2026','STROKE2026'];
-function checkPW(){
-  const v=document.getElementById('pw-input').value.toUpperCase().trim();
-  if(CLAVES.includes(v)){
-    document.getElementById('pw-screen').style.display='none';
-    document.getElementById('app').style.display='block';
-    window.scrollTo(0,0);
-  } else {
-    document.getElementById('pw-err').textContent='Clave incorrecta. Intente nuevamente.';
-    document.getElementById('pw-input').value='';
-    document.getElementById('pw-input').focus();
-    setTimeout(()=>{document.getElementById('pw-err').textContent='';},3000);
-  }
-}
-document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPW();});
-
 function showTab(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
