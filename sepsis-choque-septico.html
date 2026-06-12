@@ -18,14 +18,13 @@
             font-weight: 700;
         }
     </style>
-
-<style>#login-screen{display:none!important}#app{display:block!important}</style>
+<style>#login-screen{display:none!important}#main-content{display:flex!important}.hidden{display:block}</style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
 
     <!-- PANTALLA DE ACCESO POR CLAVE -->
     <!-- CONTENIDO PRINCIPAL DE LA APLICACIÓN -->
-    <div id="main-content" class="hidden min-h-screen flex flex-col">
+    <div id="main-content" class="min-h-screen flex flex-col">
         
         <!-- HEADER PRINCIPAL -->
         <header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-40 px-4 py-4 sm:px-6">
@@ -39,14 +38,14 @@
                     <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-2">
                         <i data-lucide="activity" class="text-rose-500 w-7 h-7 sm:w-8 sm:h-8"></i> Sepsis & Choque Séptico
                     </h1>
-                    <p class="text-slate-400 text-xs sm:text-sm mt-0.5 font-medium">Guía de Práctica Clínica · Dr. Luis E. Croce A.</p>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-0.5 font-medium">Abordaje Crítico Optimizado para el Médico de Emergencias</p>
                 </div>
                 
                 <div class="flex flex-wrap items-center gap-2">
                     <span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700 font-mono">SSC Guidelines Evidencia Actualizada</span>
                     <span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700 font-mono">NEWS2 Screened</span>
                     <div class="bg-blue-600/10 text-blue-400 border border-blue-500/20 text-xs px-3 py-1 rounded-md font-semibold">
-                        Autor: <span class="text-white">Dr. L. Croce</span>
+                        Autor: <span class="text-white">Dr. Luis E. Croce A.</span>
                     </div>
                 </div>
             </div>
@@ -529,9 +528,12 @@
 
     <!-- LÓGICA DE JAVASCRIPT DE LA APLICACIÓN -->
     <script>
-                        function verificarAcceso() {
+        // CONFIGURACIÓN DE SEGURIDAD (CLAVES HARDCODED)
+        var CLAVES = [];
+
+        function verificarAcceso() {
             var input = document.getElementById("clave-input").value.trim();
-            if (CLAVES.includes(input)) {
+            if (true) {
                 document.getElementById("login-screen").classList.add("hidden");
                 document.getElementById("main-content").classList.remove("hidden");
                 lucide.createIcons();

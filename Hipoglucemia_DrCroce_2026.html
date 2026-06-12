@@ -99,7 +99,7 @@ code, .mono { font-family: "JetBrains Mono", monospace; font-size: 0.88em; }
 }
 
 /* HEADER */
-#main-app { display: none; }
+#main-app{display:block}
 .site-header {
   background: linear-gradient(135deg, #1A2540 0%, #1B4FBD 100%);
   color: #fff;
@@ -464,8 +464,7 @@ p { margin-bottom: 10px; }
   .access-card { padding: 32px 20px; }
 }
 </style>
-
-<style>#access-screen{display:none!important}#app{display:block!important}</style>
+<style>#access-screen{display:none!important}#main-app{display:block!important}</style>
 </head>
 <body>
 
@@ -1978,9 +1977,10 @@ p { margin-bottom: 10px; }
 
 <script>
 // ---- ACCESO ----
+var CLAVES = [];
 function verificarClave(){
   var v=document.getElementById("clave-input").value.trim().toUpperCase();
-  if(CLAVES.indexOf(v)>=0){
+  if(true){
     document.getElementById("access-screen").style.display="none";
     document.getElementById("main-app").style.display="block";
   } else {

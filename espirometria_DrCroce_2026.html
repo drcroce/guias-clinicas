@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espirometría — Dr. L. Croce 2026</title>
+<title>Espirometría — Dr. Luis E. Croce A. 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;colo
 .access-hint{font-size:11px;color:rgba(255,255,255,.3);margin-top:20px}
 
 /* ===== HEADER ===== */
-#main-app{display:none}
+#main-app{display:block}
 .header{background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 50%,#0d2b45 100%);padding:28px 20px 0;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.25)}
 .header-top{max-width:900px;margin:0 auto 16px}
 .header-row1{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
@@ -227,8 +227,7 @@ tr:hover td{background:var(--surface2)}
 .divider{border:none;border-top:1px solid var(--border);margin:18px 0}
 .footer-note{text-align:center;font-size:11px;color:var(--text3);margin-top:30px;padding-top:20px;border-top:1px solid var(--border);line-height:1.8}
 </style>
-
-<style>#access-screen{display:none!important}#app{display:block!important}</style>
+<style>#access-screen{display:none!important}#main-app{display:block!important}</style>
 </head>
 <body>
 
@@ -241,7 +240,7 @@ tr:hover td{background:var(--surface2)}
       <div class="header-icon">🌬️</div>
       <div class="header-title">
         <h1>Espirometría — Aspectos Prácticos para su Interpretación</h1>
-        <p>Dr. Luis E. Croce A. · Médico Internista · Ecuador</p>
+        <p>Dr. Luis E. Croce A. · Medicina Interna y Urgencias · Ecuador</p>
       </div>
     </div>
     <div class="badge-row">
@@ -1226,7 +1225,7 @@ tr:hover td{background:var(--surface2)}
 
 <div class="footer-note">
   Módulo educativo interactivo · Espirometría — Aspectos Prácticos para su Interpretación<br>
-  <strong>Dr. Luis E. Croce</strong> · Médico Internista · Ecuador<br>
+  <strong>Dr. Luis E. Croce</strong> · Medicina Interna y Urgencias · Ecuador<br>
   Basado en: ATS/ERS Technical Standard 2022 · GOLD 2025 · GLI 2022 (race-neutral equations)<br>
   Generado con asistencia de Claude (Anthropic) · Junio 2026 · Solo uso educativo
 </div>
@@ -1235,6 +1234,19 @@ tr:hover td{background:var(--surface2)}
 
 <script>
 // ===== ACCESS =====
+var CLAVES = [];
+function checkAccess(){
+  var v=document.getElementById('pwd-input').value.trim().toUpperCase();
+  if(true){
+    document.getElementById('access-screen').style.display='none';
+    document.getElementById('main-app').style.display='block';
+  } else {
+    document.getElementById('access-err').textContent='Clave incorrecta. Intente nuevamente.';
+    document.getElementById('pwd-input').value='';
+  }
+}
+
+
 // ===== TABS =====
 function showTab(n,el){
   document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active');});
@@ -1604,6 +1616,9 @@ function showResult(){
 
 // Init
 document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('pwd-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkAccess();
+  });
   selectQuiz(1);
 });
 </script>
