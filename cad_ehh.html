@@ -117,8 +117,9 @@ tr:last-child td{border-bottom:none}
 /* Quiz */
 .quiz-q{font-size:14px;font-weight:500;margin-bottom:16px;line-height:1.6;padding:14px;background:var(--bg2);border-radius:8px}
 .quiz-opts{display:flex;flex-direction:column;gap:8px}
-.quiz-opt{padding:11px 16px;border:.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:all .2s;background:var(--bg);line-height:1.5}
+.quiz-opt{padding:11px 16px;border:.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:13px;transition:all .2s;background:var(--bg);line-height:1.5;text-align:left;font-family:inherit;color:var(--text)}
 .quiz-opt:hover{background:var(--bg2);border-color:#b03a2e}
+.quiz-opt.selected{background:var(--blue-l);border-color:var(--blue);color:#154360;box-shadow:0 0 0 2px rgba(36,113,163,.12)}
 .quiz-opt.correct{background:var(--green-l);border-color:var(--green);color:#145a32}
 .quiz-opt.wrong{background:var(--red-l);border-color:var(--red);color:#7b241c}
 .quiz-feedback{margin-top:12px;padding:12px 14px;border-radius:8px;font-size:12.5px;display:none;line-height:1.6}
@@ -142,6 +143,7 @@ b.hl{color:var(--text)}
 <div class="app">
 
 <div class="header">
+  <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
   <a class="portal-back" href="index.html">← Portal de guías</a>
 
   <h1>⚡ Crisis Hiperglucémica — Guía de Urgencias</h1>
@@ -629,18 +631,46 @@ b.hl{color:var(--text)}
 .quiz-sel-btn{padding:6px 14px;border-radius:20px;border:.5px solid var(--border);background:var(--bg2);color:var(--text2);font-size:12px;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap}
 .quiz-sel-btn:hover{border-color:#b03a2e;color:#b03a2e}
 .quiz-sel-btn.active{background:#b03a2e;color:white;border-color:#b03a2e}
+.quiz-opt:focus,.btn-sm:focus,.btn:focus,.tab:focus,.card-head:focus,.quiz-sel-btn:focus{outline:2px solid var(--blue);outline-offset:2px}
+.fullscreen-btn{position:absolute;right:18px;top:18px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:white;border-radius:20px;padding:4px 10px;font-size:11px;cursor:pointer}
+.fullscreen-btn:hover{background:rgba(255,255,255,.28)}
+@media(max-width:700px){
+  body{padding:8px;font-size:13px}
+  .app{border-radius:10px}
+  .header{padding:18px 16px 15px}
+  .content{padding:16px 14px}
+  .compare-grid,.branch,.calc-row,.calc-result-grid{grid-template-columns:1fr}
+  .tab{padding:11px 13px}
+  table{font-size:11.5px}
+  th,td{padding:7px 8px}
+  .quiz-nav{gap:8px;flex-wrap:wrap}
+  .score-display{order:3;width:100%;text-align:center}
+  .fullscreen-btn{position:static;margin-top:10px}
+}
 </style>
 
 <script>
 function showTab(id, el) {
+  const target = document.getElementById('tab-' + id);
+  if (!target) return;
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  el.classList.add('active');
+  target.classList.add('active');
+  if (el) el.classList.add('active');
 }
 
 function toggleCard(id) {
-  document.getElementById(id).classList.toggle('open');
+  const card = document.getElementById(id);
+  if (card) card.classList.toggle('open');
+}
+
+function toggleFullscreen() {
+  const root = document.documentElement;
+  if (!document.fullscreenElement && root.requestFullscreen) {
+    root.requestFullscreen().catch(() => {});
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen().catch(() => {});
+  }
 }
 
 ['cad-sev','fl-cad','ins-cad','k-proto','comp-edema','calc-osm'].forEach(id => {
@@ -756,12 +786,12 @@ const allQuizzes = [
     correct:2, feedback:"Al llegar a 250 mg/dL se agrega DAD 5% pero NO se suspende la insulina IV. El objetivo es mantener glucemia 150–200 mg/dL hasta resolución completa de la cetosis (pH y HCO₃ normalizados y AG cerrado)." },
   { q:"Paciente con CAD, Na⁺ medido 125 mEq/L, glucemia 700 mg/dL. ¿Cuál es el Na corregido aproximado y qué fluido corresponde?",
     opts:["Na corr. ~119 mEq/L → SSN 0.9%","Na corr. ~135 mEq/L → SSN 0.9%","Na corr. ~141 mEq/L → SSN 0.9% o 0.45%","Na corr. ~150 mEq/L → SSN 0.45%"],
-    correct:3, feedback:"Na corregido = 125 + 1.6×(700-100)/100 = 125 + 9.6 ≈ 135... Recalculando: 1.6×6=9.6, 125+9.6=134.6. ¡Cuidado! Si Na corr. >145, usar SSN 0.45%. Con glucemia 700 el Na real suele ser mayor al medido." },
+    correct:1, feedback:"Na corregido = 125 + 1.6×(700-100)/100 = 125 + 9.6 ≈ 134.6, aproximadamente 135 mEq/L. Con Na corregido normal, corresponde SSN 0.9% y reevaluación seriada según estado hemodinámico y sodio corregido." },
   { q:"¿Cuál es la dosis estándar de insulina regular IV para iniciar tratamiento de CAD o EHH según ADA 2026?",
     opts:["Bolo de 0.1 U/kg seguido de 0.1 U/kg/h","0.1 U/kg/h en infusión continua sin bolo","0.05 U/kg/h en infusión continua","Bolo de 10 U seguido de 2 U/h fija"],
     correct:1, feedback:"ADA 2026 recomienda 0.1 U/kg/h en infusión continua SIN bolo de carga. Los bolos previos no mejoran los outcomes y aumentan el riesgo de hipoglucemia e hipokalemia brusca." },
   { q:"Un paciente con CAD resuelta recibe insulina glargina SC a las 8:00 AM. ¿Cuándo se suspende la infusión de insulina IV?",
-    opts:["Inmediatamente después de la inyección SC","A las 8:30 AM (30 minutos después)","Entre las 9:00–10:00 AM (1–2 horas después)","A las 14:00 AM (6 horas después)"],
+    opts:["Inmediatamente después de la inyección SC","A las 8:30 AM (30 minutos después)","Entre las 9:00–10:00 AM (1–2 horas después)","A las 14:00 (6 horas después)"],
     correct:2, feedback:"La insulina glargina SC tarda 1–2 horas en comenzar a actuar. Suspender la infusión IV antes crea una ventana sin cobertura insulínica que puede precipitar recaída cetoacidótica. Siempre solapar 1–2 horas." },
   { q:"¿Cuál es la meta de glucemia durante el tratamiento de mantenimiento en EHH (hasta resolución)?",
     opts:["80–140 mg/dL","140–200 mg/dL","250–300 mg/dL","300–400 mg/dL"],
@@ -803,9 +833,38 @@ let currentQuizIdx = 0;
 let currentQ = 0;
 let score = 0;
 let answered = false;
+let selectedOption = null;
 let answeredMap = {}; // {qIndex: {chosen, correct, wasCorrect}}
+const QUIZ_STORAGE_KEY = 'cad_ehh_quiz_state_v2';
+
+function saveQuizState() {
+  try {
+    localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify({
+      currentQuizIdx,
+      currentQ,
+      answeredMap
+    }));
+  } catch (e) {}
+}
+
+function loadQuizState() {
+  try {
+    const raw = localStorage.getItem(QUIZ_STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (!data || typeof data.currentQuizIdx !== 'number') return;
+    if (data.currentQuizIdx < 0 || data.currentQuizIdx >= allQuizzes.length) return;
+    currentQuizIdx = data.currentQuizIdx;
+    currentQ = Math.max(0, Math.min(data.currentQ || 0, allQuizzes[currentQuizIdx].length));
+    answeredMap = data.answeredMap && typeof data.answeredMap === 'object' ? data.answeredMap : {};
+    document.querySelectorAll('.quiz-sel-btn').forEach((b,i) => b.classList.toggle('active', i===currentQuizIdx));
+  } catch (e) {
+    localStorage.removeItem(QUIZ_STORAGE_KEY);
+  }
+}
 
 function selectQuiz(idx) {
+  if (idx < 0 || idx >= allQuizzes.length) return;
   currentQuizIdx = idx;
   document.querySelectorAll('.quiz-sel-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   resetQuiz();
@@ -817,7 +876,7 @@ function currentQuestions() {
 
 function updateProgress() {
   const qs = currentQuestions();
-  const pct = (currentQ / qs.length) * 100;
+  const pct = ((answeredMap[currentQ] ? currentQ + 1 : currentQ) / qs.length) * 100;
   document.getElementById('quiz-progress-bar').style.width = pct + '%';
 }
 
@@ -831,21 +890,23 @@ function renderQuiz() {
     return;
   }
 
-  updateProgress();
-
   const q = qs[currentQ];
   const prev = answeredMap[currentQ];
   const isAnswered = !!prev;
   answered = isAnswered;
+  selectedOption = isAnswered ? prev.chosen : null;
 
-  // Build options HTML
+  updateProgress();
+
   const optsHtml = q.opts.map((o, i) => {
     let cls = 'quiz-opt';
     if (isAnswered) {
       if (i === q.correct) cls += ' correct';
       else if (i === prev.chosen && i !== q.correct) cls += ' wrong';
+    } else if (selectedOption === i) {
+      cls += ' selected';
     }
-    return `<div class="${cls}" onclick="answerQ(${i})" id="opt-${i}">${o}</div>`;
+    return `<button type="button" class="${cls}" onclick="selectAnswer(${i})" id="opt-${i}" aria-pressed="${selectedOption === i}">${o}</button>`;
   }).join('');
 
   let feedbackHtml = '';
@@ -854,15 +915,21 @@ function renderQuiz() {
     feedbackHtml = `<div class="quiz-feedback alert ${ok ? 'alert-green' : 'alert-red'}" style="display:block">
       <b>${ok ? '✅ Correcto.' : '❌ Incorrecto.'}</b> ${q.feedback}
     </div>`;
+  } else {
+    feedbackHtml = `<div class="quiz-feedback alert alert-blue" id="pending-feedback">
+      Selecciona una opción. Se marcará en azul antes de confirmar.
+    </div>`;
   }
 
   document.getElementById('quiz-container').innerHTML = `
     <div class="quiz-q">${q.q}</div>
     <div class="quiz-opts">${optsHtml}</div>
+    <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn-sm" onclick="confirmAnswer()" id="btn-confirm" style="${isAnswered ? 'display:none' : 'display:none'}">Confirmar respuesta</button>
+    </div>
     ${feedbackHtml}
   `;
 
-  // Nav buttons
   document.getElementById('btn-prev').style.display = currentQ > 0 ? 'inline-block' : 'none';
   document.getElementById('btn-next').style.display = isAnswered ? 'inline-block' : 'none';
   document.getElementById('btn-next').textContent = currentQ === qs.length - 1 ? 'Ver resultados →' : 'Siguiente →';
@@ -872,18 +939,44 @@ function renderQuiz() {
     'Pregunta ' + (currentQ + 1) + ' de ' + qs.length + ' · Aciertos: ' + correct;
 }
 
-function answerQ(i) {
+function selectAnswer(i) {
   if (answered) return;
+  selectedOption = i;
+  currentQuestions()[currentQ].opts.forEach((_, idx) => {
+    const opt = document.getElementById('opt-' + idx);
+    if (!opt) return;
+    opt.classList.toggle('selected', idx === i);
+    opt.setAttribute('aria-pressed', idx === i ? 'true' : 'false');
+  });
+  const confirmBtn = document.getElementById('btn-confirm');
+  const pending = document.getElementById('pending-feedback');
+  if (confirmBtn) confirmBtn.style.display = 'inline-block';
+  if (pending) {
+    pending.style.display = 'block';
+    pending.textContent = 'Opción seleccionada en azul. Confirma para ver la corrección.';
+  }
+}
+
+function answerQ(i) {
+  selectAnswer(i);
+  confirmAnswer();
+}
+
+function confirmAnswer() {
+  if (answered || selectedOption === null) return;
   answered = true;
   const q = currentQuestions()[currentQ];
+  const i = selectedOption;
   const wasCorrect = i === q.correct;
   if (wasCorrect) score++;
   answeredMap[currentQ] = { chosen: i, correct: q.correct, wasCorrect };
 
-  const fb = document.createElement('div');
-  fb.className = 'quiz-feedback alert ' + (wasCorrect ? 'alert-green' : 'alert-red');
-  fb.style.display = 'block';
-  fb.innerHTML = `<b>${wasCorrect ? '✅ Correcto.' : '❌ Incorrecto.'}</b> ${q.feedback}`;
+  q.opts.forEach((_, idx) => {
+    const opt = document.getElementById('opt-' + idx);
+    if (!opt) return;
+    opt.classList.remove('selected');
+    opt.disabled = true;
+  });
 
   if (i === q.correct) {
     document.getElementById('opt-'+i).classList.add('correct');
@@ -892,7 +985,17 @@ function answerQ(i) {
     document.getElementById('opt-'+q.correct).classList.add('correct');
   }
 
+  const pending = document.getElementById('pending-feedback');
+  if (pending) pending.remove();
+
+  const fb = document.createElement('div');
+  fb.className = 'quiz-feedback alert ' + (wasCorrect ? 'alert-green' : 'alert-red');
+  fb.style.display = 'block';
+  fb.innerHTML = `<b>${wasCorrect ? '✅ Correcto.' : '❌ Incorrecto.'}</b> ${q.feedback}`;
   document.getElementById('quiz-container').appendChild(fb);
+
+  const confirmBtn = document.getElementById('btn-confirm');
+  if (confirmBtn) confirmBtn.style.display = 'none';
 
   const qs = currentQuestions();
   document.getElementById('btn-next').style.display = 'inline-block';
@@ -901,15 +1004,18 @@ function answerQ(i) {
   const correct2 = Object.values(answeredMap).filter(v => v.wasCorrect).length;
   document.getElementById('quiz-score').textContent =
     'Pregunta ' + (currentQ + 1) + ' de ' + qs.length + ' · Aciertos: ' + correct2;
+  updateProgress();
+  saveQuizState();
 }
 
 function nextQuestion() {
   currentQ++;
+  saveQuizState();
   renderQuiz();
 }
 
 function prevQuestion() {
-  if (currentQ > 0) { currentQ--; renderQuiz(); }
+  if (currentQ > 0) { currentQ--; saveQuizState(); renderQuiz(); }
 }
 
 function showFinal() {
@@ -937,7 +1043,8 @@ function showFinal() {
 }
 
 function resetQuiz() {
-  currentQ = 0; score = 0; answered = false; answeredMap = {};
+  currentQ = 0; score = 0; answered = false; selectedOption = null; answeredMap = {};
+  try { localStorage.removeItem(QUIZ_STORAGE_KEY); } catch (e) {}
   document.getElementById('quiz-container').style.display = 'block';
   document.getElementById('quiz-final').style.display = 'none';
   renderQuiz();
@@ -949,6 +1056,7 @@ function goNextQuiz() {
   }
 }
 
+loadQuizState();
 renderQuiz();
 
 // Tabs scroll fade

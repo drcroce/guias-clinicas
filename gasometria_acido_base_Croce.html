@@ -208,6 +208,20 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
   border:1px solid rgba(255,255,255,.3);margin-bottom:10px;
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
+
+
+/* ===== AUDITORÍA 2026 — ESTANDARIZACIÓN FRAMEWORK EDUCATIVO ===== */
+.quiz-opt.selected{border-color:var(--accent);background:var(--accent-light);color:var(--accent2);box-shadow:0 0 0 3px rgba(44,95,138,.12)}
+.quiz-opt:focus-visible,.quiz-btn:focus-visible,.quiz-nav-btn:focus-visible,.tab:focus-visible,.calc-btn:focus-visible,.card-header:focus-visible,.portal-action:focus-visible{outline:3px solid var(--cyan-border);outline-offset:2px}
+.quiz-meta{display:flex;justify-content:space-between;gap:.75rem;align-items:center;flex-wrap:wrap;margin-bottom:.8rem}
+.quiz-status-pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border2);border-radius:999px;padding:.2rem .55rem;font-size:.72rem;color:var(--text3);background:var(--surface2)}
+.quiz-nav-btn:disabled{opacity:.45;cursor:not-allowed}
+.portal-actions{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.portal-action{display:inline-block;color:rgba(255,255,255,.75);font-size:12px;text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.3);background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,color .2s}
+.portal-action:hover{background:rgba(255,255,255,.2);color:#fff}
+.calc-error{background:var(--red-bg)!important;border-color:var(--red-border)!important;color:var(--red)!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.quiz-container{padding:1rem}.quiz-opt{padding:.8rem}.header{padding:1rem}.badges{gap:.3rem}.badge{font-size:.65rem}}
 </style>
 
 
@@ -223,7 +237,7 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
 <div class="header">
   <div class="header-inner">
     <div class="header-top">
-    <a class="portal-back" href="index.html">← Portal de guías</a>
+    <div class="portal-actions"><a class="portal-back portal-action" href="index.html">← Portal de guías</a><button type="button" class="portal-action" onclick="toggleFullscreen()" aria-label="Activar o salir de pantalla completa">⛶ Pantalla completa</button></div>
 
       <div>
         <div class="header-title">🫁 Gasometría Arterial &amp; <span>Trastornos Ácido-Base</span></div>
@@ -1487,5 +1501,265 @@ function showScore(){
 // Init
 loadQuiz(0);
 </script>
+
+<script>
+// ===== AUDITORÍA 2026 — MOTOR ESTANDARIZADO Y CORRECCIONES =====
+(function(){
+  'use strict';
+  var STORAGE_KEY = 'dr_croce_abg_quiz_state_v2';
+  var selectedAnswer = -1;
+
+  function byId(id){ return document.getElementById(id); }
+  function num(id){
+    var el = byId(id);
+    if(!el) return NaN;
+    var value = parseFloat(el.value);
+    return Number.isFinite(value) ? value : NaN;
+  }
+  function hasInvalid(values){ return values.some(function(v){ return !Number.isFinite(v); }); }
+  function showCalcError(id,msg){
+    var el = byId(id);
+    if(el){ el.classList.add('calc-error'); el.innerHTML = '<strong>Dato inválido</strong>'+msg; }
+  }
+  function setCalcResult(id,html){
+    var el = byId(id);
+    if(el){ el.classList.remove('calc-error'); el.innerHTML = html; }
+  }
+  function saveQuizState(){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        currentQuiz: currentQuiz,
+        currentQ: currentQ,
+        score: score,
+        answered: answered,
+        userAnswers: userAnswers,
+        selectedAnswer: selectedAnswer
+      }));
+    }catch(e){}
+  }
+  function restoreQuizState(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return false;
+      var st = JSON.parse(raw);
+      if(!QUIZZES || !QUIZZES[st.currentQuiz]) return false;
+      if(!Array.isArray(st.answered) || st.answered.length !== QUIZZES[st.currentQuiz].length) return false;
+      currentQuiz = st.currentQuiz;
+      currentQ = Math.min(Math.max(0, st.currentQ || 0), QUIZZES[currentQuiz].length-1);
+      score = Number.isFinite(st.score) ? st.score : 0;
+      answered = st.answered;
+      userAnswers = Array.isArray(st.userAnswers) ? st.userAnswers : new Array(QUIZZES[currentQuiz].length).fill(-1);
+      selectedAnswer = Number.isFinite(st.selectedAnswer) ? st.selectedAnswer : -1;
+      return true;
+    }catch(e){ return false; }
+  }
+
+  window.showTab = function(n){
+    var panels = document.querySelectorAll('.panel');
+    var tabs = document.querySelectorAll('.tab');
+    if(!panels[n] || !tabs[n]) return;
+    panels.forEach(function(p,i){
+      p.classList.toggle('active', i===n);
+      p.setAttribute('role','tabpanel');
+      p.setAttribute('aria-hidden', i===n ? 'false' : 'true');
+    });
+    tabs.forEach(function(t,i){
+      t.classList.toggle('active', i===n);
+      t.setAttribute('role','tab');
+      t.setAttribute('aria-selected', i===n ? 'true' : 'false');
+      t.setAttribute('tabindex', i===n ? '0' : '-1');
+    });
+    tabs[n].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  };
+
+  window.toggleCard = function(header){
+    var body = header && header.nextElementSibling;
+    var chev = header && header.querySelector('.chevron');
+    if(!body) return;
+    var open = body.classList.toggle('open');
+    if(chev) chev.classList.toggle('open', open);
+    header.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
+  window.toggleFullscreen = function(){
+    var root = document.documentElement;
+    if(!document.fullscreenElement && root.requestFullscreen){ root.requestFullscreen(); }
+    else if(document.exitFullscreen){ document.exitFullscreen(); }
+  };
+
+  window.calcABG = function(){
+    var ph=num('c1-ph'), co2=num('c1-pco2'), hco3=num('c1-hco3'), na=num('c1-na'), cl=num('c1-cl'), alb=num('c1-alb');
+    if(hasInvalid([ph,co2,hco3,na,cl,alb])) return showCalcError('c1-result','<br>Revise que todos los campos tengan valores numéricos.');
+    if(ph<6.5||ph>8||co2<=0||hco3<=0||na<=0||cl<=0||alb<0) return showCalcError('c1-result','<br>Uno o más valores están fuera de un rango fisiológico razonable.');
+    var res='', phStatus = ph<7.35?'ACIDEMIA':(ph>7.45?'ALCALEMIA':'pH NORMAL: no descarta trastorno mixto');
+    res += '<strong>① pH: '+ph.toFixed(2)+' → '+phStatus+'</strong><br>';
+    var primary='';
+    if(ph<7.35){
+      if(hco3<22 && co2<45) primary='Acidosis metabólica primaria probable; verificar compensación respiratoria.';
+      else if(co2>45 && hco3>=22) primary='Acidosis respiratoria primaria probable; definir aguda/crónica.';
+      else if(hco3<22 && co2>45) primary='Trastorno mixto: acidosis metabólica + acidosis respiratoria.';
+      else primary='Acidemia no clásica; correlacionar con electrolitos, lactato y contexto clínico.';
+    }else if(ph>7.45){
+      if(hco3>26 && co2>=35) primary='Alcalosis metabólica primaria probable; verificar compensación.';
+      else if(co2<35 && hco3<=26) primary='Alcalosis respiratoria primaria probable; definir aguda/crónica.';
+      else if(hco3>26 && co2<35) primary='Trastorno mixto: alcalosis metabólica + alcalosis respiratoria.';
+      else primary='Alcalemia no clásica; correlacionar con contexto clínico.';
+    }else{
+      if(hco3<22 || hco3>26 || co2<35 || co2>45) primary='pH normal con variables alteradas: sospechar compensación o trastorno mixto cancelado.';
+      else primary='Gasometría ácido-base dentro de rangos básicos; interpretar oxigenación aparte.';
+    }
+    res += '② Lectura primaria: '+primary+'<br>';
+    var ag=na-(cl+hco3), agCorr=ag+2.5*(4-alb);
+    res += '③ AG: '+ag.toFixed(1)+' | AG corregido: <strong>'+agCorr.toFixed(1)+'</strong> → '+(agCorr>12?'<span style="color:var(--red)">alto</span>':'<span style="color:var(--green)">normal</span>')+'<br>';
+    if(hco3<22){
+      var exp=1.5*hco3+8, lo=exp-2, hi=exp+2;
+      res += '④ Winters: pCO₂ esperado '+lo.toFixed(1)+'–'+hi.toFixed(1)+' mmHg; medido '+co2.toFixed(1)+' → ';
+      res += co2>hi?'<span style="color:var(--red)">acidosis respiratoria concomitante</span>':(co2<lo?'<span style="color:var(--blue)">alcalosis respiratoria concomitante</span>':'<span style="color:var(--green)">compensación adecuada ✓</span>');
+    }else if(hco3>26){
+      var exp2=0.7*hco3+21, lo2=exp2-2, hi2=exp2+2;
+      res += '④ Compensación alcalosis metabólica: pCO₂ esperado '+lo2.toFixed(1)+'–'+hi2.toFixed(1)+' mmHg; medido '+co2.toFixed(1)+' → ';
+      res += co2>hi2?'<span style="color:var(--red)">acidosis respiratoria concomitante</span>':(co2<lo2?'<span style="color:var(--blue)">alcalosis respiratoria concomitante</span>':'<span style="color:var(--green)">compensación adecuada ✓</span>');
+    }else{
+      res += '④ HCO₃⁻ dentro de rango: si pCO₂ está alterado, use reglas de trastornos respiratorios agudos/crónicos.';
+    }
+    setCalcResult('c1-result',res);
+  };
+
+  window.calcAG = function(){
+    var na=num('c2-na'), cl=num('c2-cl'), hco3=num('c2-hco3'), alb=num('c2-alb');
+    if(hasInvalid([na,cl,hco3,alb])) return showCalcError('c2-result','<br>Revise Na⁺, Cl⁻, HCO₃⁻ y albúmina.');
+    var ag=na-(cl+hco3), agCorr=ag+2.5*(4-alb);
+    var res='<strong>AG medido:</strong> '+ag.toFixed(1)+' mEq/L<br>';
+    res+='<strong>AG corregido:</strong> <span style="color:'+(agCorr>12?'var(--red)':'var(--green)')+'">'+agCorr.toFixed(1)+'</span> mEq/L<br>';
+    if(hco3>=24){
+      res+='<strong>Delta-Delta:</strong> no interpretable con HCO₃⁻ ≥24. En este contexto, busque HAGMA enmascarada por alcalosis metabólica.';
+    }else{
+      var dd=(agCorr-12)/(24-hco3), ddInterp='';
+      if(dd<0.4) ddInterp='NAGMA predominante o HAGMA mínima';
+      else if(dd<0.8) ddInterp='HAGMA + NAGMA mixta';
+      else if(dd<=2.0) ddInterp='HAGMA pura o patrón esperado';
+      else ddInterp='HAGMA + alcalosis metabólica concomitante';
+      res+='<strong>Delta-Delta:</strong> '+dd.toFixed(2)+' → <em>'+ddInterp+'</em>';
+    }
+    setCalcResult('c2-result',res);
+  };
+
+  window.calcWinter = function(){
+    var hco3=num('c3-hco3'), co2m=num('c3-pco2');
+    if(hasInvalid([hco3,co2m]) || hco3<=0 || co2m<=0) return showCalcError('c3-result','<br>Ingrese HCO₃⁻ y pCO₂ válidos.');
+    var exp=1.5*hco3+8, lo=exp-2, hi=exp+2;
+    var res='<strong>pCO₂ esperado:</strong> '+lo.toFixed(1)+'–'+hi.toFixed(1)+' mmHg<br><strong>pCO₂ medido:</strong> '+co2m.toFixed(1)+' mmHg → ';
+    res += co2m>hi?'<span style="color:var(--red)">acidosis respiratoria concomitante</span>':(co2m<lo?'<span style="color:var(--blue)">alcalosis respiratoria concomitante</span>':'<span style="color:var(--green)">compensación adecuada ✓</span>');
+    setCalcResult('c3-result',res);
+  };
+
+  window.calcNaCorr = function(){
+    var na=num('c4-na'), gluc=num('c4-gluc');
+    if(hasInvalid([na,gluc]) || gluc<0) return showCalcError('c4-result','<br>Ingrese sodio y glucosa válidos.');
+    var corr=na+1.6*((gluc-100)/100);
+    var res='<strong>Na⁺ corregido:</strong> '+corr.toFixed(1)+' mEq/L<br>';
+    res += corr<135?'→ <span style="color:var(--blue)">hiponatremia real</span>':(corr>145?'→ <span style="color:var(--red)">hipernatremia real</span>':'→ <span style="color:var(--green)">Na⁺ corregido normal</span>');
+    setCalcResult('c4-result',res);
+  };
+
+  window.calcOsm = function(){
+    var osm=num('c5-osm'), na=num('c5-na'), gluc=num('c5-gluc'), bun=num('c5-bun');
+    if(hasInvalid([osm,na,gluc,bun])) return showCalcError('c5-result','<br>Ingrese Osm medida, Na⁺, glucosa y BUN válidos.');
+    var calc=2*na + gluc/18 + bun/2.8, gap=osm-calc;
+    var res='<strong>Osm calculada:</strong> '+calc.toFixed(1)+' mOsm/kg<br><strong>Gap osmolar:</strong> '+gap.toFixed(1)+' mOsm/kg → ';
+    res += gap>10?'<span style="color:var(--red)">elevado: sospechar alcohol tóxico/solutos no medidos</span>':'<span style="color:var(--green)">normal</span>';
+    setCalcResult('c5-result',res);
+  };
+
+  window.loadQuiz = function(n, preserve){
+    currentQuiz=n; currentQ=0; score=0; selectedAnswer=-1;
+    answered=new Array(QUIZZES[n].length).fill(false);
+    userAnswers=new Array(QUIZZES[n].length).fill(-1);
+    document.querySelectorAll('.quiz-btn').forEach(function(b,i){ b.classList.toggle('active', i===n); b.setAttribute('aria-pressed', i===n?'true':'false'); });
+    byId('q-score').style.display='none';
+    if(!preserve) saveQuizState();
+    renderQ();
+  };
+
+  window.renderQ = function(){
+    var qArr=QUIZZES[currentQuiz], total=qArr.length, item=qArr[currentQ];
+    if(!item){ return showScore(); }
+    var completed=answered.filter(Boolean).length;
+    byId('q-progress').style.width=((completed/total)*100)+'%';
+    byId('q-counter').innerHTML='<div class="quiz-meta"><span>Pregunta '+(currentQ+1)+' de '+total+'</span><span class="quiz-status-pill">Respondidas: '+completed+'/'+total+'</span></div>';
+    var html='<div class="quiz-q" id="quiz-question">'+item.q+'</div><ul class="quiz-options" role="listbox" aria-labelledby="quiz-question">';
+    item.o.forEach(function(opt,i){
+      var cls='quiz-opt', attrs=' role="option" tabindex="0" aria-selected="false"';
+      if(!answered[currentQ] && selectedAnswer===i){ cls+=' selected'; attrs=' role="option" tabindex="0" aria-selected="true"'; }
+      if(answered[currentQ]){
+        cls+=' disabled';
+        if(i===item.a) cls+=' correct';
+        else if(i===userAnswers[currentQ] && i!==item.a) cls+=' incorrect';
+      }
+      html+='<li class="'+cls+'"'+attrs+' onclick="selectOpt('+i+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();selectOpt('+i+');}">'+opt+'</li>';
+    });
+    html+='</ul>';
+    if(answered[currentQ]){
+      var ok=userAnswers[currentQ]===item.a;
+      html+='<div class="quiz-feedback show '+(ok?'correct':'incorrect')+'" aria-live="polite"><strong>'+(ok?'✔ Correcto':'✘ Incorrecto')+'</strong><br><strong>Respuesta correcta:</strong> '+item.o[item.a]+'<br>'+item.f+'</div>';
+    }else{
+      html+='<div class="quiz-feedback" aria-live="polite">Seleccione una respuesta y presione “Comprobar”.</div>';
+    }
+    html+='<div class="quiz-nav">';
+    if(currentQ>0) html+='<button class="quiz-nav-btn btn-prev" onclick="prevQ()">← Anterior</button>';
+    if(!answered[currentQ]) html+='<button class="quiz-nav-btn btn-next" onclick="checkAnswer()" '+(selectedAnswer<0?'disabled':'')+'>Comprobar</button>';
+    if(answered[currentQ] && currentQ<total-1) html+='<button class="quiz-nav-btn btn-next" onclick="nextQ()">Siguiente →</button>';
+    if(answered[currentQ] && currentQ===total-1) html+='<button class="quiz-nav-btn btn-next" onclick="showScore()">Ver resultado →</button>';
+    html+='<button class="quiz-nav-btn btn-reset" onclick="loadQuiz(currentQuiz)" style="margin-left:auto">↺ Reiniciar</button>';
+    html+='</div>';
+    byId('q-content').innerHTML=html;
+    byId('q-score').style.display='none';
+    saveQuizState();
+  };
+
+  window.selectOpt = function(i){
+    if(answered[currentQ]) return;
+    selectedAnswer=i;
+    renderQ();
+  };
+  window.checkAnswer = function(){
+    if(answered[currentQ] || selectedAnswer<0) return;
+    answered[currentQ]=true;
+    userAnswers[currentQ]=selectedAnswer;
+    if(selectedAnswer===QUIZZES[currentQuiz][currentQ].a) score++;
+    renderQ();
+  };
+  window.nextQ = function(){ if(currentQ<QUIZZES[currentQuiz].length-1){ currentQ++; selectedAnswer=userAnswers[currentQ] ?? -1; renderQ(); } };
+  window.prevQ = function(){ if(currentQ>0){ currentQ--; selectedAnswer=answered[currentQ] ? userAnswers[currentQ] : -1; renderQ(); } };
+  window.restartQuiz = function(){ loadQuiz(currentQuiz); };
+  window.showScore = function(){
+    var total=QUIZZES[currentQuiz].length, pct=Math.round((score/total)*100);
+    byId('q-content').innerHTML=''; byId('q-score').style.display='block';
+    byId('score-num').textContent=score; byId('score-denom').textContent='/ '+total;
+    var msg=pct<50?'Necesita reforzar los conceptos. Revise las secciones teóricas y reintente.':pct<70?'Desempeño en desarrollo. Repase los casos incorrectos y sus retroalimentaciones.':pct<85?'Buen desempeño clínico. Algunos conceptos por consolidar.':pct<95?'Muy buen resultado. Dominio sólido de los trastornos ácido-base.':'¡Excelente! Dominio experto. Nivel de especialista confirmado.';
+    byId('score-msg').textContent=pct+'% — '+msg;
+    byId('q-progress').style.width='100%'; saveQuizState();
+  };
+
+  function enhanceAccessibility(){
+    document.querySelectorAll('.card-header').forEach(function(h,i){ h.setAttribute('role','button'); h.setAttribute('tabindex','0'); h.setAttribute('aria-expanded', h.nextElementSibling && h.nextElementSibling.classList.contains('open')?'true':'false'); h.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleCard(h); }}); });
+    document.querySelectorAll('.tabs').forEach(function(t){ t.setAttribute('role','tablist'); });
+    showTab(document.querySelector('.tab.active') ? Array.prototype.indexOf.call(document.querySelectorAll('.tab'), document.querySelector('.tab.active')) : 0);
+  }
+
+  document.addEventListener('DOMContentLoaded',function(){
+    enhanceAccessibility();
+    if(restoreQuizState()){
+      document.querySelectorAll('.quiz-btn').forEach(function(b,i){ b.classList.toggle('active', i===currentQuiz); });
+      renderQ();
+    }else{
+      loadQuiz(0, true);
+    }
+  });
+  enhanceAccessibility();
+  if(restoreQuizState()) renderQ(); else loadQuiz(0, true);
+})();
+</script>
+
 </body>
 </html>

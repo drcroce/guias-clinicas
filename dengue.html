@@ -288,6 +288,24 @@ strong{color:var(--slate);font-weight:600}
 /* ── PROGRESS ── */
 .progress-bar{height:4px;background:var(--amber-light);border-radius:2px;margin-bottom:20px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--amber),#ea580c);border-radius:2px;width:0;transition:width .4s}
+
+
+/* ── FRAMEWORK EDUCATIVO · COMPONENTES REUTILIZABLES ── */
+.app-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;position:relative;z-index:1}
+.tool-btn{font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:700;letter-spacing:.3px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:7px 12px;cursor:pointer;transition:background .2s,transform .2s}
+.tool-btn:hover,.tool-btn:focus-visible{background:rgba(255,255,255,.25);outline:none;transform:translateY(-1px)}
+.tab-btn:focus-visible,.card-header:focus-visible,.quiz-opt:focus-visible,.quiz-reset:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
+.card-header{border:none;background:transparent;width:100%;text-align:left;color:inherit;font-family:inherit}
+.quiz-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.quiz-score{font-size:12px;font-weight:700;color:var(--slate);background:var(--slate-light);border:1px solid var(--border);border-radius:999px;padding:6px 10px}
+.quiz-reset{font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:700;border:1px solid var(--amber-mid);background:var(--amber-light);color:var(--amber);border-radius:999px;padding:6px 10px;cursor:pointer}
+.quiz-opt.selected{background:var(--blue-light);border-color:#60a5fa;color:var(--blue);font-weight:700}
+.quiz-opt[disabled]{cursor:default;opacity:1}
+.quiz-opt.correct::after{content:'  ✔';font-weight:900}
+.quiz-opt.wrong::after{content:'  ✘';font-weight:900}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media (max-width:520px){.warn-grid,.sero-grid{grid-template-columns:1fr}.hero h1{font-size:25px}.tbl{font-size:12px}.tbl th,.tbl td{padding:7px 8px}.tab-btn{padding:11px 13px}.section{padding:16px 12px}.card-header{padding:13px 14px}.card-body{padding:0 14px 14px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 
 <style>#pw-screen{display:none!important}#app{display:block!important}</style>
@@ -308,6 +326,11 @@ strong{color:var(--slate);font-weight:600}
     <span class="hbadge">OPS/OMS 2024</span>
     <span class="hbadge">CDC 2023</span>
     <span class="hbadge warn">⚠️ Enfermedad de notificación obligatoria</span>
+  </div>
+  <div class="app-tools" aria-label="Herramientas de la guía">
+    <button class="tool-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+    <button class="tool-btn" type="button" onclick="expandAllCards()">▾ Expandir todo</button>
+    <button class="tool-btn" type="button" onclick="collapseAllCards()">▸ Contraer todo</button>
   </div>
 </div>
 
@@ -1234,6 +1257,11 @@ strong{color:var(--slate);font-weight:600}
     <div class="alert-title">❓ Autoevaluación clínica — Dengue</div>
     <p>Casos y preguntas de razonamiento clínico. Seleccione la respuesta y obtenga retroalimentación inmediata.</p>
   </div>
+  <div class="quiz-meta" aria-live="polite">
+    <span id="quizScore" class="quiz-score">Progreso del quiz: 0/7 · Aciertos: 0</span>
+    <button class="quiz-reset" type="button" onclick="resetQuiz()">Reiniciar autoevaluación</button>
+  </div>
+  <div class="progress-bar" aria-hidden="true"><div id="quizProgress" class="progress-fill"></div></div>
 
   <!-- Pregunta 1 -->
   <div class="quiz-q">
@@ -1317,23 +1345,12 @@ strong{color:var(--slate);font-weight:600}
 </div><!-- /app -->
 
 <script>
-// ── TAB NAVIGATION ──
-function showTab(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
-  window.scrollTo({top:0, behavior:'smooth'});
-}
+// ═══════════════════════════════════════════════════════════════
+// Framework Educativo Dr. Croce · Core reutilizable para guías HTML
+// ═══════════════════════════════════════════════════════════════
+const APP_KEY = 'dengue_guia_v2_estado';
+const QUIZ_TOTAL = 7;
 
-// ── ACCORDION ──
-function toggleCard(header) {
-  header.classList.toggle('open');
-  const body = header.nextElementSibling;
-  body.classList.toggle('open');
-}
-
-// ── QUIZ ──
 const feedbacks = {
   1:{ok:"✅ Correcto. La fiebre cedió en el día 5 = inicio de la fase crítica. El Hct subió ~24% sobre basal (42→52%) indicando fuga plasmática. La PP es 95-75=20 mmHg, límite de shock compensado. La mejoría subjetiva del paciente es engañosa y característica del dengue. La hospitalización con fluidoterapia IV es mandatoria.",no:"❌ Incorrecto. La defervescencia en el día 5 marca el inicio de la fase crítica, no la mejoría. El Hct subió 24% (fuga plasmática) y la PP es de 20 mmHg (shock incipiente). Este paciente necesita hospitalización urgente, no alta."},
   2:{ok:"✅ Correcto. La fuga plasmática al tercer espacio (pleura, peritoneo) por aumento de permeabilidad vascular mediado por citoquinas es el mecanismo central del shock en dengue. Produce hemoconcentración y reducción del volumen intravascular efectivo.",no:"❌ Incorrecto. La fuga plasmática es el mecanismo principal. El sangrado puede contribuir pero no es la causa primaria. La miocarditis ocurre en casos específicos. La sepsis bacteriana es una complicación, no el mecanismo central."},
@@ -1344,22 +1361,135 @@ const feedbacks = {
   7:{ok:"✅ Correcto. La ADE explica que anticuerpos heterotípicos (de una infección previa por serotipo diferente) se unen al nuevo serotipo pero no lo neutralizan, facilitando su entrada a macrófagos vía FcγR, lo que aumenta la carga viral y la respuesta inflamatoria → mayor riesgo de dengue grave.",no:"❌ Incorrecto. La ADE describe cómo anticuerpos heterotípicos de una infección previa facilitan —en vez de neutralizar— la entrada del nuevo serotipo viral a macrófagos, resultando en mayor viremia y riesgo de enfermedad grave en la segunda infección."}
 };
 
-function responder(btn, resultado, n) {
-  const container = btn.closest('.quiz-q');
-  if (container.dataset.respondida) return;
-  container.dataset.respondida = '1';
-
-  const opts = container.querySelectorAll('.quiz-opt');
-  opts.forEach(o => {
-    o.style.pointerEvents = 'none';
-    if (o === btn) o.classList.add(resultado === 'correct' ? 'correct' : 'wrong');
-    if (resultado === 'wrong' && o.getAttribute('onclick').includes("'correct'")) o.classList.add('correct');
-  });
-
-  const fb = document.getElementById('fb' + n);
-  fb.classList.add('show', resultado === 'correct' ? 'ok' : 'no');
-  fb.textContent = resultado === 'correct' ? feedbacks[n].ok : feedbacks[n].no;
+function getState(){
+  try{return JSON.parse(localStorage.getItem(APP_KEY)) || {tab:'fisio',quiz:{}}}
+  catch(e){localStorage.removeItem(APP_KEY);return {tab:'fisio',quiz:{}}}
 }
+function saveState(patch){
+  const current=getState();
+  const next={...current,...patch,quiz:{...current.quiz,...(patch.quiz||{})}};
+  localStorage.setItem(APP_KEY,JSON.stringify(next));
+}
+
+function showTab(id, sourceBtn){
+  const target=document.getElementById(id);
+  if(!target) return;
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.setAttribute('aria-selected','false');
+  });
+  target.classList.add('active');
+  const btn=sourceBtn || (window.event && window.event.currentTarget) || document.querySelector(`.tab-btn[onclick*="${id}"]`);
+  if(btn){btn.classList.add('active');btn.setAttribute('aria-selected','true')}
+  saveState({tab:id});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleCard(header){
+  const body=header.nextElementSibling;
+  const isOpen=!header.classList.contains('open');
+  header.classList.toggle('open',isOpen);
+  if(body) body.classList.toggle('open',isOpen);
+  header.setAttribute('aria-expanded',String(isOpen));
+}
+function expandAllCards(){document.querySelectorAll('.card-header').forEach(h=>{h.classList.add('open');h.setAttribute('aria-expanded','true');const b=h.nextElementSibling;if(b)b.classList.add('open')})}
+function collapseAllCards(){document.querySelectorAll('.card-header').forEach(h=>{h.classList.remove('open');h.setAttribute('aria-expanded','false');const b=h.nextElementSibling;if(b)b.classList.remove('open')})}
+
+async function toggleFullscreen(){
+  try{
+    if(!document.fullscreenElement){await document.documentElement.requestFullscreen()}
+    else{await document.exitFullscreen()}
+  }catch(e){alert('El navegador no permitió activar pantalla completa.')}
+}
+
+function updateQuizScore(){
+  const state=getState().quiz || {};
+  const answered=Object.keys(state).length;
+  const ok=Object.values(state).filter(v=>v==='correct').length;
+  const score=document.getElementById('quizScore');
+  const bar=document.getElementById('quizProgress');
+  if(score) score.textContent=`Progreso del quiz: ${answered}/${QUIZ_TOTAL} · Aciertos: ${ok}`;
+  if(bar) bar.style.width=`${Math.round((answered/QUIZ_TOTAL)*100)}%`;
+}
+function applyQuizResult(container, resultado, n, selectedBtn){
+  container.dataset.respondida='1';
+  const opts=container.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>{
+    o.disabled=true;
+    o.style.pointerEvents='none';
+    const isCorrect=o.getAttribute('onclick')?.includes("'correct'");
+    if(isCorrect) o.classList.add('correct');
+    if(o===selectedBtn && resultado!=='correct') o.classList.add('wrong');
+    o.setAttribute('aria-disabled','true');
+  });
+  const fb=document.getElementById('fb'+n);
+  if(fb){
+    fb.classList.add('show',resultado==='correct'?'ok':'no');
+    fb.textContent=resultado==='correct' ? feedbacks[n].ok : feedbacks[n].no;
+  }
+  updateQuizScore();
+}
+function responder(btn, resultado, n){
+  const container=btn.closest('.quiz-q');
+  if(!container || container.dataset.respondida) return;
+  btn.classList.add('selected');
+  btn.setAttribute('aria-pressed','true');
+  setTimeout(()=>{
+    btn.classList.remove('selected');
+    applyQuizResult(container,resultado,n,btn);
+    saveState({quiz:{[n]:resultado}});
+  },180);
+}
+function resetQuiz(){
+  document.querySelectorAll('.quiz-q').forEach(q=>{
+    delete q.dataset.respondida;
+    q.querySelectorAll('.quiz-opt').forEach(o=>{
+      o.disabled=false;o.style.pointerEvents='';o.classList.remove('selected','correct','wrong');
+      o.removeAttribute('aria-disabled');o.setAttribute('aria-pressed','false');
+    });
+    const fb=q.querySelector('.quiz-feedback');
+    if(fb){fb.className='quiz-feedback';fb.textContent=''}
+  });
+  const current=getState();
+  localStorage.setItem(APP_KEY,JSON.stringify({...current,quiz:{}}));
+  updateQuizScore();
+}
+function restoreQuiz(){
+  const state=getState().quiz || {};
+  Object.entries(state).forEach(([n,resultado])=>{
+    const fb=document.getElementById('fb'+n);
+    const container=fb?.closest('.quiz-q');
+    if(!container) return;
+    const correctBtn=[...container.querySelectorAll('.quiz-opt')].find(o=>o.getAttribute('onclick')?.includes("'correct'"));
+    applyQuizResult(container,resultado,Number(n),correctBtn);
+  });
+  updateQuizScore();
+}
+function enhanceAccessibility(){
+  document.querySelector('.nav-tabs')?.setAttribute('role','tablist');
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.setAttribute('role','tab');
+    btn.setAttribute('aria-selected',btn.classList.contains('active')?'true':'false');
+  });
+  document.querySelectorAll('.card-header').forEach((header,i)=>{
+    header.setAttribute('role','button');
+    header.setAttribute('tabindex','0');
+    header.setAttribute('aria-expanded',header.classList.contains('open')?'true':'false');
+    header.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleCard(header)}});
+  });
+  document.querySelectorAll('.quiz-opt').forEach(btn=>{
+    btn.setAttribute('type','button');
+    btn.setAttribute('aria-pressed','false');
+  });
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  enhanceAccessibility();
+  restoreQuiz();
+  const savedTab=getState().tab;
+  if(savedTab && document.getElementById(savedTab)) showTab(savedTab);
+});
 </script>
 
 </body>

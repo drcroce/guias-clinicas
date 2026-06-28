@@ -830,6 +830,50 @@ strong.hl { color: var(--text); }
 </style>
 
 <style>#access-screen{display:none!important}#app{display:block!important}</style>
+
+<style id="edu-framework-enhancements">
+/* ===== EDUCATIONAL FRAMEWORK ENHANCEMENTS v2.1 ===== */
+.quiz-opt.selected {
+  background: rgba(59,130,246,0.16);
+  border-color: var(--blue);
+  color: var(--blue3);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.18) inset;
+}
+.quiz-opt:disabled { cursor: default; opacity: 1; }
+.quiz-feedback.correct-state { border-color: rgba(34,197,94,0.55); }
+.quiz-feedback.wrong-state { border-color: rgba(239,68,68,0.55); }
+.framework-btn {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  border-radius: 99px;
+  padding: 5px 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.framework-btn:hover, .framework-btn:focus { border-color: var(--accent); color: var(--accent); outline: none; }
+.card-header:focus-visible, .tab-btn:focus-visible, .quiz-sel-btn:focus-visible, .quiz-btn:focus-visible, .quiz-opt:focus-visible, .calc-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.sr-only {
+  position: absolute !important;
+  width: 1px !important; height: 1px !important;
+  padding: 0 !important; margin: -1px !important;
+  overflow: hidden !important; clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important; border: 0 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
+}
+@media(max-width: 640px) {
+  .quiz-nav { flex-direction: column; align-items: stretch; }
+  .quiz-nav .quiz-btn { width: 100%; }
+  .quiz-nav .quiz-btn[style*="margin-left:auto"] { margin-left: 0 !important; }
+}
+</style>
 </head>
 <body>
 
@@ -852,6 +896,7 @@ strong.hl { color: var(--text); }
       <span class="badge badge-aha">ACC/AHA 2025</span>
       <span class="badge badge-new">✦ NUEVO 2025</span>
       <span class="badge badge-author">Dr. L. Croce</span>
+      <button type="button" class="framework-btn" id="fullscreen-btn" onclick="toggleFullscreen()" aria-label="Activar pantalla completa">⛶ Pantalla completa</button>
     </div>
   </div>
 </header>
@@ -2196,6 +2241,7 @@ strong.hl { color: var(--text); }
   <div id="quiz-container">
     <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-prog-fill" style="width:5%"></div></div>
     <div class="quiz-meta" id="q-meta">Pregunta 1 de 20 · Quiz 1</div>
+    <div class="sr-only" id="quiz-live" aria-live="polite"></div>
     <div class="quiz-q" id="q-text"></div>
     <div id="q-opts"></div>
     <div class="quiz-feedback" id="q-fb"></div>
@@ -2933,6 +2979,301 @@ document.addEventListener('DOMContentLoaded', function() {
   // Open first cards of each tab by default handled by HTML class
   selectQuiz(1);
 });
+
+
+/* ===== EDUCATIONAL FRAMEWORK PATCH v2.1 — NON-DESTRUCTIVE OVERRIDES ===== */
+var EDU_STORAGE_KEY = 'sca_drcroce_2026_state_v2';
+var QUIZ_XP_PER_CORRECT = 5;
+var QUIZ_XP_CAP = 100;
+
+function safeReadState() {
+  try {
+    if (window.location && window.location.protocol === 'about:') return { quizzes: {}, best: {} };
+    var storage = window.localStorage;
+    var raw = storage.getItem(EDU_STORAGE_KEY);
+    if (!raw) return { quizzes: {}, best: {} };
+    var parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return { quizzes: {}, best: {} };
+    parsed.quizzes = parsed.quizzes || {};
+    parsed.best = parsed.best || {};
+    return parsed;
+  } catch (e) {
+    try { window.localStorage.removeItem(EDU_STORAGE_KEY); } catch (ignore) {}
+    return { quizzes: {}, best: {} };
+  }
+}
+
+function safeWriteState(state) {
+  try {
+    if (window.location && window.location.protocol === 'about:') return;
+    window.localStorage.setItem(EDU_STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {}
+}
+
+function persistQuizState() {
+  var state = safeReadState();
+  state.currentTab = currentTab;
+  state.currentQuiz = currentQuiz;
+  state.quizzes[currentQuiz] = {
+    currentQ: currentQ,
+    answers: answers,
+    quizDone: quizDone
+  };
+  safeWriteState(state);
+}
+
+function announceQuiz(message) {
+  var live = document.getElementById('quiz-live');
+  if (live) live.textContent = message;
+}
+
+function normalizeAnswerRecord(record) {
+  if (record === undefined || record === null) return null;
+  if (typeof record === 'number') return { selected: record, checked: true };
+  if (typeof record === 'object' && typeof record.selected === 'number') {
+    return { selected: record.selected, checked: !!record.checked };
+  }
+  return null;
+}
+
+function showTab(idx) {
+  var panels = document.querySelectorAll('.tab-panel');
+  var btns = document.querySelectorAll('.tab-btn');
+  if (idx < 0 || idx >= panels.length) return;
+  panels.forEach(function(p, i){
+    p.classList.toggle('active', i === idx);
+    p.setAttribute('aria-hidden', i === idx ? 'false' : 'true');
+  });
+  btns.forEach(function(b, i){
+    b.classList.toggle('active', i === idx);
+    b.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    b.setAttribute('role', 'tab');
+  });
+  currentTab = idx;
+  persistQuizState();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleCard(header) {
+  if (!header || !header.parentElement) return;
+  var card = header.parentElement;
+  var isOpen = card.classList.toggle('open');
+  header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+function selectQuiz(num) {
+  currentQuiz = num;
+  var state = safeReadState();
+  var saved = state.quizzes && state.quizzes[num];
+  currentQ = saved && Number.isInteger(saved.currentQ) ? saved.currentQ : 0;
+  answers = saved && saved.answers && typeof saved.answers === 'object' ? saved.answers : {};
+  quizDone = !!(saved && saved.quizDone);
+  var btns = document.querySelectorAll('.quiz-sel-btn');
+  btns.forEach(function(b,i){
+    b.classList.toggle('active', i === num-1);
+    b.setAttribute('aria-pressed', i === num-1 ? 'true' : 'false');
+  });
+  document.getElementById('quiz-container').style.display = quizDone ? 'none' : 'block';
+  document.getElementById('quiz-result').style.display = quizDone ? 'block' : 'none';
+  if (quizDone) showResults(true); else renderQuestion();
+}
+
+function renderQuestion() {
+  var qs = QUIZZES[currentQuiz];
+  if (!qs || !qs.length) return;
+  if (currentQ < 0) currentQ = 0;
+  if (currentQ >= qs.length) currentQ = qs.length - 1;
+  var q = qs[currentQ];
+  var total = qs.length;
+  var pct = ((currentQ+1)/total*100).toFixed(0);
+  var record = normalizeAnswerRecord(answers[currentQ]);
+
+  document.getElementById('q-prog-fill').style.width = pct + '%';
+  document.getElementById('q-meta').textContent = 'Pregunta ' + (currentQ+1) + ' de ' + total + '  ·  Quiz ' + currentQuiz;
+  document.getElementById('q-text').textContent = q.q;
+
+  var optsDiv = document.getElementById('q-opts');
+  optsDiv.innerHTML = '';
+  q.opts.forEach(function(opt, i) {
+    var btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.type = 'button';
+    btn.textContent = (String.fromCharCode(65+i)) + '. ' + opt;
+    btn.setAttribute('aria-pressed', record && record.selected === i ? 'true' : 'false');
+    btn.onclick = function(){ selectAnswer(i); };
+
+    if (record && !record.checked && i === record.selected) btn.classList.add('selected');
+    if (record && record.checked) {
+      btn.disabled = true;
+      if (i === q.ans) btn.classList.add('correct');
+      else if (i === record.selected) btn.classList.add('wrong');
+    }
+    optsDiv.appendChild(btn);
+  });
+
+  var fb = document.getElementById('q-fb');
+  fb.classList.remove('correct-state', 'wrong-state');
+  if (record && record.checked) {
+    var ok = record.selected === q.ans;
+    fb.style.display = 'block';
+    fb.classList.add(ok ? 'correct-state' : 'wrong-state');
+    fb.innerHTML = '<strong style="color:' + (ok?'var(--green3)':'var(--red3)') + '">' +
+      (ok ? '✔ Correcto' : '✘ Incorrecto') + '</strong><br>' +
+      '<span style="color:var(--blue3);font-family:JetBrains Mono,monospace;font-size:12px">Respuesta correcta: ' + String.fromCharCode(65+q.ans) + '</span><br>' + q.fb;
+  } else if (record && !record.checked) {
+    fb.style.display = 'block';
+    fb.innerHTML = '<strong style="color:var(--blue3)">Respuesta seleccionada: ' + String.fromCharCode(65+record.selected) + '.</strong><br>Pulse “Comprobar respuesta” para corregir.';
+  } else {
+    fb.style.display = 'none';
+    fb.innerHTML = '';
+  }
+
+  var prevBtn = document.getElementById('q-prev-btn');
+  var nextBtn = document.getElementById('q-next-btn');
+  prevBtn.style.display = currentQ === 0 ? 'none' : 'inline-block';
+  nextBtn.disabled = false;
+  if (!record) {
+    nextBtn.textContent = currentQ === total-1 ? 'Responder para finalizar' : 'Seleccione una respuesta';
+    nextBtn.disabled = true;
+  } else if (!record.checked) {
+    nextBtn.textContent = 'Comprobar respuesta';
+  } else if (currentQ === total-1) {
+    nextBtn.textContent = 'Ver resultados';
+  } else {
+    nextBtn.textContent = 'Siguiente →';
+  }
+  persistQuizState();
+}
+
+function selectAnswer(i) {
+  var record = normalizeAnswerRecord(answers[currentQ]);
+  if (record && record.checked) return;
+  answers[currentQ] = { selected: i, checked: false };
+  announceQuiz('Respuesta ' + String.fromCharCode(65+i) + ' seleccionada.');
+  renderQuestion();
+}
+
+function quizNext() {
+  var qs = QUIZZES[currentQuiz];
+  var record = normalizeAnswerRecord(answers[currentQ]);
+  if (!record) return;
+  if (!record.checked) {
+    record.checked = true;
+    answers[currentQ] = record;
+    announceQuiz(record.selected === qs[currentQ].ans ? 'Respuesta correcta.' : 'Respuesta incorrecta. Se muestra la respuesta correcta.');
+    renderQuestion();
+    return;
+  }
+  if (currentQ < qs.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showResults(false);
+  }
+}
+
+function quizPrev() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function showResults(skipPersistBest) {
+  var qs = QUIZZES[currentQuiz];
+  var correct = 0, answered = 0;
+  qs.forEach(function(q, i){
+    var record = normalizeAnswerRecord(answers[i]);
+    if (record && record.checked) {
+      answered++;
+      if (record.selected === q.ans) correct++;
+    }
+  });
+  if (answered < qs.length) {
+    currentQ = Math.min(answered, qs.length - 1);
+    renderQuestion();
+    return;
+  }
+  var pct = Math.round(correct/qs.length*100);
+  var xp = Math.min(correct * QUIZ_XP_PER_CORRECT, QUIZ_XP_CAP);
+  quizDone = true;
+
+  document.getElementById('quiz-container').style.display = 'none';
+  var res = document.getElementById('quiz-result');
+  res.style.display = 'block';
+
+  var scoreEl = document.getElementById('res-score');
+  scoreEl.textContent = correct + '/' + qs.length;
+  scoreEl.style.color = pct >= 70 ? 'var(--green)' : pct >= 50 ? 'var(--yellow)' : 'var(--red)';
+
+  var state = safeReadState();
+  var bestKey = 'quiz_' + currentQuiz;
+  var previousBest = state.best[bestKey] || { pct: 0, xp: 0 };
+  var improved = pct > (previousBest.pct || 0);
+  if (!skipPersistBest && improved) state.best[bestKey] = { pct: pct, xp: xp, correct: correct, total: qs.length, date: new Date().toISOString() };
+  state.quizzes[currentQuiz] = { currentQ: currentQ, answers: answers, quizDone: true };
+  safeWriteState(state);
+
+  var msg = '';
+  if (pct >= 90) msg = '🏆 Excelente dominio del tema. Conocimiento de especialista confirmado.';
+  else if (pct >= 70) msg = '✅ Buen nivel. Revisar los conceptos fallados en las guías ESC 2023 / ACC/AHA 2025.';
+  else if (pct >= 50) msg = '📖 Nivel intermedio. Se recomienda revisar las secciones de Tratamiento y Protocolo.';
+  else msg = '⚠ Necesita refuerzo. Revise la guía completa antes de volver a intentarlo.';
+
+  document.getElementById('res-msg').innerHTML = '<span style="font-size:20px;font-weight:600;color:var(--text)">' + pct + '%</span><br>' + msg +
+    '<br><span style="display:inline-block;margin-top:10px;color:var(--cyan3);font-family:JetBrains Mono,monospace;font-size:12px">XP del intento: ' + xp + '/' + QUIZ_XP_CAP + ' · Mejor marca guardada: ' + Math.max(pct, previousBest.pct || 0) + '%</span>';
+  document.getElementById('next-quiz-btn').textContent = '→ Quiz ' + (currentQuiz % 3 + 1);
+}
+
+function resetQuiz() {
+  currentQ = 0;
+  answers = {};
+  quizDone = false;
+  var state = safeReadState();
+  if (state.quizzes) delete state.quizzes[currentQuiz];
+  safeWriteState(state);
+  document.getElementById('quiz-container').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  renderQuestion();
+}
+
+function toggleFullscreen() {
+  var el = document.documentElement;
+  if (!document.fullscreenElement) {
+    if (el.requestFullscreen) el.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
+
+function initAccessibilityFramework() {
+  var tabs = document.getElementById('main-tabs');
+  if (tabs) tabs.setAttribute('role', 'tablist');
+  document.querySelectorAll('.tab-panel').forEach(function(panel, i){
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-hidden', panel.classList.contains('active') ? 'false' : 'true');
+  });
+  document.querySelectorAll('.card-header').forEach(function(header){
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('aria-expanded', header.parentElement.classList.contains('open') ? 'true' : 'false');
+    header.addEventListener('keydown', function(ev){
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggleCard(header); }
+    });
+  });
+  document.addEventListener('fullscreenchange', function(){
+    var btn = document.getElementById('fullscreen-btn');
+    if (btn) btn.textContent = document.fullscreenElement ? '⛶ Salir pantalla completa' : '⛶ Pantalla completa';
+  });
+}
+
+(function initFrameworkPatch(){
+  initAccessibilityFramework();
+  var state = safeReadState();
+  if (typeof state.currentTab === 'number') currentTab = Math.max(0, Math.min(state.currentTab, document.querySelectorAll('.tab-panel').length - 1));
+  showTab(currentTab || 0);
+  selectQuiz(currentQuiz || 1);
+})();
 </script>
 </body>
 </html>

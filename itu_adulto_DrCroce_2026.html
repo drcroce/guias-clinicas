@@ -147,10 +147,32 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 .info-card{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px}
 .info-card h4{color:#1d4ed8;font-size:.9rem;margin-bottom:8px}
 .footer{background:#0c2340;color:rgba(255,255,255,.7);text-align:center;padding:24px 16px;font-size:.8rem;line-height:1.8}
+
+/* ===== FRAMEWORK EDUCATIVO: CONTROLES, ACCESIBILIDAD Y QUIZ UX ===== */
+.skip-link{position:absolute;left:-999px;top:8px;background:#fff;color:#0c2340;padding:8px 12px;border-radius:8px;z-index:10000;font-weight:700}
+.skip-link:focus{left:8px;outline:3px solid #38bdf8}
+.edu-toolbar{position:sticky;top:48px;z-index:90;background:#ffffff;border-bottom:1px solid #dbe5ee;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.edu-tool-btn{padding:8px 12px;border:1px solid #0ea5e9;border-radius:9px;background:#fff;color:#0369a1;font-weight:700;font-size:.82rem;cursor:pointer;transition:.2s}
+.edu-tool-btn:hover,.edu-tool-btn:focus{background:#e0f2fe;outline:none}
+.edu-progress{font-size:.82rem;color:#475569;font-weight:700}
+.quiz-opt.selected{background:#eff6ff;border-color:#3b82f6;color:#1d4ed8;font-weight:700}
+.quiz-opt.correct-answer{background:#f0fdf4!important;border-color:#22c55e!important;color:#15803d!important;font-weight:700}
+.quiz-opt.incorrect-answer{background:#fff5f5!important;border-color:#ef4444!important;color:#dc2626!important;font-weight:700}
+.quiz-opt:disabled{cursor:not-allowed;opacity:1}
+.quiz-result-panel{background:#f8fafc;border:1px solid #cbd5e1;border-radius:12px;padding:16px;margin:18px 0;font-size:.9rem}
+.quiz-result-panel strong{color:#0c2340}
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 22px}
+.quiz-action-btn{padding:9px 14px;border-radius:8px;border:none;background:#0ea5e9;color:#fff;font-weight:700;cursor:pointer}
+.quiz-action-btn.secondary{background:#64748b}
+.card-header:focus,.tab-btn:focus,.quiz-opt:focus{outline:3px solid #38bdf8;outline-offset:2px}
+@media(max-width:620px){.edu-toolbar{top:44px}.tab-btn{padding:12px 14px}.hero h1{font-size:1.55rem}.quiz-q{padding:18px}.edu-tool-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
 </style>
 <style>#pw-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
+<a class="skip-link" href="#tab-fisio">Saltar al contenido principal</a>
 
 <!-- ===== LOGIN ===== -->
 <!-- ===== APP ===== -->
@@ -176,13 +198,21 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 
 <!-- TABS -->
 <div class="tabs">
-  <span class="tab-btn active" onclick="showTab('fisio')">🔬 Fisiopatología</span>
-  <span class="tab-btn" onclick="showTab('clinica')">🩺 Clínica y Clasificación</span>
-  <span class="tab-btn" onclick="showTab('lab')">🧪 Laboratorio y Dx</span>
-  <span class="tab-btn" onclick="showTab('manejo')">🚨 Manejo</span>
-  <span class="tab-btn" onclick="showTab('compl')">⚡ Complicaciones</span>
-  <span class="tab-btn" onclick="showTab('egreso')">📋 Egreso y Prevención</span>
-  <span class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</span>
+  <span class="tab-btn active" onclick=\"showTab('fisio',this)\">🔬 Fisiopatología</span>
+  <span class="tab-btn" onclick=\"showTab('clinica',this)\">🩺 Clínica y Clasificación</span>
+  <span class="tab-btn" onclick=\"showTab('lab',this)\">🧪 Laboratorio y Dx</span>
+  <span class="tab-btn" onclick=\"showTab('manejo',this)\">🚨 Manejo</span>
+  <span class="tab-btn" onclick=\"showTab('compl',this)\">⚡ Complicaciones</span>
+  <span class="tab-btn" onclick=\"showTab('egreso',this)\">📋 Egreso y Prevención</span>
+  <span class="tab-btn" onclick=\"showTab('quiz',this)\">❓ Autoevaluación</span>
+</div>
+
+<div class="edu-toolbar" aria-label="Herramientas educativas">
+  <button class="edu-tool-btn" type="button" onclick="toggleAllCards(true)">Abrir tarjetas</button>
+  <button class="edu-tool-btn" type="button" onclick="toggleAllCards(false)">Cerrar tarjetas</button>
+  <button class="edu-tool-btn" type="button" onclick="toggleFullScreen()">Pantalla completa</button>
+  <button class="edu-tool-btn" type="button" onclick="resetQuizProgress()">Reiniciar quiz</button>
+  <span class="edu-progress" id="edu-progress" aria-live="polite">Progreso: 0/15</span>
 </div>
 
 
@@ -1053,10 +1083,17 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 <!-- ==================== AUTOEVALUACIÓN ==================== -->
 <div class="section" id="tab-quiz">
   <h2 class="section-title">❓ Autoevaluación</h2>
-  <div class="quiz-nav">
-    <button class="quiz-nav-btn active" onclick="showQuiz(1,this)">Quiz 1 — Diagnóstico y Clasificación</button>
-    <button class="quiz-nav-btn" onclick="showQuiz(2,this)">Quiz 2 — Tratamiento</button>
-    <button class="quiz-nav-btn" onclick="showQuiz(3,this)">Quiz 3 — Casos Clínicos</button>
+  <div class="quiz-nav" role="tablist" aria-label="Bloques de autoevaluación">
+    <button class="quiz-nav-btn active" type="button" onclick="showQuiz(1,this)">Quiz 1 — Diagnóstico y Clasificación</button>
+    <button class="quiz-nav-btn" type="button" onclick="showQuiz(2,this)">Quiz 2 — Tratamiento</button>
+    <button class="quiz-nav-btn" type="button" onclick="showQuiz(3,this)">Quiz 3 — Casos Clínicos</button>
+  </div>
+  <div class="quiz-result-panel" aria-live="polite">
+    <strong>Estándar visual aplicado:</strong> azul = selección inicial, verde = respuesta correcta, rojo = respuesta incorrecta. La respuesta correcta se resalta siempre.
+  </div>
+  <div class="quiz-actions">
+    <button class="quiz-action-btn" type="button" onclick="resetQuizProgress()">Reiniciar autoevaluación</button>
+    <button class="quiz-action-btn secondary" type="button" onclick="toggleFullScreen()">Modo pantalla completa</button>
   </div>
 
   <!-- QUIZ 1 -->
@@ -1229,45 +1266,183 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 </div><!-- /app -->
 
 <script>
-// ===== AUTH =====
-// ===== TABS =====
-function showTab(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  event.currentTarget.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+// ===== FRAMEWORK EDUCATIVO BASE · ITU ADULTO =====
+(function(){
+  'use strict';
 
-// ===== ACCORDION =====
-function toggleCard(header){
-  header.classList.toggle('open');
-}
+  const STORAGE_KEY = 'drCroce_ituAdulto_progress_v2';
+  const TOTAL_QUESTIONS = 15;
+  const correctByQuestion = {};
+  const quizState = loadState();
 
-// ===== QUIZ =====
-const feedbacks = {
-  1:{ok:"fb1-ok",no:"fb1-no"},2:{ok:"fb2-ok",no:"fb2-no"},3:{ok:"fb3-ok",no:"fb3-no"},
-  4:{ok:"fb4-ok",no:"fb4-no"},5:{ok:"fb5-ok",no:"fb5-no"},6:{ok:"fb6-ok",no:"fb6-no"},
-  7:{ok:"fb7-ok",no:"fb7-no"},8:{ok:"fb8-ok",no:"fb8-no"},9:{ok:"fb9-ok",no:"fb9-no"},
-  10:{ok:"fb10-ok",no:"fb10-no"},11:{ok:"fb11-ok",no:"fb11-no"},12:{ok:"fb12-ok",no:"fb12-no"},
-  13:{ok:"fb13-ok",no:"fb13-no"},14:{ok:"fb14-ok",no:"fb14-no"},15:{ok:"fb15-ok",no:"fb15-no"}
-};
-function responder(btn,resultado,n){
-  const q = btn.closest('.quiz-q');
-  if(q.dataset.answered) return;
-  q.dataset.answered = '1';
-  q.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
-  btn.classList.add(resultado==='ok'?'correct':'wrong');
-  const fbId = feedbacks[n][resultado];
-  const fb = document.getElementById(fbId);
-  if(fb){ fb.classList.add('show'); }
-}
-function showQuiz(n,btn){
-  document.querySelectorAll('.quiz-set').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.quiz-nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('quiz-'+n).classList.add('active');
-  btn.classList.add('active');
-}
+  function loadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : {answers:{},activeTab:'fisio',activeQuiz:1};
+      if(!parsed.answers) parsed.answers = {};
+      return parsed;
+    }catch(err){
+      console.warn('Progreso local corrupto. Se reinicia el estado del curso.', err);
+      return {answers:{},activeTab:'fisio',activeQuiz:1};
+    }
+  }
+
+  function saveState(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(quizState)); }
+    catch(err){ console.warn('No se pudo guardar el progreso local.', err); }
+  }
+
+  function normalizeInteractiveElements(){
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.setAttribute('role','tab');
+      btn.setAttribute('tabindex','0');
+      btn.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); btn.click(); }});
+    });
+    document.querySelectorAll('.card-header').forEach((header,idx)=>{
+      header.setAttribute('role','button');
+      header.setAttribute('tabindex','0');
+      header.setAttribute('aria-expanded', header.classList.contains('open') ? 'true':'false');
+      header.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); header.click(); }});
+      const body = header.nextElementSibling;
+      if(body){
+        const id = body.id || `card-body-${idx+1}`;
+        body.id = id;
+        header.setAttribute('aria-controls', id);
+      }
+    });
+    document.querySelectorAll('.quiz-q').forEach((q,idx)=>{
+      q.dataset.questionNumber = String(idx+1);
+      q.querySelectorAll('.quiz-opt').forEach(btn=>{
+        btn.setAttribute('type','button');
+        btn.setAttribute('aria-pressed','false');
+        const match = btn.getAttribute('onclick')?.match(/responder\(this,'(ok|no)',(\d+)\)/);
+        if(match && match[1] === 'ok') correctByQuestion[match[2]] = btn;
+      });
+    });
+  }
+
+  window.showTab = function(id, trigger){
+    const target = document.getElementById('tab-'+id);
+    if(!target) return;
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>{
+      b.classList.remove('active');
+      b.setAttribute('aria-selected','false');
+    });
+    target.classList.add('active');
+    const btn = trigger || window.event?.currentTarget || Array.from(document.querySelectorAll('.tab-btn')).find(b=>b.getAttribute('onclick')?.includes(`'${id}'`));
+    if(btn){ btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+    quizState.activeTab = id;
+    saveState();
+    window.scrollTo({top:0,behavior:'smooth'});
+  };
+
+  window.toggleCard = function(header){
+    if(!header) return;
+    header.classList.toggle('open');
+    header.setAttribute('aria-expanded', header.classList.contains('open') ? 'true':'false');
+  };
+
+  window.toggleAllCards = function(open){
+    document.querySelectorAll('.section.active .card-header').forEach(header=>{
+      header.classList.toggle('open', !!open);
+      header.setAttribute('aria-expanded', open ? 'true':'false');
+    });
+  };
+
+  window.toggleFullScreen = async function(){
+    try{
+      if(!document.fullscreenElement){ await document.documentElement.requestFullscreen(); }
+      else{ await document.exitFullscreen(); }
+    }catch(err){ alert('El navegador no permitió activar pantalla completa.'); }
+  };
+
+  window.responder = function(btn, resultado, n){
+    const q = btn.closest('.quiz-q');
+    if(!q || q.dataset.answered) return;
+    q.dataset.answered = '1';
+
+    q.querySelectorAll('.quiz-feedback').forEach(fb=>fb.classList.remove('show'));
+    q.querySelectorAll('.quiz-opt').forEach(b=>{
+      b.disabled = true;
+      b.classList.remove('selected','correct','wrong','correct-answer','incorrect-answer');
+      b.setAttribute('aria-pressed','false');
+    });
+
+    btn.classList.add('selected');
+    btn.setAttribute('aria-pressed','true');
+
+    const correctBtn = correctByQuestion[String(n)] || q.querySelector(".quiz-opt[onclick*=\"'ok'\"]");
+    if(correctBtn){ correctBtn.classList.add('correct-answer'); }
+    if(resultado === 'no') btn.classList.add('incorrect-answer');
+
+    const fb = q.querySelector(resultado === 'ok' ? '.fb-ok' : '.fb-no');
+    if(fb){ fb.classList.add('show'); }
+
+    quizState.answers[String(n)] = {correct: resultado === 'ok', selectedText: btn.textContent.trim()};
+    saveState();
+    updateProgressPanel();
+  };
+
+  window.showQuiz = function(n, btn){
+    document.querySelectorAll('.quiz-set').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.quiz-nav-btn').forEach(b=>b.classList.remove('active'));
+    const set = document.getElementById('quiz-'+n);
+    if(set) set.classList.add('active');
+    if(btn) btn.classList.add('active');
+    quizState.activeQuiz = n;
+    saveState();
+    updateProgressPanel();
+  };
+
+  window.resetQuizProgress = function(){
+    if(!confirm('¿Reiniciar todas las respuestas del quiz?')) return;
+    quizState.answers = {};
+    saveState();
+    document.querySelectorAll('.quiz-q').forEach(q=>{
+      delete q.dataset.answered;
+      q.querySelectorAll('.quiz-opt').forEach(b=>{
+        b.disabled=false;
+        b.classList.remove('selected','correct','wrong','correct-answer','incorrect-answer');
+        b.setAttribute('aria-pressed','false');
+      });
+      q.querySelectorAll('.quiz-feedback').forEach(fb=>fb.classList.remove('show'));
+    });
+    updateProgressPanel();
+  };
+
+  function updateProgressPanel(){
+    const answered = Object.keys(quizState.answers).length;
+    const correct = Object.values(quizState.answers).filter(a=>a.correct).length;
+    const pct = answered ? Math.round((correct/answered)*100) : 0;
+    const xp = correct * 10;
+    const progressEl = document.getElementById('edu-progress');
+    if(progressEl) progressEl.textContent = `Progreso: ${answered}/${TOTAL_QUESTIONS} · Aciertos: ${correct} · ${pct}% · XP: ${xp}`;
+  }
+
+  function restoreAnsweredQuestions(){
+    Object.entries(quizState.answers).forEach(([n,data])=>{
+      const q = document.querySelector(`.quiz-q[data-question-number="${n}"]`);
+      if(!q) return;
+      const selected = Array.from(q.querySelectorAll('.quiz-opt')).find(b=>b.textContent.trim() === data.selectedText);
+      const correctBtn = correctByQuestion[String(n)] || q.querySelector(".quiz-opt[onclick*=\"'ok'\"]");
+      q.dataset.answered = '1';
+      q.querySelectorAll('.quiz-opt').forEach(b=>b.disabled=true);
+      if(correctBtn) correctBtn.classList.add('correct-answer');
+      if(selected){ selected.classList.add(data.correct ? 'correct-answer':'incorrect-answer','selected'); }
+      const fb = q.querySelector(data.correct ? '.fb-ok' : '.fb-no');
+      if(fb) fb.classList.add('show');
+    });
+    updateProgressPanel();
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    normalizeInteractiveElements();
+    restoreAnsweredQuestions();
+    if(quizState.activeTab && document.getElementById('tab-'+quizState.activeTab)) window.showTab(quizState.activeTab);
+    if(quizState.activeQuiz) window.showQuiz(quizState.activeQuiz, document.querySelector(`.quiz-nav-btn[onclick*=\"${quizState.activeQuiz}\"]`));
+  });
+})();
 </script>
 </body>
 </html>

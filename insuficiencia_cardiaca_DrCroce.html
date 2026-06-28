@@ -147,6 +147,24 @@ tr:hover td{background:var(--surface2)}
 .study-ref{font-size:11.5px;font-style:italic;color:var(--text3);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
 hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 
+
+
+/* ===== FRAMEWORK EDUCativo: mejoras transversales ===== */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible{
+  outline:3px solid #5da8e0;outline-offset:2px;
+}
+.tab-btn[aria-selected="true"]{color:#fff;border-bottom-color:#5da8e0}
+.quiz-opt.selected{background:var(--accent-light);border-color:var(--accent);color:var(--accent);font-weight:600}
+.quiz-opt.correct::before{content:"✔ ";font-weight:700}
+.quiz-opt.wrong::before{content:"✘ ";font-weight:700}
+.quiz-opt:disabled{opacity:1}
+.fullscreen-btn{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.82);font-size:12px;text-decoration:none;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.3);margin-bottom:10px;margin-left:8px;background:transparent;cursor:pointer;font-family:"DM Sans",sans-serif;transition:background .2s,color .2s}
+.fullscreen-btn:hover{background:rgba(255,255,255,.2);color:#fff}
+@media(max-width:700px){
+  .header-top{align-items:flex-start}.header-text h1{font-size:19px}.content-area{padding:18px 12px}.quiz-box{padding:16px}.card-header{padding:14px}.card-body{padding:0 14px 14px}table{display:block;overflow-x:auto;white-space:nowrap}.quiz-nav{flex-direction:column}.quiz-nav-btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
 /* ===== PORTAL BACK BUTTON ===== */
 .portal-back{display:inline-block;color:rgba(255,255,255,.75);font-size:12px;
   text-decoration:none;padding:4px 10px;border-radius:20px;
@@ -155,7 +173,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
 
-<style>#access-screen{display:none!important}#app{display:block!important}</style>
+<style>#access-screen{display:none!important}#main-app{display:block!important}</style>
 </head>
 <body>
 <!-- ACCESS SCREEN -->
@@ -164,6 +182,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 <div class="app-header">
   <div class="header-content">
   <a class="portal-back" href="index.html">← Portal de guías</a>
+  <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
 
     <div class="header-top">
       <div class="header-icon">🫀</div>
@@ -181,16 +200,16 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
     </div>
     <div class="swipe-hint">← Desliza para ver más pestañas →</div>
     <div class="tabs-wrap">
-      <div class="tabs">
-        <button class="tab-btn active" onclick="showTab(0)">Definición/Fisiopatología</button>
-        <button class="tab-btn" onclick="showTab(1)">Diagnóstico/Criterios</button>
-        <button class="tab-btn" onclick="showTab(2)">Clasificación/Estratificación</button>
-        <button class="tab-btn" onclick="showTab(3)">GDMT / Tratamiento Crónico</button>
-        <button class="tab-btn" onclick="showTab(4)">Descompensación Aguda</button>
-        <button class="tab-btn" onclick="showTab(5)">Protocolo Urgencias</button>
-        <button class="tab-btn" onclick="showTab(6)">Calculadoras</button>
-        <button class="tab-btn" onclick="showTab(7)">Casos Clínicos</button>
-        <button class="tab-btn" onclick="showTab(8)">Quiz</button>
+      <div class="tabs" role="tablist" aria-label="Secciones de la guía">
+        <button type="button" class="tab-btn active" onclick="showTab(0)" role="tab" aria-selected="true">Definición/Fisiopatología</button>
+        <button type="button" class="tab-btn" onclick="showTab(1)" role="tab" aria-selected="false">Diagnóstico/Criterios</button>
+        <button type="button" class="tab-btn" onclick="showTab(2)" role="tab" aria-selected="false">Clasificación/Estratificación</button>
+        <button type="button" class="tab-btn" onclick="showTab(3)" role="tab" aria-selected="false">GDMT / Tratamiento Crónico</button>
+        <button type="button" class="tab-btn" onclick="showTab(4)" role="tab" aria-selected="false">Descompensación Aguda</button>
+        <button type="button" class="tab-btn" onclick="showTab(5)" role="tab" aria-selected="false">Protocolo Urgencias</button>
+        <button type="button" class="tab-btn" onclick="showTab(6)" role="tab" aria-selected="false">Calculadoras</button>
+        <button type="button" class="tab-btn" onclick="showTab(7)" role="tab" aria-selected="false">Casos Clínicos</button>
+        <button type="button" class="tab-btn" onclick="showTab(8)" role="tab" aria-selected="false">Quiz</button>
       </div>
     </div>
   </div>
@@ -1135,9 +1154,9 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 <div class="panel" id="panel-8">
   <p class="section-intro">3 quiz independientes · Mínimo 10 preguntas cada uno · Retroalimentación clínica detallada</p>
   <div class="quiz-selector">
-    <button class="quiz-sel-btn active" onclick="selectQuiz(1)">Quiz 1<br><small>Conceptos Fundamentales</small></button>
-    <button class="quiz-sel-btn" onclick="selectQuiz(2)">Quiz 2<br><small>Diagnóstico y Laboratorio</small></button>
-    <button class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3<br><small>Casos Clínicos y Tratamiento</small></button>
+    <button type="button" class="quiz-sel-btn active" onclick="selectQuiz(1)">Quiz 1<br><small>Conceptos Fundamentales</small></button>
+    <button type="button" class="quiz-sel-btn" onclick="selectQuiz(2)">Quiz 2<br><small>Diagnóstico y Laboratorio</small></button>
+    <button type="button" class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3<br><small>Casos Clínicos y Tratamiento</small></button>
   </div>
   <div class="quiz-box" id="quiz-container">
     <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-pbar" style="width:0%"></div></div>
@@ -1147,7 +1166,7 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
     <div class="quiz-score" id="quiz-score-screen">
       <div class="score-big" id="score-num"></div>
       <div class="score-msg" id="score-msg"></div>
-      <button class="quiz-nav-btn btn-reset" onclick="resetQuiz()">🔄 Repetir Quiz</button>
+      <button type="button" class="quiz-nav-btn btn-reset" onclick="resetQuiz()">🔄 Repetir Quiz</button>
     </div>
   </div>
 </div>
@@ -1157,12 +1176,27 @@ hr.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 <script>
 function showTab(n){
   document.querySelectorAll(".panel").forEach(function(p,i){p.classList.toggle("active",i===n)});
-  document.querySelectorAll(".tab-btn").forEach(function(b,i){b.classList.toggle("active",i===n)});
+  document.querySelectorAll(".tab-btn").forEach(function(b,i){
+    var active = i===n;
+    b.classList.toggle("active",active);
+    b.setAttribute("aria-selected", active ? "true" : "false");
+  });
   if(n===8 && currentQuiz===0) selectQuiz(1);
+  try{ localStorage.setItem("ic_active_tab", String(n)); }catch(e){}
 }
 
 function toggleCard(h){
-  h.parentElement.classList.toggle("open");
+  var card = h.parentElement;
+  card.classList.toggle("open");
+  h.setAttribute("aria-expanded", card.classList.contains("open") ? "true" : "false");
+}
+
+function toggleFullscreen(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+  }else{
+    document.exitFullscreen && document.exitFullscreen();
+  }
 }
 
 // QUIZ ENGINE
@@ -1326,48 +1360,61 @@ QUIZZES[3] = [
 ];
 
 // ===== QUIZ ENGINE =====
-var currentQuiz = 0, qIndex = 0, answers = [], answered = false;
+var currentQuiz = 0, qIndex = 0, answers = [], answered = false, selectedAnswer = null;
 
 function selectQuiz(n){
   currentQuiz = n;
-  qIndex = 0; answers = []; answered = false;
+  qIndex = 0; answers = []; answered = false; selectedAnswer = null;
   document.querySelectorAll(".quiz-sel-btn").forEach(function(b,i){b.classList.toggle("active",i===n-1)});
   document.getElementById("quiz-score-screen").style.display="none";
   renderQuestion();
 }
 
 function renderQuestion(){
-  var qs = QUIZZES[currentQuiz];
+  var qs = QUIZZES[currentQuiz] || [];
+  if(!qs.length){
+    document.getElementById("quiz-content").innerHTML = '<div class="quiz-feedback visible"><strong>Quiz no disponible</strong>No hay preguntas cargadas para este quiz.</div>';
+    return;
+  }
   var q = qs[qIndex];
-  answered = false;
+  answered = (typeof answers[qIndex] !== "undefined");
+  selectedAnswer = answered ? answers[qIndex] : null;
   var pct = Math.round((qIndex/qs.length)*100);
   document.getElementById("quiz-pbar").style.width = pct+"%";
   var html = '<div class="quiz-q-num">Pregunta '+(qIndex+1)+' de '+qs.length+'</div>';
   if(q.cas){ html += '<div class="quiz-case">'+q.cas+'</div>'; }
   html += '<div class="quiz-question">'+q.q+'</div>';
-  html += '<div class="quiz-options">';
+  html += '<div class="quiz-options" role="group" aria-label="Opciones de respuesta">';
   q.o.forEach(function(opt,i){
-    html += '<button class="quiz-opt" id="opt-'+i+'" onclick="selectAnswer('+i+')">'+String.fromCharCode(65+i)+'. '+opt+'</button>';
+    var cls = 'quiz-opt';
+    if(answered){
+      if(i===q.a) cls += ' correct';
+      else if(i===selectedAnswer) cls += ' wrong';
+    }else if(i===selectedAnswer){ cls += ' selected'; }
+    html += '<button type="button" class="'+cls+'" id="opt-'+i+'" onclick="selectAnswer('+i+')" '+(answered?'disabled':'')+'>'+String.fromCharCode(65+i)+'. '+opt+'</button>';
   });
   html += '</div>';
-  html += '<div class="quiz-feedback" id="qfb"></div>';
+  html += '<div class="quiz-feedback '+(answered?'visible':'')+'" id="qfb">';
+  if(answered){ html += '<strong>'+(selectedAnswer===q.a?"✅ Correcto":"❌ Incorrecto — Respuesta correcta: "+String.fromCharCode(65+q.a))+'</strong>'+q.fb; }
+  html += '</div>';
   html += '<div class="quiz-nav">';
-  html += '<button class="quiz-nav-btn btn-prev" onclick="prevQ()" '+(qIndex===0?'disabled':'')+'>← Anterior</button>';
-  html += '<button class="quiz-nav-btn btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>';
-  html += '<button class="quiz-nav-btn btn-next" id="btn-next" onclick="nextQ()" disabled>Siguiente →</button>';
+  html += '<button type="button" class="quiz-nav-btn btn-prev" onclick="prevQ()" '+(qIndex===0?'disabled':'')+'>← Anterior</button>';
+  html += '<button type="button" class="quiz-nav-btn btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>';
+  html += '<button type="button" class="quiz-nav-btn btn-next" id="btn-next" onclick="nextQ()" '+(!answered?'disabled':'')+'>'+(qIndex===qs.length-1?'Ver resultado':'Siguiente →')+'</button>';
   html += '</div>';
   document.getElementById("quiz-content").innerHTML = html;
   document.getElementById("quiz-score-screen").style.display="none";
   document.getElementById("quiz-content").style.display="block";
 }
-
 function selectAnswer(i){
   if(answered) return;
+  selectedAnswer = i;
   answered = true;
-  var q = QUIZZES[currentQuiz][qIndex];
   answers[qIndex] = i;
+  var q = QUIZZES[currentQuiz][qIndex];
   document.querySelectorAll(".quiz-opt").forEach(function(b,j){
     b.disabled = true;
+    b.classList.remove("selected");
     if(j===q.a) b.classList.add("correct");
     else if(j===i && i!==q.a) b.classList.add("wrong");
   });
@@ -1376,7 +1423,6 @@ function selectAnswer(i){
   fb.innerHTML = '<strong>'+(i===q.a?"✅ Correcto":"❌ Incorrecto — Respuesta correcta: "+String.fromCharCode(65+q.a))+'</strong>'+q.fb;
   document.getElementById("btn-next").disabled = false;
 }
-
 function nextQ(){
   var qs = QUIZZES[currentQuiz];
   if(!answered){ alert("Seleccione una respuesta primero"); return; }
@@ -1406,7 +1452,7 @@ function showScore(){
 }
 
 function resetQuiz(){
-  qIndex = 0; answers = []; answered = false;
+  qIndex = 0; answers = []; answered = false; selectedAnswer = null;
   document.getElementById("quiz-score-screen").style.display="none";
   renderQuestion();
 }
@@ -1524,7 +1570,16 @@ function calcBNP(){
 
 // Init
 window.onload = function(){
-  document.getElementById("pwd-input").focus();
+  document.querySelectorAll(".card-header").forEach(function(h){
+    h.setAttribute("role","button");
+    h.setAttribute("tabindex","0");
+    h.setAttribute("aria-expanded", h.parentElement.classList.contains("open") ? "true" : "false");
+    h.addEventListener("keydown", function(ev){ if(ev.key==="Enter" || ev.key===" "){ ev.preventDefault(); toggleCard(h); } });
+  });
+  var savedTab = 0;
+  try{ savedTab = parseInt(localStorage.getItem("ic_active_tab") || "0", 10); }catch(e){}
+  if(isNaN(savedTab) || savedTab < 0 || savedTab > 8) savedTab = 0;
+  showTab(savedTab);
 };
 </script>
 </body>

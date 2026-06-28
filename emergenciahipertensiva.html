@@ -257,6 +257,59 @@ p.txt{margin-bottom:10px;font-size:.92rem}
   .section{padding:20px 14px 40px}
   .card-title{font-size:.95rem}
 }
+
+/* STANDARD EDU FRAMEWORK ENHANCEMENTS */
+.tab-btn:focus-visible,
+.card-header:focus-visible,
+.q-opt:focus-visible,
+.calc-btn:focus-visible,
+.quiz-nav button:focus-visible,
+.fullscreen-btn:focus-visible{
+  outline:3px solid rgba(37,99,235,.45);
+  outline-offset:2px;
+}
+.q-opt.selected{
+  border-color:#2563eb;
+  background:#eff6ff;
+  color:#1e3a8a;
+}
+.q-opt.selected .opt-letter{
+  background:#2563eb;
+  color:#fff;
+}
+.quiz-status{
+  margin-top:10px;
+  font-size:.86rem;
+  font-weight:700;
+}
+.quiz-status.ok{color:#14532d}
+.quiz-status.fail{color:#7f1d1d}
+.framework-toolbar{
+  max-width:980px;
+  margin:14px auto 0;
+  padding:0 20px;
+  display:flex;
+  justify-content:flex-end;
+}
+.fullscreen-btn{
+  padding:8px 14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  color:var(--navy);
+  font-family:'Source Sans 3',sans-serif;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.fullscreen-btn:hover{background:#f8fafc}
+@media(max-width:640px){
+  .framework-toolbar{padding:0 14px}
+  .fullscreen-btn{width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
 </style>
 
 <style>#pw-screen{display:none!important}#app{display:block!important}</style>
@@ -295,6 +348,10 @@ p.txt{margin-bottom:10px;font-size:.92rem}
     <button class="tab-btn" onclick="showTab('calc')">🧮 Calculadoras</button>
     <button class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</button>
   </div>
+</div>
+
+<div class="framework-toolbar">
+  <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()" aria-label="Activar o salir de pantalla completa">⛶ Pantalla completa</button>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════════ -->
@@ -1224,21 +1281,44 @@ p.txt{margin-bottom:10px;font-size:.92rem}
 // ── TABS ──────────────────────────────────────────────────────────────
 const TAB_ORDER=['fisiop','clinica','lab','manejo','complic','egreso','calc','quiz'];
 function showTab(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  if(!TAB_ORDER.includes(id) || !document.getElementById(id)) return;
+  document.querySelectorAll('.section').forEach(s=>{
+    s.classList.remove('active');
+    s.setAttribute('hidden','');
+  });
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.setAttribute('aria-selected','false');
+  });
+  const section=document.getElementById(id);
+  section.classList.add('active');
+  section.removeAttribute('hidden');
   const idx=TAB_ORDER.indexOf(id);
   const btns=document.querySelectorAll('.tab-btn');
-  if(btns[idx]) btns[idx].classList.add('active');
+  if(btns[idx]){
+    btns[idx].classList.add('active');
+    btns[idx].setAttribute('aria-selected','true');
+    btns[idx].scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  }
+  try{localStorage.setItem('eh.activeTab',id);}catch(e){}
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 // ── CARDS ──────────────────────────────────────────────────────────────
 function toggleCard(h){
+  if(!h) return;
   const body=h.nextElementSibling;
+  if(!body) return;
   const open=h.classList.contains('open');
-  if(open){h.classList.remove('open');body.classList.remove('open');}
-  else{h.classList.add('open');body.classList.add('open');}
+  if(open){
+    h.classList.remove('open');
+    body.classList.remove('open');
+    h.setAttribute('aria-expanded','false');
+  }else{
+    h.classList.add('open');
+    body.classList.add('open');
+    h.setAttribute('aria-expanded','true');
+  }
 }
 
 // ── CALC HEMO ──────────────────────────────────────────────────────────
@@ -1247,6 +1327,9 @@ function calcHemo(){
   const pad=parseFloat(document.getElementById('c-pad').value)||0;
   const fc=parseFloat(document.getElementById('c-fc').value)||0;
   if(!pas||!pad){alert('Ingrese PAS y PAD para continuar.');return;}
+  if(pas<=pad){alert('La PAS debe ser mayor que la PAD. Revise los valores ingresados.');return;}
+  if(pas<60||pas>320||pad<30||pad>220){alert('Valores de PA fuera de rango clínico esperable. Verifique la medición.');return;}
+  if(fc && (fc<20||fc>260)){alert('Frecuencia cardíaca fuera de rango clínico esperable. Verifique el dato.');return;}
   const pam=pad+((pas-pad)/3);
   const pp=pas-pad;
   const m20=pam*0.8;const m25=pam*0.75;
@@ -1273,6 +1356,7 @@ function calcLabetalol(){
   const peso=parseFloat(document.getElementById('c-peso').value)||0;
   const modo=document.getElementById('c-modo').value;
   if(!peso){alert('Ingrese el peso del paciente.');return;}
+  if(peso<20||peso>250){alert('Peso fuera de rango adulto esperable. Verifique el dato.');return;}
   let html='';
   if(modo==='bolo'){
     html=`
@@ -1320,6 +1404,7 @@ function calcMgSO4(){
 function calcEsmolol(){
   const peso=parseFloat(document.getElementById('c-pesoesm').value)||0;
   if(!peso){alert('Ingrese el peso del paciente.');return;}
+  if(peso<20||peso>250){alert('Peso fuera de rango adulto esperable. Verifique el dato.');return;}
   const carga=(500*peso/1000000*1000).toFixed(1);// mcg/kg → mg
   const cargaMcg=(500*peso).toFixed(0);
   const mant50=(50*peso).toFixed(0);
@@ -1386,8 +1471,27 @@ const PREGUNTAS=[
 ];
 
 let qIdx=0, qAnswers=new Array(PREGUNTAS.length).fill(null);
+const QUIZ_STORAGE_KEY='eh.quiz.v2';
+
+function saveQuizState(){
+  try{
+    localStorage.setItem(QUIZ_STORAGE_KEY,JSON.stringify({qIdx,qAnswers,version:2}));
+  }catch(e){}
+}
+
+function loadQuizState(){
+  try{
+    const raw=localStorage.getItem(QUIZ_STORAGE_KEY);
+    if(!raw) return;
+    const data=JSON.parse(raw);
+    if(!Array.isArray(data.qAnswers) || data.qAnswers.length!==PREGUNTAS.length) return;
+    qAnswers=data.qAnswers.map(a=>Number.isInteger(a)?a:null);
+    qIdx=Number.isInteger(data.qIdx)?Math.max(0,Math.min(PREGUNTAS.length-1,data.qIdx)):0;
+  }catch(e){}
+}
 
 function initQuiz(){
+  loadQuizState();
   buildProgress();
   renderQ();
 }
@@ -1431,14 +1535,23 @@ function renderQ(){
       else if(qAnswers[qIdx]===i) cls+=' wrong';
     }
     div.className=cls;
+    div.setAttribute('role','button');
+    div.setAttribute('tabindex', answered ? '-1' : '0');
+    div.setAttribute('aria-disabled', answered ? 'true' : 'false');
+    if(answered && i===p.ok) div.setAttribute('aria-label','Respuesta correcta: '+o);
+    if(answered && qAnswers[qIdx]===i && i!==p.ok) div.setAttribute('aria-label','Respuesta seleccionada incorrecta: '+o);
     div.innerHTML='<div class="opt-letter">'+letters[i]+'</div><div>'+o+'</div>';
-    if(!answered) div.onclick=()=>answer(i);
+    if(!answered){
+      div.onclick=()=>answer(i);
+      div.onkeydown=(ev)=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();answer(i);}};
+    }
     optsDiv.appendChild(div);
   });
   const fb=document.getElementById('q-feedback');
   if(answered){
-    fb.className='q-feedback show '+(qAnswers[qIdx]===p.ok?'ok':'fail');
-    fb.textContent=p.feed;
+    const ok=qAnswers[qIdx]===p.ok;
+    fb.className='q-feedback show '+(ok?'ok':'fail');
+    fb.innerHTML='<div class="quiz-status '+(ok?'ok':'fail')+'">'+(ok?'✔ Correcto':'✘ Incorrecto')+'</div><div>'+p.feed+'</div>';
   } else {
     fb.className='q-feedback';fb.textContent='';
   }
@@ -1451,13 +1564,17 @@ function renderQ(){
 
 function answer(i){
   if(qAnswers[qIdx]!==null)return;
+  const opts=document.querySelectorAll('#q-opts .q-opt');
+  if(opts[i]) opts[i].classList.add('selected');
   qAnswers[qIdx]=i;
-  renderQ();
+  saveQuizState();
+  window.setTimeout(renderQ,120);
 }
 
 function qNav(d){
   if(d===1&&qIdx===PREGUNTAS.length-1){showScore();return;}
   qIdx=Math.max(0,Math.min(PREGUNTAS.length-1,qIdx+d));
+  saveQuizState();
   renderQ();
 }
 
@@ -1474,10 +1591,76 @@ function showScore(){
 
 function resetQuiz(){
   qIdx=0;qAnswers=new Array(PREGUNTAS.length).fill(null);
+  try{localStorage.removeItem(QUIZ_STORAGE_KEY);}catch(e){}
   document.getElementById('q-body').style.display='block';
   document.getElementById('quiz-nav').style.display='flex';
   document.getElementById('score-screen').style.display='none';
   renderQ();
+}
+
+
+// ── FRAMEWORK BOOTSTRAP / ACCESSIBILITY / FULLSCREEN ───────────────────
+function toggleFullscreen(){
+  const root=document.documentElement;
+  if(!document.fullscreenElement && root.requestFullscreen){
+    root.requestFullscreen().catch(()=>{});
+  }else if(document.exitFullscreen){
+    document.exitFullscreen().catch(()=>{});
+  }
+}
+
+function initFramework(){
+  document.querySelectorAll('.tab-btn').forEach((btn,i)=>{
+    btn.setAttribute('role','tab');
+    btn.setAttribute('aria-controls',TAB_ORDER[i]||'');
+    btn.setAttribute('aria-selected',btn.classList.contains('active')?'true':'false');
+    btn.addEventListener('keydown',ev=>{
+      if(ev.key!=='ArrowRight' && ev.key!=='ArrowLeft') return;
+      ev.preventDefault();
+      const dir=ev.key==='ArrowRight'?1:-1;
+      const next=(i+dir+TAB_ORDER.length)%TAB_ORDER.length;
+      const nextBtn=document.querySelectorAll('.tab-btn')[next];
+      if(nextBtn){
+        nextBtn.focus();
+        showTab(TAB_ORDER[next]);
+      }
+    });
+  });
+  const tabWrap=document.querySelector('.tabs-inner');
+  if(tabWrap) tabWrap.setAttribute('role','tablist');
+
+  document.querySelectorAll('.section').forEach(section=>{
+    if(!section.classList.contains('active')) section.setAttribute('hidden','');
+  });
+
+  document.querySelectorAll('.card-header').forEach((h,i)=>{
+    h.setAttribute('role','button');
+    h.setAttribute('tabindex','0');
+    h.setAttribute('aria-expanded',h.classList.contains('open')?'true':'false');
+    if(!h.id) h.id='card-header-'+(i+1);
+    const body=h.nextElementSibling;
+    if(body){
+      if(!body.id) body.id='card-body-'+(i+1);
+      h.setAttribute('aria-controls',body.id);
+    }
+    h.addEventListener('keydown',ev=>{
+      if(ev.key==='Enter'||ev.key===' '){
+        ev.preventDefault();
+        toggleCard(h);
+      }
+    });
+  });
+
+  const lastTab=(()=>{try{return localStorage.getItem('eh.activeTab');}catch(e){return null;}})();
+  if(lastTab && TAB_ORDER.includes(lastTab)) showTab(lastTab);
+
+  initQuiz();
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',initFramework);
+}else{
+  initFramework();
 }
 </script>
 </body>

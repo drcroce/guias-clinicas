@@ -129,11 +129,30 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
 .score-num{background:#0c2340;color:#fff;border-radius:8px;padding:3px 10px;font-weight:700;font-size:14px;min-width:36px;text-align:center}
 .footer{text-align:center;padding:32px 20px;font-size:12px;background:#0c2340;color:rgba(255,255,255,.5);margin-top:40px;line-height:1.8}
 @media(max-width:768px){.tab-btn{padding:12px 14px;font-size:12px}.section{padding:20px 14px 50px}.pw-box{padding:32px 24px}}
+
+/* === Framework Educativo Dr. Croce · Mejoras de auditoría 2026 === */
+:root{--ef-ink:#1e293b;--ef-primary:#1a4a7a;--ef-accent:#38bdf8;--ef-ok:#22c55e;--ef-error:#ef4444;--ef-warn:#f59e0b;--ef-surface:#fff;--ef-muted:#64748b}
+.skip-link{position:absolute;left:-999px;top:8px;background:#fff;color:#0c2340;padding:8px 12px;border-radius:8px;z-index:10000;text-decoration:none;font-weight:700}
+.skip-link:focus{left:12px;outline:3px solid #38bdf8}
+.ef-toolbar{position:sticky;top:48px;z-index:90;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #dbe5ee;box-shadow:0 3px 14px rgba(15,23,42,.08);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.ef-stat{display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:999px;padding:6px 12px;font-size:13px;color:#334155;font-weight:600}
+.ef-action{border:none;border-radius:999px;padding:7px 14px;background:#0c2340;color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:transform .15s,opacity .15s,background .15s}
+.ef-action:hover{opacity:.9;transform:translateY(-1px)}
+.ef-action.secondary{background:#1a4a7a}.ef-action.warning{background:#b45309}
+.opt-btn.selected{background:#eff6ff!important;border-color:#3b82f6!important;color:#1d4ed8!important;font-weight:700}
+.opt-btn.correct::before{content:'✔ ';font-weight:800}.opt-btn.wrong::before{content:'✘ ';font-weight:800}
+.opt-btn:focus-visible,.tab-btn:focus-visible,.card-header:focus-visible,.ef-action:focus-visible,.hero-back:focus-visible{outline:3px solid #38bdf8;outline-offset:2px}
+.quiz-q.answered{border-left:5px solid #38bdf8}.quiz-q.answered.ok{border-left-color:#22c55e}.quiz-q.answered.no{border-left-color:#ef4444}
+.quiz-summary{background:linear-gradient(135deg,#eff6ff,#f8fafc);border:1px solid #bfdbfe;border-radius:14px;padding:16px;margin-bottom:20px;color:#1e3a8a;font-size:14px}
+.quiz-summary strong{font-family:'Lora',serif}
+@media(max-width:768px){.ef-toolbar{top:43px;padding:8px}.ef-stat{font-size:12px;padding:5px 10px}.ef-action{font-size:12px;padding:6px 10px}}
+@media print{#pw-screen,.tabs,.ef-toolbar,.hero-back{display:none!important}.section{display:block!important;max-width:none;padding:10px 0}.card-body{display:block!important}.card{break-inside:avoid;box-shadow:none;border:1px solid #ccc}.hero{padding:20px;color:#000;background:#fff}.footer{color:#000;background:#fff}}
 </style>
 
 <style>#pw-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
+<a href="#fisio" class="skip-link">Saltar al contenido principal</a>
 <div id="app">
 <div class="hero">
   <a class="hero-back" href="index.html">← Portal de guías</a>
@@ -157,6 +176,16 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
   <button class="tab-btn" onclick="showTab('egreso',this)">📋 Egreso y Seguimiento</button>
   <button class="tab-btn" onclick="showTab('quiz',this)">❓ Autoevaluación</button>
 </div>
+
+<div class="ef-toolbar" role="region" aria-label="Panel de progreso y acciones">
+  <span class="ef-stat" id="efQuizProgress">Quiz: 0/13</span>
+  <span class="ef-stat" id="efQuizScore">Aciertos: 0</span>
+  <span class="ef-stat" id="efQuizPercent">Progreso: 0%</span>
+  <button class="ef-action secondary" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+  <button class="ef-action warning" type="button" onclick="resetQuiz()">↺ Reiniciar quiz</button>
+  <button class="ef-action" type="button" onclick="window.print()">🖨️ Imprimir / PDF</button>
+</div>
+
 <!-- ===== TAB 1: FISIOPATOLOGÍA ===== -->
 <div class="section active" id="fisio">
   <div class="section-title">🔬 Fisiopatología</div>
@@ -1219,6 +1248,11 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
   <div class="section-title">❓ Autoevaluación</div>
   <div class="section-lead">Casos clínicos basados en práctica real de emergencias. Retroalimentación inmediata con justificación basada en ATS 2025 y ATS/IDSA 2019.</div>
 
+  <div class="quiz-summary" id="quizSummary" aria-live="polite">
+    <strong>Estado del quiz:</strong> responde las preguntas para calcular aciertos, porcentaje y progreso. El resultado se guarda localmente en este navegador.
+  </div>
+
+
   <div class="quiz-set">
     <div class="quiz-title">📋 Módulo 1 — Diagnóstico y Estratificación</div>
 
@@ -1383,19 +1417,27 @@ ul.content-list li{margin-bottom:5px;font-size:14px;color:#374151}
 </div><!-- /app -->
 
 <script>
+/* === Framework Educativo Dr. Croce · Core interactivo reutilizable === */
+const APP_STORAGE_KEY='drCroce_NAC_quiz_v2';
+const TOTAL_QUESTIONS=13;
+
 function showTab(id,btn){
+  const target=document.getElementById(id);
+  if(!target)return;
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  target.classList.add('active');
   if(btn)btn.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function toggleCard(header){
+  if(!header)return;
   const body=header.nextElementSibling;
   const isOpen=header.classList.contains('open');
   header.classList.toggle('open',!isOpen);
-  body.classList.toggle('show',!isOpen);
+  if(body)body.classList.toggle('show',!isOpen);
+  header.setAttribute('aria-expanded',String(!isOpen));
 }
 
 const feedbacks={
@@ -1427,19 +1469,97 @@ const feedbacks={
    no:"❌ <strong>Incorrecto.</strong> ATS 2025 define estabilidad clínica como: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal. La Rx demora semanas en resolver. La PCT es apoyo, no criterio primario. La clave del ATS 2025 es evaluación clínica DIARIA, no duración fija."}
 };
 
+function getState(){
+  try{return JSON.parse(localStorage.getItem(APP_STORAGE_KEY)||'{}')||{};}catch(e){return {};}
+}
+function saveAnswer(n,resultado){
+  const state=getState();
+  state[n]={resultado,answeredAt:new Date().toISOString()};
+  localStorage.setItem(APP_STORAGE_KEY,JSON.stringify(state));
+  updateQuizDashboard();
+}
+function updateQuizDashboard(){
+  const state=getState();
+  const answered=Object.keys(state).length;
+  const correct=Object.values(state).filter(v=>v.resultado==='ok').length;
+  const percent=TOTAL_QUESTIONS?Math.round((answered/TOTAL_QUESTIONS)*100):0;
+  const scorePct=answered?Math.round((correct/answered)*100):0;
+  const qp=document.getElementById('efQuizProgress');
+  const qs=document.getElementById('efQuizScore');
+  const qpc=document.getElementById('efQuizPercent');
+  const summary=document.getElementById('quizSummary');
+  if(qp)qp.textContent=`Quiz: ${answered}/${TOTAL_QUESTIONS}`;
+  if(qs)qs.textContent=`Aciertos: ${correct}`;
+  if(qpc)qpc.textContent=`Progreso: ${percent}%`;
+  if(summary)summary.innerHTML=`<strong>Estado del quiz:</strong> ${answered}/${TOTAL_QUESTIONS} preguntas respondidas. Aciertos: ${correct}. Rendimiento actual: ${scorePct}%. ${answered===TOTAL_QUESTIONS?'Autoevaluación completada.':''}`;
+}
+function markCorrectAnswer(q){
+  q.querySelectorAll('.opt-btn').forEach(b=>{
+    if((b.getAttribute('onclick')||'').includes("'ok'"))b.classList.add('correct');
+  });
+}
 function responder(btn,resultado,n){
   const q=document.getElementById('q'+n);
-  if(q.dataset.answered)return;
+  if(!q||q.dataset.answered)return;
   q.dataset.answered='1';
+  q.classList.add('answered',resultado==='ok'?'ok':'no');
+  btn.classList.add('selected');
   q.querySelectorAll('.opt-btn').forEach(b=>{
     b.disabled=true;
-    if(b===btn){b.classList.add(resultado==='ok'?'correct':'wrong');}
-    else if(b.getAttribute('onclick').includes("'ok'")){b.classList.add('correct');}
+    b.setAttribute('aria-disabled','true');
+    if(b===btn)b.classList.add(resultado==='ok'?'correct':'wrong');
+    else if((b.getAttribute('onclick')||'').includes("'ok'"))b.classList.add('correct');
   });
   const fb=document.getElementById('fb'+n);
-  fb.innerHTML=resultado==='ok'?feedbacks[n].ok:feedbacks[n].no;
-  fb.className='feedback show '+(resultado==='ok'?'ok-fb':'no-fb');
+  if(fb){
+    fb.innerHTML=resultado==='ok'?feedbacks[n].ok:feedbacks[n].no;
+    fb.className='feedback show '+(resultado==='ok'?'ok-fb':'no-fb');
+    fb.setAttribute('role','status');
+    fb.setAttribute('aria-live','polite');
+  }
+  saveAnswer(n,resultado);
 }
+function restoreQuiz(){
+  const state=getState();
+  Object.entries(state).forEach(([n,v])=>{
+    const q=document.getElementById('q'+n);
+    if(!q||!feedbacks[n])return;
+    q.dataset.answered='1';
+    q.classList.add('answered',v.resultado==='ok'?'ok':'no');
+    q.querySelectorAll('.opt-btn').forEach(b=>{
+      b.disabled=true;b.setAttribute('aria-disabled','true');
+      if((b.getAttribute('onclick')||'').includes("'ok'"))b.classList.add('correct');
+    });
+    const fb=document.getElementById('fb'+n);
+    if(fb){fb.innerHTML=v.resultado==='ok'?feedbacks[n].ok:feedbacks[n].no;fb.className='feedback show '+(v.resultado==='ok'?'ok-fb':'no-fb');}
+  });
+  updateQuizDashboard();
+}
+function resetQuiz(){
+  localStorage.removeItem(APP_STORAGE_KEY);
+  document.querySelectorAll('.quiz-q').forEach(q=>{
+    delete q.dataset.answered;
+    q.classList.remove('answered','ok','no');
+    q.querySelectorAll('.opt-btn').forEach(b=>{b.disabled=false;b.removeAttribute('aria-disabled');b.classList.remove('selected','correct','wrong');});
+    const fb=q.querySelector('.feedback');
+    if(fb){fb.innerHTML='';fb.className='feedback';fb.removeAttribute('role');fb.removeAttribute('aria-live');}
+  });
+  updateQuizDashboard();
+}
+function toggleFullscreen(){
+  const root=document.documentElement;
+  if(!document.fullscreenElement&&root.requestFullscreen){root.requestFullscreen().catch(()=>{});} 
+  else if(document.exitFullscreen){document.exitFullscreen().catch(()=>{});} 
+}
+function initAccessibility(){
+  document.querySelectorAll('.card-header').forEach((h,i)=>{
+    h.setAttribute('tabindex','0');h.setAttribute('role','button');h.setAttribute('aria-expanded',h.classList.contains('open')?'true':'false');
+    h.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();toggleCard(h);}});
+  });
+  document.querySelectorAll('.section').forEach(s=>s.setAttribute('tabindex','-1'));
+  document.querySelectorAll('.opt-btn').forEach(b=>b.setAttribute('type','button'));
+}
+document.addEventListener('DOMContentLoaded',()=>{initAccessibility();restoreQuiz();});
 </script>
 </body>
 </html>

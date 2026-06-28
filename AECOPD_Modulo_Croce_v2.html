@@ -515,6 +515,15 @@ strong { color: var(--text); font-weight: 700; }
   .tab-panel { display: block !important; page-break-before: always; }
 }
 
+
+.quiz-opt.selected { border-color: var(--accent); background: var(--accent-light); color: var(--accent2); font-weight: 600; box-shadow: 0 0 0 2px rgba(44,95,138,0.14); }
+.quiz-opt:focus-visible, .quiz-btn:focus-visible, .calc-btn:focus-visible, .tab:focus-visible, .card-header:focus-visible, .fullscreen-btn:focus-visible { outline: 3px solid var(--accent-light); outline-offset: 2px; }
+.quiz-btn:disabled { opacity: .55; cursor: not-allowed; }
+.fullscreen-btn { margin-top: 12px; padding: 7px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,.32); background: rgba(255,255,255,.08); color: rgba(255,255,255,.82); font-size: 12px; font-weight: 600; cursor: pointer; }
+.fullscreen-btn:hover { background: rgba(255,255,255,.18); color: #fff; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
 /* ===== PORTAL BACK BUTTON ===== */
 .portal-back{display:inline-block;color:rgba(255,255,255,.75);font-size:12px;
   text-decoration:none;padding:4px 10px;border-radius:20px;
@@ -543,6 +552,7 @@ strong { color: var(--text); font-weight: 700; }
     <div class="header-title">🫁 Exacerbación Aguda de EPOC</div>
     <div class="header-sub">Diagnóstico, estratificación y manejo hospitalario basado en evidencia actual</div>
     <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+    <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
   </div>
 </div>
 
@@ -1721,15 +1731,31 @@ strong { color: var(--text); font-weight: 700; }
 // ── ACCESS ──
 // ── TABS ──
 function showTab(n, el) {
-  document.querySelectorAll(".tab-panel").forEach(function(p){ p.classList.remove("active"); });
-  document.querySelectorAll(".tab").forEach(function(t){ t.classList.remove("active"); });
-  document.getElementById("panel-" + n).classList.add("active");
+  var panel = document.getElementById("panel-" + n);
+  if (!panel || !el) return;
+  document.querySelectorAll(".tab-panel").forEach(function(p){ p.classList.remove("active"); p.setAttribute("aria-hidden", "true"); });
+  document.querySelectorAll(".tab").forEach(function(t){ t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+  panel.classList.add("active");
+  panel.setAttribute("aria-hidden", "false");
   el.classList.add("active");
+  el.setAttribute("aria-selected", "true");
+  try { window.scrollTo({top: 0, behavior: "smooth"}); } catch(e) { window.scrollTo(0, 0); }
 }
 
 // ── CARDS ──
 function toggleCard(hdr) {
+  if (!hdr || !hdr.parentElement) return;
   hdr.parentElement.classList.toggle("open");
+  hdr.setAttribute("aria-expanded", hdr.parentElement.classList.contains("open") ? "true" : "false");
+}
+
+function toggleFullscreen() {
+  var root = document.documentElement;
+  if (!document.fullscreenElement) {
+    if (root.requestFullscreen) root.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
 }
 
 // ── CALCULADORAS ──
@@ -1927,60 +1953,118 @@ var QUIZZES = {
 ]
 };
 // ── QUIZ ENGINE ──
-var curQuiz=1, curQ=0, scored=0, total=0, answered=[];
+var QUIZ_STORAGE_KEY = "aecopd_croce_quiz_state_v2";
+var curQuiz=1, curQ=0, scored=0, total=0, answered=[], selected=[];
+
+function safeText(value) {
+  return String(value).replace(/[&<>"]/g, function(ch) {
+    return ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"})[ch];
+  });
+}
+function loadQuizState(n) {
+  try {
+    var all = JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEY) || "{}");
+    var state = all[String(n)] || {};
+    curQ = Number.isInteger(state.curQ) ? state.curQ : 0;
+    answered = Array.isArray(state.answered) ? state.answered : [];
+    selected = Array.isArray(state.selected) ? state.selected : [];
+    recalcScore();
+  } catch(e) { curQ=0; scored=0; total=0; answered=[]; selected=[]; }
+}
+function saveQuizState() {
+  try {
+    var all = JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEY) || "{}");
+    all[String(curQuiz)] = {curQ:curQ, answered:answered, selected:selected};
+    localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(all));
+  } catch(e) {}
+}
+function clearQuizState(n) {
+  try {
+    var all = JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEY) || "{}");
+    delete all[String(n)];
+    localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(all));
+  } catch(e) {}
+}
+function recalcScore() {
+  var qs = QUIZZES[curQuiz] || [];
+  total = 0; scored = 0;
+  answered.forEach(function(a, idx){
+    if (a !== undefined && a !== null) { total++; if (qs[idx] && a === qs[idx].ans) scored++; }
+  });
+}
 function selectQuiz(n, btn) {
-  curQuiz=n; curQ=0; scored=0; total=0;
-  answered=[];
-  document.querySelectorAll(".quiz-sel-btn").forEach(function(b){ b.classList.remove("active"); });
-  btn.classList.add("active");
+  curQuiz=n;
+  loadQuizState(n);
+  if (curQ >= QUIZZES[curQuiz].length) curQ = 0;
+  document.querySelectorAll(".quiz-sel-btn").forEach(function(b){ b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); });
+  if (btn) { btn.classList.add("active"); btn.setAttribute("aria-pressed", "true"); }
   document.getElementById("quizResultBox").classList.remove("show");
   renderQ();
 }
 function renderQ() {
-  var qs = QUIZZES[curQuiz];
-  if (curQ >= qs.length) { showResult(); return; }
+  recalcScore();
+  var qs = QUIZZES[curQuiz] || [];
+  if (!qs.length) return;
+  if (curQ >= qs.length) { curQ = qs.length - 1; }
   var q = qs[curQ];
-  var pct = ((curQ) / qs.length * 100).toFixed(0);
+  var done = answered[curQ] !== undefined && answered[curQ] !== null;
+  var sel = selected[curQ];
+  var pct = ((done ? curQ + 1 : curQ) / qs.length * 100).toFixed(0);
   document.getElementById("quizProgress").style.width = pct + "%";
   document.getElementById("quizCounter").textContent = "Pregunta " + (curQ+1) + " de " + qs.length;
   document.getElementById("quizScore").textContent = "Aciertos: " + scored + "/" + total;
-  var done = answered[curQ] !== undefined;
-  var html = '<div class="quiz-question">' + (curQ+1) + '. ' + q.q + '</div>';
-  html += '<div class="quiz-options">';
+  var html = '<div class="quiz-question">' + (curQ+1) + '. ' + safeText(q.q) + '</div>';
+  html += '<div class="quiz-options" role="radiogroup" aria-label="Opciones de respuesta">';
   q.opts.forEach(function(o, i) {
     var cl = "quiz-opt";
+    var disabled = done ? " disabled" : "";
+    if (!done && sel === i) cl += " selected";
     if (done) { cl += " disabled"; if (i === q.ans) cl += " correct"; else if (i === answered[curQ] && i !== q.ans) cl += " wrong"; }
-    html += '<button class="' + cl + '" onclick="answerQ(' + i + ')">' + o + '</button>';
+    html += '<button type="button" class="' + cl + '" onclick="selectAnswer(' + i + ')" aria-pressed="' + (!done && sel === i ? 'true' : 'false') + '"' + disabled + '>' + safeText(o) + '</button>';
   });
   html += '</div>';
   var fbcl = "quiz-feedback" + (done ? (" show " + (answered[curQ]===q.ans ? "correct-fb":"wrong-fb")):"");
-  html += '<div class="' + fbcl + '"><strong>' + (done ? (answered[curQ]===q.ans ? "✅ Correcto — ":"❌ Incorrecto — ") : "") + '</strong>' + (done ? q.fb : "") + '</div>';
+  var fbLead = done ? (answered[curQ]===q.ans ? "✔ Correcto — " : "✘ Incorrecto — ") : "";
+  html += '<div class="' + fbcl + '" aria-live="polite"><strong>' + fbLead + '</strong>' + (done ? safeText(q.fb) : "") + '</div>';
   html += '<div class="quiz-nav">';
-  html += '<button class="quiz-btn quiz-btn-secondary" onclick="navQ(-1)" ' + (curQ===0?"disabled":"") + '>← Anterior</button>';
-  html += '<button class="quiz-btn quiz-btn-secondary" onclick="restartQuiz()">🔄 Reiniciar</button>';
-  if (done && curQ < qs.length-1) html += '<button class="quiz-btn quiz-btn-primary" onclick="navQ(1)">Siguiente →</button>';
-  else if (done && curQ === qs.length-1) html += '<button class="quiz-btn quiz-btn-primary" onclick="showResult()">Ver resultado</button>';
+  html += '<button type="button" class="quiz-btn quiz-btn-secondary" onclick="navQ(-1)" ' + (curQ===0?"disabled":"") + '>← Anterior</button>';
+  html += '<button type="button" class="quiz-btn quiz-btn-secondary" onclick="restartQuiz()">🔄 Reiniciar</button>';
+  if (!done) html += '<button type="button" class="quiz-btn quiz-btn-primary" onclick="confirmAnswer()" ' + (sel === undefined || sel === null ? 'disabled' : '') + '>Confirmar respuesta</button>';
+  else if (curQ < qs.length-1) html += '<button type="button" class="quiz-btn quiz-btn-primary" onclick="navQ(1)">Siguiente →</button>';
+  else html += '<button type="button" class="quiz-btn quiz-btn-primary" onclick="showResult()">Ver resultado</button>';
   html += '</div>';
   document.getElementById("quizArea").innerHTML = html;
+  document.getElementById("quizResultBox").classList.remove("show");
 }
-function answerQ(i) {
-  if (answered[curQ] !== undefined) return;
-  var q = QUIZZES[curQuiz][curQ];
-  answered[curQ] = i;
-  total++;
-  if (i === q.ans) scored++;
+function selectAnswer(i) {
+  if (answered[curQ] !== undefined && answered[curQ] !== null) return;
+  selected[curQ] = i;
+  saveQuizState();
   renderQ();
 }
-function navQ(d) { curQ = Math.max(0, Math.min(QUIZZES[curQuiz].length-1, curQ+d)); renderQ(); }
+function confirmAnswer() {
+  if (selected[curQ] === undefined || selected[curQ] === null) return;
+  if (answered[curQ] !== undefined && answered[curQ] !== null) return;
+  answered[curQ] = selected[curQ];
+  recalcScore();
+  saveQuizState();
+  renderQ();
+}
+function answerQ(i) { selectAnswer(i); confirmAnswer(); }
+function navQ(d) { curQ = Math.max(0, Math.min(QUIZZES[curQuiz].length-1, curQ+d)); saveQuizState(); renderQ(); }
 function restartQuiz() {
-  curQ=0; scored=0; total=0; answered=[];
+  curQ=0; scored=0; total=0; answered=[]; selected=[];
+  clearQuizState(curQuiz);
   document.getElementById("quizResultBox").classList.remove("show");
   renderQ();
 }
 function showResult() {
+  recalcScore();
   document.getElementById("quizArea").innerHTML = "";
   var pct = Math.round(scored/QUIZZES[curQuiz].length*100);
   document.getElementById("quizProgress").style.width = "100%";
+  document.getElementById("quizCounter").textContent = "Quiz finalizado";
+  document.getElementById("quizScore").textContent = "Aciertos: " + scored + "/" + QUIZZES[curQuiz].length;
   var msg;
   if (pct >= 90) msg="🏆 Excelente dominio del tema. Resultado de especialista.";
   else if (pct >= 70) msg="👍 Buen rendimiento. Repase los puntos incorrectos.";
@@ -1991,8 +2075,14 @@ function showResult() {
   document.getElementById("quizResultBox").classList.add("show");
 }
 // ── INIT ──
-document.querySelector(".quiz-sel-btn").classList.add("active");
-selectQuiz(1, document.querySelector(".quiz-sel-btn"));
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll(".tab").forEach(function(tab, idx){ tab.setAttribute("role", "tab"); tab.setAttribute("tabindex", "0"); tab.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); showTab(idx, tab); } }); });
+  document.querySelectorAll(".tab-panel").forEach(function(panel, idx){ panel.setAttribute("role", "tabpanel"); panel.setAttribute("aria-hidden", idx === 0 ? "false" : "true"); });
+  document.querySelectorAll(".card-header").forEach(function(h){ h.setAttribute("role", "button"); h.setAttribute("tabindex", "0"); h.setAttribute("aria-expanded", h.parentElement.classList.contains("open") ? "true" : "false"); h.addEventListener("keydown", function(e){ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleCard(h); } }); });
+  var firstQuizBtn = document.querySelector(".quiz-sel-btn");
+  if (firstQuizBtn) selectQuiz(1, firstQuizBtn);
+});
+
 </script>
 </body>
 </html>

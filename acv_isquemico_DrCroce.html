@@ -16,25 +16,6 @@
   --border:#e2e8f0;--radius:10px;
 }
 body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.65}
-#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 50%,#1d4ed8 100%);padding:20px}
-.pw-box{background:rgba(255,255,255,.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);
-  border-radius:20px;padding:44px 40px;max-width:420px;width:100%;text-align:center;box-shadow:0 25px 60px rgba(0,0,0,.4)}
-.pw-icon{font-size:52px;margin-bottom:16px}
-.pw-title{font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:8px}
-.pw-sub{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:28px}
-.pw-input{width:100%;padding:13px 16px;border-radius:10px;border:2px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.1);color:#fff;font-size:15px;letter-spacing:2px;text-transform:uppercase;
-  text-align:center;outline:none;font-family:'Source Sans 3',sans-serif;transition:.2s}
-.pw-input::placeholder{color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:none}
-.pw-input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.15)}
-.pw-btn{margin-top:16px;width:100%;padding:13px;background:linear-gradient(135deg,#2563eb,#1d4ed8);
-  color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;
-  font-family:'Source Sans 3',sans-serif;transition:.2s;letter-spacing:.5px}
-.pw-btn:hover{background:linear-gradient(135deg,#3b82f6,#2563eb);transform:translateY(-1px)}
-.pw-err{color:#fca5a5;font-size:13px;margin-top:12px;min-height:18px}
-.pw-author{font-size:12px;color:rgba(255,255,255,.4);margin-top:28px}
-#app{display:block}
 .hero{background:linear-gradient(135deg,var(--brand-dark) 0%,var(--brand) 60%,var(--brand-light) 100%);
   color:#fff;padding:48px 20px 36px;text-align:center;position:relative;overflow:hidden}
 .hero-back{display:inline-block;color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;
@@ -152,12 +133,37 @@ li{margin-bottom:5px;font-size:14.5px}
 strong{color:var(--brand-dark)}
 .footer{background:var(--brand-dark);color:rgba(255,255,255,.7);text-align:center;
   padding:28px 20px;font-size:13px;line-height:1.8;margin-top:40px}
+
+/* ═════════ Framework Educativo Dr. Croce — componentes comunes v0.1 ═════════ */
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;background:#fff;color:var(--brand-dark);padding:8px 12px;border-radius:8px;z-index:10000}
+.skip-link:focus{left:12px;top:12px;width:auto;height:auto;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.framework-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.fx-btn{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.13);color:#fff;border-radius:999px;padding:8px 13px;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.fx-btn:hover,.fx-btn:focus{background:rgba(255,255,255,.24);outline:2px solid rgba(255,255,255,.55);outline-offset:2px}
+.fx-progress-wrap{height:6px;background:#dbeafe;position:sticky;top:49px;z-index:99}
+.fx-progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .25s ease}
+.card-header:focus{outline:3px solid var(--brand-light);outline-offset:-3px;background:#eff6ff}
+.opt-btn:focus{outline:3px solid var(--brand-light);outline-offset:2px}
+.opt-btn.selected{background:#eff6ff;border-color:#3b82f6;color:#1e3a8a;font-weight:600}
+.opt-btn.correct{background:#f0fdf4;border-color:#22c55e;color:#14532d;font-weight:700}
+.opt-btn.wrong{background:#fef2f2;border-color:#ef4444;color:#7f1d1d;font-weight:700}
+.quiz-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:14px 0 18px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.quiz-score{font-weight:700;color:var(--brand-dark)}
+.quiz-actions{display:flex;gap:8px;flex-wrap:wrap}
+.quiz-action-btn{padding:8px 12px;border-radius:8px;border:1px solid var(--brand);background:#fff;color:var(--brand);font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.quiz-action-btn:hover,.quiz-action-btn:focus{background:var(--brand-pale);outline:2px solid var(--brand-light);outline-offset:2px}
+.quiz-card.answered{border-color:#bfdbfe}
+.feedback strong:first-child{font-weight:800}
+@media print{.tabs,.framework-actions,.fx-progress-wrap,.quiz-toolbar,.hero-back{display:none!important}.section{display:block!important;max-width:none}.card-body{display:block!important}.card{break-inside:avoid}.hero{padding:22px 10px;color:#111;background:#fff}.footer{background:#fff;color:#333}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
 </style>
 
-<style>#pw-screen{display:none!important}#app{display:block!important}</style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 <div id="app">
+<main id="main-content">
 <div class="hero">
   <a class="hero-back" href="index.html">← Portal de guías</a>
   <div class="hero-icon">🧠</div>
@@ -172,6 +178,13 @@ strong{color:var(--brand-dark)}
     <span class="badge">Trombólisis IV</span>
     <span class="badge">Trombectomía Mecánica</span>
   </div>
+  <div class="framework-actions" aria-label="Controles de la guía">
+    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleFullscreen()">⛶ Pantalla completa</button>
+    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleAllCards(true)">▾ Expandir todo</button>
+    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleAllCards(false)">▸ Contraer todo</button>
+    <button class="fx-btn" type="button" onclick="FrameworkEdu.readCurrentSection()">🔊 Leer sección</button>
+    <button class="fx-btn" type="button" onclick="window.print()">🖨️ Imprimir</button>
+  </div>
 </div>
 <div class="tabs">
   <div class="tab active" onclick="showTab('fisio')">🔬 Fisiopatología</div>
@@ -182,6 +195,7 @@ strong{color:var(--brand-dark)}
   <div class="tab" onclick="showTab('egreso')">📋 Egreso y Prevención</div>
   <div class="tab" onclick="showTab('quiz')">❓ Autoevaluación</div>
 </div>
+<div class="fx-progress-wrap" aria-hidden="true"><div class="fx-progress-bar" id="global-progress"></div></div>
 
 <!-- ══ FISIOPATOLOGÍA ══ -->
 <div class="section active" id="fisio">
@@ -781,6 +795,13 @@ strong{color:var(--brand-dark)}
 <div class="section" id="quiz">
   <div class="sec-header"><div class="sec-icon">❓</div><h2>Autoevaluación Clínica</h2></div>
   <div class="alert alert-blue">Selecciona la respuesta correcta. Recibirás retroalimentación inmediata con explicación detallada.</div>
+  <div class="quiz-toolbar" aria-live="polite">
+    <div class="quiz-score" id="quiz-score">Progreso del quiz: 0/15 respondidas · 0 correctas · 0%</div>
+    <div class="quiz-actions">
+      <button class="quiz-action-btn" type="button" onclick="FrameworkEdu.resetQuiz()">Reiniciar quiz</button>
+      <button class="quiz-action-btn" type="button" onclick="FrameworkEdu.scrollToFirstUnanswered()">Ir a pendiente</button>
+    </div>
+  </div>
 
   <h3>📋 Quiz 1 — Fisiopatología y Diagnóstico</h3>
   <div class="quiz-container">
@@ -955,36 +976,240 @@ strong{color:var(--brand-dark)}
   Uso educativo y de referencia clínica personal
 </div>
 
+</main>
 </div><!-- #app -->
 
 <script>
-function showTab(id){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const map={fisio:0,clinica:1,lab:2,manejo:3,comp:4,egreso:5,quiz:6};
-  if(map[id]!==undefined) document.querySelectorAll('.tab')[map[id]].classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+const FrameworkEdu = (() => {
+  const STORAGE_KEY = 'drCroce.acvIsquemico.v1';
+  const tabOrder = ['fisio','clinica','lab','manejo','comp','egreso','quiz'];
+  const tabIndex = Object.fromEntries(tabOrder.map((id, i) => [id, i]));
+  const defaultState = {activeTab:'fisio', visited:['fisio'], quiz:{}};
+  let state = loadState();
+  let speaking = false;
 
-function toggleCard(header){
-  header.classList.toggle('open');
-}
-
-function responder(btn,resultado,n){
-  const card=btn.closest('.quiz-card');
-  card.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
-  if(resultado==='ok'){
-    btn.classList.add('correct');
-    document.getElementById('fb-'+n+'-ok').classList.add('show');
-  } else {
-    btn.classList.add('wrong');
-    card.querySelectorAll('.opt-btn').forEach(b=>{
-      if(b.getAttribute('onclick').includes("'ok'"))b.classList.add('correct');
-    });
-    document.getElementById('fb-'+n+'-no').classList.add('show');
+  function loadState(){
+    try{
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return structuredClone(defaultState);
+      const parsed = JSON.parse(raw);
+      return {...structuredClone(defaultState), ...parsed, quiz: parsed.quiz || {}};
+    }catch(err){
+      console.warn('Estado local corrupto; se reinicia.', err);
+      localStorage.removeItem(STORAGE_KEY);
+      return structuredClone(defaultState);
+    }
   }
-}
+  function saveState(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch(err){ console.warn('No se pudo guardar progreso local.', err); }
+  }
+
+  function showTab(id){
+    if(!document.getElementById(id)) return;
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const tabs = document.querySelectorAll('.tab');
+    if(tabIndex[id]!==undefined && tabs[tabIndex[id]]) tabs[tabIndex[id]].classList.add('active');
+    state.activeTab = id;
+    if(!state.visited.includes(id)) state.visited.push(id);
+    saveState();
+    updateGlobalProgress();
+    updateAriaTabs();
+    if(window.speechSynthesis) window.speechSynthesis.cancel();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function toggleCard(header){
+    const isOpen = header.classList.toggle('open');
+    header.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  function toggleAllCards(open){
+    document.querySelectorAll('.section.active .card-header').forEach(h=>{
+      h.classList.toggle('open', open);
+      h.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  function isCorrectButton(btn){
+    return (btn.getAttribute('onclick') || '').includes("'ok'");
+  }
+
+  function responder(btn, resultado, n){
+    const card = btn.closest('.quiz-card');
+    if(!card || card.classList.contains('answered')) return;
+    const buttons = [...card.querySelectorAll('.opt-btn')];
+    buttons.forEach(b=>b.disabled = true);
+    btn.classList.add('selected');
+
+    window.setTimeout(()=>{
+      const correct = resultado === 'ok';
+      if(correct){
+        btn.classList.add('correct');
+        showFeedback(n, 'ok');
+      }else{
+        btn.classList.add('wrong');
+        buttons.forEach(b=>{ if(isCorrectButton(b)) b.classList.add('correct'); });
+        showFeedback(n, 'no');
+      }
+      card.classList.add('answered');
+      state.quiz[String(n)] = {correct, selectedIndex: buttons.indexOf(btn), answeredAt: new Date().toISOString()};
+      saveState();
+      updateQuizScore();
+    }, 180);
+  }
+
+  function showFeedback(n, type){
+    const fb = document.getElementById(`fb-${n}-${type}`);
+    if(fb) fb.classList.add('show');
+  }
+
+  function restoreQuiz(){
+    document.querySelectorAll('.quiz-card').forEach((card, idx)=>{
+      const qNum = String(idx + 1);
+      const saved = state.quiz[qNum];
+      if(!saved) return;
+      const buttons = [...card.querySelectorAll('.opt-btn')];
+      const selected = buttons[saved.selectedIndex];
+      buttons.forEach(b=>{
+        b.disabled = true;
+        if(isCorrectButton(b)) b.classList.add('correct');
+      });
+      if(selected){
+        selected.classList.add('selected');
+        selected.classList.toggle('correct', saved.correct);
+        selected.classList.toggle('wrong', !saved.correct);
+      }
+      card.classList.add('answered');
+      showFeedback(qNum, saved.correct ? 'ok' : 'no');
+    });
+    updateQuizScore();
+  }
+
+  function updateQuizScore(){
+    const total = document.querySelectorAll('.quiz-card').length;
+    const answered = Object.keys(state.quiz).length;
+    const correct = Object.values(state.quiz).filter(q=>q.correct).length;
+    const pct = total ? Math.round((correct/total)*100) : 0;
+    const el = document.getElementById('quiz-score');
+    if(el) el.textContent = `Progreso del quiz: ${answered}/${total} respondidas · ${correct} correctas · ${pct}%`;
+  }
+
+  function resetQuiz(){
+    state.quiz = {};
+    saveState();
+    document.querySelectorAll('.quiz-card').forEach(card=>{
+      card.classList.remove('answered');
+      card.querySelectorAll('.opt-btn').forEach(btn=>{
+        btn.disabled = false;
+        btn.classList.remove('selected','correct','wrong');
+      });
+      card.querySelectorAll('.feedback').forEach(fb=>fb.classList.remove('show'));
+    });
+    updateQuizScore();
+  }
+
+  function scrollToFirstUnanswered(){
+    showTab('quiz');
+    window.setTimeout(()=>{
+      const target = [...document.querySelectorAll('.quiz-card')].find(card=>!card.classList.contains('answered'));
+      (target || document.getElementById('quiz')).scrollIntoView({behavior:'smooth', block:'start'});
+    }, 120);
+  }
+
+  function updateGlobalProgress(){
+    const pct = Math.round((new Set(state.visited).size / tabOrder.length) * 100);
+    const bar = document.getElementById('global-progress');
+    if(bar) bar.style.width = `${pct}%`;
+  }
+
+  function updateAriaTabs(){
+    document.querySelectorAll('.tab').forEach((tab, i)=>{
+      tab.setAttribute('role','tab');
+      tab.setAttribute('tabindex', tab.classList.contains('active') ? '0' : '-1');
+      tab.setAttribute('aria-selected', String(tab.classList.contains('active')));
+      tab.setAttribute('aria-controls', tabOrder[i] || '');
+    });
+    document.querySelectorAll('.section').forEach(section=>{
+      section.setAttribute('role','tabpanel');
+      section.setAttribute('aria-hidden', String(!section.classList.contains('active')));
+    });
+  }
+
+  function toggleFullscreen(){
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen?.();
+    }else{
+      document.exitFullscreen?.();
+    }
+  }
+
+  function readCurrentSection(){
+    if(!('speechSynthesis' in window)) return;
+    if(speaking){
+      window.speechSynthesis.cancel();
+      speaking = false;
+      return;
+    }
+    const active = document.querySelector('.section.active');
+    if(!active) return;
+    const text = active.innerText.replace(/\s+/g,' ').trim().slice(0, 3500);
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'es-ES';
+    utterance.rate = 0.95;
+    utterance.onend = () => { speaking = false; };
+    utterance.onerror = () => { speaking = false; };
+    speaking = true;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function initAccessibility(){
+    const tabs = document.querySelector('.tabs');
+    if(tabs) tabs.setAttribute('role','tablist');
+    document.querySelectorAll('.tab').forEach((tab, i)=>{
+      tab.addEventListener('keydown', e=>{
+        if(!['ArrowRight','ArrowLeft','Home','End','Enter',' '].includes(e.key)) return;
+        e.preventDefault();
+        const current = tabOrder.indexOf(state.activeTab);
+        let next = current;
+        if(e.key === 'ArrowRight') next = (current + 1) % tabOrder.length;
+        if(e.key === 'ArrowLeft') next = (current - 1 + tabOrder.length) % tabOrder.length;
+        if(e.key === 'Home') next = 0;
+        if(e.key === 'End') next = tabOrder.length - 1;
+        if(e.key === 'Enter' || e.key === ' ') next = i;
+        showTab(tabOrder[next]);
+        document.querySelectorAll('.tab')[next]?.focus();
+      });
+    });
+    document.querySelectorAll('.card-header').forEach(header=>{
+      header.setAttribute('role','button');
+      header.setAttribute('tabindex','0');
+      header.setAttribute('aria-expanded', String(header.classList.contains('open')));
+      header.addEventListener('keydown', e=>{
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleCard(header); }
+      });
+    });
+    document.querySelectorAll('.opt-btn').forEach(btn=>btn.setAttribute('type','button'));
+    updateAriaTabs();
+  }
+
+  function init(){
+    initAccessibility();
+    restoreQuiz();
+    updateGlobalProgress();
+    showTab(state.activeTab || 'fisio');
+  }
+
+  return {init, showTab, toggleCard, responder, toggleAllCards, toggleFullscreen, readCurrentSection, resetQuiz, scrollToFirstUnanswered};
+})();
+
+function showTab(id){ FrameworkEdu.showTab(id); }
+function toggleCard(header){ FrameworkEdu.toggleCard(header); }
+function responder(btn, resultado, n){ FrameworkEdu.responder(btn, resultado, n); }
+document.addEventListener('DOMContentLoaded', FrameworkEdu.init);
 </script>
 </body>
 </html>

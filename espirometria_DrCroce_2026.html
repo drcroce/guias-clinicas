@@ -184,8 +184,12 @@ tr:hover td{background:var(--surface2)}
 .options{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .option{padding:12px 16px;border:1px solid var(--border2);border-radius:10px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .2s;background:var(--surface);text-align:left;font-family:'DM Sans',sans-serif;line-height:1.5}
 .option:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
+.option.selected{border-color:var(--accent);background:var(--accent-light);color:var(--accent);box-shadow:0 0 0 2px rgba(44,95,138,.14)}
+.option:focus-visible,.qnav-btn:focus-visible,.qsel-btn:focus-visible,.tab:focus-visible,.card-header:focus-visible{outline:3px solid #60aff0;outline-offset:2px}
 .option.correct{border-color:var(--green);background:var(--green-bg);color:var(--green)}
+.option.correct::before{content:'✔ ';font-weight:700}
 .option.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red)}
+.option.wrong::before{content:'✘ ';font-weight:700}
 .feedback{background:var(--blue-bg);border:1px solid var(--blue-border);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--text2);line-height:1.7;display:none;margin-bottom:14px}
 .feedback.show{display:block}
 .feedback strong{color:var(--blue)}
@@ -258,19 +262,23 @@ tr:hover td{background:var(--surface2)}
       <span class="hbadge">GLI 2022</span>
       <span class="hbadge-new">★ NUEVO 2022–2025</span>
     </div>
+    <div class="badge-row" style="margin-top:8px">
+      <button class="hbadge" type="button" onclick="toggleFullscreen()" style="border:0;cursor:pointer">⛶ Pantalla completa</button>
+      <button class="hbadge" type="button" onclick="resetAllProgress()" style="border:0;cursor:pointer">↺ Reiniciar progreso</button>
+    </div>
   </div>
   <div class="tab-scroll-hint">← deslice para ver más pestañas →</div>
   <div class="tabs-wrapper">
     <div class="tabs">
-      <div class="tab active" onclick="showTab(0,this)">📋 Conceptos</div>
-      <div class="tab" onclick="showTab(1,this)">📊 Parámetros</div>
-      <div class="tab" onclick="showTab(2,this)">🔍 Interpretación</div>
-      <div class="tab" onclick="showTab(3,this)">📐 Patrones</div>
-      <div class="tab" onclick="showTab(4,this)">💊 Broncodilatador</div>
-      <div class="tab" onclick="showTab(5,this)">🧮 Calculadoras</div>
-      <div class="tab" onclick="showTab(6,this)">📋 Protocolo</div>
-      <div class="tab" onclick="showTab(7,this)">⚖️ Guías vs Guías</div>
-      <div class="tab" onclick="showTab(8,this)">📝 Quiz</div>
+      <div class="tab active" role="button" tabindex="0" onclick="showTab(0,this)" onkeydown="activateByKey(event,this)">📋 Conceptos</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(1,this)" onkeydown="activateByKey(event,this)">📊 Parámetros</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(2,this)" onkeydown="activateByKey(event,this)">🔍 Interpretación</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(3,this)" onkeydown="activateByKey(event,this)">📐 Patrones</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(4,this)" onkeydown="activateByKey(event,this)">💊 Broncodilatador</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(5,this)" onkeydown="activateByKey(event,this)">🧮 Calculadoras</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(6,this)" onkeydown="activateByKey(event,this)">📋 Protocolo</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(7,this)" onkeydown="activateByKey(event,this)">⚖️ Guías vs Guías</div>
+      <div class="tab" role="button" tabindex="0" onclick="showTab(8,this)" onkeydown="activateByKey(event,this)">📝 Quiz</div>
     </div>
   </div>
 </div>
@@ -283,7 +291,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-blue"><strong>Guía vigente:</strong> ATS/ERS Technical Standard on Interpretive Strategies for Routine Lung Function Tests — <em>European Respiratory Journal</em>, julio 2022. Reemplaza el estándar previo de 2005. Las actualizaciones más importantes se señalan con <span class="tag-new">NUEVO 2022</span></div>
 
 <div class="card card-purple">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🫁</span><span class="card-title">¿Qué es la espirometría y para qué sirve?</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -303,7 +311,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">💨</span><span class="card-title">Volúmenes pulmonares clave — contexto anatómico</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -323,7 +331,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">GLI 2022 — Ecuaciones de referencia race-neutral <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -337,7 +345,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-red">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">⚠️</span><span class="card-title">Criterios de calidad de la maniobra espirométrica</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -369,7 +377,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-orange">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🔬</span><span class="card-title">Contraindicaciones de la espirometría</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -400,7 +408,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-emerald"><strong>Cambio ATS/ERS 2022:</strong> El estándar recomienda expresar resultados como <strong>z-scores</strong> en lugar de porcentajes del predicho. El límite inferior de normalidad (LLN) se define como z-score &lt; −1.645 (percentil 5). <span class="tag-new">NUEVO 2022</span></div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">📏</span><span class="card-title">FEV₁ — Volumen Espiratorio Forzado en 1 segundo</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -426,7 +434,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">📏</span><span class="card-title">FVC — Capacidad Vital Forzada</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -443,7 +451,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Cociente FEV₁/FVC — El parámetro diagnóstico central <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -462,7 +470,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-cyan">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">📈</span><span class="card-title">Curva flujo-volumen — interpretación visual</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -488,7 +496,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-yellow">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">📉</span><span class="card-title">Z-score: qué es y cómo interpretarlo <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -514,7 +522,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-emerald"><strong>ATS/ERS 2022</strong> establece un algoritmo de interpretación en pasos secuenciales. La clave es no saltar pasos y siempre correlacionar con el contexto clínico. <span class="tag-new">NUEVO 2022</span></div>
 
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">1️⃣</span><span class="card-title">Paso 1 — Verificar calidad de la maniobra</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -531,7 +539,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">2️⃣</span><span class="card-title">Paso 2 — Evaluar el cociente FEV₁/FVC</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -548,7 +556,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">3️⃣</span><span class="card-title">Paso 3 — Evaluar FVC si el cociente es normal</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -565,7 +573,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">4️⃣</span><span class="card-title">Paso 4 — Clasificar severidad</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -590,7 +598,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">5️⃣</span><span class="card-title">Paso 5 — Evaluar respuesta broncodilatadora</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -606,7 +614,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-yellow">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🧠</span><span class="card-title">Correlación clínica — el paso más importante</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -629,7 +637,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-emerald"><strong>Novedad ATS/ERS 2022:</strong> Se incorporan formalmente el <strong>Patrón No Específico (NSP)</strong> y el <strong>Patrón Mixto</strong> con confirmación por TLC. Se abandona el diagnóstico de «restricción por espirometría». <span class="tag-new">NUEVO 2022</span></div>
 
 <div class="card card-red">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🔴</span><span class="card-title">Patrón Obstructivo</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -669,7 +677,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🔵</span><span class="card-title">Patrón Restrictivo (confirmado)</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -697,7 +705,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Patrón No Específico (NSP) — Nuevo concepto <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -716,7 +724,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-purple">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🟣</span><span class="card-title">Patrón Mixto (obstructivo + restrictivo) <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -735,7 +743,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-orange">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🔶</span><span class="card-title">PRISm y Pre-COPD — Conceptos emergentes GOLD 2025 <span class="tag-new">NUEVO 2025</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -748,7 +756,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-yellow">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">⚡</span><span class="card-title">Resumen — Tabla de patrones en un vistazo</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -773,7 +781,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-emerald"><strong>Cambio mayor ATS/ERS 2022:</strong> El criterio de respuesta positiva cambia de «≥ 12% Y ≥ 200 mL de aumento en FEV₁ o FVC (del valor basal)» a <strong>«≥ 10% del valor predicho»</strong>. Se abandona el término «reversibilidad». <span class="tag-new">NUEVO 2022</span></div>
 
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Nuevo criterio de respuesta broncodilatadora <span class="tag-new">NUEVO 2022</span></span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -802,7 +810,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">💉</span><span class="card-title">Protocolo estándar de administración del broncodilatador</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -832,7 +840,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-yellow">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🧩</span><span class="card-title">Interpretación clínica de la respuesta broncodilatadora</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -854,7 +862,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-orange">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">⚡</span><span class="card-title">Errores frecuentes en la prueba broncodilatadora</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -1136,7 +1144,7 @@ tr:hover td{background:var(--surface2)}
 <div class="alert alert-orange"><strong>Divergencia real y vigente:</strong> ATS/ERS 2022 y GOLD 2025 tienen diferencias metodológicas importantes que generan confusión clínica. Esta pestaña las clarifica con aplicabilidad práctica.</div>
 
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">✦</span><span class="card-title">Cambios clave: ATS/ERS 2005 → 2022</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -1156,7 +1164,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-orange">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">⚖️</span><span class="card-title">ATS/ERS 2022 vs GOLD 2025 — ¿Cuándo usar cuál?</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -1175,7 +1183,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">📊</span><span class="card-title">Impacto clínico de los cambios en la práctica real</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -1191,7 +1199,7 @@ tr:hover td{background:var(--surface2)}
 </div>
 
 <div class="card card-purple">
-  <div class="card-header" onclick="toggleCard(this)">
+  <div class="card-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)" onkeydown="activateByKey(event,this)">
     <div class="card-header-left"><span class="card-icon">🌍</span><span class="card-title">GLI 2022 race-neutral — implicaciones para LATAM</span></div>
     <span class="card-arrow">›</span>
   </div>
@@ -1242,19 +1250,39 @@ tr:hover td{background:var(--surface2)}
 </div><!-- /main-app -->
 
 <script>
-// ===== ACCESS =====
+// ===== ACCESS / UTILIDADES BASE =====
 var CLAVES = [];
+var STORAGE_KEY = 'dr_croce_espirometria_2026_quiz';
 function checkAccess(){
-  var v=document.getElementById('pwd-input').value.trim().toUpperCase();
-  if(true){
-    document.getElementById('access-screen').style.display='none';
+  var access=document.getElementById('access-screen');
+  var input=document.getElementById('pwd-input');
+  var err=document.getElementById('access-err');
+  if(!access){ return; }
+  var v=input ? input.value.trim().toUpperCase() : '';
+  if(CLAVES.length===0 || CLAVES.includes(v)){
+    access.style.display='none';
     document.getElementById('main-app').style.display='block';
   } else {
-    document.getElementById('access-err').textContent='Clave incorrecta. Intente nuevamente.';
-    document.getElementById('pwd-input').value='';
+    if(err) err.textContent='Clave incorrecta. Intente nuevamente.';
+    if(input) input.value='';
   }
 }
-
+function activateByKey(e,el){
+  if(e.key==='Enter' || e.key===' '){ e.preventDefault(); el.click(); }
+}
+function toggleFullscreen(){
+  if(!document.fullscreenElement){ document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
+  else { document.exitFullscreen && document.exitFullscreen(); }
+}
+function safeLoadQuiz(){
+  try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch(e){localStorage.removeItem(STORAGE_KEY);return {}; }
+}
+function safeSaveQuiz(){
+  try{localStorage.setItem(STORAGE_KEY, JSON.stringify({curQuiz:curQuiz,curQ:curQ,answers:answers,score:score,answered:answered}));}catch(e){}
+}
+function resetAllProgress(){
+  if(confirm('¿Desea reiniciar el progreso guardado del quiz?')){ localStorage.removeItem(STORAGE_KEY); resetQuiz(); }
+}
 
 // ===== TABS =====
 function showTab(n,el){
@@ -1268,8 +1296,9 @@ function showTab(n,el){
 function toggleCard(h){
   var b=h.nextElementSibling;
   var a=h.querySelector('.card-arrow');
-  b.classList.toggle('open');
-  a.classList.toggle('open');
+  var isOpen=b.classList.toggle('open');
+  a.classList.toggle('open', isOpen);
+  h.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // ===== CALCULADORAS =====
@@ -1552,56 +1581,90 @@ var curQuiz=1, curQ=0, answers={}, score=0, answered=[];
 function selectQuiz(n){
   curQuiz=n; curQ=0; answers={}; score=0; answered=[];
   document.querySelectorAll('.qsel-btn').forEach(function(b,i){b.classList.toggle('active',i===n-1);});
+  safeSaveQuiz();
   renderQuestion();
 }
+
+function restoreQuiz(){
+  var saved=safeLoadQuiz();
+  if(saved && QUIZZES[saved.curQuiz]){
+    curQuiz=saved.curQuiz || 1;
+    curQ=Number.isInteger(saved.curQ) ? saved.curQ : 0;
+    answers=saved.answers || {};
+    score=saved.score || 0;
+    answered=Array.isArray(saved.answered) ? saved.answered : [];
+    if(curQ<0 || curQ>=QUIZZES[curQuiz].length) curQ=0;
+  }
+  document.querySelectorAll('.qsel-btn').forEach(function(b,i){b.classList.toggle('active',i===curQuiz-1);});
+  renderQuestion();
+}
+
+function isAnsweredQuestion(){ return answered.indexOf(curQ)!==-1; }
+function hasSelection(){ return Object.prototype.hasOwnProperty.call(answers, curQ); }
 
 function renderQuestion(){
   var qs=QUIZZES[curQuiz];
   var q=qs[curQ];
   var total=qs.length;
+  var answeredNow=isAnsweredQuestion();
   document.getElementById('quiz-info').textContent='Pregunta '+(curQ+1)+' de '+total;
   document.getElementById('quiz-score').textContent='Puntuación: '+score+'/'+total;
   document.getElementById('progress-fill').style.width=(((curQ+1)/total)*100)+'%';
-  var isCase=q.q.startsWith('CASO:');
+  var isCase=q.q.indexOf('CASO:')===0;
   var html='';
   if(isCase) html='<div class="case-block">'+q.q.replace('CASO:','<strong>📋 CASO CLÍNICO:</strong>')+'</div>';
   else html='<div class="question-text">'+q.q+'</div>';
-  html+='<div class="options">';
+  html+='<div class="options" role="radiogroup" aria-label="Opciones de respuesta">';
   q.o.forEach(function(opt,i){
     var cls='option';
-    if(answered.includes(curQ)){
+    if(answeredNow){
       if(i===q.a) cls+=' correct';
-      else if(answers[curQ]===i&&i!==q.a) cls+=' wrong';
+      else if(Number(answers[curQ])===i && i!==q.a) cls+=' wrong';
+    } else if(hasSelection() && Number(answers[curQ])===i){
+      cls+=' selected';
     }
-    html+='<button class="'+cls+'" onclick="selectOption('+i+')" '+(answered.includes(curQ)?'disabled':'')+'>'+String.fromCharCode(65+i)+') '+opt+'</button>';
+    html+='<button type="button" class="'+cls+'" role="radio" aria-checked="'+(Number(answers[curQ])===i)+'" onclick="selectOption('+i+')" '+(answeredNow?'disabled':'')+'>'+String.fromCharCode(65+i)+') '+opt+'</button>';
   });
   html+='</div>';
-  if(answered.includes(curQ)){
-    var correct=(answers[curQ]===q.a);
-    html+='<div class="feedback show"><strong>'+(correct?'✅ ¡Correcto!':'❌ Incorrecto. La respuesta correcta es la opción '+String.fromCharCode(65+q.a))+'</strong><br><br>'+q.f+'</div>';
+  if(answeredNow){
+    var correct=(Number(answers[curQ])===q.a);
+    html+='<div class="feedback show"><strong>'+(correct?'✔ Correcto':'✘ Incorrecto. La respuesta correcta es la opción '+String.fromCharCode(65+q.a))+'</strong><br><br>'+q.f+'</div>';
+  } else if(hasSelection()){
+    html+='<div class="feedback show"><strong>Respuesta seleccionada.</strong><br>Presione «Responder» para corregirla.</div>';
   }
   document.getElementById('quiz-body').innerHTML=html;
   document.getElementById('btn-prev').style.display=curQ>0?'':'none';
-  document.getElementById('btn-next').textContent=(curQ===total-1)?'Ver resultado →':'Siguiente →';
+  document.getElementById('btn-next').style.display='';
+  document.getElementById('btn-next').textContent=answeredNow ? ((curQ===total-1)?'Ver resultado →':'Siguiente →') : 'Responder';
 }
 
 function selectOption(i){
-  if(answered.includes(curQ)) return;
+  if(isAnsweredQuestion()) return;
   answers[curQ]=i;
-  answered.push(curQ);
-  if(i===QUIZZES[curQuiz][curQ].a) score++;
+  safeSaveQuiz();
+  renderQuestion();
+}
+
+function confirmAnswer(){
+  if(!hasSelection()){ alert('Seleccione una respuesta antes de continuar.'); return; }
+  if(!isAnsweredQuestion()){
+    answered.push(curQ);
+    if(Number(answers[curQ])===QUIZZES[curQuiz][curQ].a) score++;
+    safeSaveQuiz();
+  }
   renderQuestion();
 }
 
 function quizNext(){
   var qs=QUIZZES[curQuiz];
-  if(curQ<qs.length-1){curQ++;renderQuestion();}
+  if(!isAnsweredQuestion()){ confirmAnswer(); return; }
+  if(curQ<qs.length-1){curQ++; safeSaveQuiz(); renderQuestion();}
   else showResult();
 }
 
-function quizPrev(){if(curQ>0){curQ--;renderQuestion();}}
+function quizPrev(){if(curQ>0){curQ--;safeSaveQuiz();renderQuestion();}}
 
-function resetQuiz(){curQ=0;answers={};score=0;answered=[];renderQuestion();}
+function resetQuiz(){curQ=0;answers={};score=0;answered=[];safeSaveQuiz();renderQuestion();}
 
 function showResult(){
   var total=QUIZZES[curQuiz].length;
@@ -1625,10 +1688,13 @@ function showResult(){
 
 // Init
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('pwd-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') checkAccess();
-  });
-  selectQuiz(1);
+  var pwd=document.getElementById('pwd-input');
+  if(pwd){
+    pwd.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkAccess();
+    });
+  }
+  restoreQuiz();
 });
 </script>
 </body>

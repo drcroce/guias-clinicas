@@ -455,6 +455,17 @@ p { margin-bottom: 10px; }
 .arrow-down { text-align: center; font-size: 1.4rem; color: var(--text-muted); margin: 2px 0; }
 .compare-table th { font-size: 0.82rem; }
 
+
+/* ===== FRAMEWORK EDUCATIVO: UTILIDADES, ACCESIBILIDAD Y ESTADOS ===== */
+.utility-bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.util-btn{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.34);border-radius:20px;padding:6px 12px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:"Source Sans 3",sans-serif;transition:background .2s,transform .2s}
+.util-btn:hover{background:rgba(255,255,255,.25);transform:translateY(-1px)}
+.quiz-option.selected{border-color:var(--blue);background:var(--blue-bg);color:var(--blue)}
+.quiz-option:focus-visible,.tab-btn:focus-visible,.quiz-nav-btn:focus-visible,.quiz-reset-btn:focus-visible,.calc-btn:focus-visible,.card-header:focus-visible,.util-btn:focus-visible{outline:3px solid rgba(27,79,189,.35);outline-offset:2px}
+.quiz-feedback strong{font-size:1rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
 /* RESPONSIVE */
 @media (max-width: 700px) {
   .header-title h1 { font-size: 1.4rem; }
@@ -500,6 +511,10 @@ p { margin-bottom: 10px; }
         <span class="badge badge-new">✦ NUEVO 2026</span>
         <span class="badge badge-updated">⟳ ACTUALIZADO 2025–2026</span>
       </div>
+      <div class="utility-bar" aria-label="Herramientas de lectura">
+        <button class="util-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
+        <button class="util-btn" type="button" onclick="clearLearningProgress()">↺ Reiniciar progreso local</button>
+      </div>
     </div>
   </header>
 
@@ -507,15 +522,15 @@ p { margin-bottom: 10px; }
   <div class="tabs-wrapper">
     <div class="tabs-scroll-hint">← desliza para ver todas las secciones →</div>
     <div class="tabs-container">
-      <button class="tab-btn active" onclick="showTab(0)">🔬 Conceptos</button>
-      <button class="tab-btn" onclick="showTab(1)">⚗️ Laboratorio</button>
-      <button class="tab-btn" onclick="showTab(2)">🧠 Fisiopatología</button>
-      <button class="tab-btn" onclick="showTab(3)">📊 Clasificación</button>
-      <button class="tab-btn" onclick="showTab(4)">🏥 Manejo Clínico</button>
-      <button class="tab-btn" onclick="showTab(5)">🔄 Protocolo</button>
-      <button class="tab-btn" onclick="showTab(6)">🧮 Calculadoras</button>
-      <button class="tab-btn" onclick="showTab(7)">📖 Casos Clínicos</button>
-      <button class="tab-btn" onclick="showTab(8)">✏️ Quiz</button>
+      <button class="tab-btn active" onclick="showTab(0)" type="button" aria-controls="tab-0">🔬 Conceptos</button>
+      <button class="tab-btn" onclick="showTab(1)" type="button" aria-controls="tab-1">⚗️ Laboratorio</button>
+      <button class="tab-btn" onclick="showTab(2)" type="button" aria-controls="tab-2">🧠 Fisiopatología</button>
+      <button class="tab-btn" onclick="showTab(3)" type="button" aria-controls="tab-3">📊 Clasificación</button>
+      <button class="tab-btn" onclick="showTab(4)" type="button" aria-controls="tab-4">🏥 Manejo Clínico</button>
+      <button class="tab-btn" onclick="showTab(5)" type="button" aria-controls="tab-5">🔄 Protocolo</button>
+      <button class="tab-btn" onclick="showTab(6)" type="button" aria-controls="tab-6">🧮 Calculadoras</button>
+      <button class="tab-btn" onclick="showTab(7)" type="button" aria-controls="tab-7">📖 Casos Clínicos</button>
+      <button class="tab-btn" onclick="showTab(8)" type="button" aria-controls="tab-8">✏️ Quiz</button>
     </div>
   </div>
 
@@ -526,7 +541,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">🔬 Conceptos y Definiciones</h2>
 
     <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">📘</span>
           <span class="card-title">Definición y Umbral Diagnóstico</span>
@@ -553,7 +568,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🌐</span>
           <span class="card-title">Epidemiología e Impacto Clínico</span>
@@ -583,7 +598,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⚠️</span>
           <span class="card-title">Tríada de Whipple — Piedra Angular Diagnóstica en No Diabéticos</span>
@@ -616,7 +631,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🔖</span>
           <span class="card-title">Síntomas: Adrenérgicos vs. Neuroglucopénicos</span>
@@ -640,7 +655,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">💊</span>
           <span class="card-title">Causas de Hipoglucemia — Clasificación Etiológica</span>
@@ -696,7 +711,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 1: LO QUE TIENES EN 2 MINUTOS -->
     <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⚡</span>
           <span class="card-title">FASE 0 — Lo que tienes en &lt;2 minutos: Glucómetro capilar</span>
@@ -742,7 +757,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 2: FASE 1 - PRIMEROS 15 MINUTOS -->
     <div class="card card-orange open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🕐</span>
           <span class="card-title">FASE 1 — Laboratorio de los primeros 15 minutos (mientras se trata)</span>
@@ -800,7 +815,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 3: ÁRBOL DE DECISIÓN LABORATORIAL EN TIEMPO REAL -->
     <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🧭</span>
           <span class="card-title">ÁRBOL DE DECISIÓN — ¿Qué pedir según el contexto clínico en urgencias?</span>
@@ -888,7 +903,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 4: LABORATORIO QUE CAMBIA DECISIONES EN URGENCIAS -->
     <div class="card card-cyan">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🎯</span>
           <span class="card-title">¿Qué resultado de laboratorio cambia qué decisión? — Guía rápida para el médico de emergencia</span>
@@ -948,7 +963,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 5: CUÁNDO HOSPITALIZAR vs ALTA -->
     <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🏥</span>
           <span class="card-title">Decisión de HOSPITALIZACIÓN vs ALTA — Criterios basados en clínica + laboratorio</span>
@@ -1002,7 +1017,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 6: MONITOREO DURANTE RECUPERACIÓN -->
     <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">📈</span>
           <span class="card-title">Monitoreo Glucémico Durante la Atención en Emergencia — Frecuencias y Umbrales de Acción</span>
@@ -1057,7 +1072,7 @@ p { margin-bottom: 10px; }
 
     <!-- CARD 7: LABORATORIO QUE NO NECESITAS PEDIR EN URGENCIAS -->
     <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🚫</span>
           <span class="card-title">Exámenes que NO son prioritarios en urgencias — Para consulta externa / seguimiento</span>
@@ -1115,7 +1130,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">🧠 Fisiopatología</h2>
 
     <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⚡</span>
           <span class="card-title">Contrarregulación Glucémica Normal</span>
@@ -1167,7 +1182,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🚨</span>
           <span class="card-title">Fallo de Contrarregulación — Por Qué Algunos Pacientes No "Sienten" la Hipoglucemia</span>
@@ -1196,7 +1211,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🧬</span>
           <span class="card-title">Hipoglucemia en Contextos Especiales — Fisiopatología Específica</span>
@@ -1222,7 +1237,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">📊 Clasificación y Estratificación</h2>
 
     <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🎯</span>
           <span class="card-title">Clasificación ADA 2026 por Niveles de Severidad <span class="tag-new">ADA 2026</span></span>
@@ -1262,7 +1277,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⏰</span>
           <span class="card-title">Clasificación por Temporalidad y Relación con Alimentación</span>
@@ -1312,7 +1327,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⚠️</span>
           <span class="card-title">Factores de Riesgo para Hipoglucemia Grave</span>
@@ -1351,7 +1366,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">📋</span>
           <span class="card-title">Evaluación del Riesgo — Checklist del Proveedor <span class="tag-updated">ADA 2026</span></span>
@@ -1378,7 +1393,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">🏥 Decisiones Terapéuticas Basadas en Clínica y Laboratorio</h2>
 
     <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🚨</span>
           <span class="card-title">Tratamiento de Hipoglucemia Aguda — Árbol de Decisión por Nivel de Conciencia</span>
@@ -1435,7 +1450,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-blue">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">⚖️</span>
           <span class="card-title">Decisiones Terapéuticas Basadas en Laboratorio — Guía Práctica</span>
@@ -1458,7 +1473,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🏥</span>
           <span class="card-title">Hipoglucemia Intrahospitalaria — ADA 2026 <span class="tag-new">ADA 2026</span></span>
@@ -1486,7 +1501,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">💊</span>
           <span class="card-title">Fármacos Hipoglucemiantes con Mayor Riesgo — Guía de Decisión</span>
@@ -1514,7 +1529,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">🔄 Protocolo Paso a Paso</h2>
 
     <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🏃</span>
           <span class="card-title">Protocolo Urgencias — Hipoglucemia Aguda</span>
@@ -1591,7 +1606,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">💊</span>
           <span class="card-title">Octreotida en Hipoglucemia por Sulfonilurea — Cuándo y Cómo</span>
@@ -1615,7 +1630,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🧪</span>
           <span class="card-title">Hipoglucemia en Contexto de Alcohólismo — Protocolo Especial</span>
@@ -1649,7 +1664,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-emerald">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🛡️</span>
           <span class="card-title">Plan Multipunto de Prevención — ADA 2026 <span class="tag-new">NUEVO</span></span>
@@ -1846,7 +1861,7 @@ p { margin-bottom: 10px; }
     <h2 class="section-title">📖 Casos Clínicos Comentados</h2>
 
     <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🏥</span>
           <span class="card-title">Caso 1: Hombre Diabético con Hipoglucemia Severa en Urgencias</span>
@@ -1886,7 +1901,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🔍</span>
           <span class="card-title">Caso 2: Mujer No Diabética con Hipoglucemias Recurrentes en Ayuno</span>
@@ -1919,7 +1934,7 @@ p { margin-bottom: 10px; }
     </div>
 
     <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)">
+      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
         <div class="card-header-left">
           <span class="card-icon">🍺</span>
           <span class="card-title">Caso 3: Joven con Hipoglucemia por Alcohol + Error en Manejo</span>
@@ -1959,7 +1974,7 @@ p { margin-bottom: 10px; }
       <button class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3: Casos Clínicos Prácticos</button>
     </div>
 
-    <div class="quiz-container" id="quiz-container">
+    <div class="quiz-container" id="quiz-container" aria-live="polite">
       <div class="quiz-progress-bar-wrap">
         <div class="quiz-progress-bar" id="quiz-progress" style="width:10%"></div>
       </div>
@@ -1967,7 +1982,7 @@ p { margin-bottom: 10px; }
       <div class="quiz-question" id="quiz-question"></div>
       <div class="quiz-options" id="quiz-options"></div>
       <div class="quiz-feedback" id="quiz-feedback"></div>
-      <div class="quiz-nav">
+      <div class="quiz-nav" id="quiz-nav">
         <button class="quiz-nav-btn" id="btn-prev" onclick="quizPrev()" disabled>← Anterior</button>
         <button class="quiz-nav-btn primary" id="btn-next" onclick="quizNext()">Siguiente →</button>
         <button class="quiz-reset-btn" onclick="resetQuiz()">🔄 Reiniciar</button>
@@ -1985,28 +2000,45 @@ p { margin-bottom: 10px; }
 </div><!-- end main-app -->
 
 <script>
+// ---- UTILIDADES BASE ----
+function $(id){ return document.getElementById(id); }
+function safeSetDisplay(id,value){ var node=$(id); if(node){ node.style.display=value; } }
+var STORAGE_PREFIX="dr_croce_hipoglucemia_v2";
+
 // ---- ACCESO ----
+// El acceso está desactivado para integración con portal. La función queda defensiva para evitar errores si se reutiliza el componente.
 var CLAVES = [];
 function verificarClave(){
-  var v=document.getElementById("clave-input").value.trim().toUpperCase();
-  if(true){
-    document.getElementById("access-screen").style.display="none";
-    document.getElementById("main-app").style.display="block";
-  } else {
-    document.getElementById("access-error").style.display="block";
+  var input=$("clave-input");
+  var error=$("access-error");
+  if(!input){ safeSetDisplay("access-screen","none"); safeSetDisplay("main-app","block"); return; }
+  var v=input.value.trim().toUpperCase();
+  if(CLAVES.length===0 || CLAVES.indexOf(v)!==-1){
+    safeSetDisplay("access-screen","none");
+    safeSetDisplay("main-app","block");
+  } else if(error){
+    error.style.display="block";
   }
 }
 
 // ---- TABS ----
 function showTab(n){
-  document.querySelectorAll(".tab-panel").forEach(function(p,i){p.classList.toggle("active",i===n);});
-  document.querySelectorAll(".tab-btn").forEach(function(b,i){b.classList.toggle("active",i===n);});
+  document.querySelectorAll(".tab-panel").forEach(function(p,i){
+    p.classList.toggle("active",i===n);
+    p.setAttribute("aria-hidden", i===n ? "false" : "true");
+  });
+  document.querySelectorAll(".tab-btn").forEach(function(b,i){
+    b.classList.toggle("active",i===n);
+    b.setAttribute("aria-selected", i===n ? "true" : "false");
+  });
+  try{ localStorage.setItem(STORAGE_PREFIX+":activeTab", String(n)); }catch(e){}
 }
 
 // ---- CARDS ----
 function toggleCard(h){
   var c=h.closest(".card");
-  c.classList.toggle("open");
+  var isOpen=c.classList.toggle("open");
+  h.setAttribute("aria-expanded", isOpen ? "true" : "false");
 }
 
 // ---- CALCULADORA 1: DEXTROSA ----
@@ -2154,12 +2186,54 @@ function calcRiesgo(){
   document.getElementById("calc5-result").classList.add("show");
 }
 
+// ---- PANTALLA COMPLETA Y PERSISTENCIA ----
+function toggleFullscreen(){
+  if(!document.fullscreenElement){
+    document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen && document.exitFullscreen();
+  }
+}
+function clearLearningProgress(){
+  try{
+    Object.keys(localStorage).forEach(function(k){ if(k.indexOf(STORAGE_PREFIX)===0){ localStorage.removeItem(k); } });
+  }catch(e){}
+  selectQuiz(1);
+  showTab(0);
+  alert("Progreso local reiniciado en este navegador.");
+}
+document.addEventListener("keydown", function(ev){
+  if(ev.key==="Enter" || ev.key===" "){
+    var target=ev.target;
+    if(target && target.classList && target.classList.contains("card-header")){ ev.preventDefault(); toggleCard(target); }
+  }
+});
+
 // ======== QUIZ ENGINE ========
 var currentQuiz=1;
 var currentQ=0;
 var score=0;
 var answered=[];
 var userAnswers=[];
+function quizStorageKey(){ return STORAGE_PREFIX+":quiz:"+currentQuiz; }
+function saveQuizState(){
+  try{ localStorage.setItem(quizStorageKey(), JSON.stringify({currentQ:currentQ,score:score,answered:answered,userAnswers:userAnswers})); }catch(e){}
+}
+function loadQuizState(total){
+  try{
+    var raw=localStorage.getItem(quizStorageKey());
+    if(!raw) return false;
+    var s=JSON.parse(raw);
+    if(!s || !Array.isArray(s.answered) || s.answered.length!==total || !Array.isArray(s.userAnswers) || s.userAnswers.length!==total) return false;
+    currentQ=Math.min(Math.max(parseInt(s.currentQ,10)||0,0),total-1);
+    answered=s.answered.map(Boolean);
+    userAnswers=s.userAnswers;
+    score=answered.reduce(function(acc,isAns,idx){
+      return acc + (isAns && userAnswers[idx]===quizData[currentQuiz][idx].correct ? 1 : 0);
+    },0);
+    return true;
+  }catch(e){ return false; }
+}
 
 var quizData = {
   1: [
@@ -2293,7 +2367,18 @@ var quizData = {
 function selectQuiz(n){
   currentQuiz=n;
   document.querySelectorAll(".quiz-sel-btn").forEach(function(b,i){b.classList.toggle("active",i+1===n);});
-  resetQuiz();
+  currentQ=0; score=0;
+  var total=quizData[currentQuiz].length;
+  answered=new Array(total).fill(false);
+  userAnswers=new Array(total).fill(null);
+  loadQuizState(total);
+  $("score-panel").style.display="none";
+  $("quiz-progress").parentElement.style.display="block";
+  $("quiz-label").style.display="block";
+  $("quiz-question").style.display="block";
+  $("quiz-options").style.display="flex";
+  $("quiz-nav").style.display="flex";
+  renderQuestion();
 }
 
 function resetQuiz(){
@@ -2301,12 +2386,13 @@ function resetQuiz(){
   var total=quizData[currentQuiz].length;
   answered=new Array(total).fill(false);
   userAnswers=new Array(total).fill(null);
-  document.getElementById("score-panel").style.display="none";
-  document.getElementById("quiz-progress").parentElement.style.display="block";
-  document.getElementById("quiz-label").style.display="block";
-  document.getElementById("quiz-question").style.display="block";
-  document.getElementById("quiz-options").style.display="flex";
-  document.getElementById("quiz-nav").style.display="flex";
+  try{ localStorage.removeItem(quizStorageKey()); }catch(e){}
+  $("score-panel").style.display="none";
+  $("quiz-progress").parentElement.style.display="block";
+  $("quiz-label").style.display="block";
+  $("quiz-question").style.display="block";
+  $("quiz-options").style.display="flex";
+  $("quiz-nav").style.display="flex";
   renderQuestion();
 }
 
@@ -2322,12 +2408,18 @@ function renderQuestion(){
   q.opts.forEach(function(opt,i){
     var div=document.createElement("div");
     div.className="quiz-option"+(answered[currentQ]?" disabled":"");
+    div.setAttribute("role","button");
+    div.setAttribute("tabindex", answered[currentQ] ? "-1" : "0");
+    div.setAttribute("aria-label", "Opción "+letters[i]+": "+opt.replace(/<[^>]*>/g, ""));
     if(answered[currentQ]){
       if(i===q.correct) div.classList.add("correct");
       else if(i===userAnswers[currentQ]) div.classList.add("incorrect");
     }
     div.innerHTML='<span class="option-letter">'+letters[i]+'</span><span>'+opt+'</span>';
-    if(!answered[currentQ]) div.onclick=function(){selectAnswer(i);};
+    if(!answered[currentQ]){
+      div.onclick=function(){selectAnswer(i);};
+      div.onkeydown=function(ev){ if(ev.key==="Enter" || ev.key===" "){ ev.preventDefault(); selectAnswer(i); } };
+    }
     optDiv.appendChild(div);
   });
   var fb=document.getElementById("quiz-feedback");
@@ -2339,7 +2431,8 @@ function renderQuestion(){
     fb.innerHTML="";
   }
   document.getElementById("btn-prev").disabled=(currentQ===0);
-  document.getElementById("btn-next").textContent=(currentQ===total-1?"Ver resultados →":"Siguiente →");
+  $("btn-next").textContent=(currentQ===total-1?"Ver resultados →":"Siguiente →");
+  $("btn-next").disabled=!answered[currentQ];
 }
 
 function selectAnswer(i){
@@ -2348,21 +2441,24 @@ function selectAnswer(i){
   userAnswers[currentQ]=i;
   answered[currentQ]=true;
   if(i===q.correct) score++;
+  saveQuizState();
   renderQuestion();
 }
 
 function quizNext(){
   var total=quizData[currentQuiz].length;
+  if(!answered[currentQ]){ return; }
   if(currentQ===total-1){
     showScore();
   } else {
     currentQ++;
+    saveQuizState();
     renderQuestion();
   }
 }
 
 function quizPrev(){
-  if(currentQ>0){currentQ--;renderQuestion();}
+  if(currentQ>0){currentQ--;saveQuizState();renderQuestion();}
 }
 
 function showScore(){
@@ -2373,6 +2469,7 @@ function showScore(){
   document.getElementById("quiz-options").style.display="none";
   document.getElementById("quiz-nav").style.display="none";
   document.getElementById("quiz-feedback").className="quiz-feedback";
+  saveQuizState();
   var panel=document.getElementById("score-panel");
   panel.style.display="block";
   var pct=Math.round(score/total*100);
@@ -2387,7 +2484,16 @@ function showScore(){
 }
 
 // Init quiz
-window.onload=function(){selectQuiz(1);};
+window.onload=function(){
+  document.querySelectorAll(".card-header").forEach(function(h){
+    h.setAttribute("aria-expanded", h.closest(".card").classList.contains("open") ? "true" : "false");
+  });
+  var savedTab=0;
+  try{ savedTab=parseInt(localStorage.getItem(STORAGE_PREFIX+":activeTab")||"0",10); }catch(e){}
+  if(isNaN(savedTab) || savedTab<0 || savedTab>8) savedTab=0;
+  showTab(savedTab);
+  selectQuiz(1);
+};
 </script>
 </body>
 </html>
