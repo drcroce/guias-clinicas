@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CAD / EHH — Guía de Urgencias</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -137,496 +138,450 @@ b.hl{color:var(--text)}
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="app">
-
 <div class="header">
-  <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-  <a class="portal-back" href="../index.html">← Portal de guías</a>
-
-  <h1>⚡ Crisis Hiperglucémica — Guía de Urgencias</h1>
-  <p>Cetoacidosis Diabética (CAD) · Estado Hiperosmolar Hiperglucémico (EHH)</p>
-  <div class="badge-row">
-    <span class="badge">ADA 2026</span>
-    <span class="badge">Médico Internista</span>
-    <span class="badge">Dr. Luis E. Croce A.</span>
-  </div>
+<button class="fullscreen-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+<a class="portal-back" href="../index.html">← Portal de guías</a>
+<h1>⚡ Crisis Hiperglucémica — Guía de Urgencias</h1>
+<p>Cetoacidosis Diabética (CAD) · Estado Hiperosmolar Hiperglucémico (EHH)</p>
+<div class="badge-row">
+<span class="badge">ADA 2026</span>
+<span class="badge">Médico Internista</span>
+<span class="badge">Dr. Luis E. Croce A.</span>
 </div>
-
-<div class="tabs-tip">👈 Desliza para ver todas las secciones &nbsp;→</div>
+</div>
+<div class="tabs-tip">👈 Desliza para ver todas las secciones  →</div>
 <div class="tabs-wrap">
-  <div class="tabs" id="tabs-bar">
-    <div class="tab active" onclick="showTab('diagnostico',this)">🔍 Diagnóstico</div>
-    <div class="tab" onclick="showTab('protocolo',this)">📋 Protocolo</div>
-    <div class="tab" onclick="showTab('calculadora',this)">🧮 Calculadora</div>
-    <div class="tab" onclick="showTab('fluidos',this)">💧 Fluidoterapia</div>
-    <div class="tab" onclick="showTab('insulina',this)">💉 Insulina</div>
-    <div class="tab" onclick="showTab('potasio',this)">⚗️ Potasio</div>
-    <div class="tab" onclick="showTab('complicaciones',this)">⚠️ Complicaciones</div>
-    <div class="tab" onclick="showTab('quiz',this)">🎯 Quiz</div>
-  </div>
-  <div class="tabs-fade" id="tabs-fade"><span class="scroll-arrow">›</span></div>
+<div class="tabs" id="tabs-bar">
+<div class="tab active" onclick="showTab('diagnostico',this)">🔍 Diagnóstico</div>
+<div class="tab" onclick="showTab('protocolo',this)">📋 Protocolo</div>
+<div class="tab" onclick="showTab('calculadora',this)">🧮 Calculadora</div>
+<div class="tab" onclick="showTab('fluidos',this)">💧 Fluidoterapia</div>
+<div class="tab" onclick="showTab('insulina',this)">💉 Insulina</div>
+<div class="tab" onclick="showTab('potasio',this)">⚗️ Potasio</div>
+<div class="tab" onclick="showTab('complicaciones',this)">⚠️ Complicaciones</div>
+<div class="tab" onclick="showTab('quiz',this)">🎯 Quiz</div>
 </div>
-
+<div class="tabs-fade" id="tabs-fade"><span class="scroll-arrow">›</span></div>
+</div>
 <div class="content">
-
 <!-- DIAGNÓSTICO -->
 <div class="section active" id="tab-diagnostico">
-  <div class="compare-grid">
-    <div class="compare-card compare-red">
-      <div class="compare-title red">🔴 CAD — Cetoacidosis Diabética</div>
-      <div class="compare-row"><span class="lbl">Glucosa</span><span class="val">&gt;250 mg/dL</span></div>
-      <div class="compare-row"><span class="lbl">pH arterial</span><span class="val">&lt;7.30</span></div>
-      <div class="compare-row"><span class="lbl">Bicarbonato</span><span class="val">&lt;18 mEq/L</span></div>
-      <div class="compare-row"><span class="lbl">Cetonas</span><span class="val">Positivas +++</span></div>
-      <div class="compare-row"><span class="lbl">Osmolaridad</span><span class="val">Variable</span></div>
-      <div class="compare-row"><span class="lbl">Anion Gap</span><span class="val">&gt;12 mEq/L</span></div>
-      <div class="compare-row"><span class="lbl">Conciencia</span><span class="val">Alerta / Obtuso</span></div>
-      <div class="compare-row"><span class="lbl">Tipo DM</span><span class="val">DM1 (también DM2)</span></div>
-    </div>
-    <div class="compare-card compare-blue">
-      <div class="compare-title blue">🔵 EHH — Estado Hiperosmolar</div>
-      <div class="compare-row"><span class="lbl">Glucosa</span><span class="val">&gt;600 mg/dL</span></div>
-      <div class="compare-row"><span class="lbl">pH arterial</span><span class="val">&gt;7.30</span></div>
-      <div class="compare-row"><span class="lbl">Bicarbonato</span><span class="val">&gt;18 mEq/L</span></div>
-      <div class="compare-row"><span class="lbl">Cetonas</span><span class="val">Negativas / trazas</span></div>
-      <div class="compare-row"><span class="lbl">Osmolaridad</span><span class="val">&gt;320 mOsm/kg</span></div>
-      <div class="compare-row"><span class="lbl">Anion Gap</span><span class="val">Normal o leve ↑</span></div>
-      <div class="compare-row"><span class="lbl">Conciencia</span><span class="val">Estupor / Coma</span></div>
-      <div class="compare-row"><span class="lbl">Tipo DM</span><span class="val">DM2 (adulto mayor)</span></div>
-    </div>
-  </div>
-
-  <div class="card card-red" id="cad-sev">
-    <div class="card-head" onclick="toggleCard('cad-sev')">🔴 Severidad de CAD <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Parámetro</th><th>Leve</th><th>Moderada</th><th>Grave</th></tr>
-        <tr><td>Glucosa (mg/dL)</td><td>&gt;250</td><td>&gt;250</td><td>&gt;250</td></tr>
-        <tr><td>pH arterial</td><td>7.25–7.30</td><td>7.00–7.24</td><td>&lt;7.00</td></tr>
-        <tr><td>Bicarbonato</td><td>15–18</td><td>10–15</td><td>&lt;10</td></tr>
-        <tr><td>Cetonas orina</td><td>+</td><td>++</td><td>+++</td></tr>
-        <tr><td>Anion Gap</td><td>&gt;12</td><td>&gt;12</td><td>&gt;12</td></tr>
-        <tr><td>Conciencia</td><td>Alerta</td><td>Alerta / Obtuso</td><td>Estupor / Coma</td></tr>
-      </table>
-      <div class="alert alert-amber">AG corregido = AG + 2.5 × (4 – albúmina g/dL). Usar cuando albúmina sea baja.</div>
-    </div>
-  </div>
-
-  <div class="card card-blue" id="exams">
-    <div class="card-head" onclick="toggleCard('exams')">🧪 Exámenes iniciales obligatorios <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
-        <div>
-          <div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Laboratorio</div>
-          <ul class="list">
-            <li><b class="hl">Glucemia</b> capilar y venosa</li>
-            <li><b class="hl">Gases arteriales</b> (pH, pCO₂, HCO₃)</li>
-            <li><b class="hl">Electrolitos:</b> Na, K, Cl, Mg, P</li>
-            <li><b class="hl">BUN / Creatinina</b></li>
-            <li><b class="hl">Cetonas</b> en orina y/o sangre</li>
-            <li><b class="hl">Hemograma completo</b></li>
-            <li><b class="hl">Osmolaridad sérica</b></li>
-            <li><b class="hl">HbA1c</b> (si disponible)</li>
-          </ul>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Buscar desencadenante</div>
-          <ul class="list">
-            <li>ECG (IAM silente frecuente)</li>
-            <li>Radiografía de tórax</li>
-            <li>Urocultivo / Hemocultivo</li>
-            <li>Troponinas si sospecha SCA</li>
-            <li>β-hCG en mujer en edad fértil</li>
-            <li>Lipasa si dolor abdominal</li>
-            <li>TSH si EHH sin causa clara</li>
-          </ul>
-        </div>
-      </div>
-      <div class="alert alert-red">⚠️ Potasio ANTES de insulina. No iniciar insulina con K⁺ &lt;3.5 mEq/L sin corrección previa.</div>
-    </div>
-  </div>
-
-  <div class="card card-amber" id="desenc">
-    <div class="card-head" onclick="toggleCard('desenc')">🎯 Las 6 "I" — Desencadenantes frecuentes <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Causa</th><th>Claves clínicas</th></tr>
-        <tr><td><b>Infección</b> (40%)</td><td>Fiebre, leucocitosis, foco evidente (neumonía, ITU, pie diabético)</td></tr>
-        <tr><td><b>Insulina insuficiente</b></td><td>Omisión de dosis, falla del dispositivo, errores en ajuste</td></tr>
-        <tr><td><b>Inaugural</b> (DM1 nueva)</td><td>Joven, poliuria-polidipsia semanas antes, sin diagnóstico previo</td></tr>
-        <tr><td><b>Infarto</b> (IAM / ACV)</td><td>ECG, troponinas, déficit neurológico focal</td></tr>
-        <tr><td><b>Ingesta de alcohol / drogas</b></td><td>Antecedente social, toxicología</td></tr>
-        <tr><td><b>Iatrogénico</b></td><td>Corticoides, SGLT2 inhibidores, antipsicóticos atípicos</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="compare-grid">
+<div class="compare-card compare-red">
+<div class="compare-title red">🔴 CAD — Cetoacidosis Diabética</div>
+<div class="compare-row"><span class="lbl">Glucosa</span><span class="val">&gt;250 mg/dL</span></div>
+<div class="compare-row"><span class="lbl">pH arterial</span><span class="val">&lt;7.30</span></div>
+<div class="compare-row"><span class="lbl">Bicarbonato</span><span class="val">&lt;18 mEq/L</span></div>
+<div class="compare-row"><span class="lbl">Cetonas</span><span class="val">Positivas +++</span></div>
+<div class="compare-row"><span class="lbl">Osmolaridad</span><span class="val">Variable</span></div>
+<div class="compare-row"><span class="lbl">Anion Gap</span><span class="val">&gt;12 mEq/L</span></div>
+<div class="compare-row"><span class="lbl">Conciencia</span><span class="val">Alerta / Obtuso</span></div>
+<div class="compare-row"><span class="lbl">Tipo DM</span><span class="val">DM1 (también DM2)</span></div>
+</div>
+<div class="compare-card compare-blue">
+<div class="compare-title blue">🔵 EHH — Estado Hiperosmolar</div>
+<div class="compare-row"><span class="lbl">Glucosa</span><span class="val">&gt;600 mg/dL</span></div>
+<div class="compare-row"><span class="lbl">pH arterial</span><span class="val">&gt;7.30</span></div>
+<div class="compare-row"><span class="lbl">Bicarbonato</span><span class="val">&gt;18 mEq/L</span></div>
+<div class="compare-row"><span class="lbl">Cetonas</span><span class="val">Negativas / trazas</span></div>
+<div class="compare-row"><span class="lbl">Osmolaridad</span><span class="val">&gt;320 mOsm/kg</span></div>
+<div class="compare-row"><span class="lbl">Anion Gap</span><span class="val">Normal o leve ↑</span></div>
+<div class="compare-row"><span class="lbl">Conciencia</span><span class="val">Estupor / Coma</span></div>
+<div class="compare-row"><span class="lbl">Tipo DM</span><span class="val">DM2 (adulto mayor)</span></div>
+</div>
+</div>
+<div class="card card-red" id="cad-sev">
+<div class="card-head" onclick="toggleCard('cad-sev')">🔴 Severidad de CAD <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>Parámetro</th><th>Leve</th><th>Moderada</th><th>Grave</th></tr>
+<tr><td>Glucosa (mg/dL)</td><td>&gt;250</td><td>&gt;250</td><td>&gt;250</td></tr>
+<tr><td>pH arterial</td><td>7.25–7.30</td><td>7.00–7.24</td><td>&lt;7.00</td></tr>
+<tr><td>Bicarbonato</td><td>15–18</td><td>10–15</td><td>&lt;10</td></tr>
+<tr><td>Cetonas orina</td><td>+</td><td>++</td><td>+++</td></tr>
+<tr><td>Anion Gap</td><td>&gt;12</td><td>&gt;12</td><td>&gt;12</td></tr>
+<tr><td>Conciencia</td><td>Alerta</td><td>Alerta / Obtuso</td><td>Estupor / Coma</td></tr>
+</table>
+<div class="alert alert-amber">AG corregido = AG + 2.5 × (4 – albúmina g/dL). Usar cuando albúmina sea baja.</div>
+</div>
+</div>
+<div class="card card-blue" id="exams">
+<div class="card-head" onclick="toggleCard('exams')">🧪 Exámenes iniciales obligatorios <span class="chevron">▼</span></div>
+<div class="card-body">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+<div>
+<div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Laboratorio</div>
+<ul class="list">
+<li><b class="hl">Glucemia</b> capilar y venosa</li>
+<li><b class="hl">Gases arteriales</b> (pH, pCO₂, HCO₃)</li>
+<li><b class="hl">Electrolitos:</b> Na, K, Cl, Mg, P</li>
+<li><b class="hl">BUN / Creatinina</b></li>
+<li><b class="hl">Cetonas</b> en orina y/o sangre</li>
+<li><b class="hl">Hemograma completo</b></li>
+<li><b class="hl">Osmolaridad sérica</b></li>
+<li><b class="hl">HbA1c</b> (si disponible)</li>
+</ul>
+</div>
+<div>
+<div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">Buscar desencadenante</div>
+<ul class="list">
+<li>ECG (IAM silente frecuente)</li>
+<li>Radiografía de tórax</li>
+<li>Urocultivo / Hemocultivo</li>
+<li>Troponinas si sospecha SCA</li>
+<li>β-hCG en mujer en edad fértil</li>
+<li>Lipasa si dolor abdominal</li>
+<li>TSH si EHH sin causa clara</li>
+</ul>
+</div>
+</div>
+<div class="alert alert-red">⚠️ Potasio ANTES de insulina. No iniciar insulina con K⁺ &lt;3.5 mEq/L sin corrección previa.</div>
+</div>
+</div>
+<div class="card card-amber" id="desenc">
+<div class="card-head" onclick="toggleCard('desenc')">🎯 Las 6 "I" — Desencadenantes frecuentes <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>Causa</th><th>Claves clínicas</th></tr>
+<tr><td><b>Infección</b> (40%)</td><td>Fiebre, leucocitosis, foco evidente (neumonía, ITU, pie diabético)</td></tr>
+<tr><td><b>Insulina insuficiente</b></td><td>Omisión de dosis, falla del dispositivo, errores en ajuste</td></tr>
+<tr><td><b>Inaugural</b> (DM1 nueva)</td><td>Joven, poliuria-polidipsia semanas antes, sin diagnóstico previo</td></tr>
+<tr><td><b>Infarto</b> (IAM / ACV)</td><td>ECG, troponinas, déficit neurológico focal</td></tr>
+<tr><td><b>Ingesta de alcohol / drogas</b></td><td>Antecedente social, toxicología</td></tr>
+<tr><td><b>Iatrogénico</b></td><td>Corticoides, SGLT2 inhibidores, antipsicóticos atípicos</td></tr>
+</table>
+</div>
+</div>
 </div><!-- fin diagnóstico -->
-
 <!-- PROTOCOLO -->
 <div class="section" id="tab-protocolo">
-  <div class="alert alert-red"><b>Orden de prioridades:</b> Estabilizar vía aérea → Hidratación IV → Evaluar K⁺ → Insulina → Buscar y tratar causa</div>
-
-  <div class="step"><div class="step-num">1</div><div class="step-body">
-    <div class="step-title">Estabilización (0–30 min)</div>
-    <div class="step-detail">Vía aérea: GCS ≤8 → intubación. Monitoreo continuo: ECG, SpO₂, TA, FC. Dos vías periféricas ≥18G. Sonda vesical si alteración de conciencia. Obtener K⁺ y glucemia ANTES de iniciar insulina.</div>
-  </div></div>
-
-  <div class="step"><div class="step-num">2</div><div class="step-body">
-    <div class="step-title">Hidratación IV inmediata</div>
-    <div class="step-detail">SSN 0.9% → <b>1 litro en la primera hora</b> en todos los casos. Luego ajustar según Na corregido y estado hemodinámico. EHH: déficit mayor, hasta 3–6 L en 6h. Evitar corrección demasiado rápida (riesgo edema cerebral).</div>
-  </div></div>
-
-  <div class="step"><div class="step-num">3</div><div class="step-body">
-    <div class="step-title">Evaluar K⁺ antes de insulina</div>
-    <div class="step-detail"><b>K⁺ &lt;3.5:</b> reponer KCl IV, NO iniciar insulina. | <b>K⁺ 3.5–5.0:</b> iniciar insulina + K⁺ en suero. | <b>K⁺ &gt;5.0:</b> iniciar insulina, NO agregar K⁺, repetir en 2h.</div>
-  </div></div>
-
-  <div class="step"><div class="step-num">4</div><div class="step-body">
-    <div class="step-title">Insulina regular EV en infusión</div>
-    <div class="step-detail">0.1 U/kg/h sin bolo de carga (ADA 2026). Meta de caída: 50–75 mg/dL/hora. NO bajar &gt;75 mg/dL/hora. Al llegar a 250 mg/dL (CAD) o 300 mg/dL (EHH): agregar DAD 5%.</div>
-  </div></div>
-
-  <div class="step"><div class="step-num">5</div><div class="step-body">
-    <div class="step-title">Monitoreo frecuente</div>
-    <div class="step-detail">Glucemia capilar c/1h. Gases + electrolitos c/2–4h. Anion gap c/4h. Balance hídrico horario. Vigilar signos de edema cerebral: cefalea, deterioro neurológico, bradicardia.</div>
-  </div></div>
-
-  <div class="step"><div class="step-num">6</div><div class="step-body">
-    <div class="step-title">Criterios de resolución — Transición a SC</div>
-    <div class="step-detail"><b>CAD:</b> glucemia &lt;250, pH &gt;7.30, HCO₃ &gt;18, AG normal, tolera VO. <b>EHH:</b> osmolaridad &lt;315, conciencia normal. Administrar insulina SC 1–2h ANTES de suspender infusión IV.</div>
-  </div></div>
-
-  <div class="card card-green" id="flujo">
-    <div class="card-head" onclick="toggleCard('flujo')">📊 Flujo de decisión rápida <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="flow-box box-red"><div class="flow-label">🚨 Paciente hiperglucémico en urgencias</div>Glucemia &gt;250, síntomas de descompensación, ± alteración de conciencia</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-box box-amber"><div class="flow-label">📋 Clasificar: ¿CAD o EHH?</div>pH, HCO₃, cetonas, osmolaridad, glucemia, estado neurológico</div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-box box-blue"><div class="flow-label">⚡ K⁺ AHORA — Define el siguiente paso</div>&lt;3.5 → reponer KCl | 3.5–5.0 → insulina + K⁺ | &gt;5.0 → solo insulina</div>
-      <div class="flow-arrow">↓</div>
-      <div class="branch">
-        <div class="flow-box box-red" style="margin:0"><div class="flow-label">CAD</div>SSN 1L/h · Insulina 0.1 U/kg/h · K⁺ · HCO₃ solo si pH &lt;6.9</div>
-        <div class="flow-box box-blue" style="margin:0"><div class="flow-label">EHH</div>SSN 1–1.5L/h × 2h · Insulina tras fluidos · K⁺ · Sin HCO₃</div>
-      </div>
-      <div class="flow-arrow">↓</div>
-      <div class="flow-box box-green"><div class="flow-label">✅ Resolución → Insulina SC</div>Solapar SC con IV 1–2h. Objetivo: glucemia 140–180 mg/dL en sala.</div>
-    </div>
-  </div>
+<div class="alert alert-red"><b>Orden de prioridades:</b> Estabilizar vía aérea → Hidratación IV → Evaluar K⁺ → Insulina → Buscar y tratar causa</div>
+<div class="step"><div class="step-num">1</div><div class="step-body">
+<div class="step-title">Estabilización (0–30 min)</div>
+<div class="step-detail">Vía aérea: GCS ≤8 → intubación. Monitoreo continuo: ECG, SpO₂, TA, FC. Dos vías periféricas ≥18G. Sonda vesical si alteración de conciencia. Obtener K⁺ y glucemia ANTES de iniciar insulina.</div>
+</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">
+<div class="step-title">Hidratación IV inmediata</div>
+<div class="step-detail">SSN 0.9% → <b>1 litro en la primera hora</b> en todos los casos. Luego ajustar según Na corregido y estado hemodinámico. EHH: déficit mayor, hasta 3–6 L en 6h. Evitar corrección demasiado rápida (riesgo edema cerebral).</div>
+</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">
+<div class="step-title">Evaluar K⁺ antes de insulina</div>
+<div class="step-detail"><b>K⁺ &lt;3.5:</b> reponer KCl IV, NO iniciar insulina. | <b>K⁺ 3.5–5.0:</b> iniciar insulina + K⁺ en suero. | <b>K⁺ &gt;5.0:</b> iniciar insulina, NO agregar K⁺, repetir en 2h.</div>
+</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">
+<div class="step-title">Insulina regular EV en infusión</div>
+<div class="step-detail">0.1 U/kg/h sin bolo de carga (ADA 2026). Meta de caída: 50–75 mg/dL/hora. NO bajar &gt;75 mg/dL/hora. Al llegar a 250 mg/dL (CAD) o 300 mg/dL (EHH): agregar DAD 5%.</div>
+</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body">
+<div class="step-title">Monitoreo frecuente</div>
+<div class="step-detail">Glucemia capilar c/1h. Gases + electrolitos c/2–4h. Anion gap c/4h. Balance hídrico horario. Vigilar signos de edema cerebral: cefalea, deterioro neurológico, bradicardia.</div>
+</div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body">
+<div class="step-title">Criterios de resolución — Transición a SC</div>
+<div class="step-detail"><b>CAD:</b> glucemia &lt;250, pH &gt;7.30, HCO₃ &gt;18, AG normal, tolera VO. <b>EHH:</b> osmolaridad &lt;315, conciencia normal. Administrar insulina SC 1–2h ANTES de suspender infusión IV.</div>
+</div></div>
+<div class="card card-green" id="flujo">
+<div class="card-head" onclick="toggleCard('flujo')">📊 Flujo de decisión rápida <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="flow-box box-red"><div class="flow-label">🚨 Paciente hiperglucémico en urgencias</div>Glucemia &gt;250, síntomas de descompensación, ± alteración de conciencia</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box box-amber"><div class="flow-label">📋 Clasificar: ¿CAD o EHH?</div>pH, HCO₃, cetonas, osmolaridad, glucemia, estado neurológico</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box box-blue"><div class="flow-label">⚡ K⁺ AHORA — Define el siguiente paso</div>&lt;3.5 → reponer KCl | 3.5–5.0 → insulina + K⁺ | &gt;5.0 → solo insulina</div>
+<div class="flow-arrow">↓</div>
+<div class="branch">
+<div class="flow-box box-red" style="margin:0"><div class="flow-label">CAD</div>SSN 1L/h · Insulina 0.1 U/kg/h · K⁺ · HCO₃ solo si pH &lt;6.9</div>
+<div class="flow-box box-blue" style="margin:0"><div class="flow-label">EHH</div>SSN 1–1.5L/h × 2h · Insulina tras fluidos · K⁺ · Sin HCO₃</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-box box-green"><div class="flow-label">✅ Resolución → Insulina SC</div>Solapar SC con IV 1–2h. Objetivo: glucemia 140–180 mg/dL en sala.</div>
+</div>
+</div>
 </div><!-- fin protocolo -->
-
 <!-- CALCULADORA -->
 <div class="section" id="tab-calculadora">
-  <div class="alert alert-blue">Calculadoras clínicas validadas para uso en urgencias. Los resultados orientan la conducta clínica.</div>
-
-  <div class="card card-blue" id="calc-osm">
-    <div class="card-head" onclick="toggleCard('calc-osm')">🧮 Osmolaridad sérica efectiva <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="calc-row">
-        <div class="calc-field"><label>Glucosa (mg/dL)</label><input type="number" id="osm-glc" value="350" oninput="calcOsm()"></div>
-        <div class="calc-field"><label>Na⁺ (mEq/L)</label><input type="number" id="osm-na" value="138" oninput="calcOsm()"></div>
-        <div class="calc-field"><label>BUN (mg/dL)</label><input type="number" id="osm-bun" value="25" oninput="calcOsm()"></div>
-        <div class="calc-field"><label>Etanol (mg/dL)</label><input type="number" id="osm-eth" value="0" oninput="calcOsm()"></div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-grid">
-          <div class="result-item"><div class="result-val" id="osm-total" style="color:#2471a3">—</div><div class="result-lbl">Osmol total (mOsm/kg)</div></div>
-          <div class="result-item"><div class="result-val" id="osm-eff" style="color:#1e8449">—</div><div class="result-lbl">Osmol efectiva (mOsm/kg)</div></div>
-        </div>
-        <div class="alert" id="osm-interp" style="margin-top:10px;font-size:12px"></div>
-      </div>
-      <div style="font-size:11px;color:var(--text2);margin-top:8px">Fórmula efectiva: 2×Na + Glucosa/18 · Fórmula total: + BUN/2.8 + Etanol/4.6</div>
-    </div>
-  </div>
-
-  <div class="card card-amber" id="calc-na">
-    <div class="card-head" onclick="toggleCard('calc-na')">⚗️ Sodio corregido por glucosa <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="calc-row">
-        <div class="calc-field"><label>Na⁺ medido (mEq/L)</label><input type="number" id="na-med" value="130" oninput="calcNa()"></div>
-        <div class="calc-field"><label>Glucosa (mg/dL)</label><input type="number" id="na-glc" value="600" oninput="calcNa()"></div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-grid">
-          <div class="result-item"><div class="result-val" id="na-corr" style="color:#d68910">—</div><div class="result-lbl">Na⁺ corregido (mEq/L)</div></div>
-          <div class="result-item"><div class="result-val" id="na-interp2" style="color:#7d3c98;font-size:15px">—</div><div class="result-lbl">Interpretación / Fluido</div></div>
-        </div>
-        <div style="font-size:11px;color:var(--text2);margin-top:8px">Na corregido = Na medido + 1.6 × [(Glucosa – 100) / 100] mEq/L</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card-red" id="calc-ag">
-    <div class="card-head" onclick="toggleCard('calc-ag')">🔬 Anion Gap corregido por albúmina <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="calc-row">
-        <div class="calc-field"><label>Na⁺ (mEq/L)</label><input type="number" id="ag-na" value="138" oninput="calcAG()"></div>
-        <div class="calc-field"><label>Cl⁻ (mEq/L)</label><input type="number" id="ag-cl" value="100" oninput="calcAG()"></div>
-        <div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input type="number" id="ag-hco3" value="12" oninput="calcAG()"></div>
-        <div class="calc-field"><label>Albúmina (g/dL)</label><input type="number" id="ag-alb" value="4.0" step="0.1" oninput="calcAG()"></div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-grid">
-          <div class="result-item"><div class="result-val" id="ag-val" style="color:#c0392b">—</div><div class="result-lbl">AG simple</div></div>
-          <div class="result-item"><div class="result-val" id="ag-corr" style="color:#7d3c98">—</div><div class="result-lbl">AG corregido</div></div>
-        </div>
-        <div class="alert" id="ag-interp" style="margin-top:10px;font-size:12px"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card-green" id="calc-agua">
-    <div class="card-head" onclick="toggleCard('calc-agua')">💧 Déficit de agua libre (EHH) <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="calc-row">
-        <div class="calc-field"><label>Na⁺ actual (mEq/L)</label><input type="number" id="agua-na" value="155" oninput="calcAgua()"></div>
-        <div class="calc-field"><label>Peso (kg)</label><input type="number" id="agua-peso" value="70" oninput="calcAgua()"></div>
-        <div class="calc-field"><label>Sexo</label><select id="agua-sexo" onchange="calcAgua()"><option value="0.6">Masculino</option><option value="0.5">Femenino</option></select></div>
-      </div>
-      <div class="calc-result">
-        <div class="result-item"><div class="result-val" id="agua-deficit" style="color:#1e8449">—</div><div class="result-lbl">Déficit de agua libre (litros)</div></div>
-        <div style="font-size:11px;color:var(--text2);margin-top:10px">Fórmula: Peso × FC × [(Na actual / 140) – 1] · FC: 0.6 masculino / 0.5 femenino · <b>Reponer 50% en primeras 12h, resto en 24h adicionales.</b></div>
-      </div>
-    </div>
-  </div>
+<div class="alert alert-blue">Calculadoras clínicas validadas para uso en urgencias. Los resultados orientan la conducta clínica.</div>
+<div class="card card-blue" id="calc-osm">
+<div class="card-head" onclick="toggleCard('calc-osm')">🧮 Osmolaridad sérica efectiva <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="calc-row">
+<div class="calc-field"><label>Glucosa (mg/dL)</label><input id="osm-glc" oninput="calcOsm()" type="number" value="350"/></div>
+<div class="calc-field"><label>Na⁺ (mEq/L)</label><input id="osm-na" oninput="calcOsm()" type="number" value="138"/></div>
+<div class="calc-field"><label>BUN (mg/dL)</label><input id="osm-bun" oninput="calcOsm()" type="number" value="25"/></div>
+<div class="calc-field"><label>Etanol (mg/dL)</label><input id="osm-eth" oninput="calcOsm()" type="number" value="0"/></div>
+</div>
+<div class="calc-result">
+<div class="calc-result-grid">
+<div class="result-item"><div class="result-val" id="osm-total" style="color:#2471a3">—</div><div class="result-lbl">Osmol total (mOsm/kg)</div></div>
+<div class="result-item"><div class="result-val" id="osm-eff" style="color:#1e8449">—</div><div class="result-lbl">Osmol efectiva (mOsm/kg)</div></div>
+</div>
+<div class="alert" id="osm-interp" style="margin-top:10px;font-size:12px"></div>
+</div>
+<div style="font-size:11px;color:var(--text2);margin-top:8px">Fórmula efectiva: 2×Na + Glucosa/18 · Fórmula total: + BUN/2.8 + Etanol/4.6</div>
+</div>
+</div>
+<div class="card card-amber" id="calc-na">
+<div class="card-head" onclick="toggleCard('calc-na')">⚗️ Sodio corregido por glucosa <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="calc-row">
+<div class="calc-field"><label>Na⁺ medido (mEq/L)</label><input id="na-med" oninput="calcNa()" type="number" value="130"/></div>
+<div class="calc-field"><label>Glucosa (mg/dL)</label><input id="na-glc" oninput="calcNa()" type="number" value="600"/></div>
+</div>
+<div class="calc-result">
+<div class="calc-result-grid">
+<div class="result-item"><div class="result-val" id="na-corr" style="color:#d68910">—</div><div class="result-lbl">Na⁺ corregido (mEq/L)</div></div>
+<div class="result-item"><div class="result-val" id="na-interp2" style="color:#7d3c98;font-size:15px">—</div><div class="result-lbl">Interpretación / Fluido</div></div>
+</div>
+<div style="font-size:11px;color:var(--text2);margin-top:8px">Na corregido = Na medido + 1.6 × [(Glucosa – 100) / 100] mEq/L</div>
+</div>
+</div>
+</div>
+<div class="card card-red" id="calc-ag">
+<div class="card-head" onclick="toggleCard('calc-ag')">🔬 Anion Gap corregido por albúmina <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="calc-row">
+<div class="calc-field"><label>Na⁺ (mEq/L)</label><input id="ag-na" oninput="calcAG()" type="number" value="138"/></div>
+<div class="calc-field"><label>Cl⁻ (mEq/L)</label><input id="ag-cl" oninput="calcAG()" type="number" value="100"/></div>
+<div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input id="ag-hco3" oninput="calcAG()" type="number" value="12"/></div>
+<div class="calc-field"><label>Albúmina (g/dL)</label><input id="ag-alb" oninput="calcAG()" step="0.1" type="number" value="4.0"/></div>
+</div>
+<div class="calc-result">
+<div class="calc-result-grid">
+<div class="result-item"><div class="result-val" id="ag-val" style="color:#c0392b">—</div><div class="result-lbl">AG simple</div></div>
+<div class="result-item"><div class="result-val" id="ag-corr" style="color:#7d3c98">—</div><div class="result-lbl">AG corregido</div></div>
+</div>
+<div class="alert" id="ag-interp" style="margin-top:10px;font-size:12px"></div>
+</div>
+</div>
+</div>
+<div class="card card-green" id="calc-agua">
+<div class="card-head" onclick="toggleCard('calc-agua')">💧 Déficit de agua libre (EHH) <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="calc-row">
+<div class="calc-field"><label>Na⁺ actual (mEq/L)</label><input id="agua-na" oninput="calcAgua()" type="number" value="155"/></div>
+<div class="calc-field"><label>Peso (kg)</label><input id="agua-peso" oninput="calcAgua()" type="number" value="70"/></div>
+<div class="calc-field"><label>Sexo</label><select id="agua-sexo" onchange="calcAgua()"><option value="0.6">Masculino</option><option value="0.5">Femenino</option></select></div>
+</div>
+<div class="calc-result">
+<div class="result-item"><div class="result-val" id="agua-deficit" style="color:#1e8449">—</div><div class="result-lbl">Déficit de agua libre (litros)</div></div>
+<div style="font-size:11px;color:var(--text2);margin-top:10px">Fórmula: Peso × FC × [(Na actual / 140) – 1] · FC: 0.6 masculino / 0.5 femenino · <b>Reponer 50% en primeras 12h, resto en 24h adicionales.</b></div>
+</div>
+</div>
+</div>
 </div><!-- fin calculadora -->
-
 <!-- FLUIDOTERAPIA -->
 <div class="section" id="tab-fluidos">
-  <div class="alert alert-blue"><b>Principio fundamental:</b> La hidratación es el tratamiento MÁS URGENTE. Inicia ANTES o simultáneo a insulina.</div>
-
-  <div class="card card-red" id="fl-cad">
-    <div class="card-head" onclick="toggleCard('fl-cad')">🔴 Protocolo de fluidos — CAD <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Fase</th><th>Fluido</th><th>Velocidad</th><th>Condición</th></tr>
-        <tr><td>0–1h (expansión)</td><td>SSN 0.9%</td><td><b>1000 mL/h</b></td><td>Siempre, todos los pacientes</td></tr>
-        <tr><td>1–4h</td><td>SSN 0.9% o 0.45%</td><td>250–500 mL/h</td><td>Na corr. normal → 0.9% · Na corr. alto → 0.45%</td></tr>
-        <tr><td>Glucemia &lt;250</td><td>DAD 5% + SSN 0.45%</td><td>150–250 mL/h</td><td>Mantener glucemia 150–200 hasta resolución cetosis</td></tr>
-      </table>
-      <div class="alert alert-amber" style="margin-top:10px"><b>Na corr. 135–145:</b> SSN 0.9% · <b>Na corr. &gt;145:</b> SSN 0.45% · <b>Shock:</b> SSN 0.9% rápido o coloides</div>
-    </div>
-  </div>
-
-  <div class="card card-blue" id="fl-ehh">
-    <div class="card-head" onclick="toggleCard('fl-ehh')">🔵 Protocolo de fluidos — EHH <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Fase</th><th>Fluido</th><th>Velocidad</th></tr>
-        <tr><td>0–2h</td><td>SSN 0.9%</td><td><b>1000–1500 mL/h</b> (déficit mayor que CAD)</td></tr>
-        <tr><td>2–6h</td><td>SSN 0.45%</td><td>500–1000 mL/h</td></tr>
-        <tr><td>Glucemia &lt;300</td><td>DAD 5% + SSN 0.45%</td><td>Mantener hasta resolución clínica</td></tr>
-      </table>
-      <div class="alert alert-red" style="margin-top:10px"><b>⚠️ EHH: déficit hídrico total 8–15 litros.</b> Meta: descenso osmolaridad 3–8 mOsm/kg/h. No corregir Na más de 12 mEq/L en 24h. Los fluidos solos pueden bajar glucemia 100–200 mg/dL.</div>
-    </div>
-  </div>
-
-  <div class="alert alert-green"><b>Metas glucémicas durante tratamiento:</b> CAD → 150–200 mg/dL (hasta resolución cetosis) · EHH → 250–300 mg/dL (hasta recuperación neurológica y osmolaridad normal)</div>
+<div class="alert alert-blue"><b>Principio fundamental:</b> La hidratación es el tratamiento MÁS URGENTE. Inicia ANTES o simultáneo a insulina.</div>
+<div class="card card-red" id="fl-cad">
+<div class="card-head" onclick="toggleCard('fl-cad')">🔴 Protocolo de fluidos — CAD <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>Fase</th><th>Fluido</th><th>Velocidad</th><th>Condición</th></tr>
+<tr><td>0–1h (expansión)</td><td>SSN 0.9%</td><td><b>1000 mL/h</b></td><td>Siempre, todos los pacientes</td></tr>
+<tr><td>1–4h</td><td>SSN 0.9% o 0.45%</td><td>250–500 mL/h</td><td>Na corr. normal → 0.9% · Na corr. alto → 0.45%</td></tr>
+<tr><td>Glucemia &lt;250</td><td>DAD 5% + SSN 0.45%</td><td>150–250 mL/h</td><td>Mantener glucemia 150–200 hasta resolución cetosis</td></tr>
+</table>
+<div class="alert alert-amber" style="margin-top:10px"><b>Na corr. 135–145:</b> SSN 0.9% · <b>Na corr. &gt;145:</b> SSN 0.45% · <b>Shock:</b> SSN 0.9% rápido o coloides</div>
 </div>
-
+</div>
+<div class="card card-blue" id="fl-ehh">
+<div class="card-head" onclick="toggleCard('fl-ehh')">🔵 Protocolo de fluidos — EHH <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>Fase</th><th>Fluido</th><th>Velocidad</th></tr>
+<tr><td>0–2h</td><td>SSN 0.9%</td><td><b>1000–1500 mL/h</b> (déficit mayor que CAD)</td></tr>
+<tr><td>2–6h</td><td>SSN 0.45%</td><td>500–1000 mL/h</td></tr>
+<tr><td>Glucemia &lt;300</td><td>DAD 5% + SSN 0.45%</td><td>Mantener hasta resolución clínica</td></tr>
+</table>
+<div class="alert alert-red" style="margin-top:10px"><b>⚠️ EHH: déficit hídrico total 8–15 litros.</b> Meta: descenso osmolaridad 3–8 mOsm/kg/h. No corregir Na más de 12 mEq/L en 24h. Los fluidos solos pueden bajar glucemia 100–200 mg/dL.</div>
+</div>
+</div>
+<div class="alert alert-green"><b>Metas glucémicas durante tratamiento:</b> CAD → 150–200 mg/dL (hasta resolución cetosis) · EHH → 250–300 mg/dL (hasta recuperación neurológica y osmolaridad normal)</div>
+</div>
 <!-- INSULINA -->
 <div class="section" id="tab-insulina">
-  <div class="alert alert-red"><b>Regla de oro:</b> NO iniciar insulina con K⁺ &lt;3.5 mEq/L. Reponer primero.</div>
-
-  <div class="card card-red" id="ins-cad">
-    <div class="card-head" onclick="toggleCard('ins-cad')">💉 Insulina en CAD — ADA 2026 <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="step"><div class="step-num">1</div><div class="step-body">
-        <div class="step-title">Inicio: insulina regular IV en infusión</div>
-        <div class="step-detail"><b>0.1 U/kg/h</b> sin bolo de carga (ADA 2026 — CAD moderada/grave). En CAD leve: análogos SC rápidos (lispro/aspart) cada 1–2h son aceptables.</div>
-      </div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body">
-        <div class="step-title">Ajuste según respuesta glucémica</div>
-        <div class="step-detail">Si glucemia no cae ≥50 mg/dL en primera hora → doblar infusión. Si cae &gt;75 mg/dL/h → reducir a 0.05 U/kg/h. Meta: 50–75 mg/dL/hora.</div>
-      </div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body">
-        <div class="step-title">Glucemia &lt;250 mg/dL</div>
-        <div class="step-detail">Agregar DAD 5% al suero. <b>No suspender insulina IV.</b> Reducir a 0.02–0.05 U/kg/h. Mantener glucemia 150–200 hasta resolución cetosis.</div>
-      </div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body">
-        <div class="step-title">Transición a insulina subcutánea</div>
-        <div class="step-detail">Criterios: pH &gt;7.30, HCO₃ &gt;18, AG normal, tolera VO. Dar insulina SC <b>1–2 horas ANTES</b> de suspender infusión IV. Nunca suspender IV abruptamente.</div>
-      </div></div>
-    </div>
-  </div>
-
-  <div class="card card-blue" id="ins-ehh">
-    <div class="card-head" onclick="toggleCard('ins-ehh')">💉 Insulina en EHH <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="alert alert-blue">En EHH la hidratación sola baja glucemia 100–200 mg/dL. Iniciar insulina solo tras reposición hídrica inicial y K⁺ verificado.</div>
-      <table>
-        <tr><th>Parámetro</th><th>Indicación</th></tr>
-        <tr><td>Dosis inicial</td><td>0.1 U/kg/h sin bolo</td></tr>
-        <tr><td>Meta descenso</td><td>50–75 mg/dL/hora</td></tr>
-        <tr><td>Cambio a DAD 5%</td><td>Al llegar glucemia &lt;300 mg/dL</td></tr>
-        <tr><td>Meta mantenimiento</td><td>250–300 mg/dL hasta osmolaridad normal</td></tr>
-        <tr><td>Criterio resolución</td><td>Osmol efectiva &lt;315, conciencia recuperada</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="card card-amber" id="ins-calc">
-    <div class="card-head" onclick="toggleCard('ins-calc')">🧮 Calculadora de dosis de insulina IV <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="calc-row">
-        <div class="calc-field"><label>Peso del paciente (kg)</label><input type="number" id="ins-peso" value="70" oninput="calcIns()"></div>
-        <div class="calc-field"><label>Modalidad</label>
-          <select id="ins-modo" onchange="calcIns()">
-            <option value="0.1">0.1 U/kg/h — estándar CAD/EHH</option>
-            <option value="0.05">0.05 U/kg/h — mantenimiento</option>
-            <option value="0.14">0.14 U/kg/h — alternativa alta dosis</option>
-          </select>
-        </div>
-      </div>
-      <div class="calc-result">
-        <div class="calc-result-grid">
-          <div class="result-item"><div class="result-val" id="ins-dosis" style="color:#d68910">—</div><div class="result-lbl">Dosis (U/hora)</div></div>
-          <div class="result-item"><div class="result-val" id="ins-dilucion" style="color:#7d3c98">—</div><div class="result-lbl">mL/h (dilución 50U/250mL)</div></div>
-        </div>
-        <div style="font-size:11px;color:var(--text2);margin-top:8px">Dilución: 50 U insulina regular en 250 mL SSN 0.9% = <b>0.2 U/mL</b></div>
-      </div>
-    </div>
-  </div>
+<div class="alert alert-red"><b>Regla de oro:</b> NO iniciar insulina con K⁺ &lt;3.5 mEq/L. Reponer primero.</div>
+<div class="card card-red" id="ins-cad">
+<div class="card-head" onclick="toggleCard('ins-cad')">💉 Insulina en CAD — ADA 2026 <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="step"><div class="step-num">1</div><div class="step-body">
+<div class="step-title">Inicio: insulina regular IV en infusión</div>
+<div class="step-detail"><b>0.1 U/kg/h</b> sin bolo de carga (ADA 2026 — CAD moderada/grave). En CAD leve: análogos SC rápidos (lispro/aspart) cada 1–2h son aceptables.</div>
+</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">
+<div class="step-title">Ajuste según respuesta glucémica</div>
+<div class="step-detail">Si glucemia no cae ≥50 mg/dL en primera hora → doblar infusión. Si cae &gt;75 mg/dL/h → reducir a 0.05 U/kg/h. Meta: 50–75 mg/dL/hora.</div>
+</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">
+<div class="step-title">Glucemia &lt;250 mg/dL</div>
+<div class="step-detail">Agregar DAD 5% al suero. <b>No suspender insulina IV.</b> Reducir a 0.02–0.05 U/kg/h. Mantener glucemia 150–200 hasta resolución cetosis.</div>
+</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">
+<div class="step-title">Transición a insulina subcutánea</div>
+<div class="step-detail">Criterios: pH &gt;7.30, HCO₃ &gt;18, AG normal, tolera VO. Dar insulina SC <b>1–2 horas ANTES</b> de suspender infusión IV. Nunca suspender IV abruptamente.</div>
+</div></div>
+</div>
+</div>
+<div class="card card-blue" id="ins-ehh">
+<div class="card-head" onclick="toggleCard('ins-ehh')">💉 Insulina en EHH <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="alert alert-blue">En EHH la hidratación sola baja glucemia 100–200 mg/dL. Iniciar insulina solo tras reposición hídrica inicial y K⁺ verificado.</div>
+<table>
+<tr><th>Parámetro</th><th>Indicación</th></tr>
+<tr><td>Dosis inicial</td><td>0.1 U/kg/h sin bolo</td></tr>
+<tr><td>Meta descenso</td><td>50–75 mg/dL/hora</td></tr>
+<tr><td>Cambio a DAD 5%</td><td>Al llegar glucemia &lt;300 mg/dL</td></tr>
+<tr><td>Meta mantenimiento</td><td>250–300 mg/dL hasta osmolaridad normal</td></tr>
+<tr><td>Criterio resolución</td><td>Osmol efectiva &lt;315, conciencia recuperada</td></tr>
+</table>
+</div>
+</div>
+<div class="card card-amber" id="ins-calc">
+<div class="card-head" onclick="toggleCard('ins-calc')">🧮 Calculadora de dosis de insulina IV <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="calc-row">
+<div class="calc-field"><label>Peso del paciente (kg)</label><input id="ins-peso" oninput="calcIns()" type="number" value="70"/></div>
+<div class="calc-field"><label>Modalidad</label>
+<select id="ins-modo" onchange="calcIns()">
+<option value="0.1">0.1 U/kg/h — estándar CAD/EHH</option>
+<option value="0.05">0.05 U/kg/h — mantenimiento</option>
+<option value="0.14">0.14 U/kg/h — alternativa alta dosis</option>
+</select>
+</div>
+</div>
+<div class="calc-result">
+<div class="calc-result-grid">
+<div class="result-item"><div class="result-val" id="ins-dosis" style="color:#d68910">—</div><div class="result-lbl">Dosis (U/hora)</div></div>
+<div class="result-item"><div class="result-val" id="ins-dilucion" style="color:#7d3c98">—</div><div class="result-lbl">mL/h (dilución 50U/250mL)</div></div>
+</div>
+<div style="font-size:11px;color:var(--text2);margin-top:8px">Dilución: 50 U insulina regular en 250 mL SSN 0.9% = <b>0.2 U/mL</b></div>
+</div>
+</div>
+</div>
 </div><!-- fin insulina -->
-
 <!-- POTASIO -->
 <div class="section" id="tab-potasio">
-  <div class="alert alert-amber"><b>El potasio es la emergencia dentro de la emergencia.</b> El manejo inapropiado causa arritmias mortales.</div>
-
-  <div class="card card-amber" id="k-proto">
-    <div class="card-head" onclick="toggleCard('k-proto')">⚗️ Protocolo de reposición de potasio <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>K⁺ sérico</th><th>Acción clínica</th><th>Dosis KCl IV</th></tr>
-        <tr><td><span class="tag tag-red">&lt;3.5 mEq/L</span></td><td>⛔ NO insulina · Reponer KCl urgente · Monitoreo ECG</td><td>20–40 mEq/h hasta K⁺ &gt;3.5</td></tr>
-        <tr><td><span class="tag tag-amber">3.5–5.0 mEq/L</span></td><td>✅ Iniciar insulina + KCl en suero (caerá con insulina)</td><td>20–30 mEq/L de suero</td></tr>
-        <tr><td><span class="tag tag-green">&gt;5.0 mEq/L</span></td><td>✅ Iniciar insulina · NO agregar K⁺ · Repetir en 2h</td><td>0 — esperar</td></tr>
-      </table>
-      <div class="alert alert-red" style="margin-top:10px">Meta: mantener K⁺ <b>4.0–5.0 mEq/L</b> durante toda la infusión de insulina. Medir c/2h las primeras 6h.</div>
-    </div>
-  </div>
-
-  <div class="card card-blue" id="k-fisio">
-    <div class="card-head" onclick="toggleCard('k-fisio')">🔬 Fisiopatología del potasio en CAD/EHH <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <ul class="list" style="margin-top:8px">
-        <li><b class="hl">Pseudo-hiperkalemia al ingreso:</b> La acidosis desplaza K⁺ intracelular al extracelular. El K⁺ sérico "normal" o alto puede ocultar un déficit total corporal de 3–5 mEq/kg.</li>
-        <li><b class="hl">Caída dramática con insulina:</b> Activa Na⁺/K⁺-ATPasa → K⁺ entra a la célula en minutos. Puede caer 1–2 mEq/L rápidamente.</li>
-        <li><b class="hl">Caída adicional con hidratación:</b> Dilución + corrección de acidosis → más entrada intracelular de K⁺.</li>
-        <li><b class="hl">Riesgo de fibrilación ventricular:</b> K⁺ &lt;3.0 mEq/L con insulina activa = emergencia arrítmica. Por eso monitoreo cada 2h.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card card-green" id="k-ecg">
-    <div class="card-head" onclick="toggleCard('k-ecg')">📈 ECG y alteraciones del K⁺ <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>K⁺ (mEq/L)</th><th>Hallazgo en ECG</th><th>Acción</th></tr>
-        <tr><td>&lt;2.5</td><td>T aplanada, onda U prominente, QT prolongado</td><td>KCl IV urgente + telemetría</td></tr>
-        <tr><td>2.5–3.5</td><td>Onda T aplanada o invertida</td><td>Reposición IV continua</td></tr>
-        <tr><td>3.5–5.0</td><td>Normal</td><td>Mantener y monitorear c/2h</td></tr>
-        <tr><td>5.5–6.5</td><td>Onda T picuda y simétrica</td><td>No KCl, tratar causa subyacente</td></tr>
-        <tr><td>&gt;6.5</td><td>PR prolongado, QRS ancho, onda seno</td><td>⚡ Gluconato Ca²⁺ IV urgente + bicarbonato + glucosa+insulina</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="alert alert-amber"><b>El potasio es la emergencia dentro de la emergencia.</b> El manejo inapropiado causa arritmias mortales.</div>
+<div class="card card-amber" id="k-proto">
+<div class="card-head" onclick="toggleCard('k-proto')">⚗️ Protocolo de reposición de potasio <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>K⁺ sérico</th><th>Acción clínica</th><th>Dosis KCl IV</th></tr>
+<tr><td><span class="tag tag-red">&lt;3.5 mEq/L</span></td><td>⛔ NO insulina · Reponer KCl urgente · Monitoreo ECG</td><td>20–40 mEq/h hasta K⁺ &gt;3.5</td></tr>
+<tr><td><span class="tag tag-amber">3.5–5.0 mEq/L</span></td><td>✅ Iniciar insulina + KCl en suero (caerá con insulina)</td><td>20–30 mEq/L de suero</td></tr>
+<tr><td><span class="tag tag-green">&gt;5.0 mEq/L</span></td><td>✅ Iniciar insulina · NO agregar K⁺ · Repetir en 2h</td><td>0 — esperar</td></tr>
+</table>
+<div class="alert alert-red" style="margin-top:10px">Meta: mantener K⁺ <b>4.0–5.0 mEq/L</b> durante toda la infusión de insulina. Medir c/2h las primeras 6h.</div>
+</div>
+</div>
+<div class="card card-blue" id="k-fisio">
+<div class="card-head" onclick="toggleCard('k-fisio')">🔬 Fisiopatología del potasio en CAD/EHH <span class="chevron">▼</span></div>
+<div class="card-body">
+<ul class="list" style="margin-top:8px">
+<li><b class="hl">Pseudo-hiperkalemia al ingreso:</b> La acidosis desplaza K⁺ intracelular al extracelular. El K⁺ sérico "normal" o alto puede ocultar un déficit total corporal de 3–5 mEq/kg.</li>
+<li><b class="hl">Caída dramática con insulina:</b> Activa Na⁺/K⁺-ATPasa → K⁺ entra a la célula en minutos. Puede caer 1–2 mEq/L rápidamente.</li>
+<li><b class="hl">Caída adicional con hidratación:</b> Dilución + corrección de acidosis → más entrada intracelular de K⁺.</li>
+<li><b class="hl">Riesgo de fibrilación ventricular:</b> K⁺ &lt;3.0 mEq/L con insulina activa = emergencia arrítmica. Por eso monitoreo cada 2h.</li>
+</ul>
+</div>
+</div>
+<div class="card card-green" id="k-ecg">
+<div class="card-head" onclick="toggleCard('k-ecg')">📈 ECG y alteraciones del K⁺ <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>K⁺ (mEq/L)</th><th>Hallazgo en ECG</th><th>Acción</th></tr>
+<tr><td>&lt;2.5</td><td>T aplanada, onda U prominente, QT prolongado</td><td>KCl IV urgente + telemetría</td></tr>
+<tr><td>2.5–3.5</td><td>Onda T aplanada o invertida</td><td>Reposición IV continua</td></tr>
+<tr><td>3.5–5.0</td><td>Normal</td><td>Mantener y monitorear c/2h</td></tr>
+<tr><td>5.5–6.5</td><td>Onda T picuda y simétrica</td><td>No KCl, tratar causa subyacente</td></tr>
+<tr><td>&gt;6.5</td><td>PR prolongado, QRS ancho, onda seno</td><td>⚡ Gluconato Ca²⁺ IV urgente + bicarbonato + glucosa+insulina</td></tr>
+</table>
+</div>
+</div>
 </div><!-- fin potasio -->
-
 <!-- COMPLICACIONES -->
 <div class="section" id="tab-complicaciones">
-
-  <div class="card card-red" id="comp-edema">
-    <div class="card-head" onclick="toggleCard('comp-edema')">🧠 Edema cerebral — La complicación más temida <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="alert alert-red"><b>Más frecuente en niños y adultos jóvenes.</b> Mortalidad 20–40%. Buscar activamente durante el tratamiento.</div>
-      <table style="margin-top:10px">
-        <tr><th>Aspecto</th><th>Detalle</th></tr>
-        <tr><td><b>Factores de riesgo</b></td><td>Corrección rápida de hiperglucemia, hipotensión, uso de bicarbonato, pCO₂ muy baja</td></tr>
-        <tr><td><b>Síntomas de alarma</b></td><td>Cefalea intensa, deterioro neurológico DURANTE tratamiento, bradicardia + HTA, cambios pupilares</td></tr>
-        <tr><td><b>Tratamiento</b></td><td>Manitol 1 g/kg IV · SSN hipertónica 3% · Cabecera 30° · Restricción hídrica · UCI</td></tr>
-        <tr><td><b>Prevención</b></td><td>No bajar glucemia &gt;75 mg/dL/h · No usar bicarbonato rutinariamente · Corrección gradual de osmolaridad</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="card card-amber" id="comp-hco3">
-    <div class="card-head" onclick="toggleCard('comp-hco3')">🧪 Bicarbonato — ¿Cuándo usarlo? <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <div class="alert alert-amber"><b>Uso MUY RESTRINGIDO.</b> El bicarbonato NO mejora outcomes en CAD y puede causar acidosis paradójica del SNC.</div>
-      <table style="margin-top:10px">
-        <tr><th>Situación</th><th>Indicación</th></tr>
-        <tr><td>pH &lt;6.9</td><td>✅ Indicado: 100 mEq NaHCO₃ en 400 mL agua + 20 mEq KCl, en 2h. Repetir hasta pH &gt;7.0</td></tr>
-        <tr><td>pH 6.9–7.0</td><td>⚠️ Considerar solo si compromiso hemodinámico severo</td></tr>
-        <tr><td>pH &gt;7.0</td><td>❌ NO indicado. Insulina y fluidos resolverán la cetosis</td></tr>
-        <tr><td>EHH</td><td>❌ Nunca indicado (no existe acidosis significativa)</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="card card-purple" id="comp-otras">
-    <div class="card-head" onclick="toggleCard('comp-otras')">⚠️ Otras complicaciones del tratamiento <span class="chevron">▼</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Complicación</th><th>Prevención / Tratamiento</th></tr>
-        <tr><td><b>Hipokalemia</b></td><td>Monitoreo K⁺ c/2h · Reposición proactiva según protocolo</td></tr>
-        <tr><td><b>Hipoglucemia</b></td><td>No suspender abruptamente insulina IV · Agregar DAD antes de llegar a 250/300</td></tr>
-        <tr><td><b>Hipernatremia</b></td><td>Calcular Na corregido · Usar SSN 0.45% si Na alto</td></tr>
-        <tr><td><b>Hipofosfatemia</b></td><td>Reponer solo si &lt;1 mg/dL o disfunción cardiorrespiratoria. No rutinaria.</td></tr>
-        <tr><td><b>Trombosis venosa</b></td><td>Profilaxis HBPM en todos (alta viscosidad en EHH)</td></tr>
-        <tr><td><b>Acidosis hiperclorémica</b></td><td>Esperable con SSN 0.9% excesivo. Si AG se normaliza: cetosis resuelta aunque HCO₃ bajo.</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="card card-red" id="comp-edema">
+<div class="card-head" onclick="toggleCard('comp-edema')">🧠 Edema cerebral — La complicación más temida <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="alert alert-red"><b>Más frecuente en niños y adultos jóvenes.</b> Mortalidad 20–40%. Buscar activamente durante el tratamiento.</div>
+<table style="margin-top:10px">
+<tr><th>Aspecto</th><th>Detalle</th></tr>
+<tr><td><b>Factores de riesgo</b></td><td>Corrección rápida de hiperglucemia, hipotensión, uso de bicarbonato, pCO₂ muy baja</td></tr>
+<tr><td><b>Síntomas de alarma</b></td><td>Cefalea intensa, deterioro neurológico DURANTE tratamiento, bradicardia + HTA, cambios pupilares</td></tr>
+<tr><td><b>Tratamiento</b></td><td>Manitol 1 g/kg IV · SSN hipertónica 3% · Cabecera 30° · Restricción hídrica · UCI</td></tr>
+<tr><td><b>Prevención</b></td><td>No bajar glucemia &gt;75 mg/dL/h · No usar bicarbonato rutinariamente · Corrección gradual de osmolaridad</td></tr>
+</table>
+</div>
+</div>
+<div class="card card-amber" id="comp-hco3">
+<div class="card-head" onclick="toggleCard('comp-hco3')">🧪 Bicarbonato — ¿Cuándo usarlo? <span class="chevron">▼</span></div>
+<div class="card-body">
+<div class="alert alert-amber"><b>Uso MUY RESTRINGIDO.</b> El bicarbonato NO mejora outcomes en CAD y puede causar acidosis paradójica del SNC.</div>
+<table style="margin-top:10px">
+<tr><th>Situación</th><th>Indicación</th></tr>
+<tr><td>pH &lt;6.9</td><td>✅ Indicado: 100 mEq NaHCO₃ en 400 mL agua + 20 mEq KCl, en 2h. Repetir hasta pH &gt;7.0</td></tr>
+<tr><td>pH 6.9–7.0</td><td>⚠️ Considerar solo si compromiso hemodinámico severo</td></tr>
+<tr><td>pH &gt;7.0</td><td>❌ NO indicado. Insulina y fluidos resolverán la cetosis</td></tr>
+<tr><td>EHH</td><td>❌ Nunca indicado (no existe acidosis significativa)</td></tr>
+</table>
+</div>
+</div>
+<div class="card card-purple" id="comp-otras">
+<div class="card-head" onclick="toggleCard('comp-otras')">⚠️ Otras complicaciones del tratamiento <span class="chevron">▼</span></div>
+<div class="card-body">
+<table>
+<tr><th>Complicación</th><th>Prevención / Tratamiento</th></tr>
+<tr><td><b>Hipokalemia</b></td><td>Monitoreo K⁺ c/2h · Reposición proactiva según protocolo</td></tr>
+<tr><td><b>Hipoglucemia</b></td><td>No suspender abruptamente insulina IV · Agregar DAD antes de llegar a 250/300</td></tr>
+<tr><td><b>Hipernatremia</b></td><td>Calcular Na corregido · Usar SSN 0.45% si Na alto</td></tr>
+<tr><td><b>Hipofosfatemia</b></td><td>Reponer solo si &lt;1 mg/dL o disfunción cardiorrespiratoria. No rutinaria.</td></tr>
+<tr><td><b>Trombosis venosa</b></td><td>Profilaxis HBPM en todos (alta viscosidad en EHH)</td></tr>
+<tr><td><b>Acidosis hiperclorémica</b></td><td>Esperable con SSN 0.9% excesivo. Si AG se normaliza: cetosis resuelta aunque HCO₃ bajo.</td></tr>
+</table>
+</div>
+</div>
 </div><!-- fin complicaciones -->
-
 <!-- QUIZ -->
 <div class="section" id="tab-quiz">
-
-  <!-- Selector de quiz -->
-  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
-    <span style="font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-right:4px">Seleccionar:</span>
-    <button class="quiz-sel-btn active" id="qsel-0" onclick="selectQuiz(0)">📋 Quiz 1 — Diagnóstico y clasificación</button>
-    <button class="quiz-sel-btn" id="qsel-1" onclick="selectQuiz(1)">💧 Quiz 2 — Fluidos e insulina</button>
-    <button class="quiz-sel-btn" id="qsel-2" onclick="selectQuiz(2)">⚗️ Quiz 3 — Potasio y complicaciones</button>
-  </div>
-
-  <!-- Barra de progreso -->
-  <div style="background:var(--bg2);border-radius:20px;height:6px;margin-bottom:16px;overflow:hidden">
-    <div id="quiz-progress-bar" style="height:100%;background:#b03a2e;border-radius:20px;transition:width .3s;width:0%"></div>
-  </div>
-
-  <div id="quiz-container"></div>
-
-  <!-- Navegación -->
-  <div class="quiz-nav">
-    <div style="display:flex;gap:8px">
-      <button class="btn-sm" onclick="prevQuestion()" id="btn-prev" style="display:none">← Anterior</button>
-      <button class="btn-sm" onclick="resetQuiz()" id="btn-reset" title="Reiniciar este quiz">↺ Reiniciar</button>
-    </div>
-    <div class="score-display" id="quiz-score">Pregunta 1 de 8</div>
-    <button class="btn-sm" onclick="nextQuestion()" id="btn-next" style="display:none">Siguiente →</button>
-  </div>
-
-  <!-- Pantalla final -->
-  <div id="quiz-final" style="display:none;text-align:center;padding:24px 16px">
-    <div style="font-size:42px;font-weight:700;color:#b03a2e;margin-bottom:6px" id="final-score"></div>
-    <div style="font-size:14px;color:var(--text2);margin-bottom:6px" id="final-pct"></div>
-    <div style="font-size:13px;color:var(--text2);margin-bottom:20px" id="final-msg"></div>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <button class="btn-sm" onclick="resetQuiz()">↺ Repetir este quiz</button>
-      <button class="btn-sm" id="btn-next-quiz" onclick="goNextQuiz()" style="display:none">Siguiente quiz →</button>
-    </div>
-  </div>
-
+<!-- Selector de quiz -->
+<div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+<span style="font-size:12px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-right:4px">Seleccionar:</span>
+<button class="quiz-sel-btn active" id="qsel-0" onclick="selectQuiz(0)">📋 Quiz 1 — Diagnóstico y clasificación</button>
+<button class="quiz-sel-btn" id="qsel-1" onclick="selectQuiz(1)">💧 Quiz 2 — Fluidos e insulina</button>
+<button class="quiz-sel-btn" id="qsel-2" onclick="selectQuiz(2)">⚗️ Quiz 3 — Potasio y complicaciones</button>
 </div>
-
+<!-- Barra de progreso -->
+<div style="background:var(--bg2);border-radius:20px;height:6px;margin-bottom:16px;overflow:hidden">
+<div id="quiz-progress-bar" style="height:100%;background:#b03a2e;border-radius:20px;transition:width .3s;width:0%"></div>
+</div>
+<div id="quiz-container"></div>
+<!-- Navegación -->
+<div class="quiz-nav">
+<div style="display:flex;gap:8px">
+<button class="btn-sm" id="btn-prev" onclick="prevQuestion()" style="display:none">← Anterior</button>
+<button class="btn-sm" id="btn-reset" onclick="resetQuiz()" title="Reiniciar este quiz">↺ Reiniciar</button>
+</div>
+<div class="score-display" id="quiz-score">Pregunta 1 de 8</div>
+<button class="btn-sm" id="btn-next" onclick="nextQuestion()" style="display:none">Siguiente →</button>
+</div>
+<!-- Pantalla final -->
+<div id="quiz-final" style="display:none;text-align:center;padding:24px 16px">
+<div id="final-score" style="font-size:42px;font-weight:700;color:#b03a2e;margin-bottom:6px"></div>
+<div id="final-pct" style="font-size:14px;color:var(--text2);margin-bottom:6px"></div>
+<div id="final-msg" style="font-size:13px;color:var(--text2);margin-bottom:20px"></div>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+<button class="btn-sm" onclick="resetQuiz()">↺ Repetir este quiz</button>
+<button class="btn-sm" id="btn-next-quiz" onclick="goNextQuiz()" style="display:none">Siguiente quiz →</button>
+</div>
+</div>
+</div>
 </div><!-- fin content -->
 </div><!-- fin app -->
-
 <style>
 .quiz-sel-btn{padding:6px 14px;border-radius:20px;border:.5px solid var(--border);background:var(--bg2);color:var(--text2);font-size:12px;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap}
 .quiz-sel-btn:hover{border-color:#b03a2e;color:#b03a2e}
@@ -648,7 +603,6 @@ b.hl{color:var(--text)}
   .fullscreen-btn{position:static;margin-top:10px}
 }
 </style>
-
 <script>
 function showTab(id, el) {
   const target = document.getElementById('tab-' + id);
@@ -1074,5 +1028,9 @@ renderQuiz();
 })();
 </script>
 <script src="../assets/croce.js"></script>
-</body>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section></body>
 </html>

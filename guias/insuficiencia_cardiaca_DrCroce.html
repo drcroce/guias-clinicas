@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Insuficiencia Cardíaca — Dr. L. Croce</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -160,7 +161,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
-
 <style id="croce-light-unified-final">
 /* ===== BIBLIOTECA MÉDICA PERSONAL CROCE · ESTÁNDAR CLARO/PASTEL FINAL ===== */
 :root{
@@ -193,1004 +193,962 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 @media(max-width:700px){.app-header{position:relative}.header-top{gap:12px}.header-icon{width:48px;height:48px}.content-area{padding:18px 12px}table{display:block;overflow-x:auto;white-space:normal}.quiz-nav{flex-direction:column}.quiz-nav-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- MAIN APP -->
 <div id="main-app">
 <div class="app-header">
-  <div class="header-content">
-  <a class="portal-back" href="../index.html">← Portal de guías</a>
-  <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-
-    <div class="header-top">
-      <div class="header-icon">🫀</div>
-      <div class="header-text">
-        <h1>Insuficiencia Cardíaca Aguda y Crónica</h1>
-        <div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-        <div class="badge-row">
-          <span class="hbadge">ESC 2021/2023</span>
-          <span class="hbadge">AHA/ACC/HFSA 2022</span>
-          <span class="hbadge">ACC 2024 Update</span>
-          <span class="hbadge new animate">✦ NUEVO 2023–2024</span>
-          <span class="hbadge">Dr. L. Croce</span>
-        </div>
-      </div>
-    </div>
-    <div class="swipe-hint">← Desliza para ver más pestañas →</div>
-    <div class="tabs-wrap">
-      <div class="tabs" role="tablist" aria-label="Secciones de la guía">
-        <button type="button" class="tab-btn active" onclick="showTab(0)" role="tab" aria-selected="true">Definición/Fisiopatología</button>
-        <button type="button" class="tab-btn" onclick="showTab(1)" role="tab" aria-selected="false">Diagnóstico/Criterios</button>
-        <button type="button" class="tab-btn" onclick="showTab(2)" role="tab" aria-selected="false">Clasificación/Estratificación</button>
-        <button type="button" class="tab-btn" onclick="showTab(3)" role="tab" aria-selected="false">GDMT / Tratamiento Crónico</button>
-        <button type="button" class="tab-btn" onclick="showTab(4)" role="tab" aria-selected="false">Descompensación Aguda</button>
-        <button type="button" class="tab-btn" onclick="showTab(5)" role="tab" aria-selected="false">Protocolo Urgencias</button>
-        <button type="button" class="tab-btn" onclick="showTab(6)" role="tab" aria-selected="false">Calculadoras</button>
-        <button type="button" class="tab-btn" onclick="showTab(7)" role="tab" aria-selected="false">Casos Clínicos</button>
-        <button type="button" class="tab-btn" onclick="showTab(8)" role="tab" aria-selected="false">Quiz</button>
-      </div>
-    </div>
-  </div>
+<div class="header-content">
+<a class="portal-back" href="../index.html">← Portal de guías</a>
+<button class="fullscreen-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+<div class="header-top">
+<div class="header-icon">🫀</div>
+<div class="header-text">
+<h1>Insuficiencia Cardíaca Aguda y Crónica</h1>
+<div class="subtitle">Diagnóstico, Descompensación y GDMT · Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+<div class="badge-row">
+<span class="hbadge">ESC 2021/2023</span>
+<span class="hbadge">AHA/ACC/HFSA 2022</span>
+<span class="hbadge">ACC 2024 Update</span>
+<span class="hbadge new animate">✦ NUEVO 2023–2024</span>
+<span class="hbadge">Dr. L. Croce</span>
+</div>
+</div>
+</div>
+<div class="swipe-hint">← Desliza para ver más pestañas →</div>
+<div class="tabs-wrap">
+<div aria-label="Secciones de la guía" class="tabs" role="tablist">
+<button aria-selected="true" class="tab-btn active" onclick="showTab(0)" role="tab" type="button">Definición/Fisiopatología</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(1)" role="tab" type="button">Diagnóstico/Criterios</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(2)" role="tab" type="button">Clasificación/Estratificación</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(3)" role="tab" type="button">GDMT / Tratamiento Crónico</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(4)" role="tab" type="button">Descompensación Aguda</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(5)" role="tab" type="button">Protocolo Urgencias</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(6)" role="tab" type="button">Calculadoras</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(7)" role="tab" type="button">Casos Clínicos</button>
+<button aria-selected="false" class="tab-btn" onclick="showTab(8)" role="tab" type="button">Quiz</button>
+</div>
+</div>
+</div>
 </div>
 <div class="content-area">
-
 <!-- ===== PANEL 0: Definición y Fisiopatología ===== -->
 <div class="panel active" id="panel-0">
-  <p class="section-intro">Fundamentos fisiopatológicos y definición actualizada. Basado en ESC 2021/2023 y AHA/ACC/HFSA 2022.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🫀 Definición y Espectro de la IC</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Definición ESC 2021</h4>
-        <p>La IC es un <strong>síndrome clínico</strong> caracterizado por síntomas típicos (disnea, edemas, fatiga) y signos (ingurgitación yugular, crepitantes, edema periférico), causados por anomalías estructurales o funcionales cardíacas que resultan en <strong>gasto cardíaco reducido</strong> y/o <strong>presiones de llenado elevadas</strong> en reposo o durante el esfuerzo.</p>
-      </div>
-      <div class="box box-purple">
-        <h4>🔬 Clasificación por FEVI (AHA/ACC/HFSA 2022 · ESC 2021)</h4>
-        <table>
-          <tr><th>Fenotipo</th><th>FEVI</th><th>Características</th><th>Prevalencia</th></tr>
-          <tr><td><strong>HFrEF</strong><br>FEVI reducida</td><td class="drug-mono">≤ 40%</td><td>Remodelado excéntrico; mayor evidencia GDMT</td><td>~45%</td></tr>
-          <tr><td><strong>HFmrEF</strong><br>FEVI ligeramente reducida<span class="tag-new">NUEVO</span></td><td class="drug-mono">41–49%</td><td>Zona gris; comparte rasgos de ambos fenotipos</td><td>~15%</td></tr>
-          <tr><td><strong>HFpEF</strong><br>FEVI conservada</td><td class="drug-mono">≥ 50%</td><td>Disfunción diastólica; HTA, obesidad, DM2 predominantes</td><td>~40%</td></tr>
-          <tr><td><strong>HFimpEF</strong><br>FEVI mejorada</td><td class="drug-mono">&gt;40% (antes ≤40%)</td><td>Recuperación; continuar GDMT para prevenir recaída</td><td>Variable</td></tr>
-        </table>
-        <div class="study-ref">Nota: HFimpEF es nueva categoría en AHA/ACC 2022 — TRED-HF trial (44% recaída al suspender GDMT)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>⚡ Fisiopatología de la IC</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-purple">
-        <h4>🔄 Cascada Neurohumoral</h4>
-        <ul>
-          <li>↓ Gasto cardíaco → activación neurohormonal compensatoria</li>
-          <li><strong>SRAA:</strong> retención Na/agua, vasoconstricción, fibrosis, hipertrofia</li>
-          <li><strong>Sistema simpático:</strong> taquicardia, vasoconstricción, toxicidad miocárdica crónica</li>
-          <li><strong>ADH/Vasopresina:</strong> retención hídrica, dilución (hiponatremia)</li>
-          <li><strong>BNP/NT-proBNP:</strong> liberados por estiramiento miocárdico → natriuresis compensadora (insuficiente en IC establecida)</li>
-        </ul>
-      </div>
-      <div class="box box-orange">
-        <h4>⚠️ Remodelado Cardíaco Adverso</h4>
-        <ul>
-          <li>Hipertrofia → fibrosis intersticial → disfunción sistólica y diastólica</li>
-          <li>Dilatación ventricular → insuficiencia mitral funcional → ↑ congestión</li>
-          <li>Cronificación: activación persistente SNS + SRAA = progresión inexorable</li>
-          <li><strong>Objetivo GDMT:</strong> bloquear/revertir esta cascada</li>
-        </ul>
-      </div>
-      <div class="box box-red">
-        <h4>🔴 IC Aguda Descompensada — Mecanismo Precipitante</h4>
-        <ul>
-          <li><strong>75–80%</strong> de las hospitalizaciones = IC crónica descompensada (no IC nueva)</li>
-          <li>Precipitantes más frecuentes: incumplimiento terapéutico (28%), infección (23%), arritmia nueva (13%), SCA subyacente (10%), HTA descontrolada (10%)</li>
-          <li>Fisiopatología: ↑ brusco de precarga y/o postcarga → congestión pulmonar y/o periférica</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📊 Epidemiología y Pronóstico</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-yellow">
-        <h4>📉 Carga de Enfermedad</h4>
-        <ul>
-          <li>Prevalencia global: ~64 millones de personas</li>
-          <li>Mortalidad al año post-hospitalización: 20–30%; a 5 años: ~50%</li>
-          <li>Rehospitalización a 30 días: 25% (indicador de calidad)</li>
-          <li>Costo: principal causa de hospitalización en &gt;65 años en países desarrollados</li>
-          <li>LATAM/Ecuador: alta carga de HTA no controlada y DM2 como causas subyacentes</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Fundamentos fisiopatológicos y definición actualizada. Basado en ESC 2021/2023 y AHA/ACC/HFSA 2022.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>🫀 Definición y Espectro de la IC</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Definición ESC 2021</h4>
+<p>La IC es un <strong>síndrome clínico</strong> caracterizado por síntomas típicos (disnea, edemas, fatiga) y signos (ingurgitación yugular, crepitantes, edema periférico), causados por anomalías estructurales o funcionales cardíacas que resultan en <strong>gasto cardíaco reducido</strong> y/o <strong>presiones de llenado elevadas</strong> en reposo o durante el esfuerzo.</p>
 </div>
-
+<div class="box box-purple">
+<h4>🔬 Clasificación por FEVI (AHA/ACC/HFSA 2022 · ESC 2021)</h4>
+<table>
+<tr><th>Fenotipo</th><th>FEVI</th><th>Características</th><th>Prevalencia</th></tr>
+<tr><td><strong>HFrEF</strong><br/>FEVI reducida</td><td class="drug-mono">≤ 40%</td><td>Remodelado excéntrico; mayor evidencia GDMT</td><td>~45%</td></tr>
+<tr><td><strong>HFmrEF</strong><br/>FEVI ligeramente reducida<span class="tag-new">NUEVO</span></td><td class="drug-mono">41–49%</td><td>Zona gris; comparte rasgos de ambos fenotipos</td><td>~15%</td></tr>
+<tr><td><strong>HFpEF</strong><br/>FEVI conservada</td><td class="drug-mono">≥ 50%</td><td>Disfunción diastólica; HTA, obesidad, DM2 predominantes</td><td>~40%</td></tr>
+<tr><td><strong>HFimpEF</strong><br/>FEVI mejorada</td><td class="drug-mono">&gt;40% (antes ≤40%)</td><td>Recuperación; continuar GDMT para prevenir recaída</td><td>Variable</td></tr>
+</table>
+<div class="study-ref">Nota: HFimpEF es nueva categoría en AHA/ACC 2022 — TRED-HF trial (44% recaída al suspender GDMT)</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>⚡ Fisiopatología de la IC</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-purple">
+<h4>🔄 Cascada Neurohumoral</h4>
+<ul>
+<li>↓ Gasto cardíaco → activación neurohormonal compensatoria</li>
+<li><strong>SRAA:</strong> retención Na/agua, vasoconstricción, fibrosis, hipertrofia</li>
+<li><strong>Sistema simpático:</strong> taquicardia, vasoconstricción, toxicidad miocárdica crónica</li>
+<li><strong>ADH/Vasopresina:</strong> retención hídrica, dilución (hiponatremia)</li>
+<li><strong>BNP/NT-proBNP:</strong> liberados por estiramiento miocárdico → natriuresis compensadora (insuficiente en IC establecida)</li>
+</ul>
+</div>
+<div class="box box-orange">
+<h4>⚠️ Remodelado Cardíaco Adverso</h4>
+<ul>
+<li>Hipertrofia → fibrosis intersticial → disfunción sistólica y diastólica</li>
+<li>Dilatación ventricular → insuficiencia mitral funcional → ↑ congestión</li>
+<li>Cronificación: activación persistente SNS + SRAA = progresión inexorable</li>
+<li><strong>Objetivo GDMT:</strong> bloquear/revertir esta cascada</li>
+</ul>
+</div>
+<div class="box box-red">
+<h4>🔴 IC Aguda Descompensada — Mecanismo Precipitante</h4>
+<ul>
+<li><strong>75–80%</strong> de las hospitalizaciones = IC crónica descompensada (no IC nueva)</li>
+<li>Precipitantes más frecuentes: incumplimiento terapéutico (28%), infección (23%), arritmia nueva (13%), SCA subyacente (10%), HTA descontrolada (10%)</li>
+<li>Fisiopatología: ↑ brusco de precarga y/o postcarga → congestión pulmonar y/o periférica</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>📊 Epidemiología y Pronóstico</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-yellow">
+<h4>📉 Carga de Enfermedad</h4>
+<ul>
+<li>Prevalencia global: ~64 millones de personas</li>
+<li>Mortalidad al año post-hospitalización: 20–30%; a 5 años: ~50%</li>
+<li>Rehospitalización a 30 días: 25% (indicador de calidad)</li>
+<li>Costo: principal causa de hospitalización en &gt;65 años en países desarrollados</li>
+<li>LATAM/Ecuador: alta carga de HTA no controlada y DM2 como causas subyacentes</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 1: Diagnóstico/Criterios ===== -->
 <div class="panel" id="panel-1">
-  <p class="section-intro">Criterios diagnósticos actualizados. La evaluación debe ser sistemática: síntomas → signos → biomarcadores → imagen.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩺 Síntomas y Signos — Criterios de Framingham Modificados</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Criterios Mayores</h4>
-        <ul>
-          <li>Disnea paroxística nocturna u ortopnea</li>
-          <li>Ingurgitación yugular (PVY ≥ 3 cm sobre ángulo esternal)</li>
-          <li>Crepitantes basales bilaterales</li>
-          <li>Cardiomegalia en Rx tórax</li>
-          <li>Edema agudo de pulmón</li>
-          <li>Galope por S3</li>
-          <li>Reflujo hepatoyugular positivo</li>
-          <li>Pérdida de peso &gt;4.5 kg en 5 días con tratamiento</li>
-        </ul>
-      </div>
-      <div class="box box-green">
-        <h4>📋 Criterios Menores</h4>
-        <ul>
-          <li>Edema bilateral de tobillos</li>
-          <li>Tos nocturna</li>
-          <li>Disnea de esfuerzo</li>
-          <li>Hepatomegalia</li>
-          <li>Derrame pleural</li>
-          <li>FC &gt; 120 lpm</li>
-          <li>Reducción de capacidad vital al 1/3 de la máxima</li>
-        </ul>
-      </div>
-      <div class="box box-yellow">
-        <h4>⚠️ Diagnóstico clínico: ≥2 criterios mayores ó 1 mayor + 2 menores</h4>
-        <p>Sensibilidad ~85%; especificidad ~74%. Siempre complementar con BNP/ecocardiograma.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🧪 Biomarcadores — BNP y NT-proBNP<span class="tag-new">CLAVE</span></h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-emerald">
-        <h4>✦ Cortes Diagnósticos ESC 2021 / AHA 2022</h4>
-        <table>
-          <tr><th>Biomarcador</th><th>Umbral Dx IC</th><th>Zona Gris</th><th>IC Improbable</th></tr>
-          <tr><td><strong>BNP</strong></td><td class="drug-mono">&gt;100 pg/mL</td><td class="drug-mono">35–100</td><td class="drug-mono">&lt;35 pg/mL</td></tr>
-          <tr><td><strong>NT-proBNP</strong><br>(ajustado a edad)</td><td class="drug-mono">&lt;50a: &gt;450<br>50–75a: &gt;900<br>&gt;75a: &gt;1800</td><td>Zona intermedia</td><td class="drug-mono">&lt;125 pg/mL</td></tr>
-        </table>
-      </div>
-      <div class="box box-orange">
-        <h4>⚠️ Falsas elevaciones (no IC)</h4>
-        <ul>
-          <li>Edad avanzada, FA, TEP, EPOC severo, sepsis, insuficiencia renal (TFGe &lt;60)</li>
-          <li>ERC crónica: usar NT-proBNP con mayor precaución; los cortes no están validados en diálisis</li>
-        </ul>
-      </div>
-      <div class="box box-green">
-        <h4>✅ Falsas bajas (IC puede estar presente)</h4>
-        <ul>
-          <li>Obesidad (BMI &gt;35): BNP ~50% más bajo de lo esperado</li>
-          <li>IC diastólica leve compensada, IC en estadio muy temprano</li>
-          <li>Tratamiento previo con sacubitrilo-valsartán (↑ BNP, ↓ NT-proBNP → usar NT-proBNP)</li>
-        </ul>
-      </div>
-      <div class="box box-blue">
-        <h4>🎯 Uso en urgencias (IC descompensada)</h4>
-        <p>BNP &gt;500 pg/mL o NT-proBNP &gt;2000 pg/mL en &gt;75 años → alta probabilidad de IC aguda descompensada. Valores en descenso &gt;30% con tratamiento = respuesta favorable.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🖥️ Ecocardiograma — Pilar Diagnóstico</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📊 Parámetros Clave</h4>
-        <table>
-          <tr><th>Parámetro</th><th>Normal</th><th>IC significativa</th></tr>
-          <tr><td>FEVI (Simpson biplano)</td><td>&gt;52% H / &gt;54% M</td><td>≤40% HFrEF</td></tr>
-          <tr><td>E/e' (disfunción diastólica)</td><td>&lt;8</td><td>&gt;14 = PCP elevada</td></tr>
-          <tr><td>Volumen AI indexado (VAIi)</td><td>&lt;34 mL/m²</td><td>&gt;34 mL/m²</td></tr>
-          <tr><td>HVI (masa VI)</td><td>H&lt;115g/m², M&lt;95g/m²</td><td>Sobre valores</td></tr>
-          <tr><td>Vena cava inferior</td><td>&lt;21mm; &gt;50% colapso</td><td>&gt;21mm sin colapso = PD2 elevada</td></tr>
-        </table>
-      </div>
-      <div class="box box-yellow">
-        <h4>⚠️ Ecocardiografía a pie de cama (POCUS)</h4>
-        <p>En urgencias: POCUS permite evaluar FEVI estimada, VCI, líneas B pulmonares (congestión) y derrame pericárdico en &lt;5 minutos. <strong>No reemplaza eco formal, pero guía manejo inicial.</strong></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩻 Radiografía de Tórax y Laboratorios</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Rx Tórax — Hallazgos por Estadio de Congestión</h4>
-        <table>
-          <tr><th>Hallazgo</th><th>Significado</th></tr>
-          <tr><td>Redistribución vascular (apical)</td><td>PCP 15–20 mmHg</td></tr>
-          <tr><td>Líneas B de Kerley, borramiento hiliar</td><td>PCP 20–25 mmHg</td></tr>
-          <tr><td>EAP intersticial (vidrio esmerilado)</td><td>PCP 25–30 mmHg</td></tr>
-          <tr><td>EAP alveolar bilateral ("alas de mariposa")</td><td>PCP &gt;30 mmHg</td></tr>
-          <tr><td>Derrame pleural, cardiomegalia (ICT &gt;0.5)</td><td>IC avanzada</td></tr>
-        </table>
-      </div>
-      <div class="box box-green">
-        <h4>🧪 Laboratorios Obligatorios al Ingreso</h4>
-        <ul>
-          <li><strong>BNP/NT-proBNP</strong> (diagnóstico y pronóstico)</li>
-          <li>Hemograma completo (anemia: factor precipitante; policitemia)</li>
-          <li>Función renal: creatinina, BUN, TFGe; electrolitos (Na, K, Mg)</li>
-          <li>Glucosa, HbA1c (DM2 subdiagnosticada frecuente)</li>
-          <li>TSH (hipotiroidismo/hipertiroidismo)</li>
-          <li>Troponinas (descartar SCA como precipitante)</li>
-          <li>Perfil hepático (congestión hepática)</li>
-          <li>Ferritina + saturación de transferrina (deficiencia de hierro: 50% de IC)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Criterios diagnósticos actualizados. La evaluación debe ser sistemática: síntomas → signos → biomarcadores → imagen.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩺 Síntomas y Signos — Criterios de Framingham Modificados</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Criterios Mayores</h4>
+<ul>
+<li>Disnea paroxística nocturna u ortopnea</li>
+<li>Ingurgitación yugular (PVY ≥ 3 cm sobre ángulo esternal)</li>
+<li>Crepitantes basales bilaterales</li>
+<li>Cardiomegalia en Rx tórax</li>
+<li>Edema agudo de pulmón</li>
+<li>Galope por S3</li>
+<li>Reflujo hepatoyugular positivo</li>
+<li>Pérdida de peso &gt;4.5 kg en 5 días con tratamiento</li>
+</ul>
 </div>
-
+<div class="box box-green">
+<h4>📋 Criterios Menores</h4>
+<ul>
+<li>Edema bilateral de tobillos</li>
+<li>Tos nocturna</li>
+<li>Disnea de esfuerzo</li>
+<li>Hepatomegalia</li>
+<li>Derrame pleural</li>
+<li>FC &gt; 120 lpm</li>
+<li>Reducción de capacidad vital al 1/3 de la máxima</li>
+</ul>
+</div>
+<div class="box box-yellow">
+<h4>⚠️ Diagnóstico clínico: ≥2 criterios mayores ó 1 mayor + 2 menores</h4>
+<p>Sensibilidad ~85%; especificidad ~74%. Siempre complementar con BNP/ecocardiograma.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🧪 Biomarcadores — BNP y NT-proBNP<span class="tag-new">CLAVE</span></h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-emerald">
+<h4>✦ Cortes Diagnósticos ESC 2021 / AHA 2022</h4>
+<table>
+<tr><th>Biomarcador</th><th>Umbral Dx IC</th><th>Zona Gris</th><th>IC Improbable</th></tr>
+<tr><td><strong>BNP</strong></td><td class="drug-mono">&gt;100 pg/mL</td><td class="drug-mono">35–100</td><td class="drug-mono">&lt;35 pg/mL</td></tr>
+<tr><td><strong>NT-proBNP</strong><br/>(ajustado a edad)</td><td class="drug-mono">&lt;50a: &gt;450<br/>50–75a: &gt;900<br/>&gt;75a: &gt;1800</td><td>Zona intermedia</td><td class="drug-mono">&lt;125 pg/mL</td></tr>
+</table>
+</div>
+<div class="box box-orange">
+<h4>⚠️ Falsas elevaciones (no IC)</h4>
+<ul>
+<li>Edad avanzada, FA, TEP, EPOC severo, sepsis, insuficiencia renal (TFGe &lt;60)</li>
+<li>ERC crónica: usar NT-proBNP con mayor precaución; los cortes no están validados en diálisis</li>
+</ul>
+</div>
+<div class="box box-green">
+<h4>✅ Falsas bajas (IC puede estar presente)</h4>
+<ul>
+<li>Obesidad (BMI &gt;35): BNP ~50% más bajo de lo esperado</li>
+<li>IC diastólica leve compensada, IC en estadio muy temprano</li>
+<li>Tratamiento previo con sacubitrilo-valsartán (↑ BNP, ↓ NT-proBNP → usar NT-proBNP)</li>
+</ul>
+</div>
+<div class="box box-blue">
+<h4>🎯 Uso en urgencias (IC descompensada)</h4>
+<p>BNP &gt;500 pg/mL o NT-proBNP &gt;2000 pg/mL en &gt;75 años → alta probabilidad de IC aguda descompensada. Valores en descenso &gt;30% con tratamiento = respuesta favorable.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🖥️ Ecocardiograma — Pilar Diagnóstico</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📊 Parámetros Clave</h4>
+<table>
+<tr><th>Parámetro</th><th>Normal</th><th>IC significativa</th></tr>
+<tr><td>FEVI (Simpson biplano)</td><td>&gt;52% H / &gt;54% M</td><td>≤40% HFrEF</td></tr>
+<tr><td>E/e' (disfunción diastólica)</td><td>&lt;8</td><td>&gt;14 = PCP elevada</td></tr>
+<tr><td>Volumen AI indexado (VAIi)</td><td>&lt;34 mL/m²</td><td>&gt;34 mL/m²</td></tr>
+<tr><td>HVI (masa VI)</td><td>H&lt;115g/m², M&lt;95g/m²</td><td>Sobre valores</td></tr>
+<tr><td>Vena cava inferior</td><td>&lt;21mm; &gt;50% colapso</td><td>&gt;21mm sin colapso = PD2 elevada</td></tr>
+</table>
+</div>
+<div class="box box-yellow">
+<h4>⚠️ Ecocardiografía a pie de cama (POCUS)</h4>
+<p>En urgencias: POCUS permite evaluar FEVI estimada, VCI, líneas B pulmonares (congestión) y derrame pericárdico en &lt;5 minutos. <strong>No reemplaza eco formal, pero guía manejo inicial.</strong></p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩻 Radiografía de Tórax y Laboratorios</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Rx Tórax — Hallazgos por Estadio de Congestión</h4>
+<table>
+<tr><th>Hallazgo</th><th>Significado</th></tr>
+<tr><td>Redistribución vascular (apical)</td><td>PCP 15–20 mmHg</td></tr>
+<tr><td>Líneas B de Kerley, borramiento hiliar</td><td>PCP 20–25 mmHg</td></tr>
+<tr><td>EAP intersticial (vidrio esmerilado)</td><td>PCP 25–30 mmHg</td></tr>
+<tr><td>EAP alveolar bilateral ("alas de mariposa")</td><td>PCP &gt;30 mmHg</td></tr>
+<tr><td>Derrame pleural, cardiomegalia (ICT &gt;0.5)</td><td>IC avanzada</td></tr>
+</table>
+</div>
+<div class="box box-green">
+<h4>🧪 Laboratorios Obligatorios al Ingreso</h4>
+<ul>
+<li><strong>BNP/NT-proBNP</strong> (diagnóstico y pronóstico)</li>
+<li>Hemograma completo (anemia: factor precipitante; policitemia)</li>
+<li>Función renal: creatinina, BUN, TFGe; electrolitos (Na, K, Mg)</li>
+<li>Glucosa, HbA1c (DM2 subdiagnosticada frecuente)</li>
+<li>TSH (hipotiroidismo/hipertiroidismo)</li>
+<li>Troponinas (descartar SCA como precipitante)</li>
+<li>Perfil hepático (congestión hepática)</li>
+<li>Ferritina + saturación de transferrina (deficiencia de hierro: 50% de IC)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 2: Clasificación/Estratificación ===== -->
 <div class="panel" id="panel-2">
-  <p class="section-intro">Clasificación funcional y estadificación para guiar terapia y pronóstico.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📊 Clasificación Funcional NYHA</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Clase NYHA</th><th>Descripción</th><th>Equivalente</th></tr>
-        <tr><td><strong style="color:var(--green)">Clase I</strong></td><td>Sin limitación. Actividad ordinaria sin síntomas</td><td>Asintomático</td></tr>
-        <tr><td><strong style="color:var(--yellow)">Clase II</strong></td><td>Ligera limitación. Síntomas con actividad ordinaria</td><td>Leve</td></tr>
-        <tr><td><strong style="color:var(--orange)">Clase III</strong></td><td>Marcada limitación. Síntomas con mínima actividad</td><td>Moderado-grave</td></tr>
-        <tr><td><strong style="color:var(--red)">Clase IV</strong></td><td>Síntomas en reposo o con cualquier actividad</td><td>Grave/terminal</td></tr>
-      </table>
-      <div class="box box-yellow" style="margin-top:12px">
-        <h4>⚠️ Limitación NYHA</h4>
-        <p>Subjetiva, variable y no correlaciona perfectamente con FEVI. Complementar con BNP y capacidad funcional (test 6 min, VO2 máx en candidatos avanzados).</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📈 Estadificación ACC/AHA (Estadios A–D)<span class="tag-new">GUÍA 2022</span></h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-green">
-        <h4>Estadio A — "En riesgo" <span class="evidence-badge ev-A">Clase I</span></h4>
-        <p>Factores de riesgo (HTA, DM2, obesidad, exposición a cardiotóxicos) pero sin síntomas, signos ni cambios estructurales cardíacos. <strong>Nuevo término en 2022.</strong></p>
-      </div>
-      <div class="box box-yellow">
-        <h4>Estadio B — "Pre-IC" <span class="evidence-badge ev-A">Clase I</span></h4>
-        <p>Sin síntomas ni signos de IC pero con: cambios estructurales (hipertrofia VI, disfunción diastólica, disfunción sistólica asintomática) o biomarcadores elevados (BNP, troponina). <strong>Candidatos a inicio precoz de GDMT.</strong></p>
-      </div>
-      <div class="box box-orange">
-        <h4>Estadio C — "IC Sintomática"</h4>
-        <p>IC establecida con síntomas activos o previos. La mayoría de los pacientes en manejo ambulatorio y hospitalario pertenecen a este grupo. Objetivo: GDMT completo y control de síntomas.</p>
-      </div>
-      <div class="box box-red">
-        <h4>Estadio D — "IC Avanzada"</h4>
-        <p>IC refractaria con síntomas graves en reposo o mínimo esfuerzo a pesar de GDMT optimizado. Considerar: dispositivos de asistencia ventricular (DAV), trasplante cardíaco, cuidados paliativos. INTERMACS 1–3.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🆘 Estratificación de Riesgo en IC Aguda (INTERMACS / SCAI)</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-red">
-        <h4>🔴 Perfiles INTERMACS (IC Avanzada)</h4>
-        <table>
-          <tr><th>Perfil</th><th>Descripción</th><th>Urgencia</th></tr>
-          <tr><td><strong>1</strong></td><td>Shock cardiogénico refractario ("crash and burn")</td><td>Horas</td></tr>
-          <tr><td><strong>2</strong></td><td>Deterioro progresivo con inotrópicos IV</td><td>Días</td></tr>
-          <tr><td><strong>3</strong></td><td>Estable con inotrópicos, incapaz de destete</td><td>Semanas</td></tr>
-          <tr><td><strong>4</strong></td><td>Síntomas en reposo con terapia oral máx</td><td>Semanas-meses</td></tr>
-          <tr><td><strong>5–7</strong></td><td>Limitación con ejercicio leve/moderado</td><td>Meses-años</td></tr>
-        </table>
-      </div>
-      <div class="box box-emerald">
-        <h4>✦ Clasificación SCAI de Shock Cardiogénico (ACC 2025)<span class="tag-new">NUEVO</span></h4>
-        <table>
-          <tr><th>Estadio</th><th>Clínica</th></tr>
-          <tr><td><strong>A — En riesgo</strong></td><td>No shock activo pero factores de riesgo (IAMCEST, IC avanzada)</td></tr>
-          <tr><td><strong>B — Inicio</strong></td><td>Hipoperfusión sin hipotensión franca; taquicardia, ↑ lactato leve</td></tr>
-          <tr><td><strong>C — Clásico</strong></td><td>Hipotensión + hipoperfusión; requiere intervención</td></tr>
-          <tr><td><strong>D — Deterioro</strong></td><td>Sin respuesta a intervención inicial; >1 vasopresor</td></tr>
-          <tr><td><strong>E — Extremis</strong></td><td>Colapso circulatorio; paro cardíaco/RCP activa</td></tr>
-        </table>
-      </div>
-      <div class="box box-blue">
-        <h4>📋 Perfil Clínico en IC Aguda (ESC 2021) — "LICKED"</h4>
-        <p><strong>¿Está mojado?</strong> (congestión) vs <strong>¿Está frío?</strong> (hipoperfusión)</p>
-        <ul>
-          <li><strong>Cálido-húmedo:</strong> congestión sin hipoperfusión → diuréticos + vasodilatadores</li>
-          <li><strong>Cálido-seco:</strong> compensado → ajuste GDMT oral</li>
-          <li><strong>Frío-húmedo:</strong> hipoperfusión + congestión → inotrópicos + diuréticos (más grave)</li>
-          <li><strong>Frío-seco:</strong> shock sin congestión → carga de volumen cuidadosa + inotrópicos</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Clasificación funcional y estadificación para guiar terapia y pronóstico.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>📊 Clasificación Funcional NYHA</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<table>
+<tr><th>Clase NYHA</th><th>Descripción</th><th>Equivalente</th></tr>
+<tr><td><strong style="color:var(--green)">Clase I</strong></td><td>Sin limitación. Actividad ordinaria sin síntomas</td><td>Asintomático</td></tr>
+<tr><td><strong style="color:var(--yellow)">Clase II</strong></td><td>Ligera limitación. Síntomas con actividad ordinaria</td><td>Leve</td></tr>
+<tr><td><strong style="color:var(--orange)">Clase III</strong></td><td>Marcada limitación. Síntomas con mínima actividad</td><td>Moderado-grave</td></tr>
+<tr><td><strong style="color:var(--red)">Clase IV</strong></td><td>Síntomas en reposo o con cualquier actividad</td><td>Grave/terminal</td></tr>
+</table>
+<div class="box box-yellow" style="margin-top:12px">
+<h4>⚠️ Limitación NYHA</h4>
+<p>Subjetiva, variable y no correlaciona perfectamente con FEVI. Complementar con BNP y capacidad funcional (test 6 min, VO2 máx en candidatos avanzados).</p>
 </div>
-
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>📈 Estadificación ACC/AHA (Estadios A–D)<span class="tag-new">GUÍA 2022</span></h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-green">
+<h4>Estadio A — "En riesgo" <span class="evidence-badge ev-A">Clase I</span></h4>
+<p>Factores de riesgo (HTA, DM2, obesidad, exposición a cardiotóxicos) pero sin síntomas, signos ni cambios estructurales cardíacos. <strong>Nuevo término en 2022.</strong></p>
+</div>
+<div class="box box-yellow">
+<h4>Estadio B — "Pre-IC" <span class="evidence-badge ev-A">Clase I</span></h4>
+<p>Sin síntomas ni signos de IC pero con: cambios estructurales (hipertrofia VI, disfunción diastólica, disfunción sistólica asintomática) o biomarcadores elevados (BNP, troponina). <strong>Candidatos a inicio precoz de GDMT.</strong></p>
+</div>
+<div class="box box-orange">
+<h4>Estadio C — "IC Sintomática"</h4>
+<p>IC establecida con síntomas activos o previos. La mayoría de los pacientes en manejo ambulatorio y hospitalario pertenecen a este grupo. Objetivo: GDMT completo y control de síntomas.</p>
+</div>
+<div class="box box-red">
+<h4>Estadio D — "IC Avanzada"</h4>
+<p>IC refractaria con síntomas graves en reposo o mínimo esfuerzo a pesar de GDMT optimizado. Considerar: dispositivos de asistencia ventricular (DAV), trasplante cardíaco, cuidados paliativos. INTERMACS 1–3.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🆘 Estratificación de Riesgo en IC Aguda (INTERMACS / SCAI)</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-red">
+<h4>🔴 Perfiles INTERMACS (IC Avanzada)</h4>
+<table>
+<tr><th>Perfil</th><th>Descripción</th><th>Urgencia</th></tr>
+<tr><td><strong>1</strong></td><td>Shock cardiogénico refractario ("crash and burn")</td><td>Horas</td></tr>
+<tr><td><strong>2</strong></td><td>Deterioro progresivo con inotrópicos IV</td><td>Días</td></tr>
+<tr><td><strong>3</strong></td><td>Estable con inotrópicos, incapaz de destete</td><td>Semanas</td></tr>
+<tr><td><strong>4</strong></td><td>Síntomas en reposo con terapia oral máx</td><td>Semanas-meses</td></tr>
+<tr><td><strong>5–7</strong></td><td>Limitación con ejercicio leve/moderado</td><td>Meses-años</td></tr>
+</table>
+</div>
+<div class="box box-emerald">
+<h4>✦ Clasificación SCAI de Shock Cardiogénico (ACC 2025)<span class="tag-new">NUEVO</span></h4>
+<table>
+<tr><th>Estadio</th><th>Clínica</th></tr>
+<tr><td><strong>A — En riesgo</strong></td><td>No shock activo pero factores de riesgo (IAMCEST, IC avanzada)</td></tr>
+<tr><td><strong>B — Inicio</strong></td><td>Hipoperfusión sin hipotensión franca; taquicardia, ↑ lactato leve</td></tr>
+<tr><td><strong>C — Clásico</strong></td><td>Hipotensión + hipoperfusión; requiere intervención</td></tr>
+<tr><td><strong>D — Deterioro</strong></td><td>Sin respuesta a intervención inicial; &gt;1 vasopresor</td></tr>
+<tr><td><strong>E — Extremis</strong></td><td>Colapso circulatorio; paro cardíaco/RCP activa</td></tr>
+</table>
+</div>
+<div class="box box-blue">
+<h4>📋 Perfil Clínico en IC Aguda (ESC 2021) — "LICKED"</h4>
+<p><strong>¿Está mojado?</strong> (congestión) vs <strong>¿Está frío?</strong> (hipoperfusión)</p>
+<ul>
+<li><strong>Cálido-húmedo:</strong> congestión sin hipoperfusión → diuréticos + vasodilatadores</li>
+<li><strong>Cálido-seco:</strong> compensado → ajuste GDMT oral</li>
+<li><strong>Frío-húmedo:</strong> hipoperfusión + congestión → inotrópicos + diuréticos (más grave)</li>
+<li><strong>Frío-seco:</strong> shock sin congestión → carga de volumen cuidadosa + inotrópicos</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 3: GDMT / Tratamiento Crónico ===== -->
 <div class="panel" id="panel-3">
-  <p class="section-intro">Los 4 pilares GDMT para HFrEF (AHA/ACC/HFSA 2022 + ESC 2023 Update). La cuadriterapia reduce mortalidad relativa ~73%.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>💊 Los 4 Pilares GDMT para HFrEF<span class="tag-new">NUEVO 2022</span></h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-emerald">
-        <h4>✦ Cuadriterapia — Clase IA AHA/ACC 2022</h4>
-        <p style="margin-bottom:10px">Reducción estimada de mortalidad total con los 4 pilares: <strong>~73%</strong> (modelo decisional AHA 2022)</p>
-        <table>
-          <tr><th>Pilar</th><th>Fármaco preferido</th><th>Dosis objetivo</th><th>Estudio clave</th></tr>
-          <tr><td><strong>1. ARNI / RASi</strong></td><td>Sacubitrilo/Valsartán<br>(ARNI de primera línea)</td><td>97/103 mg c/12h</td><td>PARADIGM-HF (N=8,399; 20% ↓ muerte CV)</td></tr>
-          <tr><td><strong>2. β-bloqueante</strong></td><td>Carvedilol, Bisoprolol,<br>Metoprolol succinato</td><td>Carvedilol 25mg c/12h</td><td>COPERNICUS, MERIT-HF, CIBIS-II</td></tr>
-          <tr><td><strong>3. ARM (MRA)</strong></td><td>Espironolactona<br>Eplerenona</td><td>25–50 mg/día</td><td>RALES (N=1,663), EMPHASIS-HF</td></tr>
-          <tr><td><strong>4. iSGLT2</strong><br><span class="tag-new">NUEVO 2022</span></td><td>Dapagliflozina<br>Empagliflozina</td><td>Dapa 10 mg/día<br>Empa 10 mg/día</td><td>DAPA-HF, EMPEROR-Reduced</td></tr>
-        </table>
-        <div class="study-ref">ARNI preferida sobre IECAs (Clase IA cuando es tolerada). Si no disponible/tolerada: IECA (Clase IA) o ARA-II (IIA).</div>
-      </div>
-      <div class="box box-red">
-        <h4>🔴 Contraindicaciones Absolutas</h4>
-        <ul>
-          <li><strong>ARNI:</strong> angioedema previo con IECA, uso concomitante de IECA (lavado 36h), embarazo</li>
-          <li><strong>β-bloqueante:</strong> shock cardiogénico ACTIVO, bloqueo AV 2°/3° sin marcapasos, asma bronquial severa</li>
-          <li><strong>ARM:</strong> K &gt;5.0 mEq/L, TFGe &lt;30 mL/min, uso concomitante K+</li>
-          <li><strong>iSGLT2:</strong> DM1, cetoacidosis, TFGe &lt;20–25 mL/min (para Dapa; Empa hasta 20)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🎯 Inicio y Titulación del GDMT</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Estrategia de Inicio (ACC Expert Consensus 2022)</h4>
-        <ul>
-          <li>Los 4 agentes pueden <strong>iniciarse simultáneamente</strong> a dosis bajas (sin necesidad de esperar titulación completa de uno para iniciar el siguiente)</li>
-          <li>Titulación en las primeras <strong>6 semanas</strong> según tolerancia</li>
-          <li>Objetivo: alcanzar dosis óptimas toleradas, no necesariamente máximas</li>
-          <li>Si IECA/ARA-II actualmente → convertir a ARNI cuando estable (no en fase aguda)</li>
-        </ul>
-      </div>
-      <div class="box box-orange">
-        <h4>⚠️ Monitoreo al Iniciar GDMT</h4>
-        <ul>
-          <li>Función renal y electrolitos: a la semana y al mes de inicio de ARNI/ARM</li>
-          <li>PA: hipotensión leve (PAS 90–100) tolerable si asintomático</li>
-          <li>FC con β-bloqueante: objetivo 55–65 lpm en sinusal</li>
-          <li>Glucosa y función renal con iSGLT2 (↑ creatinina inicial esperada y transitoria)</li>
-        </ul>
-      </div>
-      <div class="box box-emerald">
-        <h4>✦ Terapias Adicionales para HFrEF<span class="tag-new">NUEVO ESC 2023</span></h4>
-        <table>
-          <tr><th>Fármaco</th><th>Indicación</th><th>Clase</th></tr>
-          <tr><td>Ivabradina</td><td>FC &gt;70 lpm en sinusal con βB máximo o intolerante</td><td>IIa-B</td></tr>
-          <tr><td>Hierro IV (carboximaltos ferrico o derisomaltosa)</td><td>Ferropenia (ferritina &lt;100 o 100-299 con sat&lt;20%)</td><td>IA ✦ ESC 2023</td></tr>
-          <tr><td>Hidralazina + Nitrato</td><td>Intolerante a IECA/ARNI/ARA-II (tos, angioedema)</td><td>IIa-B</td></tr>
-          <tr><td>Vericiguat</td><td>Post-descompensación estabilizado, FEVI &lt;45%</td><td>IIb-B</td></tr>
-          <tr><td>CRT (resincronización)</td><td>FEVI ≤35%, QRS ≥150ms BCRI, NYHA II-III</td><td>IA</td></tr>
-          <tr><td>DAI (desfibrilador)</td><td>FEVI ≤35% post-3 meses GDMT, esperanza vida &gt;1a</td><td>IA</td></tr>
-        </table>
-        <div class="study-ref">✦ Hierro IV: actualizado a Clase IA en ESC 2023 Update (AFFIRM-AHF, HEART-FID trials)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Tratamiento de HFpEF y HFmrEF<span class="tag-new">NUEVO 2022–2023</span></h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-cyan">
-        <h4>🩵 HFpEF (FEVI ≥ 50%) — Cambios Relevantes</h4>
-        <table>
-          <tr><th>Intervención</th><th>Recomendación</th><th>Evidencia</th></tr>
-          <tr><td>iSGLT2 (Empa/Dapa)</td><td>Indicado para reducir hospitalización</td><td>Clase IIa-B (EMPEROR-Preserved, DELIVER)</td></tr>
-          <tr><td>Control HTA</td><td>PAS &lt;130 mmHg (objetivo)</td><td>Clase I-A</td></tr>
-          <tr><td>Control FC en FA</td><td>FC objetivo &lt;80 lpm</td><td>Clase IIa</td></tr>
-          <tr><td>ARM (Espironolactona)</td><td>Puede reducir hospitalización</td><td>Clase IIb-B</td></tr>
-          <tr><td>ARNI (Sacubitrilo/Valsa)</td><td>Considerar especialmente en FEVI 45-55%</td><td>Clase IIb-B</td></tr>
-          <tr><td>Diuréticos de asa</td><td>Para alivio síntomas congestivos</td><td>Clase I (síntomas)</td></tr>
-        </table>
-      </div>
-      <div class="box box-purple">
-        <h4>🟣 HFmrEF (FEVI 41–49%)</h4>
-        <ul>
-          <li><strong>iSGLT2: Clase IIa-B</strong> (ESC 2023 — misma evidencia que HFpEF)</li>
-          <li>ARNI, IECA, ARA-II, ARM, β-bloqueantes: Clase IIb-B</li>
-          <li>Comportamiento similar a HFrEF si FEVI en descenso; similar a HFpEF si estable o en ascenso</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🔄 Comparativa Guías — HFrEF</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <table>
-        <tr><th>Aspecto</th><th>ESC 2016 / AHA 2013</th><th>AHA/ACC 2022 / ESC 2021/2023</th></tr>
-        <tr><td>Pilares GDMT</td><td>3 (IECA/ARNI, BB, ARM)</td><td><strong>4 pilares (+ iSGLT2)</strong></td></tr>
-        <tr><td>iSGLT2</td><td>Solo DM2 con ECV</td><td><strong>Indicado en HFrEF independiente de DM2</strong></td></tr>
-        <tr><td>1ª línea RASi</td><td>IECA (ARNI si intol IECA)</td><td><strong>ARNI como 1ª línea preferida</strong></td></tr>
-        <tr><td>HFpEF tratamiento</td><td>Solo diuréticos + comorbilidades</td><td><strong>iSGLT2 IIa; ARM IIb; ARNI IIb</strong></td></tr>
-        <tr><td>Hierro IV</td><td>Clase IIb</td><td><strong>Clase IA (ESC 2023)</strong></td></tr>
-        <tr><td>Inicio GDMT</td><td>Secuencial (esperar titulación)</td><td><strong>Simultáneo preferido</strong></td></tr>
-        <tr><td>HFimpEF</td><td>No categoría formal</td><td><strong>Nueva categoría; continuar GDMT</strong></td></tr>
-      </table>
-    </div>
-  </div>
+<p class="section-intro">Los 4 pilares GDMT para HFrEF (AHA/ACC/HFSA 2022 + ESC 2023 Update). La cuadriterapia reduce mortalidad relativa ~73%.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>💊 Los 4 Pilares GDMT para HFrEF<span class="tag-new">NUEVO 2022</span></h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-emerald">
+<h4>✦ Cuadriterapia — Clase IA AHA/ACC 2022</h4>
+<p style="margin-bottom:10px">Reducción estimada de mortalidad total con los 4 pilares: <strong>~73%</strong> (modelo decisional AHA 2022)</p>
+<table>
+<tr><th>Pilar</th><th>Fármaco preferido</th><th>Dosis objetivo</th><th>Estudio clave</th></tr>
+<tr><td><strong>1. ARNI / RASi</strong></td><td>Sacubitrilo/Valsartán<br/>(ARNI de primera línea)</td><td>97/103 mg c/12h</td><td>PARADIGM-HF (N=8,399; 20% ↓ muerte CV)</td></tr>
+<tr><td><strong>2. β-bloqueante</strong></td><td>Carvedilol, Bisoprolol,<br/>Metoprolol succinato</td><td>Carvedilol 25mg c/12h</td><td>COPERNICUS, MERIT-HF, CIBIS-II</td></tr>
+<tr><td><strong>3. ARM (MRA)</strong></td><td>Espironolactona<br/>Eplerenona</td><td>25–50 mg/día</td><td>RALES (N=1,663), EMPHASIS-HF</td></tr>
+<tr><td><strong>4. iSGLT2</strong><br/><span class="tag-new">NUEVO 2022</span></td><td>Dapagliflozina<br/>Empagliflozina</td><td>Dapa 10 mg/día<br/>Empa 10 mg/día</td><td>DAPA-HF, EMPEROR-Reduced</td></tr>
+</table>
+<div class="study-ref">ARNI preferida sobre IECAs (Clase IA cuando es tolerada). Si no disponible/tolerada: IECA (Clase IA) o ARA-II (IIA).</div>
 </div>
-
+<div class="box box-red">
+<h4>🔴 Contraindicaciones Absolutas</h4>
+<ul>
+<li><strong>ARNI:</strong> angioedema previo con IECA, uso concomitante de IECA (lavado 36h), embarazo</li>
+<li><strong>β-bloqueante:</strong> shock cardiogénico ACTIVO, bloqueo AV 2°/3° sin marcapasos, asma bronquial severa</li>
+<li><strong>ARM:</strong> K &gt;5.0 mEq/L, TFGe &lt;30 mL/min, uso concomitante K+</li>
+<li><strong>iSGLT2:</strong> DM1, cetoacidosis, TFGe &lt;20–25 mL/min (para Dapa; Empa hasta 20)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🎯 Inicio y Titulación del GDMT</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Estrategia de Inicio (ACC Expert Consensus 2022)</h4>
+<ul>
+<li>Los 4 agentes pueden <strong>iniciarse simultáneamente</strong> a dosis bajas (sin necesidad de esperar titulación completa de uno para iniciar el siguiente)</li>
+<li>Titulación en las primeras <strong>6 semanas</strong> según tolerancia</li>
+<li>Objetivo: alcanzar dosis óptimas toleradas, no necesariamente máximas</li>
+<li>Si IECA/ARA-II actualmente → convertir a ARNI cuando estable (no en fase aguda)</li>
+</ul>
+</div>
+<div class="box box-orange">
+<h4>⚠️ Monitoreo al Iniciar GDMT</h4>
+<ul>
+<li>Función renal y electrolitos: a la semana y al mes de inicio de ARNI/ARM</li>
+<li>PA: hipotensión leve (PAS 90–100) tolerable si asintomático</li>
+<li>FC con β-bloqueante: objetivo 55–65 lpm en sinusal</li>
+<li>Glucosa y función renal con iSGLT2 (↑ creatinina inicial esperada y transitoria)</li>
+</ul>
+</div>
+<div class="box box-emerald">
+<h4>✦ Terapias Adicionales para HFrEF<span class="tag-new">NUEVO ESC 2023</span></h4>
+<table>
+<tr><th>Fármaco</th><th>Indicación</th><th>Clase</th></tr>
+<tr><td>Ivabradina</td><td>FC &gt;70 lpm en sinusal con βB máximo o intolerante</td><td>IIa-B</td></tr>
+<tr><td>Hierro IV (carboximaltos ferrico o derisomaltosa)</td><td>Ferropenia (ferritina &lt;100 o 100-299 con sat&lt;20%)</td><td>IA ✦ ESC 2023</td></tr>
+<tr><td>Hidralazina + Nitrato</td><td>Intolerante a IECA/ARNI/ARA-II (tos, angioedema)</td><td>IIa-B</td></tr>
+<tr><td>Vericiguat</td><td>Post-descompensación estabilizado, FEVI &lt;45%</td><td>IIb-B</td></tr>
+<tr><td>CRT (resincronización)</td><td>FEVI ≤35%, QRS ≥150ms BCRI, NYHA II-III</td><td>IA</td></tr>
+<tr><td>DAI (desfibrilador)</td><td>FEVI ≤35% post-3 meses GDMT, esperanza vida &gt;1a</td><td>IA</td></tr>
+</table>
+<div class="study-ref">✦ Hierro IV: actualizado a Clase IA en ESC 2023 Update (AFFIRM-AHF, HEART-FID trials)</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Tratamiento de HFpEF y HFmrEF<span class="tag-new">NUEVO 2022–2023</span></h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-cyan">
+<h4>🩵 HFpEF (FEVI ≥ 50%) — Cambios Relevantes</h4>
+<table>
+<tr><th>Intervención</th><th>Recomendación</th><th>Evidencia</th></tr>
+<tr><td>iSGLT2 (Empa/Dapa)</td><td>Indicado para reducir hospitalización</td><td>Clase IIa-B (EMPEROR-Preserved, DELIVER)</td></tr>
+<tr><td>Control HTA</td><td>PAS &lt;130 mmHg (objetivo)</td><td>Clase I-A</td></tr>
+<tr><td>Control FC en FA</td><td>FC objetivo &lt;80 lpm</td><td>Clase IIa</td></tr>
+<tr><td>ARM (Espironolactona)</td><td>Puede reducir hospitalización</td><td>Clase IIb-B</td></tr>
+<tr><td>ARNI (Sacubitrilo/Valsa)</td><td>Considerar especialmente en FEVI 45-55%</td><td>Clase IIb-B</td></tr>
+<tr><td>Diuréticos de asa</td><td>Para alivio síntomas congestivos</td><td>Clase I (síntomas)</td></tr>
+</table>
+</div>
+<div class="box box-purple">
+<h4>🟣 HFmrEF (FEVI 41–49%)</h4>
+<ul>
+<li><strong>iSGLT2: Clase IIa-B</strong> (ESC 2023 — misma evidencia que HFpEF)</li>
+<li>ARNI, IECA, ARA-II, ARM, β-bloqueantes: Clase IIb-B</li>
+<li>Comportamiento similar a HFrEF si FEVI en descenso; similar a HFpEF si estable o en ascenso</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🔄 Comparativa Guías — HFrEF</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<table>
+<tr><th>Aspecto</th><th>ESC 2016 / AHA 2013</th><th>AHA/ACC 2022 / ESC 2021/2023</th></tr>
+<tr><td>Pilares GDMT</td><td>3 (IECA/ARNI, BB, ARM)</td><td><strong>4 pilares (+ iSGLT2)</strong></td></tr>
+<tr><td>iSGLT2</td><td>Solo DM2 con ECV</td><td><strong>Indicado en HFrEF independiente de DM2</strong></td></tr>
+<tr><td>1ª línea RASi</td><td>IECA (ARNI si intol IECA)</td><td><strong>ARNI como 1ª línea preferida</strong></td></tr>
+<tr><td>HFpEF tratamiento</td><td>Solo diuréticos + comorbilidades</td><td><strong>iSGLT2 IIa; ARM IIb; ARNI IIb</strong></td></tr>
+<tr><td>Hierro IV</td><td>Clase IIb</td><td><strong>Clase IA (ESC 2023)</strong></td></tr>
+<tr><td>Inicio GDMT</td><td>Secuencial (esperar titulación)</td><td><strong>Simultáneo preferido</strong></td></tr>
+<tr><td>HFimpEF</td><td>No categoría formal</td><td><strong>Nueva categoría; continuar GDMT</strong></td></tr>
+</table>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 4: Descompensación Aguda ===== -->
 <div class="panel" id="panel-4">
-  <p class="section-intro">Manejo de la IC Agudamente Descompensada (ICAD) en urgencias y hospitalización. ESC 2021/2023 · ACC 2024 Update.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🚨 Evaluación Inicial Urgente — Primeros 60 minutos</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-red">
-        <h4>🔴 Reconocer Inmediatamente: ¿Hay riesgo vital?</h4>
-        <ul>
-          <li><strong>Insuficiencia respiratoria aguda:</strong> SpO₂ &lt;90%, FR &gt;30, uso de accesorios</li>
-          <li><strong>Shock cardiogénico:</strong> PAS &lt;90 mmHg + signos de hipoperfusión (piel marmórea, diuresis &lt;0.5 mL/kg/h, láctico &gt;2 mmol/L)</li>
-          <li><strong>Arritmia maligna:</strong> FA/Flutter con respuesta ventricular rápida inestable, TVNS, bloqueo AV completo</li>
-          <li><strong>SCA precipitante:</strong> dolor torácico, cambios ECG agudos, troponinas en ascenso</li>
-        </ul>
-      </div>
-      <div class="box box-blue">
-        <h4>📋 Evaluación Clínica Sistémica — perfil "Húmedo/Seco · Caliente/Frío"</h4>
-        <table>
-          <tr><th>Pregunta</th><th>Signos</th><th>Decisión</th></tr>
-          <tr><td>¿Congestión? (¿Está húmedo?)</td><td>PVY↑, crepitantes, edema, PCP↑</td><td>→ Diuréticos urgente</td></tr>
-          <tr><td>¿Hipoperfusión? (¿Está frío?)</td><td>Hipotensión, llenado capilar &gt;3s, diuresis ↓, láctico ↑</td><td>→ Inotrópicos/vasopresores</td></tr>
-          <tr><td>¿Precipitante corregible?</td><td>Infección, FA, SCA, HTAcrisis</td><td>→ Tratar precipitante</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>💧 Diuréticos — Pilar del Manejo Agudo</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Furosemida IV — Dosis y Estrategia (ESC 2021)</h4>
-        <table>
-          <tr><th>Situación</th><th>Dosis inicial IV</th><th>Estrategia</th></tr>
-          <tr><td>Sin diurético previo</td><td>20–40 mg IV bolus</td><td>Ajustar a respuesta diurética</td></tr>
-          <tr><td>Con furosemida oral previa</td><td>Dosis oral equivalente IV<br>(al menos igual, preferir mayor)</td><td>Infusión continua o bolos c/6–8h</td></tr>
-          <tr><td>Resistencia diurética</td><td>Incrementar a 80–160–240 mg/dosis</td><td>+ Tiazida (hidroclorotiazida 25–50 mg) o acetazolamida</td></tr>
-        </table>
-      </div>
-      <div class="box box-emerald">
-        <h4>✦ Acetazolamida + Furosemida — ADVOR Trial 2022<span class="tag-new">NUEVO ESC 2023</span></h4>
-        <ul>
-          <li>Acetazolamida 500 mg IV/día + furosemida → mayor tasa de descongestión (64 vs 42%, p&lt;0.001)</li>
-          <li><strong>N=519</strong> (NEJM 2022); alcanzó descongestión exitosa sin aumento de rehospitalizaciones</li>
-          <li>ESC 2023: menciona los datos pero <strong>no emite recomendación formal</strong> (evidencia en outcomes a largo plazo insuficiente)</li>
-          <li>Considerar en resistencia diurética o congestión persistente a las 24-48h</li>
-        </ul>
-      </div>
-      <div class="box box-orange">
-        <h4>⚠️ Monitoreo de Respuesta Diurética</h4>
-        <ul>
-          <li>Objetivo: diuresis 100–200 mL/h las primeras 6h; &gt;3.5 L/día total</li>
-          <li>Peso diario (objetivo: -0.5 a -1 kg/día)</li>
-          <li>Electrolitos cada 24–48h (hipopotasemia, hipomagnesemia)</li>
-          <li>Creatinina diaria: ↑ leve aceptable ("creatinina de estrés") si congestión mejora</li>
-          <li>BNP/NT-proBNP: reducción &gt;30% al alta = mejor pronóstico</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🫁 Soporte Respiratorio — EAP e Insuficiencia Respiratoria</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Escala de Intervención Respiratoria</h4>
-        <ul>
-          <li><strong>SpO₂ &gt;92%:</strong> O₂ por cánula nasal o mascarilla (objetivo SpO₂ 94–98%; 90–94% si EPOC)</li>
-          <li><strong>SpO₂ &lt;92% o FR &gt;25:</strong> CPAP 5–10 cmH₂O o BiPAP (IPAP 12–20 / EPAP 4–8)</li>
-          <li><strong>VNI de primera elección en EAP cardiogénico</strong> (Clase I, ESC 2021) — reduce intubación, mejora SpO₂ rápidamente</li>
-          <li><strong>Intubación orotraqueal:</strong> si VNI falla, deterioro neurológico, secreciones inmanejables, PCR</li>
-        </ul>
-      </div>
-      <div class="box box-red">
-        <h4>🔴 No usar O₂ suplementario si SpO₂ &gt;96% en IC sin hipoxemia</h4>
-        <p>La hiperóxia produce vasoconstricción y reduce el gasto cardíaco. O₂ solo si SpO₂ &lt;90–92%.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>💉 Vasodilatadores e Inotrópicos</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-blue">
-        <h4>📋 Vasodilatadores IV (IC + congestión + PAS ≥ 110 mmHg)</h4>
-        <table>
-          <tr><th>Fármaco</th><th>Dosis</th><th>Indicación preferida</th></tr>
-          <tr><td>Nitroglicerina IV</td><td>10–200 mcg/min (titular)</td><td>EAP, IC hipertensiva, isquemia</td></tr>
-          <tr><td>Nitroprusiato IV</td><td>0.3–5 mcg/kg/min</td><td>Crisis HTA + IC, postcarga muy elevada</td></tr>
-          <tr><td>Nesiritide (BNP recombinante)</td><td>2 mcg/kg bolus + 0.01 mcg/kg/min</td><td>EAP (no disponible en LATAM habitualmente)</td></tr>
-        </table>
-      </div>
-      <div class="box box-orange">
-        <h4>⚠️ Inotrópicos IV (IC con hipoperfusión / perfil Frío)</h4>
-        <table>
-          <tr><th>Fármaco</th><th>Dosis</th><th>Efecto principal</th></tr>
-          <tr><td>Dobutamina</td><td>2–20 mcg/kg/min</td><td>Inotrópico, cronotrópico, vasodilatador leve</td></tr>
-          <tr><td>Milrinona</td><td>0.375–0.75 mcg/kg/min</td><td>Inodilador (útil con β-bloqueante activo)</td></tr>
-          <tr><td>Levosimendan</td><td>0.1–0.2 mcg/kg/min x 24h</td><td>Sensibilizador Ca²⁺; inodilador; sin ↑ mortalidad</td></tr>
-        </table>
-      </div>
-      <div class="box box-red">
-        <h4>🔴 Vasopresores — Solo si Shock Cardiogénico con Hipotensión Refractaria</h4>
-        <ul>
-          <li><strong>Norepinefrina:</strong> vasopresor de elección en shock cardiogénico (preferida sobre dopamina — SOAP II trial)</li>
-          <li><strong>Dopamina:</strong> alternativa, pero mayor riesgo de arritmias</li>
-          <li>Objetivo: PAM &gt;65 mmHg; ajustar para perfusión de órgano</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🔄 Manejo del GDMT durante Hospitalización<span class="tag-new">ACC 2024</span></h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-emerald">
-        <h4>✦ Iniciar/continuar GDMT durante hospitalización — ACC 2024 Update</h4>
-        <ul>
-          <li>NO suspender ARNI/IECA/ARA-II ni β-bloqueantes salvo shock, creatinina crítica, K &gt;5.5 o FC &lt;50</li>
-          <li><strong>Iniciar iSGLT2 durante hospitalización</strong> es seguro y mejora outcomes (EMPULSE trial: Empa reduce eventos CV en IC aguda hospitalizada)</li>
-          <li>STRONG-HF trial (2022, N=1,078): inicio precoz e intensificación de GDMT a las 2 semanas post-hospitalización reduce rehospitalización a 180 días (OR 0.65)</li>
-          <li>Objetivo al alta: al menos 2–3 de los 4 pilares iniciados a dosis bajas toleradas</li>
-        </ul>
-        <div class="study-ref">EMPULSE Trial: Empagliflozina 10mg vs placebo en IC aguda; beneficio clínico a 90 días (50% vs 39.7%, p=0.0054) — Lancet 2022</div>
-      </div>
-      <div class="box box-blue">
-        <h4>📋 Criterios de Alta (ACC 2024)</h4>
-        <ul>
-          <li>Euvolemia o próximo a euvolemia (sin signos congestivos significativos)</li>
-          <li>PAS estable &gt;90 mmHg en reposo sin inotrópicos IV</li>
-          <li>Función renal y electrolitos estables ≥ 24h post-ajuste diurético</li>
-          <li>Educación al paciente completada (dieta, peso diario, cuándo consultar)</li>
-          <li>Seguimiento confirmado a 7–14 días post-alta</li>
-          <li>GDMT iniciado y documentado</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Manejo de la IC Agudamente Descompensada (ICAD) en urgencias y hospitalización. ESC 2021/2023 · ACC 2024 Update.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>🚨 Evaluación Inicial Urgente — Primeros 60 minutos</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-red">
+<h4>🔴 Reconocer Inmediatamente: ¿Hay riesgo vital?</h4>
+<ul>
+<li><strong>Insuficiencia respiratoria aguda:</strong> SpO₂ &lt;90%, FR &gt;30, uso de accesorios</li>
+<li><strong>Shock cardiogénico:</strong> PAS &lt;90 mmHg + signos de hipoperfusión (piel marmórea, diuresis &lt;0.5 mL/kg/h, láctico &gt;2 mmol/L)</li>
+<li><strong>Arritmia maligna:</strong> FA/Flutter con respuesta ventricular rápida inestable, TVNS, bloqueo AV completo</li>
+<li><strong>SCA precipitante:</strong> dolor torácico, cambios ECG agudos, troponinas en ascenso</li>
+</ul>
 </div>
-
+<div class="box box-blue">
+<h4>📋 Evaluación Clínica Sistémica — perfil "Húmedo/Seco · Caliente/Frío"</h4>
+<table>
+<tr><th>Pregunta</th><th>Signos</th><th>Decisión</th></tr>
+<tr><td>¿Congestión? (¿Está húmedo?)</td><td>PVY↑, crepitantes, edema, PCP↑</td><td>→ Diuréticos urgente</td></tr>
+<tr><td>¿Hipoperfusión? (¿Está frío?)</td><td>Hipotensión, llenado capilar &gt;3s, diuresis ↓, láctico ↑</td><td>→ Inotrópicos/vasopresores</td></tr>
+<tr><td>¿Precipitante corregible?</td><td>Infección, FA, SCA, HTAcrisis</td><td>→ Tratar precipitante</td></tr>
+</table>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>💧 Diuréticos — Pilar del Manejo Agudo</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Furosemida IV — Dosis y Estrategia (ESC 2021)</h4>
+<table>
+<tr><th>Situación</th><th>Dosis inicial IV</th><th>Estrategia</th></tr>
+<tr><td>Sin diurético previo</td><td>20–40 mg IV bolus</td><td>Ajustar a respuesta diurética</td></tr>
+<tr><td>Con furosemida oral previa</td><td>Dosis oral equivalente IV<br/>(al menos igual, preferir mayor)</td><td>Infusión continua o bolos c/6–8h</td></tr>
+<tr><td>Resistencia diurética</td><td>Incrementar a 80–160–240 mg/dosis</td><td>+ Tiazida (hidroclorotiazida 25–50 mg) o acetazolamida</td></tr>
+</table>
+</div>
+<div class="box box-emerald">
+<h4>✦ Acetazolamida + Furosemida — ADVOR Trial 2022<span class="tag-new">NUEVO ESC 2023</span></h4>
+<ul>
+<li>Acetazolamida 500 mg IV/día + furosemida → mayor tasa de descongestión (64 vs 42%, p&lt;0.001)</li>
+<li><strong>N=519</strong> (NEJM 2022); alcanzó descongestión exitosa sin aumento de rehospitalizaciones</li>
+<li>ESC 2023: menciona los datos pero <strong>no emite recomendación formal</strong> (evidencia en outcomes a largo plazo insuficiente)</li>
+<li>Considerar en resistencia diurética o congestión persistente a las 24-48h</li>
+</ul>
+</div>
+<div class="box box-orange">
+<h4>⚠️ Monitoreo de Respuesta Diurética</h4>
+<ul>
+<li>Objetivo: diuresis 100–200 mL/h las primeras 6h; &gt;3.5 L/día total</li>
+<li>Peso diario (objetivo: -0.5 a -1 kg/día)</li>
+<li>Electrolitos cada 24–48h (hipopotasemia, hipomagnesemia)</li>
+<li>Creatinina diaria: ↑ leve aceptable ("creatinina de estrés") si congestión mejora</li>
+<li>BNP/NT-proBNP: reducción &gt;30% al alta = mejor pronóstico</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🫁 Soporte Respiratorio — EAP e Insuficiencia Respiratoria</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Escala de Intervención Respiratoria</h4>
+<ul>
+<li><strong>SpO₂ &gt;92%:</strong> O₂ por cánula nasal o mascarilla (objetivo SpO₂ 94–98%; 90–94% si EPOC)</li>
+<li><strong>SpO₂ &lt;92% o FR &gt;25:</strong> CPAP 5–10 cmH₂O o BiPAP (IPAP 12–20 / EPAP 4–8)</li>
+<li><strong>VNI de primera elección en EAP cardiogénico</strong> (Clase I, ESC 2021) — reduce intubación, mejora SpO₂ rápidamente</li>
+<li><strong>Intubación orotraqueal:</strong> si VNI falla, deterioro neurológico, secreciones inmanejables, PCR</li>
+</ul>
+</div>
+<div class="box box-red">
+<h4>🔴 No usar O₂ suplementario si SpO₂ &gt;96% en IC sin hipoxemia</h4>
+<p>La hiperóxia produce vasoconstricción y reduce el gasto cardíaco. O₂ solo si SpO₂ &lt;90–92%.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>💉 Vasodilatadores e Inotrópicos</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-blue">
+<h4>📋 Vasodilatadores IV (IC + congestión + PAS ≥ 110 mmHg)</h4>
+<table>
+<tr><th>Fármaco</th><th>Dosis</th><th>Indicación preferida</th></tr>
+<tr><td>Nitroglicerina IV</td><td>10–200 mcg/min (titular)</td><td>EAP, IC hipertensiva, isquemia</td></tr>
+<tr><td>Nitroprusiato IV</td><td>0.3–5 mcg/kg/min</td><td>Crisis HTA + IC, postcarga muy elevada</td></tr>
+<tr><td>Nesiritide (BNP recombinante)</td><td>2 mcg/kg bolus + 0.01 mcg/kg/min</td><td>EAP (no disponible en LATAM habitualmente)</td></tr>
+</table>
+</div>
+<div class="box box-orange">
+<h4>⚠️ Inotrópicos IV (IC con hipoperfusión / perfil Frío)</h4>
+<table>
+<tr><th>Fármaco</th><th>Dosis</th><th>Efecto principal</th></tr>
+<tr><td>Dobutamina</td><td>2–20 mcg/kg/min</td><td>Inotrópico, cronotrópico, vasodilatador leve</td></tr>
+<tr><td>Milrinona</td><td>0.375–0.75 mcg/kg/min</td><td>Inodilador (útil con β-bloqueante activo)</td></tr>
+<tr><td>Levosimendan</td><td>0.1–0.2 mcg/kg/min x 24h</td><td>Sensibilizador Ca²⁺; inodilador; sin ↑ mortalidad</td></tr>
+</table>
+</div>
+<div class="box box-red">
+<h4>🔴 Vasopresores — Solo si Shock Cardiogénico con Hipotensión Refractaria</h4>
+<ul>
+<li><strong>Norepinefrina:</strong> vasopresor de elección en shock cardiogénico (preferida sobre dopamina — SOAP II trial)</li>
+<li><strong>Dopamina:</strong> alternativa, pero mayor riesgo de arritmias</li>
+<li>Objetivo: PAM &gt;65 mmHg; ajustar para perfusión de órgano</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🔄 Manejo del GDMT durante Hospitalización<span class="tag-new">ACC 2024</span></h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-emerald">
+<h4>✦ Iniciar/continuar GDMT durante hospitalización — ACC 2024 Update</h4>
+<ul>
+<li>NO suspender ARNI/IECA/ARA-II ni β-bloqueantes salvo shock, creatinina crítica, K &gt;5.5 o FC &lt;50</li>
+<li><strong>Iniciar iSGLT2 durante hospitalización</strong> es seguro y mejora outcomes (EMPULSE trial: Empa reduce eventos CV en IC aguda hospitalizada)</li>
+<li>STRONG-HF trial (2022, N=1,078): inicio precoz e intensificación de GDMT a las 2 semanas post-hospitalización reduce rehospitalización a 180 días (OR 0.65)</li>
+<li>Objetivo al alta: al menos 2–3 de los 4 pilares iniciados a dosis bajas toleradas</li>
+</ul>
+<div class="study-ref">EMPULSE Trial: Empagliflozina 10mg vs placebo en IC aguda; beneficio clínico a 90 días (50% vs 39.7%, p=0.0054) — Lancet 2022</div>
+</div>
+<div class="box box-blue">
+<h4>📋 Criterios de Alta (ACC 2024)</h4>
+<ul>
+<li>Euvolemia o próximo a euvolemia (sin signos congestivos significativos)</li>
+<li>PAS estable &gt;90 mmHg en reposo sin inotrópicos IV</li>
+<li>Función renal y electrolitos estables ≥ 24h post-ajuste diurético</li>
+<li>Educación al paciente completada (dieta, peso diario, cuándo consultar)</li>
+<li>Seguimiento confirmado a 7–14 días post-alta</li>
+<li>GDMT iniciado y documentado</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 5: Protocolo Urgencias ===== -->
 <div class="panel" id="panel-5">
-  <p class="section-intro">Protocolo paso a paso para IC Aguda Descompensada en urgencias. Basado en ESC 2021 y ACC 2024.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🚨 Protocolo IC Aguda — Primeras 2 Horas</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="step">
-        <div class="step-num" style="background:var(--red)">1</div>
-        <div class="step-content">
-          <h4>Reconocimiento inmediato — ¿Riesgo vital?</h4>
-          <ul>
-            <li>Evaluar: SpO₂, FR, PA, FC, nivel de conciencia, diuresis</li>
-            <li>Si SpO₂ &lt;90% → O₂ + VNI inmediata; si PCR → RCP</li>
-            <li>ECG en primeros 10 minutos (arritmia, IAMCEST)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--orange)">2</div>
-        <div class="step-content">
-          <h4>Acceso vascular + laboratorios urgentes</h4>
-          <ul>
-            <li>Vía periférica × 2; considerar vía central si shock</li>
-            <li>BNP/NT-proBNP, troponina, hemograma, QS6, electrolitos, gases arteriales si compromiso respiratorio, láctico</li>
-            <li>Rx tórax urgente (portátil si inestable)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--yellow)">3</div>
-        <div class="step-content">
-          <h4>Determinar perfil clínico — Húmedo/Seco · Caliente/Frío</h4>
-          <ul>
-            <li>POCUS: FEVI estimada, VCI, líneas B (≥3 = congestión)</li>
-            <li>¿Congestión dominante? → diuréticos urgente</li>
-            <li>¿Hipoperfusión? → inotrópicos, verificar precipitante</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--green)">4</div>
-        <div class="step-content">
-          <h4>Tratamiento inicial según perfil (0–60 min)</h4>
-          <ul>
-            <li><strong>Cálido-Húmedo:</strong> Furosemida IV 40–80 mg + Nitroglicerina IV si PAS &gt;110; O₂/VNI si necesario</li>
-            <li><strong>Frío-Húmedo:</strong> Dobutamina 2–5 mcg/kg/min + Furosemida IV; considerar UCI</li>
-            <li><strong>Frío-Seco (shock):</strong> Norepinefrina; evaluar volumen cuidadoso; cath lab si SCA</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--accent)">5</div>
-        <div class="step-content">
-          <h4>Tratar precipitante identificado</h4>
-          <ul>
-            <li>FA con respuesta ventricular rápida: control FC (digoxina IV, amiodarona, betabloqueante si hemodinámicamente estable)</li>
-            <li>HTA severa: vasodilatadores IV</li>
-            <li>Infección: antibióticos según foco</li>
-            <li>SCA subyacente: activar código infarto</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--cyan)">6</div>
-        <div class="step-content">
-          <h4>Evaluación de respuesta a las 2–6 horas</h4>
-          <ul>
-            <li>Diuresis: objetivo 100–200 mL/h primeras 6h</li>
-            <li>SpO₂ mantenida, FR normalizada, PA estable</li>
-            <li>Si sin respuesta diurética: doblar dosis furosemida o agregar tiazida/acetazolamida</li>
-            <li>Decidir: hospitalización vs observación vs UCI</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--purple)">7</div>
-        <div class="step-content">
-          <h4>Decisión de hospitalización (ACC 2024)</h4>
-          <ul>
-            <li><strong>Ingresar:</strong> IC nueva grave, congestión importante, descompensación requirió IV, precipitante no controlado</li>
-            <li><strong>Observación (6–24h):</strong> IC crónica leve-moderada, responde rápido a diuréticos IV, sin precipitante grave</li>
-            <li><strong>Alta ambulatoria:</strong> solo si euvolémico, estable, seguimiento &lt;7 días garantizado</li>
-          </ul>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="background:var(--emerald)">8</div>
-        <div class="step-content">
-          <h4>Planificación del alta — GDMT y seguimiento</h4>
-          <ul>
-            <li>Iniciar/confirmar los 4 pilares GDMT (al menos 2–3) antes del alta</li>
-            <li>iSGLT2: iniciar antes del alta si no contraindicado</li>
-            <li>Control en 7–14 días (creatinina, electrolitos, peso, evaluación clínica)</li>
-            <li>Educar: pesar diario, restricción sodio, cuándo ir a urgencias</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🔴 Trampas Clínicas Frecuentes</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="box box-red">
-        <h4>⚠️ Errores a Evitar</h4>
-        <ul>
-          <li><strong>Suspender β-bloqueante al ingreso:</strong> asociado a peor pronóstico. Reducir dosis si FC muy baja o hipotensión, pero NO suspender salvo shock</li>
-          <li><strong>Confundir IC con derecho puro (hepático) con ascitis cirrótica:</strong> evaluar NT-proBNP y ecocardiograma</li>
-          <li><strong>No buscar el precipitante:</strong> el 100% de las descompensaciones tiene un precipitante — siempre investigar</li>
-          <li><strong>Hiperhidratar en perfil Frío-Seco:</strong> el shock cardiogénico no se trata con volumen agresivo; solo carga cuidadosa 250 mL y evaluar</li>
-          <li><strong>No iniciar iSGLT2 antes del alta:</strong> oportunidad perdida — EMPULSE demuestra seguridad intrahospitalaria</li>
-          <li><strong>No pedir BNP/NT-proBNP al alta para comparar:</strong> valor al alta es pronóstico independiente</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Protocolo paso a paso para IC Aguda Descompensada en urgencias. Basado en ESC 2021 y ACC 2024.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>🚨 Protocolo IC Aguda — Primeras 2 Horas</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="step">
+<div class="step-num" style="background:var(--red)">1</div>
+<div class="step-content">
+<h4>Reconocimiento inmediato — ¿Riesgo vital?</h4>
+<ul>
+<li>Evaluar: SpO₂, FR, PA, FC, nivel de conciencia, diuresis</li>
+<li>Si SpO₂ &lt;90% → O₂ + VNI inmediata; si PCR → RCP</li>
+<li>ECG en primeros 10 minutos (arritmia, IAMCEST)</li>
+</ul>
 </div>
-
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--orange)">2</div>
+<div class="step-content">
+<h4>Acceso vascular + laboratorios urgentes</h4>
+<ul>
+<li>Vía periférica × 2; considerar vía central si shock</li>
+<li>BNP/NT-proBNP, troponina, hemograma, QS6, electrolitos, gases arteriales si compromiso respiratorio, láctico</li>
+<li>Rx tórax urgente (portátil si inestable)</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--yellow)">3</div>
+<div class="step-content">
+<h4>Determinar perfil clínico — Húmedo/Seco · Caliente/Frío</h4>
+<ul>
+<li>POCUS: FEVI estimada, VCI, líneas B (≥3 = congestión)</li>
+<li>¿Congestión dominante? → diuréticos urgente</li>
+<li>¿Hipoperfusión? → inotrópicos, verificar precipitante</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--green)">4</div>
+<div class="step-content">
+<h4>Tratamiento inicial según perfil (0–60 min)</h4>
+<ul>
+<li><strong>Cálido-Húmedo:</strong> Furosemida IV 40–80 mg + Nitroglicerina IV si PAS &gt;110; O₂/VNI si necesario</li>
+<li><strong>Frío-Húmedo:</strong> Dobutamina 2–5 mcg/kg/min + Furosemida IV; considerar UCI</li>
+<li><strong>Frío-Seco (shock):</strong> Norepinefrina; evaluar volumen cuidadoso; cath lab si SCA</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--accent)">5</div>
+<div class="step-content">
+<h4>Tratar precipitante identificado</h4>
+<ul>
+<li>FA con respuesta ventricular rápida: control FC (digoxina IV, amiodarona, betabloqueante si hemodinámicamente estable)</li>
+<li>HTA severa: vasodilatadores IV</li>
+<li>Infección: antibióticos según foco</li>
+<li>SCA subyacente: activar código infarto</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--cyan)">6</div>
+<div class="step-content">
+<h4>Evaluación de respuesta a las 2–6 horas</h4>
+<ul>
+<li>Diuresis: objetivo 100–200 mL/h primeras 6h</li>
+<li>SpO₂ mantenida, FR normalizada, PA estable</li>
+<li>Si sin respuesta diurética: doblar dosis furosemida o agregar tiazida/acetazolamida</li>
+<li>Decidir: hospitalización vs observación vs UCI</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--purple)">7</div>
+<div class="step-content">
+<h4>Decisión de hospitalización (ACC 2024)</h4>
+<ul>
+<li><strong>Ingresar:</strong> IC nueva grave, congestión importante, descompensación requirió IV, precipitante no controlado</li>
+<li><strong>Observación (6–24h):</strong> IC crónica leve-moderada, responde rápido a diuréticos IV, sin precipitante grave</li>
+<li><strong>Alta ambulatoria:</strong> solo si euvolémico, estable, seguimiento &lt;7 días garantizado</li>
+</ul>
+</div>
+</div>
+<div class="step">
+<div class="step-num" style="background:var(--emerald)">8</div>
+<div class="step-content">
+<h4>Planificación del alta — GDMT y seguimiento</h4>
+<ul>
+<li>Iniciar/confirmar los 4 pilares GDMT (al menos 2–3) antes del alta</li>
+<li>iSGLT2: iniciar antes del alta si no contraindicado</li>
+<li>Control en 7–14 días (creatinina, electrolitos, peso, evaluación clínica)</li>
+<li>Educar: pesar diario, restricción sodio, cuándo ir a urgencias</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🔴 Trampas Clínicas Frecuentes</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="box box-red">
+<h4>⚠️ Errores a Evitar</h4>
+<ul>
+<li><strong>Suspender β-bloqueante al ingreso:</strong> asociado a peor pronóstico. Reducir dosis si FC muy baja o hipotensión, pero NO suspender salvo shock</li>
+<li><strong>Confundir IC con derecho puro (hepático) con ascitis cirrótica:</strong> evaluar NT-proBNP y ecocardiograma</li>
+<li><strong>No buscar el precipitante:</strong> el 100% de las descompensaciones tiene un precipitante — siempre investigar</li>
+<li><strong>Hiperhidratar en perfil Frío-Seco:</strong> el shock cardiogénico no se trata con volumen agresivo; solo carga cuidadosa 250 mL y evaluar</li>
+<li><strong>No iniciar iSGLT2 antes del alta:</strong> oportunidad perdida — EMPULSE demuestra seguridad intrahospitalaria</li>
+<li><strong>No pedir BNP/NT-proBNP al alta para comparar:</strong> valor al alta es pronóstico independiente</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 6: Calculadoras ===== -->
 <div class="panel" id="panel-6">
-  <p class="section-intro">Herramientas clínicas interactivas. Los resultados incluyen interpretación clínica contextualizada.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 1 — Dosis de Furosemida IV</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="calc-grid">
-        <div>
-          <div class="calc-input-group">
-            <label>Dosis oral previa de furosemida (mg/día)</label>
-            <input type="number" id="c1-dosis-oral" placeholder="Ej: 40" min="0" max="500">
-          </div>
-          <div class="calc-input-group">
-            <label>Severidad de descompensación</label>
-            <select id="c1-severidad">
-              <option value="leve">Leve (sin dificultad resp significativa)</option>
-              <option value="moderada" selected>Moderada (ortopnea, crepitantes ++)  </option>
-              <option value="severa">Severa (EAP, SpO₂&lt;92%)</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <div class="calc-input-group">
-            <label>Función renal (TFGe mL/min/1.73m²)</label>
-            <input type="number" id="c1-tfge" placeholder="Ej: 55" min="5" max="120">
-          </div>
-          <div class="calc-input-group">
-            <label>¿Resistencia diurética previa?</label>
-            <select id="c1-resist">
-              <option value="no">No</option>
-              <option value="si">Sí (respuesta insuficiente previa)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcFurosemida()">Calcular Dosis Recomendada</button>
-      <div class="calc-result" id="c1-result">
-        <div class="result-val" id="c1-val"></div>
-        <div class="result-interp" id="c1-interp"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 2 — Score MAGGIC (Mortalidad IC)</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="calc-grid">
-        <div>
-          <div class="calc-input-group">
-            <label>Edad (años)</label>
-            <input type="number" id="c2-edad" placeholder="Ej: 68" min="20" max="99">
-          </div>
-          <div class="calc-input-group">
-            <label>FEVI (%)</label>
-            <input type="number" id="c2-fevi" placeholder="Ej: 30" min="10" max="70">
-          </div>
-          <div class="calc-input-group">
-            <label>PAS (mmHg)</label>
-            <input type="number" id="c2-pas" placeholder="Ej: 120" min="60" max="200">
-          </div>
-          <div class="calc-input-group">
-            <label>IMC (kg/m²)</label>
-            <input type="number" id="c2-imc" placeholder="Ej: 27" min="14" max="50">
-          </div>
-        </div>
-        <div>
-          <div class="calc-input-group">
-            <label>Creatinina (mg/dL)</label>
-            <input type="number" id="c2-creat" placeholder="Ej: 1.2" min="0.5" max="8" step="0.1">
-          </div>
-          <div class="calc-input-group">
-            <label>Clase NYHA</label>
-            <select id="c2-nyha">
-              <option value="1">Clase I</option>
-              <option value="2" selected>Clase II</option>
-              <option value="3">Clase III</option>
-              <option value="4">Clase IV</option>
-            </select>
-          </div>
-          <div class="calc-input-group">
-            <label>Sexo</label>
-            <select id="c2-sexo">
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
-            </select>
-          </div>
-          <div class="calc-input-group">
-            <label>¿Fumador activo?</label>
-            <select id="c2-fumo">
-              <option value="no">No</option>
-              <option value="si">Sí</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="calc-grid">
-        <div class="calc-input-group">
-          <label>¿DM2?</label>
-          <select id="c2-dm"><option value="no">No</option><option value="si">Sí</option></select>
-        </div>
-        <div class="calc-input-group">
-          <label>¿EPOC?</label>
-          <select id="c2-epoc"><option value="no">No</option><option value="si">Sí</option></select>
-        </div>
-      </div>
-      <div class="calc-input-group">
-        <label>¿En tratamiento con β-bloqueante?</label>
-        <select id="c2-bb"><option value="si">Sí</option><option value="no">No</option></select>
-      </div>
-      <button class="calc-btn" onclick="calcMAGGIC()">Calcular Riesgo MAGGIC</button>
-      <div class="calc-result" id="c2-result">
-        <div class="result-val" id="c2-val"></div>
-        <div class="result-interp" id="c2-interp"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 3 — Estimación FEVI y Clase de IC</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="calc-input-group">
-        <label>FEVI reportada por ecocardiograma (%)</label>
-        <input type="number" id="c3-fevi" placeholder="Ej: 35" min="5" max="75">
-      </div>
-      <div class="calc-input-group">
-        <label>FEVI previa (si disponible, 0 = no disponible)</label>
-        <input type="number" id="c3-prev" placeholder="0 = no disponible" min="0" max="75">
-      </div>
-      <button class="calc-btn" onclick="calcFEVI()">Clasificar IC por FEVI</button>
-      <div class="calc-result" id="c3-result">
-        <div class="result-val" id="c3-val"></div>
-        <div class="result-interp" id="c3-interp"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 4 — Dosis de Carvedilol (Inicio GDMT)</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="calc-grid">
-        <div class="calc-input-group">
-          <label>Peso corporal (kg)</label>
-          <input type="number" id="c4-peso" placeholder="Ej: 72" min="30" max="150">
-        </div>
-        <div class="calc-input-group">
-          <label>PAS actual (mmHg)</label>
-          <input type="number" id="c4-pas" placeholder="Ej: 110" min="60" max="200">
-        </div>
-        <div class="calc-input-group">
-          <label>FC en reposo (lpm)</label>
-          <input type="number" id="c4-fc" placeholder="Ej: 85" min="40" max="180">
-        </div>
-        <div class="calc-input-group">
-          <label>Contexto</label>
-          <select id="c4-ctx">
-            <option value="inicio">Inicio de tratamiento</option>
-            <option value="titulacion">Titulación (ya en carvedilol)</option>
-          </select>
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcCarvedilol()">Calcular Dosis Carvedilol</button>
-      <div class="calc-result" id="c4-result">
-        <div class="result-val" id="c4-val"></div>
-        <div class="result-interp" id="c4-interp"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 5 — NT-proBNP: Interpretación por Edad</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="calc-grid">
-        <div class="calc-input-group">
-          <label>NT-proBNP (pg/mL)</label>
-          <input type="number" id="c5-bnp" placeholder="Ej: 1500" min="0" max="100000">
-        </div>
-        <div class="calc-input-group">
-          <label>Edad del paciente (años)</label>
-          <input type="number" id="c5-edad" placeholder="Ej: 70" min="18" max="100">
-        </div>
-      </div>
-      <div class="calc-input-group">
-        <label>¿En tratamiento con Sacubitrilo/Valsartán?</label>
-        <select id="c5-arni"><option value="no">No</option><option value="si">Sí</option></select>
-      </div>
-      <button class="calc-btn" onclick="calcBNP()">Interpretar NT-proBNP</button>
-      <div class="calc-result" id="c5-result">
-        <div class="result-val" id="c5-val"></div>
-        <div class="result-interp" id="c5-interp"></div>
-      </div>
-    </div>
-  </div>
+<p class="section-intro">Herramientas clínicas interactivas. Los resultados incluyen interpretación clínica contextualizada.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 1 — Dosis de Furosemida IV</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="calc-grid">
+<div>
+<div class="calc-input-group">
+<label>Dosis oral previa de furosemida (mg/día)</label>
+<input id="c1-dosis-oral" max="500" min="0" placeholder="Ej: 40" type="number"/>
 </div>
-
+<div class="calc-input-group">
+<label>Severidad de descompensación</label>
+<select id="c1-severidad">
+<option value="leve">Leve (sin dificultad resp significativa)</option>
+<option selected="" value="moderada">Moderada (ortopnea, crepitantes ++)  </option>
+<option value="severa">Severa (EAP, SpO₂&lt;92%)</option>
+</select>
+</div>
+</div>
+<div>
+<div class="calc-input-group">
+<label>Función renal (TFGe mL/min/1.73m²)</label>
+<input id="c1-tfge" max="120" min="5" placeholder="Ej: 55" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>¿Resistencia diurética previa?</label>
+<select id="c1-resist">
+<option value="no">No</option>
+<option value="si">Sí (respuesta insuficiente previa)</option>
+</select>
+</div>
+</div>
+</div>
+<button class="calc-btn" onclick="calcFurosemida()">Calcular Dosis Recomendada</button>
+<div class="calc-result" id="c1-result">
+<div class="result-val" id="c1-val"></div>
+<div class="result-interp" id="c1-interp"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 2 — Score MAGGIC (Mortalidad IC)</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="calc-grid">
+<div>
+<div class="calc-input-group">
+<label>Edad (años)</label>
+<input id="c2-edad" max="99" min="20" placeholder="Ej: 68" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>FEVI (%)</label>
+<input id="c2-fevi" max="70" min="10" placeholder="Ej: 30" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>PAS (mmHg)</label>
+<input id="c2-pas" max="200" min="60" placeholder="Ej: 120" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>IMC (kg/m²)</label>
+<input id="c2-imc" max="50" min="14" placeholder="Ej: 27" type="number"/>
+</div>
+</div>
+<div>
+<div class="calc-input-group">
+<label>Creatinina (mg/dL)</label>
+<input id="c2-creat" max="8" min="0.5" placeholder="Ej: 1.2" step="0.1" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>Clase NYHA</label>
+<select id="c2-nyha">
+<option value="1">Clase I</option>
+<option selected="" value="2">Clase II</option>
+<option value="3">Clase III</option>
+<option value="4">Clase IV</option>
+</select>
+</div>
+<div class="calc-input-group">
+<label>Sexo</label>
+<select id="c2-sexo">
+<option value="M">Masculino</option>
+<option value="F">Femenino</option>
+</select>
+</div>
+<div class="calc-input-group">
+<label>¿Fumador activo?</label>
+<select id="c2-fumo">
+<option value="no">No</option>
+<option value="si">Sí</option>
+</select>
+</div>
+</div>
+</div>
+<div class="calc-grid">
+<div class="calc-input-group">
+<label>¿DM2?</label>
+<select id="c2-dm"><option value="no">No</option><option value="si">Sí</option></select>
+</div>
+<div class="calc-input-group">
+<label>¿EPOC?</label>
+<select id="c2-epoc"><option value="no">No</option><option value="si">Sí</option></select>
+</div>
+</div>
+<div class="calc-input-group">
+<label>¿En tratamiento con β-bloqueante?</label>
+<select id="c2-bb"><option value="si">Sí</option><option value="no">No</option></select>
+</div>
+<button class="calc-btn" onclick="calcMAGGIC()">Calcular Riesgo MAGGIC</button>
+<div class="calc-result" id="c2-result">
+<div class="result-val" id="c2-val"></div>
+<div class="result-interp" id="c2-interp"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 3 — Estimación FEVI y Clase de IC</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="calc-input-group">
+<label>FEVI reportada por ecocardiograma (%)</label>
+<input id="c3-fevi" max="75" min="5" placeholder="Ej: 35" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>FEVI previa (si disponible, 0 = no disponible)</label>
+<input id="c3-prev" max="75" min="0" placeholder="0 = no disponible" type="number"/>
+</div>
+<button class="calc-btn" onclick="calcFEVI()">Clasificar IC por FEVI</button>
+<div class="calc-result" id="c3-result">
+<div class="result-val" id="c3-val"></div>
+<div class="result-interp" id="c3-interp"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 4 — Dosis de Carvedilol (Inicio GDMT)</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="calc-grid">
+<div class="calc-input-group">
+<label>Peso corporal (kg)</label>
+<input id="c4-peso" max="150" min="30" placeholder="Ej: 72" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>PAS actual (mmHg)</label>
+<input id="c4-pas" max="200" min="60" placeholder="Ej: 110" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>FC en reposo (lpm)</label>
+<input id="c4-fc" max="180" min="40" placeholder="Ej: 85" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>Contexto</label>
+<select id="c4-ctx">
+<option value="inicio">Inicio de tratamiento</option>
+<option value="titulacion">Titulación (ya en carvedilol)</option>
+</select>
+</div>
+</div>
+<button class="calc-btn" onclick="calcCarvedilol()">Calcular Dosis Carvedilol</button>
+<div class="calc-result" id="c4-result">
+<div class="result-val" id="c4-val"></div>
+<div class="result-interp" id="c4-interp"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>🩵 Calculadora 5 — NT-proBNP: Interpretación por Edad</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="calc-grid">
+<div class="calc-input-group">
+<label>NT-proBNP (pg/mL)</label>
+<input id="c5-bnp" max="100000" min="0" placeholder="Ej: 1500" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>Edad del paciente (años)</label>
+<input id="c5-edad" max="100" min="18" placeholder="Ej: 70" type="number"/>
+</div>
+</div>
+<div class="calc-input-group">
+<label>¿En tratamiento con Sacubitrilo/Valsartán?</label>
+<select id="c5-arni"><option value="no">No</option><option value="si">Sí</option></select>
+</div>
+<button class="calc-btn" onclick="calcBNP()">Interpretar NT-proBNP</button>
+<div class="calc-result" id="c5-result">
+<div class="result-val" id="c5-val"></div>
+<div class="result-interp" id="c5-interp"></div>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PANEL 7: Casos Clínicos ===== -->
 <div class="panel" id="panel-7">
-  <p class="section-intro">Casos clínicos comentados con análisis aplicando guías vigentes. Nivel especialista.</p>
-
-  <div class="card open">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 1 — EAP Hipertensivo</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="quiz-case">
+<p class="section-intro">Casos clínicos comentados con análisis aplicando guías vigentes. Nivel especialista.</p>
+<div class="card open">
+<div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 1 — EAP Hipertensivo</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="quiz-case">
         Mujer de 72 años, HTA crónica sin GDMT previo. Ingresa a urgencias por disnea súbita de 2h, ortopnea, diaforesis. PA 210/110 mmHg, FC 108 lpm, FR 32/min, SpO₂ 82% con O₂ por mascarilla simple. Rx tórax: opacidades bilaterales "en alas de mariposa". ECG: taquicardia sinusal sin cambios isquémicos agudos. BNP: 1,850 pg/mL.
       </div>
-      <div class="box box-blue">
-        <h4>📋 Análisis y Manejo Correcto</h4>
-        <ul>
-          <li><strong>Diagnóstico:</strong> EAP cardiogénico por crisis HTA (probable IC hipertensiva con HFpEF subyacente)</li>
-          <li><strong>Prioridad 1 — Soporte respiratorio:</strong> VNI inmediata (CPAP 8–10 cmH₂O o BiPAP). La SpO₂ 82% es una emergencia respiratoria. ESC 2021: VNI Clase I en EAP</li>
-          <li><strong>Prioridad 2 — Vasodilatador:</strong> Nitroglicerina IV 20–200 mcg/min (reduce PCP rápidamente). Con PAS 210 es el tratamiento más eficaz</li>
-          <li><strong>Prioridad 3 — Diurético:</strong> Furosemida 40–80 mg IV (componente congestivo, no es el tratamiento dominante aquí)</li>
-          <li><strong>Error frecuente:</strong> no iniciar VNI por "esperar respuesta a diuréticos" — la hipoxemia severa no espera</li>
-          <li><strong>Post-estabilización:</strong> investigar etiología, ecocardiograma formal, iniciar GDMT para HFpEF</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 2 — IC Crónica Descompensada / Perfil Cálido-Húmedo</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="quiz-case">
+<div class="box box-blue">
+<h4>📋 Análisis y Manejo Correcto</h4>
+<ul>
+<li><strong>Diagnóstico:</strong> EAP cardiogénico por crisis HTA (probable IC hipertensiva con HFpEF subyacente)</li>
+<li><strong>Prioridad 1 — Soporte respiratorio:</strong> VNI inmediata (CPAP 8–10 cmH₂O o BiPAP). La SpO₂ 82% es una emergencia respiratoria. ESC 2021: VNI Clase I en EAP</li>
+<li><strong>Prioridad 2 — Vasodilatador:</strong> Nitroglicerina IV 20–200 mcg/min (reduce PCP rápidamente). Con PAS 210 es el tratamiento más eficaz</li>
+<li><strong>Prioridad 3 — Diurético:</strong> Furosemida 40–80 mg IV (componente congestivo, no es el tratamiento dominante aquí)</li>
+<li><strong>Error frecuente:</strong> no iniciar VNI por "esperar respuesta a diuréticos" — la hipoxemia severa no espera</li>
+<li><strong>Post-estabilización:</strong> investigar etiología, ecocardiograma formal, iniciar GDMT para HFpEF</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 2 — IC Crónica Descompensada / Perfil Cálido-Húmedo</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="quiz-case">
         Hombre de 65 años con HFrEF (FEVI 30%) en seguimiento. Toma carvedilol 12.5mg c/12h, enalapril 10mg c/12h, espironolactona 25mg/día y furosemida 80mg/día. Consulta por disnea progresiva de 5 días, aumento de 4 kg en una semana, edema +++. PA 115/75, FC 72, SpO₂ 94%. BNP: 980 pg/mL. Creatinina: 1.4 mg/dL (basal 1.2). K+ 4.2 mEq/L.
       </div>
-      <div class="box box-green">
-        <h4>✅ Manejo Correcto</h4>
-        <ul>
-          <li><strong>Perfil: Cálido-Húmedo</strong> — congestión sin hipoperfusión</li>
-          <li><strong>Furosemida IV:</strong> dosis oral era 80mg/día → iniciar 80mg IV bolus, luego infusión o bolos c/6h. Titulando a respuesta</li>
-          <li><strong>GDMT:</strong> CONTINUAR todos los fármacos actuales. No suspender enalapril ni carvedilol</li>
-          <li><strong>Buscar precipitante:</strong> ¿incumplimiento dietético? ¿Infección? ¿Arritmia? ¿Anemia?</li>
-          <li><strong>Oportunidad de optimización:</strong> este paciente NO está en cuadriterapia — falta iSGLT2. Considerar inicio de dapagliflozina 10mg</li>
-          <li><strong>TAMBIÉN:</strong> ¿por qué no está con sacubitrilo/valsartán? Cambio a ARNI beneficioso</li>
-          <li><strong>Monitoreo:</strong> diuresis horaria, peso diario, creatinina y K+ cada 24h</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 3 — Shock Cardiogénico</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="quiz-case">
+<div class="box box-green">
+<h4>✅ Manejo Correcto</h4>
+<ul>
+<li><strong>Perfil: Cálido-Húmedo</strong> — congestión sin hipoperfusión</li>
+<li><strong>Furosemida IV:</strong> dosis oral era 80mg/día → iniciar 80mg IV bolus, luego infusión o bolos c/6h. Titulando a respuesta</li>
+<li><strong>GDMT:</strong> CONTINUAR todos los fármacos actuales. No suspender enalapril ni carvedilol</li>
+<li><strong>Buscar precipitante:</strong> ¿incumplimiento dietético? ¿Infección? ¿Arritmia? ¿Anemia?</li>
+<li><strong>Oportunidad de optimización:</strong> este paciente NO está en cuadriterapia — falta iSGLT2. Considerar inicio de dapagliflozina 10mg</li>
+<li><strong>TAMBIÉN:</strong> ¿por qué no está con sacubitrilo/valsartán? Cambio a ARNI beneficioso</li>
+<li><strong>Monitoreo:</strong> diuresis horaria, peso diario, creatinina y K+ cada 24h</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 3 — Shock Cardiogénico</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="quiz-case">
         Hombre de 58 años, DM2, fumador. Ingresa por dolor torácico 3h + disnea. PA 80/50 mmHg, FC 118 lpm, FR 28/min, SpO₂ 88%, extremidades frías, llenado capilar 5 segundos, diuresis 0. ECG: BCRI nuevo. Troponina I: 8.4 ng/mL. Láctico: 5.2 mmol/L.
       </div>
-      <div class="box box-red">
-        <h4>🔴 Análisis — Urgencia Máxima</h4>
-        <ul>
-          <li><strong>Diagnóstico:</strong> IAMCEST (BCRI nuevo = equivalente IAMCEST por criterios Sgarbossa) complicado con shock cardiogénico SCAI-C</li>
-          <li><strong>Prioridad 1:</strong> Activar código infarto — revascularización urgente es la intervención que modifica pronóstico</li>
-          <li><strong>Soporte hemodinámico:</strong> Norepinefrina (no dopamina como primera opción — SOAP II trial) para mantener PAM &gt;65 mmHg</li>
-          <li><strong>NO nitratos, NO betabloqueantes, NO diuréticos agresivos</strong> con shock activo</li>
-          <li><strong>Soporte ventilatorio:</strong> intubación electiva antes del cateterismo si desaturación persistente</li>
-          <li><strong>Balón intraaórtico (BIA):</strong> no muestra beneficio en mortalidad (IABP-SHOCK II); no rutinario, pero puede usarse como puente</li>
-          <li><strong>Dispositivos Impella/ECMO:</strong> evaluar según recursos disponibles (en Ecuador: disponibilidad limitada)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 4 — HFpEF con DM2 y Obesidad</h3><span class="card-chevron">▾</span></div>
-    <div class="card-body">
-      <div class="quiz-case">
+<div class="box box-red">
+<h4>🔴 Análisis — Urgencia Máxima</h4>
+<ul>
+<li><strong>Diagnóstico:</strong> IAMCEST (BCRI nuevo = equivalente IAMCEST por criterios Sgarbossa) complicado con shock cardiogénico SCAI-C</li>
+<li><strong>Prioridad 1:</strong> Activar código infarto — revascularización urgente es la intervención que modifica pronóstico</li>
+<li><strong>Soporte hemodinámico:</strong> Norepinefrina (no dopamina como primera opción — SOAP II trial) para mantener PAM &gt;65 mmHg</li>
+<li><strong>NO nitratos, NO betabloqueantes, NO diuréticos agresivos</strong> con shock activo</li>
+<li><strong>Soporte ventilatorio:</strong> intubación electiva antes del cateterismo si desaturación persistente</li>
+<li><strong>Balón intraaórtico (BIA):</strong> no muestra beneficio en mortalidad (IABP-SHOCK II); no rutinario, pero puede usarse como puente</li>
+<li><strong>Dispositivos Impella/ECMO:</strong> evaluar según recursos disponibles (en Ecuador: disponibilidad limitada)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><h3>📋 Caso 4 — HFpEF con DM2 y Obesidad</h3><span class="card-chevron">▾</span></div>
+<div class="card-body">
+<div class="quiz-case">
         Mujer de 69 años, obesa (IMC 38), DM2 en metformina, HTA en amlodipino 10mg. Consulta por disnea de esfuerzo NYHA III de 3 meses. Ecocardiograma: FEVI 55%, E/e' 16, VAIi 42 mL/m², HVI concéntrica. NT-proBNP: 520 pg/mL. HbA1c: 8.2%. TFGe: 65 mL/min.
       </div>
-      <div class="box box-cyan">
-        <h4>🩵 Plan Terapéutico — HFpEF 2023</h4>
-        <ul>
-          <li><strong>Diagnóstico confirmado:</strong> HFpEF (FEVI 55% + E/e'&gt;14 + VAIi elevado + NT-proBNP 520)</li>
-          <li><strong>iSGLT2 — Primera indicación:</strong> Empagliflozina 10mg/día o Dapagliflozina 10mg/día <span class="tag-new">NUEVO IIa-B</span> — reduce hospitalización y mejora calidad de vida. Doble beneficio: HFpEF + DM2 + protección renal</li>
-          <li><strong>HTA:</strong> agregar IECA o ARA-II (objetivo PAS &lt;130 mmHg) — también IIb en HFpEF</li>
-          <li><strong>Control glucémico:</strong> iSGLT2 contribuye; considerar ajuste de metformina</li>
-          <li><strong>Diurético:</strong> furosemida 20–40mg si síntomas congestivos persistentes</li>
-          <li><strong>Error frecuente:</strong> no tratar HFpEF por "tener FEVI normal" — el tratamiento activo mejora síntomas y reduce hospitalización</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="box box-cyan">
+<h4>🩵 Plan Terapéutico — HFpEF 2023</h4>
+<ul>
+<li><strong>Diagnóstico confirmado:</strong> HFpEF (FEVI 55% + E/e'&gt;14 + VAIi elevado + NT-proBNP 520)</li>
+<li><strong>iSGLT2 — Primera indicación:</strong> Empagliflozina 10mg/día o Dapagliflozina 10mg/día <span class="tag-new">NUEVO IIa-B</span> — reduce hospitalización y mejora calidad de vida. Doble beneficio: HFpEF + DM2 + protección renal</li>
+<li><strong>HTA:</strong> agregar IECA o ARA-II (objetivo PAS &lt;130 mmHg) — también IIb en HFpEF</li>
+<li><strong>Control glucémico:</strong> iSGLT2 contribuye; considerar ajuste de metformina</li>
+<li><strong>Diurético:</strong> furosemida 20–40mg si síntomas congestivos persistentes</li>
+<li><strong>Error frecuente:</strong> no tratar HFpEF por "tener FEVI normal" — el tratamiento activo mejora síntomas y reduce hospitalización</li>
+</ul>
 </div>
-
+</div>
+</div>
+</div>
 <!-- ===== PANEL 8: Quiz ===== -->
 <div class="panel" id="panel-8">
-  <p class="section-intro">3 quiz independientes · Mínimo 10 preguntas cada uno · Retroalimentación clínica detallada</p>
-  <div class="quiz-selector">
-    <button type="button" class="quiz-sel-btn active" onclick="selectQuiz(1)">Quiz 1<br><small>Conceptos Fundamentales</small></button>
-    <button type="button" class="quiz-sel-btn" onclick="selectQuiz(2)">Quiz 2<br><small>Diagnóstico y Laboratorio</small></button>
-    <button type="button" class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3<br><small>Casos Clínicos y Tratamiento</small></button>
-  </div>
-  <div class="quiz-box" id="quiz-container">
-    <div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-pbar" style="width:0%"></div></div>
-    <div id="quiz-content">
-      <!-- Loaded dynamically -->
-    </div>
-    <div class="quiz-score" id="quiz-score-screen">
-      <div class="score-big" id="score-num"></div>
-      <div class="score-msg" id="score-msg"></div>
-      <button type="button" class="quiz-nav-btn btn-reset" onclick="resetQuiz()">🔄 Repetir Quiz</button>
-    </div>
-  </div>
+<p class="section-intro">3 quiz independientes · Mínimo 10 preguntas cada uno · Retroalimentación clínica detallada</p>
+<div class="quiz-selector">
+<button class="quiz-sel-btn active" onclick="selectQuiz(1)" type="button">Quiz 1<br/><small>Conceptos Fundamentales</small></button>
+<button class="quiz-sel-btn" onclick="selectQuiz(2)" type="button">Quiz 2<br/><small>Diagnóstico y Laboratorio</small></button>
+<button class="quiz-sel-btn" onclick="selectQuiz(3)" type="button">Quiz 3<br/><small>Casos Clínicos y Tratamiento</small></button>
 </div>
-
+<div class="quiz-box" id="quiz-container">
+<div class="quiz-progress"><div class="quiz-progress-bar" id="quiz-pbar" style="width:0%"></div></div>
+<div id="quiz-content">
+<!-- Loaded dynamically -->
+</div>
+<div class="quiz-score" id="quiz-score-screen">
+<div class="score-big" id="score-num"></div>
+<div class="score-msg" id="score-msg"></div>
+<button class="quiz-nav-btn btn-reset" onclick="resetQuiz()" type="button">🔄 Repetir Quiz</button>
+</div>
+</div>
+</div>
 </div><!-- end content-area -->
 </div><!-- end main-app -->
 <script>
@@ -1614,5 +1572,9 @@ window.onload = function(){
 };
 </script>
 <script src="../assets/croce.js"></script>
-</body>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section></body>
 </html>

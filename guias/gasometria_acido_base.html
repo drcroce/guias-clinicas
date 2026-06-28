@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Gasometría y Trastornos Ácido-Base | Dr. L. Croce</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg:        #f5f2ed;
@@ -209,865 +210,812 @@ p.body-text{font-size:.88rem;color:var(--text2);margin:.35rem 0;line-height:1.6}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:520px){.quiz-container{padding:1rem}.quiz-opt{padding:.8rem}.header{padding:1rem}.badges{gap:.3rem}.badge{font-size:.65rem}}
 </style>
-
-
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
-
 <!-- MAIN APP -->
 <div id="app">
-
 <!-- HEADER -->
 <div class="header">
-  <div class="header-inner">
-    <div class="header-top">
-    <div class="portal-actions"><a class="portal-back portal-action" href="../index.html">← Portal de guías</a><button type="button" class="portal-action" onclick="toggleFullscreen()" aria-label="Activar o salir de pantalla completa">⛶ Pantalla completa</button></div>
-
-      <div>
-        <div class="header-title">🫁 Gasometría Arterial &amp; <span>Trastornos Ácido-Base</span></div>
-        <div class="header-sub">Interpretación sistémica · Casos clínicos avanzados · Trastornos mixtos</div>
-        <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-      </div>
-    </div>
-    <div class="badges">
-      <span class="badge badge-blue">📋 AAFP 2025 — Interpretación ABG</span>
-      <span class="badge badge-blue">📗 AJKD Core Curriculum 2025 — Trastornos Mixtos</span>
-      <span class="badge badge-blue">📙 KDIGO 2024 — Acidosis en ERC</span>
-      <span class="badge badge-blue">📘 Merck Manual 2025</span>
-      <span class="badge badge-green">🔬 Kidney360 2024 — ΔAG/ΔHCO₃</span>
-      <span class="badge badge-new">★ ACTUALIZADO 2025</span>
-    </div>
-  </div>
+<div class="header-inner">
+<div class="header-top">
+<div class="portal-actions"><a class="portal-back portal-action" href="../index.html">← Portal de guías</a><button aria-label="Activar o salir de pantalla completa" class="portal-action" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button></div>
+<div>
+<div class="header-title">🫁 Gasometría Arterial &amp; <span>Trastornos Ácido-Base</span></div>
+<div class="header-sub">Interpretación sistémica · Casos clínicos avanzados · Trastornos mixtos</div>
+<div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
 </div>
-
+</div>
+<div class="badges">
+<span class="badge badge-blue">📋 AAFP 2025 — Interpretación ABG</span>
+<span class="badge badge-blue">📗 AJKD Core Curriculum 2025 — Trastornos Mixtos</span>
+<span class="badge badge-blue">📙 KDIGO 2024 — Acidosis en ERC</span>
+<span class="badge badge-blue">📘 Merck Manual 2025</span>
+<span class="badge badge-green">🔬 Kidney360 2024 — ΔAG/ΔHCO₃</span>
+<span class="badge badge-new">★ ACTUALIZADO 2025</span>
+</div>
+</div>
+</div>
 <!-- TABS -->
 <div class="tabs-wrapper">
-  <div class="tabs">
-    <button class="tab active" onclick="showTab(0)">🔬 Fundamentos</button>
-    <button class="tab" onclick="showTab(1)">📊 Valores &amp; Compensación</button>
-    <button class="tab" onclick="showTab(2)">🧮 Metodología Sistemática</button>
-    <button class="tab" onclick="showTab(3)">⚗️ Acidosis Metabólica</button>
-    <button class="tab" onclick="showTab(4)">🔺 Alcalosis / Resp.</button>
-    <button class="tab" onclick="showTab(5)">⚡ Trastornos Mixtos</button>
-    <button class="tab" onclick="showTab(6)">🧮 Calculadoras</button>
-    <button class="tab" onclick="showTab(7)">📋 Casos Clínicos</button>
-    <button class="tab" onclick="showTab(8)">✅ Quiz</button>
-  </div>
+<div class="tabs">
+<button class="tab active" onclick="showTab(0)">🔬 Fundamentos</button>
+<button class="tab" onclick="showTab(1)">📊 Valores &amp; Compensación</button>
+<button class="tab" onclick="showTab(2)">🧮 Metodología Sistemática</button>
+<button class="tab" onclick="showTab(3)">⚗️ Acidosis Metabólica</button>
+<button class="tab" onclick="showTab(4)">🔺 Alcalosis / Resp.</button>
+<button class="tab" onclick="showTab(5)">⚡ Trastornos Mixtos</button>
+<button class="tab" onclick="showTab(6)">🧮 Calculadoras</button>
+<button class="tab" onclick="showTab(7)">📋 Casos Clínicos</button>
+<button class="tab" onclick="showTab(8)">✅ Quiz</button>
+</div>
 </div>
 <div class="swipe-hint">← Deslice horizontalmente para ver más pestañas →</div>
-
-
 <!-- PANEL 0: FUNDAMENTOS -->
 <div class="panel active" id="panel-0">
-
-  <h2 class="section-title">🔬 Fundamentos Fisiológicos del Equilibrio Ácido-Base</h2>
-
-  <div class="card purple">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🔴 Fisiología del pH y el Sistema Tampón</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <p class="body-text">El organismo mantiene el pH arterial entre <strong>7.35–7.45</strong> mediante tres sistemas interrelacionados que actúan en tiempos distintos:</p>
-      <div class="step-flow">
-        <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Sistemas Tampón (segundos–minutos)</strong><p>El bicarbonato (HCO₃⁻/CO₂) representa el 80% de la capacidad tamponante extracelular. El sistema hemoglobina-proteínas actúa en eritrocitos. Los tampones fosfato y amoniaco son claves en la orina.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Compensación Respiratoria (minutos–horas)</strong><p>El centro respiratorio responde a cambios de pH modulando la ventilación alveolar. Ajusta la pCO₂ en 12–24 horas (compensación completa no posible).</p></div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Compensación Renal (horas–días)</strong><p>El riñón regula la excreción neta de ácido (NH₄⁺, ácidos titulables) y la reabsorción de HCO₃⁻. Respuesta completa en 3–5 días. Es el único mecanismo que puede corregir completamente el pH.</p></div></div>
-      </div>
-      <div class="formula">
-        <div class="label">Ecuación de Henderson-Hasselbalch</div>
+<h2 class="section-title">🔬 Fundamentos Fisiológicos del Equilibrio Ácido-Base</h2>
+<div class="card purple">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🔴 Fisiología del pH y el Sistema Tampón</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<p class="body-text">El organismo mantiene el pH arterial entre <strong>7.35–7.45</strong> mediante tres sistemas interrelacionados que actúan en tiempos distintos:</p>
+<div class="step-flow">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Sistemas Tampón (segundos–minutos)</strong><p>El bicarbonato (HCO₃⁻/CO₂) representa el 80% de la capacidad tamponante extracelular. El sistema hemoglobina-proteínas actúa en eritrocitos. Los tampones fosfato y amoniaco son claves en la orina.</p></div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Compensación Respiratoria (minutos–horas)</strong><p>El centro respiratorio responde a cambios de pH modulando la ventilación alveolar. Ajusta la pCO₂ en 12–24 horas (compensación completa no posible).</p></div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Compensación Renal (horas–días)</strong><p>El riñón regula la excreción neta de ácido (NH₄⁺, ácidos titulables) y la reabsorción de HCO₃⁻. Respuesta completa en 3–5 días. Es el único mecanismo que puede corregir completamente el pH.</p></div></div>
+</div>
+<div class="formula">
+<div class="label">Ecuación de Henderson-Hasselbalch</div>
         pH = 6.1 + log([HCO₃⁻] / (0.0307 × pCO₂))
       </div>
-      <div class="formula">
-        <div class="label">Ecuación de Henderson (práctica clínica)</div>
+<div class="formula">
+<div class="label">Ecuación de Henderson (práctica clínica)</div>
         [H⁺] (nmol/L) = 24 × pCO₂ / [HCO₃⁻]
-        <br>→ Regla práctica: pH 7.40 ≈ [H⁺] 40 nmol/L
-        <br>→ Por cada 0.01↑ de pH, [H⁺] ↓ ~1 nmol/L
+        <br/>→ Regla práctica: pH 7.40 ≈ [H⁺] 40 nmol/L
+        <br/>→ Por cada 0.01↑ de pH, [H⁺] ↓ ~1 nmol/L
       </div>
-    </div>
-  </div>
-
-  <div class="card blue">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">📐 Valores Normales de Gasometría Arterial</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Parámetro</th><th>Valor Normal</th><th>Significado Fisiológico</th></tr>
-          <tr><td><strong>pH</strong></td><td class="val-normal">7.35–7.45</td><td>Logaritmo inverso de [H⁺]; punto de corte del diagnóstico</td></tr>
-          <tr><td><strong>pCO₂</strong></td><td class="val-normal">35–45 mmHg</td><td>Componente respiratorio; regulado por ventilación alveolar</td></tr>
-          <tr><td><strong>HCO₃⁻</strong></td><td class="val-normal">22–26 mEq/L</td><td>Componente metabólico; calculado por el analizador</td></tr>
-          <tr><td><strong>BE (Base Excess)</strong></td><td class="val-normal">-2 a +2 mEq/L</td><td>Exceso/déficit de base; útil para cuantificar el componente metabólico</td></tr>
-          <tr><td><strong>SaO₂</strong></td><td class="val-normal">>95%</td><td>Saturación de hemoglobina; normal no excluye hipoxia tisular</td></tr>
-          <tr><td><strong>pO₂</strong></td><td class="val-normal">80–100 mmHg</td><td>Presión parcial O₂ arterial</td></tr>
-          <tr><td><strong>Lactato</strong></td><td class="val-normal">0.5–1.5 mmol/L</td><td>>2 = hiperlactatemia; >4 = acidosis láctica grave</td></tr>
-        </table>
-      </div>
-      <div class="alert yellow"><strong>⚠️ HCO₃⁻ calculado vs medido:</strong> El HCO₃⁻ del gasómetro se <em>calcula</em> desde pH y pCO₂ (Henderson-Hasselbalch). El HCO₃⁻ del panel metabólico se <em>mide</em> directamente como CO₂ total venoso. Discordancias >4 mEq/L sugieren error de muestra o trastorno mixto oculto.</div>
-    </div>
-  </div>
-
-  <div class="card purple">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🧬 Los 4 Trastornos Primarios — Clasificación</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Trastorno</th><th>pH</th><th>Disturbio primario</th><th>Compensación esperada</th></tr>
-          <tr><td>Acidosis Metabólica</td><td class="val-acid">↓</td><td>↓ HCO₃⁻</td><td>↓ pCO₂ (hiperventilación)</td></tr>
-          <tr><td>Alcalosis Metabólica</td><td class="val-alk">↑</td><td>↑ HCO₃⁻</td><td>↑ pCO₂ (hipoventilación)</td></tr>
-          <tr><td>Acidosis Respiratoria</td><td class="val-acid">↓</td><td>↑ pCO₂</td><td>↑ HCO₃⁻ (renal)</td></tr>
-          <tr><td>Alcalosis Respiratoria</td><td class="val-alk">↑</td><td>↓ pCO₂</td><td>↓ HCO₃⁻ (renal)</td></tr>
-        </table>
-      </div>
-      <div class="alert emerald"><strong>★ Concepto clave:</strong> La compensación <em>siempre</em> va en la misma dirección que el trastorno primario. Si el pCO₂ y el HCO₃⁻ se mueven en direcciones <em>opuestas</em>, hay un trastorno mixto.</div>
-    </div>
-  </div>
-
-  <div class="card orange">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">⚠️ Errores Preanalíticos — Trampas de la Muestra</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <ul class="bullet">
-        <li><strong>Burbuja de aire:</strong> ↓ pCO₂ (dilución) y ↑ pO₂ falso → desechar si >2 burbujas grandes</li>
-        <li><strong>Heparina líquida en exceso:</strong> ↓ pCO₂ y HCO₃⁻ falsamente; usar jeringas preheparinizadas con heparina seca</li>
-        <li><strong>Retraso en procesamiento:</strong> La glucólisis continua → ↓ pO₂ y pH; procesar &lt;30 min a temperatura ambiente (estable 60 min en hielo)</li>
-        <li><strong>Muestra venosa inadvertida:</strong> pO₂ venoso ≈ 35–40 mmHg (vs ≥80 arterial); pCO₂ venoso ≈ 6 mmHg mayor</li>
-        <li><strong>Fiebre/hipotermia:</strong> Los valores son corregidos por el analizador si se introduce la temperatura corporal real</li>
-      </ul>
-      <div class="alert orange"><strong>📌 Regla clínica:</strong> Si el SaO₂ del gasómetro no coincide con el pulsioxímetro, sospechar mala muestra, dishemoglobinemias (carboxihemoglobina, metahemoglobina) o pigmentos interferentes.</div>
-    </div>
-  </div>
-
+</div>
+</div>
+<div class="card blue">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">📐 Valores Normales de Gasometría Arterial</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="tbl-wrap">
+<table>
+<tr><th>Parámetro</th><th>Valor Normal</th><th>Significado Fisiológico</th></tr>
+<tr><td><strong>pH</strong></td><td class="val-normal">7.35–7.45</td><td>Logaritmo inverso de [H⁺]; punto de corte del diagnóstico</td></tr>
+<tr><td><strong>pCO₂</strong></td><td class="val-normal">35–45 mmHg</td><td>Componente respiratorio; regulado por ventilación alveolar</td></tr>
+<tr><td><strong>HCO₃⁻</strong></td><td class="val-normal">22–26 mEq/L</td><td>Componente metabólico; calculado por el analizador</td></tr>
+<tr><td><strong>BE (Base Excess)</strong></td><td class="val-normal">-2 a +2 mEq/L</td><td>Exceso/déficit de base; útil para cuantificar el componente metabólico</td></tr>
+<tr><td><strong>SaO₂</strong></td><td class="val-normal">&gt;95%</td><td>Saturación de hemoglobina; normal no excluye hipoxia tisular</td></tr>
+<tr><td><strong>pO₂</strong></td><td class="val-normal">80–100 mmHg</td><td>Presión parcial O₂ arterial</td></tr>
+<tr><td><strong>Lactato</strong></td><td class="val-normal">0.5–1.5 mmol/L</td><td>&gt;2 = hiperlactatemia; &gt;4 = acidosis láctica grave</td></tr>
+</table>
+</div>
+<div class="alert yellow"><strong>⚠️ HCO₃⁻ calculado vs medido:</strong> El HCO₃⁻ del gasómetro se <em>calcula</em> desde pH y pCO₂ (Henderson-Hasselbalch). El HCO₃⁻ del panel metabólico se <em>mide</em> directamente como CO₂ total venoso. Discordancias &gt;4 mEq/L sugieren error de muestra o trastorno mixto oculto.</div>
+</div>
+</div>
+<div class="card purple">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🧬 Los 4 Trastornos Primarios — Clasificación</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="tbl-wrap">
+<table>
+<tr><th>Trastorno</th><th>pH</th><th>Disturbio primario</th><th>Compensación esperada</th></tr>
+<tr><td>Acidosis Metabólica</td><td class="val-acid">↓</td><td>↓ HCO₃⁻</td><td>↓ pCO₂ (hiperventilación)</td></tr>
+<tr><td>Alcalosis Metabólica</td><td class="val-alk">↑</td><td>↑ HCO₃⁻</td><td>↑ pCO₂ (hipoventilación)</td></tr>
+<tr><td>Acidosis Respiratoria</td><td class="val-acid">↓</td><td>↑ pCO₂</td><td>↑ HCO₃⁻ (renal)</td></tr>
+<tr><td>Alcalosis Respiratoria</td><td class="val-alk">↑</td><td>↓ pCO₂</td><td>↓ HCO₃⁻ (renal)</td></tr>
+</table>
+</div>
+<div class="alert emerald"><strong>★ Concepto clave:</strong> La compensación <em>siempre</em> va en la misma dirección que el trastorno primario. Si el pCO₂ y el HCO₃⁻ se mueven en direcciones <em>opuestas</em>, hay un trastorno mixto.</div>
+</div>
+</div>
+<div class="card orange">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">⚠️ Errores Preanalíticos — Trampas de la Muestra</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<ul class="bullet">
+<li><strong>Burbuja de aire:</strong> ↓ pCO₂ (dilución) y ↑ pO₂ falso → desechar si &gt;2 burbujas grandes</li>
+<li><strong>Heparina líquida en exceso:</strong> ↓ pCO₂ y HCO₃⁻ falsamente; usar jeringas preheparinizadas con heparina seca</li>
+<li><strong>Retraso en procesamiento:</strong> La glucólisis continua → ↓ pO₂ y pH; procesar &lt;30 min a temperatura ambiente (estable 60 min en hielo)</li>
+<li><strong>Muestra venosa inadvertida:</strong> pO₂ venoso ≈ 35–40 mmHg (vs ≥80 arterial); pCO₂ venoso ≈ 6 mmHg mayor</li>
+<li><strong>Fiebre/hipotermia:</strong> Los valores son corregidos por el analizador si se introduce la temperatura corporal real</li>
+</ul>
+<div class="alert orange"><strong>📌 Regla clínica:</strong> Si el SaO₂ del gasómetro no coincide con el pulsioxímetro, sospechar mala muestra, dishemoglobinemias (carboxihemoglobina, metahemoglobina) o pigmentos interferentes.</div>
+</div>
+</div>
 </div><!-- /panel-0 -->
-
 <!-- PANEL 1: VALORES Y COMPENSACIÓN -->
 <div class="panel" id="panel-1">
-
-  <h2 class="section-title">📊 Fórmulas de Compensación y Valores de Referencia</h2>
-
-  <div class="alert emerald"><strong>★ PRINCIPIO FUNDAMENTAL (AAFP 2025):</strong> La compensación siempre es incompleta. Si la compensación calculada está fuera del rango esperado, hay un segundo trastorno primario superpuesto.</div>
-
-  <div class="card blue">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🧮 Fórmulas de Compensación — Completas y Actualizadas</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="two-col">
-        <div>
-          <div class="formula">
-            <div class="label">Acidosis Metabólica → Compensación respiratoria</div>
+<h2 class="section-title">📊 Fórmulas de Compensación y Valores de Referencia</h2>
+<div class="alert emerald"><strong>★ PRINCIPIO FUNDAMENTAL (AAFP 2025):</strong> La compensación siempre es incompleta. Si la compensación calculada está fuera del rango esperado, hay un segundo trastorno primario superpuesto.</div>
+<div class="card blue">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🧮 Fórmulas de Compensación — Completas y Actualizadas</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="two-col">
+<div>
+<div class="formula">
+<div class="label">Acidosis Metabólica → Compensación respiratoria</div>
             pCO₂ esperada = 1.5 × [HCO₃⁻] + 8 ± 2
-            <br><span style="color:var(--text3);font-size:.8rem">(Fórmula de Winters)</span>
-            <br><br>O también: pCO₂ = HCO₃⁻ + 15
-            <br>O: pCO₂ ≈ últimas 2 cifras del pH (regla de Winter modificada)
+            <br/><span style="color:var(--text3);font-size:.8rem">(Fórmula de Winters)</span>
+<br/><br/>O también: pCO₂ = HCO₃⁻ + 15
+            <br/>O: pCO₂ ≈ últimas 2 cifras del pH (regla de Winter modificada)
           </div>
-          <div class="formula">
-            <div class="label">Alcalosis Metabólica → Compensación respiratoria</div>
+<div class="formula">
+<div class="label">Alcalosis Metabólica → Compensación respiratoria</div>
             pCO₂ esperada = 0.7 × [HCO₃⁻] + 21 ± 2
-            <br><span style="color:var(--text3);font-size:.8rem">Límite máximo: pCO₂ no sube >55 mmHg como compensación pura</span>
-          </div>
-        </div>
-        <div>
-          <div class="formula">
-            <div class="label">Acidosis Respiratoria Aguda → Compensación metabólica</div>
+            <br/><span style="color:var(--text3);font-size:.8rem">Límite máximo: pCO₂ no sube &gt;55 mmHg como compensación pura</span>
+</div>
+</div>
+<div>
+<div class="formula">
+<div class="label">Acidosis Respiratoria Aguda → Compensación metabólica</div>
             ↑ HCO₃⁻ = 1 mEq/L por cada 10 mmHg ↑ pCO₂
-            <br>(HCO₃⁻ sube 1 por cada 10 de pCO₂ extra)
+            <br/>(HCO₃⁻ sube 1 por cada 10 de pCO₂ extra)
           </div>
-          <div class="formula">
-            <div class="label">Acidosis Respiratoria Crónica → Compensación metabólica</div>
+<div class="formula">
+<div class="label">Acidosis Respiratoria Crónica → Compensación metabólica</div>
             ↑ HCO₃⁻ = 3.5 mEq/L por cada 10 mmHg ↑ pCO₂
-            <br><span style="color:var(--text3);font-size:.8rem">Se establece en 3–5 días</span>
-          </div>
-          <div class="formula">
-            <div class="label">Alcalosis Respiratoria Aguda</div>
+            <br/><span style="color:var(--text3);font-size:.8rem">Se establece en 3–5 días</span>
+</div>
+<div class="formula">
+<div class="label">Alcalosis Respiratoria Aguda</div>
             ↓ HCO₃⁻ = 2 mEq/L por cada 10 mmHg ↓ pCO₂
           </div>
-          <div class="formula">
-            <div class="label">Alcalosis Respiratoria Crónica</div>
+<div class="formula">
+<div class="label">Alcalosis Respiratoria Crónica</div>
             ↓ HCO₃⁻ = 5 mEq/L por cada 10 mmHg ↓ pCO₂
           </div>
-        </div>
-      </div>
-      <div class="alert blue"><strong>📋 Referencia clínica rápida:</strong> En acidosis metabólica, si el pCO₂ medido ES MAYOR que el pCO₂ esperado por Winters → acidosis respiratoria concomitante. Si el pCO₂ medido ES MENOR → alcalosis respiratoria concomitante.</div>
-    </div>
-  </div>
-
-  <div class="card cyan">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🔢 Anion Gap — Cálculo y Corrección por Albúmina</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="formula">
-        <div class="label">Anion Gap Estándar</div>
+</div>
+</div>
+<div class="alert blue"><strong>📋 Referencia clínica rápida:</strong> En acidosis metabólica, si el pCO₂ medido ES MAYOR que el pCO₂ esperado por Winters → acidosis respiratoria concomitante. Si el pCO₂ medido ES MENOR → alcalosis respiratoria concomitante.</div>
+</div>
+</div>
+<div class="card cyan">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🔢 Anion Gap — Cálculo y Corrección por Albúmina</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="formula">
+<div class="label">Anion Gap Estándar</div>
         AG = Na⁺ – (Cl⁻ + HCO₃⁻)
-        <br>Normal: 8–12 mEq/L (con K⁺ incluido: 12–16)
-        <br>En la práctica clínica habitual, AG normal = 12 ± 2
+        <br/>Normal: 8–12 mEq/L (con K⁺ incluido: 12–16)
+        <br/>En la práctica clínica habitual, AG normal = 12 ± 2
       </div>
-      <div class="formula">
-        <div class="label">Corrección por Albúmina — OBLIGATORIA en pacientes críticos</div>
+<div class="formula">
+<div class="label">Corrección por Albúmina — OBLIGATORIA en pacientes críticos</div>
         AG corregido = AG medido + 2.5 × (4.0 − albúmina g/dL)
-        <br><span style="color:var(--text3);font-size:.8rem">Por cada 1 g/dL de hipoalbuminemia, el AG normal cae ~2.5 mEq/L</span>
-      </div>
-      <div class="alert red"><strong>🚨 TRAMPA CLÍNICA CRÍTICA:</strong> Un paciente séptico con albúmina 2 g/dL puede tener una acidosis metabólica de alto AG "oculta" aunque el AG sin corrección parezca normal. El AG corregido puede ser >20 cuando el no-corregido es 10.</div>
-      <div class="formula">
-        <div class="label">Delta-Delta (ΔAG / ΔHCO₃) — Interpretación <span class="tag-new">ACTUALIZADO 2024</span></div>
+        <br/><span style="color:var(--text3);font-size:.8rem">Por cada 1 g/dL de hipoalbuminemia, el AG normal cae ~2.5 mEq/L</span>
+</div>
+<div class="alert red"><strong>🚨 TRAMPA CLÍNICA CRÍTICA:</strong> Un paciente séptico con albúmina 2 g/dL puede tener una acidosis metabólica de alto AG "oculta" aunque el AG sin corrección parezca normal. El AG corregido puede ser &gt;20 cuando el no-corregido es 10.</div>
+<div class="formula">
+<div class="label">Delta-Delta (ΔAG / ΔHCO₃) — Interpretación <span class="tag-new">ACTUALIZADO 2024</span></div>
         Δ/Δ = (AG medido − 12) / (24 − HCO₃⁻ medido)
-        <br>
+        <br/>
         &lt;0.4 → NAGMA pura (sin HAGMA)
-        <br>0.4–0.8 → HAGMA + NAGMA mixta
-        <br>0.8–2.0 → HAGMA pura (patrón esperado)
-        <br>&gt;2.0 → HAGMA + Alcalosis metabólica concomitante
+        <br/>0.4–0.8 → HAGMA + NAGMA mixta
+        <br/>0.8–2.0 → HAGMA pura (patrón esperado)
+        <br/>&gt;2.0 → HAGMA + Alcalosis metabólica concomitante
       </div>
-      <div class="alert yellow"><strong>★ ACTUALIZACIÓN Kidney360 2024:</strong> El ΔAG/ΔHCO₃ tradicional de 1.6–1.8 en acidosis láctica sobreestima la alcalosis concomitante. Usando AG corregido por albúmina e individualizando los valores basales, la relación real es ≈1.20. Esto reduce falsos diagnósticos de alcalosis metabólica mixta en pacientes con acidosis láctica.</div>
-    </div>
-  </div>
-
-  <div class="card green">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">📌 Tabla Resumen de Diagnóstico y Compensación</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Trastorno</th><th>pH</th><th>HCO₃⁻</th><th>pCO₂</th><th>Compensación esperada</th><th>Tiempo</th></tr>
-          <tr><td>Acidosis Metabólica</td><td class="val-acid">↓ &lt;7.35</td><td class="val-acid">↓ &lt;22</td><td class="val-acid">↓ (comp.)</td><td>pCO₂ = 1.5×HCO₃⁻ + 8 ± 2</td><td>12–24 h</td></tr>
-          <tr><td>Alcalosis Metabólica</td><td class="val-alk">↑ >7.45</td><td class="val-alk">↑ >26</td><td class="val-alk">↑ (comp.)</td><td>pCO₂ = 0.7×HCO₃⁻ + 21 ± 2</td><td>24–36 h</td></tr>
-          <tr><td>Acidosis Resp. Aguda</td><td class="val-acid">↓</td><td class="val-alk">↑ (comp.)</td><td class="val-acid">↑ >45</td><td>↑1 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>Minutos</td></tr>
-          <tr><td>Acidosis Resp. Crónica</td><td class="val-acid">↓ (leve)</td><td class="val-alk">↑↑ (comp.)</td><td class="val-acid">↑ >45</td><td>↑3.5 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>3–5 días</td></tr>
-          <tr><td>Alcalosis Resp. Aguda</td><td class="val-alk">↑</td><td class="val-acid">↓ (comp.)</td><td class="val-alk">↓ &lt;35</td><td>↓2 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>Minutos</td></tr>
-          <tr><td>Alcalosis Resp. Crónica</td><td class="val-alk">↑ (leve)</td><td class="val-acid">↓↓ (comp.)</td><td class="val-alk">↓ &lt;35</td><td>↓5 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>3–5 días</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
+<div class="alert yellow"><strong>★ ACTUALIZACIÓN Kidney360 2024:</strong> El ΔAG/ΔHCO₃ tradicional de 1.6–1.8 en acidosis láctica sobreestima la alcalosis concomitante. Usando AG corregido por albúmina e individualizando los valores basales, la relación real es ≈1.20. Esto reduce falsos diagnósticos de alcalosis metabólica mixta en pacientes con acidosis láctica.</div>
+</div>
+</div>
+<div class="card green">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">📌 Tabla Resumen de Diagnóstico y Compensación</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="tbl-wrap">
+<table>
+<tr><th>Trastorno</th><th>pH</th><th>HCO₃⁻</th><th>pCO₂</th><th>Compensación esperada</th><th>Tiempo</th></tr>
+<tr><td>Acidosis Metabólica</td><td class="val-acid">↓ &lt;7.35</td><td class="val-acid">↓ &lt;22</td><td class="val-acid">↓ (comp.)</td><td>pCO₂ = 1.5×HCO₃⁻ + 8 ± 2</td><td>12–24 h</td></tr>
+<tr><td>Alcalosis Metabólica</td><td class="val-alk">↑ &gt;7.45</td><td class="val-alk">↑ &gt;26</td><td class="val-alk">↑ (comp.)</td><td>pCO₂ = 0.7×HCO₃⁻ + 21 ± 2</td><td>24–36 h</td></tr>
+<tr><td>Acidosis Resp. Aguda</td><td class="val-acid">↓</td><td class="val-alk">↑ (comp.)</td><td class="val-acid">↑ &gt;45</td><td>↑1 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>Minutos</td></tr>
+<tr><td>Acidosis Resp. Crónica</td><td class="val-acid">↓ (leve)</td><td class="val-alk">↑↑ (comp.)</td><td class="val-acid">↑ &gt;45</td><td>↑3.5 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>3–5 días</td></tr>
+<tr><td>Alcalosis Resp. Aguda</td><td class="val-alk">↑</td><td class="val-acid">↓ (comp.)</td><td class="val-alk">↓ &lt;35</td><td>↓2 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>Minutos</td></tr>
+<tr><td>Alcalosis Resp. Crónica</td><td class="val-alk">↑ (leve)</td><td class="val-acid">↓↓ (comp.)</td><td class="val-alk">↓ &lt;35</td><td>↓5 mEq/L HCO₃⁻ / 10 mmHg pCO₂</td><td>3–5 días</td></tr>
+</table>
+</div>
+</div>
+</div>
 </div><!-- /panel-1 -->
-
 <!-- PANEL 2: METODOLOGÍA SISTEMÁTICA -->
 <div class="panel" id="panel-2">
-  <h2 class="section-title">🧮 Metodología Sistemática de 6 Pasos (AAFP 2025)</h2>
-  <div class="alert emerald"><strong>★ AAFP 2025 — AFP 111(2):148-155:</strong> El enfoque sistemático es esencial para evaluar trastornos ácido-base en pacientes críticos. Cada paso debe completarse antes de proceder al siguiente.</div>
-
-  <div class="card blue">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">📋 Los 6 Pasos Obligatorios — Protocolo Completo</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="step-flow">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>¿Existe acidemia o alcalemia?</strong>
-            <p>Evalúe el pH: &lt;7.35 = acidemia; >7.45 = alcalemia; 7.35–7.45 = normal (¡pero puede haber trastorno mixto que se cancela!). El pH normal NO descarta trastorno ácido-base significativo.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>¿Cuál es el trastorno primario?</strong>
-            <p>Compare pCO₂ y HCO₃⁻ con el pH. Si el pH &lt;7.35: el trastorno que "explica" la acidemia es el primario (HCO₃⁻ bajo = metabólico; pCO₂ alto = respiratorio). Si hay ambos en la dirección acidémica = TRASTORNO MIXTO.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>¿La compensación es adecuada?</strong>
-            <p>Aplique la fórmula correspondiente. Si la compensación real cae fuera del rango esperado ± 2, existe un segundo trastorno primario (trastorno mixto). Este es el paso más frecuentemente omitido.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>En acidosis metabólica: ¿hay elevación del AG?</strong>
-            <p>Calcule AG = Na – (Cl + HCO₃). Corrija por albúmina si hay hipoalbuminemia. AG &gt;12 (corregido) indica presencia de aniones no medidos patológicos. Siempre calcular el AG, incluso si el trastorno parece respiratorio.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <strong>Si HAGMA: evalúe el gap osmolar y el ΔAG/ΔHCO₃</strong>
-            <p>Gap osmolar = Osm medida – Osm calculada (2×Na + glucosa/18 + BUN/2.8). >10 sugiere alcohol, metanol, etilenglicol. El ΔAG/ΔHCO₃ detecta alcalosis o NAGMA subyacente oculta.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">6</div>
-          <div class="step-body">
-            <strong>Correlacione con contexto clínico y laboratorio adicional</strong>
-            <p>K⁺, Na⁺, Cl⁻, glucosa, BUN, creatinina, lactato, cetonas, función hepática. La gasometría sin contexto clínico es interpretación incompleta.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card emerald">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">✦ Nemotecnia MUDPILES + HARDUPS — Diagnóstico diferencial completo <span class="tag-new">NUEVO 2025</span></div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="two-col">
-        <div>
-          <p style="font-weight:700;color:var(--red);margin-bottom:.5rem">🔺 HAGMA — MUDPILES CATT</p>
-          <ul class="bullet">
-            <li><strong>M</strong>etanol / <strong>M</strong>etformina (acidosis láctica tipo B)</li>
-            <li><strong>U</strong>remia (insuficiencia renal avanzada)</li>
-            <li><strong>D</strong>iabetic ketoacidosis (CAD)</li>
-            <li><strong>P</strong>ropilen glicol (fármacos IV)</li>
-            <li><strong>I</strong>soniazida / Iron / <strong>I</strong>nhalantes</li>
-            <li><strong>L</strong>actic acidosis (tipo A: hipoperfusión; tipo B: fármacos, hepatopatía)</li>
-            <li><strong>E</strong>tilenglicol (anticongelante)</li>
-            <li><strong>S</strong>alicilatos</li>
-            <li><strong>C</strong>ianuro / <strong>A</strong>lcohol cetoacidótico / <strong>T</strong>olueno / <strong>T</strong>iamina↓</li>
-          </ul>
-        </div>
-        <div>
-          <p style="font-weight:700;color:var(--blue);margin-bottom:.5rem">🔵 NAGMA — HARDUPS</p>
-          <ul class="bullet">
-            <li><strong>H</strong>iperalimentation (nutrición parenteral)</li>
-            <li><strong>A</strong>cetazolamida / Anfotericina B</li>
-            <li><strong>R</strong>enal tubular acidosis (ATR tipos 1, 2, 4)</li>
-            <li><strong>D</strong>iarrea (pérdida de HCO₃⁻ gastrointestinal)</li>
-            <li><strong>U</strong>rin diversion (conduit ileal, ureterosigmoidostomía)</li>
-            <li><strong>P</strong>ancreatic fistula / <strong>P</strong>ostobstructive diuresis</li>
-            <li><strong>S</strong>aline infusion (NaCl 0.9% en grandes volúmenes)</li>
-          </ul>
-          <div class="alert blue" style="margin-top:.6rem"><strong>Clave diferenciadora:</strong> En NAGMA el Cl⁻ sube (hiperclorémica), en HAGMA el Cl⁻ suele ser normal.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card cyan">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🧪 Gap Urinario y pH Urinario — Para ATR</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="formula">
-        <div class="label">Gap Aniónico Urinario (GAU)</div>
+<h2 class="section-title">🧮 Metodología Sistemática de 6 Pasos (AAFP 2025)</h2>
+<div class="alert emerald"><strong>★ AAFP 2025 — AFP 111(2):148-155:</strong> El enfoque sistemático es esencial para evaluar trastornos ácido-base en pacientes críticos. Cada paso debe completarse antes de proceder al siguiente.</div>
+<div class="card blue">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">📋 Los 6 Pasos Obligatorios — Protocolo Completo</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="step-flow">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<strong>¿Existe acidemia o alcalemia?</strong>
+<p>Evalúe el pH: &lt;7.35 = acidemia; &gt;7.45 = alcalemia; 7.35–7.45 = normal (¡pero puede haber trastorno mixto que se cancela!). El pH normal NO descarta trastorno ácido-base significativo.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<strong>¿Cuál es el trastorno primario?</strong>
+<p>Compare pCO₂ y HCO₃⁻ con el pH. Si el pH &lt;7.35: el trastorno que "explica" la acidemia es el primario (HCO₃⁻ bajo = metabólico; pCO₂ alto = respiratorio). Si hay ambos en la dirección acidémica = TRASTORNO MIXTO.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<strong>¿La compensación es adecuada?</strong>
+<p>Aplique la fórmula correspondiente. Si la compensación real cae fuera del rango esperado ± 2, existe un segundo trastorno primario (trastorno mixto). Este es el paso más frecuentemente omitido.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-body">
+<strong>En acidosis metabólica: ¿hay elevación del AG?</strong>
+<p>Calcule AG = Na – (Cl + HCO₃). Corrija por albúmina si hay hipoalbuminemia. AG &gt;12 (corregido) indica presencia de aniones no medidos patológicos. Siempre calcular el AG, incluso si el trastorno parece respiratorio.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-body">
+<strong>Si HAGMA: evalúe el gap osmolar y el ΔAG/ΔHCO₃</strong>
+<p>Gap osmolar = Osm medida – Osm calculada (2×Na + glucosa/18 + BUN/2.8). &gt;10 sugiere alcohol, metanol, etilenglicol. El ΔAG/ΔHCO₃ detecta alcalosis o NAGMA subyacente oculta.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">6</div>
+<div class="step-body">
+<strong>Correlacione con contexto clínico y laboratorio adicional</strong>
+<p>K⁺, Na⁺, Cl⁻, glucosa, BUN, creatinina, lactato, cetonas, función hepática. La gasometría sin contexto clínico es interpretación incompleta.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card emerald">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">✦ Nemotecnia MUDPILES + HARDUPS — Diagnóstico diferencial completo <span class="tag-new">NUEVO 2025</span></div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="two-col">
+<div>
+<p style="font-weight:700;color:var(--red);margin-bottom:.5rem">🔺 HAGMA — MUDPILES CATT</p>
+<ul class="bullet">
+<li><strong>M</strong>etanol / <strong>M</strong>etformina (acidosis láctica tipo B)</li>
+<li><strong>U</strong>remia (insuficiencia renal avanzada)</li>
+<li><strong>D</strong>iabetic ketoacidosis (CAD)</li>
+<li><strong>P</strong>ropilen glicol (fármacos IV)</li>
+<li><strong>I</strong>soniazida / Iron / <strong>I</strong>nhalantes</li>
+<li><strong>L</strong>actic acidosis (tipo A: hipoperfusión; tipo B: fármacos, hepatopatía)</li>
+<li><strong>E</strong>tilenglicol (anticongelante)</li>
+<li><strong>S</strong>alicilatos</li>
+<li><strong>C</strong>ianuro / <strong>A</strong>lcohol cetoacidótico / <strong>T</strong>olueno / <strong>T</strong>iamina↓</li>
+</ul>
+</div>
+<div>
+<p style="font-weight:700;color:var(--blue);margin-bottom:.5rem">🔵 NAGMA — HARDUPS</p>
+<ul class="bullet">
+<li><strong>H</strong>iperalimentation (nutrición parenteral)</li>
+<li><strong>A</strong>cetazolamida / Anfotericina B</li>
+<li><strong>R</strong>enal tubular acidosis (ATR tipos 1, 2, 4)</li>
+<li><strong>D</strong>iarrea (pérdida de HCO₃⁻ gastrointestinal)</li>
+<li><strong>U</strong>rin diversion (conduit ileal, ureterosigmoidostomía)</li>
+<li><strong>P</strong>ancreatic fistula / <strong>P</strong>ostobstructive diuresis</li>
+<li><strong>S</strong>aline infusion (NaCl 0.9% en grandes volúmenes)</li>
+</ul>
+<div class="alert blue" style="margin-top:.6rem"><strong>Clave diferenciadora:</strong> En NAGMA el Cl⁻ sube (hiperclorémica), en HAGMA el Cl⁻ suele ser normal.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card cyan">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🧪 Gap Urinario y pH Urinario — Para ATR</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="formula">
+<div class="label">Gap Aniónico Urinario (GAU)</div>
         GAU = Na⁺u + K⁺u − Cl⁻u
-        <br>Negativo (−20 a −50): excreción de NH₄⁺ ADECUADA → causa extrarrenal (diarrea, fístula)
-        <br>Positivo (>0): excreción de NH₄⁺ DEFICIENTE → causa renal (ATR tipos 1, 2, 4)
+        <br/>Negativo (−20 a −50): excreción de NH₄⁺ ADECUADA → causa extrarrenal (diarrea, fístula)
+        <br/>Positivo (&gt;0): excreción de NH₄⁺ DEFICIENTE → causa renal (ATR tipos 1, 2, 4)
       </div>
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Tipo ATR</th><th>pH urinario</th><th>K⁺ sérico</th><th>GAU</th><th>Mecanismo</th></tr>
-          <tr><td>ATR tipo 1 (distal)</td><td>>5.5 siempre</td><td>Bajo (hipocalemia)</td><td>Positivo</td><td>Falla bombas H⁺-ATPasa en túbulo distal</td></tr>
-          <tr><td>ATR tipo 2 (proximal)</td><td>Variable (&lt;5.5 si acidosis profunda)</td><td>Bajo</td><td>Positivo o negativo</td><td>Falla reabsorción HCO₃⁻ proximal</td></tr>
-          <tr><td>ATR tipo 4 (hipercalémica)</td><td>&lt;5.5</td><td>ALTO (hipercalemia)</td><td>Positivo</td><td>Déficit aldosterona / resistencia tubular</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class="tbl-wrap">
+<table>
+<tr><th>Tipo ATR</th><th>pH urinario</th><th>K⁺ sérico</th><th>GAU</th><th>Mecanismo</th></tr>
+<tr><td>ATR tipo 1 (distal)</td><td>&gt;5.5 siempre</td><td>Bajo (hipocalemia)</td><td>Positivo</td><td>Falla bombas H⁺-ATPasa en túbulo distal</td></tr>
+<tr><td>ATR tipo 2 (proximal)</td><td>Variable (&lt;5.5 si acidosis profunda)</td><td>Bajo</td><td>Positivo o negativo</td><td>Falla reabsorción HCO₃⁻ proximal</td></tr>
+<tr><td>ATR tipo 4 (hipercalémica)</td><td>&lt;5.5</td><td>ALTO (hipercalemia)</td><td>Positivo</td><td>Déficit aldosterona / resistencia tubular</td></tr>
+</table>
+</div>
+</div>
+</div>
 </div><!-- /panel-2 -->
-
 <!-- PANEL 3: ACIDOSIS METABÓLICA -->
 <div class="panel" id="panel-3">
-  <h2 class="section-title">⚗️ Acidosis Metabólica — Diagnóstico y Tratamiento</h2>
-
-  <div class="card red">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🚨 Acidosis Láctica — Clasificación y Manejo (Tipo A y B)</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="alert red"><strong>Definición:</strong> Lactato >4 mmol/L con pH &lt;7.35. Mortalidad hospitalaria del 25–50% en UCI. El lactato >10 mmol/L tiene mortalidad >80% si no se corrige.</div>
-      <div class="two-col">
-        <div>
-          <p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Tipo A — Hipoxia tisular</p>
-          <ul class="bullet">
-            <li>Shock séptico, cardiogénico, hemorrágico, distributivo</li>
-            <li>Paro cardíaco</li>
-            <li>Isquemia mesentérica</li>
-            <li>Intoxicación por CO</li>
-            <li>Crisis convulsivas prolongadas</li>
-          </ul>
-          <div class="alert red" style="margin-top:.5rem"><strong>Tratamiento:</strong> Tratar la causa subyacente. Restaurar perfusión tisular. El NaHCO₃ NO mejora outcomes en acidosis láctica por hipoperfusión (SSC 2024).</div>
-        </div>
-        <div>
-          <p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Tipo B — Sin hipoxia evidente</p>
-          <ul class="bullet">
-            <li><strong>B1:</strong> Enfermedad sistémica — hepatopatía, linfoma, leucemia, HIV avanzado</li>
-            <li><strong>B2:</strong> Fármacos/tóxicos — metformina, NRTIs, linezolid, propofol, etanol</li>
-            <li><strong>B3:</strong> Deficiencias enzimáticas congénitas</li>
-          </ul>
-          <div class="alert yellow" style="margin-top:.5rem"><strong>Metformina:</strong> Inhibición mitocondrial → acumulación de lactato. Factores de riesgo: IRA, deshidratación, ICC descompensada, contraste iodado. Suspender si TFG &lt;30.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card orange">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">⚗️ Cetoacidosis Diabética — Criterios ADA 2024 <span class="tag-new">ACTUALIZADO 2024</span></div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Criterio</th><th>Leve</th><th>Moderada</th><th>Grave</th></tr>
-          <tr><td>pH arterial</td><td>7.25–7.30</td><td>7.00–7.24</td><td>&lt;7.00</td></tr>
-          <tr><td>HCO₃⁻ (mEq/L)</td><td>15–18</td><td>10–14</td><td>&lt;10</td></tr>
-          <tr><td>Beta-OH-butirato</td><td>≤6 mmol/L</td><td>≤6 mmol/L</td><td>>6 mmol/L</td></tr>
-          <tr><td>Cetonas urinarias</td><td>+</td><td>++</td><td>+++</td></tr>
-          <tr><td>Estado mental</td><td>Alerta</td><td>Alerta/somnoliento</td><td>Estupor/coma</td></tr>
-          <tr><td>Nivel de atención</td><td>Sala general/observación</td><td>Step-down/UCI-B</td><td>UCI</td></tr>
-        </table>
-      </div>
-      <div class="alert emerald"><strong>★ CAMBIO ADA 2024 vs anterior:</strong> El AG ya NO es criterio diagnóstico de primera línea en CAD. El diagnóstico se basa en beta-OH-butirato y pH/HCO₃. El AG sigue siendo útil cuando las cetonas no están disponibles.</div>
-      <div class="formula">
-        <div class="label">Corrección de Na⁺ en hiperglucemia</div>
+<h2 class="section-title">⚗️ Acidosis Metabólica — Diagnóstico y Tratamiento</h2>
+<div class="card red">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🚨 Acidosis Láctica — Clasificación y Manejo (Tipo A y B)</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="alert red"><strong>Definición:</strong> Lactato &gt;4 mmol/L con pH &lt;7.35. Mortalidad hospitalaria del 25–50% en UCI. El lactato &gt;10 mmol/L tiene mortalidad &gt;80% si no se corrige.</div>
+<div class="two-col">
+<div>
+<p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Tipo A — Hipoxia tisular</p>
+<ul class="bullet">
+<li>Shock séptico, cardiogénico, hemorrágico, distributivo</li>
+<li>Paro cardíaco</li>
+<li>Isquemia mesentérica</li>
+<li>Intoxicación por CO</li>
+<li>Crisis convulsivas prolongadas</li>
+</ul>
+<div class="alert red" style="margin-top:.5rem"><strong>Tratamiento:</strong> Tratar la causa subyacente. Restaurar perfusión tisular. El NaHCO₃ NO mejora outcomes en acidosis láctica por hipoperfusión (SSC 2024).</div>
+</div>
+<div>
+<p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Tipo B — Sin hipoxia evidente</p>
+<ul class="bullet">
+<li><strong>B1:</strong> Enfermedad sistémica — hepatopatía, linfoma, leucemia, HIV avanzado</li>
+<li><strong>B2:</strong> Fármacos/tóxicos — metformina, NRTIs, linezolid, propofol, etanol</li>
+<li><strong>B3:</strong> Deficiencias enzimáticas congénitas</li>
+</ul>
+<div class="alert yellow" style="margin-top:.5rem"><strong>Metformina:</strong> Inhibición mitocondrial → acumulación de lactato. Factores de riesgo: IRA, deshidratación, ICC descompensada, contraste iodado. Suspender si TFG &lt;30.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="card orange">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">⚗️ Cetoacidosis Diabética — Criterios ADA 2024 <span class="tag-new">ACTUALIZADO 2024</span></div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="tbl-wrap">
+<table>
+<tr><th>Criterio</th><th>Leve</th><th>Moderada</th><th>Grave</th></tr>
+<tr><td>pH arterial</td><td>7.25–7.30</td><td>7.00–7.24</td><td>&lt;7.00</td></tr>
+<tr><td>HCO₃⁻ (mEq/L)</td><td>15–18</td><td>10–14</td><td>&lt;10</td></tr>
+<tr><td>Beta-OH-butirato</td><td>≤6 mmol/L</td><td>≤6 mmol/L</td><td>&gt;6 mmol/L</td></tr>
+<tr><td>Cetonas urinarias</td><td>+</td><td>++</td><td>+++</td></tr>
+<tr><td>Estado mental</td><td>Alerta</td><td>Alerta/somnoliento</td><td>Estupor/coma</td></tr>
+<tr><td>Nivel de atención</td><td>Sala general/observación</td><td>Step-down/UCI-B</td><td>UCI</td></tr>
+</table>
+</div>
+<div class="alert emerald"><strong>★ CAMBIO ADA 2024 vs anterior:</strong> El AG ya NO es criterio diagnóstico de primera línea en CAD. El diagnóstico se basa en beta-OH-butirato y pH/HCO₃. El AG sigue siendo útil cuando las cetonas no están disponibles.</div>
+<div class="formula">
+<div class="label">Corrección de Na⁺ en hiperglucemia</div>
         Na⁺ corregido = Na⁺ medido + 1.6 × ((glucosa − 100) / 100)
-        <br><span style="color:var(--text3);font-size:.8rem">Cada 100 mg/dL de glucosa por encima de 100 → Na⁺ real ↑ 1.6 mEq/L</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="card purple">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">💊 Acidosis Metabólica en ERC — KDIGO 2024 <span class="tag-new">NUEVO KDIGO 2024</span></div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="alert emerald"><strong>★ CAMBIO MAYOR KDIGO 2024 vs KDIGO 2012:</strong> El umbral para alcalinización con bicarbonato oral se ha restringido. Ahora se recomienda suplemento de bicarbonato solo cuando HCO₃⁻ &lt;18 mEq/L (antes era &lt;22). Esta modificación surge de resultados neutros o negativos en estudios de suplementación a HCO₃ más altos.</div>
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>HCO₃⁻ sérico</th><th>Conducta KDIGO 2024</th><th>Evidencia</th></tr>
-          <tr><td>>22 mEq/L</td><td>No tratar con alcalinizantes</td><td>Nivel 1C</td></tr>
-          <tr><td>18–22 mEq/L</td><td>Considerar dieta baja en proteínas animales, frutas y vegetales alcalinizantes</td><td>Nivel 2C</td></tr>
-          <tr><td>&lt;18 mEq/L</td><td>Bicarbonato de sodio oral 0.5–1 mEq/kg/día</td><td>Nivel 2B</td></tr>
-          <tr><td>&lt;15 mEq/L + uremia</td><td>Indicación de depuración extrarrenal urgente</td><td>Nivel 1B</td></tr>
-        </table>
-      </div>
-      <div class="alert orange"><strong>⚠️ Precaución con NaHCO₃ IV en CAD:</strong> No iniciar hasta que HCO₃⁻ &lt;10 mEq/L Y pH &lt;6.9 con evidencia de colapso cardiovascular. La corrección rápida puede precipitar hipocalemia grave, edema cerebral y "overshoot" alcalótico. <em>(ADA 2024)</em></div>
-    </div>
-  </div>
-
-  <div class="card yellow">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">⚠️ Acidosis por Tóxicos — Metanol y Etilenglicol</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="two-col">
-        <div>
-          <p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Metanol (alcohol metílico)</p>
-          <ul class="bullet">
-            <li>Metabolito: ácido fórmico → toxicidad retiniana (ceguera), HAGMA</li>
-            <li>Período de latencia: 12–24 h (antes de acidosis severa)</li>
-            <li>Antídoto: fomepizol IV (primera línea) o etanol IV</li>
-            <li>Gap osmolar elevado en fases tempranas</li>
-          </ul>
-        </div>
-        <div>
-          <p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Etilenglicol (anticongelante)</p>
-          <ul class="bullet">
-            <li>Metabolitos: oxalato, glicolato → cristales de oxalato en orina/riñón</li>
-            <li>Clínica: IRA oligo-anúrica, hipocalcemia, HAGMA</li>
-            <li>Antídoto: fomepizol IV; hemodiálisis si IRA grave</li>
-            <li>Gap osmolar elevado tempranamente, luego gap aniónico dominante</li>
-          </ul>
-        </div>
-      </div>
-      <div class="formula">
-        <div class="label">Gap Osmolar</div>
+        <br/><span style="color:var(--text3);font-size:.8rem">Cada 100 mg/dL de glucosa por encima de 100 → Na⁺ real ↑ 1.6 mEq/L</span>
+</div>
+</div>
+</div>
+<div class="card purple">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">💊 Acidosis Metabólica en ERC — KDIGO 2024 <span class="tag-new">NUEVO KDIGO 2024</span></div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="alert emerald"><strong>★ CAMBIO MAYOR KDIGO 2024 vs KDIGO 2012:</strong> El umbral para alcalinización con bicarbonato oral se ha restringido. Ahora se recomienda suplemento de bicarbonato solo cuando HCO₃⁻ &lt;18 mEq/L (antes era &lt;22). Esta modificación surge de resultados neutros o negativos en estudios de suplementación a HCO₃ más altos.</div>
+<div class="tbl-wrap">
+<table>
+<tr><th>HCO₃⁻ sérico</th><th>Conducta KDIGO 2024</th><th>Evidencia</th></tr>
+<tr><td>&gt;22 mEq/L</td><td>No tratar con alcalinizantes</td><td>Nivel 1C</td></tr>
+<tr><td>18–22 mEq/L</td><td>Considerar dieta baja en proteínas animales, frutas y vegetales alcalinizantes</td><td>Nivel 2C</td></tr>
+<tr><td>&lt;18 mEq/L</td><td>Bicarbonato de sodio oral 0.5–1 mEq/kg/día</td><td>Nivel 2B</td></tr>
+<tr><td>&lt;15 mEq/L + uremia</td><td>Indicación de depuración extrarrenal urgente</td><td>Nivel 1B</td></tr>
+</table>
+</div>
+<div class="alert orange"><strong>⚠️ Precaución con NaHCO₃ IV en CAD:</strong> No iniciar hasta que HCO₃⁻ &lt;10 mEq/L Y pH &lt;6.9 con evidencia de colapso cardiovascular. La corrección rápida puede precipitar hipocalemia grave, edema cerebral y "overshoot" alcalótico. <em>(ADA 2024)</em></div>
+</div>
+</div>
+<div class="card yellow">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">⚠️ Acidosis por Tóxicos — Metanol y Etilenglicol</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="two-col">
+<div>
+<p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Metanol (alcohol metílico)</p>
+<ul class="bullet">
+<li>Metabolito: ácido fórmico → toxicidad retiniana (ceguera), HAGMA</li>
+<li>Período de latencia: 12–24 h (antes de acidosis severa)</li>
+<li>Antídoto: fomepizol IV (primera línea) o etanol IV</li>
+<li>Gap osmolar elevado en fases tempranas</li>
+</ul>
+</div>
+<div>
+<p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Etilenglicol (anticongelante)</p>
+<ul class="bullet">
+<li>Metabolitos: oxalato, glicolato → cristales de oxalato en orina/riñón</li>
+<li>Clínica: IRA oligo-anúrica, hipocalcemia, HAGMA</li>
+<li>Antídoto: fomepizol IV; hemodiálisis si IRA grave</li>
+<li>Gap osmolar elevado tempranamente, luego gap aniónico dominante</li>
+</ul>
+</div>
+</div>
+<div class="formula">
+<div class="label">Gap Osmolar</div>
         Osm calculada = 2×Na + glucosa(mg/dL)/18 + BUN(mg/dL)/2.8
-        <br>Gap osmolar = Osm medida − Osm calculada
-        <br>Normal: &lt;10 mOsm/kg. >10 sugiere alcohol tóxico, propilen glicol, acetona
+        <br/>Gap osmolar = Osm medida − Osm calculada
+        <br/>Normal: &lt;10 mOsm/kg. &gt;10 sugiere alcohol tóxico, propilen glicol, acetona
       </div>
-    </div>
-  </div>
+</div>
+</div>
 </div><!-- /panel-3 -->
-
 <!-- PANEL 4: ALCALOSIS Y TRASTORNOS RESPIRATORIOS -->
 <div class="panel" id="panel-4">
-  <h2 class="section-title">🔺 Alcalosis Metabólica y Trastornos Respiratorios</h2>
-
-  <div class="card blue">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🔺 Alcalosis Metabólica — Clasificación por Cloruro Urinario</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <p class="body-text">La alcalosis metabólica es el trastorno ácido-base más frecuente en hospitalizados. Su diagnóstico diferencial se basa en el <strong>cloruro urinario (Cl⁻u)</strong>, no en el pH ni en el volumen.</p>
-      <div class="two-col">
-        <div>
-          <div class="alert green">
-            <strong>Cl⁻u &lt;20 mEq/L — Sensible a cloro (cloruro-responsive)</strong>
-            <ul class="bullet" style="margin-top:.4rem">
-              <li>Vómitos, aspiración gástrica (pérdida de HCl)</li>
-              <li>Uso previo de diuréticos (ahora suspendidos)</li>
-              <li>Diarrea secretora cloropénica</li>
-              <li>Post-hipercapnia (hiperventilación post-compensación)</li>
-              <li>Tratamiento: NaCl IV/VO; corregir depleción de volumen</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="alert orange">
-            <strong>Cl⁻u >20 mEq/L — Resistente a cloro (cloruro-resistant)</strong>
-            <ul class="bullet" style="margin-top:.4rem">
-              <li>Hiperaldosteronismo primario (Conn)</li>
-              <li>Síndrome de Cushing</li>
-              <li>Diuréticos en uso activo (tiazidas, furosemida)</li>
-              <li>Síndrome de Bartter / Gitelman</li>
-              <li>Hipercalcemia, hipomagnesemia grave</li>
-              <li>Tratamiento: espironolactona, tratar causa subyacente</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="alert yellow"><strong>⚠️ Trampa clínica:</strong> La alcalosis metabólica grave (HCO₃⁻ >45, pH >7.55) causa vasoconstricción coronaria, hipoventilación por compensación (pCO₂ puede llegar a 55 mmHg), hipocalcemia (tetania) y arritmias. Tratar con urgencia.</div>
-      <div class="formula">
-        <div class="label">Compensación en Alcalosis Metabólica</div>
+<h2 class="section-title">🔺 Alcalosis Metabólica y Trastornos Respiratorios</h2>
+<div class="card blue">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🔺 Alcalosis Metabólica — Clasificación por Cloruro Urinario</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<p class="body-text">La alcalosis metabólica es el trastorno ácido-base más frecuente en hospitalizados. Su diagnóstico diferencial se basa en el <strong>cloruro urinario (Cl⁻u)</strong>, no en el pH ni en el volumen.</p>
+<div class="two-col">
+<div>
+<div class="alert green">
+<strong>Cl⁻u &lt;20 mEq/L — Sensible a cloro (cloruro-responsive)</strong>
+<ul class="bullet" style="margin-top:.4rem">
+<li>Vómitos, aspiración gástrica (pérdida de HCl)</li>
+<li>Uso previo de diuréticos (ahora suspendidos)</li>
+<li>Diarrea secretora cloropénica</li>
+<li>Post-hipercapnia (hiperventilación post-compensación)</li>
+<li>Tratamiento: NaCl IV/VO; corregir depleción de volumen</li>
+</ul>
+</div>
+</div>
+<div>
+<div class="alert orange">
+<strong>Cl⁻u &gt;20 mEq/L — Resistente a cloro (cloruro-resistant)</strong>
+<ul class="bullet" style="margin-top:.4rem">
+<li>Hiperaldosteronismo primario (Conn)</li>
+<li>Síndrome de Cushing</li>
+<li>Diuréticos en uso activo (tiazidas, furosemida)</li>
+<li>Síndrome de Bartter / Gitelman</li>
+<li>Hipercalcemia, hipomagnesemia grave</li>
+<li>Tratamiento: espironolactona, tratar causa subyacente</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="alert yellow"><strong>⚠️ Trampa clínica:</strong> La alcalosis metabólica grave (HCO₃⁻ &gt;45, pH &gt;7.55) causa vasoconstricción coronaria, hipoventilación por compensación (pCO₂ puede llegar a 55 mmHg), hipocalcemia (tetania) y arritmias. Tratar con urgencia.</div>
+<div class="formula">
+<div class="label">Compensación en Alcalosis Metabólica</div>
         pCO₂ esperada = 0.7 × [HCO₃⁻] + 21 ± 2
-        <br>Límite máximo de compensación: pCO₂ ≈ 55 mmHg
-        <br>Si pCO₂ medida > 55 → acidosis respiratoria concomitante
+        <br/>Límite máximo de compensación: pCO₂ ≈ 55 mmHg
+        <br/>Si pCO₂ medida &gt; 55 → acidosis respiratoria concomitante
       </div>
-    </div>
-  </div>
-
-  <div class="card red">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🫁 Acidosis Respiratoria — Aguda vs Crónica</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="two-col">
-        <div>
-          <p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Causas Agudas</p>
-          <ul class="bullet">
-            <li>Depresión del SNC: opioides, BZD, alcohol, TCE</li>
-            <li>Obstrucción de vía aérea: broncoespasmo severo, aspiración</li>
-            <li>Neumonía bilateral, SDRA, edema pulmonar</li>
-            <li>Neumotórax a tensión</li>
-            <li>Crisis miasténica, SGB en falla ventilatoria</li>
-          </ul>
-        </div>
-        <div>
-          <p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Causas Crónicas</p>
-          <ul class="bullet">
-            <li>EPOC avanzada (retenedor de CO₂)</li>
-            <li>Síndrome Obesidad-Hipoventilación</li>
-            <li>Enfermedades neuromusculares (ELA, miopatías)</li>
-            <li>Deformidades de pared torácica</li>
-            <li>Hipoventilación central crónica</li>
-          </ul>
-        </div>
-      </div>
-      <div class="alert red"><strong>🚨 Criterios de Ventilación Mecánica Urgente:</strong> pH &lt;7.20 con acidosis respiratoria aguda; signos de fatiga muscular respiratoria; pCO₂ >70 mmHg en agudo; SpO₂ no mantenible con O₂ convencional. VMNI como puente si no hay contraindicaciones.</div>
-      <div class="alert orange"><strong>⚠️ RETENEDOR DE CO₂ CRÓNICO:</strong> No corregir el pCO₂ rápidamente. El HCO₃⁻ compensatorio (renal) se perderá lentamente. Si se ventila y normaliza el pCO₂ bruscamente, el HCO₃⁻ elevado causa alcalosis metabólica post-hipercápnica grave.</div>
-    </div>
-  </div>
-
-  <div class="card green">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🔺 Alcalosis Respiratoria — Diagnóstico Diferencial</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <p class="body-text">Es el trastorno ABG más frecuente en pacientes ambulatorios y hospitalizados no críticos. El pCO₂ &lt;35 mmHg define la hiperventilación.</p>
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Categoría</th><th>Causas frecuentes</th><th>Clave clínica</th></tr>
-          <tr><td>Hipoxemia</td><td>Neumonía, TEP, altitud, ICC</td><td>SaO₂ baja o borderline</td></tr>
-          <tr><td>Estimulación central</td><td>Ansiedad, dolor, encefalopatía hepática, salicilatos</td><td>Contexto clínico</td></tr>
-          <tr><td>Sepsis temprana</td><td>Respuesta inflamatoria sistémica</td><td>Taquicardia, fiebre, foco infeccioso</td></tr>
-          <tr><td>Embarazo</td><td>Progesterona → ↑ drive respiratorio</td><td>pCO₂ normal embarazo: 28–32 mmHg</td></tr>
-          <tr><td>Mecánica</td><td>Sobreventilación en ARM</td><td>Ajustar parámetros ventilatorios</td></tr>
-          <tr><td>Fármacos</td><td>Salicilatos, cafeína, teofilina, nicotina</td><td>Salicilatos: HAGMA + alcalosis resp. MIXTA</td></tr>
-        </table>
-      </div>
-      <div class="alert blue"><strong>📋 Salicilatos — Patrón clásico:</strong> Alcalosis respiratoria primaria + acidosis metabólica de AG alto. El pH final depende del predominio. En adultos suele predominar la acidemia; en niños, la alcalemia. Buscar este patrón mixto en toda sospecha de intoxicación por AAS.</div>
-    </div>
-  </div>
+</div>
+</div>
+<div class="card red">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🫁 Acidosis Respiratoria — Aguda vs Crónica</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="two-col">
+<div>
+<p style="font-weight:700;color:var(--red);margin-bottom:.4rem">Causas Agudas</p>
+<ul class="bullet">
+<li>Depresión del SNC: opioides, BZD, alcohol, TCE</li>
+<li>Obstrucción de vía aérea: broncoespasmo severo, aspiración</li>
+<li>Neumonía bilateral, SDRA, edema pulmonar</li>
+<li>Neumotórax a tensión</li>
+<li>Crisis miasténica, SGB en falla ventilatoria</li>
+</ul>
+</div>
+<div>
+<p style="font-weight:700;color:var(--orange);margin-bottom:.4rem">Causas Crónicas</p>
+<ul class="bullet">
+<li>EPOC avanzada (retenedor de CO₂)</li>
+<li>Síndrome Obesidad-Hipoventilación</li>
+<li>Enfermedades neuromusculares (ELA, miopatías)</li>
+<li>Deformidades de pared torácica</li>
+<li>Hipoventilación central crónica</li>
+</ul>
+</div>
+</div>
+<div class="alert red"><strong>🚨 Criterios de Ventilación Mecánica Urgente:</strong> pH &lt;7.20 con acidosis respiratoria aguda; signos de fatiga muscular respiratoria; pCO₂ &gt;70 mmHg en agudo; SpO₂ no mantenible con O₂ convencional. VMNI como puente si no hay contraindicaciones.</div>
+<div class="alert orange"><strong>⚠️ RETENEDOR DE CO₂ CRÓNICO:</strong> No corregir el pCO₂ rápidamente. El HCO₃⁻ compensatorio (renal) se perderá lentamente. Si se ventila y normaliza el pCO₂ bruscamente, el HCO₃⁻ elevado causa alcalosis metabólica post-hipercápnica grave.</div>
+</div>
+</div>
+<div class="card green">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🔺 Alcalosis Respiratoria — Diagnóstico Diferencial</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<p class="body-text">Es el trastorno ABG más frecuente en pacientes ambulatorios y hospitalizados no críticos. El pCO₂ &lt;35 mmHg define la hiperventilación.</p>
+<div class="tbl-wrap">
+<table>
+<tr><th>Categoría</th><th>Causas frecuentes</th><th>Clave clínica</th></tr>
+<tr><td>Hipoxemia</td><td>Neumonía, TEP, altitud, ICC</td><td>SaO₂ baja o borderline</td></tr>
+<tr><td>Estimulación central</td><td>Ansiedad, dolor, encefalopatía hepática, salicilatos</td><td>Contexto clínico</td></tr>
+<tr><td>Sepsis temprana</td><td>Respuesta inflamatoria sistémica</td><td>Taquicardia, fiebre, foco infeccioso</td></tr>
+<tr><td>Embarazo</td><td>Progesterona → ↑ drive respiratorio</td><td>pCO₂ normal embarazo: 28–32 mmHg</td></tr>
+<tr><td>Mecánica</td><td>Sobreventilación en ARM</td><td>Ajustar parámetros ventilatorios</td></tr>
+<tr><td>Fármacos</td><td>Salicilatos, cafeína, teofilina, nicotina</td><td>Salicilatos: HAGMA + alcalosis resp. MIXTA</td></tr>
+</table>
+</div>
+<div class="alert blue"><strong>📋 Salicilatos — Patrón clásico:</strong> Alcalosis respiratoria primaria + acidosis metabólica de AG alto. El pH final depende del predominio. En adultos suele predominar la acidemia; en niños, la alcalemia. Buscar este patrón mixto en toda sospecha de intoxicación por AAS.</div>
+</div>
+</div>
 </div><!-- /panel-4 -->
-
 <!-- PANEL 5: TRASTORNOS MIXTOS -->
 <div class="panel" id="panel-5">
-  <h2 class="section-title">⚡ Trastornos Mixtos — AJKD Core Curriculum 2025</h2>
-  <div class="alert emerald"><strong>★ AJKD Core Curriculum 2025:</strong> Los trastornos mixtos son frecuentes en UCI y su diagnóstico requiere análisis sistemático de compensaciones. El pH puede ser normal cuando dos trastornos opuestos se cancelan mutuamente, ocultando disturbios graves.</div>
-
-  <div class="card purple">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🔴 Patrones Mixtos Frecuentes en UCI</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="tbl-wrap">
-        <table>
-          <tr><th>Trastorno Mixto</th><th>pH</th><th>HCO₃⁻</th><th>pCO₂</th><th>Clínica típica</th></tr>
-          <tr><td>Acidosis Metabólica + Acidosis Respiratoria</td><td class="val-acid">↓↓ grave</td><td class="val-acid">↓</td><td class="val-acid">↑</td><td>Paro cardíaco, SDRA + shock séptico</td></tr>
-          <tr><td>Acidosis Metabólica + Alcalosis Respiratoria</td><td>Variable (↓ o normal)</td><td class="val-acid">↓</td><td class="val-alk">↓ más de lo esperado</td><td>Salicilatos, sepsis temprana + acidosis láctica</td></tr>
-          <tr><td>Alcalosis Metabólica + Alcalosis Respiratoria</td><td class="val-alk">↑↑</td><td class="val-alk">↑</td><td class="val-alk">↑ (pero menos)</td><td>Cirrosis hepática + vómitos, EPOC + diuréticos</td></tr>
-          <tr><td>Alcalosis Metabólica + Acidosis Respiratoria</td><td>Normal o ↓</td><td class="val-alk">↑↑</td><td class="val-acid">↑</td><td>EPOC + diuréticos, retenedor CO₂ con vómitos</td></tr>
-          <tr><td>HAGMA + NAGMA (Triple)</td><td class="val-acid">↓↓</td><td class="val-acid">↓↓</td><td class="val-acid">↓ (comp.)</td><td>CAD con diarrea; IRA con diarrea + acidosis láctica</td></tr>
-          <tr><td>HAGMA + Alcalosis Metabólica</td><td>Variable (a menudo normal)</td><td>Normal o ↑</td><td class="val-alk">↑ (comp.)</td><td>Vómitos + CAD, cirrosis con acidosis láctica</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="card cyan">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">🧮 Algoritmo para Detectar Trastornos Mixtos</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <div class="step-flow">
-        <div class="step"><div class="step-num">A</div><div class="step-body"><strong>¿pCO₂ y HCO₃⁻ van en la misma dirección?</strong><p>Si ambos suben o ambos bajan, hay un trastorno mixto (en un trastorno simple, van en direcciones opuestas: primario + compensación).</p></div></div>
-        <div class="step"><div class="step-num">B</div><div class="step-body"><strong>¿La compensación es inadecuada?</strong><p>Calcule la compensación esperada. Si está fuera del rango ± 2 mEq/L (o ± 2 mmHg), existe un segundo trastorno. Este es el método más sensible.</p></div></div>
-        <div class="step"><div class="step-num">C</div><div class="step-body"><strong>¿Hay AG elevado sin acidemia?</strong><p>Un AG >12 (corregido) en presencia de pH normal o alcalino indica HAGMA + alcalosis metabólica compensatoria. El HCO₃⁻ elevado "enmascaró" la acidemia.</p></div></div>
-        <div class="step"><div class="step-num">D</div><div class="step-body"><strong>¿El ΔAG/ΔHCO₃ es anormal?</strong><p>Si >2.0: HAGMA + alcalosis metabólica oculta. Si &lt;0.8: HAGMA + NAGMA. Usar AG corregido por albúmina para mayor precisión (Kidney360 2024).</p></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card emerald">
-    <div class="card-header" onclick="toggleCard(this)">
-      <div class="card-title">✦ Enfoque de Stewart (Aproximación Fisicoquímica) — Para Casos Complejos</div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body open">
-      <p class="body-text">El modelo de Stewart determina el pH a partir de 3 variables independientes: Diferencia de Iones Fuertes (SID), pCO₂, y concentración de ácidos débiles (proteínas, fosfato). Es preferido por cirujanos/intensivistas para casos con albumina y electrolitos aberrantes.</p>
-      <div class="formula">
-        <div class="label">SID Aparente (SIDa)</div>
+<h2 class="section-title">⚡ Trastornos Mixtos — AJKD Core Curriculum 2025</h2>
+<div class="alert emerald"><strong>★ AJKD Core Curriculum 2025:</strong> Los trastornos mixtos son frecuentes en UCI y su diagnóstico requiere análisis sistemático de compensaciones. El pH puede ser normal cuando dos trastornos opuestos se cancelan mutuamente, ocultando disturbios graves.</div>
+<div class="card purple">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🔴 Patrones Mixtos Frecuentes en UCI</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="tbl-wrap">
+<table>
+<tr><th>Trastorno Mixto</th><th>pH</th><th>HCO₃⁻</th><th>pCO₂</th><th>Clínica típica</th></tr>
+<tr><td>Acidosis Metabólica + Acidosis Respiratoria</td><td class="val-acid">↓↓ grave</td><td class="val-acid">↓</td><td class="val-acid">↑</td><td>Paro cardíaco, SDRA + shock séptico</td></tr>
+<tr><td>Acidosis Metabólica + Alcalosis Respiratoria</td><td>Variable (↓ o normal)</td><td class="val-acid">↓</td><td class="val-alk">↓ más de lo esperado</td><td>Salicilatos, sepsis temprana + acidosis láctica</td></tr>
+<tr><td>Alcalosis Metabólica + Alcalosis Respiratoria</td><td class="val-alk">↑↑</td><td class="val-alk">↑</td><td class="val-alk">↑ (pero menos)</td><td>Cirrosis hepática + vómitos, EPOC + diuréticos</td></tr>
+<tr><td>Alcalosis Metabólica + Acidosis Respiratoria</td><td>Normal o ↓</td><td class="val-alk">↑↑</td><td class="val-acid">↑</td><td>EPOC + diuréticos, retenedor CO₂ con vómitos</td></tr>
+<tr><td>HAGMA + NAGMA (Triple)</td><td class="val-acid">↓↓</td><td class="val-acid">↓↓</td><td class="val-acid">↓ (comp.)</td><td>CAD con diarrea; IRA con diarrea + acidosis láctica</td></tr>
+<tr><td>HAGMA + Alcalosis Metabólica</td><td>Variable (a menudo normal)</td><td>Normal o ↑</td><td class="val-alk">↑ (comp.)</td><td>Vómitos + CAD, cirrosis con acidosis láctica</td></tr>
+</table>
+</div>
+</div>
+</div>
+<div class="card cyan">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">🧮 Algoritmo para Detectar Trastornos Mixtos</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<div class="step-flow">
+<div class="step"><div class="step-num">A</div><div class="step-body"><strong>¿pCO₂ y HCO₃⁻ van en la misma dirección?</strong><p>Si ambos suben o ambos bajan, hay un trastorno mixto (en un trastorno simple, van en direcciones opuestas: primario + compensación).</p></div></div>
+<div class="step"><div class="step-num">B</div><div class="step-body"><strong>¿La compensación es inadecuada?</strong><p>Calcule la compensación esperada. Si está fuera del rango ± 2 mEq/L (o ± 2 mmHg), existe un segundo trastorno. Este es el método más sensible.</p></div></div>
+<div class="step"><div class="step-num">C</div><div class="step-body"><strong>¿Hay AG elevado sin acidemia?</strong><p>Un AG &gt;12 (corregido) en presencia de pH normal o alcalino indica HAGMA + alcalosis metabólica compensatoria. El HCO₃⁻ elevado "enmascaró" la acidemia.</p></div></div>
+<div class="step"><div class="step-num">D</div><div class="step-body"><strong>¿El ΔAG/ΔHCO₃ es anormal?</strong><p>Si &gt;2.0: HAGMA + alcalosis metabólica oculta. Si &lt;0.8: HAGMA + NAGMA. Usar AG corregido por albúmina para mayor precisión (Kidney360 2024).</p></div></div>
+</div>
+</div>
+</div>
+<div class="card emerald">
+<div class="card-header" onclick="toggleCard(this)">
+<div class="card-title">✦ Enfoque de Stewart (Aproximación Fisicoquímica) — Para Casos Complejos</div>
+<span class="chevron">▼</span>
+</div>
+<div class="card-body open">
+<p class="body-text">El modelo de Stewart determina el pH a partir de 3 variables independientes: Diferencia de Iones Fuertes (SID), pCO₂, y concentración de ácidos débiles (proteínas, fosfato). Es preferido por cirujanos/intensivistas para casos con albumina y electrolitos aberrantes.</p>
+<div class="formula">
+<div class="label">SID Aparente (SIDa)</div>
         SIDa = [Na⁺ + K⁺ + Ca²⁺ + Mg²⁺] − [Cl⁻ + Lactato]
-        <br>Normal: 40–44 mEq/L
-        <br>SIDa &lt;38 → acidosis metabólica; SIDa >44 → alcalosis metabólica
+        <br/>Normal: 40–44 mEq/L
+        <br/>SIDa &lt;38 → acidosis metabólica; SIDa &gt;44 → alcalosis metabólica
       </div>
-      <div class="alert blue"><strong>Valor clínico del SID:</strong> Cuando Na–Cl &lt;36 → acidosis hiperclorémica (expansión con SF 0.9%). Cuando Na–Cl >40 → alcalosis (diuréticos, vómitos). Este cálculo simple es un sustituto válido del SIDa completo en UCI (estudio 2024).</div>
-      <div class="alert yellow"><strong>⚠️ Limitación del modelo de Stewart:</strong> Mayor complejidad, más variables medidas → más fuentes de error. El modelo bicarbonato-AG con corrección por albúmina da el diagnóstico correcto en la gran mayoría de casos. Stewart se reserva para escenarios donde el enfoque clásico es discordante.</div>
-    </div>
-  </div>
+<div class="alert blue"><strong>Valor clínico del SID:</strong> Cuando Na–Cl &lt;36 → acidosis hiperclorémica (expansión con SF 0.9%). Cuando Na–Cl &gt;40 → alcalosis (diuréticos, vómitos). Este cálculo simple es un sustituto válido del SIDa completo en UCI (estudio 2024).</div>
+<div class="alert yellow"><strong>⚠️ Limitación del modelo de Stewart:</strong> Mayor complejidad, más variables medidas → más fuentes de error. El modelo bicarbonato-AG con corrección por albúmina da el diagnóstico correcto en la gran mayoría de casos. Stewart se reserva para escenarios donde el enfoque clásico es discordante.</div>
+</div>
+</div>
 </div><!-- /panel-5 -->
-
 <!-- PANEL 6: CALCULADORAS -->
 <div class="panel" id="panel-6">
-  <h2 class="section-title">🧮 Calculadoras Interactivas</h2>
-
-  <!-- CALC 1: Interpretación completa -->
-  <div class="calc-box">
-    <div class="calc-title">🔬 Calc 1 — Interpretación Completa de Gasometría</div>
-    <div class="calc-grid">
-      <div class="calc-field"><label>pH</label><input type="number" id="c1-ph" value="7.32" step="0.01" min="6.8" max="7.8"></div>
-      <div class="calc-field"><label>pCO₂ (mmHg)</label><input type="number" id="c1-pco2" value="28" step="1"></div>
-      <div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input type="number" id="c1-hco3" value="14" step="0.5"></div>
-      <div class="calc-field"><label>Na⁺ (mEq/L)</label><input type="number" id="c1-na" value="140" step="1"></div>
-      <div class="calc-field"><label>Cl⁻ (mEq/L)</label><input type="number" id="c1-cl" value="108" step="1"></div>
-      <div class="calc-field"><label>Albúmina (g/dL)</label><input type="number" id="c1-alb" value="4.0" step="0.1"></div>
-    </div>
-    <button class="calc-btn" onclick="calcABG()">Interpretar →</button>
-    <div class="calc-result" id="c1-result" style="margin-top:.75rem">Complete los valores y presione "Interpretar"</div>
-  </div>
-
-  <!-- CALC 2: Anion Gap y Correcciones -->
-  <div class="calc-box">
-    <div class="calc-title">🔢 Calc 2 — Anion Gap, Delta-Delta y Corrección Albúmina</div>
-    <div class="calc-grid">
-      <div class="calc-field"><label>Na⁺ (mEq/L)</label><input type="number" id="c2-na" value="138" step="1"></div>
-      <div class="calc-field"><label>Cl⁻ (mEq/L)</label><input type="number" id="c2-cl" value="102" step="1"></div>
-      <div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input type="number" id="c2-hco3" value="12" step="0.5"></div>
-      <div class="calc-field"><label>Albúmina (g/dL)</label><input type="number" id="c2-alb" value="2.5" step="0.1"></div>
-    </div>
-    <button class="calc-btn" onclick="calcAG()">Calcular AG y Δ/Δ →</button>
-    <div class="calc-result" id="c2-result" style="margin-top:.75rem">Ingrese valores para calcular</div>
-  </div>
-
-  <!-- CALC 3: Winter Formula -->
-  <div class="calc-box">
-    <div class="calc-title">❄️ Calc 3 — Fórmula de Winters (Compensación en Acidosis Metabólica)</div>
-    <div class="calc-grid">
-      <div class="calc-field"><label>HCO₃⁻ medido (mEq/L)</label><input type="number" id="c3-hco3" value="16" step="0.5"></div>
-      <div class="calc-field"><label>pCO₂ medido (mmHg)</label><input type="number" id="c3-pco2" value="30" step="1"></div>
-    </div>
-    <button class="calc-btn" onclick="calcWinter()">Evaluar compensación →</button>
-    <div class="calc-result" id="c3-result" style="margin-top:.75rem">Ingrese valores</div>
-  </div>
-
-  <!-- CALC 4: Corrección Na+ en hiperglucemia -->
-  <div class="calc-box">
-    <div class="calc-title">🩺 Calc 4 — Na⁺ Corregido en Hiperglucemia (CAD/EHH)</div>
-    <div class="calc-grid">
-      <div class="calc-field"><label>Na⁺ medido (mEq/L)</label><input type="number" id="c4-na" value="130" step="1"></div>
-      <div class="calc-field"><label>Glucosa (mg/dL)</label><input type="number" id="c4-gluc" value="450" step="1"></div>
-    </div>
-    <button class="calc-btn" onclick="calcNaCorr()">Calcular →</button>
-    <div class="calc-result" id="c4-result" style="margin-top:.75rem">Ingrese valores</div>
-  </div>
-
-  <!-- CALC 5: Gap Osmolar -->
-  <div class="calc-box">
-    <div class="calc-title">⚗️ Calc 5 — Gap Osmolar (Sospecha de Tóxicos)</div>
-    <div class="calc-grid">
-      <div class="calc-field"><label>Osm medida (mOsm/kg)</label><input type="number" id="c5-osm" value="330" step="1"></div>
-      <div class="calc-field"><label>Na⁺ (mEq/L)</label><input type="number" id="c5-na" value="135" step="1"></div>
-      <div class="calc-field"><label>Glucosa (mg/dL)</label><input type="number" id="c5-gluc" value="180" step="1"></div>
-      <div class="calc-field"><label>BUN (mg/dL)</label><input type="number" id="c5-bun" value="28" step="1"></div>
-    </div>
-    <button class="calc-btn" onclick="calcOsm()">Calcular gap osmolar →</button>
-    <div class="calc-result" id="c5-result" style="margin-top:.75rem">Ingrese valores</div>
-  </div>
+<h2 class="section-title">🧮 Calculadoras Interactivas</h2>
+<!-- CALC 1: Interpretación completa -->
+<div class="calc-box">
+<div class="calc-title">🔬 Calc 1 — Interpretación Completa de Gasometría</div>
+<div class="calc-grid">
+<div class="calc-field"><label>pH</label><input id="c1-ph" max="7.8" min="6.8" step="0.01" type="number" value="7.32"/></div>
+<div class="calc-field"><label>pCO₂ (mmHg)</label><input id="c1-pco2" step="1" type="number" value="28"/></div>
+<div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input id="c1-hco3" step="0.5" type="number" value="14"/></div>
+<div class="calc-field"><label>Na⁺ (mEq/L)</label><input id="c1-na" step="1" type="number" value="140"/></div>
+<div class="calc-field"><label>Cl⁻ (mEq/L)</label><input id="c1-cl" step="1" type="number" value="108"/></div>
+<div class="calc-field"><label>Albúmina (g/dL)</label><input id="c1-alb" step="0.1" type="number" value="4.0"/></div>
+</div>
+<button class="calc-btn" onclick="calcABG()">Interpretar →</button>
+<div class="calc-result" id="c1-result" style="margin-top:.75rem">Complete los valores y presione "Interpretar"</div>
+</div>
+<!-- CALC 2: Anion Gap y Correcciones -->
+<div class="calc-box">
+<div class="calc-title">🔢 Calc 2 — Anion Gap, Delta-Delta y Corrección Albúmina</div>
+<div class="calc-grid">
+<div class="calc-field"><label>Na⁺ (mEq/L)</label><input id="c2-na" step="1" type="number" value="138"/></div>
+<div class="calc-field"><label>Cl⁻ (mEq/L)</label><input id="c2-cl" step="1" type="number" value="102"/></div>
+<div class="calc-field"><label>HCO₃⁻ (mEq/L)</label><input id="c2-hco3" step="0.5" type="number" value="12"/></div>
+<div class="calc-field"><label>Albúmina (g/dL)</label><input id="c2-alb" step="0.1" type="number" value="2.5"/></div>
+</div>
+<button class="calc-btn" onclick="calcAG()">Calcular AG y Δ/Δ →</button>
+<div class="calc-result" id="c2-result" style="margin-top:.75rem">Ingrese valores para calcular</div>
+</div>
+<!-- CALC 3: Winter Formula -->
+<div class="calc-box">
+<div class="calc-title">❄️ Calc 3 — Fórmula de Winters (Compensación en Acidosis Metabólica)</div>
+<div class="calc-grid">
+<div class="calc-field"><label>HCO₃⁻ medido (mEq/L)</label><input id="c3-hco3" step="0.5" type="number" value="16"/></div>
+<div class="calc-field"><label>pCO₂ medido (mmHg)</label><input id="c3-pco2" step="1" type="number" value="30"/></div>
+</div>
+<button class="calc-btn" onclick="calcWinter()">Evaluar compensación →</button>
+<div class="calc-result" id="c3-result" style="margin-top:.75rem">Ingrese valores</div>
+</div>
+<!-- CALC 4: Corrección Na+ en hiperglucemia -->
+<div class="calc-box">
+<div class="calc-title">🩺 Calc 4 — Na⁺ Corregido en Hiperglucemia (CAD/EHH)</div>
+<div class="calc-grid">
+<div class="calc-field"><label>Na⁺ medido (mEq/L)</label><input id="c4-na" step="1" type="number" value="130"/></div>
+<div class="calc-field"><label>Glucosa (mg/dL)</label><input id="c4-gluc" step="1" type="number" value="450"/></div>
+</div>
+<button class="calc-btn" onclick="calcNaCorr()">Calcular →</button>
+<div class="calc-result" id="c4-result" style="margin-top:.75rem">Ingrese valores</div>
+</div>
+<!-- CALC 5: Gap Osmolar -->
+<div class="calc-box">
+<div class="calc-title">⚗️ Calc 5 — Gap Osmolar (Sospecha de Tóxicos)</div>
+<div class="calc-grid">
+<div class="calc-field"><label>Osm medida (mOsm/kg)</label><input id="c5-osm" step="1" type="number" value="330"/></div>
+<div class="calc-field"><label>Na⁺ (mEq/L)</label><input id="c5-na" step="1" type="number" value="135"/></div>
+<div class="calc-field"><label>Glucosa (mg/dL)</label><input id="c5-gluc" step="1" type="number" value="180"/></div>
+<div class="calc-field"><label>BUN (mg/dL)</label><input id="c5-bun" step="1" type="number" value="28"/></div>
+</div>
+<button class="calc-btn" onclick="calcOsm()">Calcular gap osmolar →</button>
+<div class="calc-result" id="c5-result" style="margin-top:.75rem">Ingrese valores</div>
+</div>
 </div><!-- /panel-6 -->
-
 <!-- PANEL 7: CASOS CLÍNICOS -->
 <div class="panel" id="panel-7">
-  <h2 class="section-title">📋 Casos Clínicos Comentados</h2>
-
-  <div class="case-study">
-    <div class="case-study-header">📋 CASO 1 — Acidosis metabólica de alto AG en sepsis</div>
-    <div class="case-study-body">
-      <p class="body-text"><strong>Escenario:</strong> Mujer de 68 años, DM2, hipertensa. Traída a urgencias por alteración de conciencia y oliguria 8 horas. FR 28 rpm, FC 118, PA 82/50, T° 38.9°C. Piel moteada.</p>
-      <div class="case-data">
-        <div class="case-param"><span class="param-label">pH</span>7.21</div>
-        <div class="case-param"><span class="param-label">pCO₂</span>22 mmHg</div>
-        <div class="case-param"><span class="param-label">HCO₃⁻</span>8 mEq/L</div>
-        <div class="case-param"><span class="param-label">Na⁺</span>138</div>
-        <div class="case-param"><span class="param-label">Cl⁻</span>100</div>
-        <div class="case-param"><span class="param-label">K⁺</span>5.2</div>
-        <div class="case-param"><span class="param-label">Albúmina</span>2.1 g/dL</div>
-        <div class="case-param"><span class="param-label">Lactato</span>8.4 mmol/L</div>
-        <div class="case-param"><span class="param-label">Glucosa</span>310 mg/dL</div>
-        <div class="case-param"><span class="param-label">Creatinina</span>3.8 mg/dL</div>
-      </div>
-      <div class="case-analysis">
-        <h4>🔎 Análisis Sistemático:</h4>
-        <ul class="bullet">
-          <li><strong>Paso 1:</strong> pH 7.21 → ACIDEMIA</li>
-          <li><strong>Paso 2:</strong> HCO₃⁻ 8 (↓) + pCO₂ 22 (↓ comp.) → Acidosis METABÓLICA primaria</li>
-          <li><strong>Paso 3:</strong> pCO₂ esperado (Winters) = 1.5×8+8 = 20 ± 2 → pCO₂ medido 22 está dentro del rango ✓ — compensación adecuada</li>
-          <li><strong>Paso 4:</strong> AG = 138–(100+8) = 30. AG corregido = 30 + 2.5×(4–2.1) = 30+4.75 = <strong>34.75</strong> → HAGMA grave</li>
-          <li><strong>Paso 5:</strong> Δ/Δ = (30–12)/(24–8) = 18/16 = 1.12 → HAGMA pura (no alcalosis oculta)</li>
-          <li><strong>Paso 6:</strong> Lactato 8.4 → acidosis láctica tipo A por shock séptico. CAD concomitante (glucosa 310 + HCO₃⁻ bajo)</li>
-        </ul>
-        <div class="alert red"><strong>Diagnóstico:</strong> Acidosis metabólica de AG muy alto por acidosis láctica + probable CAD en contexto de shock séptico. AG corregido 35 ≫ lo que explicaría solo el lactato → confirma doble contribuyente (lactato + cetonas).</div>
-        <div class="alert green"><strong>Manejo:</strong> Resucitación con cristaloides balanceados (Ringer lactato o PlasmaLyte — NO SF 0.9% en acidosis hiperclorémica). Hemocultiivos → antibioticoterapia. Insulina IV por CAD. NaHCO₃ IV solo si pH &lt;6.9 con colapso CV refractario. Metas: lactato &lt;2 en 6 h, PA MAP ≥65.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="case-study">
-    <div class="case-study-header">📋 CASO 2 — Trastorno mixto en EPOC + diuréticos</div>
-    <div class="case-study-body">
-      <p class="body-text"><strong>Escenario:</strong> Hombre de 72 años con EPOC GOLD IV. Ingresa por exacerbación. Recibe furosemida 40 mg/día hace 2 semanas por edema bilateral. SpO₂ 82%, disnea severa.</p>
-      <div class="case-data">
-        <div class="case-param"><span class="param-label">pH</span>7.38</div>
-        <div class="case-param"><span class="param-label">pCO₂</span>68 mmHg</div>
-        <div class="case-param"><span class="param-label">HCO₃⁻</span>39 mEq/L</div>
-        <div class="case-param"><span class="param-label">Na⁺</span>140</div>
-        <div class="case-param"><span class="param-label">Cl⁻</span>88</div>
-        <div class="case-param"><span class="param-label">K⁺</span>3.1</div>
-        <div class="case-param"><span class="param-label">AG</span>13</div>
-      </div>
-      <div class="case-analysis">
-        <h4>🔎 Análisis Sistemático:</h4>
-        <ul class="bullet">
-          <li><strong>Paso 1:</strong> pH 7.38 → NORMAL (aparentemente)</li>
-          <li><strong>Paso 2:</strong> pCO₂ 68 (↑) + HCO₃⁻ 39 (↑) → ambos elevados → trastorno MIXTO</li>
-          <li><strong>Paso 3:</strong> HCO₃⁻ esperado en acidosis resp. crónica = 24 + 3.5×(68–40)/10 = 24 + 3.5×2.8 = 24 + 9.8 = 33.8. HCO₃⁻ medido 39 > esperado 34 → ALCALOSIS METABÓLICA concomitante</li>
-          <li><strong>Paso 4:</strong> AG 13 — normal. Sin HAGMA</li>
-          <li><strong>Paso 5:</strong> Cl⁻u (no disponible, pero Cl⁻ sérico 88, K⁺ bajo, uso activo furosemida) → alcalosis inducida por diurético</li>
-        </ul>
-        <div class="alert orange"><strong>Diagnóstico:</strong> Acidosis respiratoria crónica (EPOC, retenedor CO₂) + alcalosis metabólica inducida por furosemida. El pH "normal" oculta ambos trastornos. Sin el análisis sistemático, este caso sería mal etiquetado como "compensado".</div>
-        <div class="alert blue"><strong>Manejo:</strong> VMNI en urgencias (bilevel, IPAP 14–18/EPAP 6–8). Suspender o reducir furosemida. Reponer K⁺. No administrar O₂ a alta concentración (retenedor CO₂). Objetivo: SpO₂ 88–92%.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="case-study">
-    <div class="case-study-header">📋 CASO 3 — Intoxicación por salicilatos (patrón mixto clásico)</div>
-    <div class="case-study-body">
-      <p class="body-text"><strong>Escenario:</strong> Adolescente de 16 años traído por familiares, 2 h post-ingesta voluntaria de AAS (cantidad desconocida). Tinnitus, vómitos, diaforesis, agitación. FR 32 rpm.</p>
-      <div class="case-data">
-        <div class="case-param"><span class="param-label">pH</span>7.52</div>
-        <div class="case-param"><span class="param-label">pCO₂</span>22 mmHg</div>
-        <div class="case-param"><span class="param-label">HCO₃⁻</span>18 mEq/L</div>
-        <div class="case-param"><span class="param-label">Na⁺</span>142</div>
-        <div class="case-param"><span class="param-label">Cl⁻</span>100</div>
-        <div class="case-param"><span class="param-label">AG</span>24</div>
-        <div class="case-param"><span class="param-label">Salicilato</span>55 mg/dL</div>
-      </div>
-      <div class="case-analysis">
-        <h4>🔎 Análisis Sistemático:</h4>
-        <ul class="bullet">
-          <li><strong>Paso 1:</strong> pH 7.52 → ALCALEMIA</li>
-          <li><strong>Paso 2:</strong> pCO₂ 22 (↓) → Alcalosis RESPIRATORIA primaria (salicilatos estimulan centro respiratorio)</li>
-          <li><strong>Paso 3:</strong> HCO₃⁻ esperado (alcalosis resp. aguda) = 24 – 2×(40–22)/10 = 24–3.6 = 20.4. HCO₃⁻ medido 18 &lt; 20 → ACIDOSIS METABÓLICA concomitante</li>
-          <li><strong>Paso 4:</strong> AG 24 → HAGMA (aniones salicilato + otros metabólicos)</li>
-          <li><strong>Conclusión:</strong> TRASTORNO MIXTO: Alcalosis respiratoria + Acidosis metabólica de AG alto</li>
-        </ul>
-        <div class="alert red"><strong>Diagnóstico:</strong> Intoxicación por salicilatos — patrón ABG patognomónico. En adultos, la alcalemia puede progresar a acidemia si se añade depresión del SNC.</div>
-        <div class="alert green"><strong>Manejo urgente:</strong> Alcalinización urinaria con NaHCO₃ IV (orina pH 7.5–8.0 atrapa el salicilato ionizado y acelera excreción). Hemodiálisis si salicilato >100 mg/dL, IRA, edema pulmonar, o deterioro neurológico. Monitoreo cardíaco continuo.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="case-study">
-    <div class="case-study-header">📋 CASO 4 — Alcalosis metabólica + HAGMA oculta (patrón "delta-delta alto")</div>
-    <div class="case-study-body">
-      <p class="body-text"><strong>Escenario:</strong> Mujer de 55 años, etilismo crónico, vómitos persistentes 4 días. Ahora con confusión. Sin diabetes conocida.</p>
-      <div class="case-data">
-        <div class="case-param"><span class="param-label">pH</span>7.48</div>
-        <div class="case-param"><span class="param-label">pCO₂</span>47 mmHg</div>
-        <div class="case-param"><span class="param-label">HCO₃⁻</span>34 mEq/L</div>
-        <div class="case-param"><span class="param-label">Na⁺</span>136</div>
-        <div class="case-param"><span class="param-label">Cl⁻</span>82</div>
-        <div class="case-param"><span class="param-label">K⁺</span>2.8</div>
-        <div class="case-param"><span class="param-label">Albúmina</span>2.0</div>
-        <div class="case-param"><span class="param-label">Lactato</span>3.8</div>
-      </div>
-      <div class="case-analysis">
-        <h4>🔎 Análisis Sistemático:</h4>
-        <ul class="bullet">
-          <li>AG = 136–(82+34) = 20. AG corregido = 20 + 2.5×(4–2) = 20+5 = <strong>25</strong> → HAGMA presente</li>
-          <li>Δ/Δ = (25–12)/(24–34) → ΔHCO₃ = 24–34 = –10 (el HCO₃ está ALTO, no bajo!) → relación no aplica directamente</li>
-          <li>HCO₃⁻ 34 (↑) + pCO₂ 47 (↑ compensatorio) → Alcalosis metabólica primaria</li>
-          <li>AG corregido 25 → HAGMA subyacente (acidosis cetoacidótica alcohólica + lactato)</li>
-          <li>pH 7.48: la alcalosis de los vómitos supera a la acidosis metabólica → pH alcalino</li>
-        </ul>
-        <div class="alert emerald"><strong>Diagnóstico:</strong> TRASTORNO TRIPLE: Alcalosis metabólica (vómitos) + HAGMA (cetoacidosis alcohólica + acidosis láctica) + probable alcalosis respiratoria (cirrosis). El HAGMA está "enmascarada" por la alcalosis dominante. El HCO₃⁻ "normal-alto" oculta la depleción real.</div>
-        <div class="alert blue"><strong>Manejo:</strong> Reposición de volumen con SF 0.9% (corrige alcalosis por cloruro). Tiamina 100–200 mg IV ANTES de glucosa. Reposición K⁺, Mg²⁺. Monitoreo de glucosa (no usar glucosa sin tiamina en alcohólico).</div>
-      </div>
-    </div>
-  </div>
-
+<h2 class="section-title">📋 Casos Clínicos Comentados</h2>
+<div class="case-study">
+<div class="case-study-header">📋 CASO 1 — Acidosis metabólica de alto AG en sepsis</div>
+<div class="case-study-body">
+<p class="body-text"><strong>Escenario:</strong> Mujer de 68 años, DM2, hipertensa. Traída a urgencias por alteración de conciencia y oliguria 8 horas. FR 28 rpm, FC 118, PA 82/50, T° 38.9°C. Piel moteada.</p>
+<div class="case-data">
+<div class="case-param"><span class="param-label">pH</span>7.21</div>
+<div class="case-param"><span class="param-label">pCO₂</span>22 mmHg</div>
+<div class="case-param"><span class="param-label">HCO₃⁻</span>8 mEq/L</div>
+<div class="case-param"><span class="param-label">Na⁺</span>138</div>
+<div class="case-param"><span class="param-label">Cl⁻</span>100</div>
+<div class="case-param"><span class="param-label">K⁺</span>5.2</div>
+<div class="case-param"><span class="param-label">Albúmina</span>2.1 g/dL</div>
+<div class="case-param"><span class="param-label">Lactato</span>8.4 mmol/L</div>
+<div class="case-param"><span class="param-label">Glucosa</span>310 mg/dL</div>
+<div class="case-param"><span class="param-label">Creatinina</span>3.8 mg/dL</div>
+</div>
+<div class="case-analysis">
+<h4>🔎 Análisis Sistemático:</h4>
+<ul class="bullet">
+<li><strong>Paso 1:</strong> pH 7.21 → ACIDEMIA</li>
+<li><strong>Paso 2:</strong> HCO₃⁻ 8 (↓) + pCO₂ 22 (↓ comp.) → Acidosis METABÓLICA primaria</li>
+<li><strong>Paso 3:</strong> pCO₂ esperado (Winters) = 1.5×8+8 = 20 ± 2 → pCO₂ medido 22 está dentro del rango ✓ — compensación adecuada</li>
+<li><strong>Paso 4:</strong> AG = 138–(100+8) = 30. AG corregido = 30 + 2.5×(4–2.1) = 30+4.75 = <strong>34.75</strong> → HAGMA grave</li>
+<li><strong>Paso 5:</strong> Δ/Δ = (30–12)/(24–8) = 18/16 = 1.12 → HAGMA pura (no alcalosis oculta)</li>
+<li><strong>Paso 6:</strong> Lactato 8.4 → acidosis láctica tipo A por shock séptico. CAD concomitante (glucosa 310 + HCO₃⁻ bajo)</li>
+</ul>
+<div class="alert red"><strong>Diagnóstico:</strong> Acidosis metabólica de AG muy alto por acidosis láctica + probable CAD en contexto de shock séptico. AG corregido 35 ≫ lo que explicaría solo el lactato → confirma doble contribuyente (lactato + cetonas).</div>
+<div class="alert green"><strong>Manejo:</strong> Resucitación con cristaloides balanceados (Ringer lactato o PlasmaLyte — NO SF 0.9% en acidosis hiperclorémica). Hemocultiivos → antibioticoterapia. Insulina IV por CAD. NaHCO₃ IV solo si pH &lt;6.9 con colapso CV refractario. Metas: lactato &lt;2 en 6 h, PA MAP ≥65.</div>
+</div>
+</div>
+</div>
+<div class="case-study">
+<div class="case-study-header">📋 CASO 2 — Trastorno mixto en EPOC + diuréticos</div>
+<div class="case-study-body">
+<p class="body-text"><strong>Escenario:</strong> Hombre de 72 años con EPOC GOLD IV. Ingresa por exacerbación. Recibe furosemida 40 mg/día hace 2 semanas por edema bilateral. SpO₂ 82%, disnea severa.</p>
+<div class="case-data">
+<div class="case-param"><span class="param-label">pH</span>7.38</div>
+<div class="case-param"><span class="param-label">pCO₂</span>68 mmHg</div>
+<div class="case-param"><span class="param-label">HCO₃⁻</span>39 mEq/L</div>
+<div class="case-param"><span class="param-label">Na⁺</span>140</div>
+<div class="case-param"><span class="param-label">Cl⁻</span>88</div>
+<div class="case-param"><span class="param-label">K⁺</span>3.1</div>
+<div class="case-param"><span class="param-label">AG</span>13</div>
+</div>
+<div class="case-analysis">
+<h4>🔎 Análisis Sistemático:</h4>
+<ul class="bullet">
+<li><strong>Paso 1:</strong> pH 7.38 → NORMAL (aparentemente)</li>
+<li><strong>Paso 2:</strong> pCO₂ 68 (↑) + HCO₃⁻ 39 (↑) → ambos elevados → trastorno MIXTO</li>
+<li><strong>Paso 3:</strong> HCO₃⁻ esperado en acidosis resp. crónica = 24 + 3.5×(68–40)/10 = 24 + 3.5×2.8 = 24 + 9.8 = 33.8. HCO₃⁻ medido 39 &gt; esperado 34 → ALCALOSIS METABÓLICA concomitante</li>
+<li><strong>Paso 4:</strong> AG 13 — normal. Sin HAGMA</li>
+<li><strong>Paso 5:</strong> Cl⁻u (no disponible, pero Cl⁻ sérico 88, K⁺ bajo, uso activo furosemida) → alcalosis inducida por diurético</li>
+</ul>
+<div class="alert orange"><strong>Diagnóstico:</strong> Acidosis respiratoria crónica (EPOC, retenedor CO₂) + alcalosis metabólica inducida por furosemida. El pH "normal" oculta ambos trastornos. Sin el análisis sistemático, este caso sería mal etiquetado como "compensado".</div>
+<div class="alert blue"><strong>Manejo:</strong> VMNI en urgencias (bilevel, IPAP 14–18/EPAP 6–8). Suspender o reducir furosemida. Reponer K⁺. No administrar O₂ a alta concentración (retenedor CO₂). Objetivo: SpO₂ 88–92%.</div>
+</div>
+</div>
+</div>
+<div class="case-study">
+<div class="case-study-header">📋 CASO 3 — Intoxicación por salicilatos (patrón mixto clásico)</div>
+<div class="case-study-body">
+<p class="body-text"><strong>Escenario:</strong> Adolescente de 16 años traído por familiares, 2 h post-ingesta voluntaria de AAS (cantidad desconocida). Tinnitus, vómitos, diaforesis, agitación. FR 32 rpm.</p>
+<div class="case-data">
+<div class="case-param"><span class="param-label">pH</span>7.52</div>
+<div class="case-param"><span class="param-label">pCO₂</span>22 mmHg</div>
+<div class="case-param"><span class="param-label">HCO₃⁻</span>18 mEq/L</div>
+<div class="case-param"><span class="param-label">Na⁺</span>142</div>
+<div class="case-param"><span class="param-label">Cl⁻</span>100</div>
+<div class="case-param"><span class="param-label">AG</span>24</div>
+<div class="case-param"><span class="param-label">Salicilato</span>55 mg/dL</div>
+</div>
+<div class="case-analysis">
+<h4>🔎 Análisis Sistemático:</h4>
+<ul class="bullet">
+<li><strong>Paso 1:</strong> pH 7.52 → ALCALEMIA</li>
+<li><strong>Paso 2:</strong> pCO₂ 22 (↓) → Alcalosis RESPIRATORIA primaria (salicilatos estimulan centro respiratorio)</li>
+<li><strong>Paso 3:</strong> HCO₃⁻ esperado (alcalosis resp. aguda) = 24 – 2×(40–22)/10 = 24–3.6 = 20.4. HCO₃⁻ medido 18 &lt; 20 → ACIDOSIS METABÓLICA concomitante</li>
+<li><strong>Paso 4:</strong> AG 24 → HAGMA (aniones salicilato + otros metabólicos)</li>
+<li><strong>Conclusión:</strong> TRASTORNO MIXTO: Alcalosis respiratoria + Acidosis metabólica de AG alto</li>
+</ul>
+<div class="alert red"><strong>Diagnóstico:</strong> Intoxicación por salicilatos — patrón ABG patognomónico. En adultos, la alcalemia puede progresar a acidemia si se añade depresión del SNC.</div>
+<div class="alert green"><strong>Manejo urgente:</strong> Alcalinización urinaria con NaHCO₃ IV (orina pH 7.5–8.0 atrapa el salicilato ionizado y acelera excreción). Hemodiálisis si salicilato &gt;100 mg/dL, IRA, edema pulmonar, o deterioro neurológico. Monitoreo cardíaco continuo.</div>
+</div>
+</div>
+</div>
+<div class="case-study">
+<div class="case-study-header">📋 CASO 4 — Alcalosis metabólica + HAGMA oculta (patrón "delta-delta alto")</div>
+<div class="case-study-body">
+<p class="body-text"><strong>Escenario:</strong> Mujer de 55 años, etilismo crónico, vómitos persistentes 4 días. Ahora con confusión. Sin diabetes conocida.</p>
+<div class="case-data">
+<div class="case-param"><span class="param-label">pH</span>7.48</div>
+<div class="case-param"><span class="param-label">pCO₂</span>47 mmHg</div>
+<div class="case-param"><span class="param-label">HCO₃⁻</span>34 mEq/L</div>
+<div class="case-param"><span class="param-label">Na⁺</span>136</div>
+<div class="case-param"><span class="param-label">Cl⁻</span>82</div>
+<div class="case-param"><span class="param-label">K⁺</span>2.8</div>
+<div class="case-param"><span class="param-label">Albúmina</span>2.0</div>
+<div class="case-param"><span class="param-label">Lactato</span>3.8</div>
+</div>
+<div class="case-analysis">
+<h4>🔎 Análisis Sistemático:</h4>
+<ul class="bullet">
+<li>AG = 136–(82+34) = 20. AG corregido = 20 + 2.5×(4–2) = 20+5 = <strong>25</strong> → HAGMA presente</li>
+<li>Δ/Δ = (25–12)/(24–34) → ΔHCO₃ = 24–34 = –10 (el HCO₃ está ALTO, no bajo!) → relación no aplica directamente</li>
+<li>HCO₃⁻ 34 (↑) + pCO₂ 47 (↑ compensatorio) → Alcalosis metabólica primaria</li>
+<li>AG corregido 25 → HAGMA subyacente (acidosis cetoacidótica alcohólica + lactato)</li>
+<li>pH 7.48: la alcalosis de los vómitos supera a la acidosis metabólica → pH alcalino</li>
+</ul>
+<div class="alert emerald"><strong>Diagnóstico:</strong> TRASTORNO TRIPLE: Alcalosis metabólica (vómitos) + HAGMA (cetoacidosis alcohólica + acidosis láctica) + probable alcalosis respiratoria (cirrosis). El HAGMA está "enmascarada" por la alcalosis dominante. El HCO₃⁻ "normal-alto" oculta la depleción real.</div>
+<div class="alert blue"><strong>Manejo:</strong> Reposición de volumen con SF 0.9% (corrige alcalosis por cloruro). Tiamina 100–200 mg IV ANTES de glucosa. Reposición K⁺, Mg²⁺. Monitoreo de glucosa (no usar glucosa sin tiamina en alcohólico).</div>
+</div>
+</div>
+</div>
 </div><!-- /panel-7 -->
-
 <!-- PANEL 8: QUIZ -->
 <div class="panel" id="panel-8">
-  <h2 class="section-title">✅ Quiz de Autoevaluación</h2>
-  <div class="quiz-selector">
-    <button class="quiz-btn active" onclick="loadQuiz(0)">Quiz 1 — Fundamentos y Teoría</button>
-    <button class="quiz-btn" onclick="loadQuiz(1)">Quiz 2 — Diagnóstico y Laboratorio</button>
-    <button class="quiz-btn" onclick="loadQuiz(2)">Quiz 3 — Casos Clínicos y Tratamiento</button>
-  </div>
-  <div class="quiz-container">
-    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress"></div></div>
-    <div class="quiz-counter" id="q-counter">Pregunta 1 de 10</div>
-    <div id="q-content"></div>
-    <div id="q-score" class="quiz-score">
-      <div class="score-circle"><div class="score-num" id="score-num">0</div><div class="score-denom" id="score-denom">/ 10</div></div>
-      <div class="score-msg" id="score-msg"></div>
-      <button class="quiz-nav-btn btn-reset" onclick="restartQuiz()">↺ Reiniciar este Quiz</button>
-    </div>
-  </div>
+<h2 class="section-title">✅ Quiz de Autoevaluación</h2>
+<div class="quiz-selector">
+<button class="quiz-btn active" onclick="loadQuiz(0)">Quiz 1 — Fundamentos y Teoría</button>
+<button class="quiz-btn" onclick="loadQuiz(1)">Quiz 2 — Diagnóstico y Laboratorio</button>
+<button class="quiz-btn" onclick="loadQuiz(2)">Quiz 3 — Casos Clínicos y Tratamiento</button>
+</div>
+<div class="quiz-container">
+<div class="quiz-progress-bar"><div class="quiz-progress-fill" id="q-progress"></div></div>
+<div class="quiz-counter" id="q-counter">Pregunta 1 de 10</div>
+<div id="q-content"></div>
+<div class="quiz-score" id="q-score">
+<div class="score-circle"><div class="score-num" id="score-num">0</div><div class="score-denom" id="score-denom">/ 10</div></div>
+<div class="score-msg" id="score-msg"></div>
+<button class="quiz-nav-btn btn-reset" onclick="restartQuiz()">↺ Reiniciar este Quiz</button>
+</div>
+</div>
 </div><!-- /panel-8 -->
-
 </div><!-- /app -->
-
 <script>
 // ─── TABS ─────────────────────────────────────────────────────────────────────
 function showTab(n){
@@ -1201,7 +1149,6 @@ function calcOsm(){
   document.getElementById('c5-result').innerHTML = res;
 }
 </script>
-
 <script>
 // ─── QUIZ DATA ────────────────────────────────────────────────────────────────
 var QUIZZES = [
@@ -1327,7 +1274,6 @@ var QUIZZES = [
 ]
 ];
 </script>
-
 <script>
 // QUIZ 3 — Casos Clínicos y Tratamiento (12 preguntas)
 QUIZZES.push([
@@ -1392,7 +1338,6 @@ QUIZZES.push([
  f:"AG 14 está en zona limítrofe (normal <12). En cetoacidosis alcohólica incipiente o compensada por alcalosis de vómitos, el pH puede ser 'normal' mientras el AG sube levemente. El beta-OH-butirato urinario/sérico y las cetonas son el marcador definitivo. Además, en alcohólicos, el AG puede estar falsamente bajo por hipoalbuminemia (requiere corrección). NUNCA descartar cetoacidosis solo por pH normal en alcohólico con clínica compatible. (AAFP 2025; AJKD 2025)"}
 ]);
 </script>
-
 <script>
 // ─── QUIZ ENGINE ──────────────────────────────────────────────────────────────
 var currentQuiz = 0;
@@ -1486,7 +1431,6 @@ function showScore(){
 // Init
 loadQuiz(0);
 </script>
-
 <script>
 // ===== AUDITORÍA 2026 — MOTOR ESTANDARIZADO Y CORRECCIONES =====
 (function(){
@@ -1745,7 +1689,10 @@ loadQuiz(0);
   if(restoreQuizState()) renderQ(); else loadQuiz(0, true);
 })();
 </script>
-
 <script src="../assets/croce.js"></script>
-</body>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section></body>
 </html>

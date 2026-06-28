@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Hipoglucemia — Módulo Clínico Interactivo | Dr. Luis E. Croce A.</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Source+Sans+3:wght@300;400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg: #F5F7FA;
@@ -432,1522 +433,1463 @@ p { margin-bottom: 10px; }
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
-
 <!-- MAIN APP -->
 <div id="main-app">
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-    <a class="portal-back" href="../index.html">← Portal de guías</a>
-
-      <div class="header-top">
-        <div class="header-brand">
-          <div class="icon">🩸</div>
-          <div class="header-title">
-            <h1>Hipoglucemia Clínica</h1>
-            <div class="subtitle">Diagnóstico, evaluación laboratorial y manejo terapéutico integral</div>
-          </div>
-        </div>
-        <div class="author-badge">👨‍⚕️ Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-      </div>
-      <div class="header-badges">
-        <span class="badge badge-guide">📋 ADA 2026 Standards of Care</span>
-        <span class="badge badge-guide">📋 Endocrine Society 2013/Update 2024</span>
-        <span class="badge badge-guide">📋 MSD/Merck Manual 2024</span>
-        <span class="badge badge-new">✦ NUEVO 2026</span>
-        <span class="badge badge-updated">⟳ ACTUALIZADO 2025–2026</span>
-      </div>
-      <div class="utility-bar" aria-label="Herramientas de lectura">
-        <button class="util-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-        <button class="util-btn" type="button" onclick="clearLearningProgress()">↺ Reiniciar progreso local</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- TABS NAV -->
-  <div class="tabs-wrapper">
-    <div class="tabs-scroll-hint">← desliza para ver todas las secciones →</div>
-    <div class="tabs-container">
-      <button class="tab-btn active" onclick="showTab(0)" type="button" aria-controls="tab-0">🔬 Conceptos</button>
-      <button class="tab-btn" onclick="showTab(1)" type="button" aria-controls="tab-1">⚗️ Laboratorio</button>
-      <button class="tab-btn" onclick="showTab(2)" type="button" aria-controls="tab-2">🧠 Fisiopatología</button>
-      <button class="tab-btn" onclick="showTab(3)" type="button" aria-controls="tab-3">📊 Clasificación</button>
-      <button class="tab-btn" onclick="showTab(4)" type="button" aria-controls="tab-4">🏥 Manejo Clínico</button>
-      <button class="tab-btn" onclick="showTab(5)" type="button" aria-controls="tab-5">🔄 Protocolo</button>
-      <button class="tab-btn" onclick="showTab(6)" type="button" aria-controls="tab-6">🧮 Calculadoras</button>
-      <button class="tab-btn" onclick="showTab(7)" type="button" aria-controls="tab-7">📖 Casos Clínicos</button>
-      <button class="tab-btn" onclick="showTab(8)" type="button" aria-controls="tab-8">✏️ Quiz</button>
-    </div>
-  </div>
-
-  <div class="main-content">
-
-  <!-- TAB 0: CONCEPTOS Y DEFINICIONES -->
-  <div class="tab-panel active" id="tab-0">
-    <h2 class="section-title">🔬 Conceptos y Definiciones</h2>
-
-    <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">📘</span>
-          <span class="card-title">Definición y Umbral Diagnóstico</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p>La hipoglucemia se define como una concentración plasmática de glucosa suficientemente baja para causar síntomas y/o signos de disfunción cerebral o autonómica. <strong>No existe un umbral único universal</strong>, pero la práctica clínica y las guías establecen los siguientes valores de referencia:</p>
-        <table>
-          <tr><th>Contexto</th><th>Umbral de glucosa</th><th>Importancia clínica</th></tr>
-          <tr><td>Paciente diabético (Nivel 1)</td><td>≤ 70 mg/dL (3.9 mmol/L)</td><td>Alerta de hipoglucemia — requiere tratamiento inmediato</td></tr>
-          <tr><td>Hipoglucemia clínicamente significativa (Nivel 2)</td><td>≤ 54 mg/dL (3.0 mmol/L)</td><td>Hipoglucemia severa con riesgo de daño neurológico</td></tr>
-          <tr><td>Hipoglucemia severa (Nivel 3)</td><td>Sin umbral específico</td><td>Deterioro cognitivo grave que requiere asistencia de terceros</td></tr>
-          <tr><td>Tríada de Whipple (no diabético)</td><td>< 55 mg/dL (3.05 mmol/L)</td><td>Diagnóstico de hipoglucemia endógena</td></tr>
-          <tr><td>Umbral síntomas adrenérgicos</td><td>60–70 mg/dL</td><td>Activación simpático-adrenal</td></tr>
-          <tr><td>Umbral síntomas neurológicos</td><td>50–55 mg/dL</td><td>Neuroglucopenia clínica</td></tr>
-          <tr><td>Riesgo convulsiones/coma</td><td>< 40 mg/dL</td><td>Emergencia neurológica</td></tr>
-        </table>
-        <div class="alert alert-blue">
-          <strong>💡 Principio clave ADA 2026:</strong>
+<!-- HEADER -->
+<header class="site-header">
+<div class="header-inner">
+<a class="portal-back" href="../index.html">← Portal de guías</a>
+<div class="header-top">
+<div class="header-brand">
+<div class="icon">🩸</div>
+<div class="header-title">
+<h1>Hipoglucemia Clínica</h1>
+<div class="subtitle">Diagnóstico, evaluación laboratorial y manejo terapéutico integral</div>
+</div>
+</div>
+<div class="author-badge">👨‍⚕️ Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+</div>
+<div class="header-badges">
+<span class="badge badge-guide">📋 ADA 2026 Standards of Care</span>
+<span class="badge badge-guide">📋 Endocrine Society 2013/Update 2024</span>
+<span class="badge badge-guide">📋 MSD/Merck Manual 2024</span>
+<span class="badge badge-new">✦ NUEVO 2026</span>
+<span class="badge badge-updated">⟳ ACTUALIZADO 2025–2026</span>
+</div>
+<div aria-label="Herramientas de lectura" class="utility-bar">
+<button class="util-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+<button class="util-btn" onclick="clearLearningProgress()" type="button">↺ Reiniciar progreso local</button>
+</div>
+</div>
+</header>
+<!-- TABS NAV -->
+<div class="tabs-wrapper">
+<div class="tabs-scroll-hint">← desliza para ver todas las secciones →</div>
+<div class="tabs-container">
+<button aria-controls="tab-0" class="tab-btn active" onclick="showTab(0)" type="button">🔬 Conceptos</button>
+<button aria-controls="tab-1" class="tab-btn" onclick="showTab(1)" type="button">⚗️ Laboratorio</button>
+<button aria-controls="tab-2" class="tab-btn" onclick="showTab(2)" type="button">🧠 Fisiopatología</button>
+<button aria-controls="tab-3" class="tab-btn" onclick="showTab(3)" type="button">📊 Clasificación</button>
+<button aria-controls="tab-4" class="tab-btn" onclick="showTab(4)" type="button">🏥 Manejo Clínico</button>
+<button aria-controls="tab-5" class="tab-btn" onclick="showTab(5)" type="button">🔄 Protocolo</button>
+<button aria-controls="tab-6" class="tab-btn" onclick="showTab(6)" type="button">🧮 Calculadoras</button>
+<button aria-controls="tab-7" class="tab-btn" onclick="showTab(7)" type="button">📖 Casos Clínicos</button>
+<button aria-controls="tab-8" class="tab-btn" onclick="showTab(8)" type="button">✏️ Quiz</button>
+</div>
+</div>
+<div class="main-content">
+<!-- TAB 0: CONCEPTOS Y DEFINICIONES -->
+<div class="tab-panel active" id="tab-0">
+<h2 class="section-title">🔬 Conceptos y Definiciones</h2>
+<div class="card card-blue open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">📘</span>
+<span class="card-title">Definición y Umbral Diagnóstico</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p>La hipoglucemia se define como una concentración plasmática de glucosa suficientemente baja para causar síntomas y/o signos de disfunción cerebral o autonómica. <strong>No existe un umbral único universal</strong>, pero la práctica clínica y las guías establecen los siguientes valores de referencia:</p>
+<table>
+<tr><th>Contexto</th><th>Umbral de glucosa</th><th>Importancia clínica</th></tr>
+<tr><td>Paciente diabético (Nivel 1)</td><td>≤ 70 mg/dL (3.9 mmol/L)</td><td>Alerta de hipoglucemia — requiere tratamiento inmediato</td></tr>
+<tr><td>Hipoglucemia clínicamente significativa (Nivel 2)</td><td>≤ 54 mg/dL (3.0 mmol/L)</td><td>Hipoglucemia severa con riesgo de daño neurológico</td></tr>
+<tr><td>Hipoglucemia severa (Nivel 3)</td><td>Sin umbral específico</td><td>Deterioro cognitivo grave que requiere asistencia de terceros</td></tr>
+<tr><td>Tríada de Whipple (no diabético)</td><td>&lt; 55 mg/dL (3.05 mmol/L)</td><td>Diagnóstico de hipoglucemia endógena</td></tr>
+<tr><td>Umbral síntomas adrenérgicos</td><td>60–70 mg/dL</td><td>Activación simpático-adrenal</td></tr>
+<tr><td>Umbral síntomas neurológicos</td><td>50–55 mg/dL</td><td>Neuroglucopenia clínica</td></tr>
+<tr><td>Riesgo convulsiones/coma</td><td>&lt; 40 mg/dL</td><td>Emergencia neurológica</td></tr>
+</table>
+<div class="alert alert-blue">
+<strong>💡 Principio clave ADA 2026:</strong>
           En pacientes diabéticos que usan insulina o secretagogos, el umbral de alerta es ≤70 mg/dL. En pacientes NO diabéticos, el diagnóstico requiere la confirmación de la Tríada de Whipple — no basta el valor numérico aislado.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🌐</span>
-          <span class="card-title">Epidemiología e Impacto Clínico</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="grid-2">
-          <div class="info-box">
-            <strong>🔵 Diabetes tipo 1</strong>
+</div>
+</div>
+<div class="card card-purple">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🌐</span>
+<span class="card-title">Epidemiología e Impacto Clínico</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div class="info-box">
+<strong>🔵 Diabetes tipo 1</strong>
             Episodios leves: 2–3 por semana. Episodios graves: 1 por año por paciente. Causa del 2–4% de muertes en DM1.
           </div>
-          <div class="info-box">
-            <strong>🔵 Diabetes tipo 2 con insulina</strong>
+<div class="info-box">
+<strong>🔵 Diabetes tipo 2 con insulina</strong>
             Hipoglucemia grave: 5–10% por año. Mayor en ancianos, ERC, malnutrición, polifarmacia.
           </div>
-          <div class="info-box">
-            <strong>🔵 Contexto hospitalario</strong>
+<div class="info-box">
+<strong>🔵 Contexto hospitalario</strong>
             Hipoglucemia intrahospitalaria se asocia con mayor mortalidad, estancia prolongada y costos elevados. La ADA 2026 establece que hiperglucemia, hipoglucemia y variabilidad glucémica se asocian con desenlaces adversos.
           </div>
-          <div class="info-box">
-            <strong>🔵 Contexto LATAM/Ecuador</strong>
+<div class="info-box">
+<strong>🔵 Contexto LATAM/Ecuador</strong>
             Prevalencia subestimada por acceso limitado a CGM. Insulinas humanas (NPH/regular) aún dominantes → mayor riesgo de hipoglucemia nocturna. Sulfonilureas de acceso libre → hipoglucemia prolongada subestimada.
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⚠️</span>
-          <span class="card-title">Tríada de Whipple — Piedra Angular Diagnóstica en No Diabéticos</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p>En pacientes <strong>sin diabetes conocida</strong>, el diagnóstico de hipoglucemia endógena requiere la confirmación de los tres criterios simultáneamente:</p>
-        <div class="grid-3">
-          <div class="decision-box db-orange" style="text-align:center;">
-            <div style="font-size:1.8rem">1️⃣</div>
-            <strong>Síntomas compatibles</strong><br>
+</div>
+</div>
+</div>
+<div class="card card-orange">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⚠️</span>
+<span class="card-title">Tríada de Whipple — Piedra Angular Diagnóstica en No Diabéticos</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p>En pacientes <strong>sin diabetes conocida</strong>, el diagnóstico de hipoglucemia endógena requiere la confirmación de los tres criterios simultáneamente:</p>
+<div class="grid-3">
+<div class="decision-box db-orange" style="text-align:center;">
+<div style="font-size:1.8rem">1️⃣</div>
+<strong>Síntomas compatibles</strong><br/>
             Adrenérgicos y/o neuroglucopénicos presentes en el momento de la hipoglucemia
           </div>
-          <div class="decision-box db-orange" style="text-align:center;">
-            <div style="font-size:1.8rem">2️⃣</div>
-            <strong>Glucosa plasmática baja</strong><br>
+<div class="decision-box db-orange" style="text-align:center;">
+<div style="font-size:1.8rem">2️⃣</div>
+<strong>Glucosa plasmática baja</strong><br/>
             &lt; 55 mg/dL medida con método preciso (no solo glucómetro) al momento de los síntomas
           </div>
-          <div class="decision-box db-orange" style="text-align:center;">
-            <div style="font-size:1.8rem">3️⃣</div>
-            <strong>Resolución con glucosa</strong><br>
+<div class="decision-box db-orange" style="text-align:center;">
+<div style="font-size:1.8rem">3️⃣</div>
+<strong>Resolución con glucosa</strong><br/>
             Los síntomas se alivian al restaurar la normoglucemia con dextrosa u otro azúcar
           </div>
+</div>
+<div class="alert alert-yellow">
+<strong>⚠ Trampa diagnóstica:</strong> Si la glucosa en el momento de los síntomas es normal, se descarta hipoglucemia como causa y deben considerarse otras etiologías (síncope vasovagal, ansiedad, arritmia, ACV, crisis epiléptica, etc.)
         </div>
-        <div class="alert alert-yellow">
-          <strong>⚠ Trampa diagnóstica:</strong> Si la glucosa en el momento de los síntomas es normal, se descarta hipoglucemia como causa y deben considerarse otras etiologías (síncope vasovagal, ansiedad, arritmia, ACV, crisis epiléptica, etc.)
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🔖</span>
-          <span class="card-title">Síntomas: Adrenérgicos vs. Neuroglucopénicos</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr><th>Síntomas Adrenérgicos/Autonómicos</th><th>Glucosa aprox.</th><th>Síntomas Neuroglucopénicos</th><th>Glucosa aprox.</th></tr>
-          <tr><td>Palpitaciones, taquicardia</td><td rowspan="6" style="vertical-align:middle;text-align:center;font-weight:700;color:var(--orange);">60–70<br>mg/dL</td><td>Confusión, desorientación</td><td rowspan="6" style="vertical-align:middle;text-align:center;font-weight:700;color:var(--red);">&lt;50<br>mg/dL</td></tr>
-          <tr><td>Diaforesis (sudoración)</td><td>Visión borrosa, diplopia</td></tr>
-          <tr><td>Temblor de manos</td><td>Cefalea</td></tr>
-          <tr><td>Palidez</td><td>Conducta bizarra, irritabilidad</td></tr>
-          <tr><td>Hambre intensa</td><td>Convulsiones</td></tr>
-          <tr><td>Ansiedad, sensación de pánico</td><td>Coma, paro cardíaco</td></tr>
-        </table>
-        <div class="alert alert-red">
-          <strong>🚨 HIPOGLUCEMIA INADVERTIDA (Unawareness):</strong> Pacientes con DM de larga evolución, episodios hipoglucémicos frecuentes, neuropatía autonómica o en tratamiento con β-bloqueantes pueden NO experimentar síntomas adrenérgicos — su primer síntoma es directamente neuroglucopénico. Requieren estrategia de prevención intensificada y consideración de CGM. <span class="tag-new">ADA 2026</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">💊</span>
-          <span class="card-title">Causas de Hipoglucemia — Clasificación Etiológica</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="grid-2">
-          <div>
-            <h4 style="color:var(--blue);margin-bottom:10px;">🔵 En Paciente DIABÉTICO</h4>
-            <ul>
-              <li><strong>Insulina:</strong> dosis excesiva, error de vía, tipo incorrecto</li>
-              <li><strong>Sulfonilureas/meglitinidas:</strong> gliburida, glipizida, glimepirida, repaglinida</li>
-              <li><strong>Ejercicio físico</strong> sin ajuste de dosis</li>
-              <li><strong>Ingesta reducida</strong> o ayuno prolongado</li>
-              <li><strong>Alcohol</strong> (inhibe gluconeogénesis hepática)</li>
-              <li><strong>ERC</strong> (acumulación de insulina y metabolitos)</li>
-              <li><strong>Interacciones medicamentosas</strong> (fluoroquinolonas, IECA, salicilatos)</li>
-              <li><strong>Sepsis / enfermedad grave intercurrente</strong></li>
-            </ul>
-          </div>
-          <div>
-            <h4 style="color:var(--orange);margin-bottom:10px;">🟠 En Paciente NO DIABÉTICO</h4>
-            <ul>
-              <li><strong>Insulinoma:</strong> tumor neuroendocrino de células β (90% benigno)</li>
-              <li><strong>Hipoglucemia facticia:</strong> autoadministración de insulina o SU</li>
-              <li><strong>Post-cirugía bariátrica</strong> (hipoglucemia hiperinsulinémica posprandial)</li>
-              <li><strong>Nesidioblastosis / NIPHS</strong></li>
-              <li><strong>Falla hepática</strong> (cirrosis, hepatitis fulminante)</li>
-              <li><strong>Insuficiencia suprarrenal / hipopituitarismo</strong></li>
-              <li><strong>Hipoglucemia autoinmune</strong> (Ac anti-insulina)</li>
-              <li><strong>Sepsis grave</strong> (especialmente P. falciparum, G-negativas)</li>
-              <li><strong>Tumores no pancreáticos</strong> (IGF-2: mesotelioma, fibrosarcoma)</li>
-              <li><strong>Desnutrición grave / caquexia</strong></li>
-              <li><strong>Intoxicación por etanol</strong> sin glucógeno hepático</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 1: LABORATORIO -->
-  <div class="tab-panel" id="tab-1">
-    <h2 class="section-title">⚗️ Laboratorio en Emergencia — Decisiones en Tiempo Real</h2>
-
-    <!-- ALERTA CONTEXTUAL -->
-    <div class="alert alert-red">
-      <strong>🚨 PRINCIPIO DE EMERGENCIA — ADA 2026:</strong>
+</div>
+</div>
+<div class="card card-green">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🔖</span>
+<span class="card-title">Síntomas: Adrenérgicos vs. Neuroglucopénicos</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr><th>Síntomas Adrenérgicos/Autonómicos</th><th>Glucosa aprox.</th><th>Síntomas Neuroglucopénicos</th><th>Glucosa aprox.</th></tr>
+<tr><td>Palpitaciones, taquicardia</td><td rowspan="6" style="vertical-align:middle;text-align:center;font-weight:700;color:var(--orange);">60–70<br/>mg/dL</td><td>Confusión, desorientación</td><td rowspan="6" style="vertical-align:middle;text-align:center;font-weight:700;color:var(--red);">&lt;50<br/>mg/dL</td></tr>
+<tr><td>Diaforesis (sudoración)</td><td>Visión borrosa, diplopia</td></tr>
+<tr><td>Temblor de manos</td><td>Cefalea</td></tr>
+<tr><td>Palidez</td><td>Conducta bizarra, irritabilidad</td></tr>
+<tr><td>Hambre intensa</td><td>Convulsiones</td></tr>
+<tr><td>Ansiedad, sensación de pánico</td><td>Coma, paro cardíaco</td></tr>
+</table>
+<div class="alert alert-red">
+<strong>🚨 HIPOGLUCEMIA INADVERTIDA (Unawareness):</strong> Pacientes con DM de larga evolución, episodios hipoglucémicos frecuentes, neuropatía autonómica o en tratamiento con β-bloqueantes pueden NO experimentar síntomas adrenérgicos — su primer síntoma es directamente neuroglucopénico. Requieren estrategia de prevención intensificada y consideración de CGM. <span class="tag-new">ADA 2026</span>
+</div>
+</div>
+</div>
+<div class="card card-yellow">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">💊</span>
+<span class="card-title">Causas de Hipoglucemia — Clasificación Etiológica</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div>
+<h4 style="color:var(--blue);margin-bottom:10px;">🔵 En Paciente DIABÉTICO</h4>
+<ul>
+<li><strong>Insulina:</strong> dosis excesiva, error de vía, tipo incorrecto</li>
+<li><strong>Sulfonilureas/meglitinidas:</strong> gliburida, glipizida, glimepirida, repaglinida</li>
+<li><strong>Ejercicio físico</strong> sin ajuste de dosis</li>
+<li><strong>Ingesta reducida</strong> o ayuno prolongado</li>
+<li><strong>Alcohol</strong> (inhibe gluconeogénesis hepática)</li>
+<li><strong>ERC</strong> (acumulación de insulina y metabolitos)</li>
+<li><strong>Interacciones medicamentosas</strong> (fluoroquinolonas, IECA, salicilatos)</li>
+<li><strong>Sepsis / enfermedad grave intercurrente</strong></li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--orange);margin-bottom:10px;">🟠 En Paciente NO DIABÉTICO</h4>
+<ul>
+<li><strong>Insulinoma:</strong> tumor neuroendocrino de células β (90% benigno)</li>
+<li><strong>Hipoglucemia facticia:</strong> autoadministración de insulina o SU</li>
+<li><strong>Post-cirugía bariátrica</strong> (hipoglucemia hiperinsulinémica posprandial)</li>
+<li><strong>Nesidioblastosis / NIPHS</strong></li>
+<li><strong>Falla hepática</strong> (cirrosis, hepatitis fulminante)</li>
+<li><strong>Insuficiencia suprarrenal / hipopituitarismo</strong></li>
+<li><strong>Hipoglucemia autoinmune</strong> (Ac anti-insulina)</li>
+<li><strong>Sepsis grave</strong> (especialmente P. falciparum, G-negativas)</li>
+<li><strong>Tumores no pancreáticos</strong> (IGF-2: mesotelioma, fibrosarcoma)</li>
+<li><strong>Desnutrición grave / caquexia</strong></li>
+<li><strong>Intoxicación por etanol</strong> sin glucógeno hepático</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 1: LABORATORIO -->
+<div class="tab-panel" id="tab-1">
+<h2 class="section-title">⚗️ Laboratorio en Emergencia — Decisiones en Tiempo Real</h2>
+<!-- ALERTA CONTEXTUAL -->
+<div class="alert alert-red">
+<strong>🚨 PRINCIPIO DE EMERGENCIA — ADA 2026:</strong>
       En hipoglucemia grave o con alteración del estado de conciencia: <strong>TRATAR PRIMERO, LABORATORIO DESPUÉS.</strong>
       El laboratorio en emergencia tiene un único propósito: <em>guiar las decisiones terapéuticas inmediatas</em>, no hacer diagnóstico diferido. Nunca demorar el tratamiento esperando resultados.
     </div>
-
-    <!-- CARD 1: LO QUE TIENES EN 2 MINUTOS -->
-    <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⚡</span>
-          <span class="card-title">FASE 0 — Lo que tienes en &lt;2 minutos: Glucómetro capilar</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-blue">
-          <strong>💡 El glucómetro es tu primer laboratorio en emergencia.</strong>
+<!-- CARD 1: LO QUE TIENES EN 2 MINUTOS -->
+<div class="card card-red open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⚡</span>
+<span class="card-title">FASE 0 — Lo que tienes en &lt;2 minutos: Glucómetro capilar</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>💡 El glucómetro es tu primer laboratorio en emergencia.</strong>
           No es perfecto (margen de error ±15-20%), pero es suficiente para iniciar el tratamiento. La confirmación venosa viene después, no antes.
         </div>
-        <table>
-          <tr><th>Resultado glucómetro</th><th>Qué significa en emergencia</th><th>Acción INMEDIATA</th></tr>
-          <tr style="background:var(--red-bg);">
-            <td><strong style="color:var(--red);">&lt; 40 mg/dL</strong></td>
-            <td>Hipoglucemia severa con riesgo neurológico inminente</td>
-            <td>🚨 Dextrosa IV AHORA — no esperar confirmación venosa</td>
-          </tr>
-          <tr style="background:var(--orange-bg);">
-            <td><strong style="color:var(--orange);">40–54 mg/dL</strong></td>
-            <td>Hipoglucemia Nivel 2 clínicamente significativa</td>
-            <td>⚠ Tratamiento urgente; si consciente: glucosa VO; si no: dextrosa IV</td>
-          </tr>
-          <tr style="background:var(--yellow-bg);">
-            <td><strong style="color:var(--yellow);">55–70 mg/dL</strong></td>
-            <td>Hipoglucemia Nivel 1 — con o sin síntomas</td>
-            <td>Tratar si sintomático; confirmar con venosa; buscar causa</td>
-          </tr>
-          <tr>
-            <td><strong style="color:var(--text-muted);">71–99 mg/dL con síntomas</strong></td>
-            <td>Posible hipoglucemia relativa o diagnóstico alternativo</td>
-            <td>Glucosa venosa urgente; considerar ACV, arritmia, intoxicación</td>
-          </tr>
-        </table>
-        <div class="alert alert-yellow">
-          <strong>⚠ TRAMPA CLÍNICA — Pseudohipoglucemia:</strong>
+<table>
+<tr><th>Resultado glucómetro</th><th>Qué significa en emergencia</th><th>Acción INMEDIATA</th></tr>
+<tr style="background:var(--red-bg);">
+<td><strong style="color:var(--red);">&lt; 40 mg/dL</strong></td>
+<td>Hipoglucemia severa con riesgo neurológico inminente</td>
+<td>🚨 Dextrosa IV AHORA — no esperar confirmación venosa</td>
+</tr>
+<tr style="background:var(--orange-bg);">
+<td><strong style="color:var(--orange);">40–54 mg/dL</strong></td>
+<td>Hipoglucemia Nivel 2 clínicamente significativa</td>
+<td>⚠ Tratamiento urgente; si consciente: glucosa VO; si no: dextrosa IV</td>
+</tr>
+<tr style="background:var(--yellow-bg);">
+<td><strong style="color:var(--yellow);">55–70 mg/dL</strong></td>
+<td>Hipoglucemia Nivel 1 — con o sin síntomas</td>
+<td>Tratar si sintomático; confirmar con venosa; buscar causa</td>
+</tr>
+<tr>
+<td><strong style="color:var(--text-muted);">71–99 mg/dL con síntomas</strong></td>
+<td>Posible hipoglucemia relativa o diagnóstico alternativo</td>
+<td>Glucosa venosa urgente; considerar ACV, arritmia, intoxicación</td>
+</tr>
+</table>
+<div class="alert alert-yellow">
+<strong>⚠ TRAMPA CLÍNICA — Pseudohipoglucemia:</strong>
           Glucómetro bajo + paciente asintomático + leucocitosis extrema (&gt;100,000/μL) o eritrocitosis = falso bajo.
           En estos casos: obtener glucosa venosa en tubo con <strong>fluoruro de sodio</strong> y procesar en &lt;30 min antes de tratar.
           Si hay duda y el paciente tiene síntomas: TRATAR. El riesgo de no tratar supera al de tratar innecesariamente.
         </div>
-      </div>
-    </div>
-
-    <!-- CARD 2: FASE 1 - PRIMEROS 15 MINUTOS -->
-    <div class="card card-orange open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🕐</span>
-          <span class="card-title">FASE 1 — Laboratorio de los primeros 15 minutos (mientras se trata)</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p style="margin-bottom:12px;">Estos exámenes deben tomarse <strong>simultáneamente con la primera acción terapéutica</strong> o inmediatamente después. Tienen resultado en 15-30 minutos y cambian decisiones en la primera hora.</p>
-        <table>
-          <tr><th>Examen</th><th>Tipo/tubo</th><th>Tiempo resultado</th><th>¿Para qué sirve EN EMERGENCIA?</th></tr>
-          <tr>
-            <td><strong>Glucosa venosa plasmática</strong></td>
-            <td>Fluoruro (gris)</td>
-            <td>10–15 min</td>
-            <td>Confirma el glucómetro. Define el Nivel real (1/2/3). Base para decidir dextrosa de mantenimiento.</td>
-          </tr>
-          <tr>
-            <td><strong>Glucemia de control post-tratamiento</strong></td>
-            <td>Capilar c/15 min</td>
-            <td>2 min</td>
-            <td>Verifica respuesta al tratamiento. Si no sube → cambiar estrategia inmediatamente.</td>
-          </tr>
-          <tr>
-            <td><strong>HGT seriado</strong></td>
-            <td>Capilar c/15-30 min</td>
-            <td>2 min</td>
-            <td>Detecta hipoglucemia recurrente. Clave para decidir si el paciente requiere hospitalización.</td>
-          </tr>
-          <tr>
-            <td><strong>Función renal (creatinina, BUN)</strong></td>
-            <td>Suero (rojo/amarillo)</td>
-            <td>20–30 min</td>
-            <td>ERC grave = hipoglucemia prolongada por acumulación de insulina/SU → hospitalizar mínimo 48h</td>
-          </tr>
-          <tr>
-            <td><strong>Electrolitos (Na, K)</strong></td>
-            <td>Suero</td>
-            <td>20–30 min</td>
-            <td>Hiponatremia + hipoglucemia = sospecha de insuficiencia suprarrenal → hidrocortisona urgente</td>
-          </tr>
-          <tr>
-            <td><strong>Glucosa en orina (tira reactiva)</strong></td>
-            <td>Orina fresca</td>
-            <td>2 min</td>
-            <td>Glucosuria ausente confirma hipoglucemia real. Positiva puede indicar hiperglucemia previa.</td>
-          </tr>
-        </table>
-        <div class="alert alert-blue">
-          <strong>📌 Regla práctica para emergencia:</strong>
+</div>
+</div>
+<!-- CARD 2: FASE 1 - PRIMEROS 15 MINUTOS -->
+<div class="card card-orange open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🕐</span>
+<span class="card-title">FASE 1 — Laboratorio de los primeros 15 minutos (mientras se trata)</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p style="margin-bottom:12px;">Estos exámenes deben tomarse <strong>simultáneamente con la primera acción terapéutica</strong> o inmediatamente después. Tienen resultado en 15-30 minutos y cambian decisiones en la primera hora.</p>
+<table>
+<tr><th>Examen</th><th>Tipo/tubo</th><th>Tiempo resultado</th><th>¿Para qué sirve EN EMERGENCIA?</th></tr>
+<tr>
+<td><strong>Glucosa venosa plasmática</strong></td>
+<td>Fluoruro (gris)</td>
+<td>10–15 min</td>
+<td>Confirma el glucómetro. Define el Nivel real (1/2/3). Base para decidir dextrosa de mantenimiento.</td>
+</tr>
+<tr>
+<td><strong>Glucemia de control post-tratamiento</strong></td>
+<td>Capilar c/15 min</td>
+<td>2 min</td>
+<td>Verifica respuesta al tratamiento. Si no sube → cambiar estrategia inmediatamente.</td>
+</tr>
+<tr>
+<td><strong>HGT seriado</strong></td>
+<td>Capilar c/15-30 min</td>
+<td>2 min</td>
+<td>Detecta hipoglucemia recurrente. Clave para decidir si el paciente requiere hospitalización.</td>
+</tr>
+<tr>
+<td><strong>Función renal (creatinina, BUN)</strong></td>
+<td>Suero (rojo/amarillo)</td>
+<td>20–30 min</td>
+<td>ERC grave = hipoglucemia prolongada por acumulación de insulina/SU → hospitalizar mínimo 48h</td>
+</tr>
+<tr>
+<td><strong>Electrolitos (Na, K)</strong></td>
+<td>Suero</td>
+<td>20–30 min</td>
+<td>Hiponatremia + hipoglucemia = sospecha de insuficiencia suprarrenal → hidrocortisona urgente</td>
+</tr>
+<tr>
+<td><strong>Glucosa en orina (tira reactiva)</strong></td>
+<td>Orina fresca</td>
+<td>2 min</td>
+<td>Glucosuria ausente confirma hipoglucemia real. Positiva puede indicar hiperglucemia previa.</td>
+</tr>
+</table>
+<div class="alert alert-blue">
+<strong>📌 Regla práctica para emergencia:</strong>
           Si el paciente recupera consciencia y glucosa &gt;100 mg/dL con un solo bolo de dextrosa, y la causa es clara (ej: diabético que no comió + insulina), NO es necesario esperar todos los resultados para tomar decisiones básicas.
           El laboratorio ampliado aplica cuando: <em>la causa no es obvia, el paciente no responde, hay signos atípicos, o no tiene diagnóstico de diabetes previo.</em>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 3: ÁRBOL DE DECISIÓN LABORATORIAL EN TIEMPO REAL -->
-    <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🧭</span>
-          <span class="card-title">ÁRBOL DE DECISIÓN — ¿Qué pedir según el contexto clínico en urgencias?</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-
-        <!-- ESCENARIO A -->
-        <div style="border:2px solid var(--green);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
-          <div style="font-weight:800;color:var(--green);font-size:1rem;margin-bottom:10px;">
+</div>
+</div>
+</div>
+<!-- CARD 3: ÁRBOL DE DECISIÓN LABORATORIAL EN TIEMPO REAL -->
+<div class="card card-blue open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🧭</span>
+<span class="card-title">ÁRBOL DE DECISIÓN — ¿Qué pedir según el contexto clínico en urgencias?</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<!-- ESCENARIO A -->
+<div style="border:2px solid var(--green);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
+<div style="font-weight:800;color:var(--green);font-size:1rem;margin-bottom:10px;">
             ✅ ESCENARIO A: Diabético conocido + causa clara (olvidó comer, ajuste de insulina evidente)
           </div>
-          <div class="decision-box db-green" style="margin-bottom:8px;">
-            <strong>Laboratorio MÍNIMO suficiente:</strong><br>
-            1. Glucómetro capilar seriado c/15-30 min<br>
-            2. Glucosa venosa confirmatoria<br>
+<div class="decision-box db-green" style="margin-bottom:8px;">
+<strong>Laboratorio MÍNIMO suficiente:</strong><br/>
+            1. Glucómetro capilar seriado c/15-30 min<br/>
+            2. Glucosa venosa confirmatoria<br/>
             3. Función renal (solo si ERC conocida o anciano)
           </div>
-          <div style="font-size:0.88rem;color:var(--text-muted);">
+<div style="font-size:0.88rem;color:var(--text-muted);">
             ⏱ No pedir panel completo. Tratar, observar 1-2h, definir alta vs hospitalización según respuesta y factor precipitante.
           </div>
-        </div>
-
-        <!-- ESCENARIO B -->
-        <div style="border:2px solid var(--orange);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
-          <div style="font-weight:800;color:var(--orange);font-size:1rem;margin-bottom:10px;">
+</div>
+<!-- ESCENARIO B -->
+<div style="border:2px solid var(--orange);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
+<div style="font-weight:800;color:var(--orange);font-size:1rem;margin-bottom:10px;">
             ⚠ ESCENARIO B: Diabético + causa no clara, no responde bien o recae
           </div>
-          <div class="decision-box db-orange" style="margin-bottom:8px;">
-            <strong>Laboratorio AMPLIADO urgente:</strong><br>
-            1. Glucosa venosa + seriado capilar<br>
-            2. Función renal y hepática<br>
-            3. Electrolitos (buscar hiponatremia → insuficiencia suprarrenal)<br>
-            4. Hemograma (sepsis, leucocitosis extrema)<br>
-            5. Cortisol basal (si sospecha insuficiencia suprarrenal)<br>
+<div class="decision-box db-orange" style="margin-bottom:8px;">
+<strong>Laboratorio AMPLIADO urgente:</strong><br/>
+            1. Glucosa venosa + seriado capilar<br/>
+            2. Función renal y hepática<br/>
+            3. Electrolitos (buscar hiponatremia → insuficiencia suprarrenal)<br/>
+            4. Hemograma (sepsis, leucocitosis extrema)<br/>
+            5. Cortisol basal (si sospecha insuficiencia suprarrenal)<br/>
             6. Considerar: gases arteriales si Glasgow &lt;13
           </div>
-          <div style="font-size:0.88rem;color:var(--text-muted);">
+<div style="font-size:0.88rem;color:var(--text-muted);">
             ⚠ La no respuesta a 100g dextrosa debe hacer sospechar: alcohol sin glucógeno, falla hepática, insuf. suprarrenal o causa no-insulínica.
           </div>
-        </div>
-
-        <!-- ESCENARIO C -->
-        <div style="border:2px solid var(--red);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
-          <div style="font-weight:800;color:var(--red);font-size:1rem;margin-bottom:10px;">
+</div>
+<!-- ESCENARIO C -->
+<div style="border:2px solid var(--red);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;">
+<div style="font-weight:800;color:var(--red);font-size:1rem;margin-bottom:10px;">
             🚨 ESCENARIO C: NO diabético con hipoglucemia — prioridad diagnóstica alta
           </div>
-          <div class="decision-box db-red" style="margin-bottom:8px;">
-            <strong>MUESTRA CRÍTICA — obtener ANTES de dar glucosa (si es posible y seguro):</strong><br>
-            → Glucosa venosa (fluoruro)<br>
-            → Insulina sérica<br>
-            → Péptido C<br>
-            → β-hidroxibutirato (si disponible)<br>
-            → Cortisol<br>
-            → Función hepática + renal<br>
-            → Hemograma + PCR (sepsis)<br>
-            → Alcohol en sangre (si sospecha)<br>
+<div class="decision-box db-red" style="margin-bottom:8px;">
+<strong>MUESTRA CRÍTICA — obtener ANTES de dar glucosa (si es posible y seguro):</strong><br/>
+            → Glucosa venosa (fluoruro)<br/>
+            → Insulina sérica<br/>
+            → Péptido C<br/>
+            → β-hidroxibutirato (si disponible)<br/>
+            → Cortisol<br/>
+            → Función hepática + renal<br/>
+            → Hemograma + PCR (sepsis)<br/>
+            → Alcohol en sangre (si sospecha)<br/>
             → Screening de sulfonilureas (orina/plasma)
           </div>
-          <div class="alert alert-red" style="margin-top:8px;">
-            <strong>🚨 Regla de la muestra crítica:</strong>
+<div class="alert alert-red" style="margin-top:8px;">
+<strong>🚨 Regla de la muestra crítica:</strong>
             En no diabéticos, esta es la ÚNICA oportunidad de obtener la muestra diagnóstica definitiva.
             Una vez administrada la glucosa, los resultados de insulina y péptido C serán interpretables, pero el β-OHB y la insulina relativa a la glucosa no tendrán el mismo valor diagnóstico.
             Si el estado clínico obliga a tratar primero: documentar el momento de la muestra y el momento del tratamiento.
           </div>
-        </div>
-
-        <!-- ESCENARIO D -->
-        <div style="border:2px solid var(--purple);border-radius:var(--radius-sm);padding:14px;">
-          <div style="font-weight:800;color:var(--purple);font-size:1rem;margin-bottom:10px;">
+</div>
+<!-- ESCENARIO D -->
+<div style="border:2px solid var(--purple);border-radius:var(--radius-sm);padding:14px;">
+<div style="font-weight:800;color:var(--purple);font-size:1rem;margin-bottom:10px;">
             🟣 ESCENARIO D: Hipoglucemia + sospecha de intoxicación / abuso de sustancias
           </div>
-          <div class="decision-box db-blue" style="margin-bottom:8px;">
-            <strong>Añadir al panel:</strong><br>
-            → Alcohol en sangre (etanol)<br>
-            → Toxicología urinaria ampliada<br>
-            → Screening de sulfonilureas en sangre/orina (sospecha de acceso a medicamentos del entorno)<br>
-            → Amilasa/lipasa si sospecha pancreatitis alcohólica concomitante<br>
+<div class="decision-box db-blue" style="margin-bottom:8px;">
+<strong>Añadir al panel:</strong><br/>
+            → Alcohol en sangre (etanol)<br/>
+            → Toxicología urinaria ampliada<br/>
+            → Screening de sulfonilureas en sangre/orina (sospecha de acceso a medicamentos del entorno)<br/>
+            → Amilasa/lipasa si sospecha pancreatitis alcohólica concomitante<br/>
             → Lactato si sospecha de intoxicación por metformina + hipoglucemia + acidosis
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 4: LABORATORIO QUE CAMBIA DECISIONES EN URGENCIAS -->
-    <div class="card card-cyan">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🎯</span>
-          <span class="card-title">¿Qué resultado de laboratorio cambia qué decisión? — Guía rápida para el médico de emergencia</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>Resultado de laboratorio</th>
-            <th>Decisión terapéutica que cambia AHORA</th>
-            <th>No espere más para actuar</th>
-          </tr>
-          <tr style="background:var(--red-bg);">
-            <td><strong>Creatinina &gt; 3 mg/dL (o FG &lt;30) + uso de SU</strong></td>
-            <td>Hospitalizar mínimo 48h. Agregar octreotida. Suspender SU definitivamente.</td>
-            <td>✅ Sí — hospitalización urgente</td>
-          </tr>
-          <tr style="background:var(--orange-bg);">
-            <td><strong>Na &lt;130 mEq/L + hipoglucemia recurrente</strong></td>
-            <td>Sospecha insuficiencia suprarrenal → Hidrocortisona 100mg IV inmediata + dextrosa</td>
-            <td>✅ Sí — antes de esperar cortisol</td>
-          </tr>
-          <tr style="background:var(--yellow-bg);">
-            <td><strong>TGO/TGP muy elevadas (x5-10 LSN) o TP &gt;18 seg</strong></td>
-            <td>Falla hepática como causa → solo dextrosa IV continua; glucagón no funcionará</td>
-            <td>✅ Sí — infusión D10% continua</td>
-          </tr>
-          <tr>
-            <td><strong>Leucocitos &gt;25,000 + fiebre</strong></td>
-            <td>Sepsis como causa → hipoglucemia de mal pronóstico → hospitalización + antibióticos + monitoreo glucémico intensivo</td>
-            <td>✅ Sí — activar protocolo sepsis</td>
-          </tr>
-          <tr style="background:var(--blue-bg);">
-            <td><strong>Alcohol en sangre detectable + paciente desnutrido</strong></td>
-            <td>No dar glucagón. Solo dextrosa IV. Tiamina 100mg IV ANTES de dextrosa.</td>
-            <td>✅ Sí — cambio de protocolo</td>
-          </tr>
-          <tr style="background:var(--purple-bg);">
-            <td><strong>Screening SU positivo en no diabético</strong></td>
-            <td>Hipoglucemia facticia o accidental por SU → octreotida + hospitalización 24-48h + evaluar entorno</td>
-            <td>✅ Sí — cambio inmediato</td>
-          </tr>
-          <tr>
-            <td><strong>Glucosa no sube después de 100g dextrosa IV</strong></td>
-            <td>Causa no-insulínica severa → buscar: alcohol sin glucógeno, falla hepática, insuf. suprarrenal, insulinoma hiperactivo. Escalar tratamiento.</td>
-            <td>✅ Sí — escalar protocolo</td>
-          </tr>
-          <tr style="background:var(--green-bg);">
-            <td><strong>Glucosa responde bien + causa conocida + función renal normal</strong></td>
-            <td>Alta con educación, ajuste de medicamentos y cita en 24-48h es razonable</td>
-            <td>✅ Sí — permite manejo ambulatorio</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <!-- CARD 5: CUÁNDO HOSPITALIZAR vs ALTA -->
-    <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🏥</span>
-          <span class="card-title">Decisión de HOSPITALIZACIÓN vs ALTA — Criterios basados en clínica + laboratorio</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="grid-2">
-          <div>
-            <div class="decision-box db-red" style="margin-bottom:12px;">
-              <strong>🏥 HOSPITALIZAR — cualquiera de estos:</strong>
-            </div>
-            <ul style="font-size:0.93rem;">
-              <li>Causa: sulfonilurea (duración &gt;12-24h)</li>
-              <li>ERC con FG &lt;30 mL/min</li>
-              <li>Falla hepática (laboratorio alterado)</li>
-              <li>No diabético (causa a investigar)</li>
-              <li>No responde a 2+ ciclos de dextrosa IV</li>
-              <li>Hipoglucemia recurrente en &lt;24h</li>
-              <li>Sospecha de insuficiencia suprarrenal</li>
-              <li>Sepsis como causa precipitante</li>
-              <li>Sin cuidador en casa / vive solo</li>
-              <li>Alteración del estado de conciencia que no resuelve completamente</li>
-              <li>Hipoglucemia inadvertida (HAAF conocido)</li>
-            </ul>
-          </div>
-          <div>
-            <div class="decision-box db-green" style="margin-bottom:12px;">
-              <strong>🏠 ALTA RAZONABLE — todos estos criterios:</strong>
-            </div>
-            <ul style="font-size:0.93rem;">
-              <li>Diabético conocido con causa clara y corregible</li>
-              <li>Causa: insulina de acción corta (duración &lt;4-6h)</li>
-              <li>Glucosa estable &gt;100 mg/dL por 1-2h sin nueva infusión</li>
-              <li>Función renal normal (Cr &lt;1.5, FG &gt;60)</li>
-              <li>Estado neurológico completo al alta</li>
-              <li>Paciente comprende la causa y el ajuste</li>
-              <li>Cuidador presente y educado</li>
-              <li>Glucagón prescrito y disponible en casa</li>
-              <li>Cita de seguimiento en 24-48h confirmada</li>
-            </ul>
-          </div>
-        </div>
-        <div class="alert alert-yellow">
-          <strong>⚠ ZONA GRIS — Observación 4-6 horas en urgencias:</strong>
+</div>
+</div>
+</div>
+<!-- CARD 4: LABORATORIO QUE CAMBIA DECISIONES EN URGENCIAS -->
+<div class="card card-cyan">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🎯</span>
+<span class="card-title">¿Qué resultado de laboratorio cambia qué decisión? — Guía rápida para el médico de emergencia</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr>
+<th>Resultado de laboratorio</th>
+<th>Decisión terapéutica que cambia AHORA</th>
+<th>No espere más para actuar</th>
+</tr>
+<tr style="background:var(--red-bg);">
+<td><strong>Creatinina &gt; 3 mg/dL (o FG &lt;30) + uso de SU</strong></td>
+<td>Hospitalizar mínimo 48h. Agregar octreotida. Suspender SU definitivamente.</td>
+<td>✅ Sí — hospitalización urgente</td>
+</tr>
+<tr style="background:var(--orange-bg);">
+<td><strong>Na &lt;130 mEq/L + hipoglucemia recurrente</strong></td>
+<td>Sospecha insuficiencia suprarrenal → Hidrocortisona 100mg IV inmediata + dextrosa</td>
+<td>✅ Sí — antes de esperar cortisol</td>
+</tr>
+<tr style="background:var(--yellow-bg);">
+<td><strong>TGO/TGP muy elevadas (x5-10 LSN) o TP &gt;18 seg</strong></td>
+<td>Falla hepática como causa → solo dextrosa IV continua; glucagón no funcionará</td>
+<td>✅ Sí — infusión D10% continua</td>
+</tr>
+<tr>
+<td><strong>Leucocitos &gt;25,000 + fiebre</strong></td>
+<td>Sepsis como causa → hipoglucemia de mal pronóstico → hospitalización + antibióticos + monitoreo glucémico intensivo</td>
+<td>✅ Sí — activar protocolo sepsis</td>
+</tr>
+<tr style="background:var(--blue-bg);">
+<td><strong>Alcohol en sangre detectable + paciente desnutrido</strong></td>
+<td>No dar glucagón. Solo dextrosa IV. Tiamina 100mg IV ANTES de dextrosa.</td>
+<td>✅ Sí — cambio de protocolo</td>
+</tr>
+<tr style="background:var(--purple-bg);">
+<td><strong>Screening SU positivo en no diabético</strong></td>
+<td>Hipoglucemia facticia o accidental por SU → octreotida + hospitalización 24-48h + evaluar entorno</td>
+<td>✅ Sí — cambio inmediato</td>
+</tr>
+<tr>
+<td><strong>Glucosa no sube después de 100g dextrosa IV</strong></td>
+<td>Causa no-insulínica severa → buscar: alcohol sin glucógeno, falla hepática, insuf. suprarrenal, insulinoma hiperactivo. Escalar tratamiento.</td>
+<td>✅ Sí — escalar protocolo</td>
+</tr>
+<tr style="background:var(--green-bg);">
+<td><strong>Glucosa responde bien + causa conocida + función renal normal</strong></td>
+<td>Alta con educación, ajuste de medicamentos y cita en 24-48h es razonable</td>
+<td>✅ Sí — permite manejo ambulatorio</td>
+</tr>
+</table>
+</div>
+</div>
+<!-- CARD 5: CUÁNDO HOSPITALIZAR vs ALTA -->
+<div class="card card-green">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🏥</span>
+<span class="card-title">Decisión de HOSPITALIZACIÓN vs ALTA — Criterios basados en clínica + laboratorio</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div>
+<div class="decision-box db-red" style="margin-bottom:12px;">
+<strong>🏥 HOSPITALIZAR — cualquiera de estos:</strong>
+</div>
+<ul style="font-size:0.93rem;">
+<li>Causa: sulfonilurea (duración &gt;12-24h)</li>
+<li>ERC con FG &lt;30 mL/min</li>
+<li>Falla hepática (laboratorio alterado)</li>
+<li>No diabético (causa a investigar)</li>
+<li>No responde a 2+ ciclos de dextrosa IV</li>
+<li>Hipoglucemia recurrente en &lt;24h</li>
+<li>Sospecha de insuficiencia suprarrenal</li>
+<li>Sepsis como causa precipitante</li>
+<li>Sin cuidador en casa / vive solo</li>
+<li>Alteración del estado de conciencia que no resuelve completamente</li>
+<li>Hipoglucemia inadvertida (HAAF conocido)</li>
+</ul>
+</div>
+<div>
+<div class="decision-box db-green" style="margin-bottom:12px;">
+<strong>🏠 ALTA RAZONABLE — todos estos criterios:</strong>
+</div>
+<ul style="font-size:0.93rem;">
+<li>Diabético conocido con causa clara y corregible</li>
+<li>Causa: insulina de acción corta (duración &lt;4-6h)</li>
+<li>Glucosa estable &gt;100 mg/dL por 1-2h sin nueva infusión</li>
+<li>Función renal normal (Cr &lt;1.5, FG &gt;60)</li>
+<li>Estado neurológico completo al alta</li>
+<li>Paciente comprende la causa y el ajuste</li>
+<li>Cuidador presente y educado</li>
+<li>Glucagón prescrito y disponible en casa</li>
+<li>Cita de seguimiento en 24-48h confirmada</li>
+</ul>
+</div>
+</div>
+<div class="alert alert-yellow">
+<strong>⚠ ZONA GRIS — Observación 4-6 horas en urgencias:</strong>
           Hipoglucemia por NPH nocturna, mezclas de insulina de acción intermedia, o dosis excesiva de insulina basal donde el pico de acción aún está activo.
           Observación con glucemia c/1h. Si estable al cabo de 4-6h y tiene cuidador: puede considerarse alta con instrucciones estrictas.
         </div>
-      </div>
-    </div>
-
-    <!-- CARD 6: MONITOREO DURANTE RECUPERACIÓN -->
-    <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">📈</span>
-          <span class="card-title">Monitoreo Glucémico Durante la Atención en Emergencia — Frecuencias y Umbrales de Acción</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>Fase de atención</th>
-            <th>Frecuencia de glucometría</th>
-            <th>Umbral de nueva acción</th>
-            <th>Conducta</th>
-          </tr>
-          <tr>
-            <td><strong>Tratamiento activo (primeros 30 min)</strong></td>
-            <td>Cada <strong>15 minutos</strong></td>
-            <td>&lt;70 mg/dL</td>
-            <td>Repetir bolo dextrosa o ciclo de glucosa VO</td>
-          </tr>
-          <tr>
-            <td><strong>Post-corrección, primeras 2h</strong></td>
-            <td>Cada <strong>30-60 minutos</strong></td>
-            <td>&lt;80 mg/dL</td>
-            <td>Ajustar infusión D10% de mantenimiento</td>
-          </tr>
-          <tr>
-            <td><strong>Observación en urgencias (2-6h)</strong></td>
-            <td>Cada <strong>1-2 horas</strong></td>
-            <td>&lt;100 mg/dL con tendencia a la baja</td>
-            <td>Alimentar, ajustar infusión, reconsiderar hospitalización</td>
-          </tr>
-          <tr>
-            <td><strong>Hospitalizado por SU / causa prolongada</strong></td>
-            <td>Cada <strong>1 hora</strong> hasta estabilidad 6h</td>
-            <td>&lt;100 mg/dL</td>
-            <td>Bolo de rescate + revisar infusión de mantenimiento</td>
-          </tr>
-          <tr>
-            <td><strong>Meta glucémica intrahospitalaria</strong></td>
-            <td>c/4-6h una vez estable</td>
-            <td>100–180 mg/dL (ADA 2026)</td>
-            <td>Ajustar régimen hipoglucemiante</td>
-          </tr>
-        </table>
-        <div class="alert alert-emerald">
-          <strong>✦ ADA 2026 — Nuevo énfasis:</strong><span class="tag-new">ADA 2026</span>
+</div>
+</div>
+<!-- CARD 6: MONITOREO DURANTE RECUPERACIÓN -->
+<div class="card card-yellow">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">📈</span>
+<span class="card-title">Monitoreo Glucémico Durante la Atención en Emergencia — Frecuencias y Umbrales de Acción</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr>
+<th>Fase de atención</th>
+<th>Frecuencia de glucometría</th>
+<th>Umbral de nueva acción</th>
+<th>Conducta</th>
+</tr>
+<tr>
+<td><strong>Tratamiento activo (primeros 30 min)</strong></td>
+<td>Cada <strong>15 minutos</strong></td>
+<td>&lt;70 mg/dL</td>
+<td>Repetir bolo dextrosa o ciclo de glucosa VO</td>
+</tr>
+<tr>
+<td><strong>Post-corrección, primeras 2h</strong></td>
+<td>Cada <strong>30-60 minutos</strong></td>
+<td>&lt;80 mg/dL</td>
+<td>Ajustar infusión D10% de mantenimiento</td>
+</tr>
+<tr>
+<td><strong>Observación en urgencias (2-6h)</strong></td>
+<td>Cada <strong>1-2 horas</strong></td>
+<td>&lt;100 mg/dL con tendencia a la baja</td>
+<td>Alimentar, ajustar infusión, reconsiderar hospitalización</td>
+</tr>
+<tr>
+<td><strong>Hospitalizado por SU / causa prolongada</strong></td>
+<td>Cada <strong>1 hora</strong> hasta estabilidad 6h</td>
+<td>&lt;100 mg/dL</td>
+<td>Bolo de rescate + revisar infusión de mantenimiento</td>
+</tr>
+<tr>
+<td><strong>Meta glucémica intrahospitalaria</strong></td>
+<td>c/4-6h una vez estable</td>
+<td>100–180 mg/dL (ADA 2026)</td>
+<td>Ajustar régimen hipoglucemiante</td>
+</tr>
+</table>
+<div class="alert alert-emerald">
+<strong>✦ ADA 2026 — Nuevo énfasis:</strong><span class="tag-new">ADA 2026</span>
           La hiperglucemia de rebote post-hipoglucemia es frecuente y también perjudicial. No sobrecorregir: el objetivo no es glucosa &gt;200, sino 100-140 mg/dL post-corrección. Una vez estable, introducir alimentación sólida con proteína para sostener la glucemia.
         </div>
-      </div>
-    </div>
-
-    <!-- CARD 7: LABORATORIO QUE NO NECESITAS PEDIR EN URGENCIAS -->
-    <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🚫</span>
-          <span class="card-title">Exámenes que NO son prioritarios en urgencias — Para consulta externa / seguimiento</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p style="margin-bottom:12px;">En un servicio de emergencia con recursos limitados (como el contexto LATAM/Ecuador), optimizar el uso del laboratorio es crítico. Estos exámenes son valiosos, pero su resultado no cambia el manejo inicial:</p>
-        <table>
-          <tr><th>Examen</th><th>¿Por qué esperar?</th><th>¿Cuándo pedirlo?</th></tr>
-          <tr>
-            <td>Insulinemia sérica</td>
-            <td>No cambia la decisión terapéutica inmediata; el tratamiento es igual con o sin resultado</td>
-            <td>Muestra crítica en no diabético (si disponible y seguro tomarlo antes de glucosa)</td>
-          </tr>
-          <tr>
-            <td>Péptido C</td>
-            <td>Útil para diagnóstico diferencial, no para tratamiento de urgencia</td>
-            <td>Muestra crítica en no diabético / sospecha de insulinoma o hipoglucemia facticia</td>
-          </tr>
-          <tr>
-            <td>HbA1c</td>
-            <td>Refleja control previo, no el episodio agudo</td>
-            <td>Control ambulatorio; útil para ajuste de metas tras el alta</td>
-          </tr>
-          <tr>
-            <td>β-hidroxibutirato</td>
-            <td>Si disponible, agrega valor; si no, no es indispensable en diabético conocido</td>
-            <td>Muestra crítica en no diabético; diferencia hiperinsulinismo de ayuno prolongado</td>
-          </tr>
-          <tr>
-            <td>Proinsulina</td>
-            <td>Sin valor en urgencia — diagnóstico de insulinoma es electivo</td>
-            <td>Estudio ambulatorio diferido de insulinoma</td>
-          </tr>
-          <tr>
-            <td>IGF-1 / IGF-2</td>
-            <td>Para investigación de tumores no pancreáticos — proceso ambulatorio</td>
-            <td>Hipoglucemia recurrente en no diabético sin diagnóstico tras evaluación inicial</td>
-          </tr>
-          <tr>
-            <td>Prueba de ayuno 72h</td>
-            <td>Es un estudio de internamiento electivo — jamás se inicia en urgencias</td>
-            <td>Referencia a endocrinología tras estabilización y alta</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-  </div>
-
-
-    <!-- TAB 2: FISIOPATOLOGÍA -->
-  <div class="tab-panel" id="tab-2">
-    <h2 class="section-title">🧠 Fisiopatología</h2>
-
-    <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⚡</span>
-          <span class="card-title">Contrarregulación Glucémica Normal</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p>En condiciones normales, ante el descenso de glucosa, el organismo activa una cascada de respuestas contrarregulatorias secuenciales:</p>
-        <div class="protocol-step">
-          <div class="step-number s-blue">1</div>
-          <div class="step-content">
-            <h4>80–85 mg/dL → Supresión de insulina pancreática</h4>
-            <p>Primera línea. Reduce el consumo periférico y aumenta la producción hepática de glucosa.</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-yellow">2</div>
-          <div class="step-content">
-            <h4>65–70 mg/dL → Secreción de glucagón pancreático (células α)</h4>
-            <p>Estimula glucogenólisis hepática. Respuesta más importante y rápida en hipoglucemia aguda.</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-orange">3</div>
-          <div class="step-content">
-            <h4>60–65 mg/dL → Secreción de adrenalina (médula suprarrenal)</h4>
-            <p>Estimula glucogenólisis y gluconeogénesis. Produce síntomas adrenérgicos. Esencial cuando el glucagón falla (como en DM1 avanzada).</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-red">4</div>
-          <div class="step-content">
-            <h4>55–60 mg/dL → Cortisol y GH (hipófisis-suprarrenal)</h4>
-            <p>Respuesta tardía pero sostenida. Promueven gluconeogénesis a partir de proteínas y lípidos.</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-red">5</div>
-          <div class="step-content">
-            <h4>&lt;50 mg/dL → Síntomas neurológicos (neuroglucopenia)</h4>
-            <p>El cerebro depende casi exclusivamente de glucosa. Confusión, convulsiones, coma si no se corrige.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🚨</span>
-          <span class="card-title">Fallo de Contrarregulación — Por Qué Algunos Pacientes No "Sienten" la Hipoglucemia</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-red">
-          <strong>🚨 DEFECTIVE GLUCOSE COUNTERREGULATION (DGC) — Alta mortalidad</strong>
+</div>
+</div>
+<!-- CARD 7: LABORATORIO QUE NO NECESITAS PEDIR EN URGENCIAS -->
+<div class="card card-purple">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🚫</span>
+<span class="card-title">Exámenes que NO son prioritarios en urgencias — Para consulta externa / seguimiento</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p style="margin-bottom:12px;">En un servicio de emergencia con recursos limitados (como el contexto LATAM/Ecuador), optimizar el uso del laboratorio es crítico. Estos exámenes son valiosos, pero su resultado no cambia el manejo inicial:</p>
+<table>
+<tr><th>Examen</th><th>¿Por qué esperar?</th><th>¿Cuándo pedirlo?</th></tr>
+<tr>
+<td>Insulinemia sérica</td>
+<td>No cambia la decisión terapéutica inmediata; el tratamiento es igual con o sin resultado</td>
+<td>Muestra crítica en no diabético (si disponible y seguro tomarlo antes de glucosa)</td>
+</tr>
+<tr>
+<td>Péptido C</td>
+<td>Útil para diagnóstico diferencial, no para tratamiento de urgencia</td>
+<td>Muestra crítica en no diabético / sospecha de insulinoma o hipoglucemia facticia</td>
+</tr>
+<tr>
+<td>HbA1c</td>
+<td>Refleja control previo, no el episodio agudo</td>
+<td>Control ambulatorio; útil para ajuste de metas tras el alta</td>
+</tr>
+<tr>
+<td>β-hidroxibutirato</td>
+<td>Si disponible, agrega valor; si no, no es indispensable en diabético conocido</td>
+<td>Muestra crítica en no diabético; diferencia hiperinsulinismo de ayuno prolongado</td>
+</tr>
+<tr>
+<td>Proinsulina</td>
+<td>Sin valor en urgencia — diagnóstico de insulinoma es electivo</td>
+<td>Estudio ambulatorio diferido de insulinoma</td>
+</tr>
+<tr>
+<td>IGF-1 / IGF-2</td>
+<td>Para investigación de tumores no pancreáticos — proceso ambulatorio</td>
+<td>Hipoglucemia recurrente en no diabético sin diagnóstico tras evaluación inicial</td>
+</tr>
+<tr>
+<td>Prueba de ayuno 72h</td>
+<td>Es un estudio de internamiento electivo — jamás se inicia en urgencias</td>
+<td>Referencia a endocrinología tras estabilización y alta</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<!-- TAB 2: FISIOPATOLOGÍA -->
+<div class="tab-panel" id="tab-2">
+<h2 class="section-title">🧠 Fisiopatología</h2>
+<div class="card card-blue open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⚡</span>
+<span class="card-title">Contrarregulación Glucémica Normal</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p>En condiciones normales, ante el descenso de glucosa, el organismo activa una cascada de respuestas contrarregulatorias secuenciales:</p>
+<div class="protocol-step">
+<div class="step-number s-blue">1</div>
+<div class="step-content">
+<h4>80–85 mg/dL → Supresión de insulina pancreática</h4>
+<p>Primera línea. Reduce el consumo periférico y aumenta la producción hepática de glucosa.</p>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-yellow">2</div>
+<div class="step-content">
+<h4>65–70 mg/dL → Secreción de glucagón pancreático (células α)</h4>
+<p>Estimula glucogenólisis hepática. Respuesta más importante y rápida en hipoglucemia aguda.</p>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-orange">3</div>
+<div class="step-content">
+<h4>60–65 mg/dL → Secreción de adrenalina (médula suprarrenal)</h4>
+<p>Estimula glucogenólisis y gluconeogénesis. Produce síntomas adrenérgicos. Esencial cuando el glucagón falla (como en DM1 avanzada).</p>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-red">4</div>
+<div class="step-content">
+<h4>55–60 mg/dL → Cortisol y GH (hipófisis-suprarrenal)</h4>
+<p>Respuesta tardía pero sostenida. Promueven gluconeogénesis a partir de proteínas y lípidos.</p>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-red">5</div>
+<div class="step-content">
+<h4>&lt;50 mg/dL → Síntomas neurológicos (neuroglucopenia)</h4>
+<p>El cerebro depende casi exclusivamente de glucosa. Confusión, convulsiones, coma si no se corrige.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-red">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🚨</span>
+<span class="card-title">Fallo de Contrarregulación — Por Qué Algunos Pacientes No "Sienten" la Hipoglucemia</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-red">
+<strong>🚨 DEFECTIVE GLUCOSE COUNTERREGULATION (DGC) — Alta mortalidad</strong>
           En DM1 de larga evolución y en algunos DM2, tanto el glucagón como la adrenalina fallan. El paciente no tiene señales de alerta y progresa directamente al coma.
         </div>
-        <table>
-          <tr><th>Mecanismo</th><th>Causa</th><th>Consecuencia</th></tr>
-          <tr><td>Pérdida de células α pancreáticas</td><td>DM1 avanzada, pancreatitis crónica</td><td>No hay secreción de glucagón ante hipoglucemia</td></tr>
-          <tr><td>Hipoglucemia previa reciente</td><td>Episodio &lt;24-48h antes</td><td>Reduce el umbral de respuesta adrenérgica ("HAAF")</td></tr>
-          <tr><td>Neuropatía autonómica diabética</td><td>DM de larga evolución</td><td>Fallo en activación simpática; no hay síntomas de alarma</td></tr>
-          <tr><td>β-bloqueantes</td><td>Propranolol, carvedilol, atenolol</td><td>Bloquean síntomas adrenérgicos; enmascaran y prolongan hipoglucemia</td></tr>
-          <tr><td>Sueño</td><td>Hipoglucemia nocturna</td><td>Reduce percepción; riesgo de muerte nocturna en DM1</td></tr>
-          <tr><td>Hipoglucemia asintomática previa repetida</td><td>HAAF (Hypoglycemia-Associated Autonomic Failure)</td><td>Adapta el umbral cerebral → tolera &lt;54 sin síntomas</td></tr>
-        </table>
-        <div class="alert alert-emerald">
-          <strong>✦ HAAF — ADA 2026:</strong><span class="tag-new">ADA 2026</span>
+<table>
+<tr><th>Mecanismo</th><th>Causa</th><th>Consecuencia</th></tr>
+<tr><td>Pérdida de células α pancreáticas</td><td>DM1 avanzada, pancreatitis crónica</td><td>No hay secreción de glucagón ante hipoglucemia</td></tr>
+<tr><td>Hipoglucemia previa reciente</td><td>Episodio &lt;24-48h antes</td><td>Reduce el umbral de respuesta adrenérgica ("HAAF")</td></tr>
+<tr><td>Neuropatía autonómica diabética</td><td>DM de larga evolución</td><td>Fallo en activación simpática; no hay síntomas de alarma</td></tr>
+<tr><td>β-bloqueantes</td><td>Propranolol, carvedilol, atenolol</td><td>Bloquean síntomas adrenérgicos; enmascaran y prolongan hipoglucemia</td></tr>
+<tr><td>Sueño</td><td>Hipoglucemia nocturna</td><td>Reduce percepción; riesgo de muerte nocturna en DM1</td></tr>
+<tr><td>Hipoglucemia asintomática previa repetida</td><td>HAAF (Hypoglycemia-Associated Autonomic Failure)</td><td>Adapta el umbral cerebral → tolera &lt;54 sin síntomas</td></tr>
+</table>
+<div class="alert alert-emerald">
+<strong>✦ HAAF — ADA 2026:</strong><span class="tag-new">ADA 2026</span>
           El síndrome de fallo autonómico asociado a hipoglucemia (HAAF) se previene evitando episodios repetidos. 2–3 semanas de euglucemia estricta pueden revertir parcialmente el HAAF. El CGM es la herramienta más efectiva para detección y prevención.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🧬</span>
-          <span class="card-title">Hipoglucemia en Contextos Especiales — Fisiopatología Específica</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr><th>Contexto</th><th>Mecanismo fisiopatológico</th><th>Implicación clínica</th></tr>
-          <tr><td>Alcohol (etanol)</td><td>Inhibe gluconeogénesis hepática al consumir NAD⁺; sin efecto sobre glucogenólisis</td><td>Hipoglucemia profunda en ayuno + alcohol; cetosis alcohólica puede coexistir</td></tr>
-          <tr><td>Falla hepática</td><td>Pérdida de gluconeogénesis y glucogenólisis; reducción de clearance de insulina</td><td>Hipoglucemia refractaria; requiere glucosa IV continua</td></tr>
-          <tr><td>Insuficiencia suprarrenal</td><td>Déficit de cortisol → gluconeogénesis disminuida + sensibilidad aumentada a insulina</td><td>Buscar en hipoglucemia recurrente sin explicación; hipotensión + hiponatremia</td></tr>
-          <tr><td>Sepsis</td><td>Consumo periférico aumentado (bacterias, fagocitos); producción hepática disminuida; hiperinsulinemia relativa</td><td>Hipoglucemia como signo de mal pronóstico; IGF-2 secretado por tumor</td></tr>
-          <tr><td>Cirugía bariátrica</td><td>Bypass gástrico → tránsito rápido → pico de GLP-1 → hipersecreción de insulina postprandial</td><td>Hipoglucemia posprandial tardía (2-3h); nesidioblastosis en biopsia</td></tr>
-          <tr><td>ERC avanzada</td><td>Acumulación de insulina (vida media prolongada), acumulación de metabolitos activos de SU (gliburida)</td><td>Hipoglucemia prolongada; gliburida contraindicada en FG&lt;30</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 3: CLASIFICACIÓN -->
-  <div class="tab-panel" id="tab-3">
-    <h2 class="section-title">📊 Clasificación y Estratificación</h2>
-
-    <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🎯</span>
-          <span class="card-title">Clasificación ADA 2026 por Niveles de Severidad <span class="tag-new">ADA 2026</span></span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr><th>Nivel</th><th>Umbral glucosa</th><th>Denominación</th><th>Características</th><th>Acción requerida</th></tr>
-          <tr style="background:#FEF9E7;">
-            <td><strong>Nivel 1</strong></td>
-            <td style="font-weight:700;color:var(--yellow);">≤70 mg/dL<br>(3.9 mmol/L)</td>
-            <td>Alerta hipoglucémica</td>
-            <td>Puede o no tener síntomas. Paciente puede autotratarse. No requiere asistencia.</td>
-            <td>Regla 15-15: 15g glucosa rápida → revalorar en 15 min</td>
-          </tr>
-          <tr style="background:#FDF0EE;">
-            <td><strong>Nivel 2</strong></td>
-            <td style="font-weight:700;color:var(--orange);">≤54 mg/dL<br>(3.0 mmol/L)</td>
-            <td>Clínicamente significativa</td>
-            <td>Suficientemente baja para causar daño neurológico. Requiere tratamiento inmediato.</td>
-            <td>Glucosa oral urgente (puede autotratarse) o IV si no puede ingerir</td>
-          </tr>
-          <tr style="background:#FDEDEC;">
-            <td><strong>Nivel 3</strong></td>
-            <td style="font-weight:700;color:var(--red);">Sin umbral específico</td>
-            <td>Hipoglucemia severa</td>
-            <td>Deterioro cognitivo grave: no puede autotratarse. Requiere ASISTENCIA de terceros.</td>
-            <td>Glucagón SC/IM/nasal O dextrosa IV. Activación de emergencias.</td>
-          </tr>
-        </table>
-        <div class="alert alert-emerald">
-          <strong>✦ CAMBIO ADA 2026:</strong><span class="tag-new">NUEVO</span>
+</div>
+</div>
+<div class="card card-purple">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🧬</span>
+<span class="card-title">Hipoglucemia en Contextos Especiales — Fisiopatología Específica</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr><th>Contexto</th><th>Mecanismo fisiopatológico</th><th>Implicación clínica</th></tr>
+<tr><td>Alcohol (etanol)</td><td>Inhibe gluconeogénesis hepática al consumir NAD⁺; sin efecto sobre glucogenólisis</td><td>Hipoglucemia profunda en ayuno + alcohol; cetosis alcohólica puede coexistir</td></tr>
+<tr><td>Falla hepática</td><td>Pérdida de gluconeogénesis y glucogenólisis; reducción de clearance de insulina</td><td>Hipoglucemia refractaria; requiere glucosa IV continua</td></tr>
+<tr><td>Insuficiencia suprarrenal</td><td>Déficit de cortisol → gluconeogénesis disminuida + sensibilidad aumentada a insulina</td><td>Buscar en hipoglucemia recurrente sin explicación; hipotensión + hiponatremia</td></tr>
+<tr><td>Sepsis</td><td>Consumo periférico aumentado (bacterias, fagocitos); producción hepática disminuida; hiperinsulinemia relativa</td><td>Hipoglucemia como signo de mal pronóstico; IGF-2 secretado por tumor</td></tr>
+<tr><td>Cirugía bariátrica</td><td>Bypass gástrico → tránsito rápido → pico de GLP-1 → hipersecreción de insulina postprandial</td><td>Hipoglucemia posprandial tardía (2-3h); nesidioblastosis en biopsia</td></tr>
+<tr><td>ERC avanzada</td><td>Acumulación de insulina (vida media prolongada), acumulación de metabolitos activos de SU (gliburida)</td><td>Hipoglucemia prolongada; gliburida contraindicada en FG&lt;30</td></tr>
+</table>
+</div>
+</div>
+</div>
+<!-- TAB 3: CLASIFICACIÓN -->
+<div class="tab-panel" id="tab-3">
+<h2 class="section-title">📊 Clasificación y Estratificación</h2>
+<div class="card card-blue open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🎯</span>
+<span class="card-title">Clasificación ADA 2026 por Niveles de Severidad <span class="tag-new">ADA 2026</span></span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr><th>Nivel</th><th>Umbral glucosa</th><th>Denominación</th><th>Características</th><th>Acción requerida</th></tr>
+<tr style="background:#FEF9E7;">
+<td><strong>Nivel 1</strong></td>
+<td style="font-weight:700;color:var(--yellow);">≤70 mg/dL<br/>(3.9 mmol/L)</td>
+<td>Alerta hipoglucémica</td>
+<td>Puede o no tener síntomas. Paciente puede autotratarse. No requiere asistencia.</td>
+<td>Regla 15-15: 15g glucosa rápida → revalorar en 15 min</td>
+</tr>
+<tr style="background:#FDF0EE;">
+<td><strong>Nivel 2</strong></td>
+<td style="font-weight:700;color:var(--orange);">≤54 mg/dL<br/>(3.0 mmol/L)</td>
+<td>Clínicamente significativa</td>
+<td>Suficientemente baja para causar daño neurológico. Requiere tratamiento inmediato.</td>
+<td>Glucosa oral urgente (puede autotratarse) o IV si no puede ingerir</td>
+</tr>
+<tr style="background:#FDEDEC;">
+<td><strong>Nivel 3</strong></td>
+<td style="font-weight:700;color:var(--red);">Sin umbral específico</td>
+<td>Hipoglucemia severa</td>
+<td>Deterioro cognitivo grave: no puede autotratarse. Requiere ASISTENCIA de terceros.</td>
+<td>Glucagón SC/IM/nasal O dextrosa IV. Activación de emergencias.</td>
+</tr>
+</table>
+<div class="alert alert-emerald">
+<strong>✦ CAMBIO ADA 2026:</strong><span class="tag-new">NUEVO</span>
           La sección 6 ahora unifica "Glycemic Goals, Hypoglycemia, and Hyperglycemic Crises" — reconociendo que la hipoglucemia y la hiperglucemia comparten el mismo capítulo de objetivos glucémicos. La prevención de hipoglucemia es un objetivo terapéutico explícito, igual de prioritario que la reducción de HbA1c.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-yellow">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⏰</span>
-          <span class="card-title">Clasificación por Temporalidad y Relación con Alimentación</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="grid-2">
-          <div class="info-box">
-            <strong>🌙 Hipoglucemia en Ayuno (Fasting)</strong>
-            <ul>
-              <li>Aparece luego de 5+ horas sin comer</li>
-              <li>Sugiere: insulinoma, falla hepática, insuficiencia suprarrenal, desnutrición, alcohol, ERC</li>
-              <li>Generalmente más severa y prolongada</li>
-              <li>La clásica del insulinoma (70-80% de casos)</li>
-            </ul>
-          </div>
-          <div class="info-box">
-            <strong>🍽️ Hipoglucemia Postprandial (Reactiva)</strong>
-            <ul>
-              <li>Aparece 2-5 horas después de comer</li>
-              <li>Sugiere: post-cirugía bariátrica, nesidioblastosis, síndrome de dumping, idiopática</li>
-              <li>Rara en no operados sin diabetes</li>
-              <li>Puede confundirse con síndrome de dumping</li>
-            </ul>
-          </div>
-          <div class="info-box">
-            <strong>🌑 Hipoglucemia Nocturna</strong>
-            <ul>
-              <li>Especialmente peligrosa: el paciente no despierta</li>
-              <li>Común en DM1 con NPH nocturna o insulina rígida</li>
-              <li>Puede presentarse como pesadillas, sudoración nocturna, cefalea matinal</li>
-              <li>CGM es el estándar para detectarla</li>
-            </ul>
-          </div>
-          <div class="info-box">
-            <strong>🏥 Hipoglucemia Intrahospitalaria</strong>
-            <ul>
-              <li>Paciente en ayuno sin ajuste de insulina/SU</li>
-              <li>Insulina prandial sin ingesta confirmada</li>
-              <li>Insuficiencia renal aguda que modifica clearance</li>
-              <li>Sepsis, hipo-administración de dextrosa en NPT</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⚠️</span>
-          <span class="card-title">Factores de Riesgo para Hipoglucemia Grave</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="grid-2">
-          <div>
-            <h4 style="color:var(--red);margin-bottom:8px;">🔴 Factores no modificables</h4>
-            <ul>
-              <li>DM tipo 1 (pérdida de glucagón)</li>
-              <li>Larga duración de diabetes</li>
-              <li>Edad avanzada (reducción percepción síntomas)</li>
-              <li>ERC (FG &lt;30 mL/min)</li>
-              <li>Neuropatía autonómica establecida</li>
-              <li>Hipoglucemia inadvertida previa (HAAF)</li>
-            </ul>
-          </div>
-          <div>
-            <h4 style="color:var(--orange);margin-bottom:8px;">🟠 Factores modificables</h4>
-            <ul>
-              <li>HbA1c muy baja (&lt;6%) con régimen intensivo</li>
-              <li>Uso de insulina NPH o mezclas rígidas</li>
-              <li>Sulfonilureas de larga duración (gliburida)</li>
-              <li>Dosis de insulina excesiva</li>
-              <li>Omisión de comidas o reducción súbita de ingesta</li>
-              <li>Alcohol</li>
-              <li>Ejercicio intenso sin ajuste de dosis</li>
-              <li>β-bloqueantes (especialmente no cardioselectivos)</li>
-              <li>Bajo nivel socioeconómico (acceso limitado a glucosa)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">📋</span>
-          <span class="card-title">Evaluación del Riesgo — Checklist del Proveedor <span class="tag-updated">ADA 2026</span></span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p>La ADA 2026 recomienda que todo proveedor que atiende pacientes con hipoglucemia frecuente o grave use un checklist estructurado:</p>
-        <table>
-          <tr><th>#</th><th>Pregunta al paciente</th><th>Acción si positivo</th></tr>
-          <tr><td>1</td><td>¿Con qué frecuencia tiene episodios de glucosa baja?</td><td>Si &gt;1/semana: revisar régimen insulínico, agregar CGM</td></tr>
-          <tr><td>2</td><td>¿Puede reconocer los síntomas de glucosa baja?</td><td>Si no: sospechar HAAF, considerar objetivo de glucosa menos estricto</td></tr>
-          <tr><td>3</td><td>¿Tiene glucagón disponible y sabe cómo usarlo?</td><td>Si no: prescribir y educar. La ADA 2026 lo indica para TODOS los que usan insulina</td></tr>
-          <tr><td>4</td><td>¿Alguien de su entorno sabe reconocer y tratar una hipoglucemia severa?</td><td>Si no: educación a cuidadores/familia</td></tr>
-          <tr><td>5</td><td>¿Su HbA1c es más baja de lo esperado?</td><td>Puede reflejar hipoglucemias frecuentes no reportadas</td></tr>
-          <tr><td>6</td><td>¿Usa β-bloqueantes, IECA, quinolonas, salicilatos?</td><td>Revisar combinaciones; ajustar dosis de hipoglucemiante</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 4: MANEJO CLÍNICO -->
-  <div class="tab-panel" id="tab-4">
-    <h2 class="section-title">🏥 Decisiones Terapéuticas Basadas en Clínica y Laboratorio</h2>
-
-    <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🚨</span>
-          <span class="card-title">Tratamiento de Hipoglucemia Aguda — Árbol de Decisión por Nivel de Conciencia</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="decision-box db-blue">🔵 PASO 1: Confirmar glucosa ≤70 mg/dL (glucómetro o clínica compatible)</div>
-        <div class="arrow-down">↓</div>
-        <div class="decision-box db-yellow">❓ ¿El paciente está consciente y puede deglutir?</div>
-        <div class="arrow-down">↓ SÍ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓ NO</div>
-        <div class="grid-2">
-          <div>
-            <div class="decision-box db-green">
-              ✅ <strong>Regla 15-15 (ADA 2026)</strong><br>
-              → 15g glucosa de absorción rápida VO<br>
-              → Esperar 15 minutos<br>
-              → Medir glucosa nuevamente<br>
-              → Si aún ≤70: repetir el ciclo<br>
+</div>
+</div>
+<div class="card card-yellow">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⏰</span>
+<span class="card-title">Clasificación por Temporalidad y Relación con Alimentación</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div class="info-box">
+<strong>🌙 Hipoglucemia en Ayuno (Fasting)</strong>
+<ul>
+<li>Aparece luego de 5+ horas sin comer</li>
+<li>Sugiere: insulinoma, falla hepática, insuficiencia suprarrenal, desnutrición, alcohol, ERC</li>
+<li>Generalmente más severa y prolongada</li>
+<li>La clásica del insulinoma (70-80% de casos)</li>
+</ul>
+</div>
+<div class="info-box">
+<strong>🍽️ Hipoglucemia Postprandial (Reactiva)</strong>
+<ul>
+<li>Aparece 2-5 horas después de comer</li>
+<li>Sugiere: post-cirugía bariátrica, nesidioblastosis, síndrome de dumping, idiopática</li>
+<li>Rara en no operados sin diabetes</li>
+<li>Puede confundirse con síndrome de dumping</li>
+</ul>
+</div>
+<div class="info-box">
+<strong>🌑 Hipoglucemia Nocturna</strong>
+<ul>
+<li>Especialmente peligrosa: el paciente no despierta</li>
+<li>Común en DM1 con NPH nocturna o insulina rígida</li>
+<li>Puede presentarse como pesadillas, sudoración nocturna, cefalea matinal</li>
+<li>CGM es el estándar para detectarla</li>
+</ul>
+</div>
+<div class="info-box">
+<strong>🏥 Hipoglucemia Intrahospitalaria</strong>
+<ul>
+<li>Paciente en ayuno sin ajuste de insulina/SU</li>
+<li>Insulina prandial sin ingesta confirmada</li>
+<li>Insuficiencia renal aguda que modifica clearance</li>
+<li>Sepsis, hipo-administración de dextrosa en NPT</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-red">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⚠️</span>
+<span class="card-title">Factores de Riesgo para Hipoglucemia Grave</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div>
+<h4 style="color:var(--red);margin-bottom:8px;">🔴 Factores no modificables</h4>
+<ul>
+<li>DM tipo 1 (pérdida de glucagón)</li>
+<li>Larga duración de diabetes</li>
+<li>Edad avanzada (reducción percepción síntomas)</li>
+<li>ERC (FG &lt;30 mL/min)</li>
+<li>Neuropatía autonómica establecida</li>
+<li>Hipoglucemia inadvertida previa (HAAF)</li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--orange);margin-bottom:8px;">🟠 Factores modificables</h4>
+<ul>
+<li>HbA1c muy baja (&lt;6%) con régimen intensivo</li>
+<li>Uso de insulina NPH o mezclas rígidas</li>
+<li>Sulfonilureas de larga duración (gliburida)</li>
+<li>Dosis de insulina excesiva</li>
+<li>Omisión de comidas o reducción súbita de ingesta</li>
+<li>Alcohol</li>
+<li>Ejercicio intenso sin ajuste de dosis</li>
+<li>β-bloqueantes (especialmente no cardioselectivos)</li>
+<li>Bajo nivel socioeconómico (acceso limitado a glucosa)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-orange">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">📋</span>
+<span class="card-title">Evaluación del Riesgo — Checklist del Proveedor <span class="tag-updated">ADA 2026</span></span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p>La ADA 2026 recomienda que todo proveedor que atiende pacientes con hipoglucemia frecuente o grave use un checklist estructurado:</p>
+<table>
+<tr><th>#</th><th>Pregunta al paciente</th><th>Acción si positivo</th></tr>
+<tr><td>1</td><td>¿Con qué frecuencia tiene episodios de glucosa baja?</td><td>Si &gt;1/semana: revisar régimen insulínico, agregar CGM</td></tr>
+<tr><td>2</td><td>¿Puede reconocer los síntomas de glucosa baja?</td><td>Si no: sospechar HAAF, considerar objetivo de glucosa menos estricto</td></tr>
+<tr><td>3</td><td>¿Tiene glucagón disponible y sabe cómo usarlo?</td><td>Si no: prescribir y educar. La ADA 2026 lo indica para TODOS los que usan insulina</td></tr>
+<tr><td>4</td><td>¿Alguien de su entorno sabe reconocer y tratar una hipoglucemia severa?</td><td>Si no: educación a cuidadores/familia</td></tr>
+<tr><td>5</td><td>¿Su HbA1c es más baja de lo esperado?</td><td>Puede reflejar hipoglucemias frecuentes no reportadas</td></tr>
+<tr><td>6</td><td>¿Usa β-bloqueantes, IECA, quinolonas, salicilatos?</td><td>Revisar combinaciones; ajustar dosis de hipoglucemiante</td></tr>
+</table>
+</div>
+</div>
+</div>
+<!-- TAB 4: MANEJO CLÍNICO -->
+<div class="tab-panel" id="tab-4">
+<h2 class="section-title">🏥 Decisiones Terapéuticas Basadas en Clínica y Laboratorio</h2>
+<div class="card card-red open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🚨</span>
+<span class="card-title">Tratamiento de Hipoglucemia Aguda — Árbol de Decisión por Nivel de Conciencia</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="decision-box db-blue">🔵 PASO 1: Confirmar glucosa ≤70 mg/dL (glucómetro o clínica compatible)</div>
+<div class="arrow-down">↓</div>
+<div class="decision-box db-yellow">❓ ¿El paciente está consciente y puede deglutir?</div>
+<div class="arrow-down">↓ SÍ                                             ↓ NO</div>
+<div class="grid-2">
+<div>
+<div class="decision-box db-green">
+              ✅ <strong>Regla 15-15 (ADA 2026)</strong><br/>
+              → 15g glucosa de absorción rápida VO<br/>
+              → Esperar 15 minutos<br/>
+              → Medir glucosa nuevamente<br/>
+              → Si aún ≤70: repetir el ciclo<br/>
               → Una vez normalizada: snack con proteína/carbohidrato complejo
             </div>
-            <div class="info-box" style="margin-top:10px;">
-              <strong>Fuentes de 15g glucosa rápida:</strong>
-              <ul>
-                <li>4 tabletas de glucosa (preferidas)</li>
-                <li>120-150 mL jugo de fruta sin azúcar añadida</li>
-                <li>1 cucharada sopera de azúcar</li>
-                <li>150 mL gaseosa azucarada (no diet)</li>
-                <li>Gel de glucosa en tubo</li>
-              </ul>
-              <p style="margin-top:6px;color:var(--red);font-size:0.88rem;">⚠ Evitar: leche entera, chocolates, pasteles — la grasa retrasa absorción</p>
-            </div>
-          </div>
-          <div>
-            <div class="decision-box db-red">
-              🚨 <strong>Inconsciente / No puede deglutir / Convulsiones</strong><br><br>
-              <strong>OPCIÓN A — Dextrosa IV:</strong><br>
-              → Dextrosa al 33%: 50 mL IV en 3-5 min (equivale a 16.5g glucosa)<br>
-              → Alternativa: Dextrosa al 10%: 150-200 mL IV<br>
-              → Si sin acceso venoso → GLUCAGÓN<br><br>
-              <strong>OPCIÓN B — Glucagón (sin acceso venoso):</strong><br>
-              → Glucagón 1mg SC o IM<br>
-              → ó Glucagón nasal 3mg intranasal <span class="tag-new">PREFERIDO</span><br>
-              → Efecto en 10-15 min<br>
+<div class="info-box" style="margin-top:10px;">
+<strong>Fuentes de 15g glucosa rápida:</strong>
+<ul>
+<li>4 tabletas de glucosa (preferidas)</li>
+<li>120-150 mL jugo de fruta sin azúcar añadida</li>
+<li>1 cucharada sopera de azúcar</li>
+<li>150 mL gaseosa azucarada (no diet)</li>
+<li>Gel de glucosa en tubo</li>
+</ul>
+<p style="margin-top:6px;color:var(--red);font-size:0.88rem;">⚠ Evitar: leche entera, chocolates, pasteles — la grasa retrasa absorción</p>
+</div>
+</div>
+<div>
+<div class="decision-box db-red">
+              🚨 <strong>Inconsciente / No puede deglutir / Convulsiones</strong><br/><br/>
+<strong>OPCIÓN A — Dextrosa IV:</strong><br/>
+              → Dextrosa al 33%: 50 mL IV en 3-5 min (equivale a 16.5g glucosa)<br/>
+              → Alternativa: Dextrosa al 10%: 150-200 mL IV<br/>
+              → Si sin acceso venoso → GLUCAGÓN<br/><br/>
+<strong>OPCIÓN B — Glucagón (sin acceso venoso):</strong><br/>
+              → Glucagón 1mg SC o IM<br/>
+              → ó Glucagón nasal 3mg intranasal <span class="tag-new">PREFERIDO</span><br/>
+              → Efecto en 10-15 min<br/>
               → FALLAN en: ayuno prolongado, alcohol, falla hepática
             </div>
-          </div>
-        </div>
-        <div class="alert alert-emerald">
-          <strong>✦ CAMBIO ADA 2026 — Glucagón de nueva generación:</strong><span class="tag-new">ADA 2026</span>
+</div>
+</div>
+<div class="alert alert-emerald">
+<strong>✦ CAMBIO ADA 2026 — Glucagón de nueva generación:</strong><span class="tag-new">ADA 2026</span>
           Se prefieren presentaciones de glucagón que no requieren reconstitución (nasal o solución precargada SC/IM). Son más fáciles de usar por cuidadores no entrenados. Deben prescribirse a TODOS los pacientes con insulina, incluyendo los de solo insulina basal. La ADA indica explícitamente que no solo los pacientes en bomba o MDI necesitan glucagón.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-blue">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">⚖️</span>
-          <span class="card-title">Decisiones Terapéuticas Basadas en Laboratorio — Guía Práctica</span>
+</div>
+</div>
+<div class="card card-blue">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">⚖️</span>
+<span class="card-title">Decisiones Terapéuticas Basadas en Laboratorio — Guía Práctica</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table>
+<tr><th>Hallazgo laboratorial</th><th>Interpretación</th><th>Decisión terapéutica</th></tr>
+<tr><td>Insulina ↑↑ + Péptido C ↑ + SU negativo</td><td>Insulinoma u otro hiperinsulinismo endógeno</td><td>Referir endocrinología; glucosa IV de mantenimiento; diazóxido SI hipoglucemia refractaria</td></tr>
+<tr><td>Insulina ↑↑ + Péptido C ↓ suprimido</td><td>Insulina exógena (hipoglucemia facticia)</td><td>Suspender insulina exógena; dextrosa IV; evaluación psiquiátrica; vigilancia</td></tr>
+<tr><td>Insulina ↑ + Péptido C ↑ + SU positivo</td><td>Intoxicación por sulfonilurea</td><td>Dextrosa IV + octreotida 50 μg SC c/6h (reduce secreción de insulina); vigilancia 24-48h</td></tr>
+<tr><td>Cortisol &lt;3 μg/dL durante hipoglucemia</td><td>Insuficiencia suprarrenal</td><td>Hidrocortisona 100 mg IV inmediato + dextrosa; completar estudio eje HHS</td></tr>
+<tr><td>β-OHB ↑↑ + Insulina ↓ + Péptido C ↓</td><td>Ayuno prolongado o caquexia</td><td>Glucosa IV + reponer nutrición; descartar neoplasia oculta si recurrente</td></tr>
+<tr><td>Función hepática gravemente alterada</td><td>Falla hepática</td><td>Dextrosa IV continua al 10% (infusión); tratar causa subyacente</td></tr>
+<tr><td>IGF-2 elevado + tumor sólido conocido</td><td>NICTH (hipoglucemia no-insulinoma por tumor)</td><td>Glucosa IV continua; tratar tumor primario; glucocorticoides pueden ayudar</td></tr>
+<tr><td>ERC con FG &lt;30 + gliburida</td><td>Acumulación de metabolitos activos</td><td>Suspender gliburida definitivamente; dextrosa IV; hospitalización 24-48h mínimo</td></tr>
+</table>
+</div>
+</div>
+<div class="card card-green">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🏥</span>
+<span class="card-title">Hipoglucemia Intrahospitalaria — ADA 2026 <span class="tag-new">ADA 2026</span></span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>📌 Objetivo glucémico intrahospitalario (no UCI): 100–180 mg/dL</strong> — ADA 2026 Sección 16. Se recomienda si se puede alcanzar sin hipoglucemia significativa.
         </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr><th>Hallazgo laboratorial</th><th>Interpretación</th><th>Decisión terapéutica</th></tr>
-          <tr><td>Insulina ↑↑ + Péptido C ↑ + SU negativo</td><td>Insulinoma u otro hiperinsulinismo endógeno</td><td>Referir endocrinología; glucosa IV de mantenimiento; diazóxido SI hipoglucemia refractaria</td></tr>
-          <tr><td>Insulina ↑↑ + Péptido C ↓ suprimido</td><td>Insulina exógena (hipoglucemia facticia)</td><td>Suspender insulina exógena; dextrosa IV; evaluación psiquiátrica; vigilancia</td></tr>
-          <tr><td>Insulina ↑ + Péptido C ↑ + SU positivo</td><td>Intoxicación por sulfonilurea</td><td>Dextrosa IV + octreotida 50 μg SC c/6h (reduce secreción de insulina); vigilancia 24-48h</td></tr>
-          <tr><td>Cortisol &lt;3 μg/dL durante hipoglucemia</td><td>Insuficiencia suprarrenal</td><td>Hidrocortisona 100 mg IV inmediato + dextrosa; completar estudio eje HHS</td></tr>
-          <tr><td>β-OHB ↑↑ + Insulina ↓ + Péptido C ↓</td><td>Ayuno prolongado o caquexia</td><td>Glucosa IV + reponer nutrición; descartar neoplasia oculta si recurrente</td></tr>
-          <tr><td>Función hepática gravemente alterada</td><td>Falla hepática</td><td>Dextrosa IV continua al 10% (infusión); tratar causa subyacente</td></tr>
-          <tr><td>IGF-2 elevado + tumor sólido conocido</td><td>NICTH (hipoglucemia no-insulinoma por tumor)</td><td>Glucosa IV continua; tratar tumor primario; glucocorticoides pueden ayudar</td></tr>
-          <tr><td>ERC con FG &lt;30 + gliburida</td><td>Acumulación de metabolitos activos</td><td>Suspender gliburida definitivamente; dextrosa IV; hospitalización 24-48h mínimo</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card card-green">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🏥</span>
-          <span class="card-title">Hipoglucemia Intrahospitalaria — ADA 2026 <span class="tag-new">ADA 2026</span></span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-blue">
-          <strong>📌 Objetivo glucémico intrahospitalario (no UCI): 100–180 mg/dL</strong> — ADA 2026 Sección 16. Se recomienda si se puede alcanzar sin hipoglucemia significativa.
-        </div>
-        <table>
-          <tr><th>Situación</th><th>Acción</th></tr>
-          <tr><td>Glucosa &lt;70 mg/dL en paciente hospitalizado (puede ingerir)</td><td>15g glucosa VO + repetir glucosa en 15 min. Revisar orden de insulina.</td></tr>
-          <tr><td>Glucosa &lt;70 mg/dL en paciente en ayuno (no puede ingerir)</td><td>Dextrosa al 33%: 50 mL IV; luego glucosa IV de mantenimiento. Suspender insulina prandial.</td></tr>
-          <tr><td>Glucosa &lt;54 mg/dL (Nivel 2)</td><td>Dextrosa IV inmediata; revisión urgente de régimen insulínico; notificar al médico tratante</td></tr>
-          <tr><td>Hipoglucemia recurrente (&gt;1 episodio/día)</td><td>Revisión urgente del régimen; considerar suspender insulina prandial; target 140-180; considerar CGM hospitalario</td></tr>
-          <tr><td>Paciente con NPO (nada por boca) con insulina basal</td><td>Reducir basal 20-25%; no administrar insulina prandial hasta que retome ingesta</td></tr>
-          <tr><td>Al alta con hipoglucemia grave reciente</td><td>Prescribir glucagón; educación paciente/familia; CGM si disponible; cita en 1 semana</td></tr>
-        </table>
-        <div class="alert alert-emerald">
-          <strong>✦ ADA 2026 — CGM en hospitalización:</strong><span class="tag-new">ADA 2026</span>
+<table>
+<tr><th>Situación</th><th>Acción</th></tr>
+<tr><td>Glucosa &lt;70 mg/dL en paciente hospitalizado (puede ingerir)</td><td>15g glucosa VO + repetir glucosa en 15 min. Revisar orden de insulina.</td></tr>
+<tr><td>Glucosa &lt;70 mg/dL en paciente en ayuno (no puede ingerir)</td><td>Dextrosa al 33%: 50 mL IV; luego glucosa IV de mantenimiento. Suspender insulina prandial.</td></tr>
+<tr><td>Glucosa &lt;54 mg/dL (Nivel 2)</td><td>Dextrosa IV inmediata; revisión urgente de régimen insulínico; notificar al médico tratante</td></tr>
+<tr><td>Hipoglucemia recurrente (&gt;1 episodio/día)</td><td>Revisión urgente del régimen; considerar suspender insulina prandial; target 140-180; considerar CGM hospitalario</td></tr>
+<tr><td>Paciente con NPO (nada por boca) con insulina basal</td><td>Reducir basal 20-25%; no administrar insulina prandial hasta que retome ingesta</td></tr>
+<tr><td>Al alta con hipoglucemia grave reciente</td><td>Prescribir glucagón; educación paciente/familia; CGM si disponible; cita en 1 semana</td></tr>
+</table>
+<div class="alert alert-emerald">
+<strong>✦ ADA 2026 — CGM en hospitalización:</strong><span class="tag-new">ADA 2026</span>
           Estudios recientes demuestran que el CGM puede prevenir visitas a urgencias y hospitalizaciones. Considerar iniciar CGM previo al alta para facilitar seguimiento ambulatorio y prevenir readmisiones por hipoglucemia.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">💊</span>
-          <span class="card-title">Fármacos Hipoglucemiantes con Mayor Riesgo — Guía de Decisión</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <table class="compare-table">
-          <tr><th>Fármaco</th><th>Riesgo hipoglucemia</th><th>Factor agravante</th><th>Acción ante hipoglucemia</th></tr>
-          <tr><td>Insulina NPH/Glargina</td><td>🔴 ALTO</td><td>Ayuno, ejercicio, alcohol, ERC</td><td>Dextrosa IV; revisar y reducir dosis; CGM</td></tr>
-          <tr><td>Gliburida (glibenclamida)</td><td>🔴 ALTO</td><td>ERC (contraindicada FG&lt;30), ancianos</td><td>Octreotida + dextrosa IV; hospitalizar 24-48h</td></tr>
-          <tr><td>Glipizida / Glimepirida</td><td>🟠 MODERADO</td><td>ERC leve-moderada, ancianos</td><td>Dextrosa IV; vigilar 12-24h</td></tr>
-          <tr><td>Repaglinida</td><td>🟠 MODERADO</td><td>Omisión de comidas</td><td>Glucosa VO/IV; ajustar administración con comidas</td></tr>
-          <tr><td>Metformina</td><td>🟢 MÍNIMO</td><td>Solo en combinación con insulina/SU</td><td>Tratar la causa combinada; no suspender metformina</td></tr>
-          <tr><td>GLP-1 RA (semaglutida, liraglutida)</td><td>🟢 MÍNIMO</td><td>Combinación con insulina</td><td>Reducir dosis de insulina; no suspender GLP-1 RA</td></tr>
-          <tr><td>iSGLT-2 (empagliflozina)</td><td>🟢 MÍNIMO</td><td>Combinación con insulina/SU</td><td>Atención: puede enmascarar cetoacidosis euglucémica</td></tr>
-          <tr><td>Quinolonas (ciprofloxacino, levofloxacino)</td><td>⚠️ INTERACCIÓN</td><td>Potencian efecto de SU e insulina</td><td>Monitorizar glucosa c/6h durante tratamiento</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 5: PROTOCOLO -->
-  <div class="tab-panel" id="tab-5">
-    <h2 class="section-title">🔄 Protocolo Paso a Paso</h2>
-
-    <div class="card card-blue open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🏃</span>
-          <span class="card-title">Protocolo Urgencias — Hipoglucemia Aguda</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="protocol-step">
-          <div class="step-number s-red">A</div>
-          <div class="step-content">
-            <h4 style="color:var(--red);">EVALUACIÓN INMEDIATA — ABC + Glucemia</h4>
-            <p>• Vía aérea permeable · Monitor cardíaco · Acceso venoso<br>
-            • Glucemia capilar inmediata (glucómetro)<br>
+</div>
+</div>
+<div class="card card-orange">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">💊</span>
+<span class="card-title">Fármacos Hipoglucemiantes con Mayor Riesgo — Guía de Decisión</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<table class="compare-table">
+<tr><th>Fármaco</th><th>Riesgo hipoglucemia</th><th>Factor agravante</th><th>Acción ante hipoglucemia</th></tr>
+<tr><td>Insulina NPH/Glargina</td><td>🔴 ALTO</td><td>Ayuno, ejercicio, alcohol, ERC</td><td>Dextrosa IV; revisar y reducir dosis; CGM</td></tr>
+<tr><td>Gliburida (glibenclamida)</td><td>🔴 ALTO</td><td>ERC (contraindicada FG&lt;30), ancianos</td><td>Octreotida + dextrosa IV; hospitalizar 24-48h</td></tr>
+<tr><td>Glipizida / Glimepirida</td><td>🟠 MODERADO</td><td>ERC leve-moderada, ancianos</td><td>Dextrosa IV; vigilar 12-24h</td></tr>
+<tr><td>Repaglinida</td><td>🟠 MODERADO</td><td>Omisión de comidas</td><td>Glucosa VO/IV; ajustar administración con comidas</td></tr>
+<tr><td>Metformina</td><td>🟢 MÍNIMO</td><td>Solo en combinación con insulina/SU</td><td>Tratar la causa combinada; no suspender metformina</td></tr>
+<tr><td>GLP-1 RA (semaglutida, liraglutida)</td><td>🟢 MÍNIMO</td><td>Combinación con insulina</td><td>Reducir dosis de insulina; no suspender GLP-1 RA</td></tr>
+<tr><td>iSGLT-2 (empagliflozina)</td><td>🟢 MÍNIMO</td><td>Combinación con insulina/SU</td><td>Atención: puede enmascarar cetoacidosis euglucémica</td></tr>
+<tr><td>Quinolonas (ciprofloxacino, levofloxacino)</td><td>⚠️ INTERACCIÓN</td><td>Potencian efecto de SU e insulina</td><td>Monitorizar glucosa c/6h durante tratamiento</td></tr>
+</table>
+</div>
+</div>
+</div>
+<!-- TAB 5: PROTOCOLO -->
+<div class="tab-panel" id="tab-5">
+<h2 class="section-title">🔄 Protocolo Paso a Paso</h2>
+<div class="card card-blue open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🏃</span>
+<span class="card-title">Protocolo Urgencias — Hipoglucemia Aguda</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="protocol-step">
+<div class="step-number s-red">A</div>
+<div class="step-content">
+<h4 style="color:var(--red);">EVALUACIÓN INMEDIATA — ABC + Glucemia</h4>
+<p>• Vía aérea permeable · Monitor cardíaco · Acceso venoso<br/>
+            • Glucemia capilar inmediata (glucómetro)<br/>
             • Si glucosa &lt;70 mg/dL ó clínica sugestiva → TRATAR SIN ESPERAR confirmación venosa en paciente grave</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-orange">B</div>
-          <div class="step-content">
-            <h4 style="color:var(--orange);">TRATAMIENTO INMEDIATO según nivel de conciencia</h4>
-            <p>• Consciente + deglución OK → Regla 15-15 VO<br>
-            • Obnubilado/inconsciente → Dextrosa 33% 50 mL IV en bolo lento (3-5 min)<br>
-            • Sin acceso IV → Glucagón 1mg SC/IM ó 3mg nasal<br>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-orange">B</div>
+<div class="step-content">
+<h4 style="color:var(--orange);">TRATAMIENTO INMEDIATO según nivel de conciencia</h4>
+<p>• Consciente + deglución OK → Regla 15-15 VO<br/>
+            • Obnubilado/inconsciente → Dextrosa 33% 50 mL IV en bolo lento (3-5 min)<br/>
+            • Sin acceso IV → Glucagón 1mg SC/IM ó 3mg nasal<br/>
             • Convulsionando → Dextrosa IV urgente + midazolam si no cede</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-yellow">C</div>
-          <div class="step-content">
-            <h4 style="color:var(--yellow);">VERIFICAR RESPUESTA a los 15 minutos</h4>
-            <p>• Repetir glucemia capilar/venosa<br>
-            • Si glucosa &lt;70: repetir tratamiento<br>
-            • Si no responde a glucagón: sospechar alcoholismo, falla hepática, caquexia → usar dextrosa IV<br>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-yellow">C</div>
+<div class="step-content">
+<h4 style="color:var(--yellow);">VERIFICAR RESPUESTA a los 15 minutos</h4>
+<p>• Repetir glucemia capilar/venosa<br/>
+            • Si glucosa &lt;70: repetir tratamiento<br/>
+            • Si no responde a glucagón: sospechar alcoholismo, falla hepática, caquexia → usar dextrosa IV<br/>
             • Si no responde a 100g dextrosa: considerar insuficiencia suprarrenal → hidrocortisona 100mg IV</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-blue">D</div>
-          <div class="step-content">
-            <h4 style="color:var(--blue);">MUESTRA CRÍTICA DIAGNÓSTICA (si no diabético conocido o causa no clara)</h4>
-            <p>• Obtener ANTES de dar glucosa o inmediatamente después si imposible previo<br>
-            • Insulina, péptido C, β-OHB, cortisol, screening SU, función hepática/renal<br>
-            • Tubos: suero (insulina/cortisol), fluoruro (glucosa), EDTA (hemograma)<br>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-blue">D</div>
+<div class="step-content">
+<h4 style="color:var(--blue);">MUESTRA CRÍTICA DIAGNÓSTICA (si no diabético conocido o causa no clara)</h4>
+<p>• Obtener ANTES de dar glucosa o inmediatamente después si imposible previo<br/>
+            • Insulina, péptido C, β-OHB, cortisol, screening SU, función hepática/renal<br/>
+            • Tubos: suero (insulina/cortisol), fluoruro (glucosa), EDTA (hemograma)<br/>
             • Documentar glucosa venosa en laboratorio central (no solo glucómetro)</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-green">E</div>
-          <div class="step-content">
-            <h4 style="color:var(--green);">MANTENIMIENTO Y PREVENCIÓN DE RECURRENCIA</h4>
-            <p>• Dextrosa al 10% IV de mantenimiento si: SU, insulinoma, falla hepática, ERC<br>
-            • Monitoreo glucémico c/1h hasta estabilización, luego c/2-4h<br>
-            • Meta: glucosa 100-180 mg/dL en paciente hospitalizado<br>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-green">E</div>
+<div class="step-content">
+<h4 style="color:var(--green);">MANTENIMIENTO Y PREVENCIÓN DE RECURRENCIA</h4>
+<p>• Dextrosa al 10% IV de mantenimiento si: SU, insulinoma, falla hepática, ERC<br/>
+            • Monitoreo glucémico c/1h hasta estabilización, luego c/2-4h<br/>
+            • Meta: glucosa 100-180 mg/dL en paciente hospitalizado<br/>
             • Alimentación tan pronto como sea posible y seguro</p>
-          </div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-emerald">F</div>
-          <div class="step-content">
-            <h4 style="color:var(--emerald);">IDENTIFICAR Y TRATAR LA CAUSA SUBYACENTE</h4>
-            <p>• Revisar medicamentos, dosis, horarios<br>
-            • Insulinoma → cirugía electiva + diazóxido transitorio<br>
-            • Sulfonilurea → octreotida + hospitalización 24-48h<br>
-            • Insuf. suprarrenal → hidrocortisona sistémica<br>
+</div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-emerald">F</div>
+<div class="step-content">
+<h4 style="color:var(--emerald);">IDENTIFICAR Y TRATAR LA CAUSA SUBYACENTE</h4>
+<p>• Revisar medicamentos, dosis, horarios<br/>
+            • Insulinoma → cirugía electiva + diazóxido transitorio<br/>
+            • Sulfonilurea → octreotida + hospitalización 24-48h<br/>
+            • Insuf. suprarrenal → hidrocortisona sistémica<br/>
             • Alcohol → glucosa + tiamina 100mg IV (siempre antes de glucosa)</p>
-          </div>
+</div>
+</div>
+</div>
+</div>
+<div class="card card-orange">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">💊</span>
+<span class="card-title">Octreotida en Hipoglucemia por Sulfonilurea — Cuándo y Cómo</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-orange" style="background:var(--orange-bg);border-color:var(--orange);color:var(--orange);">
+<strong>💡 Razonamiento:</strong> La octreotida inhibe la secreción de insulina pancreática mediada por el receptor KATP que las sulfonilureas mantienen abierto. Previene hipoglucemias recurrentes mientras el fármaco se elimina.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">💊</span>
-          <span class="card-title">Octreotida en Hipoglucemia por Sulfonilurea — Cuándo y Cómo</span>
+<table>
+<tr><th>Aspecto</th><th>Detalles</th></tr>
+<tr><td>Indicación</td><td>Hipoglucemia grave por sulfonilurea o repaglinida, especialmente en ancianos o ERC</td></tr>
+<tr><td>Dosis</td><td>50 μg SC cada 6-8 horas (adultos)</td></tr>
+<tr><td>Duración</td><td>Hasta 24-48h después del último episodio hipoglucémico, según SU involucrada</td></tr>
+<tr><td>Monitoreo</td><td>Glucemia horaria; ajustar dextrosa IV simultánea</td></tr>
+<tr><td>Cuidado</td><td>Puede inhibir también el glucagón → no sustituye a dextrosa IV; usar siempre combinada</td></tr>
+<tr><td>Hospitalización</td><td>Mínimo 24-48h para gliburida (t½ de metabolitos activos: 36-48h en ERC)</td></tr>
+</table>
+</div>
+</div>
+<div class="card card-red">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🧪</span>
+<span class="card-title">Hipoglucemia en Contexto de Alcohólismo — Protocolo Especial</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-red">
+<strong>🚨 REGLA ABSOLUTA:</strong> En paciente alcohólico o con desnutrición severa: SIEMPRE administrar Tiamina (Vitamina B1) 100mg IV ANTES de la dextrosa. La dextrosa sin tiamina puede precipitar encefalopatía de Wernicke irreversible.
         </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-orange" style="background:var(--orange-bg);border-color:var(--orange);color:var(--orange);">
-          <strong>💡 Razonamiento:</strong> La octreotida inhibe la secreción de insulina pancreática mediada por el receptor KATP que las sulfonilureas mantienen abierto. Previene hipoglucemias recurrentes mientras el fármaco se elimina.
-        </div>
-        <table>
-          <tr><th>Aspecto</th><th>Detalles</th></tr>
-          <tr><td>Indicación</td><td>Hipoglucemia grave por sulfonilurea o repaglinida, especialmente en ancianos o ERC</td></tr>
-          <tr><td>Dosis</td><td>50 μg SC cada 6-8 horas (adultos)</td></tr>
-          <tr><td>Duración</td><td>Hasta 24-48h después del último episodio hipoglucémico, según SU involucrada</td></tr>
-          <tr><td>Monitoreo</td><td>Glucemia horaria; ajustar dextrosa IV simultánea</td></tr>
-          <tr><td>Cuidado</td><td>Puede inhibir también el glucagón → no sustituye a dextrosa IV; usar siempre combinada</td></tr>
-          <tr><td>Hospitalización</td><td>Mínimo 24-48h para gliburida (t½ de metabolitos activos: 36-48h en ERC)</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="card card-red">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🧪</span>
-          <span class="card-title">Hipoglucemia en Contexto de Alcohólismo — Protocolo Especial</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="alert alert-red">
-          <strong>🚨 REGLA ABSOLUTA:</strong> En paciente alcohólico o con desnutrición severa: SIEMPRE administrar Tiamina (Vitamina B1) 100mg IV ANTES de la dextrosa. La dextrosa sin tiamina puede precipitar encefalopatía de Wernicke irreversible.
-        </div>
-        <div class="protocol-step">
-          <div class="step-number s-orange">1</div>
-          <div class="step-content"><h4>Tiamina 100mg IV lento (5 min)</h4></div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-green">2</div>
-          <div class="step-content"><h4>Dextrosa 33% 50 mL IV</h4></div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-blue">3</div>
-          <div class="step-content"><h4>Infusión de dextrosa al 10% de mantenimiento</h4><p>El alcohol depleta el glucógeno hepático → el glucagón NO funciona → solo dextrosa IV</p></div>
-        </div>
-        <div class="step-connector"></div>
-        <div class="protocol-step">
-          <div class="step-number s-emerald">4</div>
-          <div class="step-content"><h4>Evaluación de cetoacidosis alcohólica coexistente</h4><p>Puede coexistir hipoglucemia + cetonemia + pH bajo → tratar ambas</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-emerald">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🛡️</span>
-          <span class="card-title">Plan Multipunto de Prevención — ADA 2026 <span class="tag-new">NUEVO</span></span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <p>La ADA 2026 enfatiza que un <strong>plan de prevención multicomponente</strong> es crítico para pacientes en riesgo:</p>
-        <table>
-          <tr><th>Componente</th><th>Acción concreta</th></tr>
-          <tr><td>1. Historia de hipoglucemia</td><td>Preguntar activamente en cada consulta; documentar frecuencia, severidad, circunstancias</td></tr>
-          <tr><td>2. Revisión de medicamentos</td><td>Eliminar o reducir hipoglucemiantes de alto riesgo; priorizar GLP-1 RA / iSGLT-2</td></tr>
-          <tr><td>3. Objetivos individualizados</td><td>No buscar HbA1c &lt;7% a toda costa; en ancianos/ERC: meta &lt;8% puede ser apropiada</td></tr>
-          <tr><td>4. Educación estructurada</td><td>Reconocimiento, tratamiento en casa, cuándo llamar a emergencias</td></tr>
-          <tr><td>5. Prescripción de glucagón</td><td>A TODOS los que usan insulina o SU; preferir formas sin reconstitución</td></tr>
-          <tr><td>6. CGM (monitoreo continuo)</td><td>Primera opción en pacientes con hipoglucemia inadvertida; "tiempo bajo rango" &lt;4%</td></tr>
-          <tr><td>7. Revisión de comorbilidades</td><td>ERC, neuropatía autonómica, insuficiencia suprarrenal, polifarmacia</td></tr>
-          <tr><td>8. Contexto psicosocial</td><td>Miedo a hipoglucemia puede llevar a hiperglucemia voluntaria; abordar con el paciente</td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 6: CALCULADORAS -->
-  <div class="tab-panel" id="tab-6">
-    <h2 class="section-title">🧮 Calculadoras Interactivas</h2>
-
-    <div class="calc-container">
-      <div class="calc-title">🩸 Calculadora 1: Corrección de Hipoglucemia con Dextrosa IV</div>
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Calcula la cantidad de dextrosa (mL) según la concentración disponible para elevar la glucosa a un objetivo definido.</p>
-      <div class="calc-grid">
-        <div class="calc-field">
-          <label>Glucosa actual (mg/dL)</label>
-          <input type="number" id="calc1-actual" placeholder="ej: 40" min="10" max="70">
-        </div>
-        <div class="calc-field">
-          <label>Glucosa objetivo (mg/dL)</label>
-          <input type="number" id="calc1-objetivo" value="120" min="80" max="180">
-        </div>
-        <div class="calc-field">
-          <label>Peso del paciente (kg)</label>
-          <input type="number" id="calc1-peso" placeholder="ej: 70" min="30" max="200">
-        </div>
-        <div class="calc-field">
-          <label>Concentración de dextrosa disponible</label>
-          <select id="calc1-concentracion">
-            <option value="33">Dextrosa 33% (D33)</option>
-            <option value="50">Dextrosa 50% (D50)</option>
-            <option value="10">Dextrosa 10% (D10)</option>
-            <option value="5">Dextrosa 5% (D5)</option>
-          </select>
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcDextrosa()">Calcular dosis</button>
-      <div class="calc-result" id="calc1-result">
-        <div class="result-value" id="calc1-val"></div>
-        <div class="result-interpretation" id="calc1-interp"></div>
-      </div>
-    </div>
-
-    <div class="calc-container">
-      <div class="calc-title">🔍 Calculadora 2: Índice HOMA-IR — Evaluación de Resistencia a Insulina</div>
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">El HOMA-IR es útil para evaluar la resistencia a la insulina en el contexto diagnóstico. Un HOMA-IR elevado en hipoglucemia clínicamente significativa puede orientar hacia insulinoma (insulina inapropiadamente alta relativa a la glucosa baja).</p>
-      <div class="calc-grid">
-        <div class="calc-field">
-          <label>Glucosa en ayuno (mg/dL)</label>
-          <input type="number" id="calc2-glucosa" placeholder="ej: 95">
-        </div>
-        <div class="calc-field">
-          <label>Insulinemia en ayuno (μU/mL)</label>
-          <input type="number" id="calc2-insulina" placeholder="ej: 12">
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcHOMA()">Calcular HOMA-IR</button>
-      <div class="calc-result" id="calc2-result">
-        <div class="result-value" id="calc2-val"></div>
-        <div class="result-interpretation" id="calc2-interp"></div>
-      </div>
-    </div>
-
-    <div class="calc-container">
-      <div class="calc-title">⚡ Calculadora 3: Índice Insulinogénico — Detección de Hiperinsulinismo Inapropiado</div>
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Durante la muestra crítica en hipoglucemia: evalúa si la insulina es inapropiadamente elevada para el nivel de glucosa. Un índice elevado (insulina/glucosa ≥0.3 en unidades convencionales, con glucosa &lt;55 mg/dL) sugiere hiperinsulinismo endógeno.</p>
-      <div class="calc-grid">
-        <div class="calc-field">
-          <label>Glucosa venosa en hipoglucemia (mg/dL)</label>
-          <input type="number" id="calc3-glucosa" placeholder="ej: 45" max="70">
-        </div>
-        <div class="calc-field">
-          <label>Insulina sérica simultánea (μU/mL)</label>
-          <input type="number" id="calc3-insulina" placeholder="ej: 8">
-        </div>
-        <div class="calc-field">
-          <label>Péptido C (ng/mL) — opcional</label>
-          <input type="number" id="calc3-peptidoc" placeholder="ej: 2.1">
-        </div>
-        <div class="calc-field">
-          <label>β-hidroxibutirato (mmol/L) — opcional</label>
-          <input type="number" id="calc3-bhob" placeholder="ej: 1.2">
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcInsulina()">Interpretar muestra crítica</button>
-      <div class="calc-result" id="calc3-result">
-        <div class="result-value" id="calc3-val"></div>
-        <div class="result-interpretation" id="calc3-interp"></div>
-      </div>
-    </div>
-
-    <div class="calc-container">
-      <div class="calc-title">📊 Calculadora 4: Regla 15-15 — Verificador de Ciclos de Corrección</div>
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Calcula cuántos ciclos de corrección oral se necesitan estimados y cuándo hospitalizar.</p>
-      <div class="calc-grid">
-        <div class="calc-field">
-          <label>Glucosa actual (mg/dL)</label>
-          <input type="number" id="calc4-actual" placeholder="ej: 55">
-        </div>
-        <div class="calc-field">
-          <label>Causa conocida de hipoglucemia</label>
-          <select id="calc4-causa">
-            <option value="insulina">Insulina de acción corta</option>
-            <option value="nph">Insulina NPH/basales</option>
-            <option value="sulfonilurea">Sulfonilurea</option>
-            <option value="desconocida">Desconocida</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label>¿Puede el paciente deglutir?</label>
-          <select id="calc4-deglute">
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <div class="calc-field">
-          <label>Contexto del paciente</label>
-          <select id="calc4-contexto">
-            <option value="ambulatorio">Ambulatorio</option>
-            <option value="hospitalizado">Hospitalizado</option>
-            <option value="erc">ERC avanzada (FG &lt;30)</option>
-          </select>
-        </div>
-      </div>
-      <button class="calc-btn" onclick="calcRegla1515()">Generar plan de corrección</button>
-      <div class="calc-result" id="calc4-result">
-        <div class="result-value" id="calc4-val"></div>
-        <div class="result-interpretation" id="calc4-interp"></div>
-      </div>
-    </div>
-
-    <div class="calc-container">
-      <div class="calc-title">🎯 Calculadora 5: Evaluación de Riesgo de Hipoglucemia Grave</div>
-      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Score clínico de riesgo basado en factores validados. Orienta la intensidad del seguimiento y la necesidad de prescribir glucagón.</p>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r1"> DM tipo 1 o DM2 con insulinopenia avanzada
+<div class="protocol-step">
+<div class="step-number s-orange">1</div>
+<div class="step-content"><h4>Tiamina 100mg IV lento (5 min)</h4></div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-green">2</div>
+<div class="step-content"><h4>Dextrosa 33% 50 mL IV</h4></div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-blue">3</div>
+<div class="step-content"><h4>Infusión de dextrosa al 10% de mantenimiento</h4><p>El alcohol depleta el glucógeno hepático → el glucagón NO funciona → solo dextrosa IV</p></div>
+</div>
+<div class="step-connector"></div>
+<div class="protocol-step">
+<div class="step-number s-emerald">4</div>
+<div class="step-content"><h4>Evaluación de cetoacidosis alcohólica coexistente</h4><p>Puede coexistir hipoglucemia + cetonemia + pH bajo → tratar ambas</p></div>
+</div>
+</div>
+</div>
+<div class="card card-emerald">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🛡️</span>
+<span class="card-title">Plan Multipunto de Prevención — ADA 2026 <span class="tag-new">NUEVO</span></span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<p>La ADA 2026 enfatiza que un <strong>plan de prevención multicomponente</strong> es crítico para pacientes en riesgo:</p>
+<table>
+<tr><th>Componente</th><th>Acción concreta</th></tr>
+<tr><td>1. Historia de hipoglucemia</td><td>Preguntar activamente en cada consulta; documentar frecuencia, severidad, circunstancias</td></tr>
+<tr><td>2. Revisión de medicamentos</td><td>Eliminar o reducir hipoglucemiantes de alto riesgo; priorizar GLP-1 RA / iSGLT-2</td></tr>
+<tr><td>3. Objetivos individualizados</td><td>No buscar HbA1c &lt;7% a toda costa; en ancianos/ERC: meta &lt;8% puede ser apropiada</td></tr>
+<tr><td>4. Educación estructurada</td><td>Reconocimiento, tratamiento en casa, cuándo llamar a emergencias</td></tr>
+<tr><td>5. Prescripción de glucagón</td><td>A TODOS los que usan insulina o SU; preferir formas sin reconstitución</td></tr>
+<tr><td>6. CGM (monitoreo continuo)</td><td>Primera opción en pacientes con hipoglucemia inadvertida; "tiempo bajo rango" &lt;4%</td></tr>
+<tr><td>7. Revisión de comorbilidades</td><td>ERC, neuropatía autonómica, insuficiencia suprarrenal, polifarmacia</td></tr>
+<tr><td>8. Contexto psicosocial</td><td>Miedo a hipoglucemia puede llevar a hiperglucemia voluntaria; abordar con el paciente</td></tr>
+</table>
+</div>
+</div>
+</div>
+<!-- TAB 6: CALCULADORAS -->
+<div class="tab-panel" id="tab-6">
+<h2 class="section-title">🧮 Calculadoras Interactivas</h2>
+<div class="calc-container">
+<div class="calc-title">🩸 Calculadora 1: Corrección de Hipoglucemia con Dextrosa IV</div>
+<p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Calcula la cantidad de dextrosa (mL) según la concentración disponible para elevar la glucosa a un objetivo definido.</p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Glucosa actual (mg/dL)</label>
+<input id="calc1-actual" max="70" min="10" placeholder="ej: 40" type="number"/>
+</div>
+<div class="calc-field">
+<label>Glucosa objetivo (mg/dL)</label>
+<input id="calc1-objetivo" max="180" min="80" type="number" value="120"/>
+</div>
+<div class="calc-field">
+<label>Peso del paciente (kg)</label>
+<input id="calc1-peso" max="200" min="30" placeholder="ej: 70" type="number"/>
+</div>
+<div class="calc-field">
+<label>Concentración de dextrosa disponible</label>
+<select id="calc1-concentracion">
+<option value="33">Dextrosa 33% (D33)</option>
+<option value="50">Dextrosa 50% (D50)</option>
+<option value="10">Dextrosa 10% (D10)</option>
+<option value="5">Dextrosa 5% (D5)</option>
+</select>
+</div>
+</div>
+<button class="calc-btn" onclick="calcDextrosa()">Calcular dosis</button>
+<div class="calc-result" id="calc1-result">
+<div class="result-value" id="calc1-val"></div>
+<div class="result-interpretation" id="calc1-interp"></div>
+</div>
+</div>
+<div class="calc-container">
+<div class="calc-title">🔍 Calculadora 2: Índice HOMA-IR — Evaluación de Resistencia a Insulina</div>
+<p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">El HOMA-IR es útil para evaluar la resistencia a la insulina en el contexto diagnóstico. Un HOMA-IR elevado en hipoglucemia clínicamente significativa puede orientar hacia insulinoma (insulina inapropiadamente alta relativa a la glucosa baja).</p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Glucosa en ayuno (mg/dL)</label>
+<input id="calc2-glucosa" placeholder="ej: 95" type="number"/>
+</div>
+<div class="calc-field">
+<label>Insulinemia en ayuno (μU/mL)</label>
+<input id="calc2-insulina" placeholder="ej: 12" type="number"/>
+</div>
+</div>
+<button class="calc-btn" onclick="calcHOMA()">Calcular HOMA-IR</button>
+<div class="calc-result" id="calc2-result">
+<div class="result-value" id="calc2-val"></div>
+<div class="result-interpretation" id="calc2-interp"></div>
+</div>
+</div>
+<div class="calc-container">
+<div class="calc-title">⚡ Calculadora 3: Índice Insulinogénico — Detección de Hiperinsulinismo Inapropiado</div>
+<p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Durante la muestra crítica en hipoglucemia: evalúa si la insulina es inapropiadamente elevada para el nivel de glucosa. Un índice elevado (insulina/glucosa ≥0.3 en unidades convencionales, con glucosa &lt;55 mg/dL) sugiere hiperinsulinismo endógeno.</p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Glucosa venosa en hipoglucemia (mg/dL)</label>
+<input id="calc3-glucosa" max="70" placeholder="ej: 45" type="number"/>
+</div>
+<div class="calc-field">
+<label>Insulina sérica simultánea (μU/mL)</label>
+<input id="calc3-insulina" placeholder="ej: 8" type="number"/>
+</div>
+<div class="calc-field">
+<label>Péptido C (ng/mL) — opcional</label>
+<input id="calc3-peptidoc" placeholder="ej: 2.1" type="number"/>
+</div>
+<div class="calc-field">
+<label>β-hidroxibutirato (mmol/L) — opcional</label>
+<input id="calc3-bhob" placeholder="ej: 1.2" type="number"/>
+</div>
+</div>
+<button class="calc-btn" onclick="calcInsulina()">Interpretar muestra crítica</button>
+<div class="calc-result" id="calc3-result">
+<div class="result-value" id="calc3-val"></div>
+<div class="result-interpretation" id="calc3-interp"></div>
+</div>
+</div>
+<div class="calc-container">
+<div class="calc-title">📊 Calculadora 4: Regla 15-15 — Verificador de Ciclos de Corrección</div>
+<p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Calcula cuántos ciclos de corrección oral se necesitan estimados y cuándo hospitalizar.</p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Glucosa actual (mg/dL)</label>
+<input id="calc4-actual" placeholder="ej: 55" type="number"/>
+</div>
+<div class="calc-field">
+<label>Causa conocida de hipoglucemia</label>
+<select id="calc4-causa">
+<option value="insulina">Insulina de acción corta</option>
+<option value="nph">Insulina NPH/basales</option>
+<option value="sulfonilurea">Sulfonilurea</option>
+<option value="desconocida">Desconocida</option>
+</select>
+</div>
+<div class="calc-field">
+<label>¿Puede el paciente deglutir?</label>
+<select id="calc4-deglute">
+<option value="si">Sí</option>
+<option value="no">No</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Contexto del paciente</label>
+<select id="calc4-contexto">
+<option value="ambulatorio">Ambulatorio</option>
+<option value="hospitalizado">Hospitalizado</option>
+<option value="erc">ERC avanzada (FG &lt;30)</option>
+</select>
+</div>
+</div>
+<button class="calc-btn" onclick="calcRegla1515()">Generar plan de corrección</button>
+<div class="calc-result" id="calc4-result">
+<div class="result-value" id="calc4-val"></div>
+<div class="result-interpretation" id="calc4-interp"></div>
+</div>
+</div>
+<div class="calc-container">
+<div class="calc-title">🎯 Calculadora 5: Evaluación de Riesgo de Hipoglucemia Grave</div>
+<p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:14px;">Score clínico de riesgo basado en factores validados. Orienta la intensidad del seguimiento y la necesidad de prescribir glucagón.</p>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r1" type="checkbox"/> DM tipo 1 o DM2 con insulinopenia avanzada
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r2"> Hipoglucemia inadvertida conocida (HAAF)
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r2" type="checkbox"/> Hipoglucemia inadvertida conocida (HAAF)
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r3"> ERC con FG &lt; 30 mL/min
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r3" type="checkbox"/> ERC con FG &lt; 30 mL/min
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r4"> Uso de sulfonilurea de larga duración (gliburida)
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r4" type="checkbox"/> Uso de sulfonilurea de larga duración (gliburida)
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r5"> Edad &gt; 70 años
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r5" type="checkbox"/> Edad &gt; 70 años
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r6"> Consumo de alcohol o desnutrición
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r6" type="checkbox"/> Consumo de alcohol o desnutrición
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r7"> Uso de β-bloqueante no cardioselectivo
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r7" type="checkbox"/> Uso de β-bloqueante no cardioselectivo
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r8"> HbA1c &lt; 6.5% en régimen intensivo
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r8" type="checkbox"/> HbA1c &lt; 6.5% en régimen intensivo
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r9"> Vive solo / sin cuidador
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r9" type="checkbox"/> Vive solo / sin cuidador
         </label>
-        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
-          <input type="checkbox" id="r10"> Episodio grave en los últimos 6 meses
+<label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.95rem;">
+<input id="r10" type="checkbox"/> Episodio grave en los últimos 6 meses
         </label>
-      </div>
-      <button class="calc-btn" onclick="calcRiesgo()">Evaluar riesgo</button>
-      <div class="calc-result" id="calc5-result">
-        <div class="result-value" id="calc5-val"></div>
-        <div class="result-interpretation" id="calc5-interp"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 7: CASOS CLÍNICOS -->
-  <div class="tab-panel" id="tab-7">
-    <h2 class="section-title">📖 Casos Clínicos Comentados</h2>
-
-    <div class="card card-red open">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🏥</span>
-          <span class="card-title">Caso 1: Hombre Diabético con Hipoglucemia Severa en Urgencias</span>
+</div>
+<button class="calc-btn" onclick="calcRiesgo()">Evaluar riesgo</button>
+<div class="calc-result" id="calc5-result">
+<div class="result-value" id="calc5-val"></div>
+<div class="result-interpretation" id="calc5-interp"></div>
+</div>
+</div>
+</div>
+<!-- TAB 7: CASOS CLÍNICOS -->
+<div class="tab-panel" id="tab-7">
+<h2 class="section-title">📖 Casos Clínicos Comentados</h2>
+<div class="card card-red open">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🏥</span>
+<span class="card-title">Caso 1: Hombre Diabético con Hipoglucemia Severa en Urgencias</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="decision-box db-blue">
+<strong>🔵 Presentación:</strong> Masculino, 68 años, DM2 de 15 años, hipertensión. Tratamiento: gliburida 5mg/día + carvedilol 25mg/día. Ingresa inconsciente, traído por familiares. Glucemia capilar: 28 mg/dL.
         </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="decision-box db-blue">
-          <strong>🔵 Presentación:</strong> Masculino, 68 años, DM2 de 15 años, hipertensión. Tratamiento: gliburida 5mg/día + carvedilol 25mg/día. Ingresa inconsciente, traído por familiares. Glucemia capilar: 28 mg/dL.
+<h4 style="margin:14px 0 8px;color:var(--text);">Análisis clínico paso a paso:</h4>
+<div class="protocol-step">
+<div class="step-number s-red">1</div>
+<div class="step-content">
+<h4>¿Por qué está inconsciente con 28 mg/dL?</h4>
+<p>Neuroglucopenia severa (&lt;40 mg/dL). El carvedilol (β-bloqueante no selectivo) enmascara los síntomas adrenérgicos → el paciente no percibió palpitaciones, sudoración ni temblor → progresó directamente al coma.</p>
+</div>
+</div>
+<div class="protocol-step">
+<div class="step-number s-orange">2</div>
+<div class="step-content">
+<h4>¿Por qué NO usar glucagón como primera línea?</h4>
+<p>La gliburida mantiene abiertas las células β → secreción continua de insulina → el glucagón será parcialmente antagonizado. Además, la ERC probable en este anciano acumula los metabolitos activos de la gliburida.</p>
+</div>
+</div>
+<div class="protocol-step">
+<div class="step-number s-green">3</div>
+<div class="step-content">
+<h4>Plan óptimo:</h4>
+<p>Dextrosa 33% 50mL IV → infusión D10% → octreotida 50μg SC c/6h → hospitalización 48h mínimo → suspender gliburida definitivamente → cambiar a glimepirida dosis baja o metformina si FG lo permite.</p>
+</div>
+</div>
+<div class="alert alert-red">
+<strong>🎓 Lección clave:</strong> Gliburida + ERC + β-bloqueante + edad avanzada = combinación de máximo riesgo. La hipoglucemia por SU requiere hospitalización obligatoria por riesgo de recurrencia a las 4-8h.
         </div>
-        <h4 style="margin:14px 0 8px;color:var(--text);">Análisis clínico paso a paso:</h4>
-        <div class="protocol-step">
-          <div class="step-number s-red">1</div>
-          <div class="step-content">
-            <h4>¿Por qué está inconsciente con 28 mg/dL?</h4>
-            <p>Neuroglucopenia severa (&lt;40 mg/dL). El carvedilol (β-bloqueante no selectivo) enmascara los síntomas adrenérgicos → el paciente no percibió palpitaciones, sudoración ni temblor → progresó directamente al coma.</p>
-          </div>
+</div>
+</div>
+<div class="card card-orange">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🔍</span>
+<span class="card-title">Caso 2: Mujer No Diabética con Hipoglucemias Recurrentes en Ayuno</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="decision-box db-blue">
+<strong>🔵 Presentación:</strong> Femenino, 42 años, sin diabetes conocida. Consulta por 3 episodios de sudoración, temblor y confusión en los últimos 2 meses, siempre después de 6-8 horas sin comer. Glucemia en la última crisis: 44 mg/dL. Síntomas resueltos al comer.
         </div>
-        <div class="protocol-step">
-          <div class="step-number s-orange">2</div>
-          <div class="step-content">
-            <h4>¿Por qué NO usar glucagón como primera línea?</h4>
-            <p>La gliburida mantiene abiertas las células β → secreción continua de insulina → el glucagón será parcialmente antagonizado. Además, la ERC probable en este anciano acumula los metabolitos activos de la gliburida.</p>
-          </div>
+<h4 style="margin:14px 0 8px;">Análisis diagnóstico:</h4>
+<div class="decision-box db-green">✅ Tríada de Whipple confirmada: síntomas en hipoglucemia documentada + resolución con glucosa</div>
+<p style="margin:10px 0;">Se obtiene muestra crítica durante ayuno supervisado a las 18 horas:</p>
+<table>
+<tr><th>Examen</th><th>Resultado</th><th>Interpretación</th></tr>
+<tr><td>Glucosa venosa</td><td>48 mg/dL</td><td>Hipoglucemia confirmada</td></tr>
+<tr><td>Insulina</td><td>18 μU/mL</td><td>⬆ INAPROPIADAMENTE ALTA para glucosa &lt;55</td></tr>
+<tr><td>Péptido C</td><td>4.2 ng/mL</td><td>⬆ Elevado → insulina ENDÓGENA</td></tr>
+<tr><td>Proinsulina</td><td>12 pmol/L</td><td>⬆ (&gt;5) → altamente sugestivo de insulinoma</td></tr>
+<tr><td>β-OHB</td><td>0.8 mmol/L</td><td>⬇ Suprimido → hiperinsulinismo activo</td></tr>
+<tr><td>Screening SU</td><td>Negativo</td><td>Descarta hipoglucemia facticia por SU</td></tr>
+<tr><td>Glucagón 1mg IV → glucosa a 30 min</td><td>+42 mg/dL</td><td>Respuesta positiva → glucógeno intacto</td></tr>
+</table>
+<div class="alert alert-emerald">
+<strong>✦ Diagnóstico: Insulinoma</strong> — confirmado por hallazgos laboratoriales. Se realiza ecoendoscopia que identifica nódulo de 1.4cm en cuerpo pancreático. Se procede a enucleación quirúrgica con resolución completa.
+          <br/><br/>
+<strong>🎓 Lección:</strong> La clave diagnóstica es la insulina inapropiadamente alta + péptido C elevado + β-OHB suprimido + screening SU negativo. El índice insulina/glucosa &gt;0.3 (18/48 × 100/18 = 2.08) es patognomónico de hiperinsulinismo.
         </div>
-        <div class="protocol-step">
-          <div class="step-number s-green">3</div>
-          <div class="step-content">
-            <h4>Plan óptimo:</h4>
-            <p>Dextrosa 33% 50mL IV → infusión D10% → octreotida 50μg SC c/6h → hospitalización 48h mínimo → suspender gliburida definitivamente → cambiar a glimepirida dosis baja o metformina si FG lo permite.</p>
-          </div>
+</div>
+</div>
+<div class="card card-purple">
+<div aria-expanded="false" class="card-header" onclick="toggleCard(this)" role="button" tabindex="0">
+<div class="card-header-left">
+<span class="card-icon">🍺</span>
+<span class="card-title">Caso 3: Joven con Hipoglucemia por Alcohol + Error en Manejo</span>
+</div>
+<span class="card-chevron">▼</span>
+</div>
+<div class="card-body">
+<div class="decision-box db-blue">
+<strong>🔵 Presentación:</strong> Masculino, 24 años, sin diabetes. Encontrado en vía pública inconsciente. Aliento etílico. Glasgow 8/15. Glucemia: 32 mg/dL. Paramédicos administran dextrosa 33% 50 mL IV. El paciente despierta, luego de 2h vuelve a presentar hipoglucemia (38 mg/dL).
         </div>
-        <div class="alert alert-red">
-          <strong>🎓 Lección clave:</strong> Gliburida + ERC + β-bloqueante + edad avanzada = combinación de máximo riesgo. La hipoglucemia por SU requiere hospitalización obligatoria por riesgo de recurrencia a las 4-8h.
+<div class="alert alert-red">
+<strong>🚨 Error identificado:</strong> No se administró tiamina antes de la dextrosa. Además, el glucagón no hubiera funcionado: el alcohol depleta el glucógeno hepático → sin sustrato para glucogenólisis. La hipoglucemia recurrió porque no se inició infusión de mantenimiento.
         </div>
-      </div>
-    </div>
-
-    <div class="card card-orange">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🔍</span>
-          <span class="card-title">Caso 2: Mujer No Diabética con Hipoglucemias Recurrentes en Ayuno</span>
+<h4 style="margin:12px 0 8px;">Manejo correcto:</h4>
+<ul>
+<li>Tiamina 100mg IV → PRIMERO</li>
+<li>Dextrosa 33% 50mL IV</li>
+<li>Iniciar infusión D10% a 80-100 mL/h hasta que el paciente pueda comer</li>
+<li>Monitoreo glucémico c/1h</li>
+<li>Descartar traumatismo craneoencefálico concomitante</li>
+<li>Evaluar cetoacidosis alcohólica (pH, bicarbonato, cetonas)</li>
+</ul>
+<div class="alert alert-blue">
+<strong>🎓 Lección:</strong> El mecanismo del alcohol es dual: (1) inhibe gluconeogénesis al consumir NAD⁺, y (2) depleta glucógeno. Por tanto, la hipoglucemia alcohólica solo responde a glucosa exógena, no al glucagón. La tiamina es obligatoria antes de cualquier carga de glucosa.
         </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="decision-box db-blue">
-          <strong>🔵 Presentación:</strong> Femenino, 42 años, sin diabetes conocida. Consulta por 3 episodios de sudoración, temblor y confusión en los últimos 2 meses, siempre después de 6-8 horas sin comer. Glucemia en la última crisis: 44 mg/dL. Síntomas resueltos al comer.
-        </div>
-        <h4 style="margin:14px 0 8px;">Análisis diagnóstico:</h4>
-        <div class="decision-box db-green">✅ Tríada de Whipple confirmada: síntomas en hipoglucemia documentada + resolución con glucosa</div>
-        <p style="margin:10px 0;">Se obtiene muestra crítica durante ayuno supervisado a las 18 horas:</p>
-        <table>
-          <tr><th>Examen</th><th>Resultado</th><th>Interpretación</th></tr>
-          <tr><td>Glucosa venosa</td><td>48 mg/dL</td><td>Hipoglucemia confirmada</td></tr>
-          <tr><td>Insulina</td><td>18 μU/mL</td><td>⬆ INAPROPIADAMENTE ALTA para glucosa &lt;55</td></tr>
-          <tr><td>Péptido C</td><td>4.2 ng/mL</td><td>⬆ Elevado → insulina ENDÓGENA</td></tr>
-          <tr><td>Proinsulina</td><td>12 pmol/L</td><td>⬆ (&gt;5) → altamente sugestivo de insulinoma</td></tr>
-          <tr><td>β-OHB</td><td>0.8 mmol/L</td><td>⬇ Suprimido → hiperinsulinismo activo</td></tr>
-          <tr><td>Screening SU</td><td>Negativo</td><td>Descarta hipoglucemia facticia por SU</td></tr>
-          <tr><td>Glucagón 1mg IV → glucosa a 30 min</td><td>+42 mg/dL</td><td>Respuesta positiva → glucógeno intacto</td></tr>
-        </table>
-        <div class="alert alert-emerald">
-          <strong>✦ Diagnóstico: Insulinoma</strong> — confirmado por hallazgos laboratoriales. Se realiza ecoendoscopia que identifica nódulo de 1.4cm en cuerpo pancreático. Se procede a enucleación quirúrgica con resolución completa.
-          <br><br>
-          <strong>🎓 Lección:</strong> La clave diagnóstica es la insulina inapropiadamente alta + péptido C elevado + β-OHB suprimido + screening SU negativo. El índice insulina/glucosa &gt;0.3 (18/48 × 100/18 = 2.08) es patognomónico de hiperinsulinismo.
-        </div>
-      </div>
-    </div>
-
-    <div class="card card-purple">
-      <div class="card-header" onclick="toggleCard(this)" role="button" tabindex="0" aria-expanded="false">
-        <div class="card-header-left">
-          <span class="card-icon">🍺</span>
-          <span class="card-title">Caso 3: Joven con Hipoglucemia por Alcohol + Error en Manejo</span>
-        </div>
-        <span class="card-chevron">▼</span>
-      </div>
-      <div class="card-body">
-        <div class="decision-box db-blue">
-          <strong>🔵 Presentación:</strong> Masculino, 24 años, sin diabetes. Encontrado en vía pública inconsciente. Aliento etílico. Glasgow 8/15. Glucemia: 32 mg/dL. Paramédicos administran dextrosa 33% 50 mL IV. El paciente despierta, luego de 2h vuelve a presentar hipoglucemia (38 mg/dL).
-        </div>
-        <div class="alert alert-red">
-          <strong>🚨 Error identificado:</strong> No se administró tiamina antes de la dextrosa. Además, el glucagón no hubiera funcionado: el alcohol depleta el glucógeno hepático → sin sustrato para glucogenólisis. La hipoglucemia recurrió porque no se inició infusión de mantenimiento.
-        </div>
-        <h4 style="margin:12px 0 8px;">Manejo correcto:</h4>
-        <ul>
-          <li>Tiamina 100mg IV → PRIMERO</li>
-          <li>Dextrosa 33% 50mL IV</li>
-          <li>Iniciar infusión D10% a 80-100 mL/h hasta que el paciente pueda comer</li>
-          <li>Monitoreo glucémico c/1h</li>
-          <li>Descartar traumatismo craneoencefálico concomitante</li>
-          <li>Evaluar cetoacidosis alcohólica (pH, bicarbonato, cetonas)</li>
-        </ul>
-        <div class="alert alert-blue">
-          <strong>🎓 Lección:</strong> El mecanismo del alcohol es dual: (1) inhibe gluconeogénesis al consumir NAD⁺, y (2) depleta glucógeno. Por tanto, la hipoglucemia alcohólica solo responde a glucosa exógena, no al glucagón. La tiamina es obligatoria antes de cualquier carga de glucosa.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 8: QUIZ -->
-  <div class="tab-panel" id="tab-8">
-    <h2 class="section-title">✏️ Autoevaluación — 3 Quiz (10 preguntas c/u)</h2>
-
-    <div class="quiz-selector">
-      <button class="quiz-sel-btn active" onclick="selectQuiz(1)">Quiz 1: Conceptos y Fisiopatología</button>
-      <button class="quiz-sel-btn" onclick="selectQuiz(2)">Quiz 2: Laboratorio y Diagnóstico</button>
-      <button class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3: Casos Clínicos Prácticos</button>
-    </div>
-
-    <div class="quiz-container" id="quiz-container" aria-live="polite">
-      <div class="quiz-progress-bar-wrap">
-        <div class="quiz-progress-bar" id="quiz-progress" style="width:10%"></div>
-      </div>
-      <div class="quiz-q-label" id="quiz-label">Pregunta 1 de 10</div>
-      <div class="quiz-question" id="quiz-question"></div>
-      <div class="quiz-options" id="quiz-options"></div>
-      <div class="quiz-feedback" id="quiz-feedback"></div>
-      <div class="quiz-nav" id="quiz-nav">
-        <button class="quiz-nav-btn" id="btn-prev" onclick="quizPrev()" disabled>← Anterior</button>
-        <button class="quiz-nav-btn primary" id="btn-next" onclick="quizNext()">Siguiente →</button>
-        <button class="quiz-reset-btn" onclick="resetQuiz()">🔄 Reiniciar</button>
-      </div>
-      <div class="quiz-score-panel" id="score-panel">
-        <div class="score-emoji" id="score-emoji"></div>
-        <div class="score-num" id="score-num"></div>
-        <div class="score-msg" id="score-msg"></div>
-        <button class="quiz-nav-btn primary" style="margin-top:18px;" onclick="resetQuiz()">🔄 Intentar de nuevo</button>
-      </div>
-    </div>
-  </div>
-
-  </div><!-- end main-content -->
+</div>
+</div>
+</div>
+<!-- TAB 8: QUIZ -->
+<div class="tab-panel" id="tab-8">
+<h2 class="section-title">✏️ Autoevaluación — 3 Quiz (10 preguntas c/u)</h2>
+<div class="quiz-selector">
+<button class="quiz-sel-btn active" onclick="selectQuiz(1)">Quiz 1: Conceptos y Fisiopatología</button>
+<button class="quiz-sel-btn" onclick="selectQuiz(2)">Quiz 2: Laboratorio y Diagnóstico</button>
+<button class="quiz-sel-btn" onclick="selectQuiz(3)">Quiz 3: Casos Clínicos Prácticos</button>
+</div>
+<div aria-live="polite" class="quiz-container" id="quiz-container">
+<div class="quiz-progress-bar-wrap">
+<div class="quiz-progress-bar" id="quiz-progress" style="width:10%"></div>
+</div>
+<div class="quiz-q-label" id="quiz-label">Pregunta 1 de 10</div>
+<div class="quiz-question" id="quiz-question"></div>
+<div class="quiz-options" id="quiz-options"></div>
+<div class="quiz-feedback" id="quiz-feedback"></div>
+<div class="quiz-nav" id="quiz-nav">
+<button class="quiz-nav-btn" disabled="" id="btn-prev" onclick="quizPrev()">← Anterior</button>
+<button class="quiz-nav-btn primary" id="btn-next" onclick="quizNext()">Siguiente →</button>
+<button class="quiz-reset-btn" onclick="resetQuiz()">🔄 Reiniciar</button>
+</div>
+<div class="quiz-score-panel" id="score-panel">
+<div class="score-emoji" id="score-emoji"></div>
+<div class="score-num" id="score-num"></div>
+<div class="score-msg" id="score-msg"></div>
+<button class="quiz-nav-btn primary" onclick="resetQuiz()" style="margin-top:18px;">🔄 Intentar de nuevo</button>
+</div>
+</div>
+</div>
+</div><!-- end main-content -->
 </div><!-- end main-app -->
-
 <script>
 // ---- UTILIDADES BASE ----
 function $(id){ return document.getElementById(id); }
@@ -2429,5 +2371,9 @@ window.onload=function(){
 };
 </script>
 <script src="../assets/croce.js"></script>
-</body>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section></body>
 </html>

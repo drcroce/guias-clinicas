@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Dengue — Guía Clínica · Dr. Luis E. Croce</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
@@ -325,1042 +326,944 @@ body{background:var(--bg);color:var(--slate);font-size:16px;line-height:1.65}
 @media(max-width:520px){body{font-size:15px}.section{padding:16px 12px}.warn-grid,.sero-grid{grid-template-columns:1fr}}
 
 </style>
-
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
-
 <div id="app">
-
 <!-- HERO -->
 <div class="hero">
-  <a class="hero-back" href="../index.html">← Portal de guías</a>
-  <div class="hero-icon">🦟</div>
-  <h1>Dengue</h1>
-  <div class="hero-sub">Fiebre por virus dengue · Abordaje clínico integral · Emergencias</div>
-  <div style="font-size:13px;opacity:.9;margin-bottom:14px;font-style:italic">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-  <div class="hero-badges">
-    <span class="hbadge">OPS/OMS 2024</span>
-    <span class="hbadge">CDC 2023</span>
-    <span class="hbadge warn">⚠️ Enfermedad de notificación obligatoria</span>
-  </div>
-  <div class="app-tools" aria-label="Herramientas de la guía">
-    <button class="tool-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-    <button class="tool-btn" type="button" onclick="expandAllCards()">▾ Expandir todo</button>
-    <button class="tool-btn" type="button" onclick="collapseAllCards()">▸ Contraer todo</button>
-  </div>
+<a class="hero-back" href="../index.html">← Portal de guías</a>
+<div class="hero-icon">🦟</div>
+<h1>Dengue</h1>
+<div class="hero-sub">Fiebre por virus dengue · Abordaje clínico integral · Emergencias</div>
+<div style="font-size:13px;opacity:.9;margin-bottom:14px;font-style:italic">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+<div class="hero-badges">
+<span class="hbadge">OPS/OMS 2024</span>
+<span class="hbadge">CDC 2023</span>
+<span class="hbadge warn">⚠️ Enfermedad de notificación obligatoria</span>
 </div>
-
+<div aria-label="Herramientas de la guía" class="app-tools">
+<button class="tool-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+<button class="tool-btn" onclick="expandAllCards()" type="button">▾ Expandir todo</button>
+<button class="tool-btn" onclick="collapseAllCards()" type="button">▸ Contraer todo</button>
+</div>
+</div>
 <!-- TABS -->
 <div class="nav-tabs">
-  <button class="tab-btn active" onclick="showTab('fisio')">🔬 Fisiopatología</button>
-  <button class="tab-btn" onclick="showTab('clinica')">🩺 Clínica y Estadios</button>
-  <button class="tab-btn" onclick="showTab('lab')">🧪 Laboratorio</button>
-  <button class="tab-btn" onclick="showTab('emergencia')">🚨 Emergencia</button>
-  <button class="tab-btn" onclick="showTab('complicaciones')">⚡ Complicaciones</button>
-  <button class="tab-btn" onclick="showTab('alta')">📋 Egreso/Seguimiento</button>
-  <button class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</button>
+<button class="tab-btn active" onclick="showTab('fisio')">🔬 Fisiopatología</button>
+<button class="tab-btn" onclick="showTab('clinica')">🩺 Clínica y Estadios</button>
+<button class="tab-btn" onclick="showTab('lab')">🧪 Laboratorio</button>
+<button class="tab-btn" onclick="showTab('emergencia')">🚨 Emergencia</button>
+<button class="tab-btn" onclick="showTab('complicaciones')">⚡ Complicaciones</button>
+<button class="tab-btn" onclick="showTab('alta')">📋 Egreso/Seguimiento</button>
+<button class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</button>
 </div>
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 1: FISIOPATOLOGÍA
 ═══════════════════════════════════════ -->
-<div id="fisio" class="section active">
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)">
-      <span class="card-icon">🦟</span>
-      <span class="card-title">Agente etiológico y vector</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body open">
-      <p>El dengue es producido por un arbovirus ARN de cadena simple con sentido positivo, perteneciente a la familia <strong>Flaviviridae</strong>, género <em>Flavivirus</em>. Existen <strong>cuatro serotipos distintos (DENV-1 a DENV-4)</strong>, genéticamente relacionados pero antigénicamente diferentes.</p>
-
-      <div class="sero-grid">
-        <div class="sero-item"><div class="sero-num">DENV-1</div><div class="sero-name">Epidemias 1a vez / formas leves</div></div>
-        <div class="sero-item"><div class="sero-num">DENV-2</div><div class="sero-name">Más asociado a dengue grave</div></div>
-        <div class="sero-item"><div class="sero-num">DENV-3</div><div class="sero-name">Epidemias América Latina</div></div>
-        <div class="sero-item"><div class="sero-num">DENV-4</div><div class="sero-name">Circulación frecuente en EC</div></div>
-      </div>
-
-      <p><strong>Vector principal:</strong> <em>Aedes aegypti</em> (hembra). Hábitats peridomésticos, depósitos de agua estancada. Actividad diurna. La hembra pica a múltiples huéspedes en un ciclo gonotrófico → diseminación epidémica eficiente.</p>
-      <p><strong>Vector secundario:</strong> <em>Aedes albopictus</em> (mosquito tigre). Más adaptable a climas templados, expansión geográfica en curso.</p>
-
-      <div class="alert alert-amber">
-        <div class="alert-title">🌍 Contexto epidemiológico Ecuador</div>
-        <p>Ecuador es país hiperendémico. Costa, Amazonia y valles interandinos bajo 1500 msnm concentran la transmisión. Los cuatro serotipos circulan simultáneamente. La presencia de DENV-2 durante reinfección por serotipo diferente es el escenario de mayor riesgo de dengue grave.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🔬</span>
-      <span class="card-title">Ciclo de infección y respuesta inmune</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <h3>Entrada al organismo</h3>
-      <p>Al picar, la hembra inocula el virus en la dermis. El DENV replica inicialmente en células de Langerhans y macrófagos dérmicos, luego migra a ganglios linfáticos regionales y produce viremia sistémica al pasar a sangre periférica.</p>
-
-      <h3>Células diana</h3>
-      <ul>
-        <li>Monocitos/macrófagos (principal reservorio)</li>
-        <li>Células dendríticas</li>
-        <li>Células endoteliales (clave en la fisiopatología vascular)</li>
-        <li>Hepatocitos → hepatitis dengue</li>
-        <li>Megacariocitos → trombocitopenia</li>
-      </ul>
-
-      <h3>Mecanismos de trombocitopenia</h3>
-      <ol>
-        <li><strong>Supresión medular:</strong> el virus infecta progenitores hematopoyéticos y megacariocitos, reduciendo producción plaquetaria.</li>
-        <li><strong>Destrucción periférica inmunomediada:</strong> anticuerpos anti-NS1 y anti-proteínas virales reaccionan cruzadamente con antígenos plaquetarios (mimetismo molecular). El sistema fagocítico mononuclear destruye plaquetas opsonizadas.</li>
-        <li><strong>Consumo plaquetario:</strong> en formas graves con coagulopatía de consumo (CID subclínica o franca).</li>
-      </ol>
-
-      <h3>ADE — Amplificación dependiente de anticuerpos</h3>
-      <p>En infección secundaria por serotipo heterólogo, los anticuerpos heterotípicos formados durante la primera infección se unen al nuevo serotipo pero <strong>no lo neutralizan</strong>. En cambio, facilitan la entrada del virus a monocitos/macrófagos vía receptor FcγR → mayor carga viral → respuesta inflamatoria exacerbada → dengue grave.</p>
-
-      <div class="alert alert-red">
-        <div class="alert-title">⚡ Concepto clave: tormenta de citoquinas</div>
-        <p>La infección masiva de monocitos activa una cascada inflamatoria con liberación masiva de TNF-α, IL-6, IL-8, IL-10 e interferones. Esta "tormenta de citoquinas" produce:</p>
-        <ul>
-          <li><strong>Aumento de permeabilidad vascular</strong> → fuga plasmática → hemoconcentración → shock</li>
-          <li><strong>Activación endotelial</strong> → inflamación local</li>
-          <li><strong>Disfunción de órgano diana</strong> en formas graves</li>
-        </ul>
-      </div>
-
-      <h3>Fuga plasmática: el fenómeno central del dengue grave</h3>
-      <p>La fuga plasmática ocurre principalmente en el <strong>tercer espacio</strong> (pleura, peritoneo, pericardio). Es transitoria (24–48 h), máxima en la fase crítica (días 4–6). Su severidad determina si el paciente desarrollará shock. El mecanismo principal es la disrupción de la barrera endotelial mediada por citoquinas y por el antígeno viral NS1.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🧬</span>
-      <span class="card-title">Inmunopatología: primera vs. segunda infección</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr>
-          <th>Aspecto</th>
-          <th>1ª Infección</th>
-          <th>2ª Infección (serotipo diferente)</th>
-        </tr>
-        <tr>
-          <td>Anticuerpos previos</td>
-          <td>Ninguno</td>
-          <td>Heterotípicos (no neutralizantes)</td>
-        </tr>
-        <tr>
-          <td>Carga viral</td>
-          <td>Moderada</td>
-          <td>Alta (por ADE)</td>
-        </tr>
-        <tr>
-          <td>Respuesta Th1</td>
-          <td>Balanceada</td>
-          <td>Exacerbada</td>
-        </tr>
-        <tr>
-          <td>Riesgo de dengue grave</td>
-          <td>Bajo (salvo embarazo, >65a)</td>
-          <td><strong>Hasta 10× mayor</strong></td>
-        </tr>
-        <tr>
-          <td>Trombocitopenia severa</td>
-          <td>Menos frecuente</td>
-          <td>Más frecuente y precoz</td>
-        </tr>
-        <tr>
-          <td>Inmunidad adquirida</td>
-          <td>Homotípica vitalicia</td>
-          <td>Heterotípica temporal</td>
-        </tr>
-      </table>
-      <div class="alert alert-blue">
-        <div class="alert-title">📌 Inmunidad cruzada</div>
-        <p>Tras la 2ª infección, el paciente puede infectarse por los otros dos serotipos restantes y seguir en riesgo de formas graves en exposiciones sucesivas. La inmunidad homotípica (al mismo serotipo) es duradera y probablemente vitalicia.</p>
-      </div>
-    </div>
-  </div>
-
+<div class="section active" id="fisio">
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)">
+<span class="card-icon">🦟</span>
+<span class="card-title">Agente etiológico y vector</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body open">
+<p>El dengue es producido por un arbovirus ARN de cadena simple con sentido positivo, perteneciente a la familia <strong>Flaviviridae</strong>, género <em>Flavivirus</em>. Existen <strong>cuatro serotipos distintos (DENV-1 a DENV-4)</strong>, genéticamente relacionados pero antigénicamente diferentes.</p>
+<div class="sero-grid">
+<div class="sero-item"><div class="sero-num">DENV-1</div><div class="sero-name">Epidemias 1a vez / formas leves</div></div>
+<div class="sero-item"><div class="sero-num">DENV-2</div><div class="sero-name">Más asociado a dengue grave</div></div>
+<div class="sero-item"><div class="sero-num">DENV-3</div><div class="sero-name">Epidemias América Latina</div></div>
+<div class="sero-item"><div class="sero-num">DENV-4</div><div class="sero-name">Circulación frecuente en EC</div></div>
+</div>
+<p><strong>Vector principal:</strong> <em>Aedes aegypti</em> (hembra). Hábitats peridomésticos, depósitos de agua estancada. Actividad diurna. La hembra pica a múltiples huéspedes en un ciclo gonotrófico → diseminación epidémica eficiente.</p>
+<p><strong>Vector secundario:</strong> <em>Aedes albopictus</em> (mosquito tigre). Más adaptable a climas templados, expansión geográfica en curso.</p>
+<div class="alert alert-amber">
+<div class="alert-title">🌍 Contexto epidemiológico Ecuador</div>
+<p>Ecuador es país hiperendémico. Costa, Amazonia y valles interandinos bajo 1500 msnm concentran la transmisión. Los cuatro serotipos circulan simultáneamente. La presencia de DENV-2 durante reinfección por serotipo diferente es el escenario de mayor riesgo de dengue grave.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🔬</span>
+<span class="card-title">Ciclo de infección y respuesta inmune</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<h3>Entrada al organismo</h3>
+<p>Al picar, la hembra inocula el virus en la dermis. El DENV replica inicialmente en células de Langerhans y macrófagos dérmicos, luego migra a ganglios linfáticos regionales y produce viremia sistémica al pasar a sangre periférica.</p>
+<h3>Células diana</h3>
+<ul>
+<li>Monocitos/macrófagos (principal reservorio)</li>
+<li>Células dendríticas</li>
+<li>Células endoteliales (clave en la fisiopatología vascular)</li>
+<li>Hepatocitos → hepatitis dengue</li>
+<li>Megacariocitos → trombocitopenia</li>
+</ul>
+<h3>Mecanismos de trombocitopenia</h3>
+<ol>
+<li><strong>Supresión medular:</strong> el virus infecta progenitores hematopoyéticos y megacariocitos, reduciendo producción plaquetaria.</li>
+<li><strong>Destrucción periférica inmunomediada:</strong> anticuerpos anti-NS1 y anti-proteínas virales reaccionan cruzadamente con antígenos plaquetarios (mimetismo molecular). El sistema fagocítico mononuclear destruye plaquetas opsonizadas.</li>
+<li><strong>Consumo plaquetario:</strong> en formas graves con coagulopatía de consumo (CID subclínica o franca).</li>
+</ol>
+<h3>ADE — Amplificación dependiente de anticuerpos</h3>
+<p>En infección secundaria por serotipo heterólogo, los anticuerpos heterotípicos formados durante la primera infección se unen al nuevo serotipo pero <strong>no lo neutralizan</strong>. En cambio, facilitan la entrada del virus a monocitos/macrófagos vía receptor FcγR → mayor carga viral → respuesta inflamatoria exacerbada → dengue grave.</p>
+<div class="alert alert-red">
+<div class="alert-title">⚡ Concepto clave: tormenta de citoquinas</div>
+<p>La infección masiva de monocitos activa una cascada inflamatoria con liberación masiva de TNF-α, IL-6, IL-8, IL-10 e interferones. Esta "tormenta de citoquinas" produce:</p>
+<ul>
+<li><strong>Aumento de permeabilidad vascular</strong> → fuga plasmática → hemoconcentración → shock</li>
+<li><strong>Activación endotelial</strong> → inflamación local</li>
+<li><strong>Disfunción de órgano diana</strong> en formas graves</li>
+</ul>
+</div>
+<h3>Fuga plasmática: el fenómeno central del dengue grave</h3>
+<p>La fuga plasmática ocurre principalmente en el <strong>tercer espacio</strong> (pleura, peritoneo, pericardio). Es transitoria (24–48 h), máxima en la fase crítica (días 4–6). Su severidad determina si el paciente desarrollará shock. El mecanismo principal es la disrupción de la barrera endotelial mediada por citoquinas y por el antígeno viral NS1.</p>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🧬</span>
+<span class="card-title">Inmunopatología: primera vs. segunda infección</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<table class="tbl">
+<tr>
+<th>Aspecto</th>
+<th>1ª Infección</th>
+<th>2ª Infección (serotipo diferente)</th>
+</tr>
+<tr>
+<td>Anticuerpos previos</td>
+<td>Ninguno</td>
+<td>Heterotípicos (no neutralizantes)</td>
+</tr>
+<tr>
+<td>Carga viral</td>
+<td>Moderada</td>
+<td>Alta (por ADE)</td>
+</tr>
+<tr>
+<td>Respuesta Th1</td>
+<td>Balanceada</td>
+<td>Exacerbada</td>
+</tr>
+<tr>
+<td>Riesgo de dengue grave</td>
+<td>Bajo (salvo embarazo, &gt;65a)</td>
+<td><strong>Hasta 10× mayor</strong></td>
+</tr>
+<tr>
+<td>Trombocitopenia severa</td>
+<td>Menos frecuente</td>
+<td>Más frecuente y precoz</td>
+</tr>
+<tr>
+<td>Inmunidad adquirida</td>
+<td>Homotípica vitalicia</td>
+<td>Heterotípica temporal</td>
+</tr>
+</table>
+<div class="alert alert-blue">
+<div class="alert-title">📌 Inmunidad cruzada</div>
+<p>Tras la 2ª infección, el paciente puede infectarse por los otros dos serotipos restantes y seguir en riesgo de formas graves en exposiciones sucesivas. La inmunidad homotípica (al mismo serotipo) es duradera y probablemente vitalicia.</p>
+</div>
+</div>
+</div>
 </div><!-- /fisio -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 2: CLÍNICA Y ESTADIOS
 ═══════════════════════════════════════ -->
-<div id="clinica" class="section">
-
-  <div class="alert alert-amber">
-    <div class="alert-title">🗓️ Cronología de la enfermedad — Días 1 al 10</div>
-    <p>El dengue sigue una secuencia temporal predecible dividida en tres fases. Comprender en qué día clínico se encuentra el paciente es fundamental para tomar decisiones en urgencias.</p>
-  </div>
-
-  <!-- FASE FEBRIL -->
-  <div class="stage stage-1">
-    <div class="stage-head">
-      <span class="stage-badge">Días 1–3</span>
-      <span class="stage-title">🌡️ Fase Febril</span>
-    </div>
-    <div class="pills">
-      <span class="pill pill-green">Generalmente ambulatorio</span>
-      <span class="pill pill-amber">Vigilar señales de alarma</span>
-    </div>
-    <p><strong>Fiebre:</strong> de inicio súbito, 39–40 °C, puede llegar a 40.5 °C. Puede ser bifásica ("silla de montar" clásica, aunque no siempre presente).</p>
-    <ul>
-      <li>Cefalea frontal intensa, retroocular (patognomónica del dengue)</li>
-      <li>Mialgias y artralgias ("fiebre quebrantahuesos")</li>
-      <li>Eritema facial con palidez perioral</li>
-      <li>Rubor, flushing, hiperemia conjuntival</li>
-      <li>Anorexia, náuseas, vómitos</li>
-      <li>Exantema maculopapular transitorio (1er–2º día)</li>
-      <li>Prueba del torniquete positiva (≥20 petequias en 2.5 cm²)</li>
-    </ul>
-    <div class="alert alert-blue" style="margin-top:10px">
-      <div class="alert-title">🩸 Laboratorio en fase febril</div>
-      <p>Leucopenia progresiva (característica), trombocitopenia incipiente, hematocrito normal o levemente elevado. NS1 Ag positivo desde el día 1 hasta el 5–7.</p>
-    </div>
-  </div>
-
-  <!-- FASE CRÍTICA -->
-  <div class="stage stage-2">
-    <div class="stage-head">
-      <span class="stage-badge">Días 4–6</span>
-      <span class="stage-title">⚠️ Fase Crítica</span>
-    </div>
-    <div class="pills">
-      <span class="pill pill-red">Alto riesgo</span>
-      <span class="pill pill-amber">Monitoreo estricto</span>
-      <span class="pill pill-amber">Decisión hospitalización</span>
-    </div>
-    <p><strong>La fiebre cede</strong> (defervescencia) — momento de máximo riesgo. El paciente puede percibir mejoría pero en realidad está en el período de mayor peligro.</p>
-
-    <h3>Fenómeno central: fuga plasmática</h3>
-    <ul>
-      <li>Hemoconcentración: Hct ↑≥20% sobre basal (signo cardinal)</li>
-      <li>Derrame pleural (detectar con Rx o ecografía)</li>
-      <li>Ascitis (percusión abdominal, ecografía)</li>
-      <li>Edema de pared vesicular en ecografía</li>
-      <li>Hipoalbuminemia</li>
-    </ul>
-
-    <h3>Hemorragia</h3>
-    <ul>
-      <li>Petequias, equimosis espontáneas</li>
-      <li>Epistaxis, gingivorragia</li>
-      <li>Sangrado digestivo (hematemesis, melena)</li>
-      <li>Hematuria macroscópica</li>
-      <li>Menorragia en mujeres</li>
-    </ul>
-
-    <div class="alert alert-red" style="margin-top:10px">
-      <div class="alert-title">🚨 Señales de alarma OMS — Requieren evaluación urgente</div>
-      <div class="warn-grid">
-        <div class="warn-item"><span class="wi">🤢</span>Dolor abdominal intenso o continuo</div>
-        <div class="warn-item"><span class="wi">🤮</span>Vómitos persistentes (≥3/hora)</div>
-        <div class="warn-item"><span class="wi">💧</span>Acumulación de fluidos clínica o radiológica</div>
-        <div class="warn-item"><span class="wi">🩸</span>Sangrado de mucosas</div>
-        <div class="warn-item"><span class="wi">😵</span>Letargo, irritabilidad o agitación</div>
-        <div class="warn-item"><span class="wi">🫀</span>Hepatomegalia >2 cm</div>
-        <div class="warn-item"><span class="wi">📊</span>↑ rápido hematocrito + caída plaquetas</div>
-        <div class="warn-item"><span class="wi">⚡</span>Lipotimia / síncope</div>
-      </div>
-      <p style="font-size:13px;color:var(--red);font-weight:600">La presencia de UNA sola señal de alarma obliga al ingreso hospitalario para monitoreo y fluidos IV.</p>
-    </div>
-  </div>
-
-  <!-- FASE DE RECUPERACIÓN -->
-  <div class="stage stage-3" style="background:#f0fdf4;border-color:#86efac">
-    <div class="stage-head">
-      <span class="stage-badge" style="background:#15803d">Días 7–10</span>
-      <span class="stage-title">✅ Fase de Recuperación</span>
-    </div>
-    <div class="pills">
-      <span class="pill pill-green">Reabsorción de fluidos</span>
-      <span class="pill pill-amber">Riesgo de sobrecarga hídrica</span>
-    </div>
-    <p>Los fluidos extravasados regresan al espacio intravascular. El paciente mejora clínicamente: reaparece el apetito, diuresis se normaliza, bradicardia relativa.</p>
-    <ul>
-      <li>Exantema característico de recuperación: eritema con "islas blancas" (petequias sobre fondo eritematoso)</li>
-      <li>Prurito generalizado</li>
-      <li>Hematocrito disminuye (dilución por reabsorción)</li>
-      <li>Leucocitos y plaquetas comienzan a recuperarse</li>
-    </ul>
-    <div class="alert alert-amber" style="margin-top:10px">
-      <div class="alert-title">⚠️ Peligro en recuperación: sobrecarga de volumen</div>
-      <p>Si el paciente recibió fluidos IV en exceso durante la fase crítica, al reabsorberse el plasma extravasado puede producirse <strong>sobrecarga circulatoria</strong> → edema pulmonar, insuficiencia cardíaca aguda. Reducir y suspender fluidos IV cuando mejora la diuresis.</p>
-    </div>
-  </div>
-
-  <!-- CLASIFICACIÓN OMS 2024 -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">📊</span>
-      <span class="card-title">Clasificación OMS 2024 actualizada</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr>
-          <th>Categoría</th>
-          <th>Criterios</th>
-          <th>Manejo</th>
-        </tr>
-        <tr>
-          <td><strong>Dengue sin señales de alarma</strong></td>
-          <td>Fiebre + ≥2 síntomas clásicos, sin hemorragia significativa ni fuga</td>
-          <td>Ambulatorio con educación al paciente</td>
-        </tr>
-        <tr>
-          <td><strong>Dengue con señales de alarma</strong></td>
-          <td>Cualquiera de las 8 señales de alarma OMS</td>
-          <td>Hospitalización, fluidos IV, monitoreo</td>
-        </tr>
-        <tr>
-          <td><strong>Dengue grave</strong></td>
-          <td>Shock por dengue, sangrado grave, disfunción orgánica grave</td>
-          <td>UCI / cuidado intensivo inmediato</td>
-        </tr>
-      </table>
-
-      <h3>Grupos especiales de riesgo</h3>
-      <div class="pills">
-        <span class="pill pill-red">Lactantes y menores de 5 años</span>
-        <span class="pill pill-red">Embarazadas (cualquier trimestre)</span>
-        <span class="pill pill-red">Mayores de 65 años</span>
-        <span class="pill pill-red">Obesos (IMC >30)</span>
-        <span class="pill pill-amber">DM, ERC, ICC</span>
-        <span class="pill pill-amber">Hemoglobinopatías</span>
-        <span class="pill pill-amber">Inmunosuprimidos</span>
-      </div>
-      <p>Estos grupos deben hospitalizarse incluso sin señales de alarma cuando la trombocitopenia es significativa (&lt;100,000/µL) o hay condición basal que aumente el riesgo de hemorragia.</p>
-    </div>
-  </div>
-
+<div class="section" id="clinica">
+<div class="alert alert-amber">
+<div class="alert-title">🗓️ Cronología de la enfermedad — Días 1 al 10</div>
+<p>El dengue sigue una secuencia temporal predecible dividida en tres fases. Comprender en qué día clínico se encuentra el paciente es fundamental para tomar decisiones en urgencias.</p>
+</div>
+<!-- FASE FEBRIL -->
+<div class="stage stage-1">
+<div class="stage-head">
+<span class="stage-badge">Días 1–3</span>
+<span class="stage-title">🌡️ Fase Febril</span>
+</div>
+<div class="pills">
+<span class="pill pill-green">Generalmente ambulatorio</span>
+<span class="pill pill-amber">Vigilar señales de alarma</span>
+</div>
+<p><strong>Fiebre:</strong> de inicio súbito, 39–40 °C, puede llegar a 40.5 °C. Puede ser bifásica ("silla de montar" clásica, aunque no siempre presente).</p>
+<ul>
+<li>Cefalea frontal intensa, retroocular (patognomónica del dengue)</li>
+<li>Mialgias y artralgias ("fiebre quebrantahuesos")</li>
+<li>Eritema facial con palidez perioral</li>
+<li>Rubor, flushing, hiperemia conjuntival</li>
+<li>Anorexia, náuseas, vómitos</li>
+<li>Exantema maculopapular transitorio (1er–2º día)</li>
+<li>Prueba del torniquete positiva (≥20 petequias en 2.5 cm²)</li>
+</ul>
+<div class="alert alert-blue" style="margin-top:10px">
+<div class="alert-title">🩸 Laboratorio en fase febril</div>
+<p>Leucopenia progresiva (característica), trombocitopenia incipiente, hematocrito normal o levemente elevado. NS1 Ag positivo desde el día 1 hasta el 5–7.</p>
+</div>
+</div>
+<!-- FASE CRÍTICA -->
+<div class="stage stage-2">
+<div class="stage-head">
+<span class="stage-badge">Días 4–6</span>
+<span class="stage-title">⚠️ Fase Crítica</span>
+</div>
+<div class="pills">
+<span class="pill pill-red">Alto riesgo</span>
+<span class="pill pill-amber">Monitoreo estricto</span>
+<span class="pill pill-amber">Decisión hospitalización</span>
+</div>
+<p><strong>La fiebre cede</strong> (defervescencia) — momento de máximo riesgo. El paciente puede percibir mejoría pero en realidad está en el período de mayor peligro.</p>
+<h3>Fenómeno central: fuga plasmática</h3>
+<ul>
+<li>Hemoconcentración: Hct ↑≥20% sobre basal (signo cardinal)</li>
+<li>Derrame pleural (detectar con Rx o ecografía)</li>
+<li>Ascitis (percusión abdominal, ecografía)</li>
+<li>Edema de pared vesicular en ecografía</li>
+<li>Hipoalbuminemia</li>
+</ul>
+<h3>Hemorragia</h3>
+<ul>
+<li>Petequias, equimosis espontáneas</li>
+<li>Epistaxis, gingivorragia</li>
+<li>Sangrado digestivo (hematemesis, melena)</li>
+<li>Hematuria macroscópica</li>
+<li>Menorragia en mujeres</li>
+</ul>
+<div class="alert alert-red" style="margin-top:10px">
+<div class="alert-title">🚨 Señales de alarma OMS — Requieren evaluación urgente</div>
+<div class="warn-grid">
+<div class="warn-item"><span class="wi">🤢</span>Dolor abdominal intenso o continuo</div>
+<div class="warn-item"><span class="wi">🤮</span>Vómitos persistentes (≥3/hora)</div>
+<div class="warn-item"><span class="wi">💧</span>Acumulación de fluidos clínica o radiológica</div>
+<div class="warn-item"><span class="wi">🩸</span>Sangrado de mucosas</div>
+<div class="warn-item"><span class="wi">😵</span>Letargo, irritabilidad o agitación</div>
+<div class="warn-item"><span class="wi">🫀</span>Hepatomegalia &gt;2 cm</div>
+<div class="warn-item"><span class="wi">📊</span>↑ rápido hematocrito + caída plaquetas</div>
+<div class="warn-item"><span class="wi">⚡</span>Lipotimia / síncope</div>
+</div>
+<p style="font-size:13px;color:var(--red);font-weight:600">La presencia de UNA sola señal de alarma obliga al ingreso hospitalario para monitoreo y fluidos IV.</p>
+</div>
+</div>
+<!-- FASE DE RECUPERACIÓN -->
+<div class="stage stage-3" style="background:#f0fdf4;border-color:#86efac">
+<div class="stage-head">
+<span class="stage-badge" style="background:#15803d">Días 7–10</span>
+<span class="stage-title">✅ Fase de Recuperación</span>
+</div>
+<div class="pills">
+<span class="pill pill-green">Reabsorción de fluidos</span>
+<span class="pill pill-amber">Riesgo de sobrecarga hídrica</span>
+</div>
+<p>Los fluidos extravasados regresan al espacio intravascular. El paciente mejora clínicamente: reaparece el apetito, diuresis se normaliza, bradicardia relativa.</p>
+<ul>
+<li>Exantema característico de recuperación: eritema con "islas blancas" (petequias sobre fondo eritematoso)</li>
+<li>Prurito generalizado</li>
+<li>Hematocrito disminuye (dilución por reabsorción)</li>
+<li>Leucocitos y plaquetas comienzan a recuperarse</li>
+</ul>
+<div class="alert alert-amber" style="margin-top:10px">
+<div class="alert-title">⚠️ Peligro en recuperación: sobrecarga de volumen</div>
+<p>Si el paciente recibió fluidos IV en exceso durante la fase crítica, al reabsorberse el plasma extravasado puede producirse <strong>sobrecarga circulatoria</strong> → edema pulmonar, insuficiencia cardíaca aguda. Reducir y suspender fluidos IV cuando mejora la diuresis.</p>
+</div>
+</div>
+<!-- CLASIFICACIÓN OMS 2024 -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">📊</span>
+<span class="card-title">Clasificación OMS 2024 actualizada</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<table class="tbl">
+<tr>
+<th>Categoría</th>
+<th>Criterios</th>
+<th>Manejo</th>
+</tr>
+<tr>
+<td><strong>Dengue sin señales de alarma</strong></td>
+<td>Fiebre + ≥2 síntomas clásicos, sin hemorragia significativa ni fuga</td>
+<td>Ambulatorio con educación al paciente</td>
+</tr>
+<tr>
+<td><strong>Dengue con señales de alarma</strong></td>
+<td>Cualquiera de las 8 señales de alarma OMS</td>
+<td>Hospitalización, fluidos IV, monitoreo</td>
+</tr>
+<tr>
+<td><strong>Dengue grave</strong></td>
+<td>Shock por dengue, sangrado grave, disfunción orgánica grave</td>
+<td>UCI / cuidado intensivo inmediato</td>
+</tr>
+</table>
+<h3>Grupos especiales de riesgo</h3>
+<div class="pills">
+<span class="pill pill-red">Lactantes y menores de 5 años</span>
+<span class="pill pill-red">Embarazadas (cualquier trimestre)</span>
+<span class="pill pill-red">Mayores de 65 años</span>
+<span class="pill pill-red">Obesos (IMC &gt;30)</span>
+<span class="pill pill-amber">DM, ERC, ICC</span>
+<span class="pill pill-amber">Hemoglobinopatías</span>
+<span class="pill pill-amber">Inmunosuprimidos</span>
+</div>
+<p>Estos grupos deben hospitalizarse incluso sin señales de alarma cuando la trombocitopenia es significativa (&lt;100,000/µL) o hay condición basal que aumente el riesgo de hemorragia.</p>
+</div>
+</div>
 </div><!-- /clinica -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 3: LABORATORIO
 ═══════════════════════════════════════ -->
-<div id="lab" class="section">
-
-  <h2>Diagnóstico de laboratorio</h2>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)">
-      <span class="card-icon">🧪</span>
-      <span class="card-title">Pruebas diagnósticas según fase</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body open">
-      <table class="tbl">
-        <tr>
-          <th>Prueba</th>
-          <th>Día óptimo</th>
-          <th>Sensibilidad</th>
-          <th>Especificidad</th>
-          <th>Uso en EC</th>
-        </tr>
-        <tr>
-          <td>NS1 Ag (Antígeno)</td>
-          <td>Días 1–5</td>
-          <td>80–90%</td>
-          <td>>97%</td>
-          <td>✅ Primera línea</td>
-        </tr>
-        <tr>
-          <td>IgM anti-DENV</td>
-          <td>Días 5–14</td>
-          <td>85–95%</td>
-          <td>85%</td>
-          <td>✅ Fase tardía</td>
-        </tr>
-        <tr>
-          <td>IgG anti-DENV</td>
-          <td>Días 7–14+</td>
-          <td>Alta</td>
-          <td>Variable</td>
-          <td>⚠️ Infección pasada / reinfección</td>
-        </tr>
-        <tr>
-          <td>RT-PCR DENV</td>
-          <td>Días 1–5</td>
-          <td>>95%</td>
-          <td>>99%</td>
-          <td>Referencia / serotipificación</td>
-        </tr>
-        <tr>
-          <td>NS1 + IgM combo</td>
-          <td>Días 1–14</td>
-          <td>>95%</td>
-          <td>>95%</td>
-          <td>✅ Mejor rendimiento global</td>
-        </tr>
-      </table>
-
-      <div class="alert alert-blue">
-        <div class="alert-title">🔑 Interpretación práctica en urgencias</div>
-        <ul>
-          <li><strong>NS1 (+):</strong> confirma dengue activo en fase aguda (días 1–5). No descarta en días 6–7.</li>
-          <li><strong>NS1 (–) + IgM (+):</strong> dengue en evolución, probablemente día 5–7+.</li>
-          <li><strong>NS1 (–) + IgM (–):</strong> NO descarta dengue; repetir a las 24–48 h si la clínica es sugestiva.</li>
-          <li><strong>NS1 (–) + IgG (+):</strong> sugiere infección previa; valorar con clínica si hay reinfección activa.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">📈</span>
-      <span class="card-title">Hemograma: interpretación evolutiva</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <h3>Leucocitos</h3>
-      <div class="lab-item"><span class="lab-name">Días 1–3</span><span class="lab-val">↓ Leucopenia leve (4000–5000/µL) <span class="lab-flag flag-a">Precoz</span></span></div>
-      <div class="lab-item"><span class="lab-name">Días 4–6</span><span class="lab-val">↓↓ Leucopenia marcada (&lt;3000/µL) <span class="lab-flag flag-r">Significativa</span></span></div>
-      <div class="lab-item"><span class="lab-name">Recuperación</span><span class="lab-val">↑ Leucocitosis reactiva transitoria <span class="lab-flag flag-g">Normal</span></span></div>
-
-      <h3 style="margin-top:14px">Plaquetas — Umbrales de decisión clínica</h3>
-      <table class="tbl">
-        <tr><th>Recuento</th><th>Interpretación</th><th>Acción</th></tr>
-        <tr><td>&gt;100,000</td><td>Trombocitopenia leve</td><td>Monitoreo diario</td></tr>
-        <tr><td>50,000–100,000</td><td>Moderada — riesgo hemorrágico</td><td>Hospitalizar, vigilancia estrecha</td></tr>
-        <tr><td>20,000–50,000</td><td>Severa — alto riesgo sangrado espontáneo</td><td>UCI, evaluar transfusión</td></tr>
-        <tr><td>&lt;20,000</td><td>Crítica — sangrado mayor inminente</td><td>Transfusión plaquetaria según clínica</td></tr>
-      </table>
-
-      <div class="alert alert-amber">
-        <div class="alert-title">⚠️ Recuento de plaquetas NO es indicación única de transfusión</div>
-        <p>Las guías OMS 2024 y CDC no recomiendan transfusión plaquetaria profiláctica por recuento bajo solo. La indicación es sangrado activo significativo + trombocitopenia grave. Transfundir plaquetas sin sangrado activo puede empeorar el pronóstico (ADE, TRALI).</p>
-      </div>
-
-      <h3>Hematocrito — Marcador de fuga plasmática</h3>
-      <div class="lab-item"><span class="lab-name">Basal (tomar al ingreso)</span><span class="lab-val">Valor de referencia individual</span></div>
-      <div class="lab-item"><span class="lab-name">Hct ↑ 10–20% sobre basal</span><span class="lab-val"><span class="lab-flag flag-a">Fuga leve</span> Inicio de fluidoterapia IV</span></div>
-      <div class="lab-item"><span class="lab-name">Hct ↑ ≥20% sobre basal</span><span class="lab-val"><span class="lab-flag flag-r">Fuga significativa</span> Fluidos IV urgentes</span></div>
-      <div class="lab-item"><span class="lab-name">Hct en recuperación</span><span class="lab-val"><span class="lab-flag flag-g">↓ = reabsorción</span> Reducir fluidos IV</span></div>
-
-      <div class="alert alert-red" style="margin-top:12px">
-        <div class="alert-title">⚡ Hematocrito + plaquetas: dupla de alarma</div>
-        <p>El patrón de <strong>↑ rápido del Hct con ↓ simultánea de plaquetas</strong> en los días 4–6 es el marcador más sensible de transición a fase crítica. Solicitar hemograma cada 6–12 h en pacientes hospitalizados con dengue con señales de alarma.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🔍</span>
-      <span class="card-title">Paneles adicionales según gravedad</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Examen</th><th>¿Cuándo solicitarlo?</th><th>¿Qué busca?</th></tr>
-        <tr><td>AST, ALT</td><td>Todo paciente hospitalizado</td><td>Hepatitis por dengue (AST>ALT, típico)</td></tr>
-        <tr><td>Bilirrubinas</td><td>Ictericia, hepatomegalia</td><td>Disfunción hepática grave</td></tr>
-        <tr><td>Urea, creatinina</td><td>Oliguria, shock</td><td>AKI asociada a dengue</td></tr>
-        <tr><td>Electrolitos</td><td>Todo hospitalizado</td><td>Hiponatremia (frecuente)</td></tr>
-        <tr><td>Gasometría venosa</td><td>Shock, alteración de conciencia</td><td>Acidosis metabólica, lactato</td></tr>
-        <tr><td>TP, TTP, fibrinógeno</td><td>Sangrado mayor, plaquetas &lt;20K</td><td>Coagulopatía / CID</td></tr>
-        <tr><td>Troponina, BNP</td><td>Disnea, edema pulmonar, ECG alt.</td><td>Miocarditis/carditis por dengue</td></tr>
-        <tr><td>Radiografía de tórax</td><td>Disnea, desaturación</td><td>Derrame pleural, edema</td></tr>
-        <tr><td>Ecografía abdominal</td><td>Todo dengue con señales alarma</td><td>Ascitis, engrosamiento pared vesicular, derrame</td></tr>
-      </table>
-
-      <div class="alert alert-blue">
-        <div class="alert-title">🔊 Ecografía point-of-care: herramienta crítica en urgencias</div>
-        <p>La ecografía a la cabecera del paciente permite detectar fuga plasmática antes que sea clínicamente evidente. <strong>Buscar:</strong> derrame pleural (ventana intercostal), ascitis libre, engrosamiento de pared vesicular ≥3 mm (signo muy sensible). Útil para monitorear respuesta al tratamiento.</p>
-      </div>
-    </div>
-  </div>
-
+<div class="section" id="lab">
+<h2>Diagnóstico de laboratorio</h2>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)">
+<span class="card-icon">🧪</span>
+<span class="card-title">Pruebas diagnósticas según fase</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body open">
+<table class="tbl">
+<tr>
+<th>Prueba</th>
+<th>Día óptimo</th>
+<th>Sensibilidad</th>
+<th>Especificidad</th>
+<th>Uso en EC</th>
+</tr>
+<tr>
+<td>NS1 Ag (Antígeno)</td>
+<td>Días 1–5</td>
+<td>80–90%</td>
+<td>&gt;97%</td>
+<td>✅ Primera línea</td>
+</tr>
+<tr>
+<td>IgM anti-DENV</td>
+<td>Días 5–14</td>
+<td>85–95%</td>
+<td>85%</td>
+<td>✅ Fase tardía</td>
+</tr>
+<tr>
+<td>IgG anti-DENV</td>
+<td>Días 7–14+</td>
+<td>Alta</td>
+<td>Variable</td>
+<td>⚠️ Infección pasada / reinfección</td>
+</tr>
+<tr>
+<td>RT-PCR DENV</td>
+<td>Días 1–5</td>
+<td>&gt;95%</td>
+<td>&gt;99%</td>
+<td>Referencia / serotipificación</td>
+</tr>
+<tr>
+<td>NS1 + IgM combo</td>
+<td>Días 1–14</td>
+<td>&gt;95%</td>
+<td>&gt;95%</td>
+<td>✅ Mejor rendimiento global</td>
+</tr>
+</table>
+<div class="alert alert-blue">
+<div class="alert-title">🔑 Interpretación práctica en urgencias</div>
+<ul>
+<li><strong>NS1 (+):</strong> confirma dengue activo en fase aguda (días 1–5). No descarta en días 6–7.</li>
+<li><strong>NS1 (–) + IgM (+):</strong> dengue en evolución, probablemente día 5–7+.</li>
+<li><strong>NS1 (–) + IgM (–):</strong> NO descarta dengue; repetir a las 24–48 h si la clínica es sugestiva.</li>
+<li><strong>NS1 (–) + IgG (+):</strong> sugiere infección previa; valorar con clínica si hay reinfección activa.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">📈</span>
+<span class="card-title">Hemograma: interpretación evolutiva</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<h3>Leucocitos</h3>
+<div class="lab-item"><span class="lab-name">Días 1–3</span><span class="lab-val">↓ Leucopenia leve (4000–5000/µL) <span class="lab-flag flag-a">Precoz</span></span></div>
+<div class="lab-item"><span class="lab-name">Días 4–6</span><span class="lab-val">↓↓ Leucopenia marcada (&lt;3000/µL) <span class="lab-flag flag-r">Significativa</span></span></div>
+<div class="lab-item"><span class="lab-name">Recuperación</span><span class="lab-val">↑ Leucocitosis reactiva transitoria <span class="lab-flag flag-g">Normal</span></span></div>
+<h3 style="margin-top:14px">Plaquetas — Umbrales de decisión clínica</h3>
+<table class="tbl">
+<tr><th>Recuento</th><th>Interpretación</th><th>Acción</th></tr>
+<tr><td>&gt;100,000</td><td>Trombocitopenia leve</td><td>Monitoreo diario</td></tr>
+<tr><td>50,000–100,000</td><td>Moderada — riesgo hemorrágico</td><td>Hospitalizar, vigilancia estrecha</td></tr>
+<tr><td>20,000–50,000</td><td>Severa — alto riesgo sangrado espontáneo</td><td>UCI, evaluar transfusión</td></tr>
+<tr><td>&lt;20,000</td><td>Crítica — sangrado mayor inminente</td><td>Transfusión plaquetaria según clínica</td></tr>
+</table>
+<div class="alert alert-amber">
+<div class="alert-title">⚠️ Recuento de plaquetas NO es indicación única de transfusión</div>
+<p>Las guías OMS 2024 y CDC no recomiendan transfusión plaquetaria profiláctica por recuento bajo solo. La indicación es sangrado activo significativo + trombocitopenia grave. Transfundir plaquetas sin sangrado activo puede empeorar el pronóstico (ADE, TRALI).</p>
+</div>
+<h3>Hematocrito — Marcador de fuga plasmática</h3>
+<div class="lab-item"><span class="lab-name">Basal (tomar al ingreso)</span><span class="lab-val">Valor de referencia individual</span></div>
+<div class="lab-item"><span class="lab-name">Hct ↑ 10–20% sobre basal</span><span class="lab-val"><span class="lab-flag flag-a">Fuga leve</span> Inicio de fluidoterapia IV</span></div>
+<div class="lab-item"><span class="lab-name">Hct ↑ ≥20% sobre basal</span><span class="lab-val"><span class="lab-flag flag-r">Fuga significativa</span> Fluidos IV urgentes</span></div>
+<div class="lab-item"><span class="lab-name">Hct en recuperación</span><span class="lab-val"><span class="lab-flag flag-g">↓ = reabsorción</span> Reducir fluidos IV</span></div>
+<div class="alert alert-red" style="margin-top:12px">
+<div class="alert-title">⚡ Hematocrito + plaquetas: dupla de alarma</div>
+<p>El patrón de <strong>↑ rápido del Hct con ↓ simultánea de plaquetas</strong> en los días 4–6 es el marcador más sensible de transición a fase crítica. Solicitar hemograma cada 6–12 h en pacientes hospitalizados con dengue con señales de alarma.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🔍</span>
+<span class="card-title">Paneles adicionales según gravedad</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Examen</th><th>¿Cuándo solicitarlo?</th><th>¿Qué busca?</th></tr>
+<tr><td>AST, ALT</td><td>Todo paciente hospitalizado</td><td>Hepatitis por dengue (AST&gt;ALT, típico)</td></tr>
+<tr><td>Bilirrubinas</td><td>Ictericia, hepatomegalia</td><td>Disfunción hepática grave</td></tr>
+<tr><td>Urea, creatinina</td><td>Oliguria, shock</td><td>AKI asociada a dengue</td></tr>
+<tr><td>Electrolitos</td><td>Todo hospitalizado</td><td>Hiponatremia (frecuente)</td></tr>
+<tr><td>Gasometría venosa</td><td>Shock, alteración de conciencia</td><td>Acidosis metabólica, lactato</td></tr>
+<tr><td>TP, TTP, fibrinógeno</td><td>Sangrado mayor, plaquetas &lt;20K</td><td>Coagulopatía / CID</td></tr>
+<tr><td>Troponina, BNP</td><td>Disnea, edema pulmonar, ECG alt.</td><td>Miocarditis/carditis por dengue</td></tr>
+<tr><td>Radiografía de tórax</td><td>Disnea, desaturación</td><td>Derrame pleural, edema</td></tr>
+<tr><td>Ecografía abdominal</td><td>Todo dengue con señales alarma</td><td>Ascitis, engrosamiento pared vesicular, derrame</td></tr>
+</table>
+<div class="alert alert-blue">
+<div class="alert-title">🔊 Ecografía point-of-care: herramienta crítica en urgencias</div>
+<p>La ecografía a la cabecera del paciente permite detectar fuga plasmática antes que sea clínicamente evidente. <strong>Buscar:</strong> derrame pleural (ventana intercostal), ascitis libre, engrosamiento de pared vesicular ≥3 mm (signo muy sensible). Útil para monitorear respuesta al tratamiento.</p>
+</div>
+</div>
+</div>
 </div><!-- /lab -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 4: MANEJO EN EMERGENCIA
 ═══════════════════════════════════════ -->
-<div id="emergencia" class="section">
-
-  <div class="alert alert-red">
-    <div class="alert-title">🚨 Principio fundamental en emergencias</div>
-    <p>En dengue, el manejo de fluidos es la intervención que salva vidas. El objetivo es mantener la perfusión de órganos durante la fase crítica sin provocar sobrecarga hídrica en la recuperación. <strong>No existe tratamiento antiviral específico.</strong></p>
-  </div>
-
-  <!-- TRIAGE -->
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)">
-      <span class="card-icon">🏥</span>
-      <span class="card-title">Triage y estratificación al ingreso</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body open">
-      <h3>Preguntas clave en la evaluación inicial</h3>
-      <ol>
-        <li>¿Cuántos días lleva con fiebre? → Establece la fase clínica</li>
-        <li>¿La fiebre cedió en las últimas 24 h? → Alerta fase crítica</li>
-        <li>¿Tiene alguna señal de alarma? → Definir hospitalización inmediata</li>
-        <li>¿Infección previa por dengue? → Riesgo de ADE y dengue grave</li>
-        <li>¿Factores de riesgo: embarazo, edad, comorbilidades?</li>
-        <li>¿Toma AINE/aspirina? → Riesgo hemorrágico aumentado</li>
-      </ol>
-
-      <table class="tbl" style="margin-top:12px">
-        <tr><th>Categoría</th><th>Criterios</th><th>Decisión</th></tr>
-        <tr>
-          <td style="color:#15803d;font-weight:700">Grupo A</td>
-          <td>Sin señales alarma, tolera vía oral, orina normal</td>
-          <td>Alta con educación + control en 24–48 h</td>
-        </tr>
-        <tr>
-          <td style="color:#ea580c;font-weight:700">Grupo B</td>
-          <td>Señales alarma o grupo de riesgo o no tolera VO</td>
-          <td>Hospitalización, fluidos IV, hemograma c/12 h</td>
-        </tr>
-        <tr>
-          <td style="color:#dc2626;font-weight:700">Grupo C</td>
-          <td>Dengue grave: shock, sangrado mayor, daño orgánico</td>
-          <td>UCI inmediata, fluidoterapia agresiva controlada</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- FLUIDOTERAPIA DETALLADA -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">💧</span>
-      <span class="card-title">Fluidoterapia — Protocolo OMS 2024 paso a paso</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-
-      <div class="alert alert-blue">
-        <div class="alert-title">💉 Solución de elección</div>
-        <p>Solución isotónica: <strong>SSN 0.9%</strong> o <strong>Lactato de Ringer</strong>. El LR es levemente preferido por su composición más fisiológica. NO usar soluciones hipotónicas (riesgo de hiponatremia). Los coloides (albúmina, almidones) se reservan para casos refractarios.</p>
-      </div>
-
-      <h3>Dengue con señales de alarma — Grupo B (sin shock)</h3>
-
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Bolo inicial</strong>
-          <p>5–7 ml/kg en 1–2 horas. Reevaluar: PA, FC, diuresis, Hct al finalizar.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Si mejora clínica</strong>
-          <p>Continuar a 3–5 ml/kg/h por 2–4 h, luego reducir a 2–3 ml/kg/h según evolución.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Reducción progresiva</strong>
-          <p>A las 24–48 h cuando Hct estabiliza, diuresis ≥0.5 ml/kg/h, signos vitales normales.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Suspender fluidos IV</strong>
-          <p>Cuando paciente toleró líquidos orales, diuresis normal, Hct en tendencia a bajar.</p>
-        </div>
-      </div>
-
-      <h3 style="margin-top:16px">Shock por dengue — Grupo C (compensado)</h3>
-
-      <div class="fluid-box">
-        <h3>⚡ Reanimación con volumen — Shock compensado</h3>
-        <div class="fluid-row"><span class="fluid-label">Bolo 1 (rápido)</span><span class="fluid-val">10 ml/kg en 15–30 min</span></div>
-        <div class="fluid-row"><span class="fluid-label">Reevaluar</span><span class="fluid-val">PA, FC, diuresis, Hct</span></div>
-        <div class="fluid-row"><span class="fluid-label">Si mejora → continuar</span><span class="fluid-val">5–7 ml/kg/h por 1–2 h</span></div>
-        <div class="fluid-row"><span class="fluid-label">Reducción gradual</span><span class="fluid-val">3–5 → 2–3 → 1.5 ml/kg/h</span></div>
-        <div class="fluid-row"><span class="fluid-label">Volumen máximo fase crítica</span><span class="fluid-val">~48–72 ml/kg en 24 h</span></div>
-      </div>
-
-      <h3>Shock por dengue — Grupo C (descompensado / refractario)</h3>
-
-      <div class="fluid-box" style="background:linear-gradient(135deg,#7f1d1d,#991b1b)">
-        <h3>🆘 Shock refractario — Medidas de rescate</h3>
-        <div class="fluid-row"><span class="fluid-label">Bolo inicial</span><span class="fluid-val">20 ml/kg en 15 min</span></div>
-        <div class="fluid-row"><span class="fluid-label">Si no responde × 2–3 bolos</span><span class="fluid-val">Considerar coloide (albúmina 5%)</span></div>
-        <div class="fluid-row"><span class="fluid-label">Vasopresores</span><span class="fluid-val">Norepinefrina si shock vasopléjico</span></div>
-        <div class="fluid-row"><span class="fluid-label">Monitoreo invasivo</span><span class="fluid-val">PVC, gasto cardíaco (UCI)</span></div>
-        <div class="fluid-row"><span class="fluid-label">Buscar y tratar</span><span class="fluid-val">Causas de refractariedad (ver abajo)</span></div>
-      </div>
-
-      <div class="alert alert-amber">
-        <div class="alert-title">🔎 Causas de shock refractario a fluidos en dengue</div>
-        <ul>
-          <li>Sangrado masivo oculto (retroperitoneal, hepático)</li>
-          <li>Miocarditis por dengue (evaluar con ECO)</li>
-          <li>Acidosis metabólica severa (gasometría)</li>
-          <li>Sobreinfección bacteriana / sepsis concomitante</li>
-          <li>Insuficiencia suprarrenal relativa</li>
-        </ul>
-      </div>
-
-      <h3>Monitoreo de respuesta a fluidos</h3>
-      <table class="tbl">
-        <tr><th>Parámetro</th><th>Meta</th><th>Frecuencia</th></tr>
-        <tr><td>Diuresis</td><td>0.5–1 ml/kg/h</td><td>Horaria</td></tr>
-        <tr><td>FC</td><td>Reducción y regularidad</td><td>c/30–60 min</td></tr>
-        <tr><td>PA</td><td>PAM ≥65 mmHg</td><td>c/30–60 min</td></tr>
-        <tr><td>Hematocrito</td><td>Tendencia a bajar o estabilizar</td><td>c/6–12 h</td></tr>
-        <tr><td>Plaquetas</td><td>Tendencia ascendente en recuperación</td><td>c/12–24 h</td></tr>
-        <tr><td>Estado mental</td><td>Alerta, orientado</td><td>c/1–2 h</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <!-- MANEJO SINTOMÁTICO -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">💊</span>
-      <span class="card-title">Tratamiento sintomático y medidas generales</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-
-      <div class="alert alert-red">
-        <div class="alert-title">🚫 CONTRAINDICADO en dengue</div>
-        <ul>
-          <li><strong>Ibuprofeno, aspirina, naproxeno y TODOS los AINE</strong> → inhiben tromboxano → agravan sangrado</li>
-          <li><strong>Ácido acetilsalicílico</strong> → antiagregante plaquetario + riesgo Síndrome de Reye</li>
-          <li><strong>Dipirona / metamizol</strong> en regiones donde se asocia a agranulocitosis</li>
-          <li><strong>Corticosteroides</strong> → no tienen beneficio demostrado en dengue grave</li>
-          <li><strong>Antibióticos profilácticos</strong> → no indicados</li>
-          <li><strong>Antieméticos tipo metoclopramida en embarazadas</strong> → precaución</li>
-        </ul>
-      </div>
-
-      <h3>Analgesia/antipiresis: SOLO paracetamol</h3>
-      <ul>
-        <li><strong>Adultos:</strong> Paracetamol 500–1000 mg c/6–8 h, máximo 4 g/día (2 g/día si hepatitis dengue)</li>
-        <li><strong>Niños:</strong> 10–15 mg/kg/dosis c/6–8 h</li>
-        <li>Para la fiebre >39 °C: medios físicos adicionales (compresas tibias, baño de esponja)</li>
-        <li>NO forzar reducción a temperatura normal con antipirético si está tolerable</li>
-      </ul>
-
-      <h3>Hidratación oral</h3>
-      <ul>
-        <li>Grupo A: mínimo 2–3 litros de líquidos/día (agua, SRO, jugos naturales, leche de coco)</li>
-        <li>Evitar bebidas carbonatadas oscuras (enmascaran sangrado digestivo)</li>
-        <li>Si tolera VO adecuadamente, no es necesario el IV</li>
-      </ul>
-
-      <h3>Posición y reposo</h3>
-      <ul>
-        <li>Reposo en cama durante la fase febril y crítica</li>
-        <li>En derrame pleural significativo: decúbito semi-sentado</li>
-        <li>En shock: posición de Trendelenburg (precaución en distrés respiratorio)</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- TRANSFUSIÓN -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🩸</span>
-      <span class="card-title">Transfusión de hemoderivados — Guía práctica</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-
-      <h3>Concentrado de glóbulos rojos (CGR)</h3>
-      <ul>
-        <li><strong>Indicación:</strong> Hb &lt;7 g/dL con inestabilidad hemodinámica O sangrado activo masivo con Hb &lt;10 g/dL</li>
-        <li>Meta transfusional: Hb 7–9 g/dL (no transfundir hasta 10 g/dL)</li>
-        <li>En shock con hemorragia documentada: transfusión de rescate sin esperar Hb basal</li>
-      </ul>
-
-      <h3>Plaquetas</h3>
-      <ul>
-        <li><strong>No transfundir de forma profiláctica</strong> por recuento bajo solo</li>
-        <li><strong>Indicación relativa:</strong> plaquetas &lt;10,000/µL en paciente estable sin sangrado</li>
-        <li><strong>Indicación absoluta:</strong> sangrado activo clínicamente significativo (digestivo, SNC, etc.) con plaquetas &lt;20,000–50,000/µL</li>
-        <li>La transfusión profiláctica puede disparar respuesta inmune y empeorar la trombocitopenia</li>
-      </ul>
-
-      <h3>Plasma fresco congelado (PFC)</h3>
-      <ul>
-        <li><strong>Indicación:</strong> coagulopatía documentada (TP >1.5 ×) con sangrado activo</li>
-        <li>No usar de rutina solo por alargamiento de TP sin sangrado</li>
-      </ul>
-
-      <div class="alert alert-amber">
-        <div class="alert-title">⚠️ Hemorragia masiva y protocolo 1:1:1</div>
-        <p>En dengue grave con hemorragia masiva exsanguinante: activar protocolo de transfusión masiva → CGR: PFC: plaquetas en proporción 1:1:1. Considerar ácido tranexámico 1g IV en 10 min si sangrado no controlado quirúrgicamente.</p>
-      </div>
-    </div>
-  </div>
-
+<div class="section" id="emergencia">
+<div class="alert alert-red">
+<div class="alert-title">🚨 Principio fundamental en emergencias</div>
+<p>En dengue, el manejo de fluidos es la intervención que salva vidas. El objetivo es mantener la perfusión de órganos durante la fase crítica sin provocar sobrecarga hídrica en la recuperación. <strong>No existe tratamiento antiviral específico.</strong></p>
+</div>
+<!-- TRIAGE -->
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)">
+<span class="card-icon">🏥</span>
+<span class="card-title">Triage y estratificación al ingreso</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body open">
+<h3>Preguntas clave en la evaluación inicial</h3>
+<ol>
+<li>¿Cuántos días lleva con fiebre? → Establece la fase clínica</li>
+<li>¿La fiebre cedió en las últimas 24 h? → Alerta fase crítica</li>
+<li>¿Tiene alguna señal de alarma? → Definir hospitalización inmediata</li>
+<li>¿Infección previa por dengue? → Riesgo de ADE y dengue grave</li>
+<li>¿Factores de riesgo: embarazo, edad, comorbilidades?</li>
+<li>¿Toma AINE/aspirina? → Riesgo hemorrágico aumentado</li>
+</ol>
+<table class="tbl" style="margin-top:12px">
+<tr><th>Categoría</th><th>Criterios</th><th>Decisión</th></tr>
+<tr>
+<td style="color:#15803d;font-weight:700">Grupo A</td>
+<td>Sin señales alarma, tolera vía oral, orina normal</td>
+<td>Alta con educación + control en 24–48 h</td>
+</tr>
+<tr>
+<td style="color:#ea580c;font-weight:700">Grupo B</td>
+<td>Señales alarma o grupo de riesgo o no tolera VO</td>
+<td>Hospitalización, fluidos IV, hemograma c/12 h</td>
+</tr>
+<tr>
+<td style="color:#dc2626;font-weight:700">Grupo C</td>
+<td>Dengue grave: shock, sangrado mayor, daño orgánico</td>
+<td>UCI inmediata, fluidoterapia agresiva controlada</td>
+</tr>
+</table>
+</div>
+</div>
+<!-- FLUIDOTERAPIA DETALLADA -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">💧</span>
+<span class="card-title">Fluidoterapia — Protocolo OMS 2024 paso a paso</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<div class="alert alert-blue">
+<div class="alert-title">💉 Solución de elección</div>
+<p>Solución isotónica: <strong>SSN 0.9%</strong> o <strong>Lactato de Ringer</strong>. El LR es levemente preferido por su composición más fisiológica. NO usar soluciones hipotónicas (riesgo de hiponatremia). Los coloides (albúmina, almidones) se reservan para casos refractarios.</p>
+</div>
+<h3>Dengue con señales de alarma — Grupo B (sin shock)</h3>
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<strong>Bolo inicial</strong>
+<p>5–7 ml/kg en 1–2 horas. Reevaluar: PA, FC, diuresis, Hct al finalizar.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<strong>Si mejora clínica</strong>
+<p>Continuar a 3–5 ml/kg/h por 2–4 h, luego reducir a 2–3 ml/kg/h según evolución.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<strong>Reducción progresiva</strong>
+<p>A las 24–48 h cuando Hct estabiliza, diuresis ≥0.5 ml/kg/h, signos vitales normales.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-body">
+<strong>Suspender fluidos IV</strong>
+<p>Cuando paciente toleró líquidos orales, diuresis normal, Hct en tendencia a bajar.</p>
+</div>
+</div>
+<h3 style="margin-top:16px">Shock por dengue — Grupo C (compensado)</h3>
+<div class="fluid-box">
+<h3>⚡ Reanimación con volumen — Shock compensado</h3>
+<div class="fluid-row"><span class="fluid-label">Bolo 1 (rápido)</span><span class="fluid-val">10 ml/kg en 15–30 min</span></div>
+<div class="fluid-row"><span class="fluid-label">Reevaluar</span><span class="fluid-val">PA, FC, diuresis, Hct</span></div>
+<div class="fluid-row"><span class="fluid-label">Si mejora → continuar</span><span class="fluid-val">5–7 ml/kg/h por 1–2 h</span></div>
+<div class="fluid-row"><span class="fluid-label">Reducción gradual</span><span class="fluid-val">3–5 → 2–3 → 1.5 ml/kg/h</span></div>
+<div class="fluid-row"><span class="fluid-label">Volumen máximo fase crítica</span><span class="fluid-val">~48–72 ml/kg en 24 h</span></div>
+</div>
+<h3>Shock por dengue — Grupo C (descompensado / refractario)</h3>
+<div class="fluid-box" style="background:linear-gradient(135deg,#7f1d1d,#991b1b)">
+<h3>🆘 Shock refractario — Medidas de rescate</h3>
+<div class="fluid-row"><span class="fluid-label">Bolo inicial</span><span class="fluid-val">20 ml/kg en 15 min</span></div>
+<div class="fluid-row"><span class="fluid-label">Si no responde × 2–3 bolos</span><span class="fluid-val">Considerar coloide (albúmina 5%)</span></div>
+<div class="fluid-row"><span class="fluid-label">Vasopresores</span><span class="fluid-val">Norepinefrina si shock vasopléjico</span></div>
+<div class="fluid-row"><span class="fluid-label">Monitoreo invasivo</span><span class="fluid-val">PVC, gasto cardíaco (UCI)</span></div>
+<div class="fluid-row"><span class="fluid-label">Buscar y tratar</span><span class="fluid-val">Causas de refractariedad (ver abajo)</span></div>
+</div>
+<div class="alert alert-amber">
+<div class="alert-title">🔎 Causas de shock refractario a fluidos en dengue</div>
+<ul>
+<li>Sangrado masivo oculto (retroperitoneal, hepático)</li>
+<li>Miocarditis por dengue (evaluar con ECO)</li>
+<li>Acidosis metabólica severa (gasometría)</li>
+<li>Sobreinfección bacteriana / sepsis concomitante</li>
+<li>Insuficiencia suprarrenal relativa</li>
+</ul>
+</div>
+<h3>Monitoreo de respuesta a fluidos</h3>
+<table class="tbl">
+<tr><th>Parámetro</th><th>Meta</th><th>Frecuencia</th></tr>
+<tr><td>Diuresis</td><td>0.5–1 ml/kg/h</td><td>Horaria</td></tr>
+<tr><td>FC</td><td>Reducción y regularidad</td><td>c/30–60 min</td></tr>
+<tr><td>PA</td><td>PAM ≥65 mmHg</td><td>c/30–60 min</td></tr>
+<tr><td>Hematocrito</td><td>Tendencia a bajar o estabilizar</td><td>c/6–12 h</td></tr>
+<tr><td>Plaquetas</td><td>Tendencia ascendente en recuperación</td><td>c/12–24 h</td></tr>
+<tr><td>Estado mental</td><td>Alerta, orientado</td><td>c/1–2 h</td></tr>
+</table>
+</div>
+</div>
+<!-- MANEJO SINTOMÁTICO -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">💊</span>
+<span class="card-title">Tratamiento sintomático y medidas generales</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<div class="alert alert-red">
+<div class="alert-title">🚫 CONTRAINDICADO en dengue</div>
+<ul>
+<li><strong>Ibuprofeno, aspirina, naproxeno y TODOS los AINE</strong> → inhiben tromboxano → agravan sangrado</li>
+<li><strong>Ácido acetilsalicílico</strong> → antiagregante plaquetario + riesgo Síndrome de Reye</li>
+<li><strong>Dipirona / metamizol</strong> en regiones donde se asocia a agranulocitosis</li>
+<li><strong>Corticosteroides</strong> → no tienen beneficio demostrado en dengue grave</li>
+<li><strong>Antibióticos profilácticos</strong> → no indicados</li>
+<li><strong>Antieméticos tipo metoclopramida en embarazadas</strong> → precaución</li>
+</ul>
+</div>
+<h3>Analgesia/antipiresis: SOLO paracetamol</h3>
+<ul>
+<li><strong>Adultos:</strong> Paracetamol 500–1000 mg c/6–8 h, máximo 4 g/día (2 g/día si hepatitis dengue)</li>
+<li><strong>Niños:</strong> 10–15 mg/kg/dosis c/6–8 h</li>
+<li>Para la fiebre &gt;39 °C: medios físicos adicionales (compresas tibias, baño de esponja)</li>
+<li>NO forzar reducción a temperatura normal con antipirético si está tolerable</li>
+</ul>
+<h3>Hidratación oral</h3>
+<ul>
+<li>Grupo A: mínimo 2–3 litros de líquidos/día (agua, SRO, jugos naturales, leche de coco)</li>
+<li>Evitar bebidas carbonatadas oscuras (enmascaran sangrado digestivo)</li>
+<li>Si tolera VO adecuadamente, no es necesario el IV</li>
+</ul>
+<h3>Posición y reposo</h3>
+<ul>
+<li>Reposo en cama durante la fase febril y crítica</li>
+<li>En derrame pleural significativo: decúbito semi-sentado</li>
+<li>En shock: posición de Trendelenburg (precaución en distrés respiratorio)</li>
+</ul>
+</div>
+</div>
+<!-- TRANSFUSIÓN -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🩸</span>
+<span class="card-title">Transfusión de hemoderivados — Guía práctica</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<h3>Concentrado de glóbulos rojos (CGR)</h3>
+<ul>
+<li><strong>Indicación:</strong> Hb &lt;7 g/dL con inestabilidad hemodinámica O sangrado activo masivo con Hb &lt;10 g/dL</li>
+<li>Meta transfusional: Hb 7–9 g/dL (no transfundir hasta 10 g/dL)</li>
+<li>En shock con hemorragia documentada: transfusión de rescate sin esperar Hb basal</li>
+</ul>
+<h3>Plaquetas</h3>
+<ul>
+<li><strong>No transfundir de forma profiláctica</strong> por recuento bajo solo</li>
+<li><strong>Indicación relativa:</strong> plaquetas &lt;10,000/µL en paciente estable sin sangrado</li>
+<li><strong>Indicación absoluta:</strong> sangrado activo clínicamente significativo (digestivo, SNC, etc.) con plaquetas &lt;20,000–50,000/µL</li>
+<li>La transfusión profiláctica puede disparar respuesta inmune y empeorar la trombocitopenia</li>
+</ul>
+<h3>Plasma fresco congelado (PFC)</h3>
+<ul>
+<li><strong>Indicación:</strong> coagulopatía documentada (TP &gt;1.5 ×) con sangrado activo</li>
+<li>No usar de rutina solo por alargamiento de TP sin sangrado</li>
+</ul>
+<div class="alert alert-amber">
+<div class="alert-title">⚠️ Hemorragia masiva y protocolo 1:1:1</div>
+<p>En dengue grave con hemorragia masiva exsanguinante: activar protocolo de transfusión masiva → CGR: PFC: plaquetas en proporción 1:1:1. Considerar ácido tranexámico 1g IV en 10 min si sangrado no controlado quirúrgicamente.</p>
+</div>
+</div>
+</div>
 </div><!-- /emergencia -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 5: COMPLICACIONES
 ═══════════════════════════════════════ -->
-<div id="complicaciones" class="section">
-
-  <div class="alert alert-red">
-    <div class="alert-title">⚡ Dengue grave — Tres categorías mayores (OMS)</div>
-    <ul>
-      <li><strong>1. Fuga plasmática grave → shock / acumulación de líquidos con distrés respiratorio</strong></li>
-      <li><strong>2. Sangrado grave</strong></li>
-      <li><strong>3. Daño grave de órgano</strong> (hepático, renal, cardíaco, neurológico)</li>
-    </ul>
-  </div>
-
-  <!-- SHOCK -->
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)">
-      <span class="card-icon">💓</span>
-      <span class="card-title">Síndrome de shock por dengue (SSD)</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body open">
-      <h3>Criterios diagnósticos</h3>
-      <ul>
-        <li>Presión diferencial (PP) ≤20 mmHg (colapso diferencial) → signo temprano y muy sensible</li>
-        <li>Hipotensión: PAS &lt;90 mmHg (adultos) o por debajo del percentil 5 para la edad</li>
-        <li>Signos de hipoperfusión: llenado capilar >2 seg, piel fría/moteada, alteración mental</li>
-        <li>Taquicardia (FC >100 lpm en adultos) — puede ser ausente en bradicardia paradójica</li>
-      </ul>
-
-      <div class="alert alert-red">
-        <div class="alert-title">🔑 Presión diferencial ≤20 mmHg: alerta máxima</div>
-        <p>Una PP de, por ejemplo, 90/70 mmHg (PP=20) es choque compensado incipiente. El shock por dengue puede presentarse con PA aparentemente "normal" pero diferencial colapsado. <strong>Medir siempre sistólica Y diastólica.</strong></p>
-      </div>
-
-      <h3>Secuencia de deterioro</h3>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body"><strong>Taquicardia compensatoria</strong><p>FC ↑, vasoconstricción periférica, extremidades frías, llenado capilar enlentecido.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body"><strong>Presión diferencial estrecha</strong><p>PP ≤20 mmHg — diastólica sube por vasoconstricción mientras sistólica cae.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body"><strong>Hipotensión franca</strong><p>PAS &lt;90 mmHg. Shock descompensado. Acidosis metabólica.</p></div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body"><strong>Disfunción orgánica múltiple</strong><p>AKI, hepatitis fulminante, encefalopatía, CID. Mortalidad muy elevada sin intervención inmediata.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEMORRAGIA -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🩸</span>
-      <span class="card-title">Sangrado grave — Tipos y manejo</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Localización</th><th>Presentación</th><th>Manejo específico</th></tr>
-        <tr><td>Gastrointestinal</td><td>Hematemesis, melena, hematoquecia</td><td>Endoscopía urgente, transfusión, IBP IV</td></tr>
-        <tr><td>Pulmonar</td><td>Hemoptisis masiva</td><td>UCI, protección vía aérea, hemostasia broncoscópica</td></tr>
-        <tr><td>SNC</td><td>Hemorragia intracraneal, ACV hemorrágico</td><td>Neurocirugía urgente, transfusión, control de PIC</td></tr>
-        <tr><td>Retroperitoneal</td><td>Dolor lumbar + shock sin fuente aparente</td><td>TAC urgente, hemostasia quirúrgica</td></tr>
-        <tr><td>Hepático</td><td>Hematoma subcapsular → ruptura</td><td>UCI, embolización o cirugía de urgencia</td></tr>
-        <tr><td>Ginecológico</td><td>Menorragia severa, metrorragia</td><td>Transfusión, hemostasia hormonal, ginecología</td></tr>
-      </table>
-
-      <div class="alert alert-red">
-        <div class="alert-title">🚨 Regla práctica: sangrado + shock = catástrofe</div>
-        <p>El sangrado mayor en dengue puede ser rápidamente exsanguinante porque combina: trombocitopenia + coagulopatía + fuga plasmática preexistente. La hemorragia suprrarrenal bilateral puede ocurrir y producir crisis addisoniana aguda — sospechar en shock refractario sin causa aparente.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEPATITIS -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🫀</span>
-      <span class="card-title">Daño orgánico grave — Hepatitis, AKI, Carditis, Neurológico</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-
-      <h3>Hepatitis por dengue</h3>
-      <ul>
-        <li>Elevación de transaminasas: AST típicamente mayor que ALT (patrón característico, contrario al viral clásico)</li>
-        <li>Hepatitis leve: AST/ALT 2–10× — manejo conservador, reducir paracetamol</li>
-        <li>Hepatitis grave: AST/ALT >10× + ictericia + coagulopatía → falla hepática fulminante</li>
-        <li>Manifestaciones: hepatomegalia dolorosa, ictericia, encefalopatía hepática</li>
-        <li>Manejo: reducir paracetamol a &lt;2 g/día, N-acetilcisteína en formas graves (evidencia limitada), UCI</li>
-      </ul>
-
-      <h3>Lesión renal aguda (AKI)</h3>
-      <ul>
-        <li>Mecanismo: hipoperfusión renal por shock, efecto citopático viral directo, nefritis tubulointersticial</li>
-        <li>Monitorear creatinina, electrolitos y diuresis en todos los hospitalizados</li>
-        <li>Criterios KDIGO: creatinina >1.5× basal o &lt;0.5 ml/kg/h por 6 h → AKI estadio 1</li>
-        <li>Ajustar dosis de medicamentos, evitar nefrotóxicos, considerar diálisis si AKI avanzada</li>
-      </ul>
-
-      <h3>Miocarditis / carditis por dengue</h3>
-      <ul>
-        <li>Poco frecuente pero potencialmente fatal</li>
-        <li>Presentación: dolor torácico, disnea, arritmias, bloqueos de conducción, IC aguda</li>
-        <li>ECG: cambios en ST-T, PR largo, QRS ensanchado, bloqueo AV</li>
-        <li>Troponina I/T elevada confirma el diagnóstico</li>
-        <li>Ecocardiograma: FEVI deprimida, derrame pericárdico</li>
-        <li>Bradicardia sinusal paradójica en dengue es frecuente y generalmente benigna (no siempre indica carditis)</li>
-      </ul>
-
-      <h3>Dengue neurológico</h3>
-      <ul>
-        <li>Encefalopatía: confusión, convulsiones — causa multifactorial (hipoglucemia, hiponatremia, edema cerebral, infección directa)</li>
-        <li>Encefalitis por dengue (invasión viral directa del SNC): menos frecuente, confirmada por PCR en LCR</li>
-        <li>Síndrome de Guillain-Barré post-dengue: semanas después</li>
-        <li>Neuritis óptica, parálisis facial</li>
-        <li>Manejo: tratar causa de base, antiepilépticos si convulsiones, UCI neurológica</li>
-      </ul>
-
-      <h3>Síndrome de expansión de plasma (hipervolemia en recuperación)</h3>
-      <div class="alert alert-amber">
-        <div class="alert-title">⚠️ Peligro poco reconocido en la fase de recuperación</div>
-        <p>Si se administraron fluidos en exceso durante la fase crítica, al reabsorberse el plasma extravasado en los días 7–10 puede producirse <strong>edema pulmonar agudo por hipervolemia</strong>. Signos: disnea súbita, crepitantes bilaterales, SatO2 &lt;95%, Hct en caída rápida. Manejo: suspender fluidos IV, oxígeno, furosemida IV con cautela.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- DENGUE EN EMBARAZO -->
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🤰</span>
-      <span class="card-title">Dengue en el embarazo — Manejo especial</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <div class="alert alert-red">
-        <div class="alert-title">🚨 Alto riesgo materno-fetal</div>
-        <p>El dengue en embarazadas es una emergencia obstétrica. Riesgo de: prematuridad, RCIU, dengue neonatal por transmisión vertical, hemorragia periparto, muerte materna.</p>
-      </div>
-      <ul>
-        <li>Hospitalizar a TODA embarazada con dengue confirmado, independiente del estadio clínico</li>
-        <li>Monitoreo fetal continuo durante la fase crítica</li>
-        <li>Paracetamol es el único analgésico/antipirético seguro en el embarazo</li>
-        <li>Fluidoterapia con precaución: la embarazada tiene mayor riesgo de edema pulmonar</li>
-        <li>Plaquetas: evaluar transfusión antes del parto si &lt;50,000/µL</li>
-        <li>Coordinación inmediata con obstetricia y neonatología</li>
-        <li>Si se requiere cesárea: asegurar plaquetas >50,000/µL</li>
-        <li>El neonato de madre con dengue activo requiere seguimiento: puede presentar dengue neonatal en los primeros 7–10 días de vida</li>
-      </ul>
-    </div>
-  </div>
-
+<div class="section" id="complicaciones">
+<div class="alert alert-red">
+<div class="alert-title">⚡ Dengue grave — Tres categorías mayores (OMS)</div>
+<ul>
+<li><strong>1. Fuga plasmática grave → shock / acumulación de líquidos con distrés respiratorio</strong></li>
+<li><strong>2. Sangrado grave</strong></li>
+<li><strong>3. Daño grave de órgano</strong> (hepático, renal, cardíaco, neurológico)</li>
+</ul>
+</div>
+<!-- SHOCK -->
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)">
+<span class="card-icon">💓</span>
+<span class="card-title">Síndrome de shock por dengue (SSD)</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body open">
+<h3>Criterios diagnósticos</h3>
+<ul>
+<li>Presión diferencial (PP) ≤20 mmHg (colapso diferencial) → signo temprano y muy sensible</li>
+<li>Hipotensión: PAS &lt;90 mmHg (adultos) o por debajo del percentil 5 para la edad</li>
+<li>Signos de hipoperfusión: llenado capilar &gt;2 seg, piel fría/moteada, alteración mental</li>
+<li>Taquicardia (FC &gt;100 lpm en adultos) — puede ser ausente en bradicardia paradójica</li>
+</ul>
+<div class="alert alert-red">
+<div class="alert-title">🔑 Presión diferencial ≤20 mmHg: alerta máxima</div>
+<p>Una PP de, por ejemplo, 90/70 mmHg (PP=20) es choque compensado incipiente. El shock por dengue puede presentarse con PA aparentemente "normal" pero diferencial colapsado. <strong>Medir siempre sistólica Y diastólica.</strong></p>
+</div>
+<h3>Secuencia de deterioro</h3>
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body"><strong>Taquicardia compensatoria</strong><p>FC ↑, vasoconstricción periférica, extremidades frías, llenado capilar enlentecido.</p></div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body"><strong>Presión diferencial estrecha</strong><p>PP ≤20 mmHg — diastólica sube por vasoconstricción mientras sistólica cae.</p></div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body"><strong>Hipotensión franca</strong><p>PAS &lt;90 mmHg. Shock descompensado. Acidosis metabólica.</p></div>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-body"><strong>Disfunción orgánica múltiple</strong><p>AKI, hepatitis fulminante, encefalopatía, CID. Mortalidad muy elevada sin intervención inmediata.</p></div>
+</div>
+</div>
+</div>
+<!-- HEMORRAGIA -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🩸</span>
+<span class="card-title">Sangrado grave — Tipos y manejo</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Localización</th><th>Presentación</th><th>Manejo específico</th></tr>
+<tr><td>Gastrointestinal</td><td>Hematemesis, melena, hematoquecia</td><td>Endoscopía urgente, transfusión, IBP IV</td></tr>
+<tr><td>Pulmonar</td><td>Hemoptisis masiva</td><td>UCI, protección vía aérea, hemostasia broncoscópica</td></tr>
+<tr><td>SNC</td><td>Hemorragia intracraneal, ACV hemorrágico</td><td>Neurocirugía urgente, transfusión, control de PIC</td></tr>
+<tr><td>Retroperitoneal</td><td>Dolor lumbar + shock sin fuente aparente</td><td>TAC urgente, hemostasia quirúrgica</td></tr>
+<tr><td>Hepático</td><td>Hematoma subcapsular → ruptura</td><td>UCI, embolización o cirugía de urgencia</td></tr>
+<tr><td>Ginecológico</td><td>Menorragia severa, metrorragia</td><td>Transfusión, hemostasia hormonal, ginecología</td></tr>
+</table>
+<div class="alert alert-red">
+<div class="alert-title">🚨 Regla práctica: sangrado + shock = catástrofe</div>
+<p>El sangrado mayor en dengue puede ser rápidamente exsanguinante porque combina: trombocitopenia + coagulopatía + fuga plasmática preexistente. La hemorragia suprrarrenal bilateral puede ocurrir y producir crisis addisoniana aguda — sospechar en shock refractario sin causa aparente.</p>
+</div>
+</div>
+</div>
+<!-- HEPATITIS -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🫀</span>
+<span class="card-title">Daño orgánico grave — Hepatitis, AKI, Carditis, Neurológico</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<h3>Hepatitis por dengue</h3>
+<ul>
+<li>Elevación de transaminasas: AST típicamente mayor que ALT (patrón característico, contrario al viral clásico)</li>
+<li>Hepatitis leve: AST/ALT 2–10× — manejo conservador, reducir paracetamol</li>
+<li>Hepatitis grave: AST/ALT &gt;10× + ictericia + coagulopatía → falla hepática fulminante</li>
+<li>Manifestaciones: hepatomegalia dolorosa, ictericia, encefalopatía hepática</li>
+<li>Manejo: reducir paracetamol a &lt;2 g/día, N-acetilcisteína en formas graves (evidencia limitada), UCI</li>
+</ul>
+<h3>Lesión renal aguda (AKI)</h3>
+<ul>
+<li>Mecanismo: hipoperfusión renal por shock, efecto citopático viral directo, nefritis tubulointersticial</li>
+<li>Monitorear creatinina, electrolitos y diuresis en todos los hospitalizados</li>
+<li>Criterios KDIGO: creatinina &gt;1.5× basal o &lt;0.5 ml/kg/h por 6 h → AKI estadio 1</li>
+<li>Ajustar dosis de medicamentos, evitar nefrotóxicos, considerar diálisis si AKI avanzada</li>
+</ul>
+<h3>Miocarditis / carditis por dengue</h3>
+<ul>
+<li>Poco frecuente pero potencialmente fatal</li>
+<li>Presentación: dolor torácico, disnea, arritmias, bloqueos de conducción, IC aguda</li>
+<li>ECG: cambios en ST-T, PR largo, QRS ensanchado, bloqueo AV</li>
+<li>Troponina I/T elevada confirma el diagnóstico</li>
+<li>Ecocardiograma: FEVI deprimida, derrame pericárdico</li>
+<li>Bradicardia sinusal paradójica en dengue es frecuente y generalmente benigna (no siempre indica carditis)</li>
+</ul>
+<h3>Dengue neurológico</h3>
+<ul>
+<li>Encefalopatía: confusión, convulsiones — causa multifactorial (hipoglucemia, hiponatremia, edema cerebral, infección directa)</li>
+<li>Encefalitis por dengue (invasión viral directa del SNC): menos frecuente, confirmada por PCR en LCR</li>
+<li>Síndrome de Guillain-Barré post-dengue: semanas después</li>
+<li>Neuritis óptica, parálisis facial</li>
+<li>Manejo: tratar causa de base, antiepilépticos si convulsiones, UCI neurológica</li>
+</ul>
+<h3>Síndrome de expansión de plasma (hipervolemia en recuperación)</h3>
+<div class="alert alert-amber">
+<div class="alert-title">⚠️ Peligro poco reconocido en la fase de recuperación</div>
+<p>Si se administraron fluidos en exceso durante la fase crítica, al reabsorberse el plasma extravasado en los días 7–10 puede producirse <strong>edema pulmonar agudo por hipervolemia</strong>. Signos: disnea súbita, crepitantes bilaterales, SatO2 &lt;95%, Hct en caída rápida. Manejo: suspender fluidos IV, oxígeno, furosemida IV con cautela.</p>
+</div>
+</div>
+</div>
+<!-- DENGUE EN EMBARAZO -->
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🤰</span>
+<span class="card-title">Dengue en el embarazo — Manejo especial</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<div class="alert alert-red">
+<div class="alert-title">🚨 Alto riesgo materno-fetal</div>
+<p>El dengue en embarazadas es una emergencia obstétrica. Riesgo de: prematuridad, RCIU, dengue neonatal por transmisión vertical, hemorragia periparto, muerte materna.</p>
+</div>
+<ul>
+<li>Hospitalizar a TODA embarazada con dengue confirmado, independiente del estadio clínico</li>
+<li>Monitoreo fetal continuo durante la fase crítica</li>
+<li>Paracetamol es el único analgésico/antipirético seguro en el embarazo</li>
+<li>Fluidoterapia con precaución: la embarazada tiene mayor riesgo de edema pulmonar</li>
+<li>Plaquetas: evaluar transfusión antes del parto si &lt;50,000/µL</li>
+<li>Coordinación inmediata con obstetricia y neonatología</li>
+<li>Si se requiere cesárea: asegurar plaquetas &gt;50,000/µL</li>
+<li>El neonato de madre con dengue activo requiere seguimiento: puede presentar dengue neonatal en los primeros 7–10 días de vida</li>
+</ul>
+</div>
+</div>
 </div><!-- /complicaciones -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 6: EGRESO Y SEGUIMIENTO
 ═══════════════════════════════════════ -->
-<div id="alta" class="section">
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)">
-      <span class="card-icon">✅</span>
-      <span class="card-title">Criterios de alta hospitalaria</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body open">
-      <p>El alta solo debe considerarse cuando se cumplen <strong>TODOS</strong> los criterios:</p>
-      <ul>
-        <li>Afebril por ≥48 h sin uso de antipiréticos</li>
-        <li>Mejoría evidente del estado clínico (apetito, actividad)</li>
-        <li>Buena tolerancia a la vía oral</li>
-        <li>Diuresis adecuada (≥0.5 ml/kg/h)</li>
-        <li>Sin señales de alarma en las últimas 48 h</li>
-        <li>Hematocrito estable o disminuyendo (sin necesidad de fluidos IV)</li>
-        <li>Plaquetas en tendencia ascendente (no requiere llegar a 100,000/µL para dar alta)</li>
-        <li>Acceso garantizado a control ambulatorio en 24–48 h</li>
-      </ul>
-
-      <div class="alert alert-amber">
-        <div class="alert-title">📋 Instrucciones obligatorias al alta</div>
-        <ul>
-          <li>Regresar a urgencias si: fiebre reaparece, sangrado de cualquier tipo, dolor abdominal, vómitos, somnolencia, no orina en 4–6 h</li>
-          <li>NO usar aspirina, ibuprofeno ni AINE por 2 semanas adicionales</li>
-          <li>Continuar paracetamol si persiste cefalea leve</li>
-          <li>Hidratación oral abundante 2–3 L/día</li>
-          <li>Control médico en 24–48 h con hemograma</li>
-          <li>Reposo relativo hasta recuperación completa</li>
-          <li>Medidas de protección contra el mosquito: repelentes, mosquiteros</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">📊</span>
-      <span class="card-title">Seguimiento ambulatorio post-alta</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Tiempo post-alta</th><th>Evaluación</th><th>Laboratorio</th></tr>
-        <tr><td>24–48 h</td><td>Control clínico obligatorio</td><td>Hemograma completo</td></tr>
-        <tr><td>5–7 días</td><td>Si plaquetas aún bajas al alta</td><td>Plaquetas</td></tr>
-        <tr><td>2–4 semanas</td><td>Si hepatitis por dengue</td><td>AST, ALT, bilirrubinas</td></tr>
-        <tr><td>4–8 semanas</td><td>Si AKI o carditis</td><td>Creatinina, ecocardiograma</td></tr>
-        <tr><td>3 meses</td><td>Si síntomas neurológicos</td><td>EMG, RMN (según síntoma)</td></tr>
-      </table>
-
-      <div class="alert alert-blue">
-        <div class="alert-title">📢 Notificación obligatoria</div>
-        <p>Todo caso confirmado o sospechoso de dengue debe notificarse al <strong>Ministerio de Salud Pública del Ecuador</strong> dentro de las primeras 24 horas. Incluir: serotipo si disponible, forma clínica, desenlace. La vigilancia epidemiológica es fundamental para el control de brotes.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)">
-      <span class="card-icon">🛡️</span>
-      <span class="card-title">Prevención y vacunación</span>
-      <span class="card-arrow">›</span>
-    </div>
-    <div class="card-body">
-      <h3>Control del vector</h3>
-      <ul>
-        <li>Eliminar criaderos: cubrir o vaciar depósitos de agua estancada cada 7 días</li>
-        <li>Uso de repelentes con DEET ≥20%, IR3535 o icaridina</li>
-        <li>Mosquiteros, mallas en puertas y ventanas</li>
-        <li>Ropa de manga larga en horas de mayor actividad del vector (amanecer y atardecer)</li>
-      </ul>
-
-      <h3>Dengvaxia® (CYD-TDV — Sanofi Pasteur)</h3>
-      <ul>
-        <li>Vacuna tetravalente quimérica aprobada en algunos países</li>
-        <li><strong>Solo indicada en personas con infección previa confirmada</strong> (seropositividad documentada)</li>
-        <li>En seronegativos: aumenta el riesgo de dengue grave en la primera infección post-vacunal (riesgo de ADE)</li>
-        <li>No disponible en el programa nacional de inmunización del Ecuador actualmente</li>
-      </ul>
-
-      <h3>TAK-003 (Qdenga® — Takeda)</h3>
-      <ul>
-        <li>Vacuna tetravalente de virus vivos atenuados (dengue-2 como base)</li>
-        <li>Aprobada en varios países de América Latina (2023–2024)</li>
-        <li>Puede administrarse independientemente del estado serológico previo</li>
-        <li>Mayor eficacia en sujetos seropositivos</li>
-        <li>2 dosis subcutáneas con intervalo de 3 meses</li>
-        <li>Evidencia prometedora para control en zonas endémicas</li>
-      </ul>
-    </div>
-  </div>
-
+<div class="section" id="alta">
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)">
+<span class="card-icon">✅</span>
+<span class="card-title">Criterios de alta hospitalaria</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body open">
+<p>El alta solo debe considerarse cuando se cumplen <strong>TODOS</strong> los criterios:</p>
+<ul>
+<li>Afebril por ≥48 h sin uso de antipiréticos</li>
+<li>Mejoría evidente del estado clínico (apetito, actividad)</li>
+<li>Buena tolerancia a la vía oral</li>
+<li>Diuresis adecuada (≥0.5 ml/kg/h)</li>
+<li>Sin señales de alarma en las últimas 48 h</li>
+<li>Hematocrito estable o disminuyendo (sin necesidad de fluidos IV)</li>
+<li>Plaquetas en tendencia ascendente (no requiere llegar a 100,000/µL para dar alta)</li>
+<li>Acceso garantizado a control ambulatorio en 24–48 h</li>
+</ul>
+<div class="alert alert-amber">
+<div class="alert-title">📋 Instrucciones obligatorias al alta</div>
+<ul>
+<li>Regresar a urgencias si: fiebre reaparece, sangrado de cualquier tipo, dolor abdominal, vómitos, somnolencia, no orina en 4–6 h</li>
+<li>NO usar aspirina, ibuprofeno ni AINE por 2 semanas adicionales</li>
+<li>Continuar paracetamol si persiste cefalea leve</li>
+<li>Hidratación oral abundante 2–3 L/día</li>
+<li>Control médico en 24–48 h con hemograma</li>
+<li>Reposo relativo hasta recuperación completa</li>
+<li>Medidas de protección contra el mosquito: repelentes, mosquiteros</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">📊</span>
+<span class="card-title">Seguimiento ambulatorio post-alta</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Tiempo post-alta</th><th>Evaluación</th><th>Laboratorio</th></tr>
+<tr><td>24–48 h</td><td>Control clínico obligatorio</td><td>Hemograma completo</td></tr>
+<tr><td>5–7 días</td><td>Si plaquetas aún bajas al alta</td><td>Plaquetas</td></tr>
+<tr><td>2–4 semanas</td><td>Si hepatitis por dengue</td><td>AST, ALT, bilirrubinas</td></tr>
+<tr><td>4–8 semanas</td><td>Si AKI o carditis</td><td>Creatinina, ecocardiograma</td></tr>
+<tr><td>3 meses</td><td>Si síntomas neurológicos</td><td>EMG, RMN (según síntoma)</td></tr>
+</table>
+<div class="alert alert-blue">
+<div class="alert-title">📢 Notificación obligatoria</div>
+<p>Todo caso confirmado o sospechoso de dengue debe notificarse al <strong>Ministerio de Salud Pública del Ecuador</strong> dentro de las primeras 24 horas. Incluir: serotipo si disponible, forma clínica, desenlace. La vigilancia epidemiológica es fundamental para el control de brotes.</p>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🛡️</span>
+<span class="card-title">Prevención y vacunación</span>
+<span class="card-arrow">›</span>
+</div>
+<div class="card-body">
+<h3>Control del vector</h3>
+<ul>
+<li>Eliminar criaderos: cubrir o vaciar depósitos de agua estancada cada 7 días</li>
+<li>Uso de repelentes con DEET ≥20%, IR3535 o icaridina</li>
+<li>Mosquiteros, mallas en puertas y ventanas</li>
+<li>Ropa de manga larga en horas de mayor actividad del vector (amanecer y atardecer)</li>
+</ul>
+<h3>Dengvaxia® (CYD-TDV — Sanofi Pasteur)</h3>
+<ul>
+<li>Vacuna tetravalente quimérica aprobada en algunos países</li>
+<li><strong>Solo indicada en personas con infección previa confirmada</strong> (seropositividad documentada)</li>
+<li>En seronegativos: aumenta el riesgo de dengue grave en la primera infección post-vacunal (riesgo de ADE)</li>
+<li>No disponible en el programa nacional de inmunización del Ecuador actualmente</li>
+</ul>
+<h3>TAK-003 (Qdenga® — Takeda)</h3>
+<ul>
+<li>Vacuna tetravalente de virus vivos atenuados (dengue-2 como base)</li>
+<li>Aprobada en varios países de América Latina (2023–2024)</li>
+<li>Puede administrarse independientemente del estado serológico previo</li>
+<li>Mayor eficacia en sujetos seropositivos</li>
+<li>2 dosis subcutáneas con intervalo de 3 meses</li>
+<li>Evidencia prometedora para control en zonas endémicas</li>
+</ul>
+</div>
+</div>
 </div><!-- /alta -->
-
 <!-- ═══════════════════════════════════════
      SECCIÓN 7: AUTOEVALUACIÓN
 ═══════════════════════════════════════ -->
-<div id="quiz" class="section">
-
-  <div class="alert alert-blue">
-    <div class="alert-title">❓ Autoevaluación clínica — Dengue</div>
-    <p>Casos y preguntas de razonamiento clínico. Seleccione la respuesta y obtenga retroalimentación inmediata.</p>
-  </div>
-  <div class="quiz-meta" aria-live="polite">
-    <span id="quizScore" class="quiz-score">Progreso del quiz: 0/7 · Aciertos: 0</span>
-    <button class="quiz-reset" type="button" onclick="resetQuiz()">Reiniciar autoevaluación</button>
-  </div>
-  <div class="progress-bar" aria-hidden="true"><div id="quizProgress" class="progress-fill"></div></div>
-
-  <!-- Pregunta 1 -->
-  <div class="quiz-q">
-    <p>1. Paciente de 34 años, 5º día de fiebre, llega a urgencias refiriendo que "hoy se siente mejor porque la fiebre cedió". PA: 95/75 mmHg. FC: 108 lpm. Hct: 52% (basal 42%). Plaquetas: 68,000/µL. ¿Cuál es su conducta inmediata más apropiada?</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',1)">A. Alta con hidratación oral, control en 48 h — el paciente mejora</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',1)">B. Hospitalización urgente, iniciar SSN 0.9% o LR 5–7 ml/kg/h, monitoreo estricto</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',1)">C. Transfusión de plaquetas inmediata por recuento de 68,000/µL</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',1)">D. Solicitar solo NS1 y esperar resultado antes de decidir</button>
-    <div class="quiz-feedback" id="fb1"></div>
-  </div>
-
-  <!-- Pregunta 2 -->
-  <div class="quiz-q">
-    <p>2. En dengue grave, el mecanismo principal responsable del shock durante la fase crítica es:</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',2)">A. Hemorragia masiva con anemia aguda</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',2)">B. Disfunción miocárdica por miocarditis</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',2)">C. Fuga plasmática al tercer espacio por aumento de permeabilidad vascular</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',2)">D. Sepsis bacteriana sobreagregada</button>
-    <div class="quiz-feedback" id="fb2"></div>
-  </div>
-
-  <!-- Pregunta 3 -->
-  <div class="quiz-q">
-    <p>3. Paciente con dengue grave, plaquetas de 15,000/µL pero sin evidencia de sangrado activo. ¿Qué conducta es la más apropiada respecto a la transfusión plaquetaria?</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',3)">A. Transfundir de inmediato: el recuento es extremadamente bajo y el riesgo es muy alto</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',3)">B. Transfundir si plaquetas caen a &lt;10,000/µL</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',3)">C. No transfundir de forma profiláctica; la indicación es sangrado activo clínicamente significativo</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',3)">D. Transfundir y agregar corticosteroides para estabilizar las plaquetas</button>
-    <div class="quiz-feedback" id="fb3"></div>
-  </div>
-
-  <!-- Pregunta 4 -->
-  <div class="quiz-q">
-    <p>4. Un paciente con dengue en fase de recuperación (día 8) recibió fluidos IV abundantes los días 5–6. Ahora presenta disnea súbita, crepitantes bibasales, SatO2 91% y el Hct bajó de 52% a 38% en 6 horas. ¿Qué está ocurriendo?</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',4)">A. Nuevo episodio de shock por dengue — aumentar fluidos IV</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',4)">B. Neumonía adquirida en la comunidad como complicación</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',4)">C. Sobrecarga hídrica por reabsorción del plasma extravasado — suspender fluidos y dar furosemida</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',4)">D. Derrame pleural masivo que requiere toracocentesis urgente</button>
-    <div class="quiz-feedback" id="fb4"></div>
-  </div>
-
-  <!-- Pregunta 5 -->
-  <div class="quiz-q">
-    <p>5. ¿Cuál de los siguientes hallazgos en el hemograma es más sugestivo de transición a la fase crítica del dengue?</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',5)">A. Leucocitosis marcada con neutrofilia</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',5)">B. Aumento del hematocrito ≥20% sobre el basal con descenso simultáneo de plaquetas</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',5)">C. Plaquetas de 180,000/µL con hemoglobina de 10 g/dL</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',5)">D. Linfocitosis con monocitosis moderada</button>
-    <div class="quiz-feedback" id="fb5"></div>
-  </div>
-
-  <!-- Pregunta 6 -->
-  <div class="quiz-q">
-    <p>6. Analice este caso: Embarazada de 28 semanas, 4° día de fiebre, NS1 positivo. PA: 110/70, FC: 94, buena diuresis, sin señales de alarma. Plaquetas: 110,000/µL. ¿Cuál es el manejo correcto?</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',6)">A. Alta ambulatoria con paracetamol e hidratación oral — sin señales de alarma</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',6)">B. Alta con ibuprofeno porque el paracetamol es insuficiente en el tercer trimestre</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',6)">C. Hospitalización obligatoria por pertenecer a grupo de alto riesgo, monitoreo materno-fetal</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',6)">D. Alta con instrucción de regresar solo si plaquetas bajan de 50,000/µL</button>
-    <div class="quiz-feedback" id="fb6"></div>
-  </div>
-
-  <!-- Pregunta 7 -->
-  <div class="quiz-q">
-    <p>7. La amplificación dependiente de anticuerpos (ADE) en dengue explica por qué:</p>
-    <button class="quiz-opt" onclick="responder(this,'wrong',7)">A. La vacuna es efectiva en todos los pacientes independientemente del estado serológico</button>
-    <button class="quiz-opt" onclick="responder(this,'correct',7)">B. La segunda infección por un serotipo diferente tiene mayor riesgo de dengue grave que la primera</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',7)">C. Los pacientes mayores de 65 años tienen menos complicaciones por tener más anticuerpos</button>
-    <button class="quiz-opt" onclick="responder(this,'wrong',7)">D. El DENV-4 es siempre más leve que el DENV-2</button>
-    <div class="quiz-feedback" id="fb7"></div>
-  </div>
-
+<div class="section" id="quiz">
+<div class="alert alert-blue">
+<div class="alert-title">❓ Autoevaluación clínica — Dengue</div>
+<p>Casos y preguntas de razonamiento clínico. Seleccione la respuesta y obtenga retroalimentación inmediata.</p>
+</div>
+<div aria-live="polite" class="quiz-meta">
+<span class="quiz-score" id="quizScore">Progreso del quiz: 0/7 · Aciertos: 0</span>
+<button class="quiz-reset" onclick="resetQuiz()" type="button">Reiniciar autoevaluación</button>
+</div>
+<div aria-hidden="true" class="progress-bar"><div class="progress-fill" id="quizProgress"></div></div>
+<!-- Pregunta 1 -->
+<div class="quiz-q">
+<p>1. Paciente de 34 años, 5º día de fiebre, llega a urgencias refiriendo que "hoy se siente mejor porque la fiebre cedió". PA: 95/75 mmHg. FC: 108 lpm. Hct: 52% (basal 42%). Plaquetas: 68,000/µL. ¿Cuál es su conducta inmediata más apropiada?</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',1)">A. Alta con hidratación oral, control en 48 h — el paciente mejora</button>
+<button class="quiz-opt" onclick="responder(this,'correct',1)">B. Hospitalización urgente, iniciar SSN 0.9% o LR 5–7 ml/kg/h, monitoreo estricto</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',1)">C. Transfusión de plaquetas inmediata por recuento de 68,000/µL</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',1)">D. Solicitar solo NS1 y esperar resultado antes de decidir</button>
+<div class="quiz-feedback" id="fb1"></div>
+</div>
+<!-- Pregunta 2 -->
+<div class="quiz-q">
+<p>2. En dengue grave, el mecanismo principal responsable del shock durante la fase crítica es:</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',2)">A. Hemorragia masiva con anemia aguda</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',2)">B. Disfunción miocárdica por miocarditis</button>
+<button class="quiz-opt" onclick="responder(this,'correct',2)">C. Fuga plasmática al tercer espacio por aumento de permeabilidad vascular</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',2)">D. Sepsis bacteriana sobreagregada</button>
+<div class="quiz-feedback" id="fb2"></div>
+</div>
+<!-- Pregunta 3 -->
+<div class="quiz-q">
+<p>3. Paciente con dengue grave, plaquetas de 15,000/µL pero sin evidencia de sangrado activo. ¿Qué conducta es la más apropiada respecto a la transfusión plaquetaria?</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',3)">A. Transfundir de inmediato: el recuento es extremadamente bajo y el riesgo es muy alto</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',3)">B. Transfundir si plaquetas caen a &lt;10,000/µL</button>
+<button class="quiz-opt" onclick="responder(this,'correct',3)">C. No transfundir de forma profiláctica; la indicación es sangrado activo clínicamente significativo</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',3)">D. Transfundir y agregar corticosteroides para estabilizar las plaquetas</button>
+<div class="quiz-feedback" id="fb3"></div>
+</div>
+<!-- Pregunta 4 -->
+<div class="quiz-q">
+<p>4. Un paciente con dengue en fase de recuperación (día 8) recibió fluidos IV abundantes los días 5–6. Ahora presenta disnea súbita, crepitantes bibasales, SatO2 91% y el Hct bajó de 52% a 38% en 6 horas. ¿Qué está ocurriendo?</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',4)">A. Nuevo episodio de shock por dengue — aumentar fluidos IV</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',4)">B. Neumonía adquirida en la comunidad como complicación</button>
+<button class="quiz-opt" onclick="responder(this,'correct',4)">C. Sobrecarga hídrica por reabsorción del plasma extravasado — suspender fluidos y dar furosemida</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',4)">D. Derrame pleural masivo que requiere toracocentesis urgente</button>
+<div class="quiz-feedback" id="fb4"></div>
+</div>
+<!-- Pregunta 5 -->
+<div class="quiz-q">
+<p>5. ¿Cuál de los siguientes hallazgos en el hemograma es más sugestivo de transición a la fase crítica del dengue?</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',5)">A. Leucocitosis marcada con neutrofilia</button>
+<button class="quiz-opt" onclick="responder(this,'correct',5)">B. Aumento del hematocrito ≥20% sobre el basal con descenso simultáneo de plaquetas</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',5)">C. Plaquetas de 180,000/µL con hemoglobina de 10 g/dL</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',5)">D. Linfocitosis con monocitosis moderada</button>
+<div class="quiz-feedback" id="fb5"></div>
+</div>
+<!-- Pregunta 6 -->
+<div class="quiz-q">
+<p>6. Analice este caso: Embarazada de 28 semanas, 4° día de fiebre, NS1 positivo. PA: 110/70, FC: 94, buena diuresis, sin señales de alarma. Plaquetas: 110,000/µL. ¿Cuál es el manejo correcto?</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',6)">A. Alta ambulatoria con paracetamol e hidratación oral — sin señales de alarma</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',6)">B. Alta con ibuprofeno porque el paracetamol es insuficiente en el tercer trimestre</button>
+<button class="quiz-opt" onclick="responder(this,'correct',6)">C. Hospitalización obligatoria por pertenecer a grupo de alto riesgo, monitoreo materno-fetal</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',6)">D. Alta con instrucción de regresar solo si plaquetas bajan de 50,000/µL</button>
+<div class="quiz-feedback" id="fb6"></div>
+</div>
+<!-- Pregunta 7 -->
+<div class="quiz-q">
+<p>7. La amplificación dependiente de anticuerpos (ADE) en dengue explica por qué:</p>
+<button class="quiz-opt" onclick="responder(this,'wrong',7)">A. La vacuna es efectiva en todos los pacientes independientemente del estado serológico</button>
+<button class="quiz-opt" onclick="responder(this,'correct',7)">B. La segunda infección por un serotipo diferente tiene mayor riesgo de dengue grave que la primera</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',7)">C. Los pacientes mayores de 65 años tienen menos complicaciones por tener más anticuerpos</button>
+<button class="quiz-opt" onclick="responder(this,'wrong',7)">D. El DENV-4 es siempre más leve que el DENV-2</button>
+<div class="quiz-feedback" id="fb7"></div>
+</div>
 </div><!-- /quiz -->
-
 <!-- FOOTER -->
-<div class="footer">
-  Guía Clínica Interactiva · Dengue · Basada en OPS/OMS 2024 · CDC 2023<br>
-  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section><div class="footer">
+  Guía Clínica Interactiva · Dengue · Basada en OPS/OMS 2024 · CDC 2023<br/>
+  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br/>
   Uso educativo y de referencia clínica personal
 </div>
-
 </div><!-- /app -->
-
 <script>
 // ═══════════════════════════════════════════════════════════════
 // Framework Educativo Dr. Croce · Core reutilizable para guías HTML
@@ -1508,7 +1411,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(savedTab && document.getElementById(savedTab)) showTab(savedTab);
 });
 </script>
-
 <script src="../assets/croce.js"></script>
 </body>
 </html>

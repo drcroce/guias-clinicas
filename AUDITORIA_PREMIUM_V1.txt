@@ -1,0 +1,29 @@
+AUDITORÍA Y MEJORA PREMIUM V1.0
+Biblioteca Médica Personal Croce
+Fecha: Junio 2026
+
+Mejoras aplicadas:
+1. Buscador global por contenido en index.html.
+   - Busca dentro de las 13 guías.
+   - Muestra guía, categoría, sección y fragmento coincidente.
+   - Los enlaces abren la guía y saltan a la sección detectada.
+
+2. Índice interno automático en cada guía.
+   - Se genera desde las secciones existentes.
+   - No modifica el contenido médico.
+   - Compatible con navegación por hash desde el buscador global.
+
+3. Bloque de versión agregado a todas las guías.
+   - Versión 1.0 Premium.
+   - Biblioteca Médica Personal Croce · Junio 2026.
+
+4. Archivos comunes actualizados:
+   - assets/croce.css
+   - assets/croce.js
+   - assets/search-index.js
+
+Notas:
+- Las guías siguen siendo archivos HTML independientes.
+- No se agregó base de datos, framework, login ni servidor.
+- El sistema funciona abriendo index.html desde navegador moderno.
+- Si se publica en hosting, funcionará igual o mejor.

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Biblioteca Médica Personal Croce</title>
-<link rel="stylesheet" href="assets/croce.css">
+<link href="assets/croce.css" rel="stylesheet"/>
 <style>
 .page{max-width:980px;margin:0 auto;padding:18px}
 .header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;border-radius:18px;padding:26px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
@@ -23,19 +24,19 @@
 <body>
 <div class="page">
 <header class="header">
-  <h1>Biblioteca Médica Personal Croce</h1>
-  <p>Guías clínicas interactivas para consulta y estudio personal</p>
-  <div class="stats"><span class="stat" id="totalGuias">13 guías</span><span class="stat">Uso personal</span><span class="stat">HTML independiente</span></div>
+<h1>Biblioteca Médica Personal Croce</h1>
+<p>Guías clínicas interactivas para consulta y estudio personal</p>
+<div class="stats"><span class="stat" id="totalGuias">13 guías</span><span class="stat">Uso personal</span><span class="stat">HTML independiente</span><span class="stat">Buscador global por contenido</span></div>
 </header>
 <div class="toolbar">
-  <input id="search" class="search" type="search" placeholder="Buscar guía..." oninput="renderGuias()">
-  <select id="category" class="filter" onchange="renderGuias()"><option value="">Todas las categorías</option></select>
-</div>
+<input class="search" id="search" oninput="renderGuias()" placeholder="Buscar guía o contenido dentro de todas las guías..." type="search"/>
+<select class="filter" id="category" onchange="renderGuias()"><option value="">Todas las categorías</option></select>
+</div><section aria-live="polite" class="global-results" id="globalResults"></section>
 <main id="content"></main>
-<div id="empty" class="empty">No se encontraron guías.</div>
+<div class="empty" id="empty">No se encontraron guías.</div>
 <footer class="footer">Dr. Luis E. Croce A. · Biblioteca médica personal</footer>
 </div>
-<script>
+<script src="assets/search-index.js"></script><script>
 const GUIAS = [
   {
     "titulo": "CAD / EHH — Crisis Hiperglucémica",
@@ -200,5 +201,40 @@ function renderGuias(){
 initCategorias();renderGuias();
 </script>
 <script src="assets/croce.js"></script>
+
+<script>
+function normalizeCroceText(s){return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+function makeSnippet(text, query){
+  const nt=normalizeCroceText(text), nq=normalizeCroceText(query); let i=nt.indexOf(nq); if(i<0) i=0;
+  const start=Math.max(0,i-75), end=Math.min(text.length,i+query.length+120); let snip=text.slice(start,end).trim();
+  if(start>0) snip='… '+snip; if(end<text.length) snip+=' …';
+  try{ const re=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'); snip=snip.replace(re,'<mark>$1</mark>'); }catch(e){}
+  return snip;
+}
+function renderGlobalSearchResults(q){
+  const box=document.getElementById('globalResults'); if(!box) return;
+  const query=(q||'').trim();
+  if(query.length<3){ box.classList.remove('show'); box.innerHTML=''; return; }
+  const nq=normalizeCroceText(query);
+  const index=window.CROCE_SEARCH_INDEX||[];
+  const scored=[];
+  index.forEach(item=>{
+    const hay=normalizeCroceText([item.guide,item.category,item.section,item.text].join(' '));
+    if(!hay.includes(nq)) return;
+    let score=0;
+    if(normalizeCroceText(item.guide).includes(nq)) score+=8;
+    if(normalizeCroceText(item.section).includes(nq)) score+=5;
+    score += Math.min(6,(hay.match(new RegExp(nq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length);
+    scored.push({...item, score});
+  });
+  scored.sort((a,b)=>b.score-a.score || a.guide.localeCompare(b.guide));
+  const top=scored.slice(0,12);
+  box.classList.add('show');
+  if(!top.length){ box.innerHTML='<h2>Buscador global</h2><div class="global-empty-note">No se encontraron coincidencias dentro de las guías.</div>'; return; }
+  box.innerHTML='<h2>Resultados dentro de las guías</h2>'+top.map(r=>`<a class="global-result" href="${r.file}"><div class="global-result-title">${r.guide}</div><div class="global-result-meta">${r.category||'Guía'} · ${r.section||'Contenido'}</div><div class="global-result-snippet">${makeSnippet(r.text,query)}</div></a>`).join('');
+}
+const originalRenderGuias = renderGuias;
+renderGuias = function(){ originalRenderGuias(); renderGlobalSearchResults(document.getElementById('search').value); };
+</script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ACV Isquémico Agudo — Dr. Luis E. Croce</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -158,828 +159,772 @@ strong{color:var(--brand-dark)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 </style>
-
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 <div id="app">
 <main id="main-content">
 <div class="hero">
-  <a class="hero-back" href="../index.html">← Portal de guías</a>
-  <div class="hero-icon">🧠</div>
-  <h1>ACV Isquémico Agudo</h1>
-  <div class="hero-sub">Accidente Cerebrovascular Isquémico — Manejo en Emergencia</div>
-  <div class="hero-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-  <div class="hero-badges">
-    <span class="badge badge-gold">⭐ AHA/ASA 2026</span>
-    <span class="badge">AHA Prevention 2024</span>
-    <span class="badge">OPS/OMS</span>
-    <span class="badge">NIHSS · ASPECTS · mRS</span>
-    <span class="badge">Trombólisis IV</span>
-    <span class="badge">Trombectomía Mecánica</span>
-  </div>
-  <div class="framework-actions" aria-label="Controles de la guía">
-    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleFullscreen()">⛶ Pantalla completa</button>
-    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleAllCards(true)">▾ Expandir todo</button>
-    <button class="fx-btn" type="button" onclick="FrameworkEdu.toggleAllCards(false)">▸ Contraer todo</button>
-    <button class="fx-btn" type="button" onclick="FrameworkEdu.readCurrentSection()">🔊 Leer sección</button>
-    <button class="fx-btn" type="button" onclick="window.print()">🖨️ Imprimir</button>
-  </div>
+<a class="hero-back" href="../index.html">← Portal de guías</a>
+<div class="hero-icon">🧠</div>
+<h1>ACV Isquémico Agudo</h1>
+<div class="hero-sub">Accidente Cerebrovascular Isquémico — Manejo en Emergencia</div>
+<div class="hero-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+<div class="hero-badges">
+<span class="badge badge-gold">⭐ AHA/ASA 2026</span>
+<span class="badge">AHA Prevention 2024</span>
+<span class="badge">OPS/OMS</span>
+<span class="badge">NIHSS · ASPECTS · mRS</span>
+<span class="badge">Trombólisis IV</span>
+<span class="badge">Trombectomía Mecánica</span>
+</div>
+<div aria-label="Controles de la guía" class="framework-actions">
+<button class="fx-btn" onclick="FrameworkEdu.toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+<button class="fx-btn" onclick="FrameworkEdu.toggleAllCards(true)" type="button">▾ Expandir todo</button>
+<button class="fx-btn" onclick="FrameworkEdu.toggleAllCards(false)" type="button">▸ Contraer todo</button>
+<button class="fx-btn" onclick="FrameworkEdu.readCurrentSection()" type="button">🔊 Leer sección</button>
+<button class="fx-btn" onclick="window.print()" type="button">🖨️ Imprimir</button>
+</div>
 </div>
 <div class="tabs">
-  <div class="tab active" onclick="showTab('fisio')">🔬 Fisiopatología</div>
-  <div class="tab" onclick="showTab('clinica')">🩺 Clínica y Estadios</div>
-  <div class="tab" onclick="showTab('lab')">🧪 Diagnóstico</div>
-  <div class="tab" onclick="showTab('manejo')">🚨 Manejo</div>
-  <div class="tab" onclick="showTab('comp')">⚡ Complicaciones</div>
-  <div class="tab" onclick="showTab('egreso')">📋 Egreso y Prevención</div>
-  <div class="tab" onclick="showTab('quiz')">❓ Autoevaluación</div>
+<div class="tab active" onclick="showTab('fisio')">🔬 Fisiopatología</div>
+<div class="tab" onclick="showTab('clinica')">🩺 Clínica y Estadios</div>
+<div class="tab" onclick="showTab('lab')">🧪 Diagnóstico</div>
+<div class="tab" onclick="showTab('manejo')">🚨 Manejo</div>
+<div class="tab" onclick="showTab('comp')">⚡ Complicaciones</div>
+<div class="tab" onclick="showTab('egreso')">📋 Egreso y Prevención</div>
+<div class="tab" onclick="showTab('quiz')">❓ Autoevaluación</div>
 </div>
-<div class="fx-progress-wrap" aria-hidden="true"><div class="fx-progress-bar" id="global-progress"></div></div>
-
+<div aria-hidden="true" class="fx-progress-wrap"><div class="fx-progress-bar" id="global-progress"></div></div>
 <!-- ══ FISIOPATOLOGÍA ══ -->
 <div class="section active" id="fisio">
-  <div class="sec-header"><div class="sec-icon">🔬</div><h2>Fisiopatología del ACV Isquémico</h2></div>
-  <div class="alert alert-blue"><strong>Definición (AHA/ASA 2026):</strong> El ACV isquémico agudo (ACVi) es la interrupción súbita del flujo sanguíneo cerebral que produce déficit neurológico focal de causa isquémica, con o sin infarto documentado por neuroimagen, que persiste &gt;24 horas o resulta en muerte.</div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">Umbral Isquémico y Penumbra — El Núcleo del Problema</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>El tejido cerebral tolera la isquemia de forma diferenciada según el grado de reducción del flujo sanguíneo cerebral regional (FSCr):</p>
-      <table class="tbl">
-        <tr><th>FSCr (ml/100g/min)</th><th>Estado del tejido</th><th>Consecuencia</th></tr>
-        <tr><td><strong>55–80</strong> (normal)</td><td>Perfusión normal</td><td>Función neuronal intacta</td></tr>
-        <tr><td><strong>20–50</strong></td><td>Disfunción eléctrica</td><td>Déficit reversible sin muerte celular</td></tr>
-        <tr><td><strong>15–20 (penumbra)</strong></td><td>Silencio eléctrico</td><td>Neurona viva pero no funcionante — <strong>ZONA RESCATABLE</strong></td></tr>
-        <tr><td><strong>&lt;15 (núcleo)</strong></td><td>Necrosis isquémica</td><td>Muerte celular irreversible en minutos</td></tr>
-      </table>
-      <div class="alert alert-amber"><strong>Concepto crítico:</strong> La <strong>penumbra isquémica</strong> es el tejido en riesgo que puede rescatarse con reperfusión temprana. Se pierden ~1.9 millones de neuronas por minuto en un ACV de territorio silviano sin tratamiento. <em>"Time is brain."</em></div>
-      <p>La progresión núcleo→penumbra depende de la circulación colateral, duración de la oclusión y presión de perfusión. La TC perfusión/RM-DWI identifica penumbra rescatable incluso más allá de las ventanas clásicas de tiempo.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Cascada Isquémica Molecular</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Fallo energético (0–5 min)</strong> Hipoxia reduce ATP. Falla bomba Na⁺/K⁺-ATPasa → acumulación intracelular de Na⁺ y Ca²⁺. Despolarización anóxica irreversible en el núcleo.</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Excitotoxicidad (5–30 min)</strong> Despolarización masiva libera glutamato → sobreactivación NMDA/AMPA → entrada masiva de Ca²⁺ → activación de proteasas, lipasas y endonucleasas. Principal mediador de muerte neuronal aguda.</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Estrés oxidativo (30 min – horas)</strong> Ca²⁺ activa NOS → producción de ROS y peroxinitrito → daño mitocondrial y peroxidación lipídica. Disfunción mitocondrial dispara apoptosis.</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Inflamación (horas – días)</strong> Activación microglía/astrocitos → IL-1β, TNF-α, IL-6 → disrupción de BHE → edema vasogénico. Infiltración neutrófilos y macrófagos amplifica daño secundario.</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Muerte celular programada (días – semanas)</strong> Apoptosis y necroptosis mediadas por caspasas. La penumbra puede sufrir muerte diferida si persiste hipoperfusión o inflamación.</div></div>
-      <div class="alert alert-blue"><strong>Base de la trombólisis:</strong> tPA/tenecteplase actúan en fase temprana (pasos 1–2), cuando aún existe penumbra rescatable. Tras 4.5 h la relación riesgo-beneficio cambia, salvo selección por imágenes avanzadas.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🫀</span><span class="card-title">Etiología — Clasificación TOAST</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Subtipo TOAST</th><th>Mecanismo</th><th>%</th><th>Claves diagnósticas</th></tr>
-        <tr><td><span class="pill pill-red">Aterotrombótico</span></td><td>Estenosis aterosclerótica grandes vasos &gt;50%</td><td>~25%</td><td>Estenosis carotídea, ACM proximal en angio-TC</td></tr>
-        <tr><td><span class="pill pill-blue">Cardioembólico</span></td><td>Émbolo de fuente cardíaca de alto riesgo</td><td>~20%</td><td>FA, trombo VI, valvulopatía, endocarditis</td></tr>
-        <tr><td><span class="pill pill-amber">Lacunar</span></td><td>Oclusión arteria perforante pequeña (lipohialinosis)</td><td>~25%</td><td>Infarto &lt;15 mm, sin córtex, HTA/DM crónica</td></tr>
-        <tr><td><span class="pill pill-purple">Otra etiología</span></td><td>Disección, vasculitis, trombofilia, CADASIL</td><td>~5%</td><td>Paciente joven, trauma cervical, autoinmunidad</td></tr>
-        <tr><td><span class="pill pill-gray">Criptogénico</span></td><td>Causa no determinada tras estudio completo</td><td>~25%</td><td>Diagnóstico de exclusión; muchos son ESUS</td></tr>
-      </table>
-      <div class="alert alert-amber"><strong>Concepto ESUS:</strong> Embolismo de Fuente Indeterminada — ACV no lacunar sin estenosis ipsilateral ni fuente cardíaca identificada. Requiere Holter 30 días o implante loop recorder (FA paroxística detectada en 12–30%).</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🔄</span><span class="card-title">Transformación Hemorrágica — Fisiopatología</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>Ocurre por reperfusión de tejido con barrera hematoencefálica (BHE) dañada. MMP-9 e inflamación endotelial degradan la BHE; la reperfusión expone vasculatura lesionada a presión normal.</p>
-      <table class="tbl">
-        <tr><th>Tipo (ECASS)</th><th>Descripción</th><th>Relevancia clínica</th></tr>
-        <tr><td>HI-1</td><td>Petequias dispersas, sin efecto de masa</td><td>Sin deterioro neurológico</td></tr>
-        <tr><td>HI-2</td><td>Petequias confluentes, sin efecto de masa</td><td>Sin deterioro neurológico</td></tr>
-        <tr><td>PH-1</td><td>Hematoma &lt;30% del infarto, leve efecto de masa</td><td>Deterioro variable</td></tr>
-        <tr><td>PH-2</td><td>Hematoma &gt;30% del infarto, efecto de masa significativo</td><td><strong>sICH — deterioro neurológico grave</strong></td></tr>
-      </table>
-      <div class="alert alert-red"><strong>sICH:</strong> Definida como PH-2 con deterioro ≥4 puntos en NIHSS. Incidencia: 2–6% con alteplase o tenecteplase. Mortalidad: 50–80%.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🩻</span><span class="card-title">Autorregulación Cerebral y PA en la Isquemia</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>En condiciones normales el cerebro autorregula el FSCr entre PAM 60–150 mmHg. En ACVi agudo la autorregulación falla en el territorio isquémico → FSCr depende directamente de la PA sistémica. Esto justifica la <strong>hipertensión permisiva</strong>.</p>
-      <div class="alert alert-amber"><strong>Meta de PA en fase aguda (AHA/ASA 2026):</strong><ul><li>Sin reperfusión: tolerar hasta 220/120 mmHg.</li><li>Previo a trombólisis: reducir a &lt;185/110 mmHg antes de infundir.</li><li>Post-trombólisis: mantener &lt;180/105 mmHg por 24 h.</li><li>Reducción máxima recomendada: 15% en primeras 24 h.</li></ul></div>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">🔬</div><h2>Fisiopatología del ACV Isquémico</h2></div>
+<div class="alert alert-blue"><strong>Definición (AHA/ASA 2026):</strong> El ACV isquémico agudo (ACVi) es la interrupción súbita del flujo sanguíneo cerebral que produce déficit neurológico focal de causa isquémica, con o sin infarto documentado por neuroimagen, que persiste &gt;24 horas o resulta en muerte.</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">Umbral Isquémico y Penumbra — El Núcleo del Problema</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>El tejido cerebral tolera la isquemia de forma diferenciada según el grado de reducción del flujo sanguíneo cerebral regional (FSCr):</p>
+<table class="tbl">
+<tr><th>FSCr (ml/100g/min)</th><th>Estado del tejido</th><th>Consecuencia</th></tr>
+<tr><td><strong>55–80</strong> (normal)</td><td>Perfusión normal</td><td>Función neuronal intacta</td></tr>
+<tr><td><strong>20–50</strong></td><td>Disfunción eléctrica</td><td>Déficit reversible sin muerte celular</td></tr>
+<tr><td><strong>15–20 (penumbra)</strong></td><td>Silencio eléctrico</td><td>Neurona viva pero no funcionante — <strong>ZONA RESCATABLE</strong></td></tr>
+<tr><td><strong>&lt;15 (núcleo)</strong></td><td>Necrosis isquémica</td><td>Muerte celular irreversible en minutos</td></tr>
+</table>
+<div class="alert alert-amber"><strong>Concepto crítico:</strong> La <strong>penumbra isquémica</strong> es el tejido en riesgo que puede rescatarse con reperfusión temprana. Se pierden ~1.9 millones de neuronas por minuto en un ACV de territorio silviano sin tratamiento. <em>"Time is brain."</em></div>
+<p>La progresión núcleo→penumbra depende de la circulación colateral, duración de la oclusión y presión de perfusión. La TC perfusión/RM-DWI identifica penumbra rescatable incluso más allá de las ventanas clásicas de tiempo.</p>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Cascada Isquémica Molecular</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Fallo energético (0–5 min)</strong> Hipoxia reduce ATP. Falla bomba Na⁺/K⁺-ATPasa → acumulación intracelular de Na⁺ y Ca²⁺. Despolarización anóxica irreversible en el núcleo.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Excitotoxicidad (5–30 min)</strong> Despolarización masiva libera glutamato → sobreactivación NMDA/AMPA → entrada masiva de Ca²⁺ → activación de proteasas, lipasas y endonucleasas. Principal mediador de muerte neuronal aguda.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Estrés oxidativo (30 min – horas)</strong> Ca²⁺ activa NOS → producción de ROS y peroxinitrito → daño mitocondrial y peroxidación lipídica. Disfunción mitocondrial dispara apoptosis.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Inflamación (horas – días)</strong> Activación microglía/astrocitos → IL-1β, TNF-α, IL-6 → disrupción de BHE → edema vasogénico. Infiltración neutrófilos y macrófagos amplifica daño secundario.</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Muerte celular programada (días – semanas)</strong> Apoptosis y necroptosis mediadas por caspasas. La penumbra puede sufrir muerte diferida si persiste hipoperfusión o inflamación.</div></div>
+<div class="alert alert-blue"><strong>Base de la trombólisis:</strong> tPA/tenecteplase actúan en fase temprana (pasos 1–2), cuando aún existe penumbra rescatable. Tras 4.5 h la relación riesgo-beneficio cambia, salvo selección por imágenes avanzadas.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🫀</span><span class="card-title">Etiología — Clasificación TOAST</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Subtipo TOAST</th><th>Mecanismo</th><th>%</th><th>Claves diagnósticas</th></tr>
+<tr><td><span class="pill pill-red">Aterotrombótico</span></td><td>Estenosis aterosclerótica grandes vasos &gt;50%</td><td>~25%</td><td>Estenosis carotídea, ACM proximal en angio-TC</td></tr>
+<tr><td><span class="pill pill-blue">Cardioembólico</span></td><td>Émbolo de fuente cardíaca de alto riesgo</td><td>~20%</td><td>FA, trombo VI, valvulopatía, endocarditis</td></tr>
+<tr><td><span class="pill pill-amber">Lacunar</span></td><td>Oclusión arteria perforante pequeña (lipohialinosis)</td><td>~25%</td><td>Infarto &lt;15 mm, sin córtex, HTA/DM crónica</td></tr>
+<tr><td><span class="pill pill-purple">Otra etiología</span></td><td>Disección, vasculitis, trombofilia, CADASIL</td><td>~5%</td><td>Paciente joven, trauma cervical, autoinmunidad</td></tr>
+<tr><td><span class="pill pill-gray">Criptogénico</span></td><td>Causa no determinada tras estudio completo</td><td>~25%</td><td>Diagnóstico de exclusión; muchos son ESUS</td></tr>
+</table>
+<div class="alert alert-amber"><strong>Concepto ESUS:</strong> Embolismo de Fuente Indeterminada — ACV no lacunar sin estenosis ipsilateral ni fuente cardíaca identificada. Requiere Holter 30 días o implante loop recorder (FA paroxística detectada en 12–30%).</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🔄</span><span class="card-title">Transformación Hemorrágica — Fisiopatología</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>Ocurre por reperfusión de tejido con barrera hematoencefálica (BHE) dañada. MMP-9 e inflamación endotelial degradan la BHE; la reperfusión expone vasculatura lesionada a presión normal.</p>
+<table class="tbl">
+<tr><th>Tipo (ECASS)</th><th>Descripción</th><th>Relevancia clínica</th></tr>
+<tr><td>HI-1</td><td>Petequias dispersas, sin efecto de masa</td><td>Sin deterioro neurológico</td></tr>
+<tr><td>HI-2</td><td>Petequias confluentes, sin efecto de masa</td><td>Sin deterioro neurológico</td></tr>
+<tr><td>PH-1</td><td>Hematoma &lt;30% del infarto, leve efecto de masa</td><td>Deterioro variable</td></tr>
+<tr><td>PH-2</td><td>Hematoma &gt;30% del infarto, efecto de masa significativo</td><td><strong>sICH — deterioro neurológico grave</strong></td></tr>
+</table>
+<div class="alert alert-red"><strong>sICH:</strong> Definida como PH-2 con deterioro ≥4 puntos en NIHSS. Incidencia: 2–6% con alteplase o tenecteplase. Mortalidad: 50–80%.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🩻</span><span class="card-title">Autorregulación Cerebral y PA en la Isquemia</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>En condiciones normales el cerebro autorregula el FSCr entre PAM 60–150 mmHg. En ACVi agudo la autorregulación falla en el territorio isquémico → FSCr depende directamente de la PA sistémica. Esto justifica la <strong>hipertensión permisiva</strong>.</p>
+<div class="alert alert-amber"><strong>Meta de PA en fase aguda (AHA/ASA 2026):</strong><ul><li>Sin reperfusión: tolerar hasta 220/120 mmHg.</li><li>Previo a trombólisis: reducir a &lt;185/110 mmHg antes de infundir.</li><li>Post-trombólisis: mantener &lt;180/105 mmHg por 24 h.</li><li>Reducción máxima recomendada: 15% en primeras 24 h.</li></ul></div>
+</div>
+</div>
+</div>
 <!-- ══ CLÍNICA ══ -->
 <div class="section" id="clinica">
-  <div class="sec-header"><div class="sec-icon">🩺</div><h2>Presentación Clínica y Clasificación</h2></div>
-  <div class="alert alert-red"><strong>⏰ TIEMPO = CEREBRO:</strong> Cada minuto sin reperfusión = 1.9 millones de neuronas perdidas. El reconocimiento prehospitalario inmediato y la activación del código stroke son determinantes del pronóstico.</div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🆘</span><span class="card-title">Reconocimiento Rápido — Escala BE-FAST</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Letra</th><th>Síntoma</th><th>Cómo evaluarlo</th></tr>
-        <tr><td><strong style="color:#1d4ed8;font-size:1.2rem">B</strong></td><td><strong>Balance</strong> — pérdida súbita del equilibrio</td><td>¿Camina con normalidad? ¿Marcha atáxica?</td></tr>
-        <tr><td><strong style="color:#1d4ed8;font-size:1.2rem">E</strong></td><td><strong>Eyes</strong> — visión doble o pérdida súbita de visión</td><td>¿Hemianopsia? ¿Diplopía?</td></tr>
-        <tr><td><strong style="color:#ef4444;font-size:1.2rem">F</strong></td><td><strong>Face</strong> — asimetría facial</td><td>Pedir que sonría: ¿cae un lado?</td></tr>
-        <tr><td><strong style="color:#ef4444;font-size:1.2rem">A</strong></td><td><strong>Arm</strong> — debilidad en un brazo</td><td>Elevar ambos brazos 10 s: ¿cae alguno?</td></tr>
-        <tr><td><strong style="color:#ef4444;font-size:1.2rem">S</strong></td><td><strong>Speech</strong> — dificultad para hablar o entender</td><td>Repetir una oración: ¿es incomprensible?</td></tr>
-        <tr><td><strong style="color:#7c3aed;font-size:1.2rem">T</strong></td><td><strong>Time</strong> — activar SEM inmediatamente</td><td>¿Cuándo fue la última vez que estuvo bien? (LKW)</td></tr>
-      </table>
-      <div class="alert alert-amber"><strong>LKW (Last Known Well):</strong> Es el punto de referencia temporal — NO la hora en que se lo encontró. Si despertó con déficit, el LKW es cuando se fue a dormir. Este dato determina la elegibilidad para trombólisis.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🗺️</span><span class="card-title">Síndromes Topográficos — Clínica por Territorio Vascular</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Territorio</th><th>Arteria</th><th>Déficit característico</th></tr>
-        <tr><td><strong>ACM proximal (M1)</strong></td><td>Cerebral media</td><td>Hemiplejia contralateral brazo&gt;pierna, hemianestesia, hemianopsia homónima, desviación oculocefálica ipsilateral; afasia si hemisferio dominante; heminegligencia si no dominante</td></tr>
-        <tr><td><strong>ACM distal (M2-M3)</strong></td><td>Ramas superficiales ACM</td><td>Monoparesia braquial, afasia de Broca (frontal dominante), afasia de Wernicke (temporal dominante)</td></tr>
-        <tr><td><strong>ACA</strong></td><td>Cerebral anterior</td><td>Hemiplejia pierna&gt;brazo, abulia, incontinencia urinaria, reflejo de prensión</td></tr>
-        <tr><td><strong>ACP</strong></td><td>Cerebral posterior</td><td>Hemianopsia homónima contralateral, alexia sin agrafia (dominante), agnosia visual</td></tr>
-        <tr><td><strong>Basilar</strong></td><td>Arteria basilar</td><td><strong>Locked-in syndrome</strong>, coma, cuadriplejia, oftalmoplejia. ¡Emergencia máxima! Mortalidad &gt;80% sin reperfusión</td></tr>
-        <tr><td><strong>Lenticuloestriadas</strong></td><td>Arterias perforantes</td><td>Síndrome lacunar: hemimotor puro, hemisensitivo puro, ataxia-hemiparesia, disartria-mano torpe</td></tr>
-        <tr><td><strong>Cerebeloso</strong></td><td>PICA, AICA, SCA</td><td>Ataxia ipsilateral, nistagmo, vértigo; Wallenberg (PICA): Horner, disfagia, hemianestesia cruzada</td></tr>
-      </table>
-      <div class="alert alert-red"><strong>Oclusión basilar:</strong> Pródromos de horas a días (vértigo, diplopía, disartria). NUNCA excluir en deterioro del nivel de conciencia de inicio súbito. Elegible para trombectomía hasta 24 h si NIHSS ≥10 y daño isquémico leve (AHA/ASA 2026, Clase I).</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">📊</span><span class="card-title">Escala NIHSS — Evaluación Neurológica Estándar</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="nihss-box">
-        <h4>📋 NIHSS — Ítems y Puntuación (0–42 puntos)</h4>
-        <div class="nihss-row"><span>1a. Nivel de conciencia</span><span class="nihss-score">0–3</span></div>
-        <div class="nihss-row"><span>1b. Preguntas de orientación</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>1c. Respuesta a órdenes</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>2. Movimiento ocular conjugado</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>3. Campos visuales</span><span class="nihss-score">0–3</span></div>
-        <div class="nihss-row"><span>4. Paresia facial</span><span class="nihss-score">0–3</span></div>
-        <div class="nihss-row"><span>5. Paresia miembro superior D/I</span><span class="nihss-score">0–4 c/u</span></div>
-        <div class="nihss-row"><span>6. Paresia miembro inferior D/I</span><span class="nihss-score">0–4 c/u</span></div>
-        <div class="nihss-row"><span>7. Ataxia de miembros</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>8. Sensibilidad</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>9. Lenguaje (afasia)</span><span class="nihss-score">0–3</span></div>
-        <div class="nihss-row"><span>10. Disartria</span><span class="nihss-score">0–2</span></div>
-        <div class="nihss-row"><span>11. Extinción / inatención</span><span class="nihss-score">0–2</span></div>
-      </div>
-      <table class="tbl" style="margin-top:14px">
-        <tr><th>NIHSS</th><th>Severidad</th><th>Implicación</th></tr>
-        <tr><td>0</td><td>Sin déficit</td><td>AIT o resolución completa</td></tr>
-        <tr><td>1–4</td><td><span class="pill pill-green">Leve</span></td><td>Trombolizar si déficit es discapacitante (AHA/ASA 2026)</td></tr>
-        <tr><td>5–15</td><td><span class="pill pill-amber">Moderado</span></td><td>Candidato a trombólisis ± trombectomía</td></tr>
-        <tr><td>16–20</td><td><span class="pill pill-red">Mod-severo</span></td><td>Alta probabilidad OGV → priorizar trombectomía</td></tr>
-        <tr><td>≥21</td><td><span class="pill pill-red">Severo</span></td><td>OGV muy probable, riesgo sICH elevado</td></tr>
-      </table>
-      <div class="alert alert-blue"><strong>AHA/ASA 2026:</strong> Ya NO se excluyen de trombólisis los ACV con NIHSS 1–4 ni los muy severos (&gt;25) si el déficit es discapacitante. La decisión se basa en impacto funcional, no en puntaje aislado.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⚠️</span><span class="card-title">Señales de Alarma — Presentaciones de Alto Riesgo</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="warn-grid">
-        <div class="warn-item"><span>🔴</span><div><strong>Deterioro del nivel de conciencia</strong> — sospecha de basilar o herniación</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>Vómitos + cefalea brusca</strong> — descartar HSA o TH</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>Síntomas fluctuantes o en crescendo</strong> — AIT de alto riesgo</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>Cuadriplejia / locked-in</strong> — oclusión basilar, emergencia absoluta</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>Convulsiones al inicio</strong> — orientar a trombosis venosa</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>PA ≥220/120</strong> — emergencia hipertensiva concomitante</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>Glucemia &lt;50 o &gt;400</strong> — mimetiza ACV o empeora pronóstico</div></div>
-        <div class="warn-item"><span>🔴</span><div><strong>SaO₂ &lt;94%</strong> — hipoxia amplifica daño isquémico</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">👥</span><span class="card-title">Poblaciones Especiales — Presentaciones Atípicas</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="two-col">
-        <div class="mini-card">
-          <h4>🤰 Embarazo y Puerperio</h4>
-          <ul>
-            <li>Riesgo 3× mayor en puerperio inmediato (primeras 6 semanas)</li>
-            <li>Causas especiales: trombosis venosa cerebral, eclampsia/PRES, disección arterial</li>
-            <li>Trombólisis IV: no contraindicada absolutamente si beneficio &gt; riesgo; consultar obstetricia urgente</li>
-            <li>Trombectomía preferible cuando disponible</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>👴 Adultos Mayores (&gt;80 años)</h4>
-          <ul>
-            <li>Mayor riesgo de sICH pero beneficio absoluto se mantiene</li>
-            <li>AHA/ASA 2026: edad avanzada NO contraindica trombólisis ni trombectomía</li>
-            <li>Considerar fragilidad, estado funcional previo y voluntades anticipadas</li>
-            <li>Presentaciones atípicas: confusión, caídas, disfagia aislada</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>🧒 Pediatría (28 días – 18 años)</h4>
-          <ul>
-            <li><strong>Incluidos por primera vez en AHA/ASA 2026</strong></li>
-            <li>Causas: cardiopatía congénita, anemia falciforme, disección, vasculitis</li>
-            <li>Alteplase 0.9 mg/kg puede considerarse (Clase IIb) si PedNIHSS ≥4 en &lt;4.5 h</li>
-            <li>Trombectomía en ≥6 años con OGV (Clase IIb)</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>💊 Pacientes Anticoagulados</h4>
-          <ul>
-            <li>Warfarina: trombólisis si INR ≤1.7; contraindicada si INR &gt;1.7</li>
-            <li>NACO: contraindicada si última dosis &lt;48 h</li>
-            <li>Dabigatrán: idarucizumab (Praxbind®) revierte y puede permitir trombólisis</li>
-            <li>Trombectomía: sin contraindicación por anticoagulación</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⏱️</span><span class="card-title">AIT — Urgencia de Alto Riesgo</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="alert alert-red"><strong>Riesgo de ACV post-AIT:</strong> 10–15% en los primeros 7 días; riesgo máximo en primeras 48–72 h si ABCD2 ≥4. El AIT debe manejarse como EMERGENCIA con hospitalización o evaluación urgente en unidad de stroke.</div>
-      <table class="tbl">
-        <tr><th colspan="2">Score ABCD2 (riesgo de ACV post-AIT en 48 h)</th></tr>
-        <tr><td>A — Age: edad ≥60 años</td><td>1 punto</td></tr>
-        <tr><td>B — Blood Pressure: PAS ≥140 o PAD ≥90</td><td>1 punto</td></tr>
-        <tr><td>C — Clinical features: hemiparesia = 2; alteración del lenguaje sin hemiparesia = 1</td><td>0–2 puntos</td></tr>
-        <tr><td>D — Duration: síntomas ≥60 min = 2; 10–59 min = 1</td><td>0–2 puntos</td></tr>
-        <tr><td>D — Diabetes mellitus</td><td>1 punto</td></tr>
-        <tr><td><strong>Interpretación: 0–3 bajo · 4–5 moderado · 6–7 alto riesgo</strong></td><td></td></tr>
-      </table>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">🩺</div><h2>Presentación Clínica y Clasificación</h2></div>
+<div class="alert alert-red"><strong>⏰ TIEMPO = CEREBRO:</strong> Cada minuto sin reperfusión = 1.9 millones de neuronas perdidas. El reconocimiento prehospitalario inmediato y la activación del código stroke son determinantes del pronóstico.</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🆘</span><span class="card-title">Reconocimiento Rápido — Escala BE-FAST</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Letra</th><th>Síntoma</th><th>Cómo evaluarlo</th></tr>
+<tr><td><strong style="color:#1d4ed8;font-size:1.2rem">B</strong></td><td><strong>Balance</strong> — pérdida súbita del equilibrio</td><td>¿Camina con normalidad? ¿Marcha atáxica?</td></tr>
+<tr><td><strong style="color:#1d4ed8;font-size:1.2rem">E</strong></td><td><strong>Eyes</strong> — visión doble o pérdida súbita de visión</td><td>¿Hemianopsia? ¿Diplopía?</td></tr>
+<tr><td><strong style="color:#ef4444;font-size:1.2rem">F</strong></td><td><strong>Face</strong> — asimetría facial</td><td>Pedir que sonría: ¿cae un lado?</td></tr>
+<tr><td><strong style="color:#ef4444;font-size:1.2rem">A</strong></td><td><strong>Arm</strong> — debilidad en un brazo</td><td>Elevar ambos brazos 10 s: ¿cae alguno?</td></tr>
+<tr><td><strong style="color:#ef4444;font-size:1.2rem">S</strong></td><td><strong>Speech</strong> — dificultad para hablar o entender</td><td>Repetir una oración: ¿es incomprensible?</td></tr>
+<tr><td><strong style="color:#7c3aed;font-size:1.2rem">T</strong></td><td><strong>Time</strong> — activar SEM inmediatamente</td><td>¿Cuándo fue la última vez que estuvo bien? (LKW)</td></tr>
+</table>
+<div class="alert alert-amber"><strong>LKW (Last Known Well):</strong> Es el punto de referencia temporal — NO la hora en que se lo encontró. Si despertó con déficit, el LKW es cuando se fue a dormir. Este dato determina la elegibilidad para trombólisis.</div>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🗺️</span><span class="card-title">Síndromes Topográficos — Clínica por Territorio Vascular</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Territorio</th><th>Arteria</th><th>Déficit característico</th></tr>
+<tr><td><strong>ACM proximal (M1)</strong></td><td>Cerebral media</td><td>Hemiplejia contralateral brazo&gt;pierna, hemianestesia, hemianopsia homónima, desviación oculocefálica ipsilateral; afasia si hemisferio dominante; heminegligencia si no dominante</td></tr>
+<tr><td><strong>ACM distal (M2-M3)</strong></td><td>Ramas superficiales ACM</td><td>Monoparesia braquial, afasia de Broca (frontal dominante), afasia de Wernicke (temporal dominante)</td></tr>
+<tr><td><strong>ACA</strong></td><td>Cerebral anterior</td><td>Hemiplejia pierna&gt;brazo, abulia, incontinencia urinaria, reflejo de prensión</td></tr>
+<tr><td><strong>ACP</strong></td><td>Cerebral posterior</td><td>Hemianopsia homónima contralateral, alexia sin agrafia (dominante), agnosia visual</td></tr>
+<tr><td><strong>Basilar</strong></td><td>Arteria basilar</td><td><strong>Locked-in syndrome</strong>, coma, cuadriplejia, oftalmoplejia. ¡Emergencia máxima! Mortalidad &gt;80% sin reperfusión</td></tr>
+<tr><td><strong>Lenticuloestriadas</strong></td><td>Arterias perforantes</td><td>Síndrome lacunar: hemimotor puro, hemisensitivo puro, ataxia-hemiparesia, disartria-mano torpe</td></tr>
+<tr><td><strong>Cerebeloso</strong></td><td>PICA, AICA, SCA</td><td>Ataxia ipsilateral, nistagmo, vértigo; Wallenberg (PICA): Horner, disfagia, hemianestesia cruzada</td></tr>
+</table>
+<div class="alert alert-red"><strong>Oclusión basilar:</strong> Pródromos de horas a días (vértigo, diplopía, disartria). NUNCA excluir en deterioro del nivel de conciencia de inicio súbito. Elegible para trombectomía hasta 24 h si NIHSS ≥10 y daño isquémico leve (AHA/ASA 2026, Clase I).</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">📊</span><span class="card-title">Escala NIHSS — Evaluación Neurológica Estándar</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="nihss-box">
+<h4>📋 NIHSS — Ítems y Puntuación (0–42 puntos)</h4>
+<div class="nihss-row"><span>1a. Nivel de conciencia</span><span class="nihss-score">0–3</span></div>
+<div class="nihss-row"><span>1b. Preguntas de orientación</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>1c. Respuesta a órdenes</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>2. Movimiento ocular conjugado</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>3. Campos visuales</span><span class="nihss-score">0–3</span></div>
+<div class="nihss-row"><span>4. Paresia facial</span><span class="nihss-score">0–3</span></div>
+<div class="nihss-row"><span>5. Paresia miembro superior D/I</span><span class="nihss-score">0–4 c/u</span></div>
+<div class="nihss-row"><span>6. Paresia miembro inferior D/I</span><span class="nihss-score">0–4 c/u</span></div>
+<div class="nihss-row"><span>7. Ataxia de miembros</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>8. Sensibilidad</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>9. Lenguaje (afasia)</span><span class="nihss-score">0–3</span></div>
+<div class="nihss-row"><span>10. Disartria</span><span class="nihss-score">0–2</span></div>
+<div class="nihss-row"><span>11. Extinción / inatención</span><span class="nihss-score">0–2</span></div>
+</div>
+<table class="tbl" style="margin-top:14px">
+<tr><th>NIHSS</th><th>Severidad</th><th>Implicación</th></tr>
+<tr><td>0</td><td>Sin déficit</td><td>AIT o resolución completa</td></tr>
+<tr><td>1–4</td><td><span class="pill pill-green">Leve</span></td><td>Trombolizar si déficit es discapacitante (AHA/ASA 2026)</td></tr>
+<tr><td>5–15</td><td><span class="pill pill-amber">Moderado</span></td><td>Candidato a trombólisis ± trombectomía</td></tr>
+<tr><td>16–20</td><td><span class="pill pill-red">Mod-severo</span></td><td>Alta probabilidad OGV → priorizar trombectomía</td></tr>
+<tr><td>≥21</td><td><span class="pill pill-red">Severo</span></td><td>OGV muy probable, riesgo sICH elevado</td></tr>
+</table>
+<div class="alert alert-blue"><strong>AHA/ASA 2026:</strong> Ya NO se excluyen de trombólisis los ACV con NIHSS 1–4 ni los muy severos (&gt;25) si el déficit es discapacitante. La decisión se basa en impacto funcional, no en puntaje aislado.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⚠️</span><span class="card-title">Señales de Alarma — Presentaciones de Alto Riesgo</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="warn-grid">
+<div class="warn-item"><span>🔴</span><div><strong>Deterioro del nivel de conciencia</strong> — sospecha de basilar o herniación</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>Vómitos + cefalea brusca</strong> — descartar HSA o TH</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>Síntomas fluctuantes o en crescendo</strong> — AIT de alto riesgo</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>Cuadriplejia / locked-in</strong> — oclusión basilar, emergencia absoluta</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>Convulsiones al inicio</strong> — orientar a trombosis venosa</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>PA ≥220/120</strong> — emergencia hipertensiva concomitante</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>Glucemia &lt;50 o &gt;400</strong> — mimetiza ACV o empeora pronóstico</div></div>
+<div class="warn-item"><span>🔴</span><div><strong>SaO₂ &lt;94%</strong> — hipoxia amplifica daño isquémico</div></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">👥</span><span class="card-title">Poblaciones Especiales — Presentaciones Atípicas</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="two-col">
+<div class="mini-card">
+<h4>🤰 Embarazo y Puerperio</h4>
+<ul>
+<li>Riesgo 3× mayor en puerperio inmediato (primeras 6 semanas)</li>
+<li>Causas especiales: trombosis venosa cerebral, eclampsia/PRES, disección arterial</li>
+<li>Trombólisis IV: no contraindicada absolutamente si beneficio &gt; riesgo; consultar obstetricia urgente</li>
+<li>Trombectomía preferible cuando disponible</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>👴 Adultos Mayores (&gt;80 años)</h4>
+<ul>
+<li>Mayor riesgo de sICH pero beneficio absoluto se mantiene</li>
+<li>AHA/ASA 2026: edad avanzada NO contraindica trombólisis ni trombectomía</li>
+<li>Considerar fragilidad, estado funcional previo y voluntades anticipadas</li>
+<li>Presentaciones atípicas: confusión, caídas, disfagia aislada</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>🧒 Pediatría (28 días – 18 años)</h4>
+<ul>
+<li><strong>Incluidos por primera vez en AHA/ASA 2026</strong></li>
+<li>Causas: cardiopatía congénita, anemia falciforme, disección, vasculitis</li>
+<li>Alteplase 0.9 mg/kg puede considerarse (Clase IIb) si PedNIHSS ≥4 en &lt;4.5 h</li>
+<li>Trombectomía en ≥6 años con OGV (Clase IIb)</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>💊 Pacientes Anticoagulados</h4>
+<ul>
+<li>Warfarina: trombólisis si INR ≤1.7; contraindicada si INR &gt;1.7</li>
+<li>NACO: contraindicada si última dosis &lt;48 h</li>
+<li>Dabigatrán: idarucizumab (Praxbind®) revierte y puede permitir trombólisis</li>
+<li>Trombectomía: sin contraindicación por anticoagulación</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⏱️</span><span class="card-title">AIT — Urgencia de Alto Riesgo</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="alert alert-red"><strong>Riesgo de ACV post-AIT:</strong> 10–15% en los primeros 7 días; riesgo máximo en primeras 48–72 h si ABCD2 ≥4. El AIT debe manejarse como EMERGENCIA con hospitalización o evaluación urgente en unidad de stroke.</div>
+<table class="tbl">
+<tr><th colspan="2">Score ABCD2 (riesgo de ACV post-AIT en 48 h)</th></tr>
+<tr><td>A — Age: edad ≥60 años</td><td>1 punto</td></tr>
+<tr><td>B — Blood Pressure: PAS ≥140 o PAD ≥90</td><td>1 punto</td></tr>
+<tr><td>C — Clinical features: hemiparesia = 2; alteración del lenguaje sin hemiparesia = 1</td><td>0–2 puntos</td></tr>
+<tr><td>D — Duration: síntomas ≥60 min = 2; 10–59 min = 1</td><td>0–2 puntos</td></tr>
+<tr><td>D — Diabetes mellitus</td><td>1 punto</td></tr>
+<tr><td><strong>Interpretación: 0–3 bajo · 4–5 moderado · 6–7 alto riesgo</strong></td><td></td></tr>
+</table>
+</div>
+</div>
+</div>
 <!-- ══ DIAGNÓSTICO ══ -->
 <div class="section" id="lab">
-  <div class="sec-header"><div class="sec-icon">🧪</div><h2>Laboratorio, Imagen y Diagnóstico</h2></div>
-  <div class="alert alert-red"><strong>⏰ Metas de tiempo:</strong> TC craneal ≤25 min desde llegada · Puerta-aguja (tPA) ≤60 min (ideal ≤45 min) · Puerta-punción (trombectomía) ≤90 min. No retrasar imagen esperando laboratorio.</div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🖥️</span><span class="card-title">Protocolo de Neuroimagen — Secuencia de Urgencia</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>TC craneal simple — PRIMERA imagen SIEMPRE</strong><br>Excluye hemorragia (decisión trombólisis). Sensibilidad 97% para sangrado. Contraindicación: hipodensidad &gt;1/3 del territorio. Signo temprano de isquemia: hiperdensidad de ACM (trombo), borramiento de surcos, pérdida diferenciación gris-blanca.</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Angio-TC (CTA) — Identificar Oclusión de Gran Vaso (OGV)</strong><br>En todos los candidatos a trombectomía (NIHSS ≥6 o clínica sugestiva de OGV). Evalúa carótidas, polígono de Willis, arteria basilar. OGV: oclusión en ACI, ACM-M1, ACA-A1, ACP-P1, basilar o vertebral.</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>TC Perfusión (CTP) — Selección en ventana extendida (6–24 h)</strong><br>Diferencia infarto establecido (CBF &lt;30%, Tmax &gt;10 s) de penumbra rescatable (CBF 30–70%, Tmax 6–10 s). Software RAPID o equivalente. Ratio Penumbra:Core ≥1.8 con penumbra &gt;15 mL → beneficio de reperfusión tardía (DAWN/DEFUSE-3).</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>RM cerebral (DWI/FLAIR/GRE) — Segunda línea o si disponible sin demora</strong><br>DWI: gold standard para infarto precoz (sensibilidad 80–95% en 1ª hora). Discordancia DWI+/FLAIR- sugiere inicio &lt;4.5 h → elegible para trombólisis en "wake-up stroke". GRE/SWI descarta microbleeds.</div></div>
-      <div class="alert alert-blue"><strong>ASPECTS Score:</strong> Evalúa extensión de cambios isquémicos en TC en territorio ACM (10 regiones, 10 puntos = normal). ASPECTS ≤5 indica infarto extenso — mayor riesgo sICH con trombólisis y beneficio relativo reducido de trombectomía.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Laboratorio Urgente — Qué Pedir y Por Qué</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Examen</th><th>Umbral de decisión</th><th>Impacto en manejo</th></tr>
-        <tr><td><strong>Glucemia capilar</strong></td><td>&lt;50 o &gt;400 mg/dL</td><td>Hipoglucemia mimetiza ACV → excluir primero. Hiperglucemia empeora pronóstico.</td></tr>
-        <tr><td><strong>TP/INR</strong></td><td>INR &gt;1.7</td><td>Contraindicación absoluta de trombólisis si INR &gt;1.7</td></tr>
-        <tr><td><strong>Plaquetas</strong></td><td>&lt;100.000/mm³</td><td>Contraindicación de trombólisis</td></tr>
-        <tr><td><strong>TTPA</strong></td><td>&gt;40 s</td><td>Heparina IV activa → contraindicación relativa de trombólisis</td></tr>
-        <tr><td><strong>BHC completa</strong></td><td>—</td><td>Policitemia, trombocitemia → ACV de causa hematológica</td></tr>
-        <tr><td><strong>Función renal</strong></td><td>—</td><td>Guía uso de contraste para CTA/CTP</td></tr>
-        <tr><td><strong>Troponina / ECG / BNP</strong></td><td>—</td><td>Descartar etiología cardioembólica, FA, SCASEST concomitante</td></tr>
-        <tr><td><strong>HbA1c</strong></td><td>—</td><td>Identifica DM desconocida, factor pronóstico</td></tr>
-        <tr><td><strong>Lipidograma</strong></td><td>LDL &gt;70 mg/dL</td><td>Decisión de estatina de alta intensidad precoz</td></tr>
-        <tr><td><strong>Nivel de NACO</strong> (anti-Xa, TT)</td><td>—</td><td>Si último NACO &lt;48 h → contraindicación de trombólisis</td></tr>
-      </table>
-      <div class="alert alert-amber"><strong>NO retrasar trombólisis esperando laboratorio</strong> en paciente sin factores de riesgo conocidos para alteración hemostática. Glucemia capilar, INR (si anticoagulado) y plaquetas son los únicos críticos antes de trombolizar.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🔍</span><span class="card-title">Diagnóstico Diferencial — Stroke Mimics</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>El <strong>stroke mimic</strong> ocurre en 20–30% de los activadores de código stroke. Los más frecuentes:</p>
-      <table class="tbl">
-        <tr><th>Diagnóstico diferencial</th><th>Claves</th><th>Prueba clave</th></tr>
-        <tr><td><strong>Hipoglucemia</strong></td><td>DM + hipoglucemiantes, resolución con glucosa</td><td>Glucemia capilar inmediata</td></tr>
-        <tr><td><strong>Crisis epiléptica (Todd)</strong></td><td>Historia epilepsia, déficit post-ictal, testigos de convulsión</td><td>EEG, TC, historia clínica</td></tr>
-        <tr><td><strong>Migraña hemipléjica</strong></td><td>Historia de migraña, aura lenta, cefalea intensa</td><td>RM con perfusión</td></tr>
-        <tr><td><strong>HSA</strong></td><td>Cefalea en trueno (la peor de la vida), signos meníngeos</td><td>TC simple &gt; punción lumbar</td></tr>
-        <tr><td><strong>PRES / Encefalopatía hipertensiva</strong></td><td>PA extrema, convulsiones, visión bilateral, confusión</td><td>RM (edema posterior FLAIR)</td></tr>
-        <tr><td><strong>Trombosis venosa cerebral</strong></td><td>Cefalea subaguda, convulsiones, joven, ACO/embarazo</td><td>Angio-RM o TC-venografía</td></tr>
-        <tr><td><strong>Parálisis de Bell</strong></td><td>Parálisis facial periférica (frente incluida)</td><td>Examen neurológico: frente</td></tr>
-        <tr><td><strong>Tumor cerebral</strong></td><td>Síntomas progresivos, cefalea matutina, edema de papila</td><td>TC/RM con contraste</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">📡</span><span class="card-title">Estudio Etiológico — Cardiológico y Vascular</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <ul>
-        <li><strong>ECG 12 derivaciones:</strong> FA, flutter, bloqueos, signos de IAM → inmediato al ingreso</li>
-        <li><strong>Telemetría cardíaca continua ≥24 h:</strong> FA paroxística en 3–5% de ACV sin causa clara</li>
-        <li><strong>Ecocardiograma transtorácico (ETT):</strong> dentro de 48 h en cardioembólico probable</li>
-        <li><strong>Ecocardiograma transesofágico (ETE):</strong> en ESUS o sospecha de FOP, placa aórtica, mixoma</li>
-        <li><strong>Holter 30 días o loop recorder:</strong> en ESUS con estudio convencional negativo — detecta FA paroxística en 12–30%</li>
-        <li><strong>Doppler carotídeo/vertebral:</strong> aterosclerosis extracraneal, estenosis &gt;50%, disección</li>
-      </ul>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">🧪</div><h2>Laboratorio, Imagen y Diagnóstico</h2></div>
+<div class="alert alert-red"><strong>⏰ Metas de tiempo:</strong> TC craneal ≤25 min desde llegada · Puerta-aguja (tPA) ≤60 min (ideal ≤45 min) · Puerta-punción (trombectomía) ≤90 min. No retrasar imagen esperando laboratorio.</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🖥️</span><span class="card-title">Protocolo de Neuroimagen — Secuencia de Urgencia</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>TC craneal simple — PRIMERA imagen SIEMPRE</strong><br/>Excluye hemorragia (decisión trombólisis). Sensibilidad 97% para sangrado. Contraindicación: hipodensidad &gt;1/3 del territorio. Signo temprano de isquemia: hiperdensidad de ACM (trombo), borramiento de surcos, pérdida diferenciación gris-blanca.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Angio-TC (CTA) — Identificar Oclusión de Gran Vaso (OGV)</strong><br/>En todos los candidatos a trombectomía (NIHSS ≥6 o clínica sugestiva de OGV). Evalúa carótidas, polígono de Willis, arteria basilar. OGV: oclusión en ACI, ACM-M1, ACA-A1, ACP-P1, basilar o vertebral.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>TC Perfusión (CTP) — Selección en ventana extendida (6–24 h)</strong><br/>Diferencia infarto establecido (CBF &lt;30%, Tmax &gt;10 s) de penumbra rescatable (CBF 30–70%, Tmax 6–10 s). Software RAPID o equivalente. Ratio Penumbra:Core ≥1.8 con penumbra &gt;15 mL → beneficio de reperfusión tardía (DAWN/DEFUSE-3).</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>RM cerebral (DWI/FLAIR/GRE) — Segunda línea o si disponible sin demora</strong><br/>DWI: gold standard para infarto precoz (sensibilidad 80–95% en 1ª hora). Discordancia DWI+/FLAIR- sugiere inicio &lt;4.5 h → elegible para trombólisis en "wake-up stroke". GRE/SWI descarta microbleeds.</div></div>
+<div class="alert alert-blue"><strong>ASPECTS Score:</strong> Evalúa extensión de cambios isquémicos en TC en territorio ACM (10 regiones, 10 puntos = normal). ASPECTS ≤5 indica infarto extenso — mayor riesgo sICH con trombólisis y beneficio relativo reducido de trombectomía.</div>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Laboratorio Urgente — Qué Pedir y Por Qué</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Examen</th><th>Umbral de decisión</th><th>Impacto en manejo</th></tr>
+<tr><td><strong>Glucemia capilar</strong></td><td>&lt;50 o &gt;400 mg/dL</td><td>Hipoglucemia mimetiza ACV → excluir primero. Hiperglucemia empeora pronóstico.</td></tr>
+<tr><td><strong>TP/INR</strong></td><td>INR &gt;1.7</td><td>Contraindicación absoluta de trombólisis si INR &gt;1.7</td></tr>
+<tr><td><strong>Plaquetas</strong></td><td>&lt;100.000/mm³</td><td>Contraindicación de trombólisis</td></tr>
+<tr><td><strong>TTPA</strong></td><td>&gt;40 s</td><td>Heparina IV activa → contraindicación relativa de trombólisis</td></tr>
+<tr><td><strong>BHC completa</strong></td><td>—</td><td>Policitemia, trombocitemia → ACV de causa hematológica</td></tr>
+<tr><td><strong>Función renal</strong></td><td>—</td><td>Guía uso de contraste para CTA/CTP</td></tr>
+<tr><td><strong>Troponina / ECG / BNP</strong></td><td>—</td><td>Descartar etiología cardioembólica, FA, SCASEST concomitante</td></tr>
+<tr><td><strong>HbA1c</strong></td><td>—</td><td>Identifica DM desconocida, factor pronóstico</td></tr>
+<tr><td><strong>Lipidograma</strong></td><td>LDL &gt;70 mg/dL</td><td>Decisión de estatina de alta intensidad precoz</td></tr>
+<tr><td><strong>Nivel de NACO</strong> (anti-Xa, TT)</td><td>—</td><td>Si último NACO &lt;48 h → contraindicación de trombólisis</td></tr>
+</table>
+<div class="alert alert-amber"><strong>NO retrasar trombólisis esperando laboratorio</strong> en paciente sin factores de riesgo conocidos para alteración hemostática. Glucemia capilar, INR (si anticoagulado) y plaquetas son los únicos críticos antes de trombolizar.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🔍</span><span class="card-title">Diagnóstico Diferencial — Stroke Mimics</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>El <strong>stroke mimic</strong> ocurre en 20–30% de los activadores de código stroke. Los más frecuentes:</p>
+<table class="tbl">
+<tr><th>Diagnóstico diferencial</th><th>Claves</th><th>Prueba clave</th></tr>
+<tr><td><strong>Hipoglucemia</strong></td><td>DM + hipoglucemiantes, resolución con glucosa</td><td>Glucemia capilar inmediata</td></tr>
+<tr><td><strong>Crisis epiléptica (Todd)</strong></td><td>Historia epilepsia, déficit post-ictal, testigos de convulsión</td><td>EEG, TC, historia clínica</td></tr>
+<tr><td><strong>Migraña hemipléjica</strong></td><td>Historia de migraña, aura lenta, cefalea intensa</td><td>RM con perfusión</td></tr>
+<tr><td><strong>HSA</strong></td><td>Cefalea en trueno (la peor de la vida), signos meníngeos</td><td>TC simple &gt; punción lumbar</td></tr>
+<tr><td><strong>PRES / Encefalopatía hipertensiva</strong></td><td>PA extrema, convulsiones, visión bilateral, confusión</td><td>RM (edema posterior FLAIR)</td></tr>
+<tr><td><strong>Trombosis venosa cerebral</strong></td><td>Cefalea subaguda, convulsiones, joven, ACO/embarazo</td><td>Angio-RM o TC-venografía</td></tr>
+<tr><td><strong>Parálisis de Bell</strong></td><td>Parálisis facial periférica (frente incluida)</td><td>Examen neurológico: frente</td></tr>
+<tr><td><strong>Tumor cerebral</strong></td><td>Síntomas progresivos, cefalea matutina, edema de papila</td><td>TC/RM con contraste</td></tr>
+</table>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">📡</span><span class="card-title">Estudio Etiológico — Cardiológico y Vascular</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<ul>
+<li><strong>ECG 12 derivaciones:</strong> FA, flutter, bloqueos, signos de IAM → inmediato al ingreso</li>
+<li><strong>Telemetría cardíaca continua ≥24 h:</strong> FA paroxística en 3–5% de ACV sin causa clara</li>
+<li><strong>Ecocardiograma transtorácico (ETT):</strong> dentro de 48 h en cardioembólico probable</li>
+<li><strong>Ecocardiograma transesofágico (ETE):</strong> en ESUS o sospecha de FOP, placa aórtica, mixoma</li>
+<li><strong>Holter 30 días o loop recorder:</strong> en ESUS con estudio convencional negativo — detecta FA paroxística en 12–30%</li>
+<li><strong>Doppler carotídeo/vertebral:</strong> aterosclerosis extracraneal, estenosis &gt;50%, disección</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- ══ MANEJO ══ -->
 <div class="section" id="manejo">
-  <div class="sec-header"><div class="sec-icon">🚨</div><h2>Manejo en Emergencia — AHA/ASA 2026</h2></div>
-  <div class="alert alert-red"><strong>🏥 CÓDIGO STROKE:</strong> Activar al primer contacto médico. Puerta-TC ≤25 min · Puerta-aguja (tPA) ≤60 min · Puerta-punción (trombectomía) ≤90 min. Cada minuto cuenta.</div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">ABC Inicial — Estabilización Sistémica Inmediata</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Vía aérea y respiración</strong><br>SaO₂ objetivo ≥94%. O₂ suplementario SOLO si SaO₂ &lt;94% (en normóxia no aporta beneficio). IOT si Glasgow ≤8, pérdida de reflejos protectores o hipoxia refractaria.</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Accesos venosos y fluidoterapia</strong><br>2 vías periféricas calibre 18G. SF 0.9% a mantenimiento (100–125 mL/h). EVITAR soluciones hipotónicas (glucosada, agua bidestilada) — aumentan edema cerebral.</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Glucemia</strong><br>Meta: 140–180 mg/dL. Hiperglucemia &gt;180 mg/dL empeora pronóstico neurológico. Tratar con insulina regular SC o infusión IV. EVITAR hipoglucemia.</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Temperatura</strong><br>Meta: T° &lt;37.5 °C. Paracetamol 1 g IV c/6 h si T° &gt;37.5 °C. Buscar y tratar fuente infecciosa (neumonía aspirativa frecuente).</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Monitoreo continuo</strong><br>Cardíaco 24 h (FA paroxística, arritmias), SaO₂, glucemia c/4 h, NIHSS seriado c/4 h en primeras 24 h.</div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Manejo de la Presión Arterial en Fase Aguda</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Escenario</th><th>Meta de PA</th><th>Cuándo tratar</th></tr>
-        <tr><td>Sin reperfusión programada</td><td>Permisiva — no tratar &lt;220/120</td><td>Solo si PA ≥220/120 mmHg o comorbilidad urgente</td></tr>
-        <tr><td>Previo a trombólisis IV</td><td>&lt;185/110 mmHg ANTES de infundir tPA</td><td>Si PA ≥185/110; mantener &lt;180/105 por 24 h post-tPA</td></tr>
-        <tr><td>Post-trombólisis</td><td>&lt;180/105 mmHg por 24 h</td><td>Control c/15 min × 2 h → c/30 min × 6 h → c/1 h × 16 h</td></tr>
-        <tr><td>Post-trombectomía exitosa</td><td>&lt;140/90 mmHg</td><td>Reducción activa — reperfusión exitosa no precisa hipertensión permisiva</td></tr>
-      </table>
-      <div class="proto-box">
-        <h4>💊 Fármacos para Reducción de PA en ACV Agudo</h4>
-        <div class="proto-row"><span class="proto-label">Labetalol</span><span class="proto-val">10–20 mg IV en bolo lento (2 min), repetir c/10 min; máx 300 mg/día. Infusión 2–8 mg/min.</span></div>
-        <div class="proto-row"><span class="proto-label">Nicardipino</span><span class="proto-val">5 mg/h IV en infusión continua, titular 2.5 mg/h c/5 min; máx 15 mg/h.</span></div>
-        <div class="proto-row"><span class="proto-label">Clevidipino</span><span class="proto-val">1–2 mg/h IV, doblar c/90 s; máx 21 mg/h. Primera línea en unidades neurocríticas.</span></div>
-        <div class="proto-highlight">⚠️ EVITAR nitroprusiato y nifedipino sublingual en ACV agudo — vasodilatación no controlada puede causar "robo vascular" y empeorar isquemia.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">💉</span><span class="card-title">TROMBÓLISIS IV — Protocolo Completo AHA/ASA 2026</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="alert alert-blue"><strong>AHA/ASA 2026 — Clase I:</strong> Administrar tenecteplase 0.25 mg/kg (máx 25 mg) O alteplase 0.9 mg/kg (máx 90 mg) a pacientes elegibles con déficit discapacitante dentro de 4.5 horas del inicio o LKW.</div>
-
-      <h3>✅ Criterios de INCLUSIÓN</h3>
-      <ul>
-        <li>ACV isquémico con déficit neurológico discapacitante (sin límite de NIHSS)</li>
-        <li>Inicio de síntomas o LKW ≤4.5 horas</li>
-        <li>TC craneal sin hemorragia ni hipodensidad &gt;1/3 del territorio</li>
-        <li>PA &lt;185/110 mmHg (o tratable para alcanzar este umbral)</li>
-        <li>Glucemia ≥50 mg/dL</li>
-        <li>Plaquetas ≥100.000/mm³ · INR ≤1.7 (si anticoagulado con warfarina)</li>
-      </ul>
-
-      <h3>❌ Contraindicaciones ABSOLUTAS</h3>
-      <ul>
-        <li>Hemorragia intracraneal en TC actual o antecedente de HIC</li>
-        <li>Neoplasia intracraneal o MAV con alto riesgo hemorrágico</li>
-        <li>Cirugía intracraneal o espinal en las últimas 3 semanas</li>
-        <li>Traumatismo craneal grave en las últimas 3 semanas</li>
-        <li>ACV isquémico extenso en los últimos 3 meses</li>
-        <li>Plaquetas &lt;100.000/mm³ · INR &gt;1.7 · TTPA &gt;40 s (en anticoagulado activo)</li>
-        <li>NACO activo: última dosis &lt;48 h (salvo reversión documentada)</li>
-        <li>Hemorragia grave activa · Disección aórtica</li>
-      </ul>
-
-      <div class="proto-box">
-        <h4>💊 TENECTEPLASE (tNK) — Primera opción por simplicidad operativa</h4>
-        <div class="proto-row"><span class="proto-label">Dosis ACV</span><span class="proto-val">0.25 mg/kg IV en bolo único de 5–10 segundos. Máximo absoluto: <strong>25 mg</strong></span></div>
-        <div class="proto-row"><span class="proto-label">Vía</span><span class="proto-val">Bolo IV directo — NO se mezcla ni se infunde. Usar jeringa de 5 mL precargada.</span></div>
-        <div class="proto-row"><span class="proto-label">Ventaja clave</span><span class="proto-val">Sin infusión de 60 min → traslado inmediato a sala de angio para trombectomía</span></div>
-        <div class="proto-highlight">⚠️ DOSIS DIFERENTE DEL IAM: ACV = 0.25 mg/kg · STEMI = 0.5 mg/kg. ¡NO CONFUNDIR — error potencialmente fatal!</div>
-        <h4 style="color:#93c5fd;margin-top:16px">💊 ALTEPLASE (rtPA) — Alternativa equivalente</h4>
-        <div class="proto-row"><span class="proto-label">Dosis</span><span class="proto-val">0.9 mg/kg IV. Máximo: <strong>90 mg</strong></span></div>
-        <div class="proto-row"><span class="proto-label">Administración</span><span class="proto-val">10% de la dosis total en bolo IV en 1 min; 90% restante en infusión IV en 60 min</span></div>
-        <div class="proto-row"><span class="proto-label">Ejemplo 70 kg</span><span class="proto-val">Total 63 mg → Bolo 6.3 mg (1 min) + 56.7 mg en bomba de infusión en 60 min</span></div>
-      </div>
-
-      <h3>🔴 Post-Trombólisis — Primeras 24 Horas</h3>
-      <ul>
-        <li>Ingreso a UCI o unidad de stroke con monitoreo continuo</li>
-        <li>NO anticoagulantes ni antiagregantes en primeras 24 h post-tPA</li>
-        <li>No colocar SNG, catéter urinario, arteria central en primeras 2 h</li>
-        <li>Si deterioro neurológico ≥4 puntos NIHSS: <strong>suspender infusión (si alteplase), TC urgente, sospechar sICH</strong></li>
-        <li>TC o RM de control a las 24 h antes de iniciar anticoagulación/antiagregación</li>
-      </ul>
-      <div class="alert alert-amber"><strong>Trombólisis en ventana extendida 4.5–24 h:</strong> En OGV sin acceso a trombectomía, evidencia emergente (TRACE-III, HOPE) sugiere beneficio de tNK con penumbra rescatable identificada por perfusión. AHA/ASA 2026: Clase IIb. Decisión individualizada con neurología.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🔧</span><span class="card-title">TROMBECTOMÍA MECÁNICA — Indicaciones 2026</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Criterio</th><th>Indicación Clase I</th><th>Comentario</th></tr>
-        <tr><td>Territorio vascular</td><td>ACI, ACM-M1, ACA-A1, ACP-P1</td><td>Stent retrievers y aspiración directa equivalentes</td></tr>
-        <tr><td>Ventana de tiempo</td><td>0–24 horas desde LKW</td><td>6–24 h requiere selección por perfusión (DAWN/DEFUSE-3)</td></tr>
-        <tr><td>Arteria basilar</td><td>NIHSS ≥10 + daño isquémico leve + ≤24 h</td><td>Clase I AHA/ASA 2026 — antes era Clase IIb</td></tr>
-        <tr><td>Infarto extenso (ASPECTS ≤5)</td><td>Seleccionados por neuroimagen</td><td>Beneficio en RESCUE-Japan LIMIT, ANGEL-ASPECT</td></tr>
-        <tr><td>Paciente anticoagulado</td><td>Sin restricción por ACO</td><td>La anticoagulación sistémica NO contraindica trombectomía</td></tr>
-        <tr><td>Combinación con tPA</td><td>tPA + trombectomía secuencial</td><td>NO retrasar trombectomía esperando efecto de tPA</td></tr>
-      </table>
-      <div class="alert alert-amber"><strong>En Ecuador:</strong> La trombectomía mecánica está disponible en centros de referencia terciarios (Quito, Ecuador). Ante sospecha de OGV, transferencia urgente con activación simultánea del equipo neurointervencionista. El tiempo de traslado forma parte de la ventana terapéutica.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">💊</span><span class="card-title">Terapia Antitrombótica — Antiagregación y Anticoagulación</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <h3>Antiagregación — ACV no cardioembólico</h3>
-      <div class="proto-box">
-        <div class="proto-row"><span class="proto-label">Inicio</span><span class="proto-val">Aspirina 300 mg VO en primeras 24–48 h (si NO se administró tPA) o a las 24 h post-tPA</span></div>
-        <div class="proto-row"><span class="proto-label">ACV leve / TIA alto riesgo</span><span class="proto-val"><strong>Doble antiagregación (POINT/CHANCE):</strong> ASA 100 mg + Clopidogrel 600 mg día 1; luego ASA 100 mg + Clopidogrel 75 mg/día × 21 días; después ASA 100 mg solo</span></div>
-        <div class="proto-row"><span class="proto-label">Mantenimiento</span><span class="proto-val">ASA 100 mg/día indefinido (1ª línea) o Clopidogrel 75 mg/día (si intolerancia/alergia a ASA)</span></div>
-        <div class="proto-highlight">⚠️ Doble antiagregación &gt;21 días aumenta riesgo hemorrágico sin beneficio adicional en ACV establecido.</div>
-      </div>
-      <h3>Anticoagulación — ACV cardioembólico (FA) — Regla 1-3-6-12</h3>
-      <table class="tbl">
-        <tr><th>ACV tipo</th><th>Inicio NACO</th><th>Fármaco preferido</th></tr>
-        <tr><td>AIT</td><td>Día 1</td><td>Apixabán 5 mg c/12h, rivaroxabán 20 mg/día o dabigatrán 150 mg c/12h</td></tr>
-        <tr><td>ACV leve (NIHSS ≤7)</td><td>Día 3</td><td>Confirmar TC sin TH antes de iniciar</td></tr>
-        <tr><td>ACV moderado (NIHSS 8–15)</td><td>Día 6</td><td>TC control 48–72 h, sin TH significativa</td></tr>
-        <tr><td>ACV severo (NIHSS &gt;15)</td><td>Día 12</td><td>TC control, valorar extensión de infarto</td></tr>
-        <tr><td>TH-PH1/PH2</td><td>Diferir 2–4 semanas</td><td>Discutir con neurología y hematología</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🏥</span><span class="card-title">Unidad de Stroke — Medidas Generales</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="two-col">
-        <div class="mini-card">
-          <h4>🛏️ Posicionamiento</h4>
-          <ul>
-            <li>Cabeza a 0° (plano) en primeras 24 h si no hay datos de PIC elevada → maximiza perfusión</li>
-            <li>Elevación &gt;30° si riesgo de aspiración, edema cerebral o PIC elevada</li>
-            <li>Movilización temprana (24–48 h si estable) — reduce TEV y neumonía</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>🍽️ Deglución y Nutrición</h4>
-          <ul>
-            <li>Evaluación de deglución ANTES de cualquier ingesta oral (disfagia en 30–65%)</li>
-            <li>Si disfagia: SNG en 24–48 h para nutrición e hidratación</li>
-            <li>Nutrición enteral temprana (24–48 h) en pacientes que no puedan comer</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>🩺 Profilaxis TEV</h4>
-          <ul>
-            <li>Medias de compresión graduada desde el ingreso</li>
-            <li>HBPM profiláctica: enoxaparina 40 mg SC/día desde 24–48 h (excepto post-tPA: esperar 24 h)</li>
-          </ul>
-        </div>
-        <div class="mini-card">
-          <h4>🧠 Estatinas y Neuroprotección</h4>
-          <ul>
-            <li>Atorvastatina 40–80 mg/día o rosuvastatina 20–40 mg/día en primeras 24–48 h</li>
-            <li><strong>No existe neuroprotector farmacológico aprobado</strong> en 2026 (citicolina, albúmina: sin evidencia definitiva)</li>
-            <li>Rehabilitación neurológica: iniciar en primeras 24 h cuando sea posible</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">🚨</div><h2>Manejo en Emergencia — AHA/ASA 2026</h2></div>
+<div class="alert alert-red"><strong>🏥 CÓDIGO STROKE:</strong> Activar al primer contacto médico. Puerta-TC ≤25 min · Puerta-aguja (tPA) ≤60 min · Puerta-punción (trombectomía) ≤90 min. Cada minuto cuenta.</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">ABC Inicial — Estabilización Sistémica Inmediata</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Vía aérea y respiración</strong><br/>SaO₂ objetivo ≥94%. O₂ suplementario SOLO si SaO₂ &lt;94% (en normóxia no aporta beneficio). IOT si Glasgow ≤8, pérdida de reflejos protectores o hipoxia refractaria.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Accesos venosos y fluidoterapia</strong><br/>2 vías periféricas calibre 18G. SF 0.9% a mantenimiento (100–125 mL/h). EVITAR soluciones hipotónicas (glucosada, agua bidestilada) — aumentan edema cerebral.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Glucemia</strong><br/>Meta: 140–180 mg/dL. Hiperglucemia &gt;180 mg/dL empeora pronóstico neurológico. Tratar con insulina regular SC o infusión IV. EVITAR hipoglucemia.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Temperatura</strong><br/>Meta: T° &lt;37.5 °C. Paracetamol 1 g IV c/6 h si T° &gt;37.5 °C. Buscar y tratar fuente infecciosa (neumonía aspirativa frecuente).</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Monitoreo continuo</strong><br/>Cardíaco 24 h (FA paroxística, arritmias), SaO₂, glucemia c/4 h, NIHSS seriado c/4 h en primeras 24 h.</div></div>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Manejo de la Presión Arterial en Fase Aguda</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Escenario</th><th>Meta de PA</th><th>Cuándo tratar</th></tr>
+<tr><td>Sin reperfusión programada</td><td>Permisiva — no tratar &lt;220/120</td><td>Solo si PA ≥220/120 mmHg o comorbilidad urgente</td></tr>
+<tr><td>Previo a trombólisis IV</td><td>&lt;185/110 mmHg ANTES de infundir tPA</td><td>Si PA ≥185/110; mantener &lt;180/105 por 24 h post-tPA</td></tr>
+<tr><td>Post-trombólisis</td><td>&lt;180/105 mmHg por 24 h</td><td>Control c/15 min × 2 h → c/30 min × 6 h → c/1 h × 16 h</td></tr>
+<tr><td>Post-trombectomía exitosa</td><td>&lt;140/90 mmHg</td><td>Reducción activa — reperfusión exitosa no precisa hipertensión permisiva</td></tr>
+</table>
+<div class="proto-box">
+<h4>💊 Fármacos para Reducción de PA en ACV Agudo</h4>
+<div class="proto-row"><span class="proto-label">Labetalol</span><span class="proto-val">10–20 mg IV en bolo lento (2 min), repetir c/10 min; máx 300 mg/día. Infusión 2–8 mg/min.</span></div>
+<div class="proto-row"><span class="proto-label">Nicardipino</span><span class="proto-val">5 mg/h IV en infusión continua, titular 2.5 mg/h c/5 min; máx 15 mg/h.</span></div>
+<div class="proto-row"><span class="proto-label">Clevidipino</span><span class="proto-val">1–2 mg/h IV, doblar c/90 s; máx 21 mg/h. Primera línea en unidades neurocríticas.</span></div>
+<div class="proto-highlight">⚠️ EVITAR nitroprusiato y nifedipino sublingual en ACV agudo — vasodilatación no controlada puede causar "robo vascular" y empeorar isquemia.</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">💉</span><span class="card-title">TROMBÓLISIS IV — Protocolo Completo AHA/ASA 2026</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="alert alert-blue"><strong>AHA/ASA 2026 — Clase I:</strong> Administrar tenecteplase 0.25 mg/kg (máx 25 mg) O alteplase 0.9 mg/kg (máx 90 mg) a pacientes elegibles con déficit discapacitante dentro de 4.5 horas del inicio o LKW.</div>
+<h3>✅ Criterios de INCLUSIÓN</h3>
+<ul>
+<li>ACV isquémico con déficit neurológico discapacitante (sin límite de NIHSS)</li>
+<li>Inicio de síntomas o LKW ≤4.5 horas</li>
+<li>TC craneal sin hemorragia ni hipodensidad &gt;1/3 del territorio</li>
+<li>PA &lt;185/110 mmHg (o tratable para alcanzar este umbral)</li>
+<li>Glucemia ≥50 mg/dL</li>
+<li>Plaquetas ≥100.000/mm³ · INR ≤1.7 (si anticoagulado con warfarina)</li>
+</ul>
+<h3>❌ Contraindicaciones ABSOLUTAS</h3>
+<ul>
+<li>Hemorragia intracraneal en TC actual o antecedente de HIC</li>
+<li>Neoplasia intracraneal o MAV con alto riesgo hemorrágico</li>
+<li>Cirugía intracraneal o espinal en las últimas 3 semanas</li>
+<li>Traumatismo craneal grave en las últimas 3 semanas</li>
+<li>ACV isquémico extenso en los últimos 3 meses</li>
+<li>Plaquetas &lt;100.000/mm³ · INR &gt;1.7 · TTPA &gt;40 s (en anticoagulado activo)</li>
+<li>NACO activo: última dosis &lt;48 h (salvo reversión documentada)</li>
+<li>Hemorragia grave activa · Disección aórtica</li>
+</ul>
+<div class="proto-box">
+<h4>💊 TENECTEPLASE (tNK) — Primera opción por simplicidad operativa</h4>
+<div class="proto-row"><span class="proto-label">Dosis ACV</span><span class="proto-val">0.25 mg/kg IV en bolo único de 5–10 segundos. Máximo absoluto: <strong>25 mg</strong></span></div>
+<div class="proto-row"><span class="proto-label">Vía</span><span class="proto-val">Bolo IV directo — NO se mezcla ni se infunde. Usar jeringa de 5 mL precargada.</span></div>
+<div class="proto-row"><span class="proto-label">Ventaja clave</span><span class="proto-val">Sin infusión de 60 min → traslado inmediato a sala de angio para trombectomía</span></div>
+<div class="proto-highlight">⚠️ DOSIS DIFERENTE DEL IAM: ACV = 0.25 mg/kg · STEMI = 0.5 mg/kg. ¡NO CONFUNDIR — error potencialmente fatal!</div>
+<h4 style="color:#93c5fd;margin-top:16px">💊 ALTEPLASE (rtPA) — Alternativa equivalente</h4>
+<div class="proto-row"><span class="proto-label">Dosis</span><span class="proto-val">0.9 mg/kg IV. Máximo: <strong>90 mg</strong></span></div>
+<div class="proto-row"><span class="proto-label">Administración</span><span class="proto-val">10% de la dosis total en bolo IV en 1 min; 90% restante en infusión IV en 60 min</span></div>
+<div class="proto-row"><span class="proto-label">Ejemplo 70 kg</span><span class="proto-val">Total 63 mg → Bolo 6.3 mg (1 min) + 56.7 mg en bomba de infusión en 60 min</span></div>
+</div>
+<h3>🔴 Post-Trombólisis — Primeras 24 Horas</h3>
+<ul>
+<li>Ingreso a UCI o unidad de stroke con monitoreo continuo</li>
+<li>NO anticoagulantes ni antiagregantes en primeras 24 h post-tPA</li>
+<li>No colocar SNG, catéter urinario, arteria central en primeras 2 h</li>
+<li>Si deterioro neurológico ≥4 puntos NIHSS: <strong>suspender infusión (si alteplase), TC urgente, sospechar sICH</strong></li>
+<li>TC o RM de control a las 24 h antes de iniciar anticoagulación/antiagregación</li>
+</ul>
+<div class="alert alert-amber"><strong>Trombólisis en ventana extendida 4.5–24 h:</strong> En OGV sin acceso a trombectomía, evidencia emergente (TRACE-III, HOPE) sugiere beneficio de tNK con penumbra rescatable identificada por perfusión. AHA/ASA 2026: Clase IIb. Decisión individualizada con neurología.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🔧</span><span class="card-title">TROMBECTOMÍA MECÁNICA — Indicaciones 2026</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Criterio</th><th>Indicación Clase I</th><th>Comentario</th></tr>
+<tr><td>Territorio vascular</td><td>ACI, ACM-M1, ACA-A1, ACP-P1</td><td>Stent retrievers y aspiración directa equivalentes</td></tr>
+<tr><td>Ventana de tiempo</td><td>0–24 horas desde LKW</td><td>6–24 h requiere selección por perfusión (DAWN/DEFUSE-3)</td></tr>
+<tr><td>Arteria basilar</td><td>NIHSS ≥10 + daño isquémico leve + ≤24 h</td><td>Clase I AHA/ASA 2026 — antes era Clase IIb</td></tr>
+<tr><td>Infarto extenso (ASPECTS ≤5)</td><td>Seleccionados por neuroimagen</td><td>Beneficio en RESCUE-Japan LIMIT, ANGEL-ASPECT</td></tr>
+<tr><td>Paciente anticoagulado</td><td>Sin restricción por ACO</td><td>La anticoagulación sistémica NO contraindica trombectomía</td></tr>
+<tr><td>Combinación con tPA</td><td>tPA + trombectomía secuencial</td><td>NO retrasar trombectomía esperando efecto de tPA</td></tr>
+</table>
+<div class="alert alert-amber"><strong>En Ecuador:</strong> La trombectomía mecánica está disponible en centros de referencia terciarios (Quito, Ecuador). Ante sospecha de OGV, transferencia urgente con activación simultánea del equipo neurointervencionista. El tiempo de traslado forma parte de la ventana terapéutica.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">💊</span><span class="card-title">Terapia Antitrombótica — Antiagregación y Anticoagulación</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<h3>Antiagregación — ACV no cardioembólico</h3>
+<div class="proto-box">
+<div class="proto-row"><span class="proto-label">Inicio</span><span class="proto-val">Aspirina 300 mg VO en primeras 24–48 h (si NO se administró tPA) o a las 24 h post-tPA</span></div>
+<div class="proto-row"><span class="proto-label">ACV leve / TIA alto riesgo</span><span class="proto-val"><strong>Doble antiagregación (POINT/CHANCE):</strong> ASA 100 mg + Clopidogrel 600 mg día 1; luego ASA 100 mg + Clopidogrel 75 mg/día × 21 días; después ASA 100 mg solo</span></div>
+<div class="proto-row"><span class="proto-label">Mantenimiento</span><span class="proto-val">ASA 100 mg/día indefinido (1ª línea) o Clopidogrel 75 mg/día (si intolerancia/alergia a ASA)</span></div>
+<div class="proto-highlight">⚠️ Doble antiagregación &gt;21 días aumenta riesgo hemorrágico sin beneficio adicional en ACV establecido.</div>
+</div>
+<h3>Anticoagulación — ACV cardioembólico (FA) — Regla 1-3-6-12</h3>
+<table class="tbl">
+<tr><th>ACV tipo</th><th>Inicio NACO</th><th>Fármaco preferido</th></tr>
+<tr><td>AIT</td><td>Día 1</td><td>Apixabán 5 mg c/12h, rivaroxabán 20 mg/día o dabigatrán 150 mg c/12h</td></tr>
+<tr><td>ACV leve (NIHSS ≤7)</td><td>Día 3</td><td>Confirmar TC sin TH antes de iniciar</td></tr>
+<tr><td>ACV moderado (NIHSS 8–15)</td><td>Día 6</td><td>TC control 48–72 h, sin TH significativa</td></tr>
+<tr><td>ACV severo (NIHSS &gt;15)</td><td>Día 12</td><td>TC control, valorar extensión de infarto</td></tr>
+<tr><td>TH-PH1/PH2</td><td>Diferir 2–4 semanas</td><td>Discutir con neurología y hematología</td></tr>
+</table>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🏥</span><span class="card-title">Unidad de Stroke — Medidas Generales</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="two-col">
+<div class="mini-card">
+<h4>🛏️ Posicionamiento</h4>
+<ul>
+<li>Cabeza a 0° (plano) en primeras 24 h si no hay datos de PIC elevada → maximiza perfusión</li>
+<li>Elevación &gt;30° si riesgo de aspiración, edema cerebral o PIC elevada</li>
+<li>Movilización temprana (24–48 h si estable) — reduce TEV y neumonía</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>🍽️ Deglución y Nutrición</h4>
+<ul>
+<li>Evaluación de deglución ANTES de cualquier ingesta oral (disfagia en 30–65%)</li>
+<li>Si disfagia: SNG en 24–48 h para nutrición e hidratación</li>
+<li>Nutrición enteral temprana (24–48 h) en pacientes que no puedan comer</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>🩺 Profilaxis TEV</h4>
+<ul>
+<li>Medias de compresión graduada desde el ingreso</li>
+<li>HBPM profiláctica: enoxaparina 40 mg SC/día desde 24–48 h (excepto post-tPA: esperar 24 h)</li>
+</ul>
+</div>
+<div class="mini-card">
+<h4>🧠 Estatinas y Neuroprotección</h4>
+<ul>
+<li>Atorvastatina 40–80 mg/día o rosuvastatina 20–40 mg/día en primeras 24–48 h</li>
+<li><strong>No existe neuroprotector farmacológico aprobado</strong> en 2026 (citicolina, albúmina: sin evidencia definitiva)</li>
+<li>Rehabilitación neurológica: iniciar en primeras 24 h cuando sea posible</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ══ COMPLICACIONES ══ -->
 <div class="section" id="comp">
-  <div class="sec-header"><div class="sec-icon">⚡</div><h2>Complicaciones del ACV Isquémico</h2></div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Hemorragia Intracraneal Sintomática (sICH) — Complicación Fatal</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="alert alert-red"><strong>Definición:</strong> Deterioro neurológico ≥4 puntos NIHSS dentro de 36 h post-trombólisis + hemorragia intracraneal en TC (tipo PH-2). Incidencia: 2–6%. Mortalidad: 50–80%.</div>
-      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Detener infusión de alteplase INMEDIATAMENTE</strong> (si aún en curso)</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>TC craneal urgente</strong> sin contraste para confirmar y clasificar</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Crioprecipitado 10 U IV</strong> — objetivo fibrinógeno &gt;150 mg/dL (el tPA consume fibrinógeno)</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Plaquetas 1 aféresis</strong> si trombocitopenia o uso previo de antiagregantes</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Ácido tranexámico 1 g IV en 10 min</strong> si sangrado activo confirmado (no rutinario)</div></div>
-      <div class="step"><div class="step-num">6</div><div class="step-body"><strong>Consulta neurocirugía urgente</strong> — valorar evacuación si hematoma con efecto de masa y deterioro de Glasgow</div></div>
-      <div class="step"><div class="step-num">7</div><div class="step-body"><strong>UCI neurocrítica</strong> — manejo de PIC si necesario (osmoterapia, hiperventilación transitoria)</div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🧠</span><span class="card-title">Edema Cerebral e Infarto Maligno de ACM</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>El infarto maligno de ACM ocurre en infartos &gt;2/3 del territorio silviano. Edema cerebral masivo causa herniación uncal en 24–96 h con mortalidad del 80% sin tratamiento.</p>
-      <div class="alert alert-red"><strong>Signos de alarma:</strong> Deterioro del nivel de conciencia en 24–96 h en infarto hemisférico extenso. TC: edema con desplazamiento de línea media &gt;5 mm, borramiento cisternas basales.</div>
-      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Medidas generales</strong> — Cabecera 30°, normotermia, glucemia 140–180, normo-PaCO₂ (35–40 mmHg), evitar hiponatremia</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Osmoterapia</strong> — Manitol 20%: 0.5–1 g/kg IV en 20 min c/4–6 h (osmolaridad &lt;320 mOsm/L). Alternativa: Solución salina 3% en infusión (meta Na sérico 145–155 mEq/L).</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Corticoides</strong> — NO indicados en ACV isquémico (no reducen edema citotóxico, aumentan hiperglucemia e infecciones)</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Hemicraniectomía descompresiva</strong> — Indicada en infarto maligno ACM, edad &lt;60 años, deterioro &lt;48 h. Reduce mortalidad de 80% a 30–40% (DESTINY, HAMLET, DECIMAL). Discutir pronóstico y voluntades anticipadas con familia. En &gt;60 años: beneficio en mortalidad pero mayor discapacidad funcional.</div></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🫁</span><span class="card-title">Neumonía por Aspiración</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <p>Complicación infecciosa más frecuente del ACV (disfagia en 30–65% de los casos). Causa mayor de mortalidad post-ACV.</p>
-      <ul>
-        <li><strong>Prevención:</strong> Evaluación de deglución estructurada antes de cualquier ingesta oral. Posición semisentado &gt;30° durante y después de alimentación.</li>
-        <li><strong>Diagnóstico:</strong> Fiebre + infiltrado en lóbulos inferiores (derecho &gt; izquierdo) + historia de disfagia o bajo nivel de conciencia</li>
-        <li><strong>Tratamiento:</strong> Amoxicilina-clavulanato IV (de elección); piperacilina-tazobactam si sospecha nosocomial. Duración 7–10 días.</li>
-        <li><strong>Profilaxis antibiótica rutinaria:</strong> NO recomendada (PASS trial). Solo tratar infecciones confirmadas.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🦵</span><span class="card-title">Tromboembolismo Venoso (TVP/TEP)</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <ul>
-        <li>TVP sintomática en 2–10%; TEP en 1–2% de ACV hospitalizados</li>
-        <li><strong>Prevención:</strong> Medias de compresión neumática intermitente + HBPM profiláctica desde 24–48 h</li>
-        <li><strong>TVP establecida:</strong> Anticoagulación terapéutica con HBPM o NACO según riesgo hemorrágico cerebral</li>
-        <li><strong>TEP masivo:</strong> Trombólisis sistémica — alto riesgo de sICH; decisión multidisciplinaria en UCI</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">Crisis Epilépticas Post-ACV</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <ul>
-        <li>Crisis tempranas (primeras 7 días): 3–6%; más frecuentes en infartos corticales</li>
-        <li>Epilepsia post-ACV (tardía, &gt;7 días): 3–10%</li>
-        <li><strong>Crisis agudas:</strong> Lorazepam 0.1 mg/kg IV (máx 4 mg) × 1; si persiste: levetiracetam 1–3 g IV o valproato 20–30 mg/kg IV en 30 min</li>
-        <li><strong>Profilaxis primaria:</strong> NO recomendada en ausencia de crisis</li>
-        <li>Primera crisis tardía: iniciar antiepiléptico (levetiracetam o lamotrigina)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🚑</span><span class="card-title">Criterios de Escalada a UCI Neurocrítica</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <div class="warn-grid">
-        <div class="warn-item"><span>🔴</span><div>Glasgow ≤8 o deterioro progresivo del nivel de conciencia</div></div>
-        <div class="warn-item"><span>🔴</span><div>sICH post-trombólisis confirmado en TC</div></div>
-        <div class="warn-item"><span>🔴</span><div>Infarto maligno de ACM con herniación inminente</div></div>
-        <div class="warn-item"><span>🔴</span><div>Oclusión basilar con deterioro progresivo</div></div>
-        <div class="warn-item"><span>🔴</span><div>Status epiléptico refractario</div></div>
-        <div class="warn-item"><span>🔴</span><div>Insuficiencia respiratoria con necesidad de VMI</div></div>
-        <div class="warn-item"><span>🔴</span><div>Inestabilidad hemodinámica refractaria</div></div>
-        <div class="warn-item"><span>🔴</span><div>Post-craniectomía descompresiva inmediata</div></div>
-      </div>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">⚡</div><h2>Complicaciones del ACV Isquémico</h2></div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🩸</span><span class="card-title">Hemorragia Intracraneal Sintomática (sICH) — Complicación Fatal</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="alert alert-red"><strong>Definición:</strong> Deterioro neurológico ≥4 puntos NIHSS dentro de 36 h post-trombólisis + hemorragia intracraneal en TC (tipo PH-2). Incidencia: 2–6%. Mortalidad: 50–80%.</div>
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Detener infusión de alteplase INMEDIATAMENTE</strong> (si aún en curso)</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>TC craneal urgente</strong> sin contraste para confirmar y clasificar</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Crioprecipitado 10 U IV</strong> — objetivo fibrinógeno &gt;150 mg/dL (el tPA consume fibrinógeno)</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Plaquetas 1 aféresis</strong> si trombocitopenia o uso previo de antiagregantes</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Ácido tranexámico 1 g IV en 10 min</strong> si sangrado activo confirmado (no rutinario)</div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body"><strong>Consulta neurocirugía urgente</strong> — valorar evacuación si hematoma con efecto de masa y deterioro de Glasgow</div></div>
+<div class="step"><div class="step-num">7</div><div class="step-body"><strong>UCI neurocrítica</strong> — manejo de PIC si necesario (osmoterapia, hiperventilación transitoria)</div></div>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">🧠</span><span class="card-title">Edema Cerebral e Infarto Maligno de ACM</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>El infarto maligno de ACM ocurre en infartos &gt;2/3 del territorio silviano. Edema cerebral masivo causa herniación uncal en 24–96 h con mortalidad del 80% sin tratamiento.</p>
+<div class="alert alert-red"><strong>Signos de alarma:</strong> Deterioro del nivel de conciencia en 24–96 h en infarto hemisférico extenso. TC: edema con desplazamiento de línea media &gt;5 mm, borramiento cisternas basales.</div>
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Medidas generales</strong> — Cabecera 30°, normotermia, glucemia 140–180, normo-PaCO₂ (35–40 mmHg), evitar hiponatremia</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Osmoterapia</strong> — Manitol 20%: 0.5–1 g/kg IV en 20 min c/4–6 h (osmolaridad &lt;320 mOsm/L). Alternativa: Solución salina 3% en infusión (meta Na sérico 145–155 mEq/L).</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Corticoides</strong> — NO indicados en ACV isquémico (no reducen edema citotóxico, aumentan hiperglucemia e infecciones)</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Hemicraniectomía descompresiva</strong> — Indicada en infarto maligno ACM, edad &lt;60 años, deterioro &lt;48 h. Reduce mortalidad de 80% a 30–40% (DESTINY, HAMLET, DECIMAL). Discutir pronóstico y voluntades anticipadas con familia. En &gt;60 años: beneficio en mortalidad pero mayor discapacidad funcional.</div></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🫁</span><span class="card-title">Neumonía por Aspiración</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<p>Complicación infecciosa más frecuente del ACV (disfagia en 30–65% de los casos). Causa mayor de mortalidad post-ACV.</p>
+<ul>
+<li><strong>Prevención:</strong> Evaluación de deglución estructurada antes de cualquier ingesta oral. Posición semisentado &gt;30° durante y después de alimentación.</li>
+<li><strong>Diagnóstico:</strong> Fiebre + infiltrado en lóbulos inferiores (derecho &gt; izquierdo) + historia de disfagia o bajo nivel de conciencia</li>
+<li><strong>Tratamiento:</strong> Amoxicilina-clavulanato IV (de elección); piperacilina-tazobactam si sospecha nosocomial. Duración 7–10 días.</li>
+<li><strong>Profilaxis antibiótica rutinaria:</strong> NO recomendada (PASS trial). Solo tratar infecciones confirmadas.</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🦵</span><span class="card-title">Tromboembolismo Venoso (TVP/TEP)</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<ul>
+<li>TVP sintomática en 2–10%; TEP en 1–2% de ACV hospitalizados</li>
+<li><strong>Prevención:</strong> Medias de compresión neumática intermitente + HBPM profiláctica desde 24–48 h</li>
+<li><strong>TVP establecida:</strong> Anticoagulación terapéutica con HBPM o NACO según riesgo hemorrágico cerebral</li>
+<li><strong>TEP masivo:</strong> Trombólisis sistémica — alto riesgo de sICH; decisión multidisciplinaria en UCI</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">⚡</span><span class="card-title">Crisis Epilépticas Post-ACV</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<ul>
+<li>Crisis tempranas (primeras 7 días): 3–6%; más frecuentes en infartos corticales</li>
+<li>Epilepsia post-ACV (tardía, &gt;7 días): 3–10%</li>
+<li><strong>Crisis agudas:</strong> Lorazepam 0.1 mg/kg IV (máx 4 mg) × 1; si persiste: levetiracetam 1–3 g IV o valproato 20–30 mg/kg IV en 30 min</li>
+<li><strong>Profilaxis primaria:</strong> NO recomendada en ausencia de crisis</li>
+<li>Primera crisis tardía: iniciar antiepiléptico (levetiracetam o lamotrigina)</li>
+</ul>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🚑</span><span class="card-title">Criterios de Escalada a UCI Neurocrítica</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<div class="warn-grid">
+<div class="warn-item"><span>🔴</span><div>Glasgow ≤8 o deterioro progresivo del nivel de conciencia</div></div>
+<div class="warn-item"><span>🔴</span><div>sICH post-trombólisis confirmado en TC</div></div>
+<div class="warn-item"><span>🔴</span><div>Infarto maligno de ACM con herniación inminente</div></div>
+<div class="warn-item"><span>🔴</span><div>Oclusión basilar con deterioro progresivo</div></div>
+<div class="warn-item"><span>🔴</span><div>Status epiléptico refractario</div></div>
+<div class="warn-item"><span>🔴</span><div>Insuficiencia respiratoria con necesidad de VMI</div></div>
+<div class="warn-item"><span>🔴</span><div>Inestabilidad hemodinámica refractaria</div></div>
+<div class="warn-item"><span>🔴</span><div>Post-craniectomía descompresiva inmediata</div></div>
+</div>
+</div>
+</div>
+</div>
 <!-- ══ EGRESO ══ -->
 <div class="section" id="egreso">
-  <div class="sec-header"><div class="sec-icon">📋</div><h2>Egreso, Seguimiento y Prevención</h2></div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">✅</span><span class="card-title">Criterios de Alta Hospitalaria — Todos Deben Cumplirse</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <ul class="checklist">
-        <li>Estabilidad neurológica ≥48 horas (sin deterioro del NIHSS)</li>
-        <li>TC/RM de control a las 24 h post-trombólisis sin sICH significativa</li>
-        <li>Anticoagulación o antiagregación iniciada según etiología</li>
-        <li>Estatina de alta intensidad iniciada</li>
-        <li>Control de PA: meta &lt;130/80 mmHg al alta o plan de ajuste ambulatorio</li>
-        <li>Glucemia en meta o plan de ajuste (HbA1c solicitada)</li>
-        <li>Evaluación de deglución documentada; dieta apropiada o SNG en su lugar</li>
-        <li>Plan de rehabilitación (fisioterapia, fonoaudiología, terapia ocupacional) iniciado</li>
-        <li>Educación al paciente y familia: reconocimiento de síntomas BE-FAST y acción inmediata</li>
-        <li>Cita de seguimiento en neurología dentro de 7–14 días</li>
-        <li>Estudio etiológico completo (Holter, Eco, Doppler) solicitado si pendiente</li>
-        <li>Registro en estadísticas hospitalarias (RDACAA) per lineamientos MSP/ENT</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">📅</span><span class="card-title">Tabla de Seguimiento Ambulatorio</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Tiempo</th><th>Especialidad</th><th>Evaluaciones y Exámenes</th></tr>
-        <tr><td><strong>7–14 días</strong></td><td>Neurología</td><td>NIHSS, mRS, ajuste antitrombótico, resultados Holter/Eco/Doppler, PA y glucemia</td></tr>
-        <tr><td><strong>1 mes</strong></td><td>Neurología + Med. Interna</td><td>mRS, LDL (meta &lt;70), HbA1c, ajuste estatina, adherencia terapéutica</td></tr>
-        <tr><td><strong>3 meses</strong></td><td>Neurología</td><td>mRS (outcome primario), RM si indicado, estudio etiológico completo, ajuste NACO</td></tr>
-        <tr><td><strong>6 meses</strong></td><td>Med. Interna + Neurología</td><td>Evaluación funcional integral (Barthel, mRS), LDL, HbA1c, PA, depresión PHQ-9</td></tr>
-        <tr><td><strong>Anual</strong></td><td>Medicina Interna</td><td>Perfil lipídico, HbA1c, PA, función renal, Holter si FA paroxística sospechada</td></tr>
-      </table>
-      <div class="alert alert-blue"><strong>Escala de Rankin Modificada (mRS):</strong> 0=sin síntomas · 1=síntomas sin discapacidad · 2=discapacidad leve (independiente) · 3=moderada (requiere ayuda) · 4=moderada-severa (dependiente) · 5=severa (cuidados totales) · 6=muerte. Meta: mRS 0–2 a los 3 meses.</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🛡️</span><span class="card-title">Prevención Secundaria — Metas y Tratamiento</span><span class="card-arrow">›</span></div>
-    <div class="card-body">
-      <table class="tbl">
-        <tr><th>Factor de Riesgo</th><th>Meta</th><th>Tratamiento</th></tr>
-        <tr><td>Hipertensión arterial</td><td>&lt;130/80 mmHg</td><td>IECA/ARA-II + tiazida (1ª línea post-ACV); iniciar 24–72 h post-ACV estabilizado</td></tr>
-        <tr><td>Diabetes mellitus</td><td>HbA1c &lt;7% (individualizar)</td><td>Metformina + GLP-1RA o SGLT-2i en DM con ECV establecida</td></tr>
-        <tr><td>Dislipidemia (aterotrombótico)</td><td>LDL &lt;70 mg/dL (&lt;55 si aterosclerosis sistémica)</td><td>Atorvastatina 40–80 mg o rosuvastatina 20–40 mg; añadir ezetimiba si no alcanza meta</td></tr>
-        <tr><td>FA sin anticoagular</td><td>CHA₂DS₂-VASc ≥2♂ / ≥3♀</td><td>NACO: apixabán 5 mg c/12h, rivaroxabán 20 mg/día, dabigatrán 150 mg c/12h</td></tr>
-        <tr><td>Estenosis carotídea &gt;70% sintomática</td><td>Revascularización</td><td>Endarterectomía carotídea dentro de 14 días del ACV</td></tr>
-        <tr><td>FOP con ESUS en &lt;60 años</td><td>Cierre del FOP</td><td>Cierre percutáneo (CLOSE, RESPECT, REDUCE) + ASA post-cierre</td></tr>
-        <tr><td>Tabaquismo</td><td>Cesación total</td><td>Vareniclina (1ª línea), bupropión, parche de nicotina + consejería</td></tr>
-      </table>
-      <div class="alert alert-green"><strong>Modificaciones de estilo de vida (AHA 2024):</strong> Dieta mediterránea (Clase I), actividad física moderada 150 min/semana, IMC objetivo &lt;25 kg/m², restricción alcohólica. El control de múltiples factores de riesgo reduce el riesgo de recurrencia en 50–80%.</div>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">📋</div><h2>Egreso, Seguimiento y Prevención</h2></div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">✅</span><span class="card-title">Criterios de Alta Hospitalaria — Todos Deben Cumplirse</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<ul class="checklist">
+<li>Estabilidad neurológica ≥48 horas (sin deterioro del NIHSS)</li>
+<li>TC/RM de control a las 24 h post-trombólisis sin sICH significativa</li>
+<li>Anticoagulación o antiagregación iniciada según etiología</li>
+<li>Estatina de alta intensidad iniciada</li>
+<li>Control de PA: meta &lt;130/80 mmHg al alta o plan de ajuste ambulatorio</li>
+<li>Glucemia en meta o plan de ajuste (HbA1c solicitada)</li>
+<li>Evaluación de deglución documentada; dieta apropiada o SNG en su lugar</li>
+<li>Plan de rehabilitación (fisioterapia, fonoaudiología, terapia ocupacional) iniciado</li>
+<li>Educación al paciente y familia: reconocimiento de síntomas BE-FAST y acción inmediata</li>
+<li>Cita de seguimiento en neurología dentro de 7–14 días</li>
+<li>Estudio etiológico completo (Holter, Eco, Doppler) solicitado si pendiente</li>
+<li>Registro en estadísticas hospitalarias (RDACAA) per lineamientos MSP/ENT</li>
+</ul>
 </div>
-
+</div>
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-icon">📅</span><span class="card-title">Tabla de Seguimiento Ambulatorio</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Tiempo</th><th>Especialidad</th><th>Evaluaciones y Exámenes</th></tr>
+<tr><td><strong>7–14 días</strong></td><td>Neurología</td><td>NIHSS, mRS, ajuste antitrombótico, resultados Holter/Eco/Doppler, PA y glucemia</td></tr>
+<tr><td><strong>1 mes</strong></td><td>Neurología + Med. Interna</td><td>mRS, LDL (meta &lt;70), HbA1c, ajuste estatina, adherencia terapéutica</td></tr>
+<tr><td><strong>3 meses</strong></td><td>Neurología</td><td>mRS (outcome primario), RM si indicado, estudio etiológico completo, ajuste NACO</td></tr>
+<tr><td><strong>6 meses</strong></td><td>Med. Interna + Neurología</td><td>Evaluación funcional integral (Barthel, mRS), LDL, HbA1c, PA, depresión PHQ-9</td></tr>
+<tr><td><strong>Anual</strong></td><td>Medicina Interna</td><td>Perfil lipídico, HbA1c, PA, función renal, Holter si FA paroxística sospechada</td></tr>
+</table>
+<div class="alert alert-blue"><strong>Escala de Rankin Modificada (mRS):</strong> 0=sin síntomas · 1=síntomas sin discapacidad · 2=discapacidad leve (independiente) · 3=moderada (requiere ayuda) · 4=moderada-severa (dependiente) · 5=severa (cuidados totales) · 6=muerte. Meta: mRS 0–2 a los 3 meses.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-icon">🛡️</span><span class="card-title">Prevención Secundaria — Metas y Tratamiento</span><span class="card-arrow">›</span></div>
+<div class="card-body">
+<table class="tbl">
+<tr><th>Factor de Riesgo</th><th>Meta</th><th>Tratamiento</th></tr>
+<tr><td>Hipertensión arterial</td><td>&lt;130/80 mmHg</td><td>IECA/ARA-II + tiazida (1ª línea post-ACV); iniciar 24–72 h post-ACV estabilizado</td></tr>
+<tr><td>Diabetes mellitus</td><td>HbA1c &lt;7% (individualizar)</td><td>Metformina + GLP-1RA o SGLT-2i en DM con ECV establecida</td></tr>
+<tr><td>Dislipidemia (aterotrombótico)</td><td>LDL &lt;70 mg/dL (&lt;55 si aterosclerosis sistémica)</td><td>Atorvastatina 40–80 mg o rosuvastatina 20–40 mg; añadir ezetimiba si no alcanza meta</td></tr>
+<tr><td>FA sin anticoagular</td><td>CHA₂DS₂-VASc ≥2♂ / ≥3♀</td><td>NACO: apixabán 5 mg c/12h, rivaroxabán 20 mg/día, dabigatrán 150 mg c/12h</td></tr>
+<tr><td>Estenosis carotídea &gt;70% sintomática</td><td>Revascularización</td><td>Endarterectomía carotídea dentro de 14 días del ACV</td></tr>
+<tr><td>FOP con ESUS en &lt;60 años</td><td>Cierre del FOP</td><td>Cierre percutáneo (CLOSE, RESPECT, REDUCE) + ASA post-cierre</td></tr>
+<tr><td>Tabaquismo</td><td>Cesación total</td><td>Vareniclina (1ª línea), bupropión, parche de nicotina + consejería</td></tr>
+</table>
+<div class="alert alert-green"><strong>Modificaciones de estilo de vida (AHA 2024):</strong> Dieta mediterránea (Clase I), actividad física moderada 150 min/semana, IMC objetivo &lt;25 kg/m², restricción alcohólica. El control de múltiples factores de riesgo reduce el riesgo de recurrencia en 50–80%.</div>
+</div>
+</div>
+</div>
 <!-- ══ QUIZ ══ -->
 <div class="section" id="quiz">
-  <div class="sec-header"><div class="sec-icon">❓</div><h2>Autoevaluación Clínica</h2></div>
-  <div class="alert alert-blue">Selecciona la respuesta correcta. Recibirás retroalimentación inmediata con explicación detallada.</div>
-  <div class="quiz-toolbar" aria-live="polite">
-    <div class="quiz-score" id="quiz-score">Progreso del quiz: 0/15 respondidas · 0 correctas · 0%</div>
-    <div class="quiz-actions">
-      <button class="quiz-action-btn" type="button" onclick="FrameworkEdu.resetQuiz()">Reiniciar quiz</button>
-      <button class="quiz-action-btn" type="button" onclick="FrameworkEdu.scrollToFirstUnanswered()">Ir a pendiente</button>
-    </div>
-  </div>
-
-  <h3>📋 Quiz 1 — Fisiopatología y Diagnóstico</h3>
-  <div class="quiz-container">
-    <div class="quiz-card">
-      <div class="quiz-case">Paciente de 67 años con HTA crónica llega a urgencias con hemiplejia izquierda de inicio súbito hace 1.5 horas. TC craneal negativa para hemorragia. NIHSS 14.</div>
-      <div class="quiz-q">1. ¿Cuál es la PRINCIPAL acción inmediata?</div>
-      <button class="opt-btn" onclick="responder(this,'no',1)">A) Solicitar RM cerebral con DWI antes de decidir tratamiento</button>
-      <button class="opt-btn" onclick="responder(this,'ok',1)">B) Verificar PA, glucemia y elegibilidad para trombólisis IV inmediata</button>
-      <button class="opt-btn" onclick="responder(this,'no',1)">C) Iniciar aspirina 300 mg y observar evolución</button>
-      <button class="opt-btn" onclick="responder(this,'no',1)">D) Solicitar ecocardiograma para descartar fuente embólica</button>
-      <div class="feedback ok" id="fb-1-ok">✅ <strong>Correcto.</strong> En ACV isquémico dentro de la ventana de 4.5 horas, la prioridad es evaluar elegibilidad para trombólisis IV: verificar PA (&lt;185/110), glucemia (&gt;50 mg/dL) y contraindicaciones. La RM no es necesaria si la TC excluye hemorragia. La meta es puerta-aguja ≤60 minutos.</div>
-      <div class="feedback no" id="fb-1-no">❌ <strong>Incorrecto.</strong> No se debe demorar la trombólisis esperando RM (A). Iniciar solo antiagregación (C) es insuficiente cuando hay ventana terapéutica activa con NIHSS 14. El ecocardiograma (D) es parte del estudio etiológico diferido, no del manejo agudo.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">2. Sobre la penumbra isquémica, ¿cuál afirmación es CORRECTA?</div>
-      <button class="opt-btn" onclick="responder(this,'no',2)">A) Es tejido con FSCr &lt;15 ml/100g/min donde el infarto ya es irreversible</button>
-      <button class="opt-btn" onclick="responder(this,'no',2)">B) Una vez establecida, no puede rescatarse con ninguna intervención</button>
-      <button class="opt-btn" onclick="responder(this,'ok',2)">C) Es tejido con silencio eléctrico pero viabilidad celular conservada, rescatable con reperfusión oportuna</button>
-      <button class="opt-btn" onclick="responder(this,'no',2)">D) Corresponde al núcleo central del infarto con necrosis irreversible</button>
-      <div class="feedback ok" id="fb-2-ok">✅ <strong>Correcto.</strong> La penumbra isquémica (FSCr 15–20 ml/100g/min) tiene neuronas vivas pero eléctricamente silentes. Es la zona blanco de toda la terapia de reperfusión. Su rescate es el fundamento racional de actuar en &lt;4.5 horas.</div>
-      <div class="feedback no" id="fb-2-no">❌ <strong>Incorrecto.</strong> La penumbra NO es el núcleo (A, D). Tampoco es irreversible (B) — precisamente su rescatabilidad justifica la urgencia. El núcleo (&lt;15 ml/100g/min) es el tejido irrecuperable.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">3. ¿Qué hallazgo en TC craneal simple CONTRAINDICA la trombólisis IV?</div>
-      <button class="opt-btn" onclick="responder(this,'no',3)">A) Hipodensidad leve en cabeza del caudado derecho (&lt;1/3 del territorio)</button>
-      <button class="opt-btn" onclick="responder(this,'ok',3)">B) Hipodensidad franca que abarca más de 1/3 del territorio silviano</button>
-      <button class="opt-btn" onclick="responder(this,'no',3)">C) Hiperdensidad espontánea de la ACM ipsilateral (signo del trombo)</button>
-      <button class="opt-btn" onclick="responder(this,'no',3)">D) Atrofia cortical moderada asociada a la edad</button>
-      <div class="feedback ok" id="fb-3-ok">✅ <strong>Correcto.</strong> La hipodensidad &gt;1/3 del territorio silviano indica infarto extenso establecido con alto riesgo de transformación hemorrágica. La hiperdensidad de la ACM (C) representa el trombo intraluminal — NO contraindica trombólisis, de hecho orienta a trombectomía.</div>
-      <div class="feedback no" id="fb-3-no">❌ <strong>Incorrecto.</strong> La hiperdensidad de la ACM (C) es el signo del trombo y NO contraindica. La hipodensidad parcial (A) y la atrofia (D) no son contraindicaciones. La contraindicación es la hipodensidad &gt;1/3 del territorio.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">4. Paciente con ACV isquémico tiene INR 2.1 por warfarina para FA. ¿Qué conducta es CORRECTA?</div>
-      <button class="opt-btn" onclick="responder(this,'no',4)">A) Administrar tPA de todas formas — beneficio supera el riesgo</button>
-      <button class="opt-btn" onclick="responder(this,'no',4)">B) Revertir con vitamina K y luego administrar tPA</button>
-      <button class="opt-btn" onclick="responder(this,'ok',4)">C) No administrar tPA (contraindicado con INR &gt;1.7); evaluar trombectomía mecánica si hay OGV</button>
-      <button class="opt-btn" onclick="responder(this,'no',4)">D) Revertir con plasma fresco y administrar tPA si INR baja a &lt;1.7 en 30 min</button>
-      <div class="feedback ok" id="fb-4-ok">✅ <strong>Correcto.</strong> INR &gt;1.7 es contraindicación absoluta de trombólisis IV. La vitamina K tarda 6–24 h (inviable). El plasma puede no reducir el INR suficientemente y retrasa la reperfusión. La trombectomía mecánica NO tiene contraindicación por anticoagulación y es la opción correcta si hay OGV.</div>
-      <div class="feedback no" id="fb-4-no">❌ <strong>Incorrecto.</strong> INR &gt;1.7 es contraindicación absoluta de tPA. La vitamina K actúa en horas (B inviable). El plasma puede ser insuficiente y retrasa (D inviable en ventana). La trombectomía sin contraindicación por ACO es la respuesta.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">5. ¿Cuál es la clasificación TOAST de un infarto &lt;15 mm en territorio lenticuloestriado, sin córtex, en paciente hipertenso?</div>
-      <button class="opt-btn" onclick="responder(this,'no',5)">A) Cardioembólico</button>
-      <button class="opt-btn" onclick="responder(this,'no',5)">B) Aterotrombótico de grandes vasos</button>
-      <button class="opt-btn" onclick="responder(this,'ok',5)">C) Lacunar (enfermedad de pequeño vaso)</button>
-      <button class="opt-btn" onclick="responder(this,'no',5)">D) Criptogénico</button>
-      <div class="feedback ok" id="fb-5-ok">✅ <strong>Correcto.</strong> El infarto lacunar (TOAST: pequeño vaso) tiene criterios claros: infarto &lt;15 mm en área subcortical/tronco, sin córtex, con síndrome lacunar clásico, en paciente con HTA/DM, sin fuente cardioembólica ni estenosis de grandes vasos.</div>
-      <div class="feedback no" id="fb-5-no">❌ <strong>Incorrecto.</strong> Cardioembólico (A) requiere fuente cardíaca. Aterotrombótico (B) requiere estenosis &gt;50%. Criptogénico (D) es diagnóstico de exclusión. Los infartos subcorticales pequeños en hipertenso son lacunares por definición TOAST.</div>
-    </div>
-  </div>
-
-  <h3>📋 Quiz 2 — Manejo Clínico y Farmacología</h3>
-  <div class="quiz-container">
-    <div class="quiz-card">
-      <div class="quiz-case">Mujer de 72 años, 65 kg, ACV isquémico NIHSS 12, TC sin hemorragia, PA 172/98, inicio síntomas hace 2 horas. No anticoagulada.</div>
-      <div class="quiz-q">6. ¿Cuál es la dosis correcta de tenecteplase?</div>
-      <button class="opt-btn" onclick="responder(this,'no',6)">A) 0.5 mg/kg = 32.5 mg en bolo IV</button>
-      <button class="opt-btn" onclick="responder(this,'ok',6)">B) 0.25 mg/kg = 16.25 mg en bolo IV en 5–10 segundos</button>
-      <button class="opt-btn" onclick="responder(this,'no',6)">C) 0.9 mg/kg = 58.5 mg: 10% bolo + 90% en 60 min</button>
-      <button class="opt-btn" onclick="responder(this,'no',6)">D) 25 mg fijo en bolo IV independiente del peso</button>
-      <div class="feedback ok" id="fb-6-ok">✅ <strong>Correcto.</strong> Tenecteplase en ACV: 0.25 mg/kg (máx 25 mg) en bolo único de 5–10 s. 65 kg × 0.25 = 16.25 mg. La dosis 0.5 mg/kg (A) es la del STEMI — ¡error potencialmente fatal! El esquema 10%+90% infusión (C) corresponde a alteplase. La dosis fija de 25 mg sin ajuste por peso (D) no está recomendada.</div>
-      <div class="feedback no" id="fb-6-no">❌ <strong>Incorrecto.</strong> 0.5 mg/kg = dosis STEMI de tenecteplase, diferente del ACV. El esquema 10%+infusión es de alteplase. La dosis de tenecteplase en ACV es 0.25 mg/kg IV en bolo, máx 25 mg.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">7. ¿Cuál es la meta de PA correcta en las 24 horas POST-trombólisis?</div>
-      <button class="opt-btn" onclick="responder(this,'no',7)">A) &lt;220/120 mmHg — hipertensión permisiva amplia</button>
-      <button class="opt-btn" onclick="responder(this,'no',7)">B) &lt;130/80 mmHg — control estricto para prevenir TH</button>
-      <button class="opt-btn" onclick="responder(this,'ok',7)">C) &lt;180/105 mmHg durante 24 horas post-tPA</button>
-      <button class="opt-btn" onclick="responder(this,'no',7)">D) &lt;160/90 mmHg — reducción moderada</button>
-      <div class="feedback ok" id="fb-7-ok">✅ <strong>Correcto.</strong> AHA/ASA 2026: post-trombólisis mantener PA &lt;180/105 mmHg por 24 horas. Más permisiva que el manejo crónico pero más estricta que la hipertensión permisiva pre-tPA. Una reducción excesiva compromete la perfusión en tejido con autorregulación alterada.</div>
-      <div class="feedback no" id="fb-7-no">❌ <strong>Incorrecto.</strong> La permisiva amplia (&lt;220/120) es para pacientes SIN reperfusión. El control estricto &lt;130/80 es la meta crónica. &lt;160/90 no corresponde a ninguna guía actual. Post-tPA la meta es &lt;180/105.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-case">Paciente de 58 años, ACV maligno de ACM derecha, NIHSS 22, infarto de 2/3 del territorio. 36 horas de evolución, deterioro progresivo del nivel de conciencia.</div>
-      <div class="quiz-q">8. ¿Cuál intervención ha demostrado reducir la mortalidad en este escenario?</div>
-      <button class="opt-btn" onclick="responder(this,'no',8)">A) Dexametasona 10 mg IV c/6 h para reducir el edema cerebral</button>
-      <button class="opt-btn" onclick="responder(this,'no',8)">B) Hiperventilación prolongada hasta PaCO₂ 28–30 mmHg</button>
-      <button class="opt-btn" onclick="responder(this,'ok',8)">C) Hemicraniectomía descompresiva dentro de 48 horas</button>
-      <button class="opt-btn" onclick="responder(this,'no',8)">D) Manitol en infusión continua para reducción sostenida de PIC</button>
-      <div class="feedback ok" id="fb-8-ok">✅ <strong>Correcto.</strong> La hemicraniectomía descompresiva en infarto maligno ACM con &lt;60 años y deterioro &lt;48 h reduce mortalidad de ~80% a ~30-40% (DESTINY, HAMLET, DECIMAL). Corticoides (A): contraindicados. Hiperventilación (B): medida temporal. Manitol continuo (D): efecto rebote.</div>
-      <div class="feedback no" id="fb-8-no">❌ <strong>Incorrecto.</strong> Los corticoides (A) están contraindicados en ACV isquémico — no reducen edema citotóxico. Hiperventilación (B) es solo temporal. Manitol continuo (D) genera rebote. Solo la hemicraniectomía tiene evidencia Clase I.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">9. ACV isquémico cardioembólico por FA, NIHSS 6. ¿Cuándo iniciar NACO según la regla 1-3-6-12?</div>
-      <button class="opt-btn" onclick="responder(this,'no',9)">A) Inmediatamente — el riesgo embólico supera el hemorrágico</button>
-      <button class="opt-btn" onclick="responder(this,'no',9)">B) Día 14 — esperar resolución completa del edema isquémico</button>
-      <button class="opt-btn" onclick="responder(this,'ok',9)">C) Día 3 (ACV leve NIHSS ≤7) — regla 1-3-6-12</button>
-      <button class="opt-btn" onclick="responder(this,'no',9)">D) Solo iniciar si hay FA permanente, no en FA paroxística</button>
-      <div class="feedback ok" id="fb-9-ok">✅ <strong>Correcto.</strong> Regla 1-3-6-12: AIT→día 1, ACV leve (NIHSS≤7)→día 3, ACV moderado (8-15)→día 6, ACV severo (&gt;15)→día 12. Siempre verificar TC sin TH antes. La FA paroxística tiene el mismo riesgo embólico que la permanente.</div>
-      <div class="feedback no" id="fb-9-no">❌ <strong>Incorrecto.</strong> Anticoagulación inmediata (A) aumenta riesgo de TH. Esperar 14 días (B) prolonga riesgo de recurrencia embólica. FA paroxística (D) tiene mismo riesgo que la permanente. La respuesta correcta es día 3 para ACV leve.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">10. ¿Cuál de las siguientes NO es contraindicación absoluta de trombólisis IV según AHA/ASA 2026?</div>
-      <button class="opt-btn" onclick="responder(this,'no',10)">A) Hemorragia intracraneal en TC actual</button>
-      <button class="opt-btn" onclick="responder(this,'ok',10)">B) Edad &gt;80 años</button>
-      <button class="opt-btn" onclick="responder(this,'no',10)">C) Plaquetas &lt;100.000/mm³</button>
-      <button class="opt-btn" onclick="responder(this,'no',10)">D) Cirugía intracraneal en las últimas 3 semanas</button>
-      <div class="feedback ok" id="fb-10-ok">✅ <strong>Correcto.</strong> AHA/ASA 2026 establece que la edad avanzada (&gt;80 años) NO es contraindicación de trombólisis ni trombectomía. El beneficio absoluto se mantiene aunque con mayor incidencia de sICH. La decisión debe considerar estado funcional previo y voluntades anticipadas.</div>
-      <div class="feedback no" id="fb-10-no">❌ <strong>Incorrecto.</strong> Hemorragia en TC (A), plaquetas &lt;100k (C) y cirugía intracraneal reciente (D) son contraindicaciones absolutas reales. La edad &gt;80 años ya NO es contraindicación según AHA/ASA 2026.</div>
-    </div>
-  </div>
-
-  <h3>📋 Quiz 3 — Casos Clínicos Complejos</h3>
-  <div class="quiz-container">
-    <div class="quiz-card">
-      <div class="quiz-case">Hombre de 45 años, previamente sano. Despertó con hemiplejia derecha y afasia global. Su esposa refiere que estaba bien al irse a dormir a las 11 PM. Son las 6 AM.</div>
-      <div class="quiz-q">11. ¿Cuál es el LKW y cuál la conducta correcta?</div>
-      <button class="opt-btn" onclick="responder(this,'no',11)">A) LKW = 6 AM (hora de descubrimiento); no elegible para trombólisis</button>
-      <button class="opt-btn" onclick="responder(this,'ok',11)">B) LKW = 11 PM; solicitar RM DWI-FLAIR — si DWI+/FLAIR- podría ser elegible para trombólisis</button>
-      <button class="opt-btn" onclick="responder(this,'no',11)">C) LKW = 11 PM; no elegible porque transcurrieron &gt;4.5 horas</button>
-      <button class="opt-btn" onclick="responder(this,'no',11)">D) Iniciar trombólisis de todas formas porque el paciente es joven</button>
-      <div class="feedback ok" id="fb-11-ok">✅ <strong>Correcto.</strong> El LKW es la última vez visto sano (11 PM), no el descubrimiento. En wake-up stroke, la RM DWI/FLAIR permite estimar el inicio real: discordancia DWI+/FLAIR- sugiere infarto &lt;4.5 h → elegible para trombólisis (WAKE-UP trial). Si hay TC perfusión con penumbra, también puede evaluarse trombectomía en ventana extendida.</div>
-      <div class="feedback no" id="fb-11-no">❌ <strong>Incorrecto.</strong> El LKW nunca es la hora de descubrimiento. No se debe excluir automáticamente por tiempo (C) ni trombolizar sin selección por imagen en ventana desconocida (D). La RM DWI-FLAIR es la herramienta clave en el wake-up stroke.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-case">Paciente de 62 años recibió alteplase hace 2 horas. Súbita caída de 8 puntos en NIHSS y deterioro de conciencia. PA: 195/105 mmHg.</div>
-      <div class="quiz-q">12. ¿Cuál es la secuencia de manejo INMEDIATA ante sospecha de sICH?</div>
-      <button class="opt-btn" onclick="responder(this,'no',12)">A) Aumentar velocidad de infusión de alteplase para mejorar la reperfusión</button>
-      <button class="opt-btn" onclick="responder(this,'no',12)">B) Administrar labetalol para controlar la PA y observar 30 minutos</button>
-      <button class="opt-btn" onclick="responder(this,'ok',12)">C) Detener infusión de alteplase + TC urgente + crioprecipitado 10 U IV + consulta neurocirugía</button>
-      <button class="opt-btn" onclick="responder(this,'no',12)">D) Administrar heparina para prevenir extensión del trombo residual</button>
-      <div class="feedback ok" id="fb-12-ok">✅ <strong>Correcto.</strong> Ante sICH post-tPA: (1) detener infusión inmediatamente, (2) TC urgente para confirmar, (3) crioprecipitado 10 U para reponer fibrinógeno consumido por el tPA (objetivo &gt;150 mg/dL), (4) consulta neurocirugía urgente. La heparina (D) está absolutamente contraindicada.</div>
-      <div class="feedback no" id="fb-12-no">❌ <strong>Incorrecto.</strong> Continuar alteplase (A) agrava el sangrado. Labetalol solo (B) trata el síntoma sin la hemorragia. La heparina (D) está contraindicada en sICH — lo empeoraría fatalmente. La secuencia correcta es detener + TC + crioprecipitado + neurocirugía.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-case">Paciente de 70 años, NIHSS 18, TC perfusión: core 25 mL, penumbra 120 mL (ratio 4.8:1). Inicio sintomático hace 14 horas. Angio-TC: oclusión M1 izquierda.</div>
-      <div class="quiz-q">13. Según AHA/ASA 2026, ¿cuál es la conducta correcta?</div>
-      <button class="opt-btn" onclick="responder(this,'no',13)">A) Fuera de ventana terapéutica — solo cuidados de soporte</button>
-      <button class="opt-btn" onclick="responder(this,'no',13)">B) Trombólisis IV con tenecteplase y observar resultado</button>
-      <button class="opt-btn" onclick="responder(this,'ok',13)">C) Trombectomía mecánica urgente — elegible por selección por perfusión en ventana 6–24 h (DAWN/DEFUSE-3)</button>
-      <button class="opt-btn" onclick="responder(this,'no',13)">D) Esperar 24 horas y repetir neuroimagen antes de decidir</button>
-      <div class="feedback ok" id="fb-13-ok">✅ <strong>Correcto.</strong> Criterios DAWN/DEFUSE-3: ventana 6–24 h con penumbra rescatable (mismatch ≥1.8, penumbra &gt;15 mL). Este paciente tiene ratio 4.8:1 y penumbra de 120 mL — candidato ideal. AHA/ASA 2026 mantiene Clase I para trombectomía en ventana extendida con estos criterios. El concepto "fuera de ventana" se aplica solo cuando NO hay penumbra rescatable.</div>
-      <div class="feedback no" id="fb-13-no">❌ <strong>Incorrecto.</strong> "Fuera de ventana" es un concepto superado cuando hay selección por perfusión. Trombólisis IV sola (B) no es apropiada con OGV M1. Esperar 24 h (D) expandiría el core irreversiblemente.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-case">Mujer de 38 años, puerperio de 10 días, convulsiones focales + cefalea progresiva + hemiplejia. TC: múltiples infartos bilaterales en distintos territorios con componente hemorrágico.</div>
-      <div class="quiz-q">14. ¿Cuál es el diagnóstico más probable y el tratamiento de elección?</div>
-      <button class="opt-btn" onclick="responder(this,'no',14)">A) ACV isquémico múltiple por embolia cardíaca — anticoagular con NACO</button>
-      <button class="opt-btn" onclick="responder(this,'ok',14)">B) Trombosis venosa cerebral — anticoagular con HBPM o heparina IV aunque haya componente hemorrágico</button>
-      <button class="opt-btn" onclick="responder(this,'no',14)">C) Vasculitis del SNC — corticoides IV en pulsos</button>
-      <button class="opt-btn" onclick="responder(this,'no',14)">D) PRES por eclampsia tardía — control de PA y magnesio IV</button>
-      <div class="feedback ok" id="fb-14-ok">✅ <strong>Correcto.</strong> Trombosis venosa cerebral (TVC): puerperio + cefalea progresiva + convulsiones + infartos bilaterales venosos con componente hemorrágico. Diagnóstico: angio-RM o TC-venografía. Tratamiento: anticoagulación (HBPM o heparina) es correcto INCLUSO con componente hemorrágico — diferencia clave respecto al ACV arterial.</div>
-      <div class="feedback no" id="fb-14-no">❌ <strong>Incorrecto.</strong> El cuadro (puerperio, infartos bilaterales multiterritoriales, cefalea, convulsiones, componente hemorrágico) es clásico de TVC. La vasculitis (C) y PRES (D) son posibles pero menos probables. La clave es la venografía (TC o RM). La anticoagulación en TVC aplica incluso con sangrado.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="quiz-q">15. ¿Cuál enunciado sobre trombectomía mecánica es INCORRECTO según AHA/ASA 2026?</div>
-      <button class="opt-btn" onclick="responder(this,'no',15)">A) Está indicada en oclusión basilar con NIHSS ≥10 dentro de 24 horas (Clase I)</button>
-      <button class="opt-btn" onclick="responder(this,'no',15)">B) Puede realizarse en infartos extensos (ASPECTS ≤5) seleccionados por neuroimagen</button>
-      <button class="opt-btn" onclick="responder(this,'no',15)">C) La anticoagulación sistémica no contraindica la trombectomía</button>
-      <button class="opt-btn" onclick="responder(this,'ok',15)">D) Debe esperarse el efecto del tPA antes de proceder a trombectomía en pacientes elegibles para ambos</button>
-      <div class="feedback ok" id="fb-15-ok">✅ <strong>Correcto — esta es la afirmación INCORRECTA.</strong> AHA/ASA 2026 establece explícitamente que tPA y trombectomía se administran en forma secuencial SIN retrasar la trombectomía esperando el efecto del tPA. El tPA actúa como "bridging" pero NO se espera su respuesta antes de ir a sala de angiografía.</div>
-      <div class="feedback no" id="fb-15-no">❌ <strong>Este enunciado SÍ es correcto.</strong> Las opciones A (basilar con NIHSS≥10), B (ASPECTS≤5 seleccionados) y C (anticoagulación no contraindica) son todas afirmaciones correctas según AHA/ASA 2026. El incorrecto es D — no se debe esperar efecto del tPA antes de trombectomía.</div>
-    </div>
-  </div>
+<div class="sec-header"><div class="sec-icon">❓</div><h2>Autoevaluación Clínica</h2></div>
+<div class="alert alert-blue">Selecciona la respuesta correcta. Recibirás retroalimentación inmediata con explicación detallada.</div>
+<div aria-live="polite" class="quiz-toolbar">
+<div class="quiz-score" id="quiz-score">Progreso del quiz: 0/15 respondidas · 0 correctas · 0%</div>
+<div class="quiz-actions">
+<button class="quiz-action-btn" onclick="FrameworkEdu.resetQuiz()" type="button">Reiniciar quiz</button>
+<button class="quiz-action-btn" onclick="FrameworkEdu.scrollToFirstUnanswered()" type="button">Ir a pendiente</button>
 </div>
-
-<div class="footer">
-  Guía Clínica Interactiva · ACV Isquémico Agudo · Basada en AHA/ASA 2026 · AHA Primary Prevention 2024<br>
-  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br>
+</div>
+<h3>📋 Quiz 1 — Fisiopatología y Diagnóstico</h3>
+<div class="quiz-container">
+<div class="quiz-card">
+<div class="quiz-case">Paciente de 67 años con HTA crónica llega a urgencias con hemiplejia izquierda de inicio súbito hace 1.5 horas. TC craneal negativa para hemorragia. NIHSS 14.</div>
+<div class="quiz-q">1. ¿Cuál es la PRINCIPAL acción inmediata?</div>
+<button class="opt-btn" onclick="responder(this,'no',1)">A) Solicitar RM cerebral con DWI antes de decidir tratamiento</button>
+<button class="opt-btn" onclick="responder(this,'ok',1)">B) Verificar PA, glucemia y elegibilidad para trombólisis IV inmediata</button>
+<button class="opt-btn" onclick="responder(this,'no',1)">C) Iniciar aspirina 300 mg y observar evolución</button>
+<button class="opt-btn" onclick="responder(this,'no',1)">D) Solicitar ecocardiograma para descartar fuente embólica</button>
+<div class="feedback ok" id="fb-1-ok">✅ <strong>Correcto.</strong> En ACV isquémico dentro de la ventana de 4.5 horas, la prioridad es evaluar elegibilidad para trombólisis IV: verificar PA (&lt;185/110), glucemia (&gt;50 mg/dL) y contraindicaciones. La RM no es necesaria si la TC excluye hemorragia. La meta es puerta-aguja ≤60 minutos.</div>
+<div class="feedback no" id="fb-1-no">❌ <strong>Incorrecto.</strong> No se debe demorar la trombólisis esperando RM (A). Iniciar solo antiagregación (C) es insuficiente cuando hay ventana terapéutica activa con NIHSS 14. El ecocardiograma (D) es parte del estudio etiológico diferido, no del manejo agudo.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">2. Sobre la penumbra isquémica, ¿cuál afirmación es CORRECTA?</div>
+<button class="opt-btn" onclick="responder(this,'no',2)">A) Es tejido con FSCr &lt;15 ml/100g/min donde el infarto ya es irreversible</button>
+<button class="opt-btn" onclick="responder(this,'no',2)">B) Una vez establecida, no puede rescatarse con ninguna intervención</button>
+<button class="opt-btn" onclick="responder(this,'ok',2)">C) Es tejido con silencio eléctrico pero viabilidad celular conservada, rescatable con reperfusión oportuna</button>
+<button class="opt-btn" onclick="responder(this,'no',2)">D) Corresponde al núcleo central del infarto con necrosis irreversible</button>
+<div class="feedback ok" id="fb-2-ok">✅ <strong>Correcto.</strong> La penumbra isquémica (FSCr 15–20 ml/100g/min) tiene neuronas vivas pero eléctricamente silentes. Es la zona blanco de toda la terapia de reperfusión. Su rescate es el fundamento racional de actuar en &lt;4.5 horas.</div>
+<div class="feedback no" id="fb-2-no">❌ <strong>Incorrecto.</strong> La penumbra NO es el núcleo (A, D). Tampoco es irreversible (B) — precisamente su rescatabilidad justifica la urgencia. El núcleo (&lt;15 ml/100g/min) es el tejido irrecuperable.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">3. ¿Qué hallazgo en TC craneal simple CONTRAINDICA la trombólisis IV?</div>
+<button class="opt-btn" onclick="responder(this,'no',3)">A) Hipodensidad leve en cabeza del caudado derecho (&lt;1/3 del territorio)</button>
+<button class="opt-btn" onclick="responder(this,'ok',3)">B) Hipodensidad franca que abarca más de 1/3 del territorio silviano</button>
+<button class="opt-btn" onclick="responder(this,'no',3)">C) Hiperdensidad espontánea de la ACM ipsilateral (signo del trombo)</button>
+<button class="opt-btn" onclick="responder(this,'no',3)">D) Atrofia cortical moderada asociada a la edad</button>
+<div class="feedback ok" id="fb-3-ok">✅ <strong>Correcto.</strong> La hipodensidad &gt;1/3 del territorio silviano indica infarto extenso establecido con alto riesgo de transformación hemorrágica. La hiperdensidad de la ACM (C) representa el trombo intraluminal — NO contraindica trombólisis, de hecho orienta a trombectomía.</div>
+<div class="feedback no" id="fb-3-no">❌ <strong>Incorrecto.</strong> La hiperdensidad de la ACM (C) es el signo del trombo y NO contraindica. La hipodensidad parcial (A) y la atrofia (D) no son contraindicaciones. La contraindicación es la hipodensidad &gt;1/3 del territorio.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">4. Paciente con ACV isquémico tiene INR 2.1 por warfarina para FA. ¿Qué conducta es CORRECTA?</div>
+<button class="opt-btn" onclick="responder(this,'no',4)">A) Administrar tPA de todas formas — beneficio supera el riesgo</button>
+<button class="opt-btn" onclick="responder(this,'no',4)">B) Revertir con vitamina K y luego administrar tPA</button>
+<button class="opt-btn" onclick="responder(this,'ok',4)">C) No administrar tPA (contraindicado con INR &gt;1.7); evaluar trombectomía mecánica si hay OGV</button>
+<button class="opt-btn" onclick="responder(this,'no',4)">D) Revertir con plasma fresco y administrar tPA si INR baja a &lt;1.7 en 30 min</button>
+<div class="feedback ok" id="fb-4-ok">✅ <strong>Correcto.</strong> INR &gt;1.7 es contraindicación absoluta de trombólisis IV. La vitamina K tarda 6–24 h (inviable). El plasma puede no reducir el INR suficientemente y retrasa la reperfusión. La trombectomía mecánica NO tiene contraindicación por anticoagulación y es la opción correcta si hay OGV.</div>
+<div class="feedback no" id="fb-4-no">❌ <strong>Incorrecto.</strong> INR &gt;1.7 es contraindicación absoluta de tPA. La vitamina K actúa en horas (B inviable). El plasma puede ser insuficiente y retrasa (D inviable en ventana). La trombectomía sin contraindicación por ACO es la respuesta.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">5. ¿Cuál es la clasificación TOAST de un infarto &lt;15 mm en territorio lenticuloestriado, sin córtex, en paciente hipertenso?</div>
+<button class="opt-btn" onclick="responder(this,'no',5)">A) Cardioembólico</button>
+<button class="opt-btn" onclick="responder(this,'no',5)">B) Aterotrombótico de grandes vasos</button>
+<button class="opt-btn" onclick="responder(this,'ok',5)">C) Lacunar (enfermedad de pequeño vaso)</button>
+<button class="opt-btn" onclick="responder(this,'no',5)">D) Criptogénico</button>
+<div class="feedback ok" id="fb-5-ok">✅ <strong>Correcto.</strong> El infarto lacunar (TOAST: pequeño vaso) tiene criterios claros: infarto &lt;15 mm en área subcortical/tronco, sin córtex, con síndrome lacunar clásico, en paciente con HTA/DM, sin fuente cardioembólica ni estenosis de grandes vasos.</div>
+<div class="feedback no" id="fb-5-no">❌ <strong>Incorrecto.</strong> Cardioembólico (A) requiere fuente cardíaca. Aterotrombótico (B) requiere estenosis &gt;50%. Criptogénico (D) es diagnóstico de exclusión. Los infartos subcorticales pequeños en hipertenso son lacunares por definición TOAST.</div>
+</div>
+</div>
+<h3>📋 Quiz 2 — Manejo Clínico y Farmacología</h3>
+<div class="quiz-container">
+<div class="quiz-card">
+<div class="quiz-case">Mujer de 72 años, 65 kg, ACV isquémico NIHSS 12, TC sin hemorragia, PA 172/98, inicio síntomas hace 2 horas. No anticoagulada.</div>
+<div class="quiz-q">6. ¿Cuál es la dosis correcta de tenecteplase?</div>
+<button class="opt-btn" onclick="responder(this,'no',6)">A) 0.5 mg/kg = 32.5 mg en bolo IV</button>
+<button class="opt-btn" onclick="responder(this,'ok',6)">B) 0.25 mg/kg = 16.25 mg en bolo IV en 5–10 segundos</button>
+<button class="opt-btn" onclick="responder(this,'no',6)">C) 0.9 mg/kg = 58.5 mg: 10% bolo + 90% en 60 min</button>
+<button class="opt-btn" onclick="responder(this,'no',6)">D) 25 mg fijo en bolo IV independiente del peso</button>
+<div class="feedback ok" id="fb-6-ok">✅ <strong>Correcto.</strong> Tenecteplase en ACV: 0.25 mg/kg (máx 25 mg) en bolo único de 5–10 s. 65 kg × 0.25 = 16.25 mg. La dosis 0.5 mg/kg (A) es la del STEMI — ¡error potencialmente fatal! El esquema 10%+90% infusión (C) corresponde a alteplase. La dosis fija de 25 mg sin ajuste por peso (D) no está recomendada.</div>
+<div class="feedback no" id="fb-6-no">❌ <strong>Incorrecto.</strong> 0.5 mg/kg = dosis STEMI de tenecteplase, diferente del ACV. El esquema 10%+infusión es de alteplase. La dosis de tenecteplase en ACV es 0.25 mg/kg IV en bolo, máx 25 mg.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">7. ¿Cuál es la meta de PA correcta en las 24 horas POST-trombólisis?</div>
+<button class="opt-btn" onclick="responder(this,'no',7)">A) &lt;220/120 mmHg — hipertensión permisiva amplia</button>
+<button class="opt-btn" onclick="responder(this,'no',7)">B) &lt;130/80 mmHg — control estricto para prevenir TH</button>
+<button class="opt-btn" onclick="responder(this,'ok',7)">C) &lt;180/105 mmHg durante 24 horas post-tPA</button>
+<button class="opt-btn" onclick="responder(this,'no',7)">D) &lt;160/90 mmHg — reducción moderada</button>
+<div class="feedback ok" id="fb-7-ok">✅ <strong>Correcto.</strong> AHA/ASA 2026: post-trombólisis mantener PA &lt;180/105 mmHg por 24 horas. Más permisiva que el manejo crónico pero más estricta que la hipertensión permisiva pre-tPA. Una reducción excesiva compromete la perfusión en tejido con autorregulación alterada.</div>
+<div class="feedback no" id="fb-7-no">❌ <strong>Incorrecto.</strong> La permisiva amplia (&lt;220/120) es para pacientes SIN reperfusión. El control estricto &lt;130/80 es la meta crónica. &lt;160/90 no corresponde a ninguna guía actual. Post-tPA la meta es &lt;180/105.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-case">Paciente de 58 años, ACV maligno de ACM derecha, NIHSS 22, infarto de 2/3 del territorio. 36 horas de evolución, deterioro progresivo del nivel de conciencia.</div>
+<div class="quiz-q">8. ¿Cuál intervención ha demostrado reducir la mortalidad en este escenario?</div>
+<button class="opt-btn" onclick="responder(this,'no',8)">A) Dexametasona 10 mg IV c/6 h para reducir el edema cerebral</button>
+<button class="opt-btn" onclick="responder(this,'no',8)">B) Hiperventilación prolongada hasta PaCO₂ 28–30 mmHg</button>
+<button class="opt-btn" onclick="responder(this,'ok',8)">C) Hemicraniectomía descompresiva dentro de 48 horas</button>
+<button class="opt-btn" onclick="responder(this,'no',8)">D) Manitol en infusión continua para reducción sostenida de PIC</button>
+<div class="feedback ok" id="fb-8-ok">✅ <strong>Correcto.</strong> La hemicraniectomía descompresiva en infarto maligno ACM con &lt;60 años y deterioro &lt;48 h reduce mortalidad de ~80% a ~30-40% (DESTINY, HAMLET, DECIMAL). Corticoides (A): contraindicados. Hiperventilación (B): medida temporal. Manitol continuo (D): efecto rebote.</div>
+<div class="feedback no" id="fb-8-no">❌ <strong>Incorrecto.</strong> Los corticoides (A) están contraindicados en ACV isquémico — no reducen edema citotóxico. Hiperventilación (B) es solo temporal. Manitol continuo (D) genera rebote. Solo la hemicraniectomía tiene evidencia Clase I.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">9. ACV isquémico cardioembólico por FA, NIHSS 6. ¿Cuándo iniciar NACO según la regla 1-3-6-12?</div>
+<button class="opt-btn" onclick="responder(this,'no',9)">A) Inmediatamente — el riesgo embólico supera el hemorrágico</button>
+<button class="opt-btn" onclick="responder(this,'no',9)">B) Día 14 — esperar resolución completa del edema isquémico</button>
+<button class="opt-btn" onclick="responder(this,'ok',9)">C) Día 3 (ACV leve NIHSS ≤7) — regla 1-3-6-12</button>
+<button class="opt-btn" onclick="responder(this,'no',9)">D) Solo iniciar si hay FA permanente, no en FA paroxística</button>
+<div class="feedback ok" id="fb-9-ok">✅ <strong>Correcto.</strong> Regla 1-3-6-12: AIT→día 1, ACV leve (NIHSS≤7)→día 3, ACV moderado (8-15)→día 6, ACV severo (&gt;15)→día 12. Siempre verificar TC sin TH antes. La FA paroxística tiene el mismo riesgo embólico que la permanente.</div>
+<div class="feedback no" id="fb-9-no">❌ <strong>Incorrecto.</strong> Anticoagulación inmediata (A) aumenta riesgo de TH. Esperar 14 días (B) prolonga riesgo de recurrencia embólica. FA paroxística (D) tiene mismo riesgo que la permanente. La respuesta correcta es día 3 para ACV leve.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">10. ¿Cuál de las siguientes NO es contraindicación absoluta de trombólisis IV según AHA/ASA 2026?</div>
+<button class="opt-btn" onclick="responder(this,'no',10)">A) Hemorragia intracraneal en TC actual</button>
+<button class="opt-btn" onclick="responder(this,'ok',10)">B) Edad &gt;80 años</button>
+<button class="opt-btn" onclick="responder(this,'no',10)">C) Plaquetas &lt;100.000/mm³</button>
+<button class="opt-btn" onclick="responder(this,'no',10)">D) Cirugía intracraneal en las últimas 3 semanas</button>
+<div class="feedback ok" id="fb-10-ok">✅ <strong>Correcto.</strong> AHA/ASA 2026 establece que la edad avanzada (&gt;80 años) NO es contraindicación de trombólisis ni trombectomía. El beneficio absoluto se mantiene aunque con mayor incidencia de sICH. La decisión debe considerar estado funcional previo y voluntades anticipadas.</div>
+<div class="feedback no" id="fb-10-no">❌ <strong>Incorrecto.</strong> Hemorragia en TC (A), plaquetas &lt;100k (C) y cirugía intracraneal reciente (D) son contraindicaciones absolutas reales. La edad &gt;80 años ya NO es contraindicación según AHA/ASA 2026.</div>
+</div>
+</div>
+<h3>📋 Quiz 3 — Casos Clínicos Complejos</h3>
+<div class="quiz-container">
+<div class="quiz-card">
+<div class="quiz-case">Hombre de 45 años, previamente sano. Despertó con hemiplejia derecha y afasia global. Su esposa refiere que estaba bien al irse a dormir a las 11 PM. Son las 6 AM.</div>
+<div class="quiz-q">11. ¿Cuál es el LKW y cuál la conducta correcta?</div>
+<button class="opt-btn" onclick="responder(this,'no',11)">A) LKW = 6 AM (hora de descubrimiento); no elegible para trombólisis</button>
+<button class="opt-btn" onclick="responder(this,'ok',11)">B) LKW = 11 PM; solicitar RM DWI-FLAIR — si DWI+/FLAIR- podría ser elegible para trombólisis</button>
+<button class="opt-btn" onclick="responder(this,'no',11)">C) LKW = 11 PM; no elegible porque transcurrieron &gt;4.5 horas</button>
+<button class="opt-btn" onclick="responder(this,'no',11)">D) Iniciar trombólisis de todas formas porque el paciente es joven</button>
+<div class="feedback ok" id="fb-11-ok">✅ <strong>Correcto.</strong> El LKW es la última vez visto sano (11 PM), no el descubrimiento. En wake-up stroke, la RM DWI/FLAIR permite estimar el inicio real: discordancia DWI+/FLAIR- sugiere infarto &lt;4.5 h → elegible para trombólisis (WAKE-UP trial). Si hay TC perfusión con penumbra, también puede evaluarse trombectomía en ventana extendida.</div>
+<div class="feedback no" id="fb-11-no">❌ <strong>Incorrecto.</strong> El LKW nunca es la hora de descubrimiento. No se debe excluir automáticamente por tiempo (C) ni trombolizar sin selección por imagen en ventana desconocida (D). La RM DWI-FLAIR es la herramienta clave en el wake-up stroke.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-case">Paciente de 62 años recibió alteplase hace 2 horas. Súbita caída de 8 puntos en NIHSS y deterioro de conciencia. PA: 195/105 mmHg.</div>
+<div class="quiz-q">12. ¿Cuál es la secuencia de manejo INMEDIATA ante sospecha de sICH?</div>
+<button class="opt-btn" onclick="responder(this,'no',12)">A) Aumentar velocidad de infusión de alteplase para mejorar la reperfusión</button>
+<button class="opt-btn" onclick="responder(this,'no',12)">B) Administrar labetalol para controlar la PA y observar 30 minutos</button>
+<button class="opt-btn" onclick="responder(this,'ok',12)">C) Detener infusión de alteplase + TC urgente + crioprecipitado 10 U IV + consulta neurocirugía</button>
+<button class="opt-btn" onclick="responder(this,'no',12)">D) Administrar heparina para prevenir extensión del trombo residual</button>
+<div class="feedback ok" id="fb-12-ok">✅ <strong>Correcto.</strong> Ante sICH post-tPA: (1) detener infusión inmediatamente, (2) TC urgente para confirmar, (3) crioprecipitado 10 U para reponer fibrinógeno consumido por el tPA (objetivo &gt;150 mg/dL), (4) consulta neurocirugía urgente. La heparina (D) está absolutamente contraindicada.</div>
+<div class="feedback no" id="fb-12-no">❌ <strong>Incorrecto.</strong> Continuar alteplase (A) agrava el sangrado. Labetalol solo (B) trata el síntoma sin la hemorragia. La heparina (D) está contraindicada en sICH — lo empeoraría fatalmente. La secuencia correcta es detener + TC + crioprecipitado + neurocirugía.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-case">Paciente de 70 años, NIHSS 18, TC perfusión: core 25 mL, penumbra 120 mL (ratio 4.8:1). Inicio sintomático hace 14 horas. Angio-TC: oclusión M1 izquierda.</div>
+<div class="quiz-q">13. Según AHA/ASA 2026, ¿cuál es la conducta correcta?</div>
+<button class="opt-btn" onclick="responder(this,'no',13)">A) Fuera de ventana terapéutica — solo cuidados de soporte</button>
+<button class="opt-btn" onclick="responder(this,'no',13)">B) Trombólisis IV con tenecteplase y observar resultado</button>
+<button class="opt-btn" onclick="responder(this,'ok',13)">C) Trombectomía mecánica urgente — elegible por selección por perfusión en ventana 6–24 h (DAWN/DEFUSE-3)</button>
+<button class="opt-btn" onclick="responder(this,'no',13)">D) Esperar 24 horas y repetir neuroimagen antes de decidir</button>
+<div class="feedback ok" id="fb-13-ok">✅ <strong>Correcto.</strong> Criterios DAWN/DEFUSE-3: ventana 6–24 h con penumbra rescatable (mismatch ≥1.8, penumbra &gt;15 mL). Este paciente tiene ratio 4.8:1 y penumbra de 120 mL — candidato ideal. AHA/ASA 2026 mantiene Clase I para trombectomía en ventana extendida con estos criterios. El concepto "fuera de ventana" se aplica solo cuando NO hay penumbra rescatable.</div>
+<div class="feedback no" id="fb-13-no">❌ <strong>Incorrecto.</strong> "Fuera de ventana" es un concepto superado cuando hay selección por perfusión. Trombólisis IV sola (B) no es apropiada con OGV M1. Esperar 24 h (D) expandiría el core irreversiblemente.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-case">Mujer de 38 años, puerperio de 10 días, convulsiones focales + cefalea progresiva + hemiplejia. TC: múltiples infartos bilaterales en distintos territorios con componente hemorrágico.</div>
+<div class="quiz-q">14. ¿Cuál es el diagnóstico más probable y el tratamiento de elección?</div>
+<button class="opt-btn" onclick="responder(this,'no',14)">A) ACV isquémico múltiple por embolia cardíaca — anticoagular con NACO</button>
+<button class="opt-btn" onclick="responder(this,'ok',14)">B) Trombosis venosa cerebral — anticoagular con HBPM o heparina IV aunque haya componente hemorrágico</button>
+<button class="opt-btn" onclick="responder(this,'no',14)">C) Vasculitis del SNC — corticoides IV en pulsos</button>
+<button class="opt-btn" onclick="responder(this,'no',14)">D) PRES por eclampsia tardía — control de PA y magnesio IV</button>
+<div class="feedback ok" id="fb-14-ok">✅ <strong>Correcto.</strong> Trombosis venosa cerebral (TVC): puerperio + cefalea progresiva + convulsiones + infartos bilaterales venosos con componente hemorrágico. Diagnóstico: angio-RM o TC-venografía. Tratamiento: anticoagulación (HBPM o heparina) es correcto INCLUSO con componente hemorrágico — diferencia clave respecto al ACV arterial.</div>
+<div class="feedback no" id="fb-14-no">❌ <strong>Incorrecto.</strong> El cuadro (puerperio, infartos bilaterales multiterritoriales, cefalea, convulsiones, componente hemorrágico) es clásico de TVC. La vasculitis (C) y PRES (D) son posibles pero menos probables. La clave es la venografía (TC o RM). La anticoagulación en TVC aplica incluso con sangrado.</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-q">15. ¿Cuál enunciado sobre trombectomía mecánica es INCORRECTO según AHA/ASA 2026?</div>
+<button class="opt-btn" onclick="responder(this,'no',15)">A) Está indicada en oclusión basilar con NIHSS ≥10 dentro de 24 horas (Clase I)</button>
+<button class="opt-btn" onclick="responder(this,'no',15)">B) Puede realizarse en infartos extensos (ASPECTS ≤5) seleccionados por neuroimagen</button>
+<button class="opt-btn" onclick="responder(this,'no',15)">C) La anticoagulación sistémica no contraindica la trombectomía</button>
+<button class="opt-btn" onclick="responder(this,'ok',15)">D) Debe esperarse el efecto del tPA antes de proceder a trombectomía en pacientes elegibles para ambos</button>
+<div class="feedback ok" id="fb-15-ok">✅ <strong>Correcto — esta es la afirmación INCORRECTA.</strong> AHA/ASA 2026 establece explícitamente que tPA y trombectomía se administran en forma secuencial SIN retrasar la trombectomía esperando el efecto del tPA. El tPA actúa como "bridging" pero NO se espera su respuesta antes de ir a sala de angiografía.</div>
+<div class="feedback no" id="fb-15-no">❌ <strong>Este enunciado SÍ es correcto.</strong> Las opciones A (basilar con NIHSS≥10), B (ASPECTS≤5 seleccionados) y C (anticoagulación no contraindica) son todas afirmaciones correctas según AHA/ASA 2026. El incorrecto es D — no se debe esperar efecto del tPA antes de trombectomía.</div>
+</div>
+</div>
+</div>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section><div class="footer">
+  Guía Clínica Interactiva · ACV Isquémico Agudo · Basada en AHA/ASA 2026 · AHA Primary Prevention 2024<br/>
+  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br/>
   Uso educativo y de referencia clínica personal
 </div>
-
 </main>
 </div><!-- #app -->
-
 <script>
 const FrameworkEdu = (() => {
   const STORAGE_KEY = 'drCroce.acvIsquemico.v1';

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AECOPD — Módulo Educativo · Dr. L. Croce</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg: #f5f2ed;
@@ -606,686 +607,655 @@ tr:hover td{background:var(--surface2);}
 }
 
 </style>
-
-<link rel="stylesheet" href="../assets/croce.css">
+<link href="../assets/croce.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- MAIN APP -->
 <div id="app">
 <div class="header">
-  <div class="header-inner">
-  <a class="portal-back" href="../index.html">← Portal de guías</a>
-
-    <div class="header-badges">
-      <span class="badge badge-gold">🌐 GOLD 2026</span>
-      <span class="badge badge-gold" style="background:#b8860b;">GOLD 2025</span>
-      <span class="badge badge-ats">ATS/ERS 2024</span>
-      <span class="badge badge-roma">Propuesta Roma 2023</span>
-      <span class="badge badge-new">🆕 ACTUALIZADO 2026</span>
-    </div>
-    <div class="header-title">🫁 Exacerbación Aguda de EPOC</div>
-    <div class="header-sub">Diagnóstico, estratificación y manejo hospitalario basado en evidencia actual</div>
-    <div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
-    <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-  </div>
+<div class="header-inner">
+<a class="portal-back" href="../index.html">← Portal de guías</a>
+<div class="header-badges">
+<span class="badge badge-gold">🌐 GOLD 2026</span>
+<span class="badge badge-gold" style="background:#b8860b;">GOLD 2025</span>
+<span class="badge badge-ats">ATS/ERS 2024</span>
+<span class="badge badge-roma">Propuesta Roma 2023</span>
+<span class="badge badge-new">🆕 ACTUALIZADO 2026</span>
 </div>
-
+<div class="header-title">🫁 Exacerbación Aguda de EPOC</div>
+<div class="header-sub">Diagnóstico, estratificación y manejo hospitalario basado en evidencia actual</div>
+<div class="header-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+<button class="fullscreen-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+</div>
+</div>
 <div class="tab-scroll-hint">← Deslice las pestañas →</div>
 <div class="tabs-wrapper">
-  <div class="tabs" id="tabBar">
-    <div class="tab active" onclick="showTab(0,this)">📘 Definición</div>
-    <div class="tab" onclick="showTab(1,this)">🔬 Diagnóstico</div>
-    <div class="tab" onclick="showTab(2,this)">⚠️ Clasificación</div>
-    <div class="tab" onclick="showTab(3,this)">💊 Tratamiento</div>
-    <div class="tab" onclick="showTab(4,this)">🔄 Protocolo</div>
-    <div class="tab" onclick="showTab(5,this)">🧮 Calculadoras</div>
-    <div class="tab" onclick="showTab(6,this)">📊 Comparativa</div>
-    <div class="tab" onclick="showTab(7,this)">🏥 Casos Clínicos</div>
-    <div class="tab" onclick="showTab(8,this)">📝 Quiz</div>
-  </div>
+<div class="tabs" id="tabBar">
+<div class="tab active" onclick="showTab(0,this)">📘 Definición</div>
+<div class="tab" onclick="showTab(1,this)">🔬 Diagnóstico</div>
+<div class="tab" onclick="showTab(2,this)">⚠️ Clasificación</div>
+<div class="tab" onclick="showTab(3,this)">💊 Tratamiento</div>
+<div class="tab" onclick="showTab(4,this)">🔄 Protocolo</div>
+<div class="tab" onclick="showTab(5,this)">🧮 Calculadoras</div>
+<div class="tab" onclick="showTab(6,this)">📊 Comparativa</div>
+<div class="tab" onclick="showTab(7,this)">🏥 Casos Clínicos</div>
+<div class="tab" onclick="showTab(8,this)">📝 Quiz</div>
+</div>
 </div>
 <div class="main">
-
 <!-- TAB 0: DEFINICIÓN Y FISIOPATOLOGÍA -->
 <div class="tab-panel active" id="panel-0">
 <div class="section-title">📘 Definición y Fisiopatología</div>
-
 <div class="card card-emerald open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">✦</span>
-    <span class="card-title">Definición GOLD 2026 <span class="tag-new">NUEVO 2026</span></span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-emerald">
-      <strong>Definición operativa GOLD 2026 (Cap. 4 completamente revisado):</strong><br>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">✦</span>
+<span class="card-title">Definición GOLD 2026 <span class="tag-new">NUEVO 2026</span></span>
+<span class="card-arrow">▼</span>
+</div>
+<div class="card-body">
+<div class="alert alert-emerald">
+<strong>Definición operativa GOLD 2026 (Cap. 4 completamente revisado):</strong><br/>
       Un evento agudo caracterizado por empeoramiento de los síntomas respiratorios (disnea, tos y/o producción de esputo) que va más allá de las variaciones normales diarias y que conduce a un cambio en la medicación habitual del paciente.
     </div>
-    <p>GOLD 2026 adopta la <strong>Propuesta Roma 2023</strong> para clasificar las exacerbaciones según criterios clínicos al momento de la presentación (no según el tratamiento recibido o la utilización de recursos de salud), integrando síntomas, signos vitales y nivel de atención requerido.</p>
-    <div class="alert alert-emerald">
-      <strong>Cambio conceptual clave:</strong> La clasificación ya no se basa en qué tratamiento se indicó (antibiótico ± corticoide ± hospitalización), sino en la <em>presentación clínica</em>. Esto permite estratificar al ingreso.
+<p>GOLD 2026 adopta la <strong>Propuesta Roma 2023</strong> para clasificar las exacerbaciones según criterios clínicos al momento de la presentación (no según el tratamiento recibido o la utilización de recursos de salud), integrando síntomas, signos vitales y nivel de atención requerido.</p>
+<div class="alert alert-emerald">
+<strong>Cambio conceptual clave:</strong> La clasificación ya no se basa en qué tratamiento se indicó (antibiótico ± corticoide ± hospitalización), sino en la <em>presentación clínica</em>. Esto permite estratificar al ingreso.
     </div>
-    <div class="section-subtitle">Duración y umbrales temporales</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Parámetro</th><th>Criterio GOLD 2026</th></tr>
-        <tr><td>Duración mínima para definir exacerbación</td><td><span class="value">≥ 2 días</span> de empeoramiento sostenido</td></tr>
-        <tr><td>Ventana de re-exacerbación</td><td>Nuevos síntomas ≥ 14 días del episodio anterior</td></tr>
-        <tr><td>Resolución de síntomas (mediana)</td><td>7–10 días (algunos ≥ 6 semanas)</td></tr>
-        <tr><td>Recuperación plena de función pulmonar</td><td>Hasta 3–6 meses en casos graves</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="section-subtitle">Duración y umbrales temporales</div>
+<div class="table-wrap">
+<table>
+<tr><th>Parámetro</th><th>Criterio GOLD 2026</th></tr>
+<tr><td>Duración mínima para definir exacerbación</td><td><span class="value">≥ 2 días</span> de empeoramiento sostenido</td></tr>
+<tr><td>Ventana de re-exacerbación</td><td>Nuevos síntomas ≥ 14 días del episodio anterior</td></tr>
+<tr><td>Resolución de síntomas (mediana)</td><td>7–10 días (algunos ≥ 6 semanas)</td></tr>
+<tr><td>Recuperación plena de función pulmonar</td><td>Hasta 3–6 meses en casos graves</td></tr>
+</table>
 </div>
-
+</div>
+</div>
 <div class="card card-purple open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🔬</span>
-    <span class="card-title">Fisiopatología de la AECOPD</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="section-subtitle">Cascada inflamatoria</div>
-    <p>Durante la AECOPD se produce una amplificación aguda de la inflamación crónica de base. Los desencadenantes producen un incremento en <strong>neutrófilos, eosinófilos y CD8+ T</strong> en la vía aérea, con liberación de mediadores proinflamatorios (IL-6, IL-8, TNF-α, LTB4).</p>
-    <div class="grid-2">
-      <div class="mcard">
-        <div class="mcard-title">Consecuencias mecánicas</div>
-        <ul class="list">
-          <li>↑ Resistencia de la vía aérea</li>
-          <li>↑ Hiperinflación dinámica</li>
-          <li>↑ Trabajo respiratorio (WOB)</li>
-          <li>↓ Contractilidad diafragmática</li>
-          <li>Auto-PEEP → ↓ retorno venoso</li>
-        </ul>
-      </div>
-      <div class="mcard">
-        <div class="mcard-title">Consecuencias en intercambio gaseoso</div>
-        <ul class="list">
-          <li>↑ Desequilibrio V/Q</li>
-          <li>Hipoxemia progresiva</li>
-          <li>Hipercapnia (retención CO₂)</li>
-          <li>Acidosis respiratoria aguda</li>
-          <li>Vasoconstricción pulmonar hipóxica → ↑ PVR</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section-subtitle">Endotipos de AECOPD</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Endotipo</th><th>Biomarcador</th><th>Implicación terapéutica</th></tr>
-        <tr><td>Eosinofílico</td><td>Eosinófilos ≥ 300 cél/µL o ≥ 2%</td><td class="td-g">Mejor respuesta a corticoides; dupilumab/mepolizumab</td></tr>
-        <tr><td>Bacteriano</td><td>Esputo purulento, ↑ PCR/PCT</td><td class="td-b">Antibióticos indicados</td></tr>
-        <tr><td>Viral</td><td>URTI reciente, sin purulencia</td><td class="td-o">Antibióticos no requeridos; oseltamivir si influenza</td></tr>
-        <tr><td>Pauciinflamatorio</td><td>Sin marcadores específicos</td><td>Soporte sintomático; buscar causas alternativas</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🔬</span>
+<span class="card-title">Fisiopatología de la AECOPD</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="section-subtitle">Cascada inflamatoria</div>
+<p>Durante la AECOPD se produce una amplificación aguda de la inflamación crónica de base. Los desencadenantes producen un incremento en <strong>neutrófilos, eosinófilos y CD8+ T</strong> en la vía aérea, con liberación de mediadores proinflamatorios (IL-6, IL-8, TNF-α, LTB4).</p>
+<div class="grid-2">
+<div class="mcard">
+<div class="mcard-title">Consecuencias mecánicas</div>
+<ul class="list">
+<li>↑ Resistencia de la vía aérea</li>
+<li>↑ Hiperinflación dinámica</li>
+<li>↑ Trabajo respiratorio (WOB)</li>
+<li>↓ Contractilidad diafragmática</li>
+<li>Auto-PEEP → ↓ retorno venoso</li>
+</ul>
+</div>
+<div class="mcard">
+<div class="mcard-title">Consecuencias en intercambio gaseoso</div>
+<ul class="list">
+<li>↑ Desequilibrio V/Q</li>
+<li>Hipoxemia progresiva</li>
+<li>Hipercapnia (retención CO₂)</li>
+<li>Acidosis respiratoria aguda</li>
+<li>Vasoconstricción pulmonar hipóxica → ↑ PVR</li>
+</ul>
+</div>
+</div>
+<div class="section-subtitle">Endotipos de AECOPD</div>
+<div class="table-wrap">
+<table>
+<tr><th>Endotipo</th><th>Biomarcador</th><th>Implicación terapéutica</th></tr>
+<tr><td>Eosinofílico</td><td>Eosinófilos ≥ 300 cél/µL o ≥ 2%</td><td class="td-g">Mejor respuesta a corticoides; dupilumab/mepolizumab</td></tr>
+<tr><td>Bacteriano</td><td>Esputo purulento, ↑ PCR/PCT</td><td class="td-b">Antibióticos indicados</td></tr>
+<tr><td>Viral</td><td>URTI reciente, sin purulencia</td><td class="td-o">Antibióticos no requeridos; oseltamivir si influenza</td></tr>
+<tr><td>Pauciinflamatorio</td><td>Sin marcadores específicos</td><td>Soporte sintomático; buscar causas alternativas</td></tr>
+</table>
+</div>
+</div>
+</div>
 <div class="card card-orange open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">⚠️</span>
-    <span class="card-title">Etiología y Desencadenantes</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="grid-2">
-      <div>
-        <div class="section-subtitle">Infecciosas (70–80%)</div>
-        <ul class="list">
-          <li><strong>Bacterias (40–50%):</strong> H. influenzae, S. pneumoniae, M. catarrhalis (leves-moderadas); P. aeruginosa (graves/frecuentes hospitalizadores)</li>
-          <li><strong>Virus (30–40%):</strong> Rhinovirus (50%), RSV, Influenza, Parainfluenza, Coronavirus</li>
-          <li><strong>Coinfección bacterio-viral:</strong> hasta 25% de los casos graves</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-subtitle">No infecciosas (20–30%)</div>
-        <ul class="list">
-          <li>Contaminación ambiental (PM2.5, ozono, NO₂)</li>
-          <li>Falla cardíaca concomitante</li>
-          <li>Embolia pulmonar (5–25% de "AECOPD" graves)</li>
-          <li>Neumotórax espontáneo</li>
-          <li>Abandono de medicación o técnica inhalatoria inadecuada</li>
-          <li>Aspiración</li>
-          <li>Idiopática (25–30%)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="alert alert-orange">
-      <strong>Alerta diagnóstica:</strong> La embolia pulmonar debe considerarse activamente en pacientes con "AECOPD grave" sin respuesta al tratamiento estándar, especialmente con ↑ D-dímero y taquicardia desproporcionada.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">⚠️</span>
+<span class="card-title">Etiología y Desencadenantes</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="grid-2">
+<div>
+<div class="section-subtitle">Infecciosas (70–80%)</div>
+<ul class="list">
+<li><strong>Bacterias (40–50%):</strong> H. influenzae, S. pneumoniae, M. catarrhalis (leves-moderadas); P. aeruginosa (graves/frecuentes hospitalizadores)</li>
+<li><strong>Virus (30–40%):</strong> Rhinovirus (50%), RSV, Influenza, Parainfluenza, Coronavirus</li>
+<li><strong>Coinfección bacterio-viral:</strong> hasta 25% de los casos graves</li>
+</ul>
+</div>
+<div>
+<div class="section-subtitle">No infecciosas (20–30%)</div>
+<ul class="list">
+<li>Contaminación ambiental (PM2.5, ozono, NO₂)</li>
+<li>Falla cardíaca concomitante</li>
+<li>Embolia pulmonar (5–25% de "AECOPD" graves)</li>
+<li>Neumotórax espontáneo</li>
+<li>Abandono de medicación o técnica inhalatoria inadecuada</li>
+<li>Aspiración</li>
+<li>Idiopática (25–30%)</li>
+</ul>
+</div>
+</div>
+<div class="alert alert-orange">
+<strong>Alerta diagnóstica:</strong> La embolia pulmonar debe considerarse activamente en pacientes con "AECOPD grave" sin respuesta al tratamiento estándar, especialmente con ↑ D-dímero y taquicardia desproporcionada.
+    </div>
+</div>
+</div>
 <div class="card card-red">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🔴</span>
-    <span class="card-title">Diagnóstico Diferencial Prioritario</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="table-wrap">
-      <table>
-        <tr><th>Diagnóstico</th><th>Claves diferenciales</th><th>Herramienta</th></tr>
-        <tr><td><strong>Insuficiencia cardíaca</strong></td><td>Ortopnea, DPN, crepitantes, ↑ BNP/NT-proBNP, cardiomegalia</td><td>BNP, ECG, Eco</td></tr>
-        <tr><td><strong>Embolia pulmonar</strong></td><td>Taquicardia, D-dímero ↑, hipoxemia severa sin hipercapnia, S1Q3T3</td><td>Angiotac, Wells</td></tr>
-        <tr><td><strong>Neumonía</strong></td><td>Fiebre, consolidación Rx, ↑ PCT</td><td>Rx, TAC, hemocultivos</td></tr>
-        <tr><td><strong>Neumotórax</strong></td><td>Dolor pleurítico súbito, asimetría MV, timpanismo</td><td>Rx tórax urgente</td></tr>
-        <tr><td><strong>Crisis asmática</strong></td><td>Reversibilidad, espirometría previa, atopia</td><td>Historia, espirometría</td></tr>
-        <tr><td><strong>Ansiedad/hiperventilación</strong></td><td>PCO₂ bajo, sin hipoxemia, contexto psicológico</td><td>GSA</td></tr>
-      </table>
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🔴</span>
+<span class="card-title">Diagnóstico Diferencial Prioritario</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="table-wrap">
+<table>
+<tr><th>Diagnóstico</th><th>Claves diferenciales</th><th>Herramienta</th></tr>
+<tr><td><strong>Insuficiencia cardíaca</strong></td><td>Ortopnea, DPN, crepitantes, ↑ BNP/NT-proBNP, cardiomegalia</td><td>BNP, ECG, Eco</td></tr>
+<tr><td><strong>Embolia pulmonar</strong></td><td>Taquicardia, D-dímero ↑, hipoxemia severa sin hipercapnia, S1Q3T3</td><td>Angiotac, Wells</td></tr>
+<tr><td><strong>Neumonía</strong></td><td>Fiebre, consolidación Rx, ↑ PCT</td><td>Rx, TAC, hemocultivos</td></tr>
+<tr><td><strong>Neumotórax</strong></td><td>Dolor pleurítico súbito, asimetría MV, timpanismo</td><td>Rx tórax urgente</td></tr>
+<tr><td><strong>Crisis asmática</strong></td><td>Reversibilidad, espirometría previa, atopia</td><td>Historia, espirometría</td></tr>
+<tr><td><strong>Ansiedad/hiperventilación</strong></td><td>PCO₂ bajo, sin hipoxemia, contexto psicológico</td><td>GSA</td></tr>
+</table>
+</div>
+</div>
+</div>
 </div><!-- end panel-0 -->
-
 <!-- TAB 1: DIAGNÓSTICO Y LABORATORIO -->
 <div class="tab-panel" id="panel-1">
 <div class="section-title">🔬 Diagnóstico y Evaluación Clínica</div>
-
 <div class="card card-blue open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🩺</span>
-    <span class="card-title">Evaluación Clínica Inicial — Criterios de Anthonisen (1987, aún vigentes)</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-blue">
-      <strong>Los 3 síntomas cardinales de Anthonisen:</strong> (1) ↑ Disnea, (2) ↑ Volumen de esputo, (3) Cambio de color a purulento.
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Tipo</th><th>Criterios presentes</th><th>Implicación</th></tr>
-        <tr><td><strong>Tipo I (purulento)</strong></td><td>Los 3 síntomas</td><td class="td-g">Antibiótico + corticoide → beneficio máximo</td></tr>
-        <tr><td><strong>Tipo II</strong></td><td>2 de 3 síntomas (incluye purulencia)</td><td class="td-b">Antibiótico probable beneficio</td></tr>
-        <tr><td><strong>Tipo III</strong></td><td>1 síntoma o síntoma menor</td><td class="td-o">Antibiótico de menor beneficio probado</td></tr>
-      </table>
-    </div>
-    <div class="section-subtitle">Signos adicionales a evaluar</div>
-    <ul class="list">
-      <li>Frecuencia respiratoria (FR) — normal: 12–20 rpm</li>
-      <li>Frecuencia cardíaca (FC)</li>
-      <li>SpO₂ (objetivo: <strong>88–92%</strong> en EPOC con riesgo de hipercapnia)</li>
-      <li>Uso de musculatura accesoria (escalenos, esternocleidomastoideo)</li>
-      <li>Respiración paradójica abdominal</li>
-      <li>Alteración del estado mental (signo de alarma)</li>
-      <li>Capacidad de completar oraciones</li>
-      <li>Asterixis (hipercapnia severa)</li>
-      <li>Cianosis central</li>
-    </ul>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🩺</span>
+<span class="card-title">Evaluación Clínica Inicial — Criterios de Anthonisen (1987, aún vigentes)</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>Los 3 síntomas cardinales de Anthonisen:</strong> (1) ↑ Disnea, (2) ↑ Volumen de esputo, (3) Cambio de color a purulento.
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Tipo</th><th>Criterios presentes</th><th>Implicación</th></tr>
+<tr><td><strong>Tipo I (purulento)</strong></td><td>Los 3 síntomas</td><td class="td-g">Antibiótico + corticoide → beneficio máximo</td></tr>
+<tr><td><strong>Tipo II</strong></td><td>2 de 3 síntomas (incluye purulencia)</td><td class="td-b">Antibiótico probable beneficio</td></tr>
+<tr><td><strong>Tipo III</strong></td><td>1 síntoma o síntoma menor</td><td class="td-o">Antibiótico de menor beneficio probado</td></tr>
+</table>
+</div>
+<div class="section-subtitle">Signos adicionales a evaluar</div>
+<ul class="list">
+<li>Frecuencia respiratoria (FR) — normal: 12–20 rpm</li>
+<li>Frecuencia cardíaca (FC)</li>
+<li>SpO₂ (objetivo: <strong>88–92%</strong> en EPOC con riesgo de hipercapnia)</li>
+<li>Uso de musculatura accesoria (escalenos, esternocleidomastoideo)</li>
+<li>Respiración paradójica abdominal</li>
+<li>Alteración del estado mental (signo de alarma)</li>
+<li>Capacidad de completar oraciones</li>
+<li>Asterixis (hipercapnia severa)</li>
+<li>Cianosis central</li>
+</ul>
+</div>
+</div>
 <div class="card card-cyan open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🩸</span>
-    <span class="card-title">Gasometría Arterial (GSA) — Interpretación Clínica</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-blue">
-      <strong>GOLD 2026:</strong> La GSA es obligatoria en exacerbaciones moderadas-graves y siempre que SpO₂ &lt; 92% o se considere VNI.
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Parámetro</th><th>Normal</th><th>Alarma</th></tr>
-        <tr><td>pH</td><td>7.35–7.45</td><td class="td-r">pH &lt; 7.35 → acidosis; &lt; 7.25 → grave</td></tr>
-        <tr><td>PaCO₂</td><td>35–45 mmHg</td><td class="td-o">PaCO₂ &gt; 50 → hipercapnia significativa; &gt; 65 → UCI</td></tr>
-        <tr><td>PaO₂</td><td>80–100 mmHg</td><td class="td-r">PaO₂ &lt; 60 mmHg → indicación O₂ controlado</td></tr>
-        <tr><td>HCO₃⁻</td><td>22–26 mEq/L</td><td class="td-b">↑ crónico → indica hipercapnia crónica compensada</td></tr>
-        <tr><td>Exceso de base (BE)</td><td>-2 a +2</td><td>BE positivo elevado → EPOC crónica hipercápnica</td></tr>
-        <tr><td>Lactato</td><td>&lt; 2 mmol/L</td><td class="td-r">Lactato &gt; 4 → fallo circulatorio asociado</td></tr>
-      </table>
-    </div>
-    <div class="section-subtitle">Patrones gasométricos clave en AECOPD</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Patrón</th><th>pH</th><th>PaCO₂</th><th>HCO₃</th><th>Interpretación clínica</th></tr>
-        <tr><td><strong>Acidosis resp. aguda</strong></td><td class="td-r">&lt; 7.35</td><td class="td-r">↑↑</td><td>Normal–leve ↑</td><td>Exacerbación aguda grave, VNI urgente</td></tr>
-        <tr><td><strong>Acidosis resp. compensada</strong></td><td>Borde 7.35–7.40</td><td>↑</td><td>↑↑</td><td>EPOC crónica hipercápnica, base elevada</td></tr>
-        <tr><td><strong>Hipercapnia + alcalemia</strong></td><td>&gt; 7.45</td><td>↑</td><td>↑↑↑</td><td>Alcalosis metabólica concomitante (diuréticos)</td></tr>
-        <tr><td><strong>Hipoxemia pura</strong></td><td>Normal</td><td>Normal–bajo</td><td>Normal</td><td>Buscar TEP, neumonía, ICC</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-orange">
-      <strong>Trampa clínica:</strong> Un pH normal con HCO₃ elevado (≥30) indica hipercapnia crónica compensada — no significa que el paciente esté bien. Comparar con GSA basal si disponible.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🩸</span>
+<span class="card-title">Gasometría Arterial (GSA) — Interpretación Clínica</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>GOLD 2026:</strong> La GSA es obligatoria en exacerbaciones moderadas-graves y siempre que SpO₂ &lt; 92% o se considere VNI.
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Parámetro</th><th>Normal</th><th>Alarma</th></tr>
+<tr><td>pH</td><td>7.35–7.45</td><td class="td-r">pH &lt; 7.35 → acidosis; &lt; 7.25 → grave</td></tr>
+<tr><td>PaCO₂</td><td>35–45 mmHg</td><td class="td-o">PaCO₂ &gt; 50 → hipercapnia significativa; &gt; 65 → UCI</td></tr>
+<tr><td>PaO₂</td><td>80–100 mmHg</td><td class="td-r">PaO₂ &lt; 60 mmHg → indicación O₂ controlado</td></tr>
+<tr><td>HCO₃⁻</td><td>22–26 mEq/L</td><td class="td-b">↑ crónico → indica hipercapnia crónica compensada</td></tr>
+<tr><td>Exceso de base (BE)</td><td>-2 a +2</td><td>BE positivo elevado → EPOC crónica hipercápnica</td></tr>
+<tr><td>Lactato</td><td>&lt; 2 mmol/L</td><td class="td-r">Lactato &gt; 4 → fallo circulatorio asociado</td></tr>
+</table>
+</div>
+<div class="section-subtitle">Patrones gasométricos clave en AECOPD</div>
+<div class="table-wrap">
+<table>
+<tr><th>Patrón</th><th>pH</th><th>PaCO₂</th><th>HCO₃</th><th>Interpretación clínica</th></tr>
+<tr><td><strong>Acidosis resp. aguda</strong></td><td class="td-r">&lt; 7.35</td><td class="td-r">↑↑</td><td>Normal–leve ↑</td><td>Exacerbación aguda grave, VNI urgente</td></tr>
+<tr><td><strong>Acidosis resp. compensada</strong></td><td>Borde 7.35–7.40</td><td>↑</td><td>↑↑</td><td>EPOC crónica hipercápnica, base elevada</td></tr>
+<tr><td><strong>Hipercapnia + alcalemia</strong></td><td>&gt; 7.45</td><td>↑</td><td>↑↑↑</td><td>Alcalosis metabólica concomitante (diuréticos)</td></tr>
+<tr><td><strong>Hipoxemia pura</strong></td><td>Normal</td><td>Normal–bajo</td><td>Normal</td><td>Buscar TEP, neumonía, ICC</td></tr>
+</table>
+</div>
+<div class="alert alert-orange">
+<strong>Trampa clínica:</strong> Un pH normal con HCO₃ elevado (≥30) indica hipercapnia crónica compensada — no significa que el paciente esté bien. Comparar con GSA basal si disponible.
+    </div>
+</div>
+</div>
 <div class="card card-yellow open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🧪</span>
-    <span class="card-title">Biomarcadores y Laboratorio — Uso Clínico Basado en Evidencia</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="table-wrap">
-      <table>
-        <tr><th>Biomarcador</th><th>Valor de corte relevante</th><th>Uso clínico en AECOPD</th><th>Nivel evidencia</th></tr>
-        <tr><td><strong>PCR (Proteína C-reactiva)</strong></td><td>&gt; 40 mg/L → bacteriana probable</td><td>Guiar antibiótico (GOLD 2026)</td><td>Moderada</td></tr>
-        <tr><td><strong>Procalcitonina (PCT)</strong></td><td>&gt; 0.1–0.25 ng/mL → inicio ATB<br>&gt; 0.5 → infección bacteriana</td><td>Reducir uso innecesario de ATB (PROHOSP trial)</td><td>Alta (A)</td></tr>
-        <tr><td><strong>Eosinófilos periféricos</strong></td><td>≥ 300 cél/µL ó ≥ 2%</td><td>Predictor respuesta a corticoides; guiar biológicos</td><td>Alta (A) — GOLD 2026</td></tr>
-        <tr><td><strong>NT-proBNP / BNP</strong></td><td>NT-proBNP &gt; 300 ng/L</td><td>Descartar ICC descompensada concomitante</td><td>Alta</td></tr>
-        <tr><td><strong>D-dímero</strong></td><td>PERC + Wells + D-dímero</td><td>Descartar TEP (alta prevalencia en AECOPD grave)</td><td>Algoritmo validado</td></tr>
-        <tr><td><strong>Troponina</strong></td><td>↑ hs-Troponina</td><td>SCA en contexto de hipoxemia severa; riesgo CV</td><td>Moderada</td></tr>
-        <tr><td><strong>Hemograma</strong></td><td>Leucocitosis, eosinofilia</td><td>Infección, endotipo eosinofílico, policitemia</td><td>Estándar</td></tr>
-        <tr><td><strong>Electrolitos</strong></td><td>Na, K, Mg, Cl</td><td>Hipocaliemia por BD; hipoMg; hipoNa por ICC</td><td>Estándar</td></tr>
-        <tr><td><strong>Creatinina / función renal</strong></td><td>↑ rápida</td><td>AKI por hipoperfusión, ajuste de dosis ATB</td><td>Estándar</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-emerald">
-      <strong>GOLD 2026 — Eosinófilos como biomarcador:</strong> Los eosinófilos en sangre predicen la respuesta a corticoides sistémicos. Niveles ≥ 300 cél/µL se asocian con mayor beneficio; &lt; 100 cél/µL sugieren menor respuesta y riesgo de neumonía asociada a corticoides.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🧪</span>
+<span class="card-title">Biomarcadores y Laboratorio — Uso Clínico Basado en Evidencia</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="table-wrap">
+<table>
+<tr><th>Biomarcador</th><th>Valor de corte relevante</th><th>Uso clínico en AECOPD</th><th>Nivel evidencia</th></tr>
+<tr><td><strong>PCR (Proteína C-reactiva)</strong></td><td>&gt; 40 mg/L → bacteriana probable</td><td>Guiar antibiótico (GOLD 2026)</td><td>Moderada</td></tr>
+<tr><td><strong>Procalcitonina (PCT)</strong></td><td>&gt; 0.1–0.25 ng/mL → inicio ATB<br/>&gt; 0.5 → infección bacteriana</td><td>Reducir uso innecesario de ATB (PROHOSP trial)</td><td>Alta (A)</td></tr>
+<tr><td><strong>Eosinófilos periféricos</strong></td><td>≥ 300 cél/µL ó ≥ 2%</td><td>Predictor respuesta a corticoides; guiar biológicos</td><td>Alta (A) — GOLD 2026</td></tr>
+<tr><td><strong>NT-proBNP / BNP</strong></td><td>NT-proBNP &gt; 300 ng/L</td><td>Descartar ICC descompensada concomitante</td><td>Alta</td></tr>
+<tr><td><strong>D-dímero</strong></td><td>PERC + Wells + D-dímero</td><td>Descartar TEP (alta prevalencia en AECOPD grave)</td><td>Algoritmo validado</td></tr>
+<tr><td><strong>Troponina</strong></td><td>↑ hs-Troponina</td><td>SCA en contexto de hipoxemia severa; riesgo CV</td><td>Moderada</td></tr>
+<tr><td><strong>Hemograma</strong></td><td>Leucocitosis, eosinofilia</td><td>Infección, endotipo eosinofílico, policitemia</td><td>Estándar</td></tr>
+<tr><td><strong>Electrolitos</strong></td><td>Na, K, Mg, Cl</td><td>Hipocaliemia por BD; hipoMg; hipoNa por ICC</td><td>Estándar</td></tr>
+<tr><td><strong>Creatinina / función renal</strong></td><td>↑ rápida</td><td>AKI por hipoperfusión, ajuste de dosis ATB</td><td>Estándar</td></tr>
+</table>
+</div>
+<div class="alert alert-emerald">
+<strong>GOLD 2026 — Eosinófilos como biomarcador:</strong> Los eosinófilos en sangre predicen la respuesta a corticoides sistémicos. Niveles ≥ 300 cél/µL se asocian con mayor beneficio; &lt; 100 cél/µL sugieren menor respuesta y riesgo de neumonía asociada a corticoides.
+    </div>
+</div>
+</div>
 <div class="card card-blue">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">📸</span>
-    <span class="card-title">Imagen y Electrocardiograma</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="grid-2">
-      <div>
-        <div class="section-subtitle">Radiografía de Tórax</div>
-        <ul class="list">
-          <li>Siempre indicada en hospitalización</li>
-          <li>Buscar: consolidación, derrame, neumotórax, cardiomegalia</li>
-          <li>Hiperinflación: ↑ espacios intercostales, diafragmas aplanados, sombra cardíaca vertical</li>
-          <li>Normal en ~50% de las AECOPD puras</li>
-        </ul>
-        <div class="section-subtitle">TAC de Tórax</div>
-        <ul class="list">
-          <li>No rutinaria; indicar si Rx atípica</li>
-          <li>Angiotac si sospecha TEP (Wells ≥ 2 + D-dímero +)</li>
-          <li>Útil para caracterizar enfisema y bronquiectasias</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-subtitle">ECG — Hallazgos en AECOPD</div>
-        <ul class="list">
-          <li>Taquicardia sinusal (lo más frecuente)</li>
-          <li>P pulmonale (ondas P altas y picudas en II, III, aVF)</li>
-          <li>Desviación del eje a la derecha</li>
-          <li>Patrón de bloqueo de rama derecha (incompleto/completo)</li>
-          <li>SIQIIITIII → sospecha de TEP masivo</li>
-          <li>Arritmias (FA muy frecuente, mal tolerada)</li>
-        </ul>
-        <div class="alert alert-orange" style="margin-top:10px;">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">📸</span>
+<span class="card-title">Imagen y Electrocardiograma</span>
+<span class="card-arrow">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div>
+<div class="section-subtitle">Radiografía de Tórax</div>
+<ul class="list">
+<li>Siempre indicada en hospitalización</li>
+<li>Buscar: consolidación, derrame, neumotórax, cardiomegalia</li>
+<li>Hiperinflación: ↑ espacios intercostales, diafragmas aplanados, sombra cardíaca vertical</li>
+<li>Normal en ~50% de las AECOPD puras</li>
+</ul>
+<div class="section-subtitle">TAC de Tórax</div>
+<ul class="list">
+<li>No rutinaria; indicar si Rx atípica</li>
+<li>Angiotac si sospecha TEP (Wells ≥ 2 + D-dímero +)</li>
+<li>Útil para caracterizar enfisema y bronquiectasias</li>
+</ul>
+</div>
+<div>
+<div class="section-subtitle">ECG — Hallazgos en AECOPD</div>
+<ul class="list">
+<li>Taquicardia sinusal (lo más frecuente)</li>
+<li>P pulmonale (ondas P altas y picudas en II, III, aVF)</li>
+<li>Desviación del eje a la derecha</li>
+<li>Patrón de bloqueo de rama derecha (incompleto/completo)</li>
+<li>SIQIIITIII → sospecha de TEP masivo</li>
+<li>Arritmias (FA muy frecuente, mal tolerada)</li>
+</ul>
+<div class="alert alert-orange" style="margin-top:10px;">
           FA en AECOPD: Frecuente y mal tolerada. El control de FC con b-bloqueadores cardioselectivos (bisoprolol, metoprolol) es seguro. Amiodarona si necesario. Evitar digoxina como primera línea.
         </div>
-      </div>
-    </div>
-  </div>
 </div>
-
+</div>
+</div>
+</div>
 </div><!-- end panel-1 -->
-
 <!-- TAB 2: CLASIFICACIÓN Y GRAVEDAD -->
 <div class="tab-panel" id="panel-2">
 <div class="section-title">⚠️ Clasificación y Estratificación de Gravedad</div>
-
 <div class="card card-emerald open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">✦</span>
-    <span class="card-title">Clasificación Roma 2023 / GOLD 2026 — Por Presentación Clínica <span class="tag-new">NUEVO 2026</span></span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-emerald">
-      <strong>GOLD 2026 adopta formalmente la Propuesta Roma 2023:</strong> La severidad se clasifica por criterios clínicos al ingreso, no por el tratamiento administrado.
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Criterio</th><th><span style="color:var(--green)">LEVE</span></th><th><span style="color:var(--orange)">MODERADA</span></th><th><span style="color:var(--red)">GRAVE</span></th></tr>
-        <tr><td><strong>FR (rpm)</strong></td><td>≤ 24</td><td>25–29</td><td class="td-r">≥ 30</td></tr>
-        <tr><td><strong>FC (lpm)</strong></td><td>≤ 100</td><td>101–109</td><td class="td-r">≥ 110</td></tr>
-        <tr><td><strong>SpO₂ (aire ambiente)</strong></td><td>≥ 94%</td><td>88–93%</td><td class="td-r">&lt; 88%</td></tr>
-        <tr><td><strong>pH arterial</strong></td><td>≥ 7.35</td><td>7.30–7.34</td><td class="td-r">&lt; 7.30</td></tr>
-        <tr><td><strong>PaCO₂</strong></td><td>Normal o leve ↑</td><td>46–60 mmHg</td><td class="td-r">&gt; 60 mmHg</td></tr>
-        <tr><td><strong>Estado mental</strong></td><td>Normal</td><td>Normal</td><td class="td-r">Alterado</td></tr>
-        <tr><td><strong>Uso musculatura accesoria</strong></td><td>No</td><td>Moderado</td><td class="td-r">Marcado</td></tr>
-        <tr><td><strong>Nivel de atención</strong></td><td>Ambulatorio</td><td>Hospitalización o urgencias</td><td class="td-r">UCI o VNI urgente</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-orange">
-      <strong>Nota práctica:</strong> Un solo criterio grave puede justificar la admisión a UCI. La presencia de acidosis respiratoria aguda (pH &lt; 7.35 + PaCO₂ ↑) es el desencadenante más importante para iniciar VNI.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">✦</span>
+<span class="card-title">Clasificación Roma 2023 / GOLD 2026 — Por Presentación Clínica <span class="tag-new">NUEVO 2026</span></span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-emerald">
+<strong>GOLD 2026 adopta formalmente la Propuesta Roma 2023:</strong> La severidad se clasifica por criterios clínicos al ingreso, no por el tratamiento administrado.
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Criterio</th><th><span style="color:var(--green)">LEVE</span></th><th><span style="color:var(--orange)">MODERADA</span></th><th><span style="color:var(--red)">GRAVE</span></th></tr>
+<tr><td><strong>FR (rpm)</strong></td><td>≤ 24</td><td>25–29</td><td class="td-r">≥ 30</td></tr>
+<tr><td><strong>FC (lpm)</strong></td><td>≤ 100</td><td>101–109</td><td class="td-r">≥ 110</td></tr>
+<tr><td><strong>SpO₂ (aire ambiente)</strong></td><td>≥ 94%</td><td>88–93%</td><td class="td-r">&lt; 88%</td></tr>
+<tr><td><strong>pH arterial</strong></td><td>≥ 7.35</td><td>7.30–7.34</td><td class="td-r">&lt; 7.30</td></tr>
+<tr><td><strong>PaCO₂</strong></td><td>Normal o leve ↑</td><td>46–60 mmHg</td><td class="td-r">&gt; 60 mmHg</td></tr>
+<tr><td><strong>Estado mental</strong></td><td>Normal</td><td>Normal</td><td class="td-r">Alterado</td></tr>
+<tr><td><strong>Uso musculatura accesoria</strong></td><td>No</td><td>Moderado</td><td class="td-r">Marcado</td></tr>
+<tr><td><strong>Nivel de atención</strong></td><td>Ambulatorio</td><td>Hospitalización o urgencias</td><td class="td-r">UCI o VNI urgente</td></tr>
+</table>
+</div>
+<div class="alert alert-orange">
+<strong>Nota práctica:</strong> Un solo criterio grave puede justificar la admisión a UCI. La presencia de acidosis respiratoria aguda (pH &lt; 7.35 + PaCO₂ ↑) es el desencadenante más importante para iniciar VNI.
+    </div>
+</div>
+</div>
 <div class="card card-red open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🏥</span>
-    <span class="card-title">Criterios de Hospitalización y Criterios de UCI</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="grid-2">
-      <div>
-        <div class="section-subtitle" style="color:var(--orange);">Criterios de Hospitalización</div>
-        <ul class="list">
-          <li>SpO₂ &lt; 90% en reposo o &lt; 92% con O₂ suplementario</li>
-          <li>FR ≥ 25 rpm o FC ≥ 110 lpm persistentes</li>
-          <li>pH &lt; 7.35 o PaCO₂ &gt; 50 mmHg</li>
-          <li>Comorbilidades significativas (ICC, FA, cardiopatía isquémica)</li>
-          <li>Falta de respuesta a tratamiento ambulatorio (48h)</li>
-          <li>Incapacidad de manejo domiciliario (vive solo, no adherencia)</li>
-          <li>Exacerbación frecuente (&gt; 2 en el año previo)</li>
-          <li>Diagnóstico incierto — descartar TEP, neumonía, neumotórax</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-subtitle" style="color:var(--red);">Criterios de UCI</div>
-        <ul class="list">
-          <li>FR &gt; 35 rpm sin respuesta a tratamiento inicial</li>
-          <li>pH &lt; 7.25 (acidosis grave)</li>
-          <li>PaCO₂ &gt; 65–70 mmHg con acidosis</li>
-          <li>Hipoxemia grave: PaO₂ &lt; 40 mmHg o PaO₂/FiO₂ &lt; 200</li>
-          <li>Fallo de VNI o contraindicación para VNI</li>
-          <li>Alteración del estado mental (encefalopatía hipercápnica)</li>
-          <li>Inestabilidad hemodinámica (requiere vasopresores)</li>
-          <li>Paro respiratorio inminente</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🏥</span>
+<span class="card-title">Criterios de Hospitalización y Criterios de UCI</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="grid-2">
+<div>
+<div class="section-subtitle" style="color:var(--orange);">Criterios de Hospitalización</div>
+<ul class="list">
+<li>SpO₂ &lt; 90% en reposo o &lt; 92% con O₂ suplementario</li>
+<li>FR ≥ 25 rpm o FC ≥ 110 lpm persistentes</li>
+<li>pH &lt; 7.35 o PaCO₂ &gt; 50 mmHg</li>
+<li>Comorbilidades significativas (ICC, FA, cardiopatía isquémica)</li>
+<li>Falta de respuesta a tratamiento ambulatorio (48h)</li>
+<li>Incapacidad de manejo domiciliario (vive solo, no adherencia)</li>
+<li>Exacerbación frecuente (&gt; 2 en el año previo)</li>
+<li>Diagnóstico incierto — descartar TEP, neumonía, neumotórax</li>
+</ul>
+</div>
+<div>
+<div class="section-subtitle" style="color:var(--red);">Criterios de UCI</div>
+<ul class="list">
+<li>FR &gt; 35 rpm sin respuesta a tratamiento inicial</li>
+<li>pH &lt; 7.25 (acidosis grave)</li>
+<li>PaCO₂ &gt; 65–70 mmHg con acidosis</li>
+<li>Hipoxemia grave: PaO₂ &lt; 40 mmHg o PaO₂/FiO₂ &lt; 200</li>
+<li>Fallo de VNI o contraindicación para VNI</li>
+<li>Alteración del estado mental (encefalopatía hipercápnica)</li>
+<li>Inestabilidad hemodinámica (requiere vasopresores)</li>
+<li>Paro respiratorio inminente</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="card card-emerald open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">✦</span>
-    <span class="card-title">GOLD 2026 — Cambio en Clasificación Grupos A/B/E <span class="tag-new">NUEVO 2026</span></span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-emerald">
-      <strong>Cambio clave GOLD 2026:</strong> El umbral para Grupo E se reduce a <strong>≥ 1 exacerbación moderada o grave</strong> en el último año (antes eran ≥ 2 exacerbaciones moderadas o ≥ 1 grave).
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Grupo</th><th>Síntomas (mMRC/CAT)</th><th>Historia exacerbaciones</th><th>Tratamiento inicial</th></tr>
-        <tr><td><strong>Grupo A</strong></td><td>Pocos síntomas<br>mMRC 0-1 / CAT &lt;10</td><td>0 exacerbaciones ó 1 leve</td><td>Broncodilatador (SABA o LABA o LAMA)</td></tr>
-        <tr><td><strong>Grupo B</strong></td><td>Más síntomas<br>mMRC ≥2 / CAT ≥10</td><td>0 exacerbaciones ó 1 leve</td><td>LABA + LAMA (doble BD)</td></tr>
-        <tr><td><strong>Grupo E</strong></td><td>Cualquier nivel sintomático</td><td class="td-r">≥ 1 moderada ó grave <span class="tag-new">↓ Umbral</span></td><td>LABA + LAMA; ICS si eos ≥ 300</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-blue">
-      <strong>Nuevo concepto GOLD 2026: "Estabilidad de la enfermedad"</strong> — Si un paciente Grupo E logra 12 meses sin exacerbaciones con tratamiento optimizado, se considera estabilizado y puede revaluarse el perfil de riesgo. La estabilidad se asocia con mejor pronóstico.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">✦</span>
+<span class="card-title">GOLD 2026 — Cambio en Clasificación Grupos A/B/E <span class="tag-new">NUEVO 2026</span></span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-emerald">
+<strong>Cambio clave GOLD 2026:</strong> El umbral para Grupo E se reduce a <strong>≥ 1 exacerbación moderada o grave</strong> en el último año (antes eran ≥ 2 exacerbaciones moderadas o ≥ 1 grave).
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Grupo</th><th>Síntomas (mMRC/CAT)</th><th>Historia exacerbaciones</th><th>Tratamiento inicial</th></tr>
+<tr><td><strong>Grupo A</strong></td><td>Pocos síntomas<br/>mMRC 0-1 / CAT &lt;10</td><td>0 exacerbaciones ó 1 leve</td><td>Broncodilatador (SABA o LABA o LAMA)</td></tr>
+<tr><td><strong>Grupo B</strong></td><td>Más síntomas<br/>mMRC ≥2 / CAT ≥10</td><td>0 exacerbaciones ó 1 leve</td><td>LABA + LAMA (doble BD)</td></tr>
+<tr><td><strong>Grupo E</strong></td><td>Cualquier nivel sintomático</td><td class="td-r">≥ 1 moderada ó grave <span class="tag-new">↓ Umbral</span></td><td>LABA + LAMA; ICS si eos ≥ 300</td></tr>
+</table>
+</div>
+<div class="alert alert-blue">
+<strong>Nuevo concepto GOLD 2026: "Estabilidad de la enfermedad"</strong> — Si un paciente Grupo E logra 12 meses sin exacerbaciones con tratamiento optimizado, se considera estabilizado y puede revaluarse el perfil de riesgo. La estabilidad se asocia con mejor pronóstico.
+    </div>
+</div>
+</div>
 <div class="card card-cyan open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">📊</span>
-    <span class="card-title">Scores de Pronóstico: DECAF y BAP-65</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="grid-2">
-      <div>
-        <div class="section-subtitle">Score DECAF (mortalidad hospitalaria)</div>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Variable</th><th>Puntos</th></tr>
-            <tr><td>Disnea (eMRCD 5a)</td><td>1</td></tr>
-            <tr><td>Disnea (eMRCD 5b — limitado en casa)</td><td>2</td></tr>
-            <tr><td>Eosinopenia (&lt; 50 cél/µL)</td><td>1</td></tr>
-            <tr><td>Consolidación en Rx</td><td>1</td></tr>
-            <tr><td>Acidemia (pH &lt; 7.30)</td><td>1</td></tr>
-            <tr><td>Fibrilación auricular activa</td><td>1</td></tr>
-          </table>
-        </div>
-        <div class="alert alert-cyan" style="background:var(--cyan-bg);border-color:var(--cyan);color:var(--cyan);border-left:4px solid var(--cyan);padding:10px 12px;border-radius:6px;font-size:13px;margin-top:8px;">
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">📊</span>
+<span class="card-title">Scores de Pronóstico: DECAF y BAP-65</span>
+<span class="card-arrow">▼</span>
+</div>
+<div class="card-body">
+<div class="grid-2">
+<div>
+<div class="section-subtitle">Score DECAF (mortalidad hospitalaria)</div>
+<div class="table-wrap">
+<table>
+<tr><th>Variable</th><th>Puntos</th></tr>
+<tr><td>Disnea (eMRCD 5a)</td><td>1</td></tr>
+<tr><td>Disnea (eMRCD 5b — limitado en casa)</td><td>2</td></tr>
+<tr><td>Eosinopenia (&lt; 50 cél/µL)</td><td>1</td></tr>
+<tr><td>Consolidación en Rx</td><td>1</td></tr>
+<tr><td>Acidemia (pH &lt; 7.30)</td><td>1</td></tr>
+<tr><td>Fibrilación auricular activa</td><td>1</td></tr>
+</table>
+</div>
+<div class="alert alert-cyan" style="background:var(--cyan-bg);border-color:var(--cyan);color:var(--cyan);border-left:4px solid var(--cyan);padding:10px 12px;border-radius:6px;font-size:13px;margin-top:8px;">
           0–1: mortalidad 1.4% · 2: 4.4% · 3: 9.4% · 4: 19.6% · 5–6: &gt;35%
         </div>
-      </div>
-      <div>
-        <div class="section-subtitle">Score BAP-65 (mortalidad + VM)</div>
-        <div class="table-wrap">
-          <table>
-            <tr><th>Variable</th><th>Puntos</th></tr>
-            <tr><td>BUN ≥ 25 mg/dL (B)</td><td>1</td></tr>
-            <tr><td>Alteración mental/encefalopatía (A)</td><td>1</td></tr>
-            <tr><td>Pulso ≥ 109 lpm (P)</td><td>1</td></tr>
-            <tr><td>Edad ≥ 65 años (65)</td><td>1</td></tr>
-          </table>
-        </div>
-        <div class="alert alert-cyan" style="background:var(--cyan-bg);border-color:var(--cyan);color:var(--cyan);border-left:4px solid var(--cyan);padding:10px 12px;border-radius:6px;font-size:13px;margin-top:8px;">
+</div>
+<div>
+<div class="section-subtitle">Score BAP-65 (mortalidad + VM)</div>
+<div class="table-wrap">
+<table>
+<tr><th>Variable</th><th>Puntos</th></tr>
+<tr><td>BUN ≥ 25 mg/dL (B)</td><td>1</td></tr>
+<tr><td>Alteración mental/encefalopatía (A)</td><td>1</td></tr>
+<tr><td>Pulso ≥ 109 lpm (P)</td><td>1</td></tr>
+<tr><td>Edad ≥ 65 años (65)</td><td>1</td></tr>
+</table>
+</div>
+<div class="alert alert-cyan" style="background:var(--cyan-bg);border-color:var(--cyan);color:var(--cyan);border-left:4px solid var(--cyan);padding:10px 12px;border-radius:6px;font-size:13px;margin-top:8px;">
           Clase I (0,&lt;65a): 0.3% · Clase II (0, ≥65a): 1.5% · Clase III (1): 2.1% · Clase IV (2): 6.2% · Clase V (3–4): 14.1%
         </div>
-      </div>
-    </div>
-  </div>
 </div>
-
+</div>
+</div>
+</div>
 <div class="card card-green">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">✅</span>
-    <span class="card-title">Criterios de Alta Segura (GOLD 2026)</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-green">
-      <strong>Alta hospitalaria debe cumplir TODOS:</strong>
-    </div>
-    <div class="grid-2">
-      <ul class="list">
-        <li>SpO₂ estable ≥ 90% en reposo (aire ambiente o O₂ habitual)</li>
-        <li>SABA cada ≥ 4 horas (sin requerimiento frecuente)</li>
-        <li>FR &lt; 25 rpm y FC &lt; 100 lpm en reposo</li>
-        <li>Paciente ambulatorio dentro de la habitación</li>
-      </ul>
-      <ul class="list">
-        <li>pH &gt; 7.35 y PaCO₂ estable o en retorno al basal</li>
-        <li>Comorbilidades controladas</li>
-        <li>Medicación oral tolerable</li>
-        <li>Plan de seguimiento ambulatorio en &lt; 7 días</li>
-        <li>Educación sobre adherencia y técnica inhalatoria</li>
-      </ul>
-    </div>
-    <div class="alert alert-orange">
-      <strong>Riesgo de re-hospitalización:</strong> El 20–35% de los pacientes se rehospitaliza en 90 días. El seguimiento precoz (visita 7–14 días post-alta) reduce la readmisión significativamente.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">✅</span>
+<span class="card-title">Criterios de Alta Segura (GOLD 2026)</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-green">
+<strong>Alta hospitalaria debe cumplir TODOS:</strong>
+</div>
+<div class="grid-2">
+<ul class="list">
+<li>SpO₂ estable ≥ 90% en reposo (aire ambiente o O₂ habitual)</li>
+<li>SABA cada ≥ 4 horas (sin requerimiento frecuente)</li>
+<li>FR &lt; 25 rpm y FC &lt; 100 lpm en reposo</li>
+<li>Paciente ambulatorio dentro de la habitación</li>
+</ul>
+<ul class="list">
+<li>pH &gt; 7.35 y PaCO₂ estable o en retorno al basal</li>
+<li>Comorbilidades controladas</li>
+<li>Medicación oral tolerable</li>
+<li>Plan de seguimiento ambulatorio en &lt; 7 días</li>
+<li>Educación sobre adherencia y técnica inhalatoria</li>
+</ul>
+</div>
+<div class="alert alert-orange">
+<strong>Riesgo de re-hospitalización:</strong> El 20–35% de los pacientes se rehospitaliza en 90 días. El seguimiento precoz (visita 7–14 días post-alta) reduce la readmisión significativamente.
+    </div>
+</div>
+</div>
 </div><!-- end panel-2 -->
-
 <!-- TAB 3: TRATAMIENTO -->
 <div class="tab-panel" id="panel-3">
 <div class="section-title">💊 Tratamiento Farmacológico Basado en Evidencia</div>
-
 <div class="card card-blue open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">💨</span>
-    <span class="card-title">Broncodilatadores de Acción Corta — Primera Línea Universal</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-blue">
-      <strong>GOLD 2026 Recomendación Fuerte (A):</strong> Los SABA ± SAMA son el tratamiento inicial de todas las exacerbaciones. MDI con aerocámara = nebulización en equivalencia (con técnica adecuada).
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Fármaco</th><th>Dosis habitual</th><th>Inicio acción</th><th>Duración</th><th>Notas</th></tr>
-        <tr><td><strong>Salbutamol (SABA)</strong></td><td>2.5–5 mg NEB / MDI 400–800 µg c/20min × 3, luego c/4–6h</td><td>5 min</td><td>4–6 h</td><td>Monitorizar K⁺ y FC</td></tr>
-        <tr><td><strong>Ipratropio (SAMA)</strong></td><td>0.5 mg NEB / MDI 80 µg c/4–6h</td><td>15 min</td><td>6–8 h</td><td>Combinar con SABA — efecto aditivo</td></tr>
-        <tr><td><strong>Salbutamol + Ipratropio</strong></td><td>Combivent NEB: 2.5/0.5 mg</td><td>5–15 min</td><td>6 h</td><td>Preferido en exacerbaciones moderadas/graves</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-yellow">
-      <strong>Vigilar:</strong> Hipocaliemia (K⁺ &lt; 3.5) por salbutamol + diuréticos. Reponer K⁺ activamente. Taquicardia ≥ 120 lpm → reducir dosis o intervalo.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">💨</span>
+<span class="card-title">Broncodilatadores de Acción Corta — Primera Línea Universal</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>GOLD 2026 Recomendación Fuerte (A):</strong> Los SABA ± SAMA son el tratamiento inicial de todas las exacerbaciones. MDI con aerocámara = nebulización en equivalencia (con técnica adecuada).
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Fármaco</th><th>Dosis habitual</th><th>Inicio acción</th><th>Duración</th><th>Notas</th></tr>
+<tr><td><strong>Salbutamol (SABA)</strong></td><td>2.5–5 mg NEB / MDI 400–800 µg c/20min × 3, luego c/4–6h</td><td>5 min</td><td>4–6 h</td><td>Monitorizar K⁺ y FC</td></tr>
+<tr><td><strong>Ipratropio (SAMA)</strong></td><td>0.5 mg NEB / MDI 80 µg c/4–6h</td><td>15 min</td><td>6–8 h</td><td>Combinar con SABA — efecto aditivo</td></tr>
+<tr><td><strong>Salbutamol + Ipratropio</strong></td><td>Combivent NEB: 2.5/0.5 mg</td><td>5–15 min</td><td>6 h</td><td>Preferido en exacerbaciones moderadas/graves</td></tr>
+</table>
+</div>
+<div class="alert alert-yellow">
+<strong>Vigilar:</strong> Hipocaliemia (K⁺ &lt; 3.5) por salbutamol + diuréticos. Reponer K⁺ activamente. Taquicardia ≥ 120 lpm → reducir dosis o intervalo.
+    </div>
+</div>
+</div>
 <div class="card card-orange open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">💊</span>
-    <span class="card-title">Corticosteroides Sistémicos — Evidencia Actualizada (REDUCE, CORTICO-COP)</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-green">
-      <strong>GOLD 2026 / REDUCE Trial:</strong> Prednisolona 40 mg/día × <strong>5 días</strong> equivalente a 14 días (no beneficio adicional con cursos largos). <strong>No requiere reducción gradual (taper)</strong> para cursos ≤ 5 días.
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Parámetro</th><th>Recomendación GOLD 2026</th></tr>
-        <tr><td>Indicación</td><td>Exacerbaciones moderadas y graves</td></tr>
-        <tr><td>Fármaco y dosis</td><td>Prednisolona 40 mg/día VO (o metilprednisolona 32 mg IV si no tolera VO)</td></tr>
-        <tr><td>Duración</td><td><strong>5 días</strong> (REDUCE trial, NEJM 2013; confirmado GOLD 2026)</td></tr>
-        <tr><td>Taper (reducción gradual)</td><td><strong>NO requerido</strong> para cursos de 5 días</td></tr>
-        <tr><td>Eosinófilos &lt; 100 cél/µL</td><td>Menor beneficio; considerar omitir si exacerbación leve-moderada y sin hipoxemia</td></tr>
-        <tr><td>Eosinófilos ≥ 300 cél/µL</td><td>Máximo beneficio corticoide; considerar biológico si frecuente</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-orange">
-      <strong>CORTICO-COP Trial (2019):</strong> Guiar corticoides con eosinófilos (&lt; 2% → no corticoide) fue seguro y redujo exposición esteroidal sin incrementar fallo de tratamiento.
-    </div>
-    <div class="alert alert-red">
-      <strong>Efectos adversos relevantes:</strong> Hiperglucemia (monitorear c/6h en DM2), retención hídrica, riesgo de infección, osteoporosis con cursos repetidos. Considerar gastroprotección (IBP) en &gt; 5 días o combinado con AINEs.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">💊</span>
+<span class="card-title">Corticosteroides Sistémicos — Evidencia Actualizada (REDUCE, CORTICO-COP)</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-green">
+<strong>GOLD 2026 / REDUCE Trial:</strong> Prednisolona 40 mg/día × <strong>5 días</strong> equivalente a 14 días (no beneficio adicional con cursos largos). <strong>No requiere reducción gradual (taper)</strong> para cursos ≤ 5 días.
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Parámetro</th><th>Recomendación GOLD 2026</th></tr>
+<tr><td>Indicación</td><td>Exacerbaciones moderadas y graves</td></tr>
+<tr><td>Fármaco y dosis</td><td>Prednisolona 40 mg/día VO (o metilprednisolona 32 mg IV si no tolera VO)</td></tr>
+<tr><td>Duración</td><td><strong>5 días</strong> (REDUCE trial, NEJM 2013; confirmado GOLD 2026)</td></tr>
+<tr><td>Taper (reducción gradual)</td><td><strong>NO requerido</strong> para cursos de 5 días</td></tr>
+<tr><td>Eosinófilos &lt; 100 cél/µL</td><td>Menor beneficio; considerar omitir si exacerbación leve-moderada y sin hipoxemia</td></tr>
+<tr><td>Eosinófilos ≥ 300 cél/µL</td><td>Máximo beneficio corticoide; considerar biológico si frecuente</td></tr>
+</table>
+</div>
+<div class="alert alert-orange">
+<strong>CORTICO-COP Trial (2019):</strong> Guiar corticoides con eosinófilos (&lt; 2% → no corticoide) fue seguro y redujo exposición esteroidal sin incrementar fallo de tratamiento.
+    </div>
+<div class="alert alert-red">
+<strong>Efectos adversos relevantes:</strong> Hiperglucemia (monitorear c/6h en DM2), retención hídrica, riesgo de infección, osteoporosis con cursos repetidos. Considerar gastroprotección (IBP) en &gt; 5 días o combinado con AINEs.
+    </div>
+</div>
+</div>
 <div class="card card-yellow open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🦠</span>
-    <span class="card-title">Antibióticos — Indicaciones, Esquemas y Duración</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-blue">
-      <strong>GOLD 2026:</strong> Los antibióticos se recomiendan cuando hay esputo purulento, infección bacteriana documentada previa, o cuando se requiere soporte ventilatorio (VNI o VM). No indicados de rutina en exacerbaciones no purulentas.
-    </div>
-    <div class="section-subtitle">Selección del antibiótico</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Riesgo paciente</th><th>Criterios</th><th>Antibiótico preferido</th><th>Duración</th></tr>
-        <tr><td><strong>Sin riesgo Pseudomonas</strong></td><td>FEV1 &gt; 50%, &lt; 4 exacerbaciones/año, no ATB previos</td><td>Amoxicilina-clavulanato 875/125 mg c/8h VO<br>Azitromicina 500 mg/día<br>Doxiciclina 100 mg c/12h</td><td class="td-g">5 días</td></tr>
-        <tr><td><strong>Riesgo Pseudomonas</strong></td><td>FEV1 &lt; 30%, ≥ 4 exacerbaciones/año, bronquiectasias, hospitalizaciones frecuentes, ATB reciente (últimos 3 meses), corticoides crónicos</td><td>Ciprofloxacino 400 mg IV c/12h → 500 mg VO c/12h<br>Piperacilina-tazobactam 4.5 g c/6h IV<br>Ceftazidima 2 g c/8h IV</td><td class="td-r">7 días</td></tr>
-        <tr><td><strong>Alérgico betalactámico</strong></td><td>Cualquier gravedad</td><td>Azitromicina 500 mg/día o Moxifloxacino 400 mg/día</td><td>5 días</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-emerald">
-      <strong>Evidencia PCT:</strong> Iniciar ATB si PCT &gt; 0.1–0.25 ng/mL; suspender si desciende &gt; 80% o &lt; 0.1 ng/mL a las 48–72h. Estrategia validada en PROHOSP trial.
-    </div>
-    <div class="alert alert-red">
-      <strong>Contraindicaciones antibiótico:</strong> Exacerbación no purulenta, sin datos de infección bacteriana, etiología viral clara, eosinófilos muy elevados (endotipo eosinofílico). El uso rutinario incrementa resistencia antimicrobiana.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🦠</span>
+<span class="card-title">Antibióticos — Indicaciones, Esquemas y Duración</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-blue">
+<strong>GOLD 2026:</strong> Los antibióticos se recomiendan cuando hay esputo purulento, infección bacteriana documentada previa, o cuando se requiere soporte ventilatorio (VNI o VM). No indicados de rutina en exacerbaciones no purulentas.
+    </div>
+<div class="section-subtitle">Selección del antibiótico</div>
+<div class="table-wrap">
+<table>
+<tr><th>Riesgo paciente</th><th>Criterios</th><th>Antibiótico preferido</th><th>Duración</th></tr>
+<tr><td><strong>Sin riesgo Pseudomonas</strong></td><td>FEV1 &gt; 50%, &lt; 4 exacerbaciones/año, no ATB previos</td><td>Amoxicilina-clavulanato 875/125 mg c/8h VO<br/>Azitromicina 500 mg/día<br/>Doxiciclina 100 mg c/12h</td><td class="td-g">5 días</td></tr>
+<tr><td><strong>Riesgo Pseudomonas</strong></td><td>FEV1 &lt; 30%, ≥ 4 exacerbaciones/año, bronquiectasias, hospitalizaciones frecuentes, ATB reciente (últimos 3 meses), corticoides crónicos</td><td>Ciprofloxacino 400 mg IV c/12h → 500 mg VO c/12h<br/>Piperacilina-tazobactam 4.5 g c/6h IV<br/>Ceftazidima 2 g c/8h IV</td><td class="td-r">7 días</td></tr>
+<tr><td><strong>Alérgico betalactámico</strong></td><td>Cualquier gravedad</td><td>Azitromicina 500 mg/día o Moxifloxacino 400 mg/día</td><td>5 días</td></tr>
+</table>
+</div>
+<div class="alert alert-emerald">
+<strong>Evidencia PCT:</strong> Iniciar ATB si PCT &gt; 0.1–0.25 ng/mL; suspender si desciende &gt; 80% o &lt; 0.1 ng/mL a las 48–72h. Estrategia validada en PROHOSP trial.
+    </div>
+<div class="alert alert-red">
+<strong>Contraindicaciones antibiótico:</strong> Exacerbación no purulenta, sin datos de infección bacteriana, etiología viral clara, eosinófilos muy elevados (endotipo eosinofílico). El uso rutinario incrementa resistencia antimicrobiana.
+    </div>
+</div>
+</div>
 <div class="card card-green open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">🌬️</span>
-    <span class="card-title">Oxigenoterapia Controlada — Objetivo SpO₂ 88–92%</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-green">
-      <strong>GOLD 2026 / BTS Guidelines:</strong> El objetivo de SpO₂ en AECOPD con riesgo de hipercapnia es <strong>88–92%</strong>, no 94–98%. La hiperoxia puede empeorar la hipercapnia (efecto Haldane + supresión del drive hipóxico).
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Dispositivo</th><th>FiO₂ aproximada</th><th>Indicación</th></tr>
-        <tr><td>Gafas nasales</td><td>1-2 L/min → FiO₂ 24–28%</td><td>Hipoxemia leve; AECOPD leve</td></tr>
-        <tr><td>Mascarilla Venturi (VM)</td><td>FiO₂ exacta: 24, 28, 31, 35, 40%</td><td>Control exacto de FiO₂; preferida en AECOPD hipercápnica</td></tr>
-        <tr><td>Mascarilla de reservorio</td><td>60–90%</td><td><strong>Evitar en EPOC salvo paro respiratorio inminente</strong></td></tr>
-        <tr><td>Oxígeno alto flujo (Optiflow)</td><td>Variable (21–100%), flujo 20–60 L/min</td><td>AECOPD grave sin hipercapnia; considerar con cautela</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-red">
-      <strong>Trampa clínica:</strong> SpO₂ 96–100% en un EPOC hipercápnico NO es seguro. Puede producir narcosis CO₂ con somnolencia progresiva y paro respiratorio. Controlar GSA 30–60 min tras ajuste de O₂.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">🌬️</span>
+<span class="card-title">Oxigenoterapia Controlada — Objetivo SpO₂ 88–92%</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-green">
+<strong>GOLD 2026 / BTS Guidelines:</strong> El objetivo de SpO₂ en AECOPD con riesgo de hipercapnia es <strong>88–92%</strong>, no 94–98%. La hiperoxia puede empeorar la hipercapnia (efecto Haldane + supresión del drive hipóxico).
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Dispositivo</th><th>FiO₂ aproximada</th><th>Indicación</th></tr>
+<tr><td>Gafas nasales</td><td>1-2 L/min → FiO₂ 24–28%</td><td>Hipoxemia leve; AECOPD leve</td></tr>
+<tr><td>Mascarilla Venturi (VM)</td><td>FiO₂ exacta: 24, 28, 31, 35, 40%</td><td>Control exacto de FiO₂; preferida en AECOPD hipercápnica</td></tr>
+<tr><td>Mascarilla de reservorio</td><td>60–90%</td><td><strong>Evitar en EPOC salvo paro respiratorio inminente</strong></td></tr>
+<tr><td>Oxígeno alto flujo (Optiflow)</td><td>Variable (21–100%), flujo 20–60 L/min</td><td>AECOPD grave sin hipercapnia; considerar con cautela</td></tr>
+</table>
+</div>
+<div class="alert alert-red">
+<strong>Trampa clínica:</strong> SpO₂ 96–100% en un EPOC hipercápnico NO es seguro. Puede producir narcosis CO₂ con somnolencia progresiva y paro respiratorio. Controlar GSA 30–60 min tras ajuste de O₂.
+    </div>
+</div>
+</div>
 <div class="card card-red open">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">😷</span>
-    <span class="card-title">Ventilación No Invasiva (VNI/BiPAP) — Indicaciones y Configuración</span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-green">
-      <strong>GOLD 2026 Recomendación Fuerte (A):</strong> VNI reduce mortalidad, necesidad de intubación, duración hospitalaria y complicaciones en AECOPD con acidosis respiratoria aguda (pH &lt; 7.35 + PaCO₂ ↑).
-    </div>
-    <div class="grid-2">
-      <div>
-        <div class="section-subtitle" style="color:var(--green);">Indicaciones VNI</div>
-        <ul class="list">
-          <li>pH &lt; 7.35 con PaCO₂ &gt; 45 mmHg (acidosis respiratoria aguda)</li>
-          <li>FR &gt; 25 rpm con signos de fatiga respiratoria</li>
-          <li>Hipoxemia que no responde a O₂ controlado</li>
-          <li>Destete de VMI (extubación con VNI)</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-subtitle" style="color:var(--red);">Contraindicaciones VNI</div>
-        <ul class="list">
-          <li>Paro respiratorio (intubación inmediata)</li>
-          <li>Alteración severa del estado mental / agitación extrema</li>
-          <li>Secreciones excesivas que el paciente no puede manejar</li>
-          <li>Inestabilidad hemodinámica (shock no revertido)</li>
-          <li>Cirugía facial/trauma facial reciente</li>
-          <li>Vómito activo sin protección de vía aérea</li>
-        </ul>
-      </div>
-    </div>
-    <div class="section-subtitle">Configuración inicial BiPAP en AECOPD</div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Parámetro</th><th>Valor inicial</th><th>Meta</th></tr>
-        <tr><td>IPAP (Presión inspiratoria)</td><td>10–12 cmH₂O</td><td>Titular hasta 20 cmH₂O según respuesta</td></tr>
-        <tr><td>EPAP (Presión espiratoria)</td><td>4–5 cmH₂O</td><td>Contrarrestar auto-PEEP</td></tr>
-        <tr><td>Frecuencia de respaldo</td><td>12–14 rpm</td><td>Garantizar ventilación mínima</td></tr>
-        <tr><td>FiO₂ suplementaria</td><td>Titular para SpO₂ 88–92%</td><td>NO hiperoxia</td></tr>
-        <tr><td>Tiempo de uso</td><td>≥ 6h/día en fase aguda</td><td>Continuo si tolera, descansos supervisados</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-orange">
-      <strong>Criterios de fallo de VNI (→ intubación):</strong> Sin mejoría de pH en 1–2 h, PaCO₂ en ascenso pese a IPAP máxima, intolerancia persistente, deterioro neurológico, inestabilidad hemodinámica que se instala.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">😷</span>
+<span class="card-title">Ventilación No Invasiva (VNI/BiPAP) — Indicaciones y Configuración</span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-green">
+<strong>GOLD 2026 Recomendación Fuerte (A):</strong> VNI reduce mortalidad, necesidad de intubación, duración hospitalaria y complicaciones en AECOPD con acidosis respiratoria aguda (pH &lt; 7.35 + PaCO₂ ↑).
+    </div>
+<div class="grid-2">
+<div>
+<div class="section-subtitle" style="color:var(--green);">Indicaciones VNI</div>
+<ul class="list">
+<li>pH &lt; 7.35 con PaCO₂ &gt; 45 mmHg (acidosis respiratoria aguda)</li>
+<li>FR &gt; 25 rpm con signos de fatiga respiratoria</li>
+<li>Hipoxemia que no responde a O₂ controlado</li>
+<li>Destete de VMI (extubación con VNI)</li>
+</ul>
+</div>
+<div>
+<div class="section-subtitle" style="color:var(--red);">Contraindicaciones VNI</div>
+<ul class="list">
+<li>Paro respiratorio (intubación inmediata)</li>
+<li>Alteración severa del estado mental / agitación extrema</li>
+<li>Secreciones excesivas que el paciente no puede manejar</li>
+<li>Inestabilidad hemodinámica (shock no revertido)</li>
+<li>Cirugía facial/trauma facial reciente</li>
+<li>Vómito activo sin protección de vía aérea</li>
+</ul>
+</div>
+</div>
+<div class="section-subtitle">Configuración inicial BiPAP en AECOPD</div>
+<div class="table-wrap">
+<table>
+<tr><th>Parámetro</th><th>Valor inicial</th><th>Meta</th></tr>
+<tr><td>IPAP (Presión inspiratoria)</td><td>10–12 cmH₂O</td><td>Titular hasta 20 cmH₂O según respuesta</td></tr>
+<tr><td>EPAP (Presión espiratoria)</td><td>4–5 cmH₂O</td><td>Contrarrestar auto-PEEP</td></tr>
+<tr><td>Frecuencia de respaldo</td><td>12–14 rpm</td><td>Garantizar ventilación mínima</td></tr>
+<tr><td>FiO₂ suplementaria</td><td>Titular para SpO₂ 88–92%</td><td>NO hiperoxia</td></tr>
+<tr><td>Tiempo de uso</td><td>≥ 6h/día en fase aguda</td><td>Continuo si tolera, descansos supervisados</td></tr>
+</table>
+</div>
+<div class="alert alert-orange">
+<strong>Criterios de fallo de VNI (→ intubación):</strong> Sin mejoría de pH en 1–2 h, PaCO₂ en ascenso pese a IPAP máxima, intolerancia persistente, deterioro neurológico, inestabilidad hemodinámica que se instala.
+    </div>
+</div>
+</div>
 <div class="card card-emerald">
-  <div class="card-header" onclick="toggleCard(this)">
-    <span class="card-icon">✦</span>
-    <span class="card-title">Terapias Biológicas GOLD 2025/2026 — Nivel Evidencia A <span class="tag-new">NUEVO</span></span>
-    <span class="card-arrow">▼</span>
-  </div>
-  <div class="card-body">
-    <div class="alert alert-emerald">
-      <strong>GOLD 2026:</strong> Dupilumab y Mepolizumab ahora tienen <strong>nivel de evidencia A</strong> para reducir exacerbaciones en EPOC con inflamación tipo 2.
-    </div>
-    <div class="table-wrap">
-      <table>
-        <tr><th>Biológico</th><th>Mecanismo</th><th>Perfil paciente</th><th>Estudio clave</th><th>Resultado</th></tr>
-        <tr><td><strong>Dupilumab</strong></td><td>Anti-IL-4Rα (bloquea IL-4 e IL-13)</td><td>EPOC + eosinófilos ≥ 300 + bronquitis crónica</td><td>BOREAS + NOTUS</td><td class="td-g">↓ 34% exacerbaciones moderadas-graves vs placebo</td></tr>
-        <tr><td><strong>Mepolizumab</strong></td><td>Anti-IL-5</td><td>EPOC + eosinófilos ≥ 150 (con y sin bronquitis crónica)</td><td>METREX + METREO</td><td class="td-g">↓ exacerbaciones; ↑ calidad de vida</td></tr>
-        <tr><td><strong>Benralizumab</strong></td><td>Anti-IL-5Rα</td><td>EPOC eosinofílico</td><td>GALATHEA/TERRANOVA</td><td class="td-r">No demostró ↓ exacerbaciones (negativo)</td></tr>
-        <tr><td><strong>Ensifentrina</strong></td><td>Inhibidor dual PDE3/PDE4</td><td>EPOC moderada-grave, BD insuficiente</td><td>ENHANCE-1, -2</td><td class="td-g">↓ 42% exacerbaciones; ↑ FEV1 y calidad de vida</td></tr>
-      </table>
-    </div>
-    <div class="alert alert-blue">
-      <strong>Ensifentrina (GOLD 2025):</strong> Nuevo inhibidor dual PDE3/PDE4. Indicado como tratamiento de mantenimiento añadido a LABA o LAMA en pacientes con EPOC inadecuadamente controlada. No tiene efecto antiinflamatorio eosinofílico pero mejora BD y reduce exacerbaciones.
-    </div>
-    <div class="alert alert-orange">
-      <strong>Nota de aplicabilidad (Ecuador/LATAM):</strong> Los biológicos tienen costo muy elevado y disponibilidad limitada en el sector público. La selección debe basarse en eosinófilos documentados, frecuencia de exacerbaciones y acceso. Priorizar optimización de triple terapia inhalatoria (LABA+LAMA+ICS) como paso previo.
-    </div>
-  </div>
+<div class="card-header" onclick="toggleCard(this)">
+<span class="card-icon">✦</span>
+<span class="card-title">Terapias Biológicas GOLD 2025/2026 — Nivel Evidencia A <span class="tag-new">NUEVO</span></span>
+<span class="card-arrow">▼</span>
 </div>
-
+<div class="card-body">
+<div class="alert alert-emerald">
+<strong>GOLD 2026:</strong> Dupilumab y Mepolizumab ahora tienen <strong>nivel de evidencia A</strong> para reducir exacerbaciones en EPOC con inflamación tipo 2.
+    </div>
+<div class="table-wrap">
+<table>
+<tr><th>Biológico</th><th>Mecanismo</th><th>Perfil paciente</th><th>Estudio clave</th><th>Resultado</th></tr>
+<tr><td><strong>Dupilumab</strong></td><td>Anti-IL-4Rα (bloquea IL-4 e IL-13)</td><td>EPOC + eosinófilos ≥ 300 + bronquitis crónica</td><td>BOREAS + NOTUS</td><td class="td-g">↓ 34% exacerbaciones moderadas-graves vs placebo</td></tr>
+<tr><td><strong>Mepolizumab</strong></td><td>Anti-IL-5</td><td>EPOC + eosinófilos ≥ 150 (con y sin bronquitis crónica)</td><td>METREX + METREO</td><td class="td-g">↓ exacerbaciones; ↑ calidad de vida</td></tr>
+<tr><td><strong>Benralizumab</strong></td><td>Anti-IL-5Rα</td><td>EPOC eosinofílico</td><td>GALATHEA/TERRANOVA</td><td class="td-r">No demostró ↓ exacerbaciones (negativo)</td></tr>
+<tr><td><strong>Ensifentrina</strong></td><td>Inhibidor dual PDE3/PDE4</td><td>EPOC moderada-grave, BD insuficiente</td><td>ENHANCE-1, -2</td><td class="td-g">↓ 42% exacerbaciones; ↑ FEV1 y calidad de vida</td></tr>
+</table>
+</div>
+<div class="alert alert-blue">
+<strong>Ensifentrina (GOLD 2025):</strong> Nuevo inhibidor dual PDE3/PDE4. Indicado como tratamiento de mantenimiento añadido a LABA o LAMA en pacientes con EPOC inadecuadamente controlada. No tiene efecto antiinflamatorio eosinofílico pero mejora BD y reduce exacerbaciones.
+    </div>
+<div class="alert alert-orange">
+<strong>Nota de aplicabilidad (Ecuador/LATAM):</strong> Los biológicos tienen costo muy elevado y disponibilidad limitada en el sector público. La selección debe basarse en eosinófilos documentados, frecuencia de exacerbaciones y acceso. Priorizar optimización de triple terapia inhalatoria (LABA+LAMA+ICS) como paso previo.
+    </div>
+</div>
+</div>
 </div><!-- end panel-3 -->
-
 <!-- TAB 4: PROTOCOLO PASO A PASO -->
 <div class="tab-panel" id="panel-4">
 <div class="section-title">🔄 Protocolo Paso a Paso — Manejo Urgencias/Hospitalización</div>
@@ -1293,518 +1263,500 @@ tr:hover td{background:var(--surface2);}
   Basado en GOLD 2026 · ATS/ERS 2024 · Propuesta Roma 2023. Flujo codificado por severidad clínica al ingreso.
 </div>
 <ul class="steps">
-  <li class="step">
-    <div class="step-num step-num-red">1</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--red);">Evaluación Inicial + Triaje Respiratorio (0–5 min)</div>
-      <div class="step-desc">
-        FR, FC, SpO₂, PA, T°, Glasgow/estado mental. Identificar signos de gravedad inmediata:<br>
-        FR &gt; 35, SpO₂ &lt; 80%, alteración mental, paro inminente → <strong>Activar UCI / intubación inmediata</strong><br>
-        <span class="pill pill-red">CRÍTICO</span> No demorar tratamiento por laboratorio
+<li class="step">
+<div class="step-num step-num-red">1</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--red);">Evaluación Inicial + Triaje Respiratorio (0–5 min)</div>
+<div class="step-desc">
+        FR, FC, SpO₂, PA, T°, Glasgow/estado mental. Identificar signos de gravedad inmediata:<br/>
+        FR &gt; 35, SpO₂ &lt; 80%, alteración mental, paro inminente → <strong>Activar UCI / intubación inmediata</strong><br/>
+<span class="pill pill-red">CRÍTICO</span> No demorar tratamiento por laboratorio
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-orange">2</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--orange);">Oxigenoterapia Controlada (inmediata)</div>
-      <div class="step-desc">
-        Iniciar O₂ con Mascarilla Venturi: FiO₂ 24–28% → titular para SpO₂ <strong>88–92%</strong>.<br>
-        Evitar mascarilla de reservorio. Reevaluar SpO₂ en 10–15 min. GSA si SpO₂ &lt; 92% o deterioro clínico.<br>
-        <span class="pill pill-orange">ATENCIÓN</span> Hiperoxia puede causar narcosis CO₂
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-orange">2</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--orange);">Oxigenoterapia Controlada (inmediata)</div>
+<div class="step-desc">
+        Iniciar O₂ con Mascarilla Venturi: FiO₂ 24–28% → titular para SpO₂ <strong>88–92%</strong>.<br/>
+        Evitar mascarilla de reservorio. Reevaluar SpO₂ en 10–15 min. GSA si SpO₂ &lt; 92% o deterioro clínico.<br/>
+<span class="pill pill-orange">ATENCIÓN</span> Hiperoxia puede causar narcosis CO₂
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-blue">3</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--blue);">Broncodilatadores (0–15 min)</div>
-      <div class="step-desc">
-        Salbutamol 2.5–5 mg + Ipratropio 0.5 mg en nebulización c/20 min × 3, luego c/4–6h.<br>
-        MDI + aerocámara equivalente si cooperación adecuada.<br>
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-blue">3</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--blue);">Broncodilatadores (0–15 min)</div>
+<div class="step-desc">
+        Salbutamol 2.5–5 mg + Ipratropio 0.5 mg en nebulización c/20 min × 3, luego c/4–6h.<br/>
+        MDI + aerocámara equivalente si cooperación adecuada.<br/>
         Monitorear FC y K⁺. Continuar LABD habituales del paciente.
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-yellow">4</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--yellow);">Laboratorio y Estudios Diagnósticos (primeros 30 min)</div>
-      <div class="step-desc">
-        <strong>Obligatorio:</strong> GSA, hemograma, electrolitos (K, Na, Mg), creatinina, glucosa, Rx tórax, ECG.<br>
-        <strong>Según contexto:</strong> PCT, PCR, NT-proBNP (ICC?), D-dímero (TEP?), troponina, hemocultivos si fiebre, cultivo de esputo si purulento.<br>
-        <strong>Eosinófilos:</strong> Crucial para guiar corticoides y biológicos.
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-yellow">4</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--yellow);">Laboratorio y Estudios Diagnósticos (primeros 30 min)</div>
+<div class="step-desc">
+<strong>Obligatorio:</strong> GSA, hemograma, electrolitos (K, Na, Mg), creatinina, glucosa, Rx tórax, ECG.<br/>
+<strong>Según contexto:</strong> PCT, PCR, NT-proBNP (ICC?), D-dímero (TEP?), troponina, hemocultivos si fiebre, cultivo de esputo si purulento.<br/>
+<strong>Eosinófilos:</strong> Crucial para guiar corticoides y biológicos.
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-orange">5</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--orange);">Corticosteroides Sistémicos (dentro 1ª hora)</div>
-      <div class="step-desc">
-        Indicados en exacerbaciones moderadas y graves.<br>
-        <strong>Prednisolona 40 mg VO × 5 días</strong> (o metilprednisolona 32 mg IV si no tolera VO).<br>
-        Eosinófilos &lt; 100 cél/µL: considerar omitir si exacerbación moderada sin hipoxemia.<br>
-        <span class="pill pill-green">REDUCE Trial</span> 5 días = 14 días. Sin taper.
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-orange">5</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--orange);">Corticosteroides Sistémicos (dentro 1ª hora)</div>
+<div class="step-desc">
+        Indicados en exacerbaciones moderadas y graves.<br/>
+<strong>Prednisolona 40 mg VO × 5 días</strong> (o metilprednisolona 32 mg IV si no tolera VO).<br/>
+        Eosinófilos &lt; 100 cél/µL: considerar omitir si exacerbación moderada sin hipoxemia.<br/>
+<span class="pill pill-green">REDUCE Trial</span> 5 días = 14 días. Sin taper.
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-yellow">6</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--yellow);">Antibiótico (si indicado)</div>
-      <div class="step-desc">
-        Indicar si: esputo purulento, PCT &gt; 0.25 ng/mL, o soporte ventilatorio requerido.<br>
-        Sin riesgo Pseudomonas: Amoxicilina-clavulanato 875/125 mg c/8h VO × 5 días.<br>
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-yellow">6</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--yellow);">Antibiótico (si indicado)</div>
+<div class="step-desc">
+        Indicar si: esputo purulento, PCT &gt; 0.25 ng/mL, o soporte ventilatorio requerido.<br/>
+        Sin riesgo Pseudomonas: Amoxicilina-clavulanato 875/125 mg c/8h VO × 5 días.<br/>
         Riesgo Pseudomonas: Ciprofloxacino IV → VO, o beta-lactámico anti-Pseudomonas × 7 días.
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-red">7</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--red);">Ventilación No Invasiva (si acidosis respiratoria)</div>
-      <div class="step-desc">
-        Indicar si: pH &lt; 7.35 + PaCO₂ ↑ + FR &gt; 25 + fatiga respiratoria.<br>
-        BiPAP: IPAP 10–12 cmH₂O (titular hasta 20), EPAP 4–5 cmH₂O, FR respaldo 12–14.<br>
-        GSA de control en 1–2 horas. Si no mejora pH → valorar intubación.<br>
-        <span class="pill pill-red">FALLO</span> pH sin mejoría en 2h → UCI/intubación
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-red">7</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--red);">Ventilación No Invasiva (si acidosis respiratoria)</div>
+<div class="step-desc">
+        Indicar si: pH &lt; 7.35 + PaCO₂ ↑ + FR &gt; 25 + fatiga respiratoria.<br/>
+        BiPAP: IPAP 10–12 cmH₂O (titular hasta 20), EPAP 4–5 cmH₂O, FR respaldo 12–14.<br/>
+        GSA de control en 1–2 horas. Si no mejora pH → valorar intubación.<br/>
+<span class="pill pill-red">FALLO</span> pH sin mejoría en 2h → UCI/intubación
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-emerald">8</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--emerald);">Reevaluación y Disposición (2–6 horas)</div>
-      <div class="step-desc">
-        Exacerbación leve que responde: alta con SABA, plan oral, seguimiento 7 días.<br>
-        Moderada que responde: observación 12–24h, alta si criterios cumplidos.<br>
-        Grave o sin respuesta: hospitalización piso o UCI según clínica.<br>
-        <span class="pill pill-emerald">SEGUIMIENTO</span> Visita ambulatoria &lt; 7 días post-alta reduce readmisión
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-emerald">8</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--emerald);">Reevaluación y Disposición (2–6 horas)</div>
+<div class="step-desc">
+        Exacerbación leve que responde: alta con SABA, plan oral, seguimiento 7 días.<br/>
+        Moderada que responde: observación 12–24h, alta si criterios cumplidos.<br/>
+        Grave o sin respuesta: hospitalización piso o UCI según clínica.<br/>
+<span class="pill pill-emerald">SEGUIMIENTO</span> Visita ambulatoria &lt; 7 días post-alta reduce readmisión
       </div>
-    </div>
-  </li>
-  <li class="step">
-    <div class="step-num step-num-green">9</div>
-    <div class="step-content">
-      <div class="step-title" style="color:var(--green);">Alta y Prevención de Recurrencia</div>
-      <div class="step-desc">
-        Revisar/ajustar terapia de mantenimiento (LABA+LAMA ± ICS según perfil).<br>
-        Vacunación: influenza, neumococo, COVID-19, VRS (≥ 60 años).<br>
-        Educación técnica inhalatoria y plan de acción escrito.<br>
-        Rehabilitación pulmonar: iniciar dentro de 4 semanas post-exacerbación.<br>
+</div>
+</li>
+<li class="step">
+<div class="step-num step-num-green">9</div>
+<div class="step-content">
+<div class="step-title" style="color:var(--green);">Alta y Prevención de Recurrencia</div>
+<div class="step-desc">
+        Revisar/ajustar terapia de mantenimiento (LABA+LAMA ± ICS según perfil).<br/>
+        Vacunación: influenza, neumococo, COVID-19, VRS (≥ 60 años).<br/>
+        Educación técnica inhalatoria y plan de acción escrito.<br/>
+        Rehabilitación pulmonar: iniciar dentro de 4 semanas post-exacerbación.<br/>
         Evaluar LTOT si PaO₂ &lt; 55 mmHg en reposo estable.
       </div>
-    </div>
-  </li>
+</div>
+</li>
 </ul>
 </div><!-- end panel-4 -->
-
 <!-- TAB 5: CALCULADORAS -->
 <div class="tab-panel" id="panel-5">
 <div class="section-title">🧮 Calculadoras Interactivas</div>
-
 <div class="grid-2">
 <!-- DECAF -->
 <div class="calc-box">
-  <div class="calc-title">📊 Score DECAF — Mortalidad Hospitalaria</div>
-  <div class="calc-field">
-    <label>Disnea basal (eMRCD)</label>
-    <select id="d-emrcd">
-      <option value="0">eMRCD 1–4 (puede salir de casa)</option>
-      <option value="1">eMRCD 5a (limitado en casa, puede moverse)</option>
-      <option value="2">eMRCD 5b (limitado en casa, cama-silla)</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Eosinopenia (&lt; 50 cél/µL)</label>
-    <select id="d-eosi">
-      <option value="0">No</option>
-      <option value="1">Sí</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Consolidación en Rx tórax</label>
-    <select id="d-consol">
-      <option value="0">No</option>
-      <option value="1">Sí</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Acidemia (pH &lt; 7.30)</label>
-    <select id="d-acid">
-      <option value="0">No</option>
-      <option value="1">Sí</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Fibrilación auricular activa</label>
-    <select id="d-fa">
-      <option value="0">No</option>
-      <option value="1">Sí</option>
-    </select>
-  </div>
-  <button class="calc-btn" onclick="calcDECAF()">Calcular DECAF</button>
-  <div class="calc-result" id="decaf-result"></div>
+<div class="calc-title">📊 Score DECAF — Mortalidad Hospitalaria</div>
+<div class="calc-field">
+<label>Disnea basal (eMRCD)</label>
+<select id="d-emrcd">
+<option value="0">eMRCD 1–4 (puede salir de casa)</option>
+<option value="1">eMRCD 5a (limitado en casa, puede moverse)</option>
+<option value="2">eMRCD 5b (limitado en casa, cama-silla)</option>
+</select>
 </div>
-
+<div class="calc-field">
+<label>Eosinopenia (&lt; 50 cél/µL)</label>
+<select id="d-eosi">
+<option value="0">No</option>
+<option value="1">Sí</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Consolidación en Rx tórax</label>
+<select id="d-consol">
+<option value="0">No</option>
+<option value="1">Sí</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Acidemia (pH &lt; 7.30)</label>
+<select id="d-acid">
+<option value="0">No</option>
+<option value="1">Sí</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Fibrilación auricular activa</label>
+<select id="d-fa">
+<option value="0">No</option>
+<option value="1">Sí</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcDECAF()">Calcular DECAF</button>
+<div class="calc-result" id="decaf-result"></div>
+</div>
 <!-- BAP-65 -->
 <div class="calc-box">
-  <div class="calc-title">📊 Score BAP-65 — Mortalidad y VM</div>
-  <div class="calc-field">
-    <label>BUN ≥ 25 mg/dL</label>
-    <select id="b-bun">
-      <option value="0">No (&lt; 25)</option>
-      <option value="1">Sí (≥ 25)</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Alteración mental / encefalopatía</label>
-    <select id="b-mental">
-      <option value="0">No</option>
-      <option value="1">Sí</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Pulso ≥ 109 lpm</label>
-    <select id="b-pulse">
-      <option value="0">No (&lt; 109)</option>
-      <option value="1">Sí (≥ 109)</option>
-    </select>
-  </div>
-  <div class="calc-field">
-    <label>Edad del paciente</label>
-    <select id="b-age">
-      <option value="young">Menor de 65 años</option>
-      <option value="old">65 años o más</option>
-    </select>
-  </div>
-  <button class="calc-btn" onclick="calcBAP65()">Calcular BAP-65</button>
-  <div class="calc-result" id="bap65-result"></div>
+<div class="calc-title">📊 Score BAP-65 — Mortalidad y VM</div>
+<div class="calc-field">
+<label>BUN ≥ 25 mg/dL</label>
+<select id="b-bun">
+<option value="0">No (&lt; 25)</option>
+<option value="1">Sí (≥ 25)</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Alteración mental / encefalopatía</label>
+<select id="b-mental">
+<option value="0">No</option>
+<option value="1">Sí</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Pulso ≥ 109 lpm</label>
+<select id="b-pulse">
+<option value="0">No (&lt; 109)</option>
+<option value="1">Sí (≥ 109)</option>
+</select>
+</div>
+<div class="calc-field">
+<label>Edad del paciente</label>
+<select id="b-age">
+<option value="young">Menor de 65 años</option>
+<option value="old">65 años o más</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcBAP65()">Calcular BAP-65</button>
+<div class="calc-result" id="bap65-result"></div>
 </div>
 </div>
-
 <div class="grid-2">
 <!-- PaO2/FiO2 -->
 <div class="calc-box">
-  <div class="calc-title">💨 Cociente PaO₂/FiO₂ (Índice de Horowitz)</div>
-  <div class="calc-field">
-    <label>PaO₂ (mmHg) — de la GSA</label>
-    <input type="number" id="pao2" placeholder="ej. 65" min="20" max="600">
-  </div>
-  <div class="calc-field">
-    <label>FiO₂ — fracción de O₂ administrada</label>
-    <select id="fio2">
-      <option value="0.21">0.21 (21%) — Aire ambiente</option>
-      <option value="0.24">0.24 (24%) — Venturi 24%</option>
-      <option value="0.28">0.28 (28%) — Venturi 28%</option>
-      <option value="0.31">0.31 (31%) — Venturi 31%</option>
-      <option value="0.35">0.35 (35%) — Venturi 35%</option>
-      <option value="0.40">0.40 (40%) — Venturi 40% / GN 6L</option>
-      <option value="0.50">0.50 (50%)</option>
-      <option value="0.60">0.60 (60%)</option>
-      <option value="1.00">1.00 (100%) — FiO₂ máxima</option>
-    </select>
-  </div>
-  <button class="calc-btn" onclick="calcPF()">Calcular PaO₂/FiO₂</button>
-  <div class="calc-result" id="pf-result"></div>
+<div class="calc-title">💨 Cociente PaO₂/FiO₂ (Índice de Horowitz)</div>
+<div class="calc-field">
+<label>PaO₂ (mmHg) — de la GSA</label>
+<input id="pao2" max="600" min="20" placeholder="ej. 65" type="number"/>
 </div>
-
+<div class="calc-field">
+<label>FiO₂ — fracción de O₂ administrada</label>
+<select id="fio2">
+<option value="0.21">0.21 (21%) — Aire ambiente</option>
+<option value="0.24">0.24 (24%) — Venturi 24%</option>
+<option value="0.28">0.28 (28%) — Venturi 28%</option>
+<option value="0.31">0.31 (31%) — Venturi 31%</option>
+<option value="0.35">0.35 (35%) — Venturi 35%</option>
+<option value="0.40">0.40 (40%) — Venturi 40% / GN 6L</option>
+<option value="0.50">0.50 (50%)</option>
+<option value="0.60">0.60 (60%)</option>
+<option value="1.00">1.00 (100%) — FiO₂ máxima</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcPF()">Calcular PaO₂/FiO₂</button>
+<div class="calc-result" id="pf-result"></div>
+</div>
 <!-- Gradiente A-a -->
 <div class="calc-box">
-  <div class="calc-title">🔬 Gradiente Alvéolo-Arterial de O₂</div>
-  <div class="calc-field">
-    <label>PaO₂ en GSA (mmHg)</label>
-    <input type="number" id="g-pao2" placeholder="ej. 65" min="20" max="200">
-  </div>
-  <div class="calc-field">
-    <label>PaCO₂ en GSA (mmHg)</label>
-    <input type="number" id="g-paco2" placeholder="ej. 55" min="15" max="150">
-  </div>
-  <div class="calc-field">
-    <label>FiO₂ (fracción decimal)</label>
-    <input type="number" id="g-fio2" placeholder="ej. 0.21" min="0.21" max="1.00" step="0.01" value="0.21">
-  </div>
-  <div class="calc-field">
-    <label>Edad del paciente (años)</label>
-    <input type="number" id="g-age" placeholder="ej. 68" min="18" max="100">
-  </div>
-  <button class="calc-btn" onclick="calcGrad()">Calcular Gradiente A-a</button>
-  <div class="calc-result" id="grad-result"></div>
+<div class="calc-title">🔬 Gradiente Alvéolo-Arterial de O₂</div>
+<div class="calc-field">
+<label>PaO₂ en GSA (mmHg)</label>
+<input id="g-pao2" max="200" min="20" placeholder="ej. 65" type="number"/>
+</div>
+<div class="calc-field">
+<label>PaCO₂ en GSA (mmHg)</label>
+<input id="g-paco2" max="150" min="15" placeholder="ej. 55" type="number"/>
+</div>
+<div class="calc-field">
+<label>FiO₂ (fracción decimal)</label>
+<input id="g-fio2" max="1.00" min="0.21" placeholder="ej. 0.21" step="0.01" type="number" value="0.21"/>
+</div>
+<div class="calc-field">
+<label>Edad del paciente (años)</label>
+<input id="g-age" max="100" min="18" placeholder="ej. 68" type="number"/>
+</div>
+<button class="calc-btn" onclick="calcGrad()">Calcular Gradiente A-a</button>
+<div class="calc-result" id="grad-result"></div>
 </div>
 </div>
-
 <!-- FEV1 GOLD -->
 <div class="calc-box" style="max-width:600px;">
-  <div class="calc-title">📏 Clasificación GOLD por Espirometría (FEV₁ post-BD)</div>
-  <div class="calc-field">
-    <label>FEV₁ % del predicho (post-broncodilatador)</label>
-    <input type="number" id="fev1" placeholder="ej. 48" min="1" max="150">
-  </div>
-  <div class="calc-field">
-    <label>FEV₁/FVC (Relación, en decimal)</label>
-    <input type="number" id="fev1fvc" placeholder="ej. 0.62" min="0.2" max="0.9" step="0.01">
-  </div>
-  <button class="calc-btn" onclick="calcFEV1()">Clasificar GOLD</button>
-  <div class="calc-result" id="fev1-result"></div>
+<div class="calc-title">📏 Clasificación GOLD por Espirometría (FEV₁ post-BD)</div>
+<div class="calc-field">
+<label>FEV₁ % del predicho (post-broncodilatador)</label>
+<input id="fev1" max="150" min="1" placeholder="ej. 48" type="number"/>
 </div>
-
+<div class="calc-field">
+<label>FEV₁/FVC (Relación, en decimal)</label>
+<input id="fev1fvc" max="0.9" min="0.2" placeholder="ej. 0.62" step="0.01" type="number"/>
+</div>
+<button class="calc-btn" onclick="calcFEV1()">Clasificar GOLD</button>
+<div class="calc-result" id="fev1-result"></div>
+</div>
 </div><!-- end panel-5 -->
-
 <!-- TAB 6: COMPARATIVA GUÍAS -->
 <div class="tab-panel" id="panel-6">
 <div class="section-title">📊 Evolución de las Guías: GOLD 2022 → 2023 → 2025 → 2026</div>
 <div class="table-wrap">
-  <table>
-    <tr>
-      <th>Aspecto</th>
-      <th>GOLD 2022</th>
-      <th>GOLD 2023–2024</th>
-      <th>GOLD 2025–2026 <span class="tag-new">ACTUAL</span></th>
-    </tr>
-    <tr>
-      <td><strong>Definición AECOPD</strong></td>
-      <td>Empeoramiento síntomas; basada en tratamiento</td>
-      <td>Empeoramiento 14d; énfasis en impacto funcional</td>
-      <td class="td-g">Propuesta Roma 2023: clasificación por <em>presentación clínica</em>, no tratamiento</td>
-    </tr>
-    <tr>
-      <td><strong>Clasificación severidad</strong></td>
-      <td>Leve/moderada/grave por recurso utilizado</td>
-      <td>Transición a síntomas y signos</td>
-      <td class="td-g">Tabla clínica: FR, FC, SpO₂, pH, PaCO₂, conciencia — al ingreso</td>
-    </tr>
-    <tr>
-      <td><strong>Umbral Grupo E</strong></td>
-      <td>≥ 2 exacerbaciones moderadas ó 1 grave</td>
-      <td>Sin cambio</td>
-      <td class="td-g"><strong>≥ 1 exacerbación moderada ó 1 grave</strong> (umbral reducido)</td>
-    </tr>
-    <tr>
-      <td><strong>Corticosteroides</strong></td>
-      <td>5–7 días; 40 mg prednisolona</td>
-      <td>5 días confirmados</td>
-      <td class="td-g">5 días. Guiar por eosinófilos (CORTICO-COP). Sin taper.</td>
-    </tr>
-    <tr>
-      <td><strong>Antibióticos</strong></td>
-      <td>Anthonisen tipo I y II</td>
-      <td>PCT como guía; 5 días</td>
-      <td class="td-g">PCT + purulencia + ventilación. Duración 5 días. Riesgo Pseudomonas estructurado.</td>
-    </tr>
-    <tr>
-      <td><strong>Biológicos</strong></td>
-      <td>No mencionados</td>
-      <td>Dupilumab: evidencia preliminar</td>
-      <td class="td-g">Dupilumab + Mepolizumab: <strong>Nivel A</strong>. Ensifentrina: nuevo PDE3/4i</td>
-    </tr>
-    <tr>
-      <td><strong>Eosinófilos</strong></td>
-      <td>Solo para ICS en estable</td>
-      <td>Guiar ICS en estable y corticoides en exacerbación</td>
-      <td class="td-g">Biomarcador central: guía corticoides en AECOPD, biológicos, y pronóstico</td>
-    </tr>
-    <tr>
-      <td><strong>VNI</strong></td>
-      <td>Indicada en pH &lt; 7.35</td>
-      <td>Sin cambio</td>
-      <td class="td-g">Refuerzo de indicaciones, configuración y criterios fallo más explícitos</td>
-    </tr>
-    <tr>
-      <td><strong>Oxigenoterapia</strong></td>
-      <td>SpO₂ 88–92% (EPOC)</td>
-      <td>Sin cambio</td>
-      <td class="td-g">Mascarilla Venturi preferida. Énfasis evitar hiperoxia. Control GSA 30–60 min.</td>
-    </tr>
-    <tr>
-      <td><strong>Estabilidad enfermedad</strong></td>
-      <td>No definido</td>
-      <td>No definido</td>
-      <td class="td-g"><strong>Nuevo concepto 2026:</strong> "Disease stability" — 12 meses sin exacerbación mejora pronóstico</td>
-    </tr>
-    <tr>
-      <td><strong>Capítulo dedicado</strong></td>
-      <td>Sección de exacerbaciones</td>
-      <td>Capítulo 4 parcialmente revisado</td>
-      <td class="td-g"><strong>Capítulo 4 completamente reescrito</strong> (GOLD 2026)</td>
-    </tr>
-    <tr>
-      <td><strong>Metilxantinas</strong></td>
-      <td>No recomendadas (efectos adversos)</td>
-      <td>No recomendadas</td>
-      <td class="td-r">Explícitamente desaconsejadas por ↑ efectos adversos</td>
-    </tr>
-  </table>
+<table>
+<tr>
+<th>Aspecto</th>
+<th>GOLD 2022</th>
+<th>GOLD 2023–2024</th>
+<th>GOLD 2025–2026 <span class="tag-new">ACTUAL</span></th>
+</tr>
+<tr>
+<td><strong>Definición AECOPD</strong></td>
+<td>Empeoramiento síntomas; basada en tratamiento</td>
+<td>Empeoramiento 14d; énfasis en impacto funcional</td>
+<td class="td-g">Propuesta Roma 2023: clasificación por <em>presentación clínica</em>, no tratamiento</td>
+</tr>
+<tr>
+<td><strong>Clasificación severidad</strong></td>
+<td>Leve/moderada/grave por recurso utilizado</td>
+<td>Transición a síntomas y signos</td>
+<td class="td-g">Tabla clínica: FR, FC, SpO₂, pH, PaCO₂, conciencia — al ingreso</td>
+</tr>
+<tr>
+<td><strong>Umbral Grupo E</strong></td>
+<td>≥ 2 exacerbaciones moderadas ó 1 grave</td>
+<td>Sin cambio</td>
+<td class="td-g"><strong>≥ 1 exacerbación moderada ó 1 grave</strong> (umbral reducido)</td>
+</tr>
+<tr>
+<td><strong>Corticosteroides</strong></td>
+<td>5–7 días; 40 mg prednisolona</td>
+<td>5 días confirmados</td>
+<td class="td-g">5 días. Guiar por eosinófilos (CORTICO-COP). Sin taper.</td>
+</tr>
+<tr>
+<td><strong>Antibióticos</strong></td>
+<td>Anthonisen tipo I y II</td>
+<td>PCT como guía; 5 días</td>
+<td class="td-g">PCT + purulencia + ventilación. Duración 5 días. Riesgo Pseudomonas estructurado.</td>
+</tr>
+<tr>
+<td><strong>Biológicos</strong></td>
+<td>No mencionados</td>
+<td>Dupilumab: evidencia preliminar</td>
+<td class="td-g">Dupilumab + Mepolizumab: <strong>Nivel A</strong>. Ensifentrina: nuevo PDE3/4i</td>
+</tr>
+<tr>
+<td><strong>Eosinófilos</strong></td>
+<td>Solo para ICS en estable</td>
+<td>Guiar ICS en estable y corticoides en exacerbación</td>
+<td class="td-g">Biomarcador central: guía corticoides en AECOPD, biológicos, y pronóstico</td>
+</tr>
+<tr>
+<td><strong>VNI</strong></td>
+<td>Indicada en pH &lt; 7.35</td>
+<td>Sin cambio</td>
+<td class="td-g">Refuerzo de indicaciones, configuración y criterios fallo más explícitos</td>
+</tr>
+<tr>
+<td><strong>Oxigenoterapia</strong></td>
+<td>SpO₂ 88–92% (EPOC)</td>
+<td>Sin cambio</td>
+<td class="td-g">Mascarilla Venturi preferida. Énfasis evitar hiperoxia. Control GSA 30–60 min.</td>
+</tr>
+<tr>
+<td><strong>Estabilidad enfermedad</strong></td>
+<td>No definido</td>
+<td>No definido</td>
+<td class="td-g"><strong>Nuevo concepto 2026:</strong> "Disease stability" — 12 meses sin exacerbación mejora pronóstico</td>
+</tr>
+<tr>
+<td><strong>Capítulo dedicado</strong></td>
+<td>Sección de exacerbaciones</td>
+<td>Capítulo 4 parcialmente revisado</td>
+<td class="td-g"><strong>Capítulo 4 completamente reescrito</strong> (GOLD 2026)</td>
+</tr>
+<tr>
+<td><strong>Metilxantinas</strong></td>
+<td>No recomendadas (efectos adversos)</td>
+<td>No recomendadas</td>
+<td class="td-r">Explícitamente desaconsejadas por ↑ efectos adversos</td>
+</tr>
+</table>
 </div>
-
 <div class="section-subtitle">Estudios Clave que Sustentan GOLD 2026</div>
 <div class="table-wrap">
-  <table>
-    <tr><th>Estudio</th><th>Año</th><th>N</th><th>Pregunta</th><th>Resultado clave</th></tr>
-    <tr><td><strong>REDUCE</strong></td><td>2013</td><td>314</td><td>Corticoides 5 vs 14 días</td><td class="td-g">5 días no inferior a 14 días en tasa re-exacerbación a 6 meses</td></tr>
-    <tr><td><strong>CORTICO-COP</strong></td><td>2019</td><td>318</td><td>Eosinófilos &lt; 2% → evitar corticoide</td><td class="td-g">Seguro; redujo exposición a corticoides</td></tr>
-    <tr><td><strong>BOREAS</strong></td><td>2023</td><td>939</td><td>Dupilumab vs placebo en AECOPD</td><td class="td-g">↓ 34% exacerbaciones; ↑ FEV1 160 mL; ↑ calidad de vida</td></tr>
-    <tr><td><strong>NOTUS</strong></td><td>2024</td><td>935</td><td>Dupilumab confirmación</td><td class="td-g">↓ 34% exacerbaciones; confirma BOREAS</td></tr>
-    <tr><td><strong>ENHANCE-1/2</strong></td><td>2023</td><td>2693</td><td>Ensifentrina vs placebo</td><td class="td-g">↓ 42% exacerbaciones; ↑ FEV1 y calidad de vida</td></tr>
-    <tr><td><strong>PROHOSP</strong></td><td>2010</td><td>1359</td><td>PCT-guiada vs estándar ATB</td><td class="td-g">↓ ATB sin incrementar mortalidad en AECOPD</td></tr>
-    <tr><td><strong>Anthonisen 1987</strong></td><td>1987</td><td>173</td><td>ATB vs placebo en AECOPD</td><td class="td-g">ATB beneficioso en tipos I y II; base de la clasificación clínica</td></tr>
-  </table>
+<table>
+<tr><th>Estudio</th><th>Año</th><th>N</th><th>Pregunta</th><th>Resultado clave</th></tr>
+<tr><td><strong>REDUCE</strong></td><td>2013</td><td>314</td><td>Corticoides 5 vs 14 días</td><td class="td-g">5 días no inferior a 14 días en tasa re-exacerbación a 6 meses</td></tr>
+<tr><td><strong>CORTICO-COP</strong></td><td>2019</td><td>318</td><td>Eosinófilos &lt; 2% → evitar corticoide</td><td class="td-g">Seguro; redujo exposición a corticoides</td></tr>
+<tr><td><strong>BOREAS</strong></td><td>2023</td><td>939</td><td>Dupilumab vs placebo en AECOPD</td><td class="td-g">↓ 34% exacerbaciones; ↑ FEV1 160 mL; ↑ calidad de vida</td></tr>
+<tr><td><strong>NOTUS</strong></td><td>2024</td><td>935</td><td>Dupilumab confirmación</td><td class="td-g">↓ 34% exacerbaciones; confirma BOREAS</td></tr>
+<tr><td><strong>ENHANCE-1/2</strong></td><td>2023</td><td>2693</td><td>Ensifentrina vs placebo</td><td class="td-g">↓ 42% exacerbaciones; ↑ FEV1 y calidad de vida</td></tr>
+<tr><td><strong>PROHOSP</strong></td><td>2010</td><td>1359</td><td>PCT-guiada vs estándar ATB</td><td class="td-g">↓ ATB sin incrementar mortalidad en AECOPD</td></tr>
+<tr><td><strong>Anthonisen 1987</strong></td><td>1987</td><td>173</td><td>ATB vs placebo en AECOPD</td><td class="td-g">ATB beneficioso en tipos I y II; base de la clasificación clínica</td></tr>
+</table>
 </div>
 </div><!-- end panel-6 -->
-
 <!-- TAB 7: CASOS CLÍNICOS -->
 <div class="tab-panel" id="panel-7">
 <div class="section-title">🏥 Casos Clínicos Comentados</div>
-
 <!-- CASO 1 -->
 <div class="case-box">
-  <div class="case-header">
-    <div class="case-num">1</div>
-    <div>
-      <div class="case-title">Exacerbación Moderada con Acidosis Respiratoria</div>
-      <div class="case-sub">EPOC Grave (GOLD 3), Hombre 71 años, Urgencias</div>
-    </div>
+<div class="case-header">
+<div class="case-num">1</div>
+<div>
+<div class="case-title">Exacerbación Moderada con Acidosis Respiratoria</div>
+<div class="case-sub">EPOC Grave (GOLD 3), Hombre 71 años, Urgencias</div>
+</div>
+</div>
+<div class="case-label">Presentación</div>
+<div class="case-scenario">
+    Paciente masculino 71 años, fumador 40 paquetes/año (exfumador hace 3 años). EPOC GOLD 3 (FEV1 38%), en tratamiento con LABA + LAMA. Consulta por disnea progresiva de 3 días, tos con esputo amarillo-verdoso abundante. Niega fiebre. 1 exacerbación moderada hace 8 meses (ambulatoria).<br/><br/>
+<strong>Al examen:</strong> FR 30 rpm, FC 112 lpm, T° 37.6°C, SpO₂ 84% (aire ambiente), TA 138/86. Uso marcado de musculatura accesoria. No puede completar oraciones. Espiración prolongada. Sin crepitantes.
   </div>
-  <div class="case-label">Presentación</div>
-  <div class="case-scenario">
-    Paciente masculino 71 años, fumador 40 paquetes/año (exfumador hace 3 años). EPOC GOLD 3 (FEV1 38%), en tratamiento con LABA + LAMA. Consulta por disnea progresiva de 3 días, tos con esputo amarillo-verdoso abundante. Niega fiebre. 1 exacerbación moderada hace 8 meses (ambulatoria).<br><br>
-    <strong>Al examen:</strong> FR 30 rpm, FC 112 lpm, T° 37.6°C, SpO₂ 84% (aire ambiente), TA 138/86. Uso marcado de musculatura accesoria. No puede completar oraciones. Espiración prolongada. Sin crepitantes.
+<div class="case-label">Laboratorio</div>
+<div class="case-scenario">
+<strong>GSA (FiO₂ 0.28 — Venturi 28%):</strong> pH 7.31 | PaCO₂ 64 mmHg | PaO₂ 52 mmHg | HCO₃ 31.2 mEq/L | BE +7<br/>
+<strong>Hemograma:</strong> Leucos 11,800 (N: 82%), Eosinófilos 180 cél/µL (1.5%). Hb 15.2 g/dL<br/>
+<strong>PCR:</strong> 68 mg/L | PCT: 0.32 ng/mL | Na 138, K 3.2, Creatinina 1.1<br/>
+<strong>NT-proBNP:</strong> 210 ng/L | Rx tórax: hiperinflación, sin consolidación
   </div>
-  <div class="case-label">Laboratorio</div>
-  <div class="case-scenario">
-    <strong>GSA (FiO₂ 0.28 — Venturi 28%):</strong> pH 7.31 | PaCO₂ 64 mmHg | PaO₂ 52 mmHg | HCO₃ 31.2 mEq/L | BE +7<br>
-    <strong>Hemograma:</strong> Leucos 11,800 (N: 82%), Eosinófilos 180 cél/µL (1.5%). Hb 15.2 g/dL<br>
-    <strong>PCR:</strong> 68 mg/L | PCT: 0.32 ng/mL | Na 138, K 3.2, Creatinina 1.1<br>
-    <strong>NT-proBNP:</strong> 210 ng/L | Rx tórax: hiperinflación, sin consolidación
+<div class="case-label">Clasificación Roma 2023 / GOLD 2026</div>
+<div class="case-scenario">
+    FR 30 ✓ → moderada-grave | SpO₂ 84% AA → grave | pH 7.31 → moderada-grave | PaCO₂ 64 → moderada<br/>
+<strong>→ EXACERBACIÓN GRAVE (criterio pH + SpO₂)</strong> | Grupo E (1 exacerbación previa moderada, umbral GOLD 2026)
   </div>
-  <div class="case-label">Clasificación Roma 2023 / GOLD 2026</div>
-  <div class="case-scenario">
-    FR 30 ✓ → moderada-grave | SpO₂ 84% AA → grave | pH 7.31 → moderada-grave | PaCO₂ 64 → moderada<br>
-    <strong>→ EXACERBACIÓN GRAVE (criterio pH + SpO₂)</strong> | Grupo E (1 exacerbación previa moderada, umbral GOLD 2026)
+<div class="case-label">Manejo Aplicando GOLD 2026</div>
+<div class="case-scenario">
+<strong>1. O₂:</strong> Venturi 28% → SpO₂ 89–91%. Control GSA en 60 min.<br/>
+<strong>2. BD:</strong> Salbutamol 2.5 mg + Ipratropio 0.5 mg NEB c/20 min × 3, luego c/4h.<br/>
+<strong>3. VNI:</strong> pH 7.31 + PaCO₂ 64 + FR 30 + fatiga → <strong>INDICACIÓN CLARA BiPAP</strong>. IPAP 12 → 16 cmH₂O, EPAP 5, FR backup 12. SpO₂ 88–92% con FiO₂ suplementaria.<br/>
+<strong>4. Corticoide:</strong> Eosinófilos 180 cél/µL (zona intermedia). Exacerbación grave → Prednisolona 40 mg × 5 días indicada.<br/>
+<strong>5. ATB:</strong> PCT 0.32 + esputo purulento → Amoxicilina-clavulanato 1 g c/8h VO (sin riesgo Pseudomonas) × 5 días.<br/>
+<strong>6. Electrolitos:</strong> Reponer K⁺ (3.2 mEq/L → riesgo con salbutamol). KCl 20 mEq en 2h.<br/>
+<strong>Control:</strong> GSA en 90 min → pH 7.38, PaCO₂ 54. Buena respuesta. Continuar VNI. Hospitalización en sala.
   </div>
-  <div class="case-label">Manejo Aplicando GOLD 2026</div>
-  <div class="case-scenario">
-    <strong>1. O₂:</strong> Venturi 28% → SpO₂ 89–91%. Control GSA en 60 min.<br>
-    <strong>2. BD:</strong> Salbutamol 2.5 mg + Ipratropio 0.5 mg NEB c/20 min × 3, luego c/4h.<br>
-    <strong>3. VNI:</strong> pH 7.31 + PaCO₂ 64 + FR 30 + fatiga → <strong>INDICACIÓN CLARA BiPAP</strong>. IPAP 12 → 16 cmH₂O, EPAP 5, FR backup 12. SpO₂ 88–92% con FiO₂ suplementaria.<br>
-    <strong>4. Corticoide:</strong> Eosinófilos 180 cél/µL (zona intermedia). Exacerbación grave → Prednisolona 40 mg × 5 días indicada.<br>
-    <strong>5. ATB:</strong> PCT 0.32 + esputo purulento → Amoxicilina-clavulanato 1 g c/8h VO (sin riesgo Pseudomonas) × 5 días.<br>
-    <strong>6. Electrolitos:</strong> Reponer K⁺ (3.2 mEq/L → riesgo con salbutamol). KCl 20 mEq en 2h.<br>
-    <strong>Control:</strong> GSA en 90 min → pH 7.38, PaCO₂ 54. Buena respuesta. Continuar VNI. Hospitalización en sala.
-  </div>
-  <div class="alert alert-emerald">
-    <strong>Puntos clave:</strong> (1) pH 7.31 = VNI obligatoria. (2) Eosinófilos 180 no excluyen corticoide en exacerbación grave. (3) PCT 0.32 + purulencia justifican ATB a pesar de eosinófilos intermedios. (4) GOLD 2026: este paciente es ahora Grupo E con 1 sola exacerbación previa moderada.
+<div class="alert alert-emerald">
+<strong>Puntos clave:</strong> (1) pH 7.31 = VNI obligatoria. (2) Eosinófilos 180 no excluyen corticoide en exacerbación grave. (3) PCT 0.32 + purulencia justifican ATB a pesar de eosinófilos intermedios. (4) GOLD 2026: este paciente es ahora Grupo E con 1 sola exacerbación previa moderada.
   </div>
 </div>
-
 <!-- CASO 2 -->
 <div class="case-box">
-  <div class="case-header">
-    <div class="case-num">2</div>
-    <div>
-      <div class="case-title">Exacerbación Grave con Sospecha de TEP Oculto</div>
-      <div class="case-sub">EPOC Moderado (GOLD 2), Mujer 66 años, Urgencias</div>
-    </div>
+<div class="case-header">
+<div class="case-num">2</div>
+<div>
+<div class="case-title">Exacerbación Grave con Sospecha de TEP Oculto</div>
+<div class="case-sub">EPOC Moderado (GOLD 2), Mujer 66 años, Urgencias</div>
+</div>
+</div>
+<div class="case-label">Presentación</div>
+<div class="case-scenario">
+    Mujer 66 años, EPOC GOLD 2 (FEV1 58%), en tratamiento con LABA+ICS. Consulta por disnea súbita intensa de inicio hace 6 horas, sin pródromos infecciosos. Niega tos o cambio en esputo. Viaje en bus 8 horas hace 4 días.<br/><br/>
+<strong>Al examen:</strong> FR 34 rpm, FC 124 lpm, TA 104/68, SpO₂ 82% (AA). Ligero uso musculatura accesoria. Sin esputo. Sin fiebre. Sin crepitantes. Sin edemas.
   </div>
-  <div class="case-label">Presentación</div>
-  <div class="case-scenario">
-    Mujer 66 años, EPOC GOLD 2 (FEV1 58%), en tratamiento con LABA+ICS. Consulta por disnea súbita intensa de inicio hace 6 horas, sin pródromos infecciosos. Niega tos o cambio en esputo. Viaje en bus 8 horas hace 4 días.<br><br>
-    <strong>Al examen:</strong> FR 34 rpm, FC 124 lpm, TA 104/68, SpO₂ 82% (AA). Ligero uso musculatura accesoria. Sin esputo. Sin fiebre. Sin crepitantes. Sin edemas.
+<div class="case-label">Laboratorio</div>
+<div class="case-scenario">
+<strong>GSA (Venturi 28%):</strong> pH 7.44 | PaCO₂ 28 mmHg | PaO₂ 54 mmHg | HCO₃ 19<br/>
+<strong>Hemograma:</strong> Normal. Leucos 8,200 (sin bandas). Eosinófilos 620 cél/µL<br/>
+<strong>PCT:</strong> 0.08 ng/mL | PCR: 18 mg/L | D-dímero: 3,450 ng/mL ↑↑<br/>
+<strong>NT-proBNP:</strong> 1,240 ng/L | ECG: Taquicardia sinusal, S1Q3T3, TDRDO incompleto | Rx tórax: sin consolidación, leve cardiomegalia
   </div>
-  <div class="case-label">Laboratorio</div>
-  <div class="case-scenario">
-    <strong>GSA (Venturi 28%):</strong> pH 7.44 | PaCO₂ 28 mmHg | PaO₂ 54 mmHg | HCO₃ 19<br>
-    <strong>Hemograma:</strong> Normal. Leucos 8,200 (sin bandas). Eosinófilos 620 cél/µL<br>
-    <strong>PCT:</strong> 0.08 ng/mL | PCR: 18 mg/L | D-dímero: 3,450 ng/mL ↑↑<br>
-    <strong>NT-proBNP:</strong> 1,240 ng/L | ECG: Taquicardia sinusal, S1Q3T3, TDRDO incompleto | Rx tórax: sin consolidación, leve cardiomegalia
+<div class="case-label">Análisis Crítico</div>
+<div class="case-scenario">
+<strong>Señales de alarma anti-AECOPD:</strong> (1) Sin pródromos ni esputo purulento. (2) GSA: ALCALOSIS respiratoria (↓ PaCO₂) — opuesto a lo esperado en AECOPD. (3) D-dímero 3,450 muy elevado. (4) Viaje prolongado + taquicardia. (5) ECG sugestivo. (6) PCT &lt; 0.1.<br/>
+<strong>Wells TEP:</strong> Inmovilización &gt; 3d (3) + FC &gt; 100 (1.5) + TEP más probable (3) = 7.5 → Alta probabilidad
   </div>
-  <div class="case-label">Análisis Crítico</div>
-  <div class="case-scenario">
-    <strong>Señales de alarma anti-AECOPD:</strong> (1) Sin pródromos ni esputo purulento. (2) GSA: ALCALOSIS respiratoria (↓ PaCO₂) — opuesto a lo esperado en AECOPD. (3) D-dímero 3,450 muy elevado. (4) Viaje prolongado + taquicardia. (5) ECG sugestivo. (6) PCT &lt; 0.1.<br>
-    <strong>Wells TEP:</strong> Inmovilización &gt; 3d (3) + FC &gt; 100 (1.5) + TEP más probable (3) = 7.5 → Alta probabilidad
+<div class="case-label">Conducta</div>
+<div class="case-scenario">
+<strong>→ Angiotac pulmonar urgente:</strong> TEP bilateral masivo con carga significativa bilateral + dilatación VD.<br/>
+<strong>Tratamiento:</strong> Anticoagulación sistémica → HBPM 1 mg/kg c/12h (estabilidad hemodinámica). Oxígeno controlado SpO₂ 88–92%. BD SABA de soporte. No antibiótico (PCT 0.08 + sin purulencia). No VNI (no hipercapnia). Evaluar criterios de trombólisis sistémica (TA 104/68 → borderline).
   </div>
-  <div class="case-label">Conducta</div>
-  <div class="case-scenario">
-    <strong>→ Angiotac pulmonar urgente:</strong> TEP bilateral masivo con carga significativa bilateral + dilatación VD.<br>
-    <strong>Tratamiento:</strong> Anticoagulación sistémica → HBPM 1 mg/kg c/12h (estabilidad hemodinámica). Oxígeno controlado SpO₂ 88–92%. BD SABA de soporte. No antibiótico (PCT 0.08 + sin purulencia). No VNI (no hipercapnia). Evaluar criterios de trombólisis sistémica (TA 104/68 → borderline).
-  </div>
-  <div class="alert alert-red">
-    <strong>Mensaje clave:</strong> TEP en EPOC es frecuente (5–25% de "AECOPD graves") y tiene un patrón gasométrico opuesto: PaCO₂ bajo (alcalosis respiratoria) en lugar de PaCO₂ elevado. Un EPOC con hipoxemia grave SIN hipercapnia debe alertar sobre diagnósticos alternativos.
+<div class="alert alert-red">
+<strong>Mensaje clave:</strong> TEP en EPOC es frecuente (5–25% de "AECOPD graves") y tiene un patrón gasométrico opuesto: PaCO₂ bajo (alcalosis respiratoria) en lugar de PaCO₂ elevado. Un EPOC con hipoxemia grave SIN hipercapnia debe alertar sobre diagnósticos alternativos.
   </div>
 </div>
-
 <!-- CASO 3 -->
 <div class="case-box">
-  <div class="case-header">
-    <div class="case-num">3</div>
-    <div>
-      <div class="case-title">Exacerbación Leve — ¿Alta o Ingreso?</div>
-      <div class="case-sub">EPOC Leve (GOLD 1), Hombre 58 años, Consulta Urgencias</div>
-    </div>
+<div class="case-header">
+<div class="case-num">3</div>
+<div>
+<div class="case-title">Exacerbación Leve — ¿Alta o Ingreso?</div>
+<div class="case-sub">EPOC Leve (GOLD 1), Hombre 58 años, Consulta Urgencias</div>
+</div>
+</div>
+<div class="case-label">Presentación</div>
+<div class="case-scenario">
+    Hombre 58 años, EPOC GOLD 1 (FEV1 82%), fumador activo 25 paquetes/año. Tratamiento: SABA a demanda (no tiene LABD). Sin exacerbaciones previas. Consulta por 3 días de tos con esputo amarillento, disnea leve (solo con escaleras). Vive solo, adherencia irregular.<br/><br/>
+<strong>Al examen:</strong> FR 20 rpm, FC 92 lpm, SpO₂ 95% (AA), T° 37.3°C, TA 128/80. Leve sibilancias espiratorias. Sin uso musculatura accesoria. Orientado y colaborador.
   </div>
-  <div class="case-label">Presentación</div>
-  <div class="case-scenario">
-    Hombre 58 años, EPOC GOLD 1 (FEV1 82%), fumador activo 25 paquetes/año. Tratamiento: SABA a demanda (no tiene LABD). Sin exacerbaciones previas. Consulta por 3 días de tos con esputo amarillento, disnea leve (solo con escaleras). Vive solo, adherencia irregular.<br><br>
-    <strong>Al examen:</strong> FR 20 rpm, FC 92 lpm, SpO₂ 95% (AA), T° 37.3°C, TA 128/80. Leve sibilancias espiratorias. Sin uso musculatura accesoria. Orientado y colaborador.
+<div class="case-label">Laboratorio</div>
+<div class="case-scenario">
+<strong>No se realiza GSA</strong> (SpO₂ 95%, FR normal, sin signos de gravedad).<br/>
+<strong>PCT:</strong> 0.18 ng/mL | PCR: 44 mg/L | Eosinófilos: 380 cél/µL | Hemograma: Leucos 10,400 (N 72%).<br/>
+<strong>Rx tórax:</strong> Normal, sin consolidación.
   </div>
-  <div class="case-label">Laboratorio</div>
-  <div class="case-scenario">
-    <strong>No se realiza GSA</strong> (SpO₂ 95%, FR normal, sin signos de gravedad).<br>
-    <strong>PCT:</strong> 0.18 ng/mL | PCR: 44 mg/L | Eosinófilos: 380 cél/µL | Hemograma: Leucos 10,400 (N 72%).<br>
-    <strong>Rx tórax:</strong> Normal, sin consolidación.
-  </div>
-  <div class="case-label">Clasificación Roma 2023</div>
-  <div class="case-scenario">
-    FR ≤ 24 ✓ | FC &lt; 100 ✓ | SpO₂ ≥ 94% ✓ | Sin acidosis ✓ → <strong>EXACERBACIÓN LEVE</strong><br>
+<div class="case-label">Clasificación Roma 2023</div>
+<div class="case-scenario">
+    FR ≤ 24 ✓ | FC &lt; 100 ✓ | SpO₂ ≥ 94% ✓ | Sin acidosis ✓ → <strong>EXACERBACIÓN LEVE</strong><br/>
     GOLD 2026 Grupo: Sin exacerbaciones previas → Grupo A (FEV1 82%, síntomas leves)
   </div>
-  <div class="case-label">Decisión Clínica — Alta con tratamiento ambulatorio</div>
-  <div class="case-scenario">
-    <strong>Criterios favorables para alta:</strong> SpO₂ 95%, FR normal, sin fatiga, orientado, Rx normal.<br>
-    <strong>Factor de riesgo social:</strong> Vive solo, adherencia irregular → Observación en urgencias 2–4h post-tratamiento.<br><br>
-    <strong>Tratamiento:</strong><br>
-    • SABA: Salbutamol MDI 400 µg c/4h × 5–7 días<br>
-    • ATB: PCT 0.18 + esputo purulento + PCR 44 → Amoxicilina-clavulanato 875/125 mg c/8h × 5 días<br>
-    • Corticoide: Eosinófilos 380 (↑) + exacerbación leve → Prednisolona 40 mg × 5 días (beneficio probable)<br>
-    • INICIAR LABD: LAMA (tiotropio) como parte del plan de alta — GOLD 2026 indica iniciar/ajustar mantenimiento antes del egreso<br>
+<div class="case-label">Decisión Clínica — Alta con tratamiento ambulatorio</div>
+<div class="case-scenario">
+<strong>Criterios favorables para alta:</strong> SpO₂ 95%, FR normal, sin fatiga, orientado, Rx normal.<br/>
+<strong>Factor de riesgo social:</strong> Vive solo, adherencia irregular → Observación en urgencias 2–4h post-tratamiento.<br/><br/>
+<strong>Tratamiento:</strong><br/>
+    • SABA: Salbutamol MDI 400 µg c/4h × 5–7 días<br/>
+    • ATB: PCT 0.18 + esputo purulento + PCR 44 → Amoxicilina-clavulanato 875/125 mg c/8h × 5 días<br/>
+    • Corticoide: Eosinófilos 380 (↑) + exacerbación leve → Prednisolona 40 mg × 5 días (beneficio probable)<br/>
+    • INICIAR LABD: LAMA (tiotropio) como parte del plan de alta — GOLD 2026 indica iniciar/ajustar mantenimiento antes del egreso<br/>
     • Seguimiento: Médico en 5–7 días (educación inhalatoria, abstinencia tabáquica, vacunas)
   </div>
-  <div class="alert alert-green">
-    <strong>Mensaje clave:</strong> El alta en exacerbación leve es apropiada si los criterios clínicos están presentes. El GOLD 2026 enfatiza que la exacerbación es una oportunidad de revisión de la terapia de mantenimiento — este paciente pasa de SABA solo a LAMA, reduciendo riesgo de futura exacerbación. La visita ambulatoria precoz (7 días) es indispensable.
+<div class="alert alert-green">
+<strong>Mensaje clave:</strong> El alta en exacerbación leve es apropiada si los criterios clínicos están presentes. El GOLD 2026 enfatiza que la exacerbación es una oportunidad de revisión de la terapia de mantenimiento — este paciente pasa de SABA solo a LAMA, reduciendo riesgo de futura exacerbación. La visita ambulatoria precoz (7 días) es indispensable.
   </div>
 </div>
-
 </div><!-- end panel-7 -->
-
 <!-- TAB 8: QUIZ -->
 <div class="tab-panel" id="panel-8">
 <div class="section-title">📝 Quiz de Autoevaluación</div>
 <div class="quiz-selector" id="quizSelector">
-  <button class="quiz-sel-btn active" onclick="selectQuiz(1, this)">📘 Quiz 1 — Conceptos Fundamentales</button>
-  <button class="quiz-sel-btn" onclick="selectQuiz(2, this)">🔬 Quiz 2 — Diagnóstico y Laboratorio</button>
-  <button class="quiz-sel-btn" onclick="selectQuiz(3, this)">💊 Quiz 3 — Casos Clínicos y Tratamiento</button>
+<button class="quiz-sel-btn active" onclick="selectQuiz(1, this)">📘 Quiz 1 — Conceptos Fundamentales</button>
+<button class="quiz-sel-btn" onclick="selectQuiz(2, this)">🔬 Quiz 2 — Diagnóstico y Laboratorio</button>
+<button class="quiz-sel-btn" onclick="selectQuiz(3, this)">💊 Quiz 3 — Casos Clínicos y Tratamiento</button>
 </div>
 <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgress"></div></div>
 <div class="quiz-info">
-  <span id="quizCounter">Pregunta 1 de 10</span>
-  <span id="quizScore">Puntos: 0/0</span>
+<span id="quizCounter">Pregunta 1 de 10</span>
+<span id="quizScore">Puntos: 0/0</span>
 </div>
 <div id="quizArea"></div>
-<div id="quizResultBox" class="quiz-result-box">
-  <div class="quiz-score-label">Resultado final</div>
-  <div class="quiz-score" id="finalScore"></div>
-  <div id="finalMsg" class="quiz-msg"></div>
-  <button class="quiz-btn quiz-btn-primary" style="margin-top:18px;" onclick="restartQuiz()">Reiniciar Quiz</button>
+<div class="quiz-result-box" id="quizResultBox">
+<div class="quiz-score-label">Resultado final</div>
+<div class="quiz-score" id="finalScore"></div>
+<div class="quiz-msg" id="finalMsg"></div>
+<button class="quiz-btn quiz-btn-primary" onclick="restartQuiz()" style="margin-top:18px;">Reiniciar Quiz</button>
 </div>
 </div><!-- end panel-8 -->
-
 </div><!-- end main -->
 <div class="croce-footer">
   Biblioteca Médica Personal Croce · Guía modelo visual claro v1.0 · Dr. Luis E. Croce A.
 </div>
-
 </div><!-- end app -->
-
 <script>
 // ── ACCESS ──
 // ── TABS ──
@@ -2163,5 +2115,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </script>
 <script src="../assets/croce.js"></script>
-</body>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section></body>
 </html>
