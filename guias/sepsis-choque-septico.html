@@ -49,9 +49,190 @@
             .sticky.top-\[89px\], .sticky.top-\[77px\] { top: 0 !important; }
             main { padding-bottom: 5rem; }
         }
+
+
+/* ===== ESTÁNDAR CLARO — BIBLIOTECA MÉDICA PERSONAL CROCE ===== */
+:root{
+  --croce-bg:#f7f5f2;
+  --croce-surface:#ffffff;
+  --croce-surface-2:#fbfaf8;
+  --croce-border:#ded7ce;
+  --croce-text:#2b2b2b;
+  --croce-muted:#667085;
+  --croce-brand:#8f2f25;
+  --croce-brand-2:#6f241c;
+  --croce-blue:#2563eb;
+  --croce-green:#15803d;
+  --croce-red:#b42318;
+  --croce-amber:#b7791f;
+  --croce-shadow:0 2px 10px rgba(17,24,39,.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--croce-bg)!important;color:var(--croce-text)!important;}
+header.sticky{
+  background:linear-gradient(135deg,#fff7f3,#fff)!important;
+  border-bottom:1px solid var(--croce-border)!important;
+  box-shadow:var(--croce-shadow)!important;
+}
+header h1, h1, h2, h3, h4{color:var(--croce-text)!important;}
+header p, footer, .text-slate-400, .text-slate-500, .text-slate-300{color:var(--croce-muted)!important;}
+.portal-back{
+  color:var(--croce-brand)!important;background:#fff!important;border:1px solid var(--croce-border)!important;
+  padding:6px 12px!important;border-radius:999px!important;font-weight:700!important;
+}
+.portal-back:hover{background:#fff1eb!important;color:var(--croce-brand-2)!important;}
+.bg-slate-950,.bg-slate-950\/80,.bg-slate-900,.bg-slate-900\/80,.bg-slate-900\/60,
+.bg-slate-800,.bg-slate-800\/80,.bg-slate-800\/60,.bg-slate-850,.bg-slate-750,
+.bg-slate-700,.bg-slate-600{
+  background:var(--croce-surface)!important;
+}
+.border-slate-800,.border-slate-700,.border-slate-750,.border-slate-600{border-color:var(--croce-border)!important;}
+.text-white,.text-slate-100,.text-slate-200{color:var(--croce-text)!important;}
+.divide-slate-700 > :not([hidden]) ~ :not([hidden]){border-color:var(--croce-border)!important;}
+main section > div:first-child{
+  background:#fff!important;border:1px solid var(--croce-border)!important;border-left-width:4px!important;
+  box-shadow:var(--croce-shadow)!important;
+}
+.rounded-xl,.rounded-2xl{box-shadow:0 1px 8px rgba(17,24,39,.05);}
+table{background:#fff!important;color:var(--croce-text)!important;}
+thead tr{background:#f1ede8!important;color:var(--croce-text)!important;}
+tbody tr:hover{background:#fbfaf8!important;}
+input,select{
+  background:#fff!important;color:var(--croce-text)!important;border-color:var(--croce-border)!important;
+}
+input:focus,select:focus{border-color:var(--croce-blue)!important;box-shadow:0 0 0 3px rgba(37,99,235,.12)!important;}
+button{transition:background .18s ease,border-color .18s ease,color .18s ease,transform .12s ease!important;}
+button:hover{transform:translateY(-1px);}
+.tab-active{border-bottom-color:var(--croce-brand)!important;color:var(--croce-brand)!important;background:#fff3ef!important;}
+[id^="btn-tab-"]{color:var(--croce-muted)!important;background:#fff!important;border:1px solid transparent!important;}
+[id^="btn-tab-"]:hover{color:var(--croce-brand)!important;background:#fff7f4!important;}
+#btn-tab-7{background:#fff!important;color:var(--croce-muted)!important;border-color:transparent!important;}
+#btn-tab-7.tab-active{background:#f0fdf4!important;color:var(--croce-green)!important;border-color:#bbf7d0!important;}
+#quiz-progress-bar{background:var(--croce-green)!important;}
+#options-container button{
+  background:#fff!important;color:var(--croce-text)!important;border:1.5px solid var(--croce-border)!important;
+}
+#options-container button:hover{background:#eff6ff!important;border-color:#bfdbfe!important;}
+#options-container button span:first-child{background:#f3f4f6!important;color:#475467!important;border-color:#d0d5dd!important;}
+.quiz-option-selected{border-color:var(--croce-blue)!important;background:#eff6ff!important;color:#1d4ed8!important;font-weight:700!important;}
+.quiz-option-correct{border-color:var(--croce-green)!important;background:#ecfdf3!important;color:var(--croce-green)!important;font-weight:700!important;}
+.quiz-option-incorrect{border-color:var(--croce-red)!important;background:#fff1f0!important;color:var(--croce-red)!important;font-weight:700!important;}
+#feedback-container{box-shadow:var(--croce-shadow)!important;}
+#btn-next{background:var(--croce-brand)!important;color:#fff!important;}
+#btn-next:hover{background:var(--croce-brand-2)!important;}
+#btn-prev{background:#fff!important;color:var(--croce-text)!important;border:1px solid var(--croce-border)!important;}
+#btn-prev:hover{background:#f8f5f1!important;}
+footer{background:#fff!important;border-top:1px solid var(--croce-border)!important;}
+.animate-pulse{animation:none!important;}
+@media print{header,.sticky,footer{position:static!important}.no-print{display:none!important}}
+
+
+
+/* ===== REVISIÓN VISUAL V2 — CLARO CON COLORES PASTEL Y ALTO CONTRASTE ===== */
+:root{
+  --pastel-blue-bg:#eaf3ff;
+  --pastel-blue-border:#b9d7ff;
+  --pastel-blue-text:#174a7c;
+  --pastel-green-bg:#eaf8ef;
+  --pastel-green-border:#b9e5c8;
+  --pastel-green-text:#145a32;
+  --pastel-amber-bg:#fff5df;
+  --pastel-amber-border:#f2d59a;
+  --pastel-amber-text:#764b00;
+  --pastel-red-bg:#fff0ed;
+  --pastel-red-border:#e8b6ae;
+  --pastel-red-text:#8b1e16;
+  --pastel-purple-bg:#f4efff;
+  --pastel-purple-border:#d8c8ff;
+  --pastel-purple-text:#56318b;
+  --pastel-cyan-bg:#e8f7f8;
+  --pastel-cyan-border:#b4e2e6;
+  --pastel-cyan-text:#0f5d66;
+}
+
+body{background:#f6f1eb!important;}
+header.sticky{background:linear-gradient(135deg,#fff1e8,#f7fbff)!important;}
+
+/* Encabezados de secciones con color pastel, no blanco plano */
+#content-tab-0 > div:first-child{background:var(--pastel-blue-bg)!important;border-color:var(--pastel-blue-border)!important;border-left-color:#3b82f6!important;}
+#content-tab-1 > div:first-child{background:var(--pastel-amber-bg)!important;border-color:var(--pastel-amber-border)!important;border-left-color:#d97706!important;}
+#content-tab-2 > div:first-child{background:var(--pastel-purple-bg)!important;border-color:var(--pastel-purple-border)!important;border-left-color:#8b5cf6!important;}
+#content-tab-3 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#22c55e!important;}
+#content-tab-4 > div:first-child{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;border-left-color:#e11d48!important;}
+#content-tab-5 > div:first-child{background:var(--pastel-blue-bg)!important;border-color:var(--pastel-blue-border)!important;border-left-color:#2563eb!important;}
+#content-tab-6 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#16a34a!important;}
+#content-tab-7 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#16a34a!important;}
+
+/* Tarjetas internas con pastel suave según contenido */
+.border-l-2.border-emerald-400,.border-t-4.border-emerald-500{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;}
+.border-l-2.border-blue-400,.border-t-4.border-blue-500{background:var(--pastel-blue-bg)!important;border-color:var(--pastel-blue-border)!important;}
+.border-l-2.border-amber-400,.border-t-4.border-amber-500{background:var(--pastel-amber-bg)!important;border-color:var(--pastel-amber-border)!important;}
+.border-l-2.border-rose-500,.border-t-4.border-rose-500{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;}
+
+/* Textos de colores Tailwind: oscurecer para legibilidad sobre fondos claros */
+.text-blue-400,.text-blue-500{color:var(--pastel-blue-text)!important;}
+.text-emerald-300,.text-emerald-400,.text-green-400,.text-green-500{color:var(--pastel-green-text)!important;}
+.text-amber-300,.text-amber-400,.text-yellow-400{color:var(--pastel-amber-text)!important;}
+.text-rose-300,.text-rose-400,.text-rose-500,.text-red-300,.text-red-400,.text-red-500{color:var(--pastel-red-text)!important;}
+.text-purple-400,.text-violet-400{color:var(--pastel-purple-text)!important;}
+.text-cyan-400{color:var(--pastel-cyan-text)!important;}
+
+/* Badges y etiquetas superiores */
+.bg-amber-500\/10{background:var(--pastel-amber-bg)!important;color:var(--pastel-amber-text)!important;border-color:var(--pastel-amber-border)!important;}
+.bg-blue-600\/10{background:var(--pastel-blue-bg)!important;color:var(--pastel-blue-text)!important;border-color:var(--pastel-blue-border)!important;}
+
+/* Calculadoras: entradas y resultados con contraste alto */
+#content-tab-5 .bg-slate-800\/80,
+#content-tab-5 .bg-slate-900,
+#content-tab-5 .bg-slate-800{background:#ffffff!important;}
+#content-tab-5 input,#content-tab-5 select{background:#fffdf9!important;color:#1f2937!important;border:1.5px solid #cfc6bb!important;}
+#content-tab-5 label,#content-tab-5 span{color:#344054!important;}
+#res-pam,#res-news2{color:#7a1f16!important;}
+
+#interpretacion-pam,#interpretacion-news2{
+  display:block!important;
+  padding:10px 12px!important;
+  border-radius:10px!important;
+  font-weight:800!important;
+  line-height:1.45!important;
+  color:#1f2937!important;
+  border:1.5px solid #cfc6bb!important;
+  background:#fff7ed!important;
+}
+#interpretacion-pam{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;color:var(--pastel-red-text)!important;}
+#interpretacion-news2{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;color:var(--pastel-green-text)!important;}
+
+/* Estados dinámicos calculadoras */
+#interpretacion-pam.text-emerald-300,#interpretacion-news2.text-emerald-400{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;color:var(--pastel-green-text)!important;}
+#interpretacion-pam.text-rose-300,#interpretacion-news2.text-red-300{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;color:var(--pastel-red-text)!important;}
+#interpretacion-news2.text-amber-300{background:var(--pastel-amber-bg)!important;border-color:var(--pastel-amber-border)!important;color:var(--pastel-amber-text)!important;}
+
+/* Quiz: colores claros pero diferenciados */
+.quiz-option-selected{background:var(--pastel-blue-bg)!important;color:var(--pastel-blue-text)!important;border-color:#60a5fa!important;}
+.quiz-option-correct{background:var(--pastel-green-bg)!important;color:var(--pastel-green-text)!important;border-color:#34d399!important;}
+.quiz-option-incorrect{background:var(--pastel-red-bg)!important;color:var(--pastel-red-text)!important;border-color:#fb7185!important;}
+
+/* Retroalimentación y resultados */
+#feedback-container{color:#1f2937!important;background:#fff!important;border-color:var(--croce-border)!important;}
+#results-screen{background:#fff!important;border-color:var(--croce-border)!important;}
+
+/* Botones con color, sin oscuridad */
+#btn-next,.bg-emerald-600{background:#2f8f5b!important;color:#fff!important;}
+#btn-next:hover,.bg-emerald-600:hover{background:#247447!important;}
+.bg-slate-700,.bg-slate-900{background:#fff!important;color:#344054!important;}
+
+/* Tablas más vivas y legibles */
+thead tr{background:#efe7de!important;}
+tbody td{color:#344054!important;}
+tbody tr:nth-child(even){background:#fcfaf7!important;}
+
+/* Evitar aspecto completamente blanco */
+main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!important;}
+
 </style>
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+<body class="bg-stone-50 text-stone-800 min-h-screen font-sans">
 
     <!-- PANTALLA DE ACCESO POR CLAVE -->
     <!-- CONTENIDO PRINCIPAL DE LA APLICACIÓN -->
@@ -59,7 +240,7 @@
         
         <!-- HEADER PRINCIPAL -->
         <header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-40 px-4 py-4 sm:px-6">
-          <a href="index.html" class="portal-back" aria-label="Volver al portal de guías">← Portal de guías</a>
+          <a href="../index.html" class="portal-back" aria-label="Volver al portal de guías">← Portal de guías</a>
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
                     <div class="flex items-center gap-2 mb-1">
@@ -557,7 +738,7 @@
 
         <!-- FOOTER -->
         <footer class="bg-slate-950 border-t border-slate-800 py-4 px-6 text-center text-xs text-slate-500 font-medium">
-            © 2026 Plataforma Médica de Educación Continua • Desarrollado para Médicos Internistas.
+            © 2026 Biblioteca Médica Personal Croce • Dr. Luis E. Croce A.
         </footer>
     </div>
 
@@ -570,7 +751,6 @@
             var claveInput = document.getElementById("clave-input");
             var input = claveInput ? claveInput.value.trim() : "";
             if (true) {
-                var loginScreen = document.getElementById("login-screen");
                 var mainContent = document.getElementById("main-content");
                 if (loginScreen) loginScreen.classList.add("hidden");
                 if (mainContent) mainContent.classList.remove("hidden");
@@ -824,6 +1004,7 @@
         var quizActivo = 1;
         var preguntaActual = 0;
         var respuestasUsuario = {};
+        var seleccionTemporal = {};
         var STORAGE_KEY = "sepsisChoqueSeptico.quiz.v2";
 
         function guardarEstadoQuiz() {
@@ -891,37 +1072,42 @@
             var feedbackContainer = document.getElementById("feedback-container");
             feedbackContainer.classList.add("hidden");
 
+            var respondida = respuestasUsuario[preguntaActual] !== undefined;
+            var seleccionada = seleccionTemporal[preguntaActual];
+
             qData.a.forEach((opcion, idx) => {
                 var btn = document.createElement("button");
-                btn.className = "w-full p-3.5 bg-slate-900 border border-slate-750 hover:bg-slate-850 text-slate-200 text-xs sm:text-sm text-left rounded-xl transition flex items-start gap-3 cursor-pointer";
+                btn.className = "w-full p-3.5 bg-white border text-stone-800 text-xs sm:text-sm text-left rounded-xl transition flex items-start gap-3 cursor-pointer";
                 btn.type = "button";
                 btn.setAttribute("aria-label", `Opción ${String.fromCharCode(65 + idx)}: ${opcion}`);
                 btn.onclick = () => seleccionarOpcion(idx);
                 
-                if (respuestasUsuario[preguntaActual] !== undefined) {
+                if (respondida) {
                     btn.disabled = true;
-                    btn.classList.remove("hover:bg-slate-850", "cursor-pointer");
                     btn.classList.add("cursor-not-allowed");
-                    
                     if (idx === qData.c) {
                         btn.classList.add("quiz-option-correct");
                     } else if (idx === respuestasUsuario[preguntaActual]) {
                         btn.classList.add("quiz-option-incorrect");
                     }
+                } else if (seleccionada === idx) {
+                    btn.classList.add("quiz-option-selected");
                 }
                 
-                btn.innerHTML = `<span class="bg-slate-800 text-slate-400 font-mono w-5 h-5 rounded-md flex items-center justify-center shrink-0 border border-slate-700 text-xs font-bold uppercase">${String.fromCharCode(97 + idx)}</span> <span class="leading-relaxed">${opcion}</span>`;
+                btn.innerHTML = `<span class="bg-stone-100 text-stone-600 font-mono w-5 h-5 rounded-md flex items-center justify-center shrink-0 border text-xs font-bold uppercase">${String.fromCharCode(97 + idx)}</span> <span class="leading-relaxed">${opcion}</span>`;
                 optionsContainer.appendChild(btn);
             });
 
-            if (respuestasUsuario[preguntaActual] !== undefined) {
+            if (respondida) {
                 mostrarFeedback(qData);
             }
 
             document.getElementById("btn-prev").disabled = (preguntaActual === 0);
             
             var btnNext = document.getElementById("btn-next");
-            if (preguntaActual === listaPreguntas.length - 1) {
+            if (!respondida) {
+                btnNext.innerHTML = `Confirmar respuesta <i data-lucide="check" class="w-4 h-4"></i>`;
+            } else if (preguntaActual === listaPreguntas.length - 1) {
                 btnNext.innerHTML = `Finalizar Evaluación <i data-lucide="check-circle" class="w-4 h-4"></i>`;
             } else {
                 btnNext.innerHTML = `Siguiente <i data-lucide="chevron-right" class="w-4 h-4"></i>`;
@@ -931,8 +1117,7 @@
 
         function seleccionarOpcion(idx) {
             if (respuestasUsuario[preguntaActual] !== undefined) return;
-            respuestasUsuario[preguntaActual] = idx;
-            guardarEstadoQuiz();
+            seleccionTemporal[preguntaActual] = idx;
             cargarPregunta();
         }
 
@@ -944,11 +1129,11 @@
             
             var respuestaCorrecta = qData.a[qData.c];
             if (esCorrecto) {
-                feedbackContainer.className = "p-4 rounded-xl border border-emerald-900/60 bg-emerald-950/30 text-emerald-300 text-xs sm:text-sm leading-relaxed";
-                feedbackContainer.innerHTML = `<div class="flex items-center gap-1.5 font-bold text-emerald-400 mb-1"><i data-lucide="check" class="w-4 h-4"></i> ✔ Correcto</div><div class="font-semibold text-emerald-200 mb-2">Respuesta correcta: ${respuestaCorrecta}</div><div><strong>Justificación académica:</strong> ${qData.f}</div>`;
+                feedbackContainer.className = "p-4 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 text-xs sm:text-sm leading-relaxed";
+                feedbackContainer.innerHTML = `<div class="flex items-center gap-1.5 font-bold text-emerald-700 mb-1"><i data-lucide="check" class="w-4 h-4"></i> ✔ Correcto</div><div class="font-semibold text-emerald-800 mb-2">Respuesta correcta: ${respuestaCorrecta}</div><div><strong>Justificación académica:</strong> ${qData.f}</div>`;
             } else {
-                feedbackContainer.className = "p-4 rounded-xl border border-rose-900/60 bg-rose-950/30 text-rose-300 text-xs sm:text-sm leading-relaxed";
-                feedbackContainer.innerHTML = `<div class="flex items-center gap-1.5 font-bold text-rose-400 mb-1"><i data-lucide="alert-circle" class="w-4 h-4"></i> ✘ Incorrecto</div><div class="font-semibold text-emerald-200 mb-2">Respuesta correcta: ${respuestaCorrecta}</div><div><strong>Fundamento clínico:</strong> ${qData.f}</div>`;
+                feedbackContainer.className = "p-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-800 text-xs sm:text-sm leading-relaxed";
+                feedbackContainer.innerHTML = `<div class="flex items-center gap-1.5 font-bold text-rose-700 mb-1"><i data-lucide="alert-circle" class="w-4 h-4"></i> ✘ Incorrecto</div><div class="font-semibold text-emerald-800 mb-2">Respuesta correcta: ${respuestaCorrecta}</div><div><strong>Fundamento clínico:</strong> ${qData.f}</div>`;
             }
             if (window.lucide && lucide.createIcons) lucide.createIcons();
         }
@@ -957,7 +1142,13 @@
             var listaPreguntas = bancoPreguntas[quizActivo];
             
             if (respuestasUsuario[preguntaActual] === undefined) {
-                alert("Por favor seleccione una respuesta antes de continuar con la evaluación médica.");
+                if (seleccionTemporal[preguntaActual] === undefined) {
+                    alert("Por favor seleccione una respuesta antes de continuar.");
+                    return;
+                }
+                respuestasUsuario[preguntaActual] = seleccionTemporal[preguntaActual];
+                guardarEstadoQuiz();
+                cargarPregunta();
                 return;
             }
 
@@ -982,6 +1173,7 @@
         function reiniciarQuizActual() {
             preguntaActual = 0;
             respuestasUsuario = {};
+            seleccionTemporal = {};
             guardarEstadoQuiz();
             document.getElementById("results-screen").classList.add("hidden");
             document.getElementById("options-container").parentElement.classList.remove("hidden");
@@ -1031,5 +1223,6 @@
             if (window.lucide && lucide.createIcons) lucide.createIcons();
         });
     </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>

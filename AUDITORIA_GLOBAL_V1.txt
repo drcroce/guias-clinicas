@@ -1,0 +1,23 @@
+BIBLIOTECA MÉDICA PERSONAL CROCE — AUDITORÍA GLOBAL V1.0
+
+Correcciones aplicadas:
+1. Se integró el index.html dentro del paquete completo.
+2. Se creó assets/croce.css como capa común de normalización visual.
+3. Se creó assets/croce.js como capa común de funciones compartidas.
+4. Se eliminaron referencias activas al sistema antiguo de login/password en las guías.
+5. Se corrigió el enlace roto del index hacia Gasometría:
+   antes: guias/gasometria_acido_base_Croce.html
+   ahora: guias/gasometria_acido_base.html
+6. Se corrigió sintaxis de eventos onclick con comillas escapadas en ITU.
+7. Se añadieron referencias comunes a croce.css y croce.js en todas las guías.
+8. Se verificó que las 13 rutas del index apunten a archivos existentes.
+9. Se mantuvo intacto el contenido médico de las guías.
+
+Estructura final:
+- index.html
+- assets/croce.css
+- assets/croce.js
+- guias/13 archivos HTML independientes
+
+Estado:
+Biblioteca consolidada como versión 1.0 funcional.

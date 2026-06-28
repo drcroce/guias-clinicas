@@ -25,20 +25,8 @@
   --emerald:#0e6655;--emerald-bg:#e8f8f4;--emerald-border:#8ed8c8;
 }
 body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-/* ACCESS SCREEN */
-#access-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0d2137,#1a3a5c,#0d2137);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
-.access-card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:40px 36px;max-width:380px;width:100%;text-align:center}
-.access-card .heart-icon{font-size:52px;margin-bottom:16px;display:block}
-.access-card h2{color:#fff;font-size:22px;font-weight:700;margin-bottom:6px;font-family:"Libre Baskerville",serif}
-.access-card p{color:rgba(255,255,255,.6);font-size:13px;margin-bottom:28px}
-.access-input{width:100%;padding:14px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:12px;color:#fff;font-size:16px;font-family:"JetBrains Mono",monospace;letter-spacing:.1em;text-align:center;outline:none;transition:.2s}
-.access-input::placeholder{color:rgba(255,255,255,.35);letter-spacing:0;font-family:"DM Sans",sans-serif}
-.access-input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.15)}
-.access-btn{width:100%;margin-top:14px;padding:14px;background:linear-gradient(135deg,#2c5f8a,#1e4a6e);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;font-family:"DM Sans",sans-serif}
-.access-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
-.access-error{color:#ff8080;font-size:13px;margin-top:10px;min-height:20px}
 /* MAIN LAYOUT */
-#main-app{display:none}
+#main-app{display:block}
 /* HEADER */
 .app-header{background:linear-gradient(135deg,#0d2137,#1a3a5c);color:#fff;padding:24px 20px 0}
 .header-content{max-width:900px;margin:0 auto}
@@ -173,15 +161,47 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
 
-<style>#access-screen{display:none!important}#main-app{display:block!important}</style>
+<style id="croce-light-unified-final">
+/* ===== BIBLIOTECA MÉDICA PERSONAL CROCE · ESTÁNDAR CLARO/PASTEL FINAL ===== */
+:root{
+  --bg:#f7f3ec;--bg2:#efe8dc;--bg3:#e7ddcf;
+  --surface:#ffffff;--surface2:#fbf8f3;
+  --border:#d9cfc0;--border2:#c7b9a6;
+  --text:#1f2933;--text2:#374151;--text3:#667085;
+  --accent:#2f6f9f;--accent2:#24577e;--accent-light:#e7f1f8;
+  --red:#b94a48;--red-bg:#fff1f0;--red-border:#f3c8c4;
+  --orange:#b86b24;--orange-bg:#fff6e9;--orange-border:#efcfaa;
+  --yellow:#8a6d1d;--yellow-bg:#fff9df;--yellow-border:#eadb91;
+  --green:#2e7d57;--green-bg:#eef8f1;--green-border:#b7dec5;
+  --blue:#2f6f9f;--blue-bg:#edf6fc;--blue-border:#b7d7ea;
+  --cyan:#208991;--cyan-bg:#eaf8f8;--cyan-border:#9fdadd;
+  --purple:#7759a6;--purple-bg:#f4f0fb;--purple-border:#cfbfeb;
+  --emerald:#1f806c;--emerald-bg:#eaf8f4;--emerald-border:#9ed8cb;
+}
+html{scroll-behavior:smooth} body{background:var(--bg);color:var(--text);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+#main-app{display:block!important}
+.app-header{background:var(--surface);color:var(--text);border-bottom:1px solid var(--border);box-shadow:0 2px 14px rgba(31,41,51,.06);padding:18px 20px 0;position:sticky;top:0;z-index:50;}
+.header-content{max-width:1120px}.header-top{margin-bottom:12px}.header-icon{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);box-shadow:none}.header-text h1{color:var(--text);font-family:"Libre Baskerville",serif}.header-text .subtitle{color:var(--text3);opacity:1}.badge-row{margin-bottom:14px}.hbadge{background:var(--surface2);border:1px solid var(--border);color:var(--text2);font-weight:700}.hbadge.new{background:var(--emerald-bg);border-color:var(--emerald-border);color:var(--emerald)}
+.portal-back,.fullscreen-btn{color:var(--accent2);border:1px solid var(--blue-border);background:var(--blue-bg);font-weight:700}.portal-back:hover,.fullscreen-btn:hover{background:var(--accent-light);color:var(--accent2)}
+.tabs{border-top:1px solid var(--border)}.tab-btn{color:var(--text3);font-weight:700}.tab-btn.active,.tab-btn[aria-selected="true"]{color:var(--accent2);border-bottom-color:var(--accent)}.tab-btn:hover:not(.active){color:var(--accent)}.swipe-hint{background:var(--surface2);color:var(--text3);border:1px solid var(--border);border-radius:999px;margin-bottom:8px}.content-area{max-width:1120px;padding:26px 16px}.section-intro{font-size:15px;color:var(--text2)}
+.card{background:var(--surface);border:1px solid var(--border);box-shadow:0 3px 12px rgba(31,41,51,.06);border-radius:14px}.card-header{background:var(--surface2);transition:background .2s}.card-header:hover{background:#f3ecdf}.card-header h3{color:var(--text);font-size:16px}.card-body{color:var(--text2)}.card-chevron{color:var(--text3)}
+.box{box-shadow:none}.box p,.box li{font-size:14.5px;color:var(--text2)}.box h4{font-size:14px;color:inherit}strong{color:var(--text)}.box-red strong,.box-orange strong,.box-yellow strong,.box-green strong,.box-blue strong,.box-cyan strong,.box-purple strong,.box-emerald strong{color:inherit}.drug-mono{background:var(--surface2);border:1px solid var(--border);color:var(--accent2)}.study-ref{color:var(--text3)}
+table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--surface)}th{background:var(--bg2);color:var(--text);border-bottom:1px solid var(--border2);font-size:13px}td{color:var(--text2);border-bottom:1px solid var(--border)}tr:hover td{background:var(--surface2)}
+.calc-input-group label{color:var(--text3)}.calc-input-group input,.calc-input-group select{background:var(--surface);border:1.5px solid var(--border2);color:var(--text)}.calc-btn{background:var(--cyan);color:#fff}.calc-btn:hover{background:#176f76}.calc-result{background:var(--cyan-bg);border:1px solid var(--cyan-border);color:var(--text2);display:none}.calc-result .result-val{color:#176f76}.calc-result .result-interp{color:var(--text2)}
+.quiz-box{background:var(--surface);border:1px solid var(--border)}.quiz-sel-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text2)}.quiz-sel-btn.active{background:var(--blue-bg);border-color:var(--blue-border);color:var(--accent2)}.quiz-progress{background:var(--bg2)}.quiz-progress-bar{background:linear-gradient(90deg,var(--accent),var(--cyan))}.quiz-case{background:var(--blue-bg);border-color:var(--blue-border);color:var(--text2)}.quiz-question{color:var(--text)}.quiz-opt{background:var(--surface2);border:1.5px solid var(--border);color:var(--text2)}.quiz-opt:hover:not(:disabled){border-color:var(--accent);background:var(--blue-bg);color:var(--accent2)}.quiz-opt.selected{background:var(--blue-bg);border-color:var(--accent);color:var(--accent2);font-weight:700;box-shadow:0 0 0 2px rgba(47,111,159,.12) inset}.quiz-opt.correct{background:var(--green-bg);border-color:var(--green);color:var(--green);font-weight:700}.quiz-opt.wrong{background:var(--red-bg);border-color:var(--red);color:var(--red);font-weight:700}.quiz-feedback{background:var(--yellow-bg);border-color:var(--yellow-border);color:var(--text2)}.quiz-feedback strong{color:var(--yellow)}.btn-prev{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}.btn-next{background:var(--accent);color:#fff}.btn-next:disabled,.quiz-nav-btn:disabled{opacity:.55;cursor:not-allowed;transform:none}.btn-reset{background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border)}
+.step-num{box-shadow:none}.step-content p,.step-content li{font-size:14.5px;color:var(--text2)}.evidence-badge{font-weight:800}.tag-new{background:var(--emerald-bg);color:var(--emerald);border:1px solid var(--emerald-border)}
+@media(max-width:700px){.app-header{position:relative}.header-top{gap:12px}.header-icon{width:48px;height:48px}.content-area{padding:18px 12px}table{display:block;overflow-x:auto;white-space:normal}.quiz-nav{flex-direction:column}.quiz-nav-btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
 <body>
-<!-- ACCESS SCREEN -->
 <!-- MAIN APP -->
 <div id="main-app">
 <div class="app-header">
   <div class="header-content">
-  <a class="portal-back" href="index.html">← Portal de guías</a>
+  <a class="portal-back" href="../index.html">← Portal de guías</a>
   <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
 
     <div class="header-top">
@@ -1378,7 +1398,8 @@ function renderQuestion(){
   }
   var q = qs[qIndex];
   answered = (typeof answers[qIndex] !== "undefined");
-  selectedAnswer = answered ? answers[qIndex] : null;
+  if(answered) selectedAnswer = answers[qIndex];
+  else if(typeof selectedAnswer === "undefined") selectedAnswer = null;
   var pct = Math.round((qIndex/qs.length)*100);
   document.getElementById("quiz-pbar").style.width = pct+"%";
   var html = '<div class="quiz-q-num">Pregunta '+(qIndex+1)+' de '+qs.length+'</div>';
@@ -1400,7 +1421,8 @@ function renderQuestion(){
   html += '<div class="quiz-nav">';
   html += '<button type="button" class="quiz-nav-btn btn-prev" onclick="prevQ()" '+(qIndex===0?'disabled':'')+'>← Anterior</button>';
   html += '<button type="button" class="quiz-nav-btn btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>';
-  html += '<button type="button" class="quiz-nav-btn btn-next" id="btn-next" onclick="nextQ()" '+(!answered?'disabled':'')+'>'+(qIndex===qs.length-1?'Ver resultado':'Siguiente →')+'</button>';
+  var nextLabel = answered ? (qIndex===qs.length-1?'Ver resultado':'Siguiente →') : 'Corregir respuesta';
+  html += '<button type="button" class="quiz-nav-btn btn-next" id="btn-next" onclick="nextQ()" '+(!answered && selectedAnswer===null?'disabled':'')+'>'+nextLabel+'</button>';
   html += '</div>';
   document.getElementById("quiz-content").innerHTML = html;
   document.getElementById("quiz-score-screen").style.display="none";
@@ -1409,29 +1431,38 @@ function renderQuestion(){
 function selectAnswer(i){
   if(answered) return;
   selectedAnswer = i;
-  answered = true;
-  answers[qIndex] = i;
+  document.querySelectorAll(".quiz-opt").forEach(function(b,j){
+    b.classList.toggle("selected", j===i);
+  });
+  var btn = document.getElementById("btn-next");
+  if(btn) btn.disabled = false;
+}
+function correctCurrentQuestion(){
+  if(selectedAnswer===null){ alert("Seleccione una respuesta primero"); return; }
   var q = QUIZZES[currentQuiz][qIndex];
+  answered = true;
+  answers[qIndex] = selectedAnswer;
   document.querySelectorAll(".quiz-opt").forEach(function(b,j){
     b.disabled = true;
     b.classList.remove("selected");
     if(j===q.a) b.classList.add("correct");
-    else if(j===i && i!==q.a) b.classList.add("wrong");
+    else if(j===selectedAnswer && selectedAnswer!==q.a) b.classList.add("wrong");
   });
   var fb = document.getElementById("qfb");
   fb.classList.add("visible");
-  fb.innerHTML = '<strong>'+(i===q.a?"✅ Correcto":"❌ Incorrecto — Respuesta correcta: "+String.fromCharCode(65+q.a))+'</strong>'+q.fb;
-  document.getElementById("btn-next").disabled = false;
+  fb.innerHTML = '<strong>'+(selectedAnswer===q.a?"✅ Correcto":"❌ Incorrecto — Respuesta correcta: "+String.fromCharCode(65+q.a))+'</strong>'+q.fb;
+  var btn = document.getElementById("btn-next");
+  if(btn){ btn.disabled = false; btn.textContent = (qIndex===QUIZZES[currentQuiz].length-1?'Ver resultado':'Siguiente →'); }
 }
 function nextQ(){
   var qs = QUIZZES[currentQuiz];
-  if(!answered){ alert("Seleccione una respuesta primero"); return; }
-  if(qIndex < qs.length-1){ qIndex++; renderQuestion(); }
+  if(!answered){ correctCurrentQuestion(); return; }
+  if(qIndex < qs.length-1){ qIndex++; selectedAnswer = null; renderQuestion(); }
   else { showScore(); }
 }
 
 function prevQ(){
-  if(qIndex > 0){ qIndex--; renderQuestion(); }
+  if(qIndex > 0){ qIndex--; selectedAnswer = (typeof answers[qIndex] !== "undefined") ? answers[qIndex] : null; renderQuestion(); }
 }
 
 function showScore(){
@@ -1582,5 +1613,6 @@ window.onload = function(){
   showTab(savedTab);
 };
 </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>

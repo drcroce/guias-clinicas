@@ -48,56 +48,6 @@ body {
 h1, h2, h3, h4 { font-family: "Playfair Display", serif; line-height: 1.25; }
 code, .mono { font-family: "JetBrains Mono", monospace; font-size: 0.88em; }
 
-/* PANTALLA DE ACCESO */
-#access-screen {
-  position: fixed; inset: 0; z-index: 9999;
-  background: linear-gradient(145deg, #1A2540 0%, #1B4FBD 60%, #0E3A96 100%);
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-}
-.access-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 48px 40px;
-  max-width: 440px; width: 100%;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
-  text-align: center;
-}
-.access-card .lock-icon {
-  font-size: 3rem; margin-bottom: 12px;
-}
-.access-card h2 {
-  font-size: 1.6rem; color: var(--text); margin-bottom: 6px;
-}
-.access-card p {
-  color: var(--text-muted); font-size: 0.95rem; margin-bottom: 28px;
-}
-.access-card input[type=password] {
-  width: 100%; padding: 14px 18px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-size: 1.1rem; letter-spacing: 3px;
-  color: var(--text); outline: none;
-  transition: border 0.2s;
-}
-.access-card input[type=password]:focus { border-color: var(--accent); }
-.access-card button {
-  margin-top: 16px; width: 100%;
-  background: var(--accent); color: #fff;
-  border: none; border-radius: var(--radius-sm);
-  padding: 14px; font-size: 1rem; font-weight: 700;
-  cursor: pointer; transition: background 0.2s;
-  font-family: "Source Sans 3", sans-serif;
-}
-.access-card button:hover { background: var(--accent2); }
-#access-error {
-  color: var(--red); font-size: 0.9rem;
-  margin-top: 10px; display: none; font-weight: 600;
-}
-.access-footer {
-  margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);
-}
-
 /* HEADER */
 #main-app{display:block}
 .site-header {
@@ -472,7 +422,7 @@ p { margin-bottom: 10px; }
   .grid-2, .grid-3, .calc-grid { grid-template-columns: 1fr; }
   .tabs-scroll-hint { display: block; }
   .main-content { padding: 16px 10px; }
-  .access-card { padding: 32px 20px; }
+  
 }
 
 /* ===== PORTAL BACK BUTTON ===== */
@@ -482,17 +432,16 @@ p { margin-bottom: 10px; }
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
-<style>#access-screen{display:none!important}#main-app{display:block!important}</style>
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
 <body>
 
-<!-- PANTALLA DE ACCESO -->
 <!-- MAIN APP -->
 <div id="main-app">
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-    <a class="portal-back" href="index.html">← Portal de guías</a>
+    <a class="portal-back" href="../index.html">← Portal de guías</a>
 
       <div class="header-top">
         <div class="header-brand">
@@ -2005,22 +1954,6 @@ function $(id){ return document.getElementById(id); }
 function safeSetDisplay(id,value){ var node=$(id); if(node){ node.style.display=value; } }
 var STORAGE_PREFIX="dr_croce_hipoglucemia_v2";
 
-// ---- ACCESO ----
-// El acceso está desactivado para integración con portal. La función queda defensiva para evitar errores si se reutiliza el componente.
-var CLAVES = [];
-function verificarClave(){
-  var input=$("clave-input");
-  var error=$("access-error");
-  if(!input){ safeSetDisplay("access-screen","none"); safeSetDisplay("main-app","block"); return; }
-  var v=input.value.trim().toUpperCase();
-  if(CLAVES.length===0 || CLAVES.indexOf(v)!==-1){
-    safeSetDisplay("access-screen","none");
-    safeSetDisplay("main-app","block");
-  } else if(error){
-    error.style.display="block";
-  }
-}
-
 // ---- TABS ----
 function showTab(n){
   document.querySelectorAll(".tab-panel").forEach(function(p,i){
@@ -2495,5 +2428,6 @@ window.onload=function(){
   selectQuiz(1);
 };
 </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>

@@ -14,11 +14,11 @@
   --purple:#7d3c98;--purple-l:#f5eef8;
   --border:rgba(0,0,0,0.1);
   --text:#1a1a18;--text2:#6b6b66;
-  --bg:#ffffff;--bg2:#f8f8f6;
+  --bg:#ffffff;--bg2:#f7f5f1;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:#f0ede8;font-size:14px;min-height:100vh;padding:16px}
 .app{max-width:860px;margin:0 auto;background:var(--bg);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.12)}
-.header{background:linear-gradient(135deg,#b03a2e 0%,#7b241c 100%);color:white;padding:22px 28px 18px}
+.header{background:#b03a2e;color:white;padding:22px 28px 18px}
 .header h1{font-size:20px;font-weight:600;margin-bottom:4px}
 .header p{font-size:12px;opacity:.8}
 .badge-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
@@ -137,14 +137,14 @@ b.hl{color:var(--text)}
   transition:background .2s,color .2s;}
 .portal-back:hover{background:rgba(255,255,255,.2);color:#fff}
 </style>
-<style>#pw-screen,#access-screen,#login-screen{display:none!important}#app,#main-app,#main-content{display:block!important}</style>
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
 <body>
 <div class="app">
 
 <div class="header">
   <button class="fullscreen-btn" type="button" onclick="toggleFullscreen()">⛶ Pantalla completa</button>
-  <a class="portal-back" href="index.html">← Portal de guías</a>
+  <a class="portal-back" href="../index.html">← Portal de guías</a>
 
   <h1>⚡ Crisis Hiperglucémica — Guía de Urgencias</h1>
   <p>Cetoacidosis Diabética (CAD) · Estado Hiperosmolar Hiperglucémico (EHH)</p>
@@ -1073,5 +1073,6 @@ renderQuiz();
   checkScroll();
 })();
 </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>

@@ -3,574 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal de Guías Clínicas — Dr. L. Croce</title>
-<meta name="description" content="Repositorio maestro de guías clínicas interactivas del Dr. Luis E. Croce.">
+<title>Biblioteca Médica Personal Croce</title>
+<link rel="stylesheet" href="assets/croce.css">
 <style>
-:root {
-  --bg:#f0ede8; --surface:#fff; --surface2:#fbfaf7; --text:#191714; --text2:#514a42; --muted:#81766b;
-  --brand:#9f3329; --brand2:#6f211a; --accent:#2471a3; --border:#ddd4c8;
-  --green:#1e8449; --green-bg:#eafaf1; --amber:#b77900; --amber-bg:#fff8e1; --red:#b03a2e; --red-bg:#fdf0ef;
-  --blue:#2471a3; --blue-bg:#eaf4fb; --purple:#7d3c98; --purple-bg:#f5eef8;
-  --shadow:0 2px 10px rgba(0,0,0,.075); --shadow2:0 8px 28px rgba(0,0,0,.12);
-  --radius:16px; --radius2:12px; --focus:0 0 0 3px rgba(36,113,163,.25);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:22px 16px;line-height:1.5}
-button,input,a{font:inherit}
-a{color:inherit}
-.page{max-width:1040px;margin:0 auto}
-.skip-link{position:absolute;left:-999px;top:8px;background:var(--text);color:#fff;padding:8px 12px;border-radius:8px;z-index:20}
-.skip-link:focus{left:12px}
-.header{background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:22px;padding:28px 26px 24px;margin-bottom:18px;color:white;box-shadow:var(--shadow2);position:relative;overflow:hidden}
-.header::after{content:"";position:absolute;right:-55px;top:-55px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.08)}
-.header-top{display:flex;align-items:center;gap:16px;margin-bottom:14px;position:relative;z-index:1}
-.logo{width:58px;height:58px;background:rgba(255,255,255,.16);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
-.header h1{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-bottom:3px}
-.header p{font-size:13px;opacity:.82}
-.badge-row{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
-.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:4px 12px;font-size:11px;font-weight:700}
-.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
-.stat-card{background:var(--surface);border:1px solid rgba(0,0,0,.05);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
-.stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:4px}
-.stat-value{font-size:24px;font-weight:850;color:var(--brand)}
-.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;margin-bottom:14px}
-.search-box{background:white;border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.05)}
-.search-box input{border:none;outline:none;font-size:15px;width:100%;background:transparent;color:var(--text)}
-.search-box:focus-within{box-shadow:var(--shadow),var(--focus)}
-.search-icon{color:#aaa;font-size:18px;flex-shrink:0}
-.action-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.action-btn{border:1px solid var(--border);background:var(--surface);color:var(--text2);padding:11px 13px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:750;box-shadow:var(--shadow);transition:.18s}
-.action-btn:hover{transform:translateY(-1px);border-color:rgba(159,51,41,.35)}
-.action-btn:focus-visible,.filter-btn:focus-visible,.guide-card:focus-visible,.fav-btn:focus-visible{outline:none;box-shadow:var(--focus)}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
-.filter-btn{border:1px solid var(--border);background:var(--surface);padding:7px 12px;border-radius:999px;cursor:pointer;color:var(--text2);font-size:12px;font-weight:800;transition:.18s}
-.filter-btn:hover{border-color:rgba(159,51,41,.35)}
-.filter-btn.active{background:var(--brand);border-color:var(--brand);color:#fff}
-.section-label{font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:20px 0 10px 4px;display:flex;align-items:center;gap:8px}
-.section-label::after{content:"";height:1px;background:var(--border);flex:1}
-.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.guide-card{background:white;border-radius:15px;padding:16px 16px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);cursor:pointer;transition:all .2s;text-decoration:none;border:1px solid rgba(0,0,0,.055);position:relative;min-height:116px}
-.guide-card:hover{border-color:rgba(176,58,46,.35);transform:translateY(-2px);box-shadow:var(--shadow2)}
-.guide-icon{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.guide-info{flex:1;min-width:0}
-.guide-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px;line-height:1.25}
-.guide-sub{font-size:12.5px;color:var(--muted);margin-bottom:8px}
-.guide-tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:800}
-.tag-red{background:var(--red-bg);color:var(--red)} .tag-blue{background:var(--blue-bg);color:var(--blue)} .tag-green{background:var(--green-bg);color:var(--green)} .tag-amber{background:var(--amber-bg);color:var(--amber)} .tag-purple{background:var(--purple-bg);color:var(--purple)}
-.status{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:800;background:var(--green-bg);color:var(--green)}
-.status-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
-.guide-arrow{color:#bdb6ad;font-size:22px;flex-shrink:0}
-.fav-btn{position:absolute;right:12px;top:10px;border:none;background:transparent;color:#c8bfb4;font-size:18px;line-height:1;cursor:pointer;padding:4px;border-radius:8px}
-.fav-btn.active{color:#d68910}
-.no-results{text-align:center;padding:48px 20px;color:#aaa;display:none;background:rgba(255,255,255,.45);border-radius:16px;border:1px dashed var(--border)}
-.no-results-icon{font-size:40px;margin-bottom:10px}
-.footer{text-align:center;font-size:11px;color:#9e958a;margin-top:26px;padding:18px;line-height:1.8}
-.helper{font-size:12px;color:var(--muted);margin:-6px 0 14px 4px}
-.hidden{display:none!important}
-@media (max-width:760px){
- body{padding:16px 12px}
- .header{padding:24px 20px}
- .header h1{font-size:20px}
- .dashboard{grid-template-columns:repeat(2,1fr)}
- .toolbar{grid-template-columns:1fr}
- .action-row{justify-content:flex-start}
- .guide-grid{grid-template-columns:1fr}
-}
-@media (max-width:430px){
- .header-top{align-items:flex-start}
- .logo{width:50px;height:50px}
- .dashboard{grid-template-columns:1fr 1fr;gap:8px}
- .stat-card{padding:12px}
- .stat-value{font-size:20px}
- .guide-card{padding:14px 12px;gap:11px}
- .guide-icon{width:44px;height:44px;font-size:21px}
-}
-@media print{
- body{background:white;padding:0}
- .search-box,.filters,.action-row,.fav-btn{display:none!important}
- .header,.stat-card,.guide-card{box-shadow:none}
- .guide-grid{grid-template-columns:1fr}
-}
+.page{max-width:980px;margin:0 auto;padding:18px}
+.header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;border-radius:18px;padding:26px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.header h1{margin:0 0 6px;font-size:25px}.header p{margin:0;color:rgba(255,255,255,.84);font-size:14px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.stat{background:rgba(255,255,255,.16);border-radius:999px;padding:5px 11px;font-size:12px}
+.toolbar{display:grid;grid-template-columns:1fr 220px;gap:10px;margin:16px 0}.search,.filter{border:1px solid var(--border);border-radius:12px;background:white;padding:12px 14px;font-size:14px;outline:none}
+.category-title{font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#827c73;font-weight:800;margin:22px 4px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.card{background:white;border:1px solid transparent;border-radius:16px;padding:16px;box-shadow:var(--shadow);transition:.15s;display:flex;gap:12px;align-items:flex-start;min-height:118px}
+.card:hover{transform:translateY(-1px);border-color:rgba(143,47,37,.28)}.icon{font-size:28px;width:46px;height:46px;border-radius:12px;background:#f7eee9;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.title{font-weight:750;font-size:15px;margin-bottom:4px}.sub{font-size:13px;color:var(--muted);line-height:1.4;margin-bottom:9px}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#f4f1ec;color:#666}
+.empty{display:none;text-align:center;color:var(--muted);padding:34px;background:white;border-radius:16px;box-shadow:var(--shadow)}.footer{text-align:center;color:#999;font-size:12px;margin:24px 0}
+@media(max-width:620px){.toolbar{grid-template-columns:1fr}.header h1{font-size:21px}.page{padding:12px}}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#lista-guias">Saltar al listado de guías</a>
 <div class="page">
-  <header class="header">
-    <div class="header-top">
-      <div class="logo" aria-hidden="true">🏥</div>
-      <div>
-        <h1>Guías Clínicas Interactivas</h1>
-        <p>Dr. Luis E. Croce · Médico Internista · Ecuador</p>
-      </div>
-    </div>
-    <div class="badge-row" aria-label="Áreas principales">
-      <span class="badge">Urgencias</span>
-      <span class="badge">Medicina Interna</span>
-      <span class="badge">Portal Maestro</span>
-      <span class="badge">Framework Educativo Croce</span>
-    </div>
-  </header>
-
-  <section class="dashboard" aria-label="Resumen del repositorio">
-    <div class="stat-card"><div class="stat-label">Guías</div><div class="stat-value" id="stat-total">0</div></div>
-    <div class="stat-card"><div class="stat-label">Favoritas</div><div class="stat-value" id="stat-fav">0</div></div>
-    <div class="stat-card"><div class="stat-label">Categorías</div><div class="stat-value" id="stat-cat">0</div></div>
-    <div class="stat-card"><div class="stat-label">Disponibles</div><div class="stat-value" id="stat-live">0</div></div>
-  </section>
-
-  <section class="toolbar" aria-label="Búsqueda y acciones">
-    <div class="search-box">
-      <span class="search-icon" aria-hidden="true">🔍</span>
-      <input type="search" id="search-input" placeholder="Buscar por guía, tema, sociedad o categoría..." autocomplete="off" aria-label="Buscar guía clínica">
-    </div>
-    <div class="action-row">
-      <button class="action-btn" type="button" id="btn-favs">★ Favoritas</button>
-      <button class="action-btn" type="button" id="btn-recent">↺ Recientes</button>
-      <button class="action-btn" type="button" id="btn-reset">Limpiar</button>
-    </div>
-  </section>
-
-  <div class="filters" id="filters" aria-label="Filtros por categoría"></div>
-  <div class="helper" id="result-helper" aria-live="polite"></div>
-
-  <main id="lista-guias">
-    <div class="section-label" id="main-label">Disponibles</div>
-    <div class="guide-grid" id="guide-grid"></div>
-    <div class="no-results" id="no-results">
-      <div class="no-results-icon">🔍</div>
-      <div>No se encontraron guías con ese término o filtro.</div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    Guías clínicas interactivas · Uso educativo<br>
-    Dr. Luis E. Croce A. · Médico Internista · Ecuador<br>
-    Portal maestro optimizado para crecimiento progresivo del ecosistema.
-  </footer>
+<header class="header">
+  <h1>Biblioteca Médica Personal Croce</h1>
+  <p>Guías clínicas interactivas para consulta y estudio personal</p>
+  <div class="stats"><span class="stat" id="totalGuias">13 guías</span><span class="stat">Uso personal</span><span class="stat">HTML independiente</span></div>
+</header>
+<div class="toolbar">
+  <input id="search" class="search" type="search" placeholder="Buscar guía..." oninput="renderGuias()">
+  <select id="category" class="filter" onchange="renderGuias()"><option value="">Todas las categorías</option></select>
 </div>
-
+<main id="content"></main>
+<div id="empty" class="empty">No se encontraron guías.</div>
+<footer class="footer">Dr. Luis E. Croce A. · Biblioteca médica personal</footer>
+</div>
 <script>
-'use strict';
-
-const GUIDE_DATA = [
+const GUIAS = [
   {
-    "id": "g-cadehh",
-    "href": "cad_ehh.html",
-    "icon": "⚡",
-    "icon_style": "background:#fdf0ef",
-    "title": "CAD / EHH — Crisis Hiperglucémica",
-    "sub": "Cetoacidosis Diabética · Estado Hiperosmolar",
+    "titulo": "CAD / EHH — Crisis Hiperglucémica",
+    "subtitulo": "Cetoacidosis diabética · Estado hiperosmolar",
+    "archivo": "guias/cad_ehh.html",
+    "categoria": "Endocrinología",
+    "icono": "⚡",
     "tags": [
-      "ADA 2026",
+      "ADA",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Endocrinología"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-sepsis",
-    "href": "sepsis-choque-septico.html",
-    "icon": "🦠",
-    "icon_style": "background:#eaf4fb",
-    "title": "Sepsis y Shock Séptico",
-    "sub": "Manejo en urgencias y hospitalización",
+    "titulo": "Hipoglucemia — Manejo en Urgencias",
+    "subtitulo": "Diagnóstico, clasificación y tratamiento",
+    "archivo": "guias/Hipoglucemia_DrCroce_2026.html",
+    "categoria": "Endocrinología",
+    "icono": "🩸",
     "tags": [
-      "SSC 2026",
+      "ADA",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Cardiología",
-      "Infectología"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-hipertension",
-    "href": "emergenciahipertensiva.html",
-    "icon": "🫀",
-    "icon_style": "background:#fdf0ef",
-    "title": "Emergencia Hipertensiva",
-    "sub": "Diagnóstico · Estratificación · Manejo por Órgano Diana",
+    "titulo": "Exacerbación de EPOC (AECOPD)",
+    "subtitulo": "Diagnóstico, severidad y tratamiento",
+    "archivo": "guias/AECOPD_Modulo_Croce_v2.html",
+    "categoria": "Neumología",
+    "icono": "🫁",
     "tags": [
-      "ESC 2024",
-      "AHA/ACC 2023",
-      "SEMICYUC 2025",
-      "ESH 2023"
-    ],
-    "categories": [
-      "Cardiología"
-    ],
-    "status": "Disponible"
+      "GOLD",
+      "Urgencias"
+    ]
   },
   {
-    "id": "g-hipoglucemia",
-    "href": "Hipoglucemia_DrCroce_2026.html",
-    "icon": "🩸",
-    "icon_style": "background:#eafaf1",
-    "title": "Hipoglucemia — Manejo en Urgencias",
-    "sub": "Diagnóstico, clasificación y tratamiento",
+    "titulo": "Espirometría — Interpretación Práctica",
+    "subtitulo": "Patrones obstructivos, restrictivos y mixtos",
+    "archivo": "guias/espirometria_DrCroce_2026.html",
+    "categoria": "Neumología",
+    "icono": "🌬️",
     "tags": [
-      "ADA 2026",
-      "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Endocrinología"
-    ],
-    "status": "Disponible"
-  },
-  {
-    "id": "g-epoc",
-    "href": "AECOPD_Modulo_Croce_v2.html",
-    "icon": "💨",
-    "icon_style": "background:#eaf4fb",
-    "title": "Exacerbación de EPOC (AECOPD)",
-    "sub": "Diagnóstico, severidad y tratamiento",
-    "tags": [
-      "GOLD 2025",
-      "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Neumología"
-    ],
-    "status": "Disponible"
-  },
-  {
-    "id": "g-gasometria",
-    "href": "gasometria_acido_base_Croce.html",
-    "icon": "🫧",
-    "icon_style": "background:#eaf4fb",
-    "title": "Gasometría y Trastornos Ácido-Base",
-    "sub": "Interpretación sistemática y casos clínicos",
-    "tags": [
-      "Medicina Interna",
-      "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Neumología",
+      "ATS/ERS",
       "Medicina Interna"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-ic",
-    "href": "insuficiencia_cardiaca_DrCroce.html",
-    "icon": "🫀",
-    "icon_style": "background:#f2eefc",
-    "title": "Insuficiencia Cardíaca Aguda y Crónica",
-    "sub": "GDMT · IC Descompensada · HFrEF / HFpEF",
+    "titulo": "Neumonía Adquirida en la Comunidad",
+    "subtitulo": "CURB-65 · antibióticos · UCI · poblaciones especiales",
+    "archivo": "guias/neumonia_adquirida_comunidad_DrCroce.html",
+    "categoria": "Neumología",
+    "icono": "🫁",
     "tags": [
-      "ESC 2021/2023",
-      "AHA/ACC 2022",
-      "ACC 2024"
-    ],
-    "categories": [
-      "Cardiología"
-    ],
-    "status": "Disponible"
-  },
-  {
-    "id": "g-espirometria",
-    "href": "espirometria_DrCroce_2026.html",
-    "icon": "🌬️",
-    "icon_style": "background:#e8f7f8",
-    "title": "Espirometría — Interpretación Práctica",
-    "sub": "Patrones obstructivos, restrictivos y mixtos",
-    "tags": [
-      "ATS/ERS 2022",
-      "GOLD 2025",
-      "Medicina Interna"
-    ],
-    "categories": [
-      "Neumología",
-      "Medicina Interna"
-    ],
-    "status": "Disponible"
-  },
-  {
-    "id": "g-dengue",
-    "href": "dengue.html",
-    "icon": "🦟",
-    "icon_style": "background:#fff8e1",
-    "title": "Dengue — Abordaje Clínico Integral",
-    "sub": "Estadios · Emergencia · Complicaciones · Shock",
-    "tags": [
-      "OPS/OMS 2024",
-      "CDC 2023",
+      "ATS/IDSA",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Infectología"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-sca",
-    "href": "SCA_DrCroce_2026.html",
-    "icon": "❤️‍🔥",
-    "icon_style": "background:#fdf0ef",
-    "title": "Síndrome Coronario Agudo (SCA)",
-    "sub": "STEMI · NSTEMI · Angina Inestable · Antitrombóticos",
+    "titulo": "Gasometría y Trastornos Ácido-Base",
+    "subtitulo": "Interpretación sistemática y casos clínicos",
+    "archivo": "guias/gasometria_acido_base.html",
+    "categoria": "Medicina Interna",
+    "icono": "🫧",
     "tags": [
-      "ESC 2023",
-      "ACC/AHA 2025",
+      "Ácido-base",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Cardiología"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-neumonia",
-    "href": "neumonia_adquirida_comunidad_DrCroce.html",
-    "icon": "🫁",
-    "icon_style": "background:#eafaf1",
-    "title": "Neumonía Adquirida en la Comunidad",
-    "sub": "CURB-65 · Antibióticos · UCI · Poblaciones Especiales",
+    "titulo": "Sepsis y Shock Séptico",
+    "subtitulo": "Manejo en urgencias y hospitalización",
+    "archivo": "guias/sepsis-choque-septico.html",
+    "categoria": "Infectología",
+    "icono": "🦠",
     "tags": [
-      "ATS 2025",
-      "ATS/IDSA 2019",
-      "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Neumología",
-      "Infectología"
-    ],
-    "status": "Disponible"
+      "SSC",
+      "UCI"
+    ]
   },
   {
-    "id": "g-stroke",
-    "href": "acv_isquemico_DrCroce.html",
-    "icon": "🧠",
-    "icon_style": "background:#f5eef8",
-    "title": "ACV Isquémico Agudo",
-    "sub": "Trombólisis · Trombectomía · NIHSS · Penumbra · Prevención",
+    "titulo": "Dengue — Abordaje Clínico Integral",
+    "subtitulo": "Estadios · emergencia · complicaciones · shock",
+    "archivo": "guias/dengue.html",
+    "categoria": "Infectología",
+    "icono": "🦟",
     "tags": [
-      "AHA/ASA 2026",
-      "AHA Prevention 2024",
+      "OPS/OMS",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Neurología"
-    ],
-    "status": "Disponible"
+    ]
   },
   {
-    "id": "g-itu",
-    "href": "itu_adulto_DrCroce_2026.html",
-    "icon": "🦠",
-    "icon_style": "background:#eaf4fb",
-    "title": "Infección del Tracto Urinario (ITU)",
-    "sub": "ITU no complicada · Pielonefritis · ITU complicada · Urosepsis",
+    "titulo": "Infección del Tracto Urinario (ITU)",
+    "subtitulo": "ITU no complicada · pielonefritis · ITU complicada · urosepsis",
+    "archivo": "guias/itu_adulto_DrCroce_2026.html",
+    "categoria": "Infectología",
+    "icono": "🦠",
     "tags": [
-      "IDSA 2024",
-      "EAU 2024",
+      "IDSA",
+      "EAU",
       "Urgencias"
-    ],
-    "categories": [
-      "Urgencias",
-      "Infectología"
-    ],
-    "status": "Disponible"
+    ]
+  },
+  {
+    "titulo": "Síndrome Coronario Agudo (SCA)",
+    "subtitulo": "STEMI · NSTEMI · angina inestable · antitrombóticos",
+    "archivo": "guias/SCA_DrCroce_2026.html",
+    "categoria": "Cardiología",
+    "icono": "❤️‍🔥",
+    "tags": [
+      "ESC",
+      "ACC/AHA",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Insuficiencia Cardíaca Aguda y Crónica",
+    "subtitulo": "GDMT · IC descompensada · HFrEF / HFpEF",
+    "archivo": "guias/insuficiencia_cardiaca_DrCroce.html",
+    "categoria": "Cardiología",
+    "icono": "🫀",
+    "tags": [
+      "ESC",
+      "AHA/ACC"
+    ]
+  },
+  {
+    "titulo": "Emergencia Hipertensiva",
+    "subtitulo": "Diagnóstico · estratificación · manejo por órgano diana",
+    "archivo": "guias/emergenciahipertensiva.html",
+    "categoria": "Cardiología",
+    "icono": "🫀",
+    "tags": [
+      "ESC",
+      "AHA/ACC",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "ACV Isquémico Agudo",
+    "subtitulo": "Trombólisis · trombectomía · NIHSS · prevención",
+    "archivo": "guias/acv_isquemico_DrCroce.html",
+    "categoria": "Neurología",
+    "icono": "🧠",
+    "tags": [
+      "AHA/ASA",
+      "Urgencias"
+    ]
   }
 ];
-
-const STORAGE = {
-  favs: 'croce.portal.favorites.v1',
-  recent: 'croce.portal.recent.v1'
-};
-
-let activeCategory = 'Todas';
-let showOnlyFavs = false;
-let showRecent = false;
-
-const tagClasses = ['tag-red','tag-blue','tag-green','tag-amber','tag-purple'];
-
-function getJSON(key, fallback) {
-  try { return JSON.parse(localStorage.getItem(key)) || fallback; }
-  catch (e) { return fallback; }
+function initCategorias(){
+  document.getElementById('totalGuias').textContent = GUIAS.length + ' guías';
+  const select=document.getElementById('category');
+  [...new Set(GUIAS.map(g=>g.categoria))].sort().forEach(cat=>{const opt=document.createElement('option'); opt.value=cat; opt.textContent=cat; select.appendChild(opt);});
 }
-
-function setJSON(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)); }
-  catch (e) { console.warn('No se pudo guardar en localStorage:', key); }
+function cardHTML(g){return `<a class="card" href="${g.archivo}"><div class="icon">${g.icono}</div><div><div class="title">${g.titulo}</div><div class="sub">${g.subtitulo}</div><div class="tags"><span class="tag">${g.categoria}</span>${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></a>`}
+function renderGuias(){
+  const q=document.getElementById('search').value.toLowerCase().trim(); const cat=document.getElementById('category').value; const content=document.getElementById('content'); const empty=document.getElementById('empty'); content.innerHTML='';
+  const filtered=GUIAS.filter(g=>{const text=[g.titulo,g.subtitulo,g.categoria,...g.tags].join(' ').toLowerCase(); return (!q||text.includes(q))&&(!cat||g.categoria===cat);});
+  const groups={}; filtered.forEach(g=>{(groups[g.categoria] ||= []).push(g);});
+  Object.keys(groups).sort().forEach(c=>{const h=document.createElement('div'); h.className='category-title'; h.textContent=c; const grid=document.createElement('div'); grid.className='grid'; groups[c].forEach(g=>grid.insertAdjacentHTML('beforeend',cardHTML(g))); content.appendChild(h); content.appendChild(grid);});
+  empty.style.display=filtered.length?'none':'block';
 }
-
-function normalize(text) {
-  return String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-}
-
-function categories() {
-  return ['Todas', ...Array.from(new Set(GUIDE_DATA.flatMap(g => g.categories))).sort((a,b)=>a.localeCompare(b,'es'))];
-}
-
-function tagClass(tag) {
-  const t = normalize(tag);
-  if (t.includes('urgencias') || t.includes('ada') || t.includes('esc')) return 'tag-red';
-  if (t.includes('aha') || t.includes('ats') || t.includes('idsa') || t.includes('ssc') || t.includes('cdc')) return 'tag-blue';
-  if (t.includes('gold') || t.includes('eau') || t.includes('medicina interna') || t.includes('ops')) return 'tag-green';
-  if (t.includes('2025') || t.includes('2026') || t.includes('semicyuc')) return 'tag-amber';
-  return 'tag-purple';
-}
-
-function renderFilters() {
-  const box = document.getElementById('filters');
-  box.innerHTML = '';
-  categories().forEach(cat => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'filter-btn' + (cat === activeCategory ? ' active' : '');
-    btn.textContent = cat;
-    btn.setAttribute('aria-pressed', String(cat === activeCategory));
-    btn.addEventListener('click', () => {
-      activeCategory = cat;
-      showOnlyFavs = false;
-      showRecent = false;
-      document.getElementById('btn-favs').classList.remove('active');
-      renderFilters();
-      renderGuides();
-    });
-    box.appendChild(btn);
-  });
-}
-
-function guideSearchText(g) {
-  return normalize([g.title, g.sub, g.href, ...g.tags, ...g.categories].join(' '));
-}
-
-function filteredGuides() {
-  const q = normalize(document.getElementById('search-input').value.trim());
-  const favs = getJSON(STORAGE.favs, []);
-  const recent = getJSON(STORAGE.recent, []);
-
-  let list = GUIDE_DATA.filter(g => {
-    const matchQ = !q || guideSearchText(g).includes(q);
-    const matchCat = activeCategory === 'Todas' || g.categories.includes(activeCategory);
-    const matchFav = !showOnlyFavs || favs.includes(g.id);
-    const matchRecent = !showRecent || recent.includes(g.id);
-    return matchQ && matchCat && matchFav && matchRecent;
-  });
-
-  if (showRecent) {
-    list.sort((a,b) => recent.indexOf(a.id) - recent.indexOf(b.id));
-  }
-  return list;
-}
-
-function markRecent(id) {
-  const recent = getJSON(STORAGE.recent, []).filter(x => x !== id);
-  recent.unshift(id);
-  setJSON(STORAGE.recent, recent.slice(0, 8));
-}
-
-function toggleFav(id, ev) {
-  ev.preventDefault();
-  ev.stopPropagation();
-  let favs = getJSON(STORAGE.favs, []);
-  favs = favs.includes(id) ? favs.filter(x => x !== id) : [...favs, id];
-  setJSON(STORAGE.favs, favs);
-  renderGuides();
-}
-
-function createCard(g) {
-  const favs = getJSON(STORAGE.favs, []);
-  const a = document.createElement('a');
-  a.className = 'guide-card';
-  a.href = g.href;
-  a.id = g.id;
-  a.dataset.categories = g.categories.join(',');
-  a.dataset.search = guideSearchText(g);
-  a.addEventListener('click', () => markRecent(g.id));
-
-  const fav = favs.includes(g.id);
-  a.innerHTML = `
-    <button class="fav-btn ${fav ? 'active' : ''}" type="button" aria-label="${fav ? 'Quitar de favoritas' : 'Agregar a favoritas'}">★</button>
-    <div class="guide-icon" style="${g.icon_style}" aria-hidden="true">${g.icon}</div>
-    <div class="guide-info">
-      <div class="guide-title">${g.title}</div>
-      <div class="guide-sub">${g.sub}</div>
-      <div class="guide-tags">
-        ${g.tags.map(t => `<span class="tag ${tagClass(t)}">${t}</span>`).join('')}
-        <span class="status"><span class="status-dot"></span>${g.status}</span>
-      </div>
-    </div>
-    <span class="guide-arrow" aria-hidden="true">›</span>
-  `;
-  a.querySelector('.fav-btn').addEventListener('click', ev => toggleFav(g.id, ev));
-  return a;
-}
-
-function renderGuides() {
-  const grid = document.getElementById('guide-grid');
-  const no = document.getElementById('no-results');
-  const helper = document.getElementById('result-helper');
-  const list = filteredGuides();
-  grid.innerHTML = '';
-  list.forEach(g => grid.appendChild(createCard(g)));
-  no.style.display = list.length === 0 ? 'block' : 'none';
-  helper.textContent = `${list.length} de ${GUIDE_DATA.length} guías visibles` + 
-    (activeCategory !== 'Todas' ? ` · Categoría: ${activeCategory}` : '') +
-    (showOnlyFavs ? ' · Solo favoritas' : '') +
-    (showRecent ? ' · Recientes' : '');
-  updateStats();
-}
-
-function updateStats() {
-  const favs = getJSON(STORAGE.favs, []);
-  document.getElementById('stat-total').textContent = GUIDE_DATA.length;
-  document.getElementById('stat-fav').textContent = favs.length;
-  document.getElementById('stat-cat').textContent = categories().length - 1;
-  document.getElementById('stat-live').textContent = GUIDE_DATA.filter(g => g.status === 'Disponible').length;
-}
-
-function clearFilters() {
-  document.getElementById('search-input').value = '';
-  activeCategory = 'Todas';
-  showOnlyFavs = false;
-  showRecent = false;
-  renderFilters();
-  renderGuides();
-}
-
-document.getElementById('search-input').addEventListener('input', renderGuides);
-document.getElementById('btn-reset').addEventListener('click', clearFilters);
-document.getElementById('btn-favs').addEventListener('click', () => {
-  showOnlyFavs = !showOnlyFavs;
-  showRecent = false;
-  document.getElementById('btn-favs').classList.toggle('active', showOnlyFavs);
-  renderGuides();
-});
-document.getElementById('btn-recent').addEventListener('click', () => {
-  showRecent = !showRecent;
-  showOnlyFavs = false;
-  document.getElementById('btn-recent').classList.toggle('active', showRecent);
-  renderGuides();
-});
-
-document.addEventListener('keydown', (ev) => {
-  if (ev.key === '/' && document.activeElement !== document.getElementById('search-input')) {
-    ev.preventDefault();
-    document.getElementById('search-input').focus();
-  }
-  if (ev.key === 'Escape') clearFilters();
-});
-
-renderFilters();
-renderGuides();
+initCategorias();renderGuias();
 </script>
+<script src="assets/croce.js"></script>
 </body>
 </html>

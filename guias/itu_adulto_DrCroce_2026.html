@@ -8,29 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Source Sans 3',sans-serif;background:#f0f4f8;color:#1e293b;font-size:15px;line-height:1.65}
-
-/* ===== LOGIN ===== */
-#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#0c2340 0%,#1a3a5c 40%,#0d4a6e 100%)}
-.pw-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;
-  padding:40px 36px;max-width:400px;width:90%;text-align:center;backdrop-filter:blur(10px)}
-.pw-icon{font-size:52px;margin-bottom:12px}
-.pw-box h2{color:#fff;font-family:'Lora',serif;font-size:1.5rem;margin-bottom:6px}
-.pw-box p{color:rgba(255,255,255,.7);font-size:.9rem;margin-bottom:22px}
-.pw-input{width:100%;padding:12px 16px;border-radius:10px;border:2px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.12);color:#fff;font-size:1rem;text-align:center;letter-spacing:3px;
-  font-weight:600;outline:none;transition:.2s}
-.pw-input:focus{border-color:#38bdf8}
-.pw-input::placeholder{letter-spacing:1px;font-weight:400;opacity:.6}
-.pw-btn{margin-top:14px;width:100%;padding:12px;background:linear-gradient(135deg,#0ea5e9,#0284c7);
-  border:none;border-radius:10px;color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:.2s}
-.pw-btn:hover{background:linear-gradient(135deg,#38bdf8,#0ea5e9)}
-.pw-err{color:#fca5a5;font-size:.85rem;margin-top:10px;display:none}
+body{font-family:'Source Sans 3',sans-serif;background:#f5f2ed;color:#1e293b;font-size:15px;line-height:1.65}
 
 /* ===== APP ===== */
 #app{display:block}
-.hero{background:linear-gradient(135deg,#0c2340 0%,#1a3a5c 45%,#0d4a6e 100%);
+.hero{background:linear-gradient(135deg,#1f4e79 0%,#2b6f93 55%,#3b82a0 100%);
   color:#fff;text-align:center;padding:48px 20px 40px}
 .hero-back{color:rgba(255,255,255,.75);text-decoration:none;font-size:.85rem;
   display:inline-block;margin-bottom:16px;padding:5px 14px;border:1px solid rgba(255,255,255,.25);
@@ -44,7 +26,7 @@ body{font-family:'Source Sans 3',sans-serif;background:#f0f4f8;color:#1e293b;fon
   padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:600}
 
 /* ===== TABS ===== */
-.tabs{position:sticky;top:0;z-index:100;background:#1a3a5c;padding:0;
+.tabs{position:sticky;top:0;z-index:100;background:#2b5f7f;padding:0;
   overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
 .tabs::-webkit-scrollbar{height:4px}
 .tabs::-webkit-scrollbar-thumb{background:#38bdf8;border-radius:2px}
@@ -59,7 +41,7 @@ body{font-family:'Source Sans 3',sans-serif;background:#f0f4f8;color:#1e293b;fon
   padding-bottom:10px;border-bottom:2px solid #0ea5e9}
 
 /* ===== CARDS ===== */
-.card{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08);margin-bottom:16px;overflow:hidden}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:16px;overflow:hidden;border:1px solid #d8d3c8}
 .card-header{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
   background:#fff;font-weight:600;font-size:.95rem;color:#0c2340;transition:.2s}
 .card-header:hover{background:#f0f9ff}
@@ -78,7 +60,7 @@ body{font-family:'Source Sans 3',sans-serif;background:#f0f4f8;color:#1e293b;fon
 /* ===== TABLES ===== */
 .tbl-wrap{overflow-x:auto;margin:14px 0}
 table{width:100%;border-collapse:collapse;font-size:.88rem}
-thead th{background:#0c2340;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+thead th{background:#2b5f7f;color:#fff;padding:10px 12px;text-align:left;font-weight:600}
 tbody tr:nth-child(even){background:#f8fafc}
 tbody td{padding:9px 12px;border-bottom:1px solid #e2e8f0;vertical-align:top}
 tbody tr:hover{background:#f0f9ff}
@@ -168,8 +150,21 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 @media(max-width:620px){.edu-toolbar{top:44px}.tab-btn{padding:12px 14px}.hero h1{font-size:1.55rem}.quiz-q{padding:18px}.edu-tool-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
+
+/* ===== AJUSTE FINAL CROCE LIGHT: contraste, quiz y responsive ===== */
+html{scroll-behavior:smooth}
+.hero-back{border-color:rgba(255,255,255,.35)}
+.badge{color:#fff}
+.alert-red,.alert-amber,.alert-green,.alert-blue{color:#243044}
+.quiz-opt.selected{background:#edf4fd!important;border-color:#3b82f6!important;color:#1d4ed8!important;font-weight:700}
+.quiz-opt.correct,.quiz-opt.correct-answer{background:#eef8f1!important;border-color:#22c55e!important;color:#15803d!important;font-weight:700}
+.quiz-opt.wrong,.quiz-opt.incorrect-answer{background:#fdf0ef!important;border-color:#ef4444!important;color:#b91c1c!important;font-weight:700}
+.quiz-opt:disabled{cursor:default;opacity:1}
+.card-header[role=button],.card-header{min-height:48px}
+@media(max-width:620px){body{font-size:14px}.section{padding:18px 12px 44px}.hero{padding:36px 16px 30px}.tbl-wrap{border-radius:8px}}
+
 </style>
-<style>#pw-screen{display:none!important}#app{display:block!important}</style>
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
 <body>
 <a class="skip-link" href="#tab-fisio">Saltar al contenido principal</a>
@@ -180,7 +175,7 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 
 <!-- HERO -->
 <div class="hero">
-  <a class="hero-back" href="index.html">← Portal de guías</a>
+  <a class="hero-back" href="../index.html">← Portal de guías</a>
   <div class="hero-icon">🦠</div>
   <h1>Infección del Tracto Urinario en el Adulto</h1>
   <div class="hero-sub">Cistitis · Pielonefritis · Urosepsis · ITU Recurrente · ITU-AC</div>
@@ -198,13 +193,13 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
 
 <!-- TABS -->
 <div class="tabs">
-  <span class="tab-btn active" onclick=\"showTab('fisio',this)\">🔬 Fisiopatología</span>
-  <span class="tab-btn" onclick=\"showTab('clinica',this)\">🩺 Clínica y Clasificación</span>
-  <span class="tab-btn" onclick=\"showTab('lab',this)\">🧪 Laboratorio y Dx</span>
-  <span class="tab-btn" onclick=\"showTab('manejo',this)\">🚨 Manejo</span>
-  <span class="tab-btn" onclick=\"showTab('compl',this)\">⚡ Complicaciones</span>
-  <span class="tab-btn" onclick=\"showTab('egreso',this)\">📋 Egreso y Prevención</span>
-  <span class="tab-btn" onclick=\"showTab('quiz',this)\">❓ Autoevaluación</span>
+  <button type="button" class="tab-btn active" onclick="showTab('fisio',this)">🔬 Fisiopatología</button>
+  <button type="button" class="tab-btn" onclick="showTab('clinica',this)">🩺 Clínica y Clasificación</button>
+  <button type="button" class="tab-btn" onclick="showTab('lab',this)">🧪 Laboratorio y Dx</button>
+  <button type="button" class="tab-btn" onclick="showTab('manejo',this)">🚨 Manejo</button>
+  <button type="button" class="tab-btn" onclick="showTab('compl',this)">⚡ Complicaciones</button>
+  <button type="button" class="tab-btn" onclick="showTab('egreso',this)">📋 Egreso y Prevención</button>
+  <button type="button" class="tab-btn" onclick="showTab('quiz',this)">❓ Autoevaluación</button>
 </div>
 
 <div class="edu-toolbar" aria-label="Herramientas educativas">
@@ -1444,5 +1439,6 @@ ul.ci-list li:before{content:'✗';color:#ef4444}
   });
 })();
 </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>

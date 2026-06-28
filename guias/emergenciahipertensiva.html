@@ -23,26 +23,6 @@
 body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65}
 h1,h2,h3,h4,h5{font-family:'Lora',serif;line-height:1.3}
 
-/* LOGIN */
-#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(135deg,#3d0a0a 0%,#6b1515 35%,#8b1a1a 65%,#3d0a0a 100%);
-  background-size:400% 400%;animation:bgShift 8s ease infinite}
-@keyframes bgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-.pw-box{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);
-  border-radius:16px;padding:44px 40px;text-align:center;width:100%;max-width:400px;color:#fff}
-.pw-icon{font-size:52px;margin-bottom:16px}
-.pw-box h2{font-family:'Lora',serif;font-size:1.6rem;margin-bottom:4px}
-.pw-box p{opacity:.75;font-size:.9rem;margin-bottom:28px}
-.pw-box input{width:100%;padding:13px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.25);
-  background:rgba(255,255,255,.12);color:#fff;font-size:1.1rem;text-align:center;letter-spacing:3px;outline:none;transition:.2s}
-.pw-box input::placeholder{opacity:.5;letter-spacing:1px}
-.pw-box input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.18)}
-.pw-btn{margin-top:14px;width:100%;padding:13px;background:#8b1a1a;border:none;border-radius:8px;
-  color:#fff;font-weight:700;font-size:1rem;cursor:pointer;transition:.2s;font-family:'Source Sans 3',sans-serif}
-.pw-btn:hover{background:#a52a2a}
-.pw-err{margin-top:12px;padding:10px;background:rgba(255,255,255,.12);border-radius:6px;
-  font-size:.88rem;color:#fca5a5;display:none}
-
 /* APP */
 #app{display:block}
 
@@ -312,17 +292,317 @@ p.txt{margin-bottom:10px;font-size:.92rem}
 }
 </style>
 
-<style>#pw-screen{display:none!important}#app{display:block!important}</style>
+
+
+<style id="croce-pastel-standard">
+/* ===== ESTÁNDAR VISUAL PASTEL — BIBLIOTECA MÉDICA PERSONAL CROCE ===== */
+:root{
+  --crimson:#8b3a2f;--crimson2:#6f2e26;--crimson3:#a04a3d;
+  --crimson-light:#f3ded8;--crimson-mid:#e6bfb6;
+  --navy:#5a4b43;--navy2:#6c5a50;
+  --amber:#a85b16;--amber2:#b66a22;--amber-light:#fff1df;
+  --green:#1f6b45;--green-light:#e9f6ec;
+  --blue:#245c8f;--blue-light:#e9f2fb;
+  --slate:#433a32;--slate2:#6e6255;
+  --bg:#f7f3ed;--card:#fffdf9;--border:#d9cfc1;
+  --text:#27221d;--text-muted:#6e6255;
+  --radius:10px;--shadow:0 3px 12px rgba(75,51,34,.07);--shadow-lg:0 8px 28px rgba(75,51,34,.12);
+}
+
+body{
+  background:linear-gradient(180deg,#f8f4ee 0%,#f3ecdf 100%)!important;
+  color:var(--text)!important;
+}
+
+/* Login oculto */
+
+#app{display:block!important}
+
+/* Hero claro pastel */
+.hero{
+  background:linear-gradient(135deg,#fff8ef 0%,#f3e2d9 48%,#e7f2ef 100%)!important;
+  color:var(--text)!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 3px 14px rgba(73,45,28,.08)!important;
+}
+.hero::before{opacity:.18!important}
+.hero-back{
+  color:var(--crimson2)!important;
+  background:#fffdf9!important;
+  border:1px solid #cabcaa!important;
+  border-radius:20px!important;
+  padding:5px 12px!important;
+  box-shadow:0 1px 6px rgba(0,0,0,.05)!important;
+}
+.hero-back:hover{background:var(--crimson-light)!important;color:var(--crimson2)!important}
+.hero h1{
+  color:var(--crimson2)!important;
+  text-shadow:none!important;
+}
+.hero-sub,.hero-author{color:var(--text-muted)!important}
+.hero-icon{
+  background:#fffdf9!important;
+  border:1px solid var(--border)!important;
+  border-radius:18px!important;
+  width:72px!important;
+  height:72px!important;
+  margin:0 auto 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.04)!important;
+}
+
+/* Badges */
+.badge-red{background:#fdecea!important;border:1px solid #efb7b1!important;color:#651c17!important}
+.badge-blue{background:#e9f2fb!important;border:1px solid #aac9e8!important;color:#183f62!important}
+.badge-amber{background:#fff1df!important;border:1px solid #efc895!important;color:#65340d!important}
+.badge-green{background:#e9f6ec!important;border:1px solid #a9d9b9!important;color:#174b31!important}
+
+/* Tabs */
+.tabs-wrap{
+  background:#fffdf9!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.05)!important;
+}
+.tab-btn{color:var(--text-muted)!important}
+.tab-btn:hover{background:#fbf6ef!important;color:var(--crimson)!important}
+.tab-btn.active{
+  background:var(--crimson-light)!important;
+  color:var(--crimson2)!important;
+  border-bottom-color:var(--crimson)!important;
+}
+
+/* Toolbar */
+.framework-toolbar{margin-top:12px!important}
+.fullscreen-btn{
+  background:#fffdf9!important;
+  color:var(--crimson2)!important;
+  border:1px solid #cabcaa!important;
+}
+
+/* Secciones */
+.section-title{color:var(--crimson2)!important}
+.section-intro{
+  color:var(--text-muted)!important;
+  border-left-color:var(--crimson-mid)!important;
+}
+
+/* Cards */
+.card{
+  background:var(--card)!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.card-header:hover{background:#fbf6ef!important}
+.card-title{color:#4b342e!important}
+.ch-num{
+  background:var(--crimson-light)!important;
+  color:var(--crimson2)!important;
+  border:1px solid #d9aaa0!important;
+}
+.card-arrow{color:var(--text-muted)!important}
+.card-body{border-top-color:var(--border)!important;color:var(--text)!important}
+
+/* Alertas con contraste */
+.alert-red{background:#fdecea!important;border-left-color:#9f3028!important;color:#651c17!important}
+.alert-amber,.alert-orange{background:#fff1df!important;border-left-color:#a85b16!important;color:#65340d!important}
+.alert-yellow{background:#fff8d8!important;border-left-color:#806000!important;color:#574200!important}
+.alert-green{background:#e9f6ec!important;border-left-color:#1f6b45!important;color:#174b31!important}
+.alert-blue{background:#e9f2fb!important;border-left-color:#245c8f!important;color:#183f62!important}
+
+/* Tablas */
+.tbl-wrap{
+  border:1px solid var(--border)!important;
+  background:var(--card)!important;
+  box-shadow:var(--shadow)!important;
+}
+th{
+  background:#f1dfd5!important;
+  color:#5a241e!important;
+  border-bottom:1px solid #d6b5a8!important;
+}
+td{
+  color:#433a32!important;
+  border-bottom-color:var(--border)!important;
+}
+tr:nth-child(even) td{background:#fbf6ef!important}
+tr:hover td{background:#fff6ed!important}
+td strong{color:#4b342e!important}
+
+/* Steps */
+.step-num{
+  background:#fff1df!important;
+  color:#65340d!important;
+  border:1px solid #efc895!important;
+  box-shadow:none!important;
+}
+.step-body strong{color:var(--crimson2)!important}
+p.txt, ul.disc li, ol.num li, .step-body{color:#433a32!important}
+
+/* Drug/protocol dark boxes converted to pastel */
+.drug-card{
+  background:#fffaf3!important;
+  color:#27221d!important;
+  border:1px solid #decdb8!important;
+  box-shadow:var(--shadow)!important;
+}
+.drug-name{color:#245c8f!important}
+.drug-class{color:#6e6255!important}
+.drug-label{color:#6e6255!important}
+.drug-val{color:#27221d!important}
+.drug-note{
+  background:#e9f6ec!important;
+  color:#174b31!important;
+  border:1px solid #a9d9b9!important;
+}
+.drug-ci{
+  background:#fdecea!important;
+  color:#651c17!important;
+  border-left-color:#9f3028!important;
+}
+
+.proto-box,.proto-box-red,.proto-box-blue{
+  background:#fffaf3!important;
+  color:#27221d!important;
+  border:1px solid #decdb8!important;
+}
+.proto-box h4{color:#174b31!important}
+.proto-box-red h4{color:#651c17!important}
+.proto-box-blue h4{color:#183f62!important}
+.proto-item{color:#433a32!important}
+.proto-dot{background:#1f6b45!important}
+.proto-box-red .proto-dot{background:#9f3028!important}
+.proto-box-blue .proto-dot{background:#245c8f!important}
+
+/* Pills, subcards, warnings */
+.pill-red{background:#fdecea!important;color:#651c17!important}
+.pill-green{background:#e9f6ec!important;color:#174b31!important}
+.pill-blue{background:#e9f2fb!important;color:#183f62!important}
+.pill-amber{background:#fff1df!important;color:#65340d!important}
+.warn-item{
+  background:#fdecea!important;
+  border-color:#efb7b1!important;
+}
+.warn-text strong{color:#651c17!important}
+.warn-text span{color:#6b2a24!important}
+.col-box,.subcard{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+}
+.col-box h5,.subcard h5{color:var(--crimson2)!important}
+
+/* Calculadoras */
+.calc-wrap{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.calc-header{
+  background:#e9f2fb!important;
+  color:#183f62!important;
+  border-bottom:1px solid #aac9e8!important;
+}
+.calc-header h3{color:#183f62!important}
+.calc-header p{color:#3f668d!important}
+.calc-body{background:#fffdf9!important}
+.calc-group label{color:var(--text-muted)!important}
+.calc-group input,.calc-group select{
+  background:#fffaf3!important;
+  color:var(--text)!important;
+  border:1px solid #cabcaa!important;
+}
+.calc-results{
+  background:#e6f6f7!important;
+  border-color:#9fd5d9!important;
+  color:#0f4f55!important;
+}
+.calc-results h4{color:#0b4045!important}
+.r-label{color:#416c70!important}
+.r-val{color:#0b4045!important}
+.r-val.danger{color:#651c17!important}
+.r-val.ok{color:#174b31!important}
+.calc-btn{
+  background:var(--crimson)!important;
+  color:#fff!important;
+}
+
+/* Quiz */
+.quiz-wrap{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.quiz-header{
+  background:#f1dfd5!important;
+  color:#5a241e!important;
+  border-bottom:1px solid #d6b5a8!important;
+}
+.quiz-header h3{color:#5a241e!important}
+.quiz-header p{color:#7a554b!important}
+.q-body{background:#fffdf9!important}
+.q-num{color:var(--crimson2)!important}
+.q-text{color:#4b342e!important}
+.q-opt{
+  background:#fffdf9!important;
+  color:#27221d!important;
+  border-color:#cabcaa!important;
+}
+.q-opt:hover{
+  background:#f4e5dc!important;
+  border-color:var(--crimson)!important;
+}
+.q-opt.selected{
+  border-color:#245c8f!important;
+  background:#e9f2fb!important;
+  color:#183f62!important;
+}
+.q-opt.correct{
+  border-color:#1f6b45!important;
+  background:#e9f6ec!important;
+  color:#174b31!important;
+}
+.q-opt.wrong{
+  border-color:#9f3028!important;
+  background:#fdecea!important;
+  color:#651c17!important;
+}
+.opt-letter{background:#efe8dd!important;color:#433a32!important}
+.q-opt.selected .opt-letter{background:#245c8f!important;color:#fff!important}
+.q-opt.correct .opt-letter{background:#1f6b45!important;color:#fff!important}
+.q-opt.wrong .opt-letter{background:#9f3028!important;color:#fff!important}
+.q-feedback.ok{background:#e9f6ec!important;border-color:#a9d9b9!important;color:#174b31!important}
+.q-feedback.fail{background:#fdecea!important;border-color:#efb7b1!important;color:#651c17!important}
+.quiz-nav{
+  background:#fbf6ef!important;
+  border-top-color:var(--border)!important;
+}
+.btn-prev{background:#fffdf9!important;border-color:#cabcaa!important;color:#433a32!important}
+.btn-next{background:var(--crimson)!important;color:#fff!important}
+.q-dot.current{background:var(--crimson)!important}
+.q-dot.answered{background:#a85b16!important}
+.q-dot.correct-done{background:#1f6b45!important}
+.score-circle{border-color:var(--crimson)!important}
+.score-pct{color:var(--crimson2)!important}
+
+/* Footer */
+.footer{
+  background:#f6eee4!important;
+  color:#6e6255!important;
+  border-top:1px solid var(--border)!important;
+}
+</style>
+
+<link rel="stylesheet" href="../assets/croce.css">
 </head>
 <body>
 
-<!-- LOGIN -->
 <!-- APP -->
 <div id="app">
 
 <!-- HERO -->
 <div class="hero">
-  <a class="hero-back" href="index.html">← Portal de guías</a>
+  <a class="hero-back" href="../index.html">← Portal de guías</a>
   <div class="hero-icon">🫀</div>
   <h1>Emergencia Hipertensiva</h1>
   <div class="hero-sub">Diagnóstico · Estratificación · Manejo por Órgano Diana</div>
@@ -1663,5 +1943,6 @@ if(document.readyState==='loading'){
   initFramework();
 }
 </script>
+<script src="../assets/croce.js"></script>
 </body>
 </html>
