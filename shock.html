@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shock — Manejo Práctico · Dr. Luis E. Croce</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&amp;family=Source+Sans+3:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --crimson:#8b1a1a;--crimson2:#a52a2a;--crimson3:#c0392b;
+  --crimson-light:#fdf2f2;--crimson-mid:#f8d7d7;
+  --navy:#1a2640;--navy2:#243450;
+  --amber:#b45309;--amber2:#d97706;--amber-light:#fffbeb;
+  --green:#166534;--green-light:#f0fdf4;
+  --blue:#1e3a8a;--blue-light:#eff6ff;
+  --slate:#334155;--slate2:#475569;
+  --bg:#f8f7f5;--card:#ffffff;--border:#e2e8f0;
+  --text:#1e293b;--text-muted:#64748b;
+  --radius:10px;--shadow:0 2px 12px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65}
+h1,h2,h3,h4,h5{font-family:'Lora',serif;line-height:1.3}
+
+/* APP */
+#app{display:block}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#3d0a0a 0%,#6b1515 40%,#8b1a1a 70%,#5a1010 100%);
+  color:#fff;padding:36px 24px 32px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);text-decoration:none;
+  font-size:.85rem;margin-bottom:20px;transition:.2s;font-weight:500;position:relative}
+.hero-back:hover{color:#fff}
+.hero-icon{font-size:56px;margin-bottom:12px;position:relative}
+.hero h1{font-size:2rem;font-weight:700;margin-bottom:8px;position:relative;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-sub{font-size:1rem;opacity:.85;margin-bottom:6px;position:relative}
+.hero-author{font-size:.82rem;opacity:.7;font-style:italic;margin-bottom:18px;position:relative}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative}
+.badge{padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.3px}
+.badge-red{background:rgba(220,38,38,.35);border:1px solid rgba(252,165,165,.4);color:#fecaca}
+.badge-blue{background:rgba(37,99,235,.3);border:1px solid rgba(147,197,253,.4);color:#bfdbfe}
+.badge-amber{background:rgba(180,83,9,.35);border:1px solid rgba(253,186,116,.4);color:#fed7aa}
+.badge-green{background:rgba(22,101,52,.35);border:1px solid rgba(134,239,172,.4);color:#bbf7d0}
+
+/* TABS */
+.tabs-wrap{position:sticky;top:0;z-index:100;background:var(--navy);box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.tabs-inner{display:flex;overflow-x:auto;scrollbar-width:none}
+.tabs-inner::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:13px 18px;background:none;border:none;color:rgba(255,255,255,.6);
+  font-family:'Source Sans 3',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;
+  border-bottom:3px solid transparent;transition:.2s;white-space:nowrap;letter-spacing:.3px}
+.tab-btn:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.06)}
+.tab-btn.active{color:#fff;border-bottom-color:#c0392b}
+
+/* SECTIONS */
+.section{display:none;max-width:980px;margin:0 auto;padding:28px 20px 48px}
+.section.active{display:block}
+.section-title{font-size:1.45rem;color:var(--crimson);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.section-intro{color:var(--text-muted);margin-bottom:24px;font-size:.95rem;border-left:3px solid var(--crimson-mid);padding-left:14px}
+
+/* CARDS */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:16px;
+  border:1px solid var(--border);overflow:hidden}
+.card-header{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  transition:background .2s;user-select:none}
+.card-header:hover{background:#fafafa}
+.card-title{font-family:'Lora',serif;font-size:1.05rem;color:var(--navy);font-weight:600;display:flex;align-items:center}
+.ch-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  background:var(--crimson);color:#fff;border-radius:50%;font-size:.8rem;font-family:'Source Sans 3',sans-serif;
+  font-weight:700;margin-right:10px;flex-shrink:0}
+.card-arrow{color:var(--slate2);font-size:1rem;transition:transform .3s;flex-shrink:0}
+.card-header.open .card-arrow{transform:rotate(90deg)}
+.card-body{display:none;padding:0 20px 20px;border-top:1px solid var(--border)}
+.card-body.open{display:block}
+
+/* ALERTS */
+.alert{border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.92rem}
+.alert strong{display:block;margin-bottom:4px}
+.alert-red{background:#fff1f1;border-left:4px solid #dc2626;color:#7f1d1d}
+.alert-amber{background:#fffbeb;border-left:4px solid #d97706;color:#78350f}
+.alert-green{background:#f0fdf4;border-left:4px solid #16a34a;color:#14532d}
+.alert-blue{background:#eff6ff;border-left:4px solid #2563eb;color:#1e3a8a}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;border-radius:8px;box-shadow:var(--shadow);margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:'Source Sans 3',sans-serif;font-weight:600}
+td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+tr:last-child td{border-bottom:none}
+td strong{color:var(--navy)}
+
+/* STEPS */
+.steps{margin:14px 0}
+.step{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.step-num{flex-shrink:0;width:32px;height:32px;background:var(--amber);color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;
+  font-family:'Source Sans 3',sans-serif;box-shadow:0 2px 6px rgba(180,83,9,.3)}
+.step-body{flex:1;padding-top:4px}
+.step-body strong{display:block;color:var(--navy);margin-bottom:3px;font-family:'Lora',serif}
+
+/* DRUG CARDS */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin:14px 0}
+.drug-card{background:linear-gradient(135deg,#1a2640 0%,#243450 100%);border-radius:10px;padding:18px;color:#fff}
+.drug-name{font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:#93c5fd;margin-bottom:4px}
+.drug-class{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:12px;font-weight:500;letter-spacing:.3px;text-transform:uppercase}
+.drug-row{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;font-size:.85rem}
+.drug-label{color:rgba(255,255,255,.65)}
+.drug-val{color:#e2e8f0;font-weight:600;text-align:right;flex:1}
+.drug-note{margin-top:10px;padding:8px 10px;background:rgba(255,255,255,.08);border-radius:6px;font-size:.8rem;color:rgba(255,255,255,.8)}
+.drug-ci{margin-top:8px;padding:8px 10px;background:rgba(220,38,38,.2);border-radius:6px;font-size:.8rem;color:#fca5a5;border-left:3px solid #ef4444}
+
+/* PROTOCOL BOXES */
+.proto-box{background:linear-gradient(135deg,#1c2b1c 0%,#1a3a1a 100%);border-radius:10px;
+  padding:18px 20px;color:#fff;margin:14px 0;border:1px solid #166534}
+.proto-box h4{color:#86efac;font-family:'Lora',serif;margin-bottom:12px;font-size:1rem}
+.proto-item{display:flex;gap:10px;margin-bottom:10px;font-size:.88rem}
+.proto-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;margin-top:7px;flex-shrink:0}
+.proto-box-red{background:linear-gradient(135deg,#2d0a0a 0%,#3d0f0f 100%);border:1px solid #991b1b}
+.proto-box-red h4{color:#fca5a5}
+.proto-box-red .proto-dot{background:#f87171}
+.proto-box-blue{background:linear-gradient(135deg,#0c1a3d 0%,#0f2352 100%);border:1px solid #1e3a8a}
+.proto-box-blue h4{color:#93c5fd}
+.proto-box-blue .proto-dot{background:#60a5fa}
+
+/* PILLS */
+.pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:600;margin:2px}
+.pill-red{background:#fee2e2;color:#991b1b}
+.pill-green{background:#dcfce7;color:#166534}
+.pill-blue{background:#dbeafe;color:#1e40af}
+.pill-amber{background:#fef3c7;color:#92400e}
+
+/* WARN GRID */
+.warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.warn-item{background:#fff1f1;border:1px solid #fecaca;border-radius:8px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.warn-icon{font-size:1.3rem;flex-shrink:0}
+.warn-text strong{display:block;color:#991b1b;font-size:.88rem;margin-bottom:2px}
+.warn-text span{color:#7f1d1d;font-size:.82rem}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.col-box{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px}
+.col-box h5{font-family:'Lora',serif;color:var(--navy);margin-bottom:10px;font-size:.95rem}
+
+/* SUBCARD */
+.subcard{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:12px}
+.subcard h5{font-family:'Lora',serif;color:var(--navy);margin-bottom:8px;font-size:.95rem;border-bottom:1px solid var(--border);padding-bottom:6px}
+
+/* CHECKLIST */
+.checklist{list-style:none}
+.checklist li{padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;font-size:.92rem}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'☐';color:var(--crimson);font-size:1.1rem;flex-shrink:0;margin-top:-1px}
+
+ul.disc{padding-left:18px}
+ul.disc li{margin-bottom:6px;font-size:.9rem}
+ol.num{padding-left:18px}
+ol.num li{margin-bottom:6px;font-size:.9rem}
+p.txt{margin-bottom:10px;font-size:.92rem}
+
+/* CALC */
+.calc-wrap{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:24px}
+.calc-header{background:linear-gradient(135deg,#1a2640,#243450);color:#fff;padding:18px 20px}
+.calc-header h3{font-family:'Lora',serif;font-size:1.15rem;color:#93c5fd;margin-bottom:4px}
+.calc-header p{font-size:.85rem;opacity:.75}
+.calc-body{padding:20px}
+.calc-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:16px}
+.calc-group label{display:block;font-size:.82rem;color:var(--text-muted);font-weight:600;margin-bottom:5px}
+.calc-group input,.calc-group select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:6px;
+  font-size:.95rem;font-family:'Source Sans 3',sans-serif;outline:none;transition:.2s}
+.calc-group input:focus{border-color:var(--crimson);box-shadow:0 0 0 3px rgba(139,26,26,.1)}
+.calc-btn{padding:10px 24px;background:var(--crimson);color:#fff;border:none;border-radius:6px;
+  font-weight:600;font-size:.9rem;cursor:pointer;transition:.2s;font-family:'Source Sans 3',sans-serif}
+.calc-btn:hover{background:var(--crimson2)}
+.calc-results{background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:14px}
+.calc-results h4{color:var(--navy);font-family:'Lora',serif;margin-bottom:12px;font-size:.95rem}
+.r-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.r-row:last-child{border-bottom:none}
+.r-label{color:var(--slate2)}
+.r-val{font-weight:700;color:var(--navy)}
+.r-val.danger{color:#dc2626}
+.r-val.ok{color:#166534}
+
+/* QUIZ */
+.quiz-wrap{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden}
+.quiz-header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 20px}
+.quiz-header h3{font-family:'Lora',serif;font-size:1.1rem;color:#93c5fd;margin-bottom:3px}
+.quiz-header p{font-size:.82rem;opacity:.7}
+.q-body{padding:24px}
+.q-num{font-size:.8rem;color:var(--crimson);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.q-text{font-family:'Lora',serif;font-size:1.05rem;color:var(--navy);margin-bottom:20px;line-height:1.55}
+.q-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;margin-bottom:9px;
+  cursor:pointer;transition:.2s;font-size:.92rem;display:flex;gap:10px;align-items:flex-start}
+.q-opt:hover{border-color:var(--crimson);background:#fdf2f2}
+.q-opt.correct{border-color:#16a34a;background:#f0fdf4;color:#14532d;cursor:default}
+.q-opt.wrong{border-color:#dc2626;background:#fff1f1;color:#991b1b;cursor:default}
+.q-opt.disabled{cursor:default}
+.opt-letter{width:24px;height:24px;border-radius:50%;background:var(--border);display:flex;align-items:center;
+  justify-content:center;font-weight:700;font-size:.78rem;color:var(--slate);flex-shrink:0}
+.q-opt.correct .opt-letter{background:#16a34a;color:#fff}
+.q-opt.wrong .opt-letter{background:#dc2626;color:#fff}
+.q-feedback{border-radius:8px;padding:14px 16px;margin-top:14px;font-size:.9rem;display:none}
+.q-feedback.show{display:block}
+.q-feedback.ok{background:#f0fdf4;border:1px solid #86efac;color:#14532d}
+.q-feedback.fail{background:#fff1f1;border:1px solid #fca5a5;color:#7f1d1d}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-top:1px solid var(--border);background:#f8fafc}
+.quiz-nav button{padding:9px 20px;border-radius:6px;font-weight:600;font-size:.88rem;cursor:pointer;transition:.2s;font-family:'Source Sans 3',sans-serif}
+.btn-prev{background:none;border:1.5px solid var(--border);color:var(--slate)}
+.btn-prev:hover:not(:disabled){background:var(--bg)}
+.btn-prev:disabled{opacity:.4;cursor:default}
+.btn-next{background:var(--crimson);border:none;color:#fff}
+.btn-next:hover{background:var(--crimson2)}
+.q-progress{display:flex;gap:6px}
+.q-dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:.3s}
+.q-dot.answered{background:var(--amber)}
+.q-dot.current{background:var(--crimson);box-shadow:0 0 0 3px rgba(139,26,26,.2)}
+.q-dot.correct-done{background:#16a34a}
+.score-screen{text-align:center;padding:40px 24px}
+.score-circle{width:110px;height:110px;border-radius:50%;border:6px solid var(--crimson);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Lora',serif}
+.score-pct{font-size:2rem;font-weight:700;color:var(--crimson)}
+.score-label{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+
+/* FOOTER */
+.footer{background:var(--navy);color:rgba(255,255,255,.65);text-align:center;padding:20px;font-size:.8rem;line-height:1.8}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .drug-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .warn-grid{grid-template-columns:1fr}
+  .calc-row{grid-template-columns:1fr}
+  .section{padding:20px 14px 40px}
+  .card-title{font-size:.95rem}
+}
+
+/* STANDARD EDU FRAMEWORK ENHANCEMENTS */
+.tab-btn:focus-visible,
+.card-header:focus-visible,
+.q-opt:focus-visible,
+.calc-btn:focus-visible,
+.quiz-nav button:focus-visible,
+.fullscreen-btn:focus-visible{
+  outline:3px solid rgba(37,99,235,.45);
+  outline-offset:2px;
+}
+.q-opt.selected{
+  border-color:#2563eb;
+  background:#eff6ff;
+  color:#1e3a8a;
+}
+.q-opt.selected .opt-letter{
+  background:#2563eb;
+  color:#fff;
+}
+.quiz-status{
+  margin-top:10px;
+  font-size:.86rem;
+  font-weight:700;
+}
+.quiz-status.ok{color:#14532d}
+.quiz-status.fail{color:#7f1d1d}
+.framework-toolbar{
+  max-width:980px;
+  margin:14px auto 0;
+  padding:0 20px;
+  display:flex;
+  justify-content:flex-end;
+}
+.fullscreen-btn{
+  padding:8px 14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff;
+  color:var(--navy);
+  font-family:'Source Sans 3',sans-serif;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.fullscreen-btn:hover{background:#f8fafc}
+@media(max-width:640px){
+  .framework-toolbar{padding:0 14px}
+  .fullscreen-btn{width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<style id="croce-pastel-standard">
+/* ===== ESTÁNDAR VISUAL PASTEL — BIBLIOTECA MÉDICA PERSONAL CROCE ===== */
+:root{
+  --crimson:#8b3a2f;--crimson2:#6f2e26;--crimson3:#a04a3d;
+  --crimson-light:#f3ded8;--crimson-mid:#e6bfb6;
+  --navy:#5a4b43;--navy2:#6c5a50;
+  --amber:#a85b16;--amber2:#b66a22;--amber-light:#fff1df;
+  --green:#1f6b45;--green-light:#e9f6ec;
+  --blue:#245c8f;--blue-light:#e9f2fb;
+  --slate:#433a32;--slate2:#6e6255;
+  --bg:#f7f3ed;--card:#fffdf9;--border:#d9cfc1;
+  --text:#27221d;--text-muted:#6e6255;
+  --radius:10px;--shadow:0 3px 12px rgba(75,51,34,.07);--shadow-lg:0 8px 28px rgba(75,51,34,.12);
+}
+
+body{
+  background:linear-gradient(180deg,#f8f4ee 0%,#f3ecdf 100%)!important;
+  color:var(--text)!important;
+}
+
+/* Login oculto */
+
+#app{display:block!important}
+
+/* Hero claro pastel */
+.hero{
+  background:linear-gradient(135deg,#fff8ef 0%,#f3e2d9 48%,#e7f2ef 100%)!important;
+  color:var(--text)!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 3px 14px rgba(73,45,28,.08)!important;
+}
+.hero::before{opacity:.18!important}
+.hero-back{
+  color:var(--crimson2)!important;
+  background:#fffdf9!important;
+  border:1px solid #cabcaa!important;
+  border-radius:20px!important;
+  padding:5px 12px!important;
+  box-shadow:0 1px 6px rgba(0,0,0,.05)!important;
+}
+.hero-back:hover{background:var(--crimson-light)!important;color:var(--crimson2)!important}
+.hero h1{
+  color:var(--crimson2)!important;
+  text-shadow:none!important;
+}
+.hero-sub,.hero-author{color:var(--text-muted)!important}
+.hero-icon{
+  background:#fffdf9!important;
+  border:1px solid var(--border)!important;
+  border-radius:18px!important;
+  width:72px!important;
+  height:72px!important;
+  margin:0 auto 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.04)!important;
+}
+
+/* Badges */
+.badge-red{background:#fdecea!important;border:1px solid #efb7b1!important;color:#651c17!important}
+.badge-blue{background:#e9f2fb!important;border:1px solid #aac9e8!important;color:#183f62!important}
+.badge-amber{background:#fff1df!important;border:1px solid #efc895!important;color:#65340d!important}
+.badge-green{background:#e9f6ec!important;border:1px solid #a9d9b9!important;color:#174b31!important}
+
+/* Tabs */
+.tabs-wrap{
+  background:#fffdf9!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.05)!important;
+}
+.tab-btn{color:var(--text-muted)!important}
+.tab-btn:hover{background:#fbf6ef!important;color:var(--crimson)!important}
+.tab-btn.active{
+  background:var(--crimson-light)!important;
+  color:var(--crimson2)!important;
+  border-bottom-color:var(--crimson)!important;
+}
+
+/* Toolbar */
+.framework-toolbar{margin-top:12px!important}
+.fullscreen-btn{
+  background:#fffdf9!important;
+  color:var(--crimson2)!important;
+  border:1px solid #cabcaa!important;
+}
+
+/* Secciones */
+.section-title{color:var(--crimson2)!important}
+.section-intro{
+  color:var(--text-muted)!important;
+  border-left-color:var(--crimson-mid)!important;
+}
+
+/* Cards */
+.card{
+  background:var(--card)!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.card-header:hover{background:#fbf6ef!important}
+.card-title{color:#4b342e!important}
+.ch-num{
+  background:var(--crimson-light)!important;
+  color:var(--crimson2)!important;
+  border:1px solid #d9aaa0!important;
+}
+.card-arrow{color:var(--text-muted)!important}
+.card-body{border-top-color:var(--border)!important;color:var(--text)!important}
+
+/* Alertas con contraste */
+.alert-red{background:#fdecea!important;border-left-color:#9f3028!important;color:#651c17!important}
+.alert-amber,.alert-orange{background:#fff1df!important;border-left-color:#a85b16!important;color:#65340d!important}
+.alert-yellow{background:#fff8d8!important;border-left-color:#806000!important;color:#574200!important}
+.alert-green{background:#e9f6ec!important;border-left-color:#1f6b45!important;color:#174b31!important}
+.alert-blue{background:#e9f2fb!important;border-left-color:#245c8f!important;color:#183f62!important}
+
+/* Tablas */
+.tbl-wrap{
+  border:1px solid var(--border)!important;
+  background:var(--card)!important;
+  box-shadow:var(--shadow)!important;
+}
+th{
+  background:#f1dfd5!important;
+  color:#5a241e!important;
+  border-bottom:1px solid #d6b5a8!important;
+}
+td{
+  color:#433a32!important;
+  border-bottom-color:var(--border)!important;
+}
+tr:nth-child(even) td{background:#fbf6ef!important}
+tr:hover td{background:#fff6ed!important}
+td strong{color:#4b342e!important}
+
+/* Steps */
+.step-num{
+  background:#fff1df!important;
+  color:#65340d!important;
+  border:1px solid #efc895!important;
+  box-shadow:none!important;
+}
+.step-body strong{color:var(--crimson2)!important}
+p.txt, ul.disc li, ol.num li, .step-body{color:#433a32!important}
+
+/* Drug/protocol dark boxes converted to pastel */
+.drug-card{
+  background:#fffaf3!important;
+  color:#27221d!important;
+  border:1px solid #decdb8!important;
+  box-shadow:var(--shadow)!important;
+}
+.drug-name{color:#245c8f!important}
+.drug-class{color:#6e6255!important}
+.drug-label{color:#6e6255!important}
+.drug-val{color:#27221d!important}
+.drug-note{
+  background:#e9f6ec!important;
+  color:#174b31!important;
+  border:1px solid #a9d9b9!important;
+}
+.drug-ci{
+  background:#fdecea!important;
+  color:#651c17!important;
+  border-left-color:#9f3028!important;
+}
+
+.proto-box,.proto-box-red,.proto-box-blue{
+  background:#fffaf3!important;
+  color:#27221d!important;
+  border:1px solid #decdb8!important;
+}
+.proto-box h4{color:#174b31!important}
+.proto-box-red h4{color:#651c17!important}
+.proto-box-blue h4{color:#183f62!important}
+.proto-item{color:#433a32!important}
+.proto-dot{background:#1f6b45!important}
+.proto-box-red .proto-dot{background:#9f3028!important}
+.proto-box-blue .proto-dot{background:#245c8f!important}
+
+/* Pills, subcards, warnings */
+.pill-red{background:#fdecea!important;color:#651c17!important}
+.pill-green{background:#e9f6ec!important;color:#174b31!important}
+.pill-blue{background:#e9f2fb!important;color:#183f62!important}
+.pill-amber{background:#fff1df!important;color:#65340d!important}
+.warn-item{
+  background:#fdecea!important;
+  border-color:#efb7b1!important;
+}
+.warn-text strong{color:#651c17!important}
+.warn-text span{color:#6b2a24!important}
+.col-box,.subcard{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+}
+.col-box h5,.subcard h5{color:var(--crimson2)!important}
+
+/* Calculadoras */
+.calc-wrap{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.calc-header{
+  background:#e9f2fb!important;
+  color:#183f62!important;
+  border-bottom:1px solid #aac9e8!important;
+}
+.calc-header h3{color:#183f62!important}
+.calc-header p{color:#3f668d!important}
+.calc-body{background:#fffdf9!important}
+.calc-group label{color:var(--text-muted)!important}
+.calc-group input,.calc-group select{
+  background:#fffaf3!important;
+  color:var(--text)!important;
+  border:1px solid #cabcaa!important;
+}
+.calc-results{
+  background:#e6f6f7!important;
+  border-color:#9fd5d9!important;
+  color:#0f4f55!important;
+}
+.calc-results h4{color:#0b4045!important}
+.r-label{color:#416c70!important}
+.r-val{color:#0b4045!important}
+.r-val.danger{color:#651c17!important}
+.r-val.ok{color:#174b31!important}
+.calc-btn{
+  background:var(--crimson)!important;
+  color:#fff!important;
+}
+
+/* Quiz */
+.quiz-wrap{
+  background:#fffdf9!important;
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.quiz-header{
+  background:#f1dfd5!important;
+  color:#5a241e!important;
+  border-bottom:1px solid #d6b5a8!important;
+}
+.quiz-header h3{color:#5a241e!important}
+.quiz-header p{color:#7a554b!important}
+.q-body{background:#fffdf9!important}
+.q-num{color:var(--crimson2)!important}
+.q-text{color:#4b342e!important}
+.q-opt{
+  background:#fffdf9!important;
+  color:#27221d!important;
+  border-color:#cabcaa!important;
+}
+.q-opt:hover{
+  background:#f4e5dc!important;
+  border-color:var(--crimson)!important;
+}
+.q-opt.selected{
+  border-color:#245c8f!important;
+  background:#e9f2fb!important;
+  color:#183f62!important;
+}
+.q-opt.correct{
+  border-color:#1f6b45!important;
+  background:#e9f6ec!important;
+  color:#174b31!important;
+}
+.q-opt.wrong{
+  border-color:#9f3028!important;
+  background:#fdecea!important;
+  color:#651c17!important;
+}
+.opt-letter{background:#efe8dd!important;color:#433a32!important}
+.q-opt.selected .opt-letter{background:#245c8f!important;color:#fff!important}
+.q-opt.correct .opt-letter{background:#1f6b45!important;color:#fff!important}
+.q-opt.wrong .opt-letter{background:#9f3028!important;color:#fff!important}
+.q-feedback.ok{background:#e9f6ec!important;border-color:#a9d9b9!important;color:#174b31!important}
+.q-feedback.fail{background:#fdecea!important;border-color:#efb7b1!important;color:#651c17!important}
+.quiz-nav{
+  background:#fbf6ef!important;
+  border-top-color:var(--border)!important;
+}
+.btn-prev{background:#fffdf9!important;border-color:#cabcaa!important;color:#433a32!important}
+.btn-next{background:var(--crimson)!important;color:#fff!important}
+.q-dot.current{background:var(--crimson)!important}
+.q-dot.answered{background:#a85b16!important}
+.q-dot.correct-done{background:#1f6b45!important}
+.score-circle{border-color:var(--crimson)!important}
+.score-pct{color:var(--crimson2)!important}
+
+/* Footer */
+.footer{
+  background:#f6eee4!important;
+  color:#6e6255!important;
+  border-top:1px solid var(--border)!important;
+}
+</style>
+<link href="../assets/croce.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- APP -->
+<div id="app">
+<!-- HERO -->
+<div class="hero">
+<a class="hero-back" href="../index.html">← Portal de guías</a>
+<div class="hero-icon">🩸</div>
+<h1>Shock — Manejo Práctico</h1>
+<div class="hero-sub">Fisiopatología · Reconocimiento · Diagnóstico Diferencial · Manejo por Tipo de Shock</div>
+<div class="hero-author">Dr. Luis E. Croce A. · Médico Internista · Ecuador</div>
+<div class="hero-badges">
+<span class="badge badge-red">SSC 2021</span>
+<span class="badge badge-blue">ESICM</span>
+<span class="badge badge-amber">SCAI 2022</span>
+<span class="badge badge-green">WAO Anafilaxia</span>
+<span class="badge badge-amber">ACC/AHA</span>
+</div>
+</div>
+<!-- TABS -->
+<div class="tabs-wrap">
+<div class="tabs-inner">
+<button class="tab-btn active" onclick="showTab('fisiop')">🔬 Fisiopatología</button>
+<button class="tab-btn" onclick="showTab('reconoc')">🩺 Reconocimiento y Diagnóstico</button>
+<button class="tab-btn" onclick="showTab('septico')">🦠 Séptico</button>
+<button class="tab-btn" onclick="showTab('cardiogenico')">🫀 Cardiogénico</button>
+<button class="tab-btn" onclick="showTab('hipovolemico')">🩸 Hipovolémico/Hemorrágico</button>
+<button class="tab-btn" onclick="showTab('otros')">⚡ Otros Tipos</button>
+<button class="tab-btn" onclick="showTab('manejo')">💉 Reanimación y Tratamiento</button>
+<button class="tab-btn" onclick="showTab('calc')">🧮 Calculadoras</button>
+<button class="tab-btn" onclick="showTab('quiz')">❓ Autoevaluación</button>
+</div>
+</div>
+<div class="framework-toolbar">
+<button aria-label="Activar o salir de pantalla completa" class="fullscreen-btn" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
+</div>
+<!-- ═══════ 1. FISIOPATOLOGÍA ═══════ -->
+<div class="section active" id="fisiop">
+<h2 class="section-title">🔬 Fisiopatología y Clasificación del Shock</h2>
+<p class="section-intro">El shock no es una enfermedad de la presión arterial: es una enfermedad de la perfusión tisular. Comprender esta idea cambia por completo la forma de evaluar a cualquier paciente crítico.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">1</span>¿Qué es realmente el shock?</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<p class="txt">Todas las células del organismo necesitan producir ATP de forma continua, lo que depende de un aporte adecuado de oxígeno, nutrientes, eliminación de CO₂ e integridad mitocondrial. El verdadero objetivo de la circulación no es sostener una cifra de presión arterial, sino garantizar que cada célula reciba lo necesario para producir energía.</p>
+<div class="alert alert-red"><strong>Definición moderna</strong>Síndrome de insuficiencia circulatoria aguda caracterizado por perfusión tisular inadecuada, que provoca desequilibrio entre el aporte y la demanda de oxígeno, disfunción celular, alteraciones metabólicas y daño orgánico progresivo si no se revierte oportunamente.</div>
+<p class="txt">El organismo compensa activando el sistema simpático, el eje renina-angiotensina-aldosterona y la vasopresina, redistribuyendo flujo hacia cerebro y corazón. Esta fase se llama <strong>shock compensado</strong>: la PA puede ser normal mientras otros órganos ya sufren hipoperfusión. La hipotensión es un signo <strong>tardío</strong> — aparece cuando gran parte de la reserva fisiológica ya se perdió.</p>
+<div class="warn-grid">
+<div class="warn-item"><span class="warn-icon">⚠</span><div class="warn-text"><strong>Shock compensado</strong><span>PA normal, taquicardia, piel fría, llenado capilar prolongado, ansiedad — el shock ya comenzó</span></div></div>
+<div class="warn-item"><span class="warn-icon">🔴</span><div class="warn-text"><strong>Shock descompensado</strong><span>Hipotensión, alteración mental, oliguria, moteado cutáneo — reserva fisiológica agotada</span></div></div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">2</span>Clasificación fisiopatológica</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La clasificación no busca poner una etiqueta: busca identificar qué componente del sistema circulatorio ha fallado, porque de eso depende el tratamiento correcto.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Tipo</th><th>Mecanismo</th><th>Ejemplos</th></tr>
+<tr><td><strong>Hipovolémico</strong></td><td>↓ del volumen circulante efectivo → ↓ precarga</td><td>Hemorragia, deshidratación, quemaduras, tercer espacio</td></tr>
+<tr><td><strong>Distributivo</strong></td><td>Vasodilatación patológica / pérdida del tono vascular</td><td>Séptico, anafiláctico, neurogénico</td></tr>
+<tr><td><strong>Cardiogénico</strong></td><td>Fallo de la función de bomba</td><td>IAM, miocardiopatías, arritmias graves, valvulopatía aguda</td></tr>
+<tr><td><strong>Obstructivo</strong></td><td>Obstáculo mecánico al llenado o eyección</td><td>Neumotórax a tensión, taponamiento, TEP masivo</td></tr>
+</table></div>
+<div class="alert alert-amber"><strong>Nota práctica</strong>Séptico, anafiláctico y neurogénico son distributivos por mecanismo, pero se estudian por separado porque su fisiopatología y tratamiento específico difieren de forma importante. El <strong>shock mixto</strong> —coexistencia de dos o más mecanismos— es más frecuente de lo que sugieren las clasificaciones tradicionales.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">3</span>Fisiopatología moderna: endotelio, glicocálix y mitocondria</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">El endotelio es un órgano funcional activo, no solo un revestimiento vascular: regula el tono vascular, la permeabilidad capilar y la coagulación. Recubriéndolo existe el <strong>glicocálix</strong>, una capa que protege al endotelio y regula el paso de líquido; en sepsis y trauma se degrada rápidamente, favoreciendo la fuga capilar y el edema, incluso con fluidoterapia "adecuada".</p>
+<p class="txt">La <strong>mitocondria</strong> es el destino final del oxígeno: solo es útil si llega hasta ella y participa en la producción de ATP. En el shock séptico puede aparecer <strong>disfunción mitocondrial</strong> — la célula pierde parcialmente la capacidad de utilizar el oxígeno disponible aunque el aporte sea suficiente ("hibernación celular"), lo que explica por qué algunos pacientes persisten con hipoperfusión pese a parámetros macrocirculatorios corregidos.</p>
+<div class="alert alert-blue"><strong>Concepto clave</strong>La presión arterial y la perfusión tisular no son sinónimos. Restaurar la macrocirculación no garantiza restaurar la microcirculación ni la función mitocondrial.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">4</span>Fisiología de la reanimación: qué intentamos corregir</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Reanimar no es simplemente "subir la presión". Cada intervención debe dirigirse a corregir un componente específico de la ecuación de perfusión: precarga, contractilidad, poscarga o distribución del flujo. Antes de cualquier intervención conviene preguntarse: <em>¿qué problema fisiopatológico concreto resolverá esta intervención?</em> Si la respuesta no es clara, probablemente esa intervención no deba realizarse todavía.</p>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Precarga</strong>¿El paciente es dependiente de volumen? Determinarlo con pruebas dinámicas antes de administrar líquidos.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Contractilidad</strong>¿Existe fallo de bomba? Considerar inotrópicos (dobutamina) cuando hay bajo gasto documentado.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Poscarga / tono vascular</strong>¿Predomina la vasoplejía? Los vasopresores (noradrenalina) corrigen la resistencia vascular, no el volumen.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Causa</strong>Ninguna reanimación sustituye el tratamiento etiológico: control del foco, reperfusión coronaria, descompresión del neumotórax, adrenalina en anafilaxia.</div></div>
+</div>
+</div>
+</div>
+
+<div class="two-col">
+<div class="col-box"><h5>✕ Errores frecuentes</h5><ul class="disc">
+<li>Tratar todo shock como si fuera hipovolémico.</li>
+<li>Interpretar la presión arterial normal como ausencia de shock.</li>
+<li>Ignorar la microcirculación y el papel del glicocálix.</li>
+<li>Administrar líquidos sin preguntarse qué problema fisiopatológico se está resolviendo.</li>
+</ul></div>
+<div class="col-box"><h5>✓ Perlas clínicas</h5><ul class="disc">
+<li>Todos los tipos de shock producen hipoperfusión; lo que cambia es el mecanismo.</li>
+<li>El shock puede existir con presión arterial normal.</li>
+<li>La compensación fisiológica puede engañar si se interpreta la estabilidad únicamente por la PA.</li>
+<li>El shock mixto es más frecuente de lo que sugieren las clasificaciones tradicionales.</li>
+</ul></div>
+</div>
+</div>
+<!-- ═══════ 2. RECONOCIMIENTO Y DIAGNÓSTICO ═══════ -->
+<div class="section" id="reconoc">
+<h2 class="section-title">🩺 Reconocimiento Temprano y Diagnóstico Diferencial</h2>
+<p class="section-intro">La hipotensión es un signo tardío. El reconocimiento precoz depende de buscar activamente signos sutiles de hipoperfusión antes de que la presión arterial caiga.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">5</span>Signos precoces de hipoperfusión</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<div class="warn-grid">
+<div class="warn-item"><span class="warn-icon">🧠</span><div class="warn-text"><strong>Estado mental</strong><span>Ansiedad, confusión leve o irritabilidad — a menudo el primer signo, antes que cualquier cifra en el monitor</span></div></div>
+<div class="warn-item"><span class="warn-icon">💨</span><div class="warn-text"><strong>Frecuencia respiratoria</strong><span>Taquipnea compensatoria de la acidosis metabólica — uno de los mejores indicadores precoces</span></div></div>
+<div class="warn-item"><span class="warn-icon">🖐️</span><div class="warn-text"><strong>Llenado capilar</strong><span>Prolongado (>3 s) indica hipoperfusión periférica antes de que caiga la PA</span></div></div>
+<div class="warn-item"><span class="warn-icon">🩹</span><div class="warn-text"><strong>Piel</strong><span>Fría, pálida, sudorosa (hipovolémico/cardiogénico) vs. caliente (séptico inicial/neurogénico)</span></div></div>
+</div>
+<div class="subcard">
+<h5>Shock Index (SI) y Modified Shock Index</h5>
+<p class="txt"><strong>SI = FC ÷ PAS</strong>. Identifica pacientes compensados con PA "normal" que ya presentan compromiso hemodinámico.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Shock Index</th><th>Interpretación</th></tr>
+<tr><td>0,5 – 0,7</td><td>Habitualmente normal</td></tr>
+<tr><td>0,7 – 0,9</td><td>Vigilancia estrecha</td></tr>
+<tr><td>≥ 0,9</td><td>Sospecha de compromiso hemodinámico</td></tr>
+<tr><td>≥ 1,0</td><td>Alto riesgo de shock</td></tr>
+<tr><td>≥ 1,3</td><td>Alto riesgo de deterioro y mortalidad</td></tr>
+</table></div>
+<p class="txt" style="margin-top:8px">El <strong>Modified Shock Index (FC ÷ PAM)</strong> aporta información adicional en algunos pacientes. Ninguno de los dos sustituye la valoración clínica.</p>
+</div>
+<div class="alert alert-amber"><strong>Atención especial</strong>El reconocimiento precoz es más difícil en adultos mayores, pacientes inmunosuprimidos, tratados con betabloqueadores y embarazadas — pueden no desarrollar la taquicardia esperada.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">6</span>Diagnóstico diferencial sistematizado</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La exploración física dirigida orienta el mecanismo en minutos, antes de cualquier estudio complementario:</p>
+<div class="tbl-wrap"><table>
+<tr><th>Hallazgo</th><th>Orienta hacia</th></tr>
+<tr><td>Piel fría y sudorosa</td><td>Hipovolémico / Cardiogénico</td></tr>
+<tr><td>Piel caliente</td><td>Séptico (fase inicial) / Neurogénico</td></tr>
+<tr><td>Urticaria o angioedema</td><td>Anafiláctico</td></tr>
+<tr><td>Ingurgitación yugular</td><td>Cardiogénico / Taponamiento / TEP masivo</td></tr>
+<tr><td>Yugulares colapsadas</td><td>Hipovolemia</td></tr>
+<tr><td>Hemorragia evidente + piel fría + yugulares colapsadas</td><td>Shock hipovolémico</td></tr>
+<tr><td>Bradicardia tras trauma cervical</td><td>Shock neurogénico (descartar hemorragia primero)</td></tr>
+</table></div>
+<div class="alert alert-blue"><strong>Perla</strong>Las causas potencialmente reversibles (neumotórax a tensión, taponamiento, anafilaxia, hemorragia activa) deben buscarse y tratarse antes de completar el diagnóstico etiológico definitivo.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">7</span>Monitorización hemodinámica</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La <strong>presión arterial media (PAM)</strong> es el parámetro más útil para valorar la perfusión global — pero una PAM adecuada no garantiza perfusión tisular normal. La monitorización invasiva (línea arterial, catéter venoso central) se justifica ante necesidad de vasopresores o gran inestabilidad.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Herramienta</th><th>Utilidad principal</th></tr>
+<tr><td>PAM</td><td>Meta habitual ≥65 mmHg; individualizar según el paciente</td></tr>
+<tr><td>Ecografía clínica (POCUS)</td><td>Vena cava inferior, contractilidad, derrame pericárdico, líneas B pulmonares — transforma la evaluación en minutos</td></tr>
+<tr><td>Lactato seriado</td><td>Marcador dinámico de perfusión global; ver tendencia, no valor aislado</td></tr>
+<tr><td>Catéter arterial pulmonar</td><td>Reservado a situaciones seleccionadas de shock complejo/mixto</td></tr>
+</table></div>
+<div class="alert alert-green"><strong>Perla clínica</strong>Monitorizar no significa acumular datos; significa obtener información útil para decidir. Ningún parámetro aislado refleja por completo la perfusión tisular — la exploración clínica sigue siendo el primer monitor.</div>
+</div>
+</div>
+</div>
+<!-- ═══════ 3. SHOCK SÉPTICO ═══════ -->
+<div class="section" id="septico">
+<h2 class="section-title">🦠 Shock Séptico</h2>
+<p class="section-intro">Cada minuto de retraso favorece la progresión de la disfunción orgánica. Actuar durante la primera hora cambia el pronóstico.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">8</span>Definición y objetivos de la primera hora</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<div class="alert alert-red"><strong>Definición actual</strong>Subgrupo de sepsis con hipotensión persistente que requiere vasopresores para mantener <strong>PAM ≥65 mmHg</strong>, junto con <strong>lactato &gt;2 mmol/L</strong> a pesar de una adecuada reanimación inicial.</div>
+<div class="proto-box">
+<h4>Prioridades de la primera hora</h4>
+<div class="proto-item"><span class="proto-dot"></span>Reconocer el shock precozmente</div>
+<div class="proto-item"><span class="proto-dot"></span>Obtener cultivos sin retrasar el tratamiento</div>
+<div class="proto-item"><span class="proto-dot"></span>Antibióticos de amplio espectro lo antes posible</div>
+<div class="proto-item"><span class="proto-dot"></span>Control del foco (drenaje, retirada de dispositivos, cirugía)</div>
+<div class="proto-item"><span class="proto-dot"></span>Reanimación con cristaloides balanceados, reevaluando tras cada bolo</div>
+<div class="proto-item"><span class="proto-dot"></span>Noradrenalina si persiste la hipotensión pese a la reanimación inicial</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">8.1</span>Reanimación y valoración de respuesta</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Reanimar no significa administrar volumen indefinidamente; significa corregir la hipoperfusión con la intervención adecuada en cada momento. Tras cada bolo debe reevaluarse: PA, relleno capilar, diuresis, lactato, signos de congestión (líneas B, VCI dilatada) y ecografía cuando esté disponible.</p>
+<div class="two-col">
+<div class="col-box"><h5>Signos de respuesta favorable</h5><ul class="disc">
+<li>Recuperación del estado mental</li>
+<li>Normalización del relleno capilar</li>
+<li>Descenso del lactato</li>
+<li>Aumento de la diuresis</li>
+<li>Estabilización hemodinámica</li>
+</ul></div>
+<div class="col-box"><h5>Sospechar fracaso de la reanimación</h5><ul class="disc">
+<li>Lactato persistentemente elevado</li>
+<li>Necesidad creciente de vasopresores</li>
+<li>Oliguria progresiva</li>
+<li>Empeoramiento del estado mental</li>
+<li>Congestión por sobrecarga de líquidos</li>
+</ul></div>
+</div>
+<p class="txt">Los <strong>corticoides</strong> (hidrocortisona) no se administran de forma rutinaria; considerar cuando persiste necesidad de vasopresores pese a reanimación y tratamiento etiológico adecuados.</p>
+</div>
+</div>
+
+<div class="two-col">
+<div class="col-box"><h5>✕ Errores frecuentes</h5><ul class="disc">
+<li>Retrasar la administración de antibióticos.</li>
+<li>Administrar grandes volúmenes de líquidos sin reevaluar.</li>
+<li>No buscar activamente el foco infeccioso.</li>
+<li>Interpretar la PA como único indicador de éxito.</li>
+</ul></div>
+<div class="col-box"><h5>✓ Perlas clínicas</h5><ul class="disc">
+<li>El tratamiento comienza cuando se sospecha, no cuando se confirma microbiológicamente.</li>
+<li>El control del foco es tan importante como la antibioterapia.</li>
+<li>La norepinefrina continúa siendo el vasopresor inicial de elección.</li>
+<li>Lactato y relleno capilar se interpretan de forma complementaria, no competitiva.</li>
+</ul></div>
+</div>
+</div>
+<!-- ═══════ 4. SHOCK CARDIOGÉNICO ═══════ -->
+<div class="section" id="cardiogenico">
+<h2 class="section-title">🫀 Shock Cardiogénico</h2>
+<p class="section-intro">Restaurar la perfusión sin agravar el corazón. El síndrome coronario agudo continúa siendo la causa más frecuente.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">9</span>Causas y clasificación SCAI</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<p class="txt">Mecanismo: ↓ crítica del gasto cardíaco → ↓ perfusión sistémica y coronaria → empeora la contractilidad → círculo vicioso. Causa más frecuente: <strong>síndrome coronario agudo</strong>. Otras: miocarditis, miocardiopatías, arritmias graves, insuficiencia valvular aguda, complicaciones mecánicas del infarto, takotsubo, depresión miocárdica por sepsis.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Estadio SCAI</th><th>Descripción</th></tr>
+<tr><td>A</td><td>Riesgo de desarrollar shock</td></tr>
+<tr><td>B</td><td>Inicio ("Beginning") — hipotensión/taquicardia sin hipoperfusión evidente</td></tr>
+<tr><td>C</td><td>Shock clásico — hipoperfusión que requiere tratamiento</td></tr>
+<tr><td>D</td><td>Deterioro ("Deteriorating") pese al tratamiento inicial</td></tr>
+<tr><td>E</td><td>Extremo ("Extremis") — colapso circulatorio inminente o paro</td></tr>
+</table></div>
+<div class="alert alert-blue"><strong>Concepto clave</strong>Ningún vasopresor sustituye la apertura de una arteria coronaria ocluida.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">9.1</span>Manejo: reperfusión, fluidos y soporte</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Ecocardiografía precoz</strong>Evalúa contractilidad, VD, complicaciones mecánicas, derrame pericárdico; diferencia de otras formas de shock.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Reperfusión urgente</strong>Intervención coronaria percutánea si el shock es secundario a SCA — la intervención que más modifica el pronóstico.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Fluidoterapia cautelosa</strong>Solo bolos pequeños y cuidadosamente reevaluados en situaciones seleccionadas; la sobrecarga empeora la congestión pulmonar.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Vasopresores/inotrópicos</strong>Noradrenalina si hay hipotensión; dobutamina si predomina el bajo gasto.</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Descartar complicaciones mecánicas</strong>Rotura de músculo papilar, CIV, rotura de pared libre — nuevo soplo o edema pulmonar súbito obligan a sospecharlas; tratamiento quirúrgico urgente.</div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body"><strong>Soporte circulatorio mecánico</strong>Impella o VA-ECMO en pacientes seleccionados y centros con experiencia; el balón de contrapulsación (IABP) no se recomienda de forma rutinaria en shock por IAM.</div></div>
+</div>
+</div>
+</div>
+
+<div class="two-col">
+<div class="col-box"><h5>✕ Errores frecuentes</h5><ul class="disc">
+<li>Administrar grandes volúmenes de líquidos de forma rutinaria.</li>
+<li>Retrasar la reperfusión.</li>
+<li>No realizar ecocardiografía precoz.</li>
+<li>No sospechar complicaciones mecánicas tras un infarto.</li>
+</ul></div>
+<div class="col-box"><h5>✓ Perlas clínicas</h5><ul class="disc">
+<li>La reperfusión precoz es el tratamiento más importante en shock cardiogénico por IAM.</li>
+<li>La ecografía cardíaca debe formar parte de la evaluación inicial.</li>
+<li>La sobrecarga de volumen puede empeorar rápidamente la situación clínica.</li>
+<li>La clasificación SCAI facilita la comunicación del riesgo entre el equipo.</li>
+</ul></div>
+</div>
+</div>
+<!-- ═══════ 5. SHOCK HIPOVOLÉMICO/HEMORRÁGICO ═══════ -->
+<div class="section" id="hipovolemico">
+<h2 class="section-title">🩸 Shock Hipovolémico y Hemorrágico</h2>
+<p class="section-intro">Detener la pérdida antes de intentar normalizar la presión. El problema no es la hipotensión — es la hemorragia.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">10</span>Clasificación y principio fundamental</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<div class="two-col">
+<div class="col-box"><h5>Hemorrágico</h5><ul class="disc"><li>Trauma</li><li>Hemorragia digestiva</li><li>Rotura de aneurisma</li><li>Hemorragia obstétrica</li><li>Complicaciones quirúrgicas</li></ul></div>
+<div class="col-box"><h5>No hemorrágico</h5><ul class="disc"><li>Vómitos/diarrea intensos</li><li>Grandes quemaduras</li><li>Pancreatitis aguda</li><li>Tercer espacio</li><li>Poliuria osmótica</li></ul></div>
+</div>
+<div class="alert alert-red"><strong>Principio fundamental</strong>La reposición de volumen nunca sustituye el control del sangrado. Mientras la hemorragia continúe, seguirá perdiéndose volumen, aumentará la deuda de oxígeno y progresará la coagulopatía.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">10.1</span>Reanimación hemostática</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Busca mantener la perfusión sin agravar la hemorragia. Principios: control precoz del sangrado, uso racional de cristaloides, hemoderivados tempranos cuando corresponda, corrección de coagulopatía, prevención de hipotermia y de acidosis.</p>
+<div class="tbl-wrap"><table>
+<tr><th>Componente</th><th>Punto clave</th></tr>
+<tr><td>Hipotensión permisiva</td><td>PA algo inferior a la normal hasta control definitivo, en hemorragia no controlada y sin TCE grave — individualizar</td></tr>
+<tr><td>Protocolo de transfusión masiva</td><td>Activar precozmente ante alta probabilidad de requerir múltiples transfusiones</td></tr>
+<tr><td>Ácido tranexámico</td><td>Antifibrinolítico útil administrado precozmente; no debe retrasar el control del sangrado</td></tr>
+<tr><td>Tríada letal</td><td>Hipotermia + acidosis + coagulopatía — se potencian mutuamente y aumentan la mortalidad</td></tr>
+</table></div>
+<div class="alert alert-amber"><strong>FAST y búsqueda activa</strong>En el paciente traumatizado buscar rápidamente hemorragia en tórax, abdomen, pelvis, huesos largos y sangrado externo. La ecografía FAST es parte esencial de la evaluación inicial.</div>
+</div>
+</div>
+
+<div class="two-col">
+<div class="col-box"><h5>✕ Errores frecuentes</h5><ul class="disc">
+<li>Administrar grandes cantidades de cristaloides antes de controlar el sangrado.</li>
+<li>Retrasar la activación del protocolo de transfusión masiva.</li>
+<li>Ignorar la hipotermia durante la reanimación.</li>
+<li>Considerar que una PA normal significa hemorragia controlada.</li>
+</ul></div>
+<div class="col-box"><h5>✓ Perlas clínicas</h5><ul class="disc">
+<li>El tratamiento definitivo del shock hemorrágico es detener la hemorragia.</li>
+<li>La ecografía FAST forma parte de la evaluación inicial del traumatizado.</li>
+<li>La hipotermia empeora la coagulopatía y aumenta la mortalidad.</li>
+<li>La reanimación es un puente hacia el control de la causa, no un sustituto.</li>
+</ul></div>
+</div>
+</div>
+<!-- ═══════ 6. OTROS TIPOS DE SHOCK ═══════ -->
+<div class="section" id="otros">
+<h2 class="section-title">⚡ Otros Tipos de Shock</h2>
+<p class="section-intro">Obstructivo, anafiláctico, neurogénico, endocrino y mixto — mecanismos menos frecuentes pero con tratamientos específicos que pueden salvar la vida en minutos.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">11</span>Shock obstructivo</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<p class="txt">Un obstáculo mecánico impide el llenado o la eyección cardíaca. El volumen y la contractilidad pueden ser normales — el gasto cardíaco cae porque la sangre no puede circular. Tres causas deben reconocerse de inmediato en emergencias:</p>
+<div class="tbl-wrap"><table>
+<tr><th>Causa</th><th>Clave diagnóstica</th><th>Tratamiento</th></tr>
+<tr><td>Neumotórax a tensión</td><td>Ausencia unilateral de murmullo, ingurgitación yugular, desviación traqueal (tardía) — <strong>diagnóstico clínico</strong></td><td>Descompresión inmediata, luego drenaje torácico. Nunca esperar radiografía si la sospecha es alta.</td></tr>
+<tr><td>Taponamiento cardíaco</td><td>Hipotensión, yugulares ingurgitadas, ruidos apagados, pulso paradójico (tríada de Beck no siempre presente)</td><td>Ecocardiografía + pericardiocentesis urgente o drenaje quirúrgico</td></tr>
+<tr><td>TEP masivo</td><td>Disnea súbita, hipotensión, hipoxemia; ecocardiograma con sobrecarga aguda de VD</td><td>Trombólisis sistémica, trombectomía percutánea o embolectomía quirúrgica según el caso</td></tr>
+</table></div>
+<div class="alert alert-red"><strong>Precaución con la ventilación</strong>En taponamiento y TEP masivo, la presión positiva puede disminuir aún más el retorno venoso y precipitar el colapso — optimizar la hemodinamia antes de intubar.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">12</span>Shock anafiláctico</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<div class="alert alert-red"><strong>La ausencia de urticaria NO excluye anafilaxia</strong>Entre 10–20% de los pacientes no presentan manifestaciones cutáneas, y los casos fatales tienen mayor frecuencia de ausencia de piel afectada. Tratar ante alta sospecha, sin esperar confirmación.</div>
+<p class="txt">Criterios prácticos: (1) inicio agudo con compromiso de piel/mucosas + compromiso respiratorio o hipotensión; (2) tras exposición probable a alérgeno, ≥2 de: piel, respiratorio, hipotensión, GI intenso; (3) hipotensión aguda tras exposición a alérgeno conocido para ese paciente.</p>
+<div class="drug-grid">
+<div class="drug-card">
+<div class="drug-name">Adrenalina IM — primera línea</div>
+<div class="drug-class">Vasto lateral del muslo</div>
+<div class="drug-row"><span class="drug-label">Adultos</span><span class="drug-val">0,5 mg IM (1:1000), repetir c/5–15 min</span></div>
+<div class="drug-row"><span class="drug-label">Pediátrico</span><span class="drug-val">0,01 mg/kg IM (máx 0,3–0,5 mg)</span></div>
+<div class="drug-row"><span class="drug-label">Infusión IV (refractario)</span><span class="drug-val">0,05–0,1 mcg/kg/min, titular</span></div>
+<div class="drug-note">Ningún otro fármaco debe retrasar su administración. No hay número máximo de dosis IM.</div>
+<div class="drug-ci">✕ Nunca vía subcutánea. Antihistamínicos y corticoides NO sustituyen la adrenalina.</div>
+</div>
+</div>
+<p class="txt">Fluidos: cristaloides balanceados 500–1000 mL en bolo inicial, muchos pacientes requieren varios litros por la fuga capilar masiva. Si persiste hipotensión pese a adrenalina + volumen: <strong>noradrenalina</strong> como complemento. En pacientes con betabloqueadores considerar <strong>glucagón IV</strong> por resistencia relativa a la adrenalina. Observación 4–6 h (leve) o prolongada/ingreso (moderado-grave) por riesgo de reacción bifásica (4–12 h, hasta 72 h).</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">13</span>Shock neurogénico</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Distributivo por pérdida del tono simpático tras lesión medular cervical o torácica alta. Distinto del <strong>shock medular</strong> (pérdida transitoria de reflejos por debajo de la lesión).</p>
+<div class="alert alert-red"><strong>Regla de oro</strong>Todo politraumatizado con hipotensión es hemorrágico hasta demostrar lo contrario — incluso con lesión medular evidente. La bradicardia (en vez de la taquicardia compensadora esperable) ayuda a diferenciarlo del shock hemorrágico, pero un paciente puede tener ambos simultáneamente.</p></div>
+<div class="tbl-wrap"><table>
+<tr><th></th><th>Manejo</th></tr>
+<tr><td>Meta de PAM</td><td>85–90 mmHg durante los primeros 5–7 días tras la lesión (especialmente cervical/torácica alta) para limitar la lesión medular secundaria</td></tr>
+<tr><td>Vasopresor de elección</td><td>Noradrenalina (menos taquiarritmias que dopamina)</td></tr>
+<tr><td>Bradicardia sintomática</td><td>Atropina; evitar fluidoterapia excesiva, que no corrige el mecanismo predominante</td></tr>
+<tr><td>Corticoides en dosis altas</td><td>No recomendados de forma rutinaria</td></tr>
+</table></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">14</span>Shock endocrino</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La <strong>crisis suprarrenal</strong> es la causa endocrina más relevante en emergencias: sospechar ante shock refractario a vasopresores + hipoglucemia + hiponatremia/hiperkalemia + antecedente de corticoterapia prolongada.</p>
+<div class="drug-grid">
+<div class="drug-card">
+<div class="drug-name">Hidrocortisona IV</div>
+<div class="drug-class">Crisis suprarrenal</div>
+<div class="drug-row"><span class="drug-label">Carga</span><span class="drug-val">100 mg IV en bolo</span></div>
+<div class="drug-row"><span class="drug-label">Mantenimiento</span><span class="drug-val">200 mg / 24 h (infusión continua o dosis fraccionadas)</span></div>
+<div class="drug-note">La respuesta a catecolaminas suele mejorar tras su administración. No esperar el cortisol sérico para tratar si la sospecha es alta — el riesgo de tratar precozmente es muy bajo frente al de retrasarlo.</div>
+</div>
+</div>
+<p class="txt">El <strong>coma mixedematoso</strong> y la <strong>tormenta tiroidea</strong> también producen inestabilidad hemodinámica grave por mecanismos distintos: levotiroxina IV + hidrocortisona (hasta descartar insuficiencia suprarrenal concomitante) en mixedema; betabloqueo + antitiroideos + yodo + hidrocortisona en tormenta tiroidea.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">15</span>Shock mixto y formas complejas</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Coexistencia simultánea de dos o más mecanismos fisiopatológicos de shock. Rara vez se identifica por un solo dato clínico: se sospecha porque la evolución <strong>no sigue el comportamiento esperado</strong> para un único tipo de shock (ej. séptico que no responde a fluidos y noradrenalina, con ecografía que muestra disfunción ventricular sobreañadida).</p>
+<div class="alert alert-amber"><strong>Error cognitivo a evitar: cierre prematuro</strong>Identificar una causa evidente de shock no debe hacer que el clínico deje de buscar mecanismos adicionales. El mecanismo predominante puede cambiar durante la evolución — la reanimación debe individualizarse continuamente.</div>
+</div>
+</div>
+</div>
+<!-- ═══════ 7. REANIMACIÓN Y TRATAMIENTO ═══════ -->
+<div class="section" id="manejo">
+<h2 class="section-title">💉 Reanimación Hemodinámica y Tratamiento General</h2>
+<p class="section-intro">Principios transversales aplicables a cualquier tipo de shock: interpretación del lactato, fluidoterapia racional, vasopresores, transfusión y el algoritmo integral de manejo.</p>
+
+<div class="card">
+<div class="card-header open" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">16</span>Lactato: marcador, no objetivo</span><span class="card-arrow">▶</span></div>
+<div class="card-body open">
+<p class="txt">El lactato normal es &lt;2 mmol/L; hiperlactatemia &gt;2 mmol/L; mayor gravedad &gt;4 mmol/L. <strong>No siempre significa hipoxia</strong> (puede elevarse por adrenalina exógena vía β₂, insuficiencia hepática, fármacos) y un <strong>lactato normal no excluye hipoperfusión</strong>.</p>
+<div class="subcard">
+<h5>Aclaramiento de lactato</h5>
+<p class="txt">Aclaramiento (%) = (Lactato inicial − Lactato posterior) ÷ Lactato inicial × 100. Un aclaramiento significativo apoya la respuesta al tratamiento; la persistencia obliga a reconsiderar diagnóstico, tratamiento y complicaciones — no a repetir bolos de líquido de forma automática.</p>
+</div>
+<div class="alert alert-green"><strong>Perla</strong>La tendencia del lactato en el tiempo aporta mucha más información que un valor aislado. El objetivo nunca es "bajar el lactato": es identificar y corregir el mecanismo que lo eleva.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">17</span>Microcirculación y disfunción celular</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La microcirculación es donde ocurre el verdadero intercambio de oxígeno. Puede persistir alterada aun cuando la macrocirculación (PA, PAM) parezca corregida — pérdida de la "coherencia" macro-microcirculatoria, frecuente en sepsis. No existe un método simple y universal para monitorizarla directamente; el llenado capilar sigue siendo uno de los mejores marcadores clínicos disponibles.</p>
+<div class="alert alert-amber"><strong>Cuidado</strong>Administrar líquidos indiscriminadamente para intentar "corregir la microcirculación" puede empeorarla. La mejor forma de restaurarla sigue siendo tratar el mecanismo etiológico.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">18</span>Reanimación basada en objetivos individualizados</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">La medicina crítica moderna abandonó los objetivos universales rígidos en favor de metas individualizadas (ej. PAM 85–90 mmHg en shock neurogénico vs ≥65 mmHg en la mayoría de los pacientes). Los <strong>parámetros dinámicos</strong> (elevación pasiva de piernas, variación de volumen sistólico) han reemplazado a los parámetros estáticos para predecir respuesta a fluidos.</p>
+<div class="alert alert-blue"><strong>Concepto central</strong>La reanimación no finaliza cuando sube la PA; finaliza cuando la perfusión tisular se restaura y el mecanismo causal está controlado. Ser "respondedor a fluidos" no significa que el paciente necesite más líquido.</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">19</span>Vasopresores e inotrópicos</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<div class="tbl-wrap"><table>
+<tr><th>Tipo de shock</th><th>Vasopresor</th><th>Inotrópico</th></tr>
+<tr><td>Séptico</td><td>Noradrenalina</td><td>Dobutamina si hay depresión miocárdica</td></tr>
+<tr><td>Cardiogénico</td><td>Noradrenalina si hipotensión</td><td>Dobutamina como primera opción en bajo gasto</td></tr>
+<tr><td>Anafiláctico</td><td>Adrenalina</td><td>Habitualmente no</td></tr>
+<tr><td>Neurogénico</td><td>Noradrenalina</td><td>Solo situaciones seleccionadas</td></tr>
+<tr><td>Endocrino</td><td>Noradrenalina mientras actúa el tratamiento específico</td><td>Habitualmente no</td></tr>
+</table></div>
+<p class="txt">Cuando la dosis de un vasopresor aumenta progresivamente, el razonamiento no debe limitarse a seguir incrementándola: considerar añadir <strong>vasopresina</strong> (reduce requerimiento de noradrenalina en vasoplejía refractaria, mecanismo no adrenérgico) o incorporar un inotrópico si hay bajo gasto documentado, en vez de escalar indefinidamente un único fármaco. La noradrenalina periférica de corta duración y bajo vigilancia estrecha es una alternativa segura mientras se obtiene acceso central.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">20</span>Fluidoterapia: cuándo, cómo y cuánto</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<p class="txt">Los líquidos deben tratarse como un fármaco: con indicación, dosis y efectos adversos. Antes de cada bolo preguntar: <em>¿qué problema fisiopatológico resolverá?</em> Si no hay respuesta clara, probablemente no deba administrarse.</p>
+<div class="checklist"><li>Cristaloides balanceados (Ringer lactato, Plasma-Lyte®) como solución inicial de elección en la mayoría de los pacientes con shock</li><li>Cada bolo es una prueba terapéutica seguida de reevaluación inmediata</li><li>La elevación pasiva de piernas ayuda a decidir si un nuevo bolo aumentará el gasto cardíaco</li><li>Saber cuándo detener la fluidoterapia es tan importante como saber cuándo iniciarla</li></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">21</span>Transfusión de hemocomponentes</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<div class="tbl-wrap"><table>
+<tr><th>Componente</th><th>Indicación / punto clave</th></tr>
+<tr><td>Concentrado eritrocitario</td><td>Umbral habitual Hb ≈7 g/dL sin hemorragia activa (individualizar); cada unidad ↑ ~1 g/dL</td></tr>
+<tr><td>Plasma fresco congelado</td><td>Déficit de factores de coagulación / transfusión masiva</td></tr>
+<tr><td>Plaquetas</td><td>Trombocitopenia significativa según contexto clínico</td></tr>
+<tr><td>Crioprecipitado / fibrinógeno</td><td>Hipofibrinogenemia — su descenso precoz se asocia a peor control del sangrado</td></tr>
+</table></div>
+<div class="alert alert-red"><strong>Transfusión masiva</strong>Activar precozmente ante alta probabilidad de hemorragia masiva. Vigilar activamente hipocalcemia e hipotermia durante el protocolo; usar calentadores de fluidos. Complicaciones a vigilar: TRALI (≤6 h post-transfusión) y TACO (sobrecarga circulatoria).</div>
+<p class="txt">Una hemoglobina normal puede coexistir con hemorragia masiva muy precoz, antes de la hemodilución. La transfusión nunca sustituye el control del sangrado.</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" onclick="toggleCard(this)"><span class="card-title"><span class="ch-num">22</span>Algoritmo integral del manejo del shock</span><span class="card-arrow">▶</span></div>
+<div class="card-body">
+<div class="steps">
+<div class="step"><div class="step-num">1</div><div class="step-body"><strong>Reconocer inmediatamente</strong>Hipotensión, alteración mental, taquicardia, piel anormal, oliguria, lactato elevado, llenado capilar prolongado → asumir hipoperfusión hasta demostrar lo contrario.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body"><strong>Estabilización ABCDE simultánea</strong>Vía aérea, oxígeno, 2 accesos venosos de gran calibre (o intraóseo), monitorización continua, muestras (gasometría, lactato, hemograma, coagulación, grupo sanguíneo).</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body"><strong>Identificar la causa en paralelo</strong>Séptico / hemorrágico / cardiogénico / obstructivo / anafiláctico / neurogénico / endocrino — sin esperar estudios complejos para tratar.</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body"><strong>Tratamiento etiológico inmediato</strong>Antibióticos+control del foco / control del sangrado+transfusión / reperfusión coronaria / adrenalina / descompresión torácica / pericardiocentesis / hidrocortisona, según corresponda.</div></div>
+<div class="step"><div class="step-num">5</div><div class="step-body"><strong>Reanimación hemodinámica dirigida al mecanismo</strong>Fluidos si hay dependencia de precarga; noradrenalina si predomina la vasoplejía; dobutamina si hay bajo gasto; combinación individualizada en shock mixto.</div></div>
+<div class="step"><div class="step-num">6</div><div class="step-body"><strong>Monitorización y reevaluación continua</strong>PA, FC, llenado capilar, diuresis, lactato, ecografía — cada intervención se sigue de una nueva valoración; ninguna decisión terapéutica es definitiva.</div></div>
+</div>
+<div class="alert alert-green" style="margin-top:14px"><strong>Perla final</strong>Reconocer precozmente el shock salva más vidas que cualquier tratamiento tardío. El diagnóstico y el tratamiento se inician simultáneamente, nunca de forma secuencial.</div>
+</div>
+</div>
+</div>
+<!-- ═══════ 8. CALCULADORAS ═══════ -->
+<div class="section" id="calc">
+<h2 class="section-title">🧮 Calculadoras Clínicas</h2>
+<p class="section-intro">Herramientas de cálculo rápido para uso en emergencias y cuidados críticos. Los resultados son orientativos — la decisión clínica es siempre del médico tratante.</p>
+
+<div class="calc-wrap">
+<div class="calc-header"><h3>⚡ Índice de Shock (SI y Modified SI)</h3><p>Identifica compromiso hemodinámico en pacientes con PA aparentemente normal</p></div>
+<div class="calc-body">
+<div class="calc-row">
+<div class="calc-group"><label>Frecuencia cardíaca (lpm)</label><input id="si-fc" max="260" min="20" placeholder="Ej: 110" type="number"/></div>
+<div class="calc-group"><label>PA sistólica (mmHg)</label><input id="si-pas" max="300" min="40" placeholder="Ej: 100" type="number"/></div>
+<div class="calc-group"><label>PA diastólica (mmHg) — opcional</label><input id="si-pad" max="200" min="20" placeholder="Ej: 65" type="number"/></div>
+</div>
+<button class="calc-btn" onclick="calcSI()">Calcular →</button>
+<div class="calc-results" id="res-si" style="display:none">
+<h4>📊 Resultado</h4>
+<div class="r-row"><span class="r-label">Shock Index (FC ÷ PAS)</span><span class="r-val" id="r-si">—</span></div>
+<div class="r-row"><span class="r-label">Interpretación</span><span class="r-val" id="r-si-int">—</span></div>
+<div class="r-row"><span class="r-label">Modified Shock Index (FC ÷ PAM)</span><span class="r-val" id="r-msi">—</span></div>
+</div>
+</div>
+</div>
+
+<div class="calc-wrap">
+<div class="calc-header"><h3>🩺 PAM y Presión de Perfusión</h3><p>Presión arterial media y presión de pulso</p></div>
+<div class="calc-body">
+<div class="calc-row">
+<div class="calc-group"><label>PA sistólica (mmHg)</label><input id="pam-pas" max="300" min="40" placeholder="Ej: 90" type="number"/></div>
+<div class="calc-group"><label>PA diastólica (mmHg)</label><input id="pam-pad" max="200" min="20" placeholder="Ej: 55" type="number"/></div>
+</div>
+<button class="calc-btn" onclick="calcPAM()">Calcular →</button>
+<div class="calc-results" id="res-pam" style="display:none">
+<h4>📊 Resultado</h4>
+<div class="r-row"><span class="r-label">PAM</span><span class="r-val" id="r-pam2">—</span></div>
+<div class="r-row"><span class="r-label">Presión de pulso</span><span class="r-val" id="r-pp2">—</span></div>
+<div class="r-row"><span class="r-label">Meta habitual en shock</span><span class="r-val ok">PAM ≥ 65 mmHg (individualizar; 85–90 mmHg en shock neurogénico agudo)</span></div>
+</div>
+</div>
+</div>
+
+<div class="calc-wrap">
+<div class="calc-header"><h3>💧 Reanimación con Cristaloides</h3><p>Bolo inicial orientativo según peso y tipo de shock</p></div>
+<div class="calc-body">
+<div class="calc-row">
+<div class="calc-group"><label>Peso del paciente (kg)</label><input id="fl-peso" max="200" min="20" placeholder="Ej: 70" type="number"/></div>
+<div class="calc-group"><label>Tipo de shock</label>
+<select id="fl-tipo">
+<option value="septico">Séptico / distributivo</option>
+<option value="hemorragico">Hipovolémico hemorrágico</option>
+<option value="cardiogenico">Cardiogénico (bolo cauteloso)</option>
+</select>
+</div>
+</div>
+<button class="calc-btn" onclick="calcFluidos()">Calcular →</button>
+<div class="calc-results" id="res-fl" style="display:none">
+<h4>📊 Resultado</h4>
+<div id="fl-content"></div>
+</div>
+</div>
+</div>
+
+<div class="calc-wrap">
+<div class="calc-header"><h3>🧪 Aclaramiento de Lactato</h3><p>Porcentaje de descenso tras el tratamiento inicial</p></div>
+<div class="calc-body">
+<div class="calc-row">
+<div class="calc-group"><label>Lactato inicial (mmol/L)</label><input id="lac-ini" max="30" min="0.5" placeholder="Ej: 6.0" step="0.1" type="number"/></div>
+<div class="calc-group"><label>Lactato de control (mmol/L)</label><input id="lac-fin" max="30" min="0" placeholder="Ej: 3.2" step="0.1" type="number"/></div>
+</div>
+<button class="calc-btn" onclick="calcLactato()">Calcular →</button>
+<div class="calc-results" id="res-lac" style="display:none">
+<h4>📊 Resultado</h4>
+<div class="r-row"><span class="r-label">Aclaramiento</span><span class="r-val" id="r-lac">—</span></div>
+<div class="r-row"><span class="r-label">Interpretación</span><span class="r-val" id="r-lac-int">—</span></div>
+</div>
+</div>
+</div>
+
+<div class="calc-wrap">
+<div class="calc-header"><h3>💉 Calculadora de Vasopresores</h3><p>Velocidad de infusión (mL/h) según peso y dosis objetivo</p></div>
+<div class="calc-body">
+<div class="calc-row">
+<div class="calc-group"><label>Peso del paciente (kg)</label><input id="vp-peso" max="200" min="20" placeholder="Ej: 70" type="number"/></div>
+<div class="calc-group"><label>Fármaco</label>
+<select id="vp-farmaco" onchange="updateVPDefaults()">
+<option value="norad">Noradrenalina (4 mg/250 mL = 16 mcg/mL)</option>
+<option value="adren">Adrenalina (4 mg/250 mL = 16 mcg/mL)</option>
+<option value="dobuta">Dobutamina (250 mg/250 mL = 1000 mcg/mL)</option>
+<option value="vasopresina">Vasopresina (dosis fija, no por peso)</option>
+</select>
+</div>
+<div class="calc-group"><label>Dosis objetivo (mcg/kg/min)</label><input id="vp-dosis" max="3" min="0.01" placeholder="Ej: 0.1" step="0.01" type="number"/></div>
+</div>
+<button class="calc-btn" onclick="calcVasopresor()">Calcular →</button>
+<div class="calc-results" id="res-vp" style="display:none">
+<h4>📊 Resultado</h4>
+<div id="vp-content"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ═══════ 9. QUIZ ═══════ -->
+<div class="section" id="quiz">
+<h2 class="section-title">❓ Autoevaluación Clínica</h2>
+<p class="section-intro">Casos clínicos basados en escenarios reales de emergencia, orientados a los errores más frecuentes en el manejo del shock.</p>
+<div class="quiz-wrap">
+<div class="quiz-header"><h3>Banco de preguntas — Shock</h3><p>Responda y reciba retroalimentación inmediata</p></div>
+<div class="q-body" id="q-body">
+<div class="q-num" id="q-num">Pregunta 1 de 10</div>
+<div class="q-text" id="q-text"></div>
+<div id="q-opts"></div>
+<div class="q-feedback" id="q-feedback"></div>
+</div>
+<div class="quiz-nav" id="quiz-nav">
+<button class="btn-prev" id="btn-prev" onclick="qNav(-1)">← Anterior</button>
+<div class="q-progress" id="q-progress"></div>
+<button class="btn-next" id="btn-next" onclick="qNav(1)">Siguiente →</button>
+</div>
+<div class="score-screen" id="score-screen" style="display:none">
+<div class="score-circle"><span class="score-pct" id="s-pct">0%</span><span class="score-label">Puntaje</span></div>
+<p id="s-msg"></p>
+<button class="calc-btn" onclick="resetQuiz()" style="margin-top:16px">Reiniciar cuestionario</button>
+</div>
+</div>
+</div>
+<section aria-label="Versión de la guía" class="croce-version-box">
+<strong>Versión 1.0 Premium</strong>
+<span>Biblioteca Médica Personal Croce · Julio 2026</span>
+<span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
+</section><div class="footer">
+  Guía Clínica Interactiva · Shock — Manejo Práctico · Basada en Surviving Sepsis Campaign 2021, ESICM, SCAI 2022, World Allergy Organization, ACC/AHA<br/>
+  Dr. Luis E. Croce A. · Médico Internista · Ecuador<br/>
+  Uso educativo y de referencia clínica personal · No reemplaza el juicio clínico del médico tratante
+</div>
+</div><!-- /app -->
+<script>
+// ── TABS ──────────────────────────────────────────────────────────────
+const TAB_ORDER=['fisiop','reconoc','septico','cardiogenico','hipovolemico','otros','manejo','calc','quiz'];
+function showTab(id){
+  if(!TAB_ORDER.includes(id) || !document.getElementById(id)) return;
+  document.querySelectorAll('.section').forEach(s=>{
+    s.classList.remove('active');
+    s.setAttribute('hidden','');
+  });
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.setAttribute('aria-selected','false');
+  });
+  const section=document.getElementById(id);
+  section.classList.add('active');
+  section.removeAttribute('hidden');
+  const idx=TAB_ORDER.indexOf(id);
+  const btns=document.querySelectorAll('.tab-btn');
+  if(btns[idx]){
+    btns[idx].classList.add('active');
+    btns[idx].setAttribute('aria-selected','true');
+    btns[idx].scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  }
+  try{localStorage.setItem('shock.activeTab',id);}catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── CARDS ──────────────────────────────────────────────────────────────
+function toggleCard(h){
+  if(!h) return;
+  const body=h.nextElementSibling;
+  if(!body) return;
+  const open=h.classList.contains('open');
+  if(open){
+    h.classList.remove('open');
+    body.classList.remove('open');
+    h.setAttribute('aria-expanded','false');
+  }else{
+    h.classList.add('open');
+    body.classList.add('open');
+    h.setAttribute('aria-expanded','true');
+  }
+}
+
+// ── CALC: SHOCK INDEX ──────────────────────────────────────────────────
+function calcSI(){
+  const fc=parseFloat(document.getElementById('si-fc').value)||0;
+  const pas=parseFloat(document.getElementById('si-pas').value)||0;
+  const pad=parseFloat(document.getElementById('si-pad').value)||0;
+  if(!fc||!pas){alert('Ingrese FC y PA sistólica para continuar.');return;}
+  if(fc<20||fc>260){alert('FC fuera de rango clínico esperable. Verifique el dato.');return;}
+  if(pas<40||pas>300){alert('PA sistólica fuera de rango clínico esperable. Verifique el dato.');return;}
+  const si=fc/pas;
+  let interp='';
+  if(si<0.7) interp='✅ Habitualmente normal';
+  else if(si<0.9) interp='⚠ Vigilancia estrecha';
+  else if(si<1.0) interp='⚠ Sospecha de compromiso hemodinámico';
+  else if(si<1.3) interp='🔴 Alto riesgo de shock';
+  else interp='🔴 Alto riesgo de deterioro y mortalidad';
+  document.getElementById('r-si').textContent=si.toFixed(2);
+  document.getElementById('r-si-int').textContent=interp;
+  if(pad>0 && pas>pad){
+    const pam=pad+((pas-pad)/3);
+    const msi=fc/pam;
+    document.getElementById('r-msi').textContent=msi.toFixed(2)+' (PAM calculada: '+pam.toFixed(1)+' mmHg)';
+  } else {
+    document.getElementById('r-msi').textContent='Ingrese PAD para calcular';
+  }
+  document.getElementById('res-si').style.display='block';
+}
+
+// ── CALC: PAM ────────────────────────────────────────────────────────
+function calcPAM(){
+  const pas=parseFloat(document.getElementById('pam-pas').value)||0;
+  const pad=parseFloat(document.getElementById('pam-pad').value)||0;
+  if(!pas||!pad){alert('Ingrese PAS y PAD para continuar.');return;}
+  if(pas<=pad){alert('La PAS debe ser mayor que la PAD. Revise los valores.');return;}
+  if(pas<40||pas>300||pad<20||pad>200){alert('Valores de PA fuera de rango clínico esperable.');return;}
+  const pam=pad+((pas-pad)/3);
+  const pp=pas-pad;
+  document.getElementById('r-pam2').textContent=pam.toFixed(1)+' mmHg';
+  document.getElementById('r-pp2').textContent=pp.toFixed(0)+' mmHg';
+  document.getElementById('res-pam').style.display='block';
+}
+
+// ── CALC: FLUIDOS ────────────────────────────────────────────────────
+function calcFluidos(){
+  const peso=parseFloat(document.getElementById('fl-peso').value)||0;
+  const tipo=document.getElementById('fl-tipo').value;
+  if(!peso){alert('Ingrese el peso del paciente.');return;}
+  if(peso<20||peso>250){alert('Peso fuera de rango adulto esperable. Verifique el dato.');return;}
+  let html='';
+  if(tipo==='septico'){
+    const vol=(peso*30).toFixed(0);
+    html=`<div class="r-row"><span class="r-label">Bolo inicial orientativo (cristaloides balanceados)</span><span class="r-val ok">${vol} mL (≈30 mL/kg)</span></div>
+    <div class="r-row"><span class="r-label">Estrategia</span><span class="r-val">Administrar en bolos reevaluando PA, relleno capilar, diuresis y lactato tras cada aporte</span></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">No es una dosis fija obligatoria: individualizar según respuesta y signos de congestión (líneas B, VCI dilatada).</p>`;
+  } else if(tipo==='hemorragico'){
+    html=`<div class="r-row"><span class="r-label">Prioridad</span><span class="r-val danger">Control del sangrado — la reposición no sustituye la hemostasia</span></div>
+    <div class="r-row"><span class="r-label">Cristaloides mientras se controla el foco</span><span class="r-val">Mínimo necesario para mantener perfusión; considerar hipotensión permisiva si no hay TCE grave</span></div>
+    <div class="r-row"><span class="r-label">Activar protocolo de transfusión masiva</span><span class="r-val ok">Si alta probabilidad de requerir múltiples transfusiones</span></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">Prevenir la tríada letal: hipotermia, acidosis, coagulopatía.</p>`;
+  } else {
+    html=`<div class="r-row"><span class="r-label">Bolo cauteloso orientativo</span><span class="r-val">100–250 mL, reevaluar de inmediato</span></div>
+    <div class="r-row"><span class="r-label">Precaución</span><span class="r-val danger">La sobrecarga de volumen empeora la congestión pulmonar y el trabajo cardíaco</span></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">Priorizar ecocardiografía y reperfusión coronaria si aplica; no administrar líquidos de forma rutinaria.</p>`;
+  }
+  document.getElementById('fl-content').innerHTML=html;
+  document.getElementById('res-fl').style.display='block';
+}
+
+// ── CALC: LACTATO ────────────────────────────────────────────────────
+function calcLactato(){
+  const ini=parseFloat(document.getElementById('lac-ini').value)||0;
+  const fin=document.getElementById('lac-fin').value;
+  const finN=parseFloat(fin);
+  if(!ini){alert('Ingrese el lactato inicial.');return;}
+  if(fin===''||isNaN(finN)){alert('Ingrese el lactato de control.');return;}
+  if(ini<=0){alert('El lactato inicial debe ser mayor que cero.');return;}
+  const acl=((ini-finN)/ini)*100;
+  let interp='';
+  if(acl>=20) interp='✅ Aclaramiento significativo — respuesta favorable a la reanimación';
+  else if(acl>=0) interp='⚠ Aclaramiento insuficiente — reevaluar diagnóstico y tratamiento';
+  else interp='🔴 El lactato está en ascenso — sospechar fracaso de la reanimación';
+  document.getElementById('r-lac').textContent=acl.toFixed(1)+' %';
+  document.getElementById('r-lac-int').textContent=interp;
+  document.getElementById('res-lac').style.display='block';
+}
+
+// ── CALC: VASOPRESORES ──────────────────────────────────────────────
+function updateVPDefaults(){
+  const f=document.getElementById('vp-farmaco').value;
+  const inp=document.getElementById('vp-dosis');
+  if(f==='dobuta') inp.placeholder='Ej: 5 (mcg/kg/min)';
+  else if(f==='vasopresina') inp.placeholder='No requiere peso';
+  else inp.placeholder='Ej: 0.1 (mcg/kg/min)';
+}
+function calcVasopresor(){
+  const peso=parseFloat(document.getElementById('vp-peso').value)||0;
+  const farmaco=document.getElementById('vp-farmaco').value;
+  const dosis=parseFloat(document.getElementById('vp-dosis').value)||0;
+  let html='';
+  if(farmaco==='vasopresina'){
+    html=`<div class="r-row"><span class="r-label">Dosis</span><span class="r-val ok">0,03–0,04 U/min, dosis fija (no ajustar por peso ni titular por respuesta presora)</span></div>
+    <div class="r-row"><span class="r-label">Preparación habitual</span><span class="r-val">20 U en 100 mL SF = 0,2 U/mL</span></div>
+    <div class="r-row"><span class="r-label">Velocidad orientativa</span><span class="r-val">9–12 mL/h</span></div>
+    <p style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">Uso como complemento de la noradrenalina en vasoplejía refractaria, nunca como sustituto inicial.</p>`;
+    document.getElementById('vp-content').innerHTML=html;
+    document.getElementById('res-vp').style.display='block';
+    return;
+  }
+  if(!peso||!dosis){alert('Ingrese peso y dosis objetivo.');return;}
+  if(peso<20||peso>250){alert('Peso fuera de rango adulto esperable.');return;}
+  let conc, nombre, prep, rangoTexto;
+  if(farmaco==='norad'){conc=16;nombre='Noradrenalina';prep='4 mg en 250 mL SF = 16 mcg/mL';rangoTexto='0,01–1 (hasta 3 en refractario) mcg/kg/min';}
+  else if(farmaco==='adren'){conc=16;nombre='Adrenalina';prep='4 mg en 250 mL SF = 16 mcg/mL';rangoTexto='0,01–0,5 mcg/kg/min (0,05–0,1 en anafilaxia refractaria)';}
+  else {conc=1000;nombre='Dobutamina';prep='250 mg en 250 mL SF = 1000 mcg/mL';rangoTexto='2,5–20 mcg/kg/min';}
+  const mcgMin=dosis*peso;
+  const mlH=(mcgMin/conc)*60;
+  html=`<div class="r-row"><span class="r-label">Fármaco</span><span class="r-val">${nombre}</span></div>
+  <div class="r-row"><span class="r-label">Preparación de referencia</span><span class="r-val">${prep}</span></div>
+  <div class="r-row"><span class="r-label">Dosis solicitada</span><span class="r-val">${dosis} mcg/kg/min → ${mcgMin.toFixed(1)} mcg/min</span></div>
+  <div class="r-row"><span class="r-label">Velocidad de infusión</span><span class="r-val ok">${mlH.toFixed(1)} mL/h</span></div>
+  <div class="r-row"><span class="r-label">Rango habitual de titulación</span><span class="r-val">${rangoTexto}</span></div>
+  <p style="margin-top:10px;font-size:.82rem;color:var(--text-muted)">Verifique siempre la concentración real de la preparación institucional antes de programar la bomba de infusión.</p>`;
+  document.getElementById('vp-content').innerHTML=html;
+  document.getElementById('res-vp').style.display='block';
+}
+
+// ── QUIZ DATA ──────────────────────────────────────────────────────────
+const PREGUNTAS=[
+  {
+    q:"Mujer de 72 años con fiebre y disuria. PA 118/72 mmHg, FC 112 lpm, FR 26 rpm, SatO₂ 95%, piel caliente, llenado capilar 4 s, leve confusión. ¿Cuál es la interpretación correcta de esta presión arterial 'normal'?",
+    opts:["Descarta shock porque la PA está dentro de rango","Puede coexistir con hipoperfusión significativa en fase de shock compensado — la hipotensión es un signo tardío","Indica que el paciente no requiere reanimación por el momento","Solo debe preocupar si la PA cae por debajo de 90/60 mmHg"],
+    ok:1,
+    feed:"✅ Correcto. La compensación fisiológica (taquicardia, vasoconstricción, redistribución de flujo) puede mantener una PA aparentemente normal mientras ya existe hipoperfusión tisular significativa. El llenado capilar prolongado, la taquipnea y la confusión son signos precoces que no deben ignorarse."
+  },
+  {
+    q:"Paciente con shock séptico recibe cristaloides. Tras 2 litros persiste hipotenso. La ecografía muestra múltiples líneas B pulmonares y vena cava inferior dilatada. ¿Cuál es la conducta correcta?",
+    opts:["Continuar con más bolos de cristaloides hasta normalizar la PA","Suspender la fluidoterapia adicional e iniciar noradrenalina — el problema ya no es la falta de volumen","Administrar furosemida y suspender toda la reanimación","Cambiar a coloides para evitar la sobrecarga"],
+    ok:1,
+    feed:"✅ Correcto. Los signos ecográficos de congestión (líneas B, VCI dilatada) indican que continuar con líquidos ya no es beneficioso. Reanimar no significa administrar volumen indefinidamente: significa corregir la hipoperfusión con la intervención adecuada en cada momento — aquí, iniciar vasopresor."
+  },
+  {
+    q:"Varón politraumatizado, PA 76/42 mmHg, FC 138 lpm, FAST positivo, piel fría. Un residente propone tres litros de cristaloides antes de avisar a cirugía. ¿Cuál es el principio que se está violando?",
+    opts:["Ninguno; es la conducta correcta en shock hemorrágico","La reposición de volumen nunca sustituye el control del sangrado — debe activarse cirugía y el protocolo de transfusión masiva de inmediato","Debería usarse solución hipertónica en vez de cristaloides","El paciente necesita vasopresores antes que líquidos"],
+    ok:1,
+    feed:"✅ Correcto. En shock hemorrágico el problema es la hemorragia, no la hipotensión en sí. Mientras el sangrado no se controle, cualquier reposición de volumen es insuficiente. La prioridad es control quirúrgico/radiológico del sangrado y activación precoz del protocolo de transfusión masiva."
+  },
+  {
+    q:"Hombre de 67 años con IAM anterior extenso, PA 78/48 mmHg, estertores bibasales, ingurgitación yugular, ecografía con FEVI muy deprimida. Un miembro del equipo propone 2 litros de cristaloides para 'subir la presión'. ¿Es correcto?",
+    opts:["Sí, todo shock con hipotensión debe recibir cristaloides en bolo","No — el problema es el fallo de bomba; grandes volúmenes aumentarán la congestión pulmonar; la prioridad es la reperfusión coronaria urgente","Sí, pero debe usarse solución salina hipertónica","No, debe usarse furosemida en su lugar antes que nada"],
+    ok:1,
+    feed:"✅ Correcto. En shock cardiogénico la sobrecarga de volumen empeora la congestión pulmonar y el trabajo cardíaco. Ningún vasopresor ni bolo de líquidos sustituye la apertura de la arteria coronaria ocluida — la reperfusión urgente es la intervención que más modifica el pronóstico."
+  },
+  {
+    q:"Paciente con hipotensión súbita, ingurgitación yugular, ausencia unilateral de murmullo vesicular y desviación traqueal tras trauma torácico. El residente solicita radiografía de tórax antes de actuar. ¿Cuál es la conducta correcta?",
+    opts:["Esperar la radiografía para confirmar antes de intervenir","Realizar descompresión torácica inmediata — el neumotórax a tensión es un diagnóstico clínico y no debe esperar imagen","Iniciar antibióticos de amplio espectro de inmediato","Solicitar tomografía urgente para mayor precisión diagnóstica"],
+    ok:1,
+    feed:"✅ Correcto. El neumotórax a tensión es un diagnóstico eminentemente clínico. Cuando la sospecha es alta y la causa es potencialmente reversible, el tratamiento (descompresión inmediata) no debe retrasarse esperando confirmación por imagen."
+  },
+  {
+    q:"Paciente con urticaria, disfonía y dificultad respiratoria progresiva minutos después de un antibiótico IV, PA 68/38 mmHg. ¿Cuál es el tratamiento de primera línea y la vía de administración correcta?",
+    opts:["Difenhidramina IV, luego observar la evolución","Hidrocortisona IV en bolo, ya que actúa más rápido que la adrenalina","Adrenalina intramuscular en la cara anterolateral del muslo, 0,5 mg, repetible cada 5–15 minutos","Salbutamol nebulizado como primera medida"],
+    ok:2,
+    feed:"✅ Correcto. La adrenalina IM en el vasto lateral del muslo es el tratamiento de primera línea en anafilaxia y no debe ser sustituida ni retrasada por antihistamínicos o corticoides, que no corrigen la hipotensión, el broncoespasmo ni el edema laríngeo."
+  },
+  {
+    q:"Paciente con lesión medular cervical presenta hipotensión y bradicardia tras el trauma. ¿Cuál es el enfoque correcto?",
+    opts:["Asumir que la hipotensión se explica completamente por la lesión medular y no buscar más causas","Descartar primero hemorragia oculta (el trauma debe considerarse hemorrágico hasta demostrar lo contrario) y luego iniciar noradrenalina si se confirma shock neurogénico","Administrar grandes volúmenes de cristaloides como único tratamiento","Iniciar dobutamina como vasopresor de primera línea"],
+    ok:1,
+    feed:"✅ Correcto. Todo politraumatizado con hipotensión debe considerarse hemorrágico hasta demostrar lo contrario, incluso con una lesión medular evidente. Una vez descartada o tratada la hemorragia, el shock neurogénico se maneja con noradrenalina, manteniendo PAM 85–90 mmHg los primeros días."
+  },
+  {
+    q:"Paciente con shock séptico refractario a fluidos y noradrenalina en dosis crecientes, con antecedente de corticoterapia prolongada, hipoglucemia e hiponatremia. ¿Qué debe considerarse?",
+    opts:["Aumentar indefinidamente la dosis de noradrenalina","Sospechar crisis suprarrenal concomitante e iniciar hidrocortisona 100 mg IV sin esperar el cortisol sérico","Suspender todo tratamiento vasopresor","Solicitar tomografía abdominal antes de cualquier tratamiento"],
+    ok:1,
+    feed:"✅ Correcto. La combinación de shock refractario, antecedente de corticoterapia y alteraciones metabólicas sugestivas debe hacer sospechar insuficiencia suprarrenal. El tratamiento precoz con hidrocortisona tiene bajo riesgo, mientras que retrasarlo puede ser fatal."
+  },
+  {
+    q:"Un paciente en shock séptico presenta lactato inicial de 6 mmol/L; tras 3 horas de tratamiento el lactato es 3 mmol/L. ¿Cómo se interpreta este hallazgo?",
+    opts:["El lactato normal descarta shock, por lo que puede suspenderse la monitorización","Un aclaramiento de 50% indica una respuesta favorable a la reanimación, aunque debe seguir interpretándose junto al cuadro clínico","El descenso del lactato no tiene ningún valor pronóstico","Debe administrarse bicarbonato para normalizar más rápido el lactato"],
+    ok:1,
+    feed:"✅ Correcto. Aclaramiento (%) = (6−3)/6×100 = 50%, lo que sugiere buena respuesta a la reanimación. Sin embargo, el lactato nunca debe interpretarse de forma aislada — siempre junto a la evolución clínica, hemodinámica y de perfusión periférica."
+  },
+  {
+    q:"Un paciente con shock séptico no mejora pese a fluidos y noradrenalina en dosis crecientes. La ecografía revela nueva disfunción ventricular que no estaba presente al ingreso. ¿Cuál es el concepto que mejor describe esta situación?",
+    opts:["Error de laboratorio; debe repetirse la ecografía","Shock mixto — coexistencia de un componente distributivo y uno cardiogénico que exige reevaluar continuamente la estrategia","Confirma que el diagnóstico inicial de sepsis era incorrecto","Indica que debe suspenderse la noradrenalina de inmediato sin más estudios"],
+    ok:1,
+    feed:"✅ Correcto. El shock mixto se sospecha cuando la evolución no sigue el comportamiento esperado para un único mecanismo. El error cognitivo más peligroso es el 'cierre prematuro': dejar de buscar mecanismos adicionales tras identificar una causa evidente."
+  }
+];
+
+let qIdx=0, qAnswers=new Array(PREGUNTAS.length).fill(null);
+const QUIZ_STORAGE_KEY='shock.quiz.v1';
+
+function saveQuizState(){
+  try{ localStorage.setItem(QUIZ_STORAGE_KEY,JSON.stringify({qIdx,qAnswers,version:1})); }catch(e){}
+}
+function loadQuizState(){
+  try{
+    const raw=localStorage.getItem(QUIZ_STORAGE_KEY);
+    if(!raw) return;
+    const data=JSON.parse(raw);
+    if(!Array.isArray(data.qAnswers) || data.qAnswers.length!==PREGUNTAS.length) return;
+    qAnswers=data.qAnswers.map(a=>Number.isInteger(a)?a:null);
+    qIdx=Number.isInteger(data.qIdx)?Math.max(0,Math.min(PREGUNTAS.length-1,data.qIdx)):0;
+  }catch(e){}
+}
+function initQuiz(){ loadQuizState(); buildProgress(); renderQ(); }
+function buildProgress(){
+  const cont=document.getElementById('q-progress');
+  if(!cont)return;
+  cont.innerHTML='';
+  PREGUNTAS.forEach((_,i)=>{
+    const d=document.createElement('div');
+    let cls='q-dot';
+    if(i===qIdx) cls+=' current';
+    if(qAnswers[i]!==null) cls+=(qAnswers[i]===PREGUNTAS[i].ok?' correct-done':' answered');
+    d.className=cls;
+    cont.appendChild(d);
+  });
+}
+function renderQ(){
+  const scoreScr=document.getElementById('score-screen');
+  const qBody=document.getElementById('q-body');
+  const qNavEl=document.getElementById('quiz-nav');
+  if(scoreScr) scoreScr.style.display='none';
+  if(qBody) qBody.style.display='block';
+  if(qNavEl) qNavEl.style.display='flex';
+  if(qIdx>=PREGUNTAS.length){showScore();return;}
+  const p=PREGUNTAS[qIdx];
+  document.getElementById('q-num').textContent='Pregunta '+(qIdx+1)+' de '+PREGUNTAS.length;
+  document.getElementById('q-text').textContent=p.q;
+  const letters=['A','B','C','D'];
+  const optsDiv=document.getElementById('q-opts');
+  optsDiv.innerHTML='';
+  const answered=qAnswers[qIdx]!==null;
+  p.opts.forEach((o,i)=>{
+    const div=document.createElement('div');
+    let cls='q-opt';
+    if(answered){
+      cls+=' disabled';
+      if(i===p.ok) cls+=' correct';
+      else if(qAnswers[qIdx]===i) cls+=' wrong';
+    }
+    div.className=cls;
+    div.setAttribute('role','button');
+    div.setAttribute('tabindex', answered ? '-1' : '0');
+    div.setAttribute('aria-disabled', answered ? 'true' : 'false');
+    if(answered && i===p.ok) div.setAttribute('aria-label','Respuesta correcta: '+o);
+    if(answered && qAnswers[qIdx]===i && i!==p.ok) div.setAttribute('aria-label','Respuesta seleccionada incorrecta: '+o);
+    div.innerHTML='<div class="opt-letter">'+letters[i]+'</div><div>'+o+'</div>';
+    if(!answered){
+      div.onclick=()=>answer(i);
+      div.onkeydown=(ev)=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();answer(i);}};
+    }
+    optsDiv.appendChild(div);
+  });
+  const fb=document.getElementById('q-feedback');
+  if(answered){
+    const ok=qAnswers[qIdx]===p.ok;
+    fb.className='q-feedback show '+(ok?'ok':'fail');
+    fb.innerHTML='<div class="quiz-status '+(ok?'ok':'fail')+'">'+(ok?'✔ Correcto':'✘ Incorrecto')+'</div><div>'+p.feed+'</div>';
+  } else {
+    fb.className='q-feedback';fb.textContent='';
+  }
+  document.getElementById('btn-prev').disabled=qIdx===0;
+  const nxt=document.getElementById('btn-next');
+  nxt.disabled=!answered;
+  nxt.textContent=qIdx===PREGUNTAS.length-1?'Ver resultado →':'Siguiente →';
+  buildProgress();
+}
+function answer(i){
+  if(qAnswers[qIdx]!==null)return;
+  const opts=document.querySelectorAll('#q-opts .q-opt');
+  if(opts[i]) opts[i].classList.add('selected');
+  qAnswers[qIdx]=i;
+  saveQuizState();
+  window.setTimeout(renderQ,120);
+}
+function qNav(d){
+  if(d===1&&qIdx===PREGUNTAS.length-1){showScore();return;}
+  qIdx=Math.max(0,Math.min(PREGUNTAS.length-1,qIdx+d));
+  saveQuizState();
+  renderQ();
+}
+function showScore(){
+  document.getElementById('q-body').style.display='none';
+  document.getElementById('quiz-nav').style.display='none';
+  document.getElementById('score-screen').style.display='block';
+  const correct=qAnswers.filter((a,i)=>a===PREGUNTAS[i].ok).length;
+  const pct=Math.round(correct/PREGUNTAS.length*100);
+  document.getElementById('s-pct').textContent=pct+'%';
+  let msg=pct>=85?'Excelente dominio del manejo del shock.':pct>=70?'Buen desempeño. Repase las secciones de manejo específico por tipo de shock.':'Revisar fisiopatología y manejo general antes de la próxima guardia.';
+  document.getElementById('s-msg').textContent=correct+' de '+PREGUNTAS.length+' correctas. '+msg;
+}
+function resetQuiz(){
+  qIdx=0;qAnswers=new Array(PREGUNTAS.length).fill(null);
+  try{localStorage.removeItem(QUIZ_STORAGE_KEY);}catch(e){}
+  document.getElementById('q-body').style.display='block';
+  document.getElementById('quiz-nav').style.display='flex';
+  document.getElementById('score-screen').style.display='none';
+  renderQ();
+}
+
+// ── FRAMEWORK BOOTSTRAP / ACCESSIBILITY / FULLSCREEN ───────────────────
+function toggleFullscreen(){
+  const root=document.documentElement;
+  if(!document.fullscreenElement && root.requestFullscreen){
+    root.requestFullscreen().catch(()=>{});
+  }else if(document.exitFullscreen){
+    document.exitFullscreen().catch(()=>{});
+  }
+}
+function initFramework(){
+  document.querySelectorAll('.tab-btn').forEach((btn,i)=>{
+    btn.setAttribute('role','tab');
+    btn.setAttribute('aria-controls',TAB_ORDER[i]||'');
+    btn.setAttribute('aria-selected',btn.classList.contains('active')?'true':'false');
+    btn.addEventListener('keydown',ev=>{
+      if(ev.key!=='ArrowRight' && ev.key!=='ArrowLeft') return;
+      ev.preventDefault();
+      const dir=ev.key==='ArrowRight'?1:-1;
+      const next=(i+dir+TAB_ORDER.length)%TAB_ORDER.length;
+      const nextBtn=document.querySelectorAll('.tab-btn')[next];
+      if(nextBtn){ nextBtn.focus(); showTab(TAB_ORDER[next]); }
+    });
+  });
+  const tabWrap=document.querySelector('.tabs-inner');
+  if(tabWrap) tabWrap.setAttribute('role','tablist');
+  document.querySelectorAll('.section').forEach(section=>{
+    if(!section.classList.contains('active')) section.setAttribute('hidden','');
+  });
+  document.querySelectorAll('.card-header').forEach((h,i)=>{
+    h.setAttribute('role','button');
+    h.setAttribute('tabindex','0');
+    h.setAttribute('aria-expanded',h.classList.contains('open')?'true':'false');
+    if(!h.id) h.id='card-header-'+(i+1);
+    const body=h.nextElementSibling;
+    if(body){
+      if(!body.id) body.id='card-body-'+(i+1);
+      h.setAttribute('aria-controls',body.id);
+    }
+    h.addEventListener('keydown',ev=>{
+      if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); toggleCard(h); }
+    });
+  });
+  const lastTab=(()=>{try{return localStorage.getItem('shock.activeTab');}catch(e){return null;}})();
+  if(lastTab && TAB_ORDER.includes(lastTab)) showTab(lastTab);
+  initQuiz();
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',initFramework);
+}else{
+  initFramework();
+}
+</script>
+<script src="../assets/croce.js"></script>
+</body>
+</html>
