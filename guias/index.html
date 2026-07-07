@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biblioteca Médica Personal Croce</title>
+<link href="assets/croce.css" rel="stylesheet"/>
+<style>
+.page{max-width:980px;margin:0 auto;padding:18px}
+.header{background:linear-gradient(135deg,var(--brand),var(--brand2));color:white;border-radius:18px;padding:26px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.header h1{margin:0 0 6px;font-size:25px}.header p{margin:0;color:rgba(255,255,255,.84);font-size:14px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.stat{background:rgba(255,255,255,.16);border-radius:999px;padding:5px 11px;font-size:12px}
+.toolbar{display:grid;grid-template-columns:1fr 220px;gap:10px;margin:16px 0}.search,.filter{border:1px solid var(--border);border-radius:12px;background:white;padding:12px 14px;font-size:14px;outline:none}
+.category-title{font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:#827c73;font-weight:800;margin:22px 4px 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px}
+.card{background:white;border:1px solid transparent;border-radius:16px;padding:16px;box-shadow:var(--shadow);transition:.15s;display:flex;gap:12px;align-items:flex-start;min-height:118px}
+.card:hover{transform:translateY(-1px);border-color:rgba(143,47,37,.28)}.icon{font-size:28px;width:46px;height:46px;border-radius:12px;background:#f7eee9;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.title{font-weight:750;font-size:15px;margin-bottom:4px}.sub{font-size:13px;color:var(--muted);line-height:1.4;margin-bottom:9px}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:11px;padding:3px 8px;border-radius:999px;background:#f4f1ec;color:#666}
+.empty{display:none;text-align:center;color:var(--muted);padding:34px;background:white;border-radius:16px;box-shadow:var(--shadow)}.footer{text-align:center;color:#999;font-size:12px;margin:24px 0}
+@media(max-width:620px){.toolbar{grid-template-columns:1fr}.header h1{font-size:21px}.page{padding:12px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="header">
+<h1>Biblioteca Médica Personal Croce</h1>
+<p>Guías clínicas interactivas para consulta y estudio personal</p>
+<div class="stats"><span class="stat" id="totalGuias">13 guías</span><span class="stat">Uso personal</span><span class="stat">HTML independiente</span><span class="stat">Buscador global por contenido</span></div>
+</header>
+<div class="toolbar">
+<input class="search" id="search" oninput="renderGuias()" placeholder="Buscar guía o contenido dentro de todas las guías..." type="search"/>
+<select class="filter" id="category" onchange="renderGuias()"><option value="">Todas las categorías</option></select>
+</div><section aria-live="polite" class="global-results" id="globalResults"></section>
+<main id="content"></main>
+<div class="empty" id="empty">No se encontraron guías.</div>
+<footer class="footer">Dr. Luis E. Croce A. · Biblioteca médica personal</footer>
+</div>
+<script src="assets/search-index.js"></script><script>
+const GUIAS = [
+  {
+    "titulo": "CAD / EHH — Crisis Hiperglucémica",
+    "subtitulo": "Cetoacidosis diabética · Estado hiperosmolar",
+    "archivo": "guias/cad_ehh.html",
+    "categoria": "Endocrinología",
+    "icono": "⚡",
+    "tags": [
+      "ADA",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Hipoglucemia — Manejo en Urgencias",
+    "subtitulo": "Diagnóstico, clasificación y tratamiento",
+    "archivo": "guias/Hipoglucemia_DrCroce_2026.html",
+    "categoria": "Endocrinología",
+    "icono": "🩸",
+    "tags": [
+      "ADA",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Exacerbación de EPOC (AECOPD)",
+    "subtitulo": "Diagnóstico, severidad y tratamiento",
+    "archivo": "guias/AECOPD_Modulo_Croce_v2.html",
+    "categoria": "Neumología",
+    "icono": "🫁",
+    "tags": [
+      "GOLD",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Espirometría — Interpretación Práctica",
+    "subtitulo": "Patrones obstructivos, restrictivos y mixtos",
+    "archivo": "guias/espirometria_DrCroce_2026.html",
+    "categoria": "Neumología",
+    "icono": "🌬️",
+    "tags": [
+      "ATS/ERS",
+      "Medicina Interna"
+    ]
+  },
+  {
+    "titulo": "Neumonía Adquirida en la Comunidad",
+    "subtitulo": "CURB-65 · antibióticos · UCI · poblaciones especiales",
+    "archivo": "guias/neumonia_adquirida_comunidad_DrCroce.html",
+    "categoria": "Neumología",
+    "icono": "🫁",
+    "tags": [
+      "ATS/IDSA",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Gasometría y Trastornos Ácido-Base",
+    "subtitulo": "Interpretación sistemática y casos clínicos",
+    "archivo": "guias/gasometria_acido_base.html",
+    "categoria": "Medicina Interna",
+    "icono": "🫧",
+    "tags": [
+      "Ácido-base",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Shock — Manejo Práctico",
+    "subtitulo": "Fisiopatología · Reconocimiento · Diagnóstico diferencial · Manejo por tipo de shock",
+    "archivo": "guias/shock.html",
+    "categoria": "Medicina Interna",
+    "icono": "🩸",
+    "tags": [
+      "SSC 2021",
+      "UCI",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Sepsis y Shock Séptico",
+    "subtitulo": "Manejo en urgencias y hospitalización",
+    "archivo": "guias/sepsis-choque-septico.html",
+    "categoria": "Infectología",
+    "icono": "🦠",
+    "tags": [
+      "SSC",
+      "UCI"
+    ]
+  },
+  {
+    "titulo": "Dengue — Abordaje Clínico Integral",
+    "subtitulo": "Estadios · emergencia · complicaciones · shock",
+    "archivo": "guias/dengue.html",
+    "categoria": "Infectología",
+    "icono": "🦟",
+    "tags": [
+      "OPS/OMS",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Infección del Tracto Urinario (ITU)",
+    "subtitulo": "ITU no complicada · pielonefritis · ITU complicada · urosepsis",
+    "archivo": "guias/itu_adulto_DrCroce_2026.html",
+    "categoria": "Infectología",
+    "icono": "🦠",
+    "tags": [
+      "IDSA",
+      "EAU",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Síndrome Coronario Agudo (SCA)",
+    "subtitulo": "STEMI · NSTEMI · angina inestable · antitrombóticos",
+    "archivo": "guias/SCA_DrCroce_2026.html",
+    "categoria": "Cardiología",
+    "icono": "❤️‍🔥",
+    "tags": [
+      "ESC",
+      "ACC/AHA",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "Insuficiencia Cardíaca Aguda y Crónica",
+    "subtitulo": "GDMT · IC descompensada · HFrEF / HFpEF",
+    "archivo": "guias/insuficiencia_cardiaca_DrCroce.html",
+    "categoria": "Cardiología",
+    "icono": "🫀",
+    "tags": [
+      "ESC",
+      "AHA/ACC"
+    ]
+  },
+  {
+    "titulo": "Emergencia Hipertensiva",
+    "subtitulo": "Diagnóstico · estratificación · manejo por órgano diana",
+    "archivo": "guias/emergenciahipertensiva.html",
+    "categoria": "Cardiología",
+    "icono": "🫀",
+    "tags": [
+      "ESC",
+      "AHA/ACC",
+      "Urgencias"
+    ]
+  },
+  {
+    "titulo": "ACV Isquémico Agudo",
+    "subtitulo": "Trombólisis · trombectomía · NIHSS · prevención",
+    "archivo": "guias/acv_isquemico_DrCroce.html",
+    "categoria": "Neurología",
+    "icono": "🧠",
+    "tags": [
+      "AHA/ASA",
+      "Urgencias"
+    ]
+  }
+];
+function initCategorias(){
+  document.getElementById('totalGuias').textContent = GUIAS.length + ' guías';
+  const select=document.getElementById('category');
+  [...new Set(GUIAS.map(g=>g.categoria))].sort().forEach(cat=>{const opt=document.createElement('option'); opt.value=cat; opt.textContent=cat; select.appendChild(opt);});
+}
+function cardHTML(g){return `<a class="card" href="${g.archivo}"><div class="icon">${g.icono}</div><div><div class="title">${g.titulo}</div><div class="sub">${g.subtitulo}</div><div class="tags"><span class="tag">${g.categoria}</span>${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></a>`}
+function renderGuias(){
+  const q=document.getElementById('search').value.toLowerCase().trim(); const cat=document.getElementById('category').value; const content=document.getElementById('content'); const empty=document.getElementById('empty'); content.innerHTML='';
+  const filtered=GUIAS.filter(g=>{const text=[g.titulo,g.subtitulo,g.categoria,...g.tags].join(' ').toLowerCase(); return (!q||text.includes(q))&&(!cat||g.categoria===cat);});
+  const groups={}; filtered.forEach(g=>{(groups[g.categoria] ||= []).push(g);});
+  Object.keys(groups).sort().forEach(c=>{const h=document.createElement('div'); h.className='category-title'; h.textContent=c; const grid=document.createElement('div'); grid.className='grid'; groups[c].forEach(g=>grid.insertAdjacentHTML('beforeend',cardHTML(g))); content.appendChild(h); content.appendChild(grid);});
+  empty.style.display=filtered.length?'none':'block';
+}
+initCategorias();renderGuias();
+</script>
+<script src="assets/croce.js"></script>
+
+<script>
+function normalizeCroceText(s){return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+function makeSnippet(text, query){
+  const nt=normalizeCroceText(text), nq=normalizeCroceText(query); let i=nt.indexOf(nq); if(i<0) i=0;
+  const start=Math.max(0,i-75), end=Math.min(text.length,i+query.length+120); let snip=text.slice(start,end).trim();
+  if(start>0) snip='… '+snip; if(end<text.length) snip+=' …';
+  try{ const re=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'); snip=snip.replace(re,'<mark>$1</mark>'); }catch(e){}
+  return snip;
+}
+function renderGlobalSearchResults(q){
+  const box=document.getElementById('globalResults'); if(!box) return;
+  const query=(q||'').trim();
+  if(query.length<3){ box.classList.remove('show'); box.innerHTML=''; return; }
+  const nq=normalizeCroceText(query);
+  const index=window.CROCE_SEARCH_INDEX||[];
+  const scored=[];
+  index.forEach(item=>{
+    const hay=normalizeCroceText([item.guide,item.category,item.section,item.text].join(' '));
+    if(!hay.includes(nq)) return;
+    let score=0;
+    if(normalizeCroceText(item.guide).includes(nq)) score+=8;
+    if(normalizeCroceText(item.section).includes(nq)) score+=5;
+    score += Math.min(6,(hay.match(new RegExp(nq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'g'))||[]).length);
+    scored.push({...item, score});
+  });
+  scored.sort((a,b)=>b.score-a.score || a.guide.localeCompare(b.guide));
+  const top=scored.slice(0,12);
+  box.classList.add('show');
+  if(!top.length){ box.innerHTML='<h2>Buscador global</h2><div class="global-empty-note">No se encontraron coincidencias dentro de las guías.</div>'; return; }
+  box.innerHTML='<h2>Resultados dentro de las guías</h2>'+top.map(r=>`<a class="global-result" href="${r.file}"><div class="global-result-title">${r.guide}</div><div class="global-result-meta">${r.category||'Guía'} · ${r.section||'Contenido'}</div><div class="global-result-snippet">${makeSnippet(r.text,query)}</div></a>`).join('');
+}
+const originalRenderGuias = renderGuias;
+renderGuias = function(){ originalRenderGuias(); renderGlobalSearchResults(document.getElementById('search').value); };
+</script>
+</body>
+</html>
