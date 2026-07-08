@@ -39,6 +39,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:va
 .content{padding:22px 24px}
 .section{display:none}.section.active{display:block}
 
+/* Diagramas */
+.diagram-wrap{padding:12px;background:var(--bg2)}
+.diagram-wrap img{display:block;width:100%;height:auto;border-radius:8px;border:.5px solid var(--border);cursor:zoom-in;background:#fff}
+.diagram-caption{font-size:11px;color:var(--text2);text-align:center;margin-top:8px;padding:0 4px}
+
 /* Compare grid */
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
 .compare-card{border-radius:10px;padding:14px;border:.5px solid}
@@ -192,6 +197,33 @@ b.hl{color:var(--text)}
 <div class="compare-row"><span class="lbl">Anion Gap</span><span class="val">Normal o leve ↑</span></div>
 <div class="compare-row"><span class="lbl">Conciencia</span><span class="val">Estupor / Coma</span></div>
 <div class="compare-row"><span class="lbl">Tipo DM</span><span class="val">DM2 (adulto mayor)</span></div>
+</div>
+</div>
+<div class="card card-purple" id="dx-comp-img">
+<div class="card-head" onclick="toggleCard('dx-comp-img')">🖼️ Comparación visual CAD vs. EHH <span class="chevron">▼</span></div>
+<div class="card-body" style="padding:0">
+<div class="diagram-wrap">
+<img alt="Comparación entre Cetoacidosis Diabética y Estado Hiperosmolar Hiperglucémico" onclick="window.open(this.src,'_blank')" src="img/diag_comparacion.png"/>
+<div class="diagram-caption">Toca la imagen para ampliarla en una pestaña nueva.</div>
+</div>
+</div>
+</div>
+<div class="card card-red" id="dx-cad-img">
+<div class="card-head" onclick="toggleCard('dx-cad-img')">🔴 Fisiopatología — Cetoacidosis Diabética (CAD) <span class="chevron">▼</span></div>
+<div class="card-body" style="padding:0">
+<div class="diagram-wrap">
+<img alt="Fisiopatología de la Cetoacidosis Diabética" onclick="window.open(this.src,'_blank')" src="img/diag_cad.png"/>
+<div class="diagram-caption">Toca la imagen para ampliarla en una pestaña nueva.</div>
+</div>
+</div>
+</div>
+<div class="card card-blue" id="dx-ehh-img">
+<div class="card-head" onclick="toggleCard('dx-ehh-img')">🔵 Fisiopatología — Estado Hiperosmolar Hiperglucémico (EHH) <span class="chevron">▼</span></div>
+<div class="card-body" style="padding:0">
+<div class="diagram-wrap">
+<img alt="Fisiopatología del Estado Hiperosmolar Hiperglucémico" onclick="window.open(this.src,'_blank')" src="img/diag_ehh.png"/>
+<div class="diagram-caption">Toca la imagen para ampliarla en una pestaña nueva.</div>
+</div>
 </div>
 </div>
 <div class="card card-red" id="cad-sev">
