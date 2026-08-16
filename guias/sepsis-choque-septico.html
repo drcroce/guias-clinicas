@@ -107,8 +107,8 @@ button:hover{transform:translateY(-1px);}
 .tab-active{border-bottom-color:var(--croce-brand)!important;color:var(--croce-brand)!important;background:#fff3ef!important;}
 [id^="btn-tab-"]{color:var(--croce-muted)!important;background:#fff!important;border:1px solid transparent!important;}
 [id^="btn-tab-"]:hover{color:var(--croce-brand)!important;background:#fff7f4!important;}
-#btn-tab-7{background:#fff!important;color:var(--croce-muted)!important;border-color:transparent!important;}
-#btn-tab-7.tab-active{background:#f0fdf4!important;color:var(--croce-green)!important;border-color:#bbf7d0!important;}
+#btn-tab-9{background:#fff!important;color:var(--croce-muted)!important;border-color:transparent!important;}
+#btn-tab-9.tab-active{background:#f0fdf4!important;color:var(--croce-green)!important;border-color:#bbf7d0!important;}
 #quiz-progress-bar{background:var(--croce-green)!important;}
 #options-container button{
   background:#fff!important;color:var(--croce-text)!important;border:1.5px solid var(--croce-border)!important;
@@ -162,7 +162,16 @@ header.sticky{background:linear-gradient(135deg,#fff1e8,#f7fbff)!important;}
 #content-tab-4 > div:first-child{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;border-left-color:#e11d48!important;}
 #content-tab-5 > div:first-child{background:var(--pastel-blue-bg)!important;border-color:var(--pastel-blue-border)!important;border-left-color:#2563eb!important;}
 #content-tab-6 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#16a34a!important;}
-#content-tab-7 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#16a34a!important;}
+#content-tab-7 > div:first-child{background:var(--pastel-red-bg)!important;border-color:var(--pastel-red-border)!important;border-left-color:#dc2626!important;}
+#content-tab-8 > div:first-child{background:var(--pastel-cyan-bg)!important;border-color:var(--pastel-cyan-border)!important;border-left-color:#0891b2!important;}
+#content-tab-9 > div:first-child{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;border-left-color:#16a34a!important;}
+#content-tab-10 > div:first-child{background:#eef2ff!important;border-color:#c7d2fe!important;border-left-color:#4f46e5!important;}
+@media print{
+  body *{visibility:hidden;}
+  #tarjeta-bolsillo, #tarjeta-bolsillo *{visibility:visible;}
+  #tarjeta-bolsillo{position:absolute;left:0;top:0;width:100%;}
+  .print\:hidden{display:none!important;}
+}
 
 /* Tarjetas internas con pastel suave según contenido */
 .border-l-2.border-emerald-400,.border-t-4.border-emerald-500{background:var(--pastel-green-bg)!important;border-color:var(--pastel-green-border)!important;}
@@ -264,7 +273,7 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 </div>
 </div>
 </header>
-<!-- NAVEGACIÓN POR PESTAÑAS (8 PESTAÑAS) -->
+<!-- NAVEGACIÓN POR PESTAÑAS (11 PESTAÑAS) -->
 <div class="bg-slate-950/80 backdrop-blur border-b border-slate-800 sticky top-[89px] sm:top-[77px] z-30">
 <div class="max-w-7xl mx-auto px-4 relative">
 <div class="md:hidden flex justify-between items-center text-[10px] text-slate-500 pt-1 -mb-1 animate-pulse">
@@ -279,7 +288,10 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <button aria-controls="content-tab-4" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer" id="btn-tab-4" onclick="cambiarPestana(4)" role="tab">5. Soporte Vasoactivo</button>
 <button aria-controls="content-tab-5" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer" id="btn-tab-5" onclick="cambiarPestana(5)" role="tab">6. Calculadoras Clínicas</button>
 <button aria-controls="content-tab-6" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer" id="btn-tab-6" onclick="cambiarPestana(6)" role="tab">7. Protocolo y Algoritmo</button>
-<button aria-controls="content-tab-7" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer bg-emerald-950/40 text-emerald-400 border border-emerald-900/50" id="btn-tab-7" onclick="cambiarPestana(7)" role="tab">8. Entrenamiento: Casos Clínicos</button>
+<button aria-controls="content-tab-7" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer" id="btn-tab-7" onclick="cambiarPestana(7)" role="tab">8. Antimicrobianos y Control de Foco</button>
+<button aria-controls="content-tab-8" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer" id="btn-tab-8" onclick="cambiarPestana(8)" role="tab">9. Soporte Respiratorio y Recuperación</button>
+<button aria-controls="content-tab-9" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer bg-emerald-950/40 text-emerald-400 border border-emerald-900/50" id="btn-tab-9" onclick="cambiarPestana(9)" role="tab">10. Entrenamiento: Casos Clínicos</button>
+<button aria-controls="content-tab-10" aria-selected="false" class="text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer bg-indigo-950/40 text-indigo-400 border border-indigo-900/50" id="btn-tab-10" onclick="cambiarPestana(10)" role="tab">11. Resumen 2021→2026</button>
 </div>
 </div>
 </div>
@@ -342,7 +354,7 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <td class="p-4 font-bold text-white">NEWS2</td>
 <td class="p-4">Frecuencia respiratoria, saturación de O2, requerimiento de oxígeno suplementario, temperatura, presión arterial sistólica, frecuencia cardíaca y estado neurológico (ACVPU).</td>
 <td class="p-4 text-rose-400 font-semibold">Puntaje ≥ 5</td>
-<td class="p-4 text-emerald-400 font-medium">Recomendado formalmente por encima de qSOFA para el cribado inicial en urgencias debido a su alta sensibilidad diagnóstica precoz.</td>
+<td class="p-4 text-emerald-400 font-medium">SSC 2026 (recomendación fuerte): usar NEWS, NEWS2, MEWS o SIRS <strong>por encima de qSOFA</strong> como herramienta única de cribado — no se privilegia una sola escala, se sugiere combinarlas.</td>
 </tr>
 <tr>
 <td class="p-4 font-bold text-white">SOFA Score</td>
@@ -365,6 +377,50 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <h4 class="text-amber-400 font-bold text-sm">Definición Operativa de Choque Séptico:</h4>
 <p class="text-slate-300 text-sm mt-1">Subgrupo de la sepsis en el que anomalías circulatorias, celulares y metabólicas particularmente profundas se asocian con un mayor riesgo de mortalidad. Clínicamente se identifica por el requerimiento de soporte vasopresor sostenido para mantener una PAM ≥ 65 mmHg Y un lactato sérico &gt; 2 mmol/L (18 mg/dL) a pesar de una adecuada optimización hídrica.</p>
 </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-slate-800/60 border border-slate-700/60 rounded-xl overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center bg-slate-800 text-left font-bold text-white hover:bg-slate-750 transition cursor-pointer" onclick="toggleExpandible('epi-1')">
+<span class="flex items-center gap-2"><i class="text-blue-400" data-lucide="globe"></i> Epidemiología y Carga de Enfermedad</span>
+<i class="w-5 h-5 transition-transform" data-lucide="chevron-down" id="icon-epi-1"></i>
+</button>
+<div class="hidden p-4 text-slate-300 space-y-3 text-sm leading-relaxed border-t border-slate-700" id="body-epi-1">
+<p>La sepsis se define, según Sepsis-3, como una <strong>disfunción orgánica aguda</strong> secundaria a una infección (SOFA ≥ 2 puntos por cambio agudo), consenso que eliminó al SIRS de la definición oficial.</p>
+<p class="text-slate-400">Constituye un problema crítico de salud pública global: se estiman <strong>49 millones de casos</strong> y <strong>13 millones de muertes</strong> al año en todo el mundo.</p>
+</div>
+</div>
+<div class="bg-slate-800/60 border border-slate-700/60 rounded-xl overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center bg-slate-800 text-left font-bold text-white hover:bg-slate-750 transition cursor-pointer" onclick="toggleExpandible('sofa2')">
+<span class="flex items-center gap-2"><i class="text-purple-400" data-lucide="refresh-cw"></i> Actualización SOFA 2</span>
+<i class="w-5 h-5 transition-transform" data-lucide="chevron-down" id="icon-sofa2"></i>
+</button>
+<div class="hidden p-4 text-slate-300 space-y-3 text-sm leading-relaxed border-t border-slate-700" id="body-sofa2">
+<p>Aunque las guías SSC 2026 <strong>no dictaminan oficialmente</strong> su adopción, el SOFA 2 busca mayor precisión diagnóstica:</p>
+<ul class="list-disc pl-5 space-y-1 text-slate-400">
+<li>Mantiene los mismos seis sistemas: Cerebral, Respiratorio, Cardiovascular, Hepático, Renal y Hemostasia.</li>
+<li>Incorpora medicamentos para el delirio en la evaluación cerebral y actualiza los fármacos vasoactivos modernos (norepinefrina, epinefrina) en el eje cardiovascular.</li>
+<li>Reclasifica al <strong>51%</strong> de los pacientes respecto al SOFA clásico, con una discreta superioridad estadística en predicción de mortalidad (AUROC 0.81 vs 0.80).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+<h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="text-emerald-400" data-lucide="siren"></i> Código Sepsis y Perfil Diagnóstico</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Código Sepsis</span>
+<p class="text-slate-400 text-xs leading-relaxed">Protocolo institucional multidisciplinario recomendado para coordinar al personal existente y agilizar el inicio del tratamiento, sin requerir necesariamente personal adicional.</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Perfil Diagnóstico al Sospechar Sepsis</span>
+<ul class="list-disc pl-4 text-slate-400 text-xs space-y-1 mt-1">
+<li>Hemocultivos: al menos 2 sets antes de antibióticos.</li>
+<li>Lactato sérico: medición inicial y seguimiento seriado.</li>
+<li>Labs para SOFA: bilirrubinas (hepático), creatinina (renal), plaquetas (hemostasia), gases arteriales para PAFI (pulmonar).</li>
+</ul>
+</div>
+</div>
+<p class="text-xs text-slate-500 mt-3">No existe actualmente un biomarcador único validado para el tamizaje; el <strong>ancho de distribución de los monocitos</strong> se perfila como herramienta prometedora a futuro (ver Fenotipos y Biomarcadores).</p>
 </div>
 </section>
 <!-- PESTAÑA 3: FENOTIPOS Y BIOMARCADORES -->
@@ -415,6 +471,13 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 </div>
 <p class="text-slate-400 text-xs">Su aclaramiento (Clearance) &gt;10% en las primeras 2-4 horas es el marcador metabólico subrogado con mayor impacto asociado a sobrevida en urgencias.</p>
 </div>
+<div class="border-t border-slate-750 pt-2">
+<div class="flex justify-between font-semibold text-white mb-1">
+<span>Ancho de Distribución de Monocitos</span>
+<span class="text-cyan-400">Emergente / en validación</span>
+</div>
+<p class="text-slate-400 text-xs">Biomarcador prometedor para tamizaje temprano de sepsis, derivado del hemograma automatizado; aún no reemplaza a los sistemas de alerta clínica establecidos.</p>
+</div>
 </div>
 </div>
 </div>
@@ -439,6 +502,16 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <p class="text-xs text-slate-300 leading-relaxed">Una vez superada la fase de rescate inicial, un balance hídrico acumulado marcadamente positivo incrementa de forma lineal la mortalidad por edema intersticial tisular, insuficiencia respiratoria hipoxémica y disfunción congestiva.</p>
 </div>
 </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+<h4 class="font-bold text-white mb-2 flex items-center gap-1.5"><i class="w-4 h-4 text-amber-400" data-lucide="droplets"></i> Albúmina</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Reservada principalmente para pacientes <strong>cirróticos</strong> o aquellos que han recibido grandes volúmenes de cristaloides durante la reanimación.</p>
+</div>
+<div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+<h4 class="font-bold text-white mb-2 flex items-center gap-1.5"><i class="w-4 h-4 text-cyan-400" data-lucide="hand"></i> Tiempo de Llenado Capilar (CRT)</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Medida dinámica sencilla que, priorizada sobre el examen físico aislado, se asocia con una <strong>reducción de eventos adversos</strong> relacionados con la sobrecarga hídrica.</p>
+</div>
+</div>
 </section>
 <!-- PESTAÑA 5: SOPORTE VASOACTIVO -->
 <section class="space-y-6 hidden" id="content-tab-4" role="tabpanel">
@@ -452,11 +525,15 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <div class="space-y-4">
 <div class="bg-slate-900 p-3 rounded-lg">
 <span class="text-rose-400 font-bold block text-sm">Primera Línea: Norepinefrina</span>
-<p class="text-xs text-slate-400 mt-1">Potente efecto agonista alfa-1 adrenérgico con mínimo efecto beta-1. Consigue vasoconstricción sistémica selectiva sin taquicardia refleja exagerada. Puede administrarse de forma segura por <strong>vía periférica transitoria</strong> por catéter corto de grueso calibre en venas antecubitales por menos de 6-12 horas.</p>
+<p class="text-xs text-slate-400 mt-1">Potente efecto agonista alfa-1 adrenérgico con mínimo efecto beta-1. Consigue vasoconstricción sistémica selectiva sin taquicardia refleja exagerada. Puede administrarse de forma segura por <strong>vía periférica transitoria</strong> por catéter corto de grueso calibre en venas antecubitales por menos de 6-12 horas. <span class="text-slate-500">SSC 2026 la mantiene como primera línea sobre vasopresina o <strong>angiotensina II</strong> (nuevo comparador), aunque esta recomendación bajó de fuerza fuerte a condicional.</span></p>
 </div>
 <div class="bg-slate-900 p-3 rounded-lg">
 <span class="text-amber-400 font-bold block text-sm">Segunda Línea: Vasopresina (Adición Temprana)</span>
-<p class="text-xs text-slate-400 mt-1">Dosis fija no titulable de <strong>0.03 U/min</strong>. Indicada si la norepinefrina supera el umbral de 0.25 - 0.5 mcg/kg/min. Mitiga la downregulation de receptores adrenérgicos y reduce la incidencia de arritmias secundarias.</p>
+<p class="text-xs text-slate-400 mt-1">Dosis fija no titulable de <strong>0.03 U/min</strong>. Se añade típicamente si la norepinefrina supera el umbral de 0.25 - 0.5 mcg/kg/min <span class="text-slate-500">(umbral de práctica clínica habitual; la SSC no fija un corte numérico exacto, solo recomienda añadirla ante requerimiento creciente de norepinefrina)</span>. Mitiga la downregulation de receptores adrenérgicos y reduce la incidencia de arritmias secundarias.</p>
+</div>
+<div class="bg-slate-900 p-3 rounded-lg">
+<span class="text-purple-400 font-bold block text-sm">Tercera Línea: Epinefrina</span>
+<p class="text-xs text-slate-400 mt-1">Se añade cuando persiste el requerimiento tras norepinefrina y vasopresina, o se prioriza de entrada si hay <strong>disfunción coronaria/cardíaca significativa</strong> asociada.</p>
 </div>
 <div class="bg-slate-900 p-3 rounded-lg">
 <span class="text-cyan-400 font-bold block text-sm">Soporte Inotrópico: Dobutamina</span>
@@ -469,11 +546,19 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <div class="space-y-3 text-xs leading-relaxed">
 <div class="p-3 bg-slate-900 rounded-lg">
 <span class="font-bold text-emerald-400 block mb-1">Hidrocortisona</span>
-<p class="text-slate-300">Dosis de 200 mg/día IV. Indicada únicamente en choque séptico refractario que requiere soporte sostenido de norepinefrina a dosis elevadas.</p>
+<p class="text-slate-300">Dosis de 200 mg/día IV. <span class="text-cyan-400 font-semibold">Actualización SSC 2026:</span> la recomendación se amplió a todo choque séptico (ya no exige explícitamente dosis crecientes de vasopresor como en 2021), aunque bajó de recomendación fuerte a condicional (evidencia baja).</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-rose-400 block mb-1">Remoción Activa de Líquidos</span>
+<p class="text-slate-300">Recomendación nueva SSC 2026: considerar remoción activa de líquidos (diuréticos o terapia de reemplazo renal) tras completar la fase de reanimación aguda, en pacientes con balance positivo significativo, para reducir el riesgo de sobrecarga.</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-slate-400 block mb-1">Purificación Sanguínea</span>
+<p class="text-slate-300">SSC 2026 sugiere <strong>en contra</strong> del uso de terapias de purificación sanguínea (hemoperfusión, hemofiltración de alto volumen, plasmaféresis) de forma rutinaria — ampliando la recomendación previa, limitada solo a hemoperfusión con polimixina B.</p>
 </div>
 <div class="p-3 bg-slate-900 rounded-lg">
 <span class="font-bold text-emerald-400 block mb-1">Metas de Control Glucémico</span>
-<p class="text-slate-300">Mantener glicemia capilar entre 140 - 180 mg/dL mediante protocolo de infusión de insulina regular IV. Evitar la variabilidad glucémica extrema y la hipoglicemia menor a 70 mg/dL.</p>
+<p class="text-slate-300">Mantener glicemia capilar entre 140 - 180 mg/dL mediante protocolo de infusión de insulina regular IV. Evitar la variabilidad glucémica extrema y la hipoglicemia menor a 70 mg/dL. <span class="text-slate-500">SSC 2026 (recomendación fuerte, mantenida desde 2021): iniciar insulina con glucemia ≥180 mg/dL (10 mmol/L), con meta superior ≤180 mg/dL.</span></p>
 </div>
 </div>
 </div>
@@ -620,10 +705,133 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <div class="bg-slate-800 p-2 rounded border border-slate-750"><span class="block font-bold text-white">Lactato</span> Aclaramiento &gt;10%</div>
 </div>
 </div>
+<div class="flex justify-center"><i class="text-slate-600 w-6 h-6" data-lucide="arrow-down"></i></div>
+<div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-center relative">
+<span class="absolute -top-2.5 left-4 bg-rose-600 text-[10px] text-white font-bold px-2 py-0.5 rounded uppercase font-mono">Ventana: ≤ 6 horas</span>
+<h4 class="font-bold text-white text-sm">Control del Foco Infeccioso</h4>
+<p class="text-xs text-slate-400 mt-1">Realizar la intervención anatómica necesaria (drenaje, debridamiento, retiro de dispositivo infectado) dentro de las primeras 6 horas del diagnóstico. Ver pestaña "Antimicrobianos y Control de Foco".</p>
+</div>
 </div>
 </section>
-<!-- PESTAÑA 8: QUIZ AVANZADOS -->
+<!-- PESTAÑA 8: TERAPIA ANTIMICROBIANA Y CONTROL DE FOCO -->
 <section class="space-y-6 hidden" id="content-tab-7" role="tabpanel">
+<div class="border-l-4 border-red-500 bg-slate-900 p-4 rounded-r-xl">
+<h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="text-rose-400" data-lucide="syringe"></i> Terapia Antimicrobiana y Control del Foco</h2>
+<p class="text-slate-400 text-sm mt-1">La administración de antibióticos es tiempo-dependiente: cada hora de retraso en el choque séptico incrementa la mortalidad.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-rose-500">
+<h4 class="font-bold text-white mb-2 flex items-center gap-1.5"><i class="w-4 h-4 text-rose-400" data-lucide="timer"></i> ≤ 1 hora</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Sepsis <strong>definitiva o probable</strong>, especialmente si hay choque séptico. No se debe retrasar el inicio por la toma de cultivos.</p>
+</div>
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-amber-500">
+<h4 class="font-bold text-white mb-2 flex items-center gap-1.5"><i class="w-4 h-4 text-amber-400" data-lucide="timer"></i> ≤ 3 horas</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Sepsis <strong>posible</strong>, sin choque, mientras se investigan activamente diagnósticos alternativos.</p>
+</div>
+</div>
+<div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+<h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="text-purple-400" data-lucide="list-checks"></i> Principios de Selección Empírica</h3>
+<ul class="list-disc pl-5 space-y-2 text-sm text-slate-300">
+<li>Evitar cubrimiento rutinario para patógenos <strong>multirresistentes (MDR)</strong> o anaerobios, salvo que existan factores de riesgo específicos.</li>
+<li>No utilizar terapia <strong>antifúngica empírica</strong> de forma rutinaria.</li>
+<li>Preferir <strong>infusiones prolongadas</strong> para betalactámicos de vida media corta, para optimizar el tiempo por encima de la CIM.</li>
+<li>Al menos <strong>dos sets de hemocultivos</strong> antes de iniciar antibióticos (la evidencia sobre la técnica exacta de espaciamiento entre tomas es limitada).</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+<h4 class="font-bold text-emerald-400 mb-2 flex items-center gap-1.5"><i class="w-4 h-4" data-lucide="trending-down"></i> Duración y Desescalonamiento</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Se recomienda el curso más corto posible — <strong>7 días</strong> para la mayoría de bacteriemias por gramnegativos — con desescalonamiento temprano guiado por resultados de cultivos o procalcitonina.</p>
+</div>
+<div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+<h4 class="font-bold text-amber-400 mb-2 flex items-center gap-1.5"><i class="w-4 h-4" data-lucide="scissors"></i> Control del Foco</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Toda intervención anatómica necesaria (drenaje de colecciones, debridamiento de tejido necrótico, retiro de dispositivos infectados) debe realizarse dentro de las <strong>primeras 6 horas</strong> tras el diagnóstico.</p>
+</div>
+</div>
+</section>
+<!-- PESTAÑA 9: SOPORTE RESPIRATORIO Y RECUPERACIÓN -->
+<section class="space-y-6 hidden" id="content-tab-8" role="tabpanel">
+<div class="border-l-4 border-cyan-500 bg-slate-900 p-4 rounded-r-xl">
+<h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="text-cyan-400" data-lucide="wind"></i> Soportes Adicionales y Cuidados Posteriores</h2>
+<p class="text-slate-400 text-sm mt-1">El manejo integral de la sepsis no se limita a la hemodinamia: abarca el soporte respiratorio, metabólico y la recuperación tras el alta.</p>
+</div>
+<div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+<h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="text-cyan-400" data-lucide="stethoscope"></i> Soporte Respiratorio</h3>
+<ul class="list-disc pl-5 space-y-2 text-sm text-slate-300">
+<li>En falla hipoxémica, se prefiere la <strong>cánula nasal de alto flujo (CNAF)</strong> sobre la ventilación mecánica no invasiva.</li>
+<li>Se recomienda la <strong>pronación en paciente despierto</strong> para mejorar la oxigenación y el reclutamiento alveolar.</li>
+<li>En caso de SDRA: ventilación protectora (volumen tidal bajo, PEEP alta) y considerar bloqueo neuromuscular o soporte ECMO si es refractario.</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-blue-500">
+<h4 class="font-bold text-white mb-2">Metas de Glucosa</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Mantener glicemia &lt;180 mg/dL.</p>
+</div>
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-rose-500">
+<h4 class="font-bold text-white mb-2">Transfusión</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Umbral restrictivo: transfundir con Hemoglobina &lt;7 g/dL.</p>
+</div>
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-emerald-500">
+<h4 class="font-bold text-white mb-2">Nutrición</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Iniciar vía enteral en menos de 72 horas.</p>
+</div>
+<div class="bg-slate-800 p-4 rounded-xl border-t-4 border-amber-500">
+<h4 class="font-bold text-white mb-2">Profilaxis</h4>
+<p class="text-xs text-slate-300 leading-relaxed">Tromboprofilaxis farmacológica y gastroprotección en pacientes con factores de riesgo (coagulopatía, choque, hepatopatía).</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="bg-slate-900 p-3 rounded-lg border border-slate-700">
+<h4 class="text-rose-400 font-bold text-xs uppercase tracking-wide mb-1">SSC 2026: Nuevo — En Contra</h4>
+<ul class="list-disc pl-4 text-slate-300 text-xs space-y-1">
+<li>Antipiréticos de rutina para mejorar desenlaces clínicos (sí permitidos para confort/síntomas).</li>
+<li>Probióticos.</li>
+<li>Betabloqueantes para el tratamiento de la sepsis/choque séptico.</li>
+<li>Vitamina C intravenosa.</li>
+</ul>
+</div>
+<div class="bg-slate-900 p-3 rounded-lg border border-slate-700">
+<h4 class="text-cyan-400 font-bold text-xs uppercase tracking-wide mb-1">Ventilación Mecánica</h4>
+<p class="text-slate-300 text-xs">En ausencia de lesión pulmonar aguda, se sugiere volumen tidal algo más liberal (6-8 mL/kg) frente al protocolo estrictamente protector de 6 mL/kg reservado para SDRA.</p>
+</div>
+<div class="bg-slate-900 p-3 rounded-lg border border-slate-700">
+<h4 class="text-emerald-400 font-bold text-xs uppercase tracking-wide mb-1">Terapia de Reemplazo Renal</h4>
+<p class="text-slate-300 text-xs">En falla renal aguda sin indicación definitiva de diálisis (hiperkalemia grave, sobrecarga refractaria, acidosis severa), se sugiere <strong>en contra</strong> de iniciar TRR de forma temprana/preventiva.</p>
+</div>
+</div>
+<div class="bg-amber-950/20 border border-amber-900/60 p-4 rounded-xl flex items-start gap-3">
+<i class="text-amber-400 shrink-0 mt-0.5" data-lucide="heart-handshake"></i>
+<div>
+<h4 class="text-amber-400 font-bold text-sm">Recuperación Post-Sepsis: Síndrome Post-Cuidados Intensivos (PICS)</h4>
+<p class="text-slate-300 text-sm mt-1">El manejo no termina con el alta de la UCI. Debe abordarse el PICS — que incluye discapacidades físicas, cognitivas y emocionales (como trastorno de estrés postraumático) — mediante soporte social y educación continua al paciente y su familia.</p>
+</div>
+</div>
+<div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700">
+<h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2"><i class="text-purple-400" data-lucide="clipboard-list"></i> Transición de Cuidados y Seguimiento (SSC 2026)</h3>
+<p class="text-xs text-slate-400 mb-3">Cerca del 15% de las 129 declaraciones de la guía 2026 abordan este eje, antes tratado de forma marginal.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Metas de Cuidado y Paliativos</span>
+<p class="text-slate-400">Abordar las metas de cuidado de forma temprana (dentro de 72h) e integrar principios de cuidados paliativos según juicio clínico — sin requerir interconsulta formal rutinaria para todos los pacientes.</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Conciliación de Medicamentos</span>
+<p class="text-slate-400">Conciliación integral con enfoque basado en farmacéutico clínico, en cada transición de cuidado: UCI, hospitalización y alta.</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Resumen de Alta</span>
+<p class="text-slate-400">Información escrita y verbal sobre la estancia, diagnósticos relacionados, tratamientos y secuelas comunes tras la sepsis, con decisión compartida familia-equipo tratante.</p>
+</div>
+<div class="p-3 bg-slate-900 rounded-lg">
+<span class="font-bold text-white block mb-1">Rehabilitación y Salud Mental</span>
+<p class="text-slate-400">Referir a programa de rehabilitación post-hospitalaria si VM &gt;48h o estancia en UCI &gt;72h; ofrecer servicios de seguimiento post-crítico y apoyo de salud mental a todo sobreviviente.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PESTAÑA 10: QUIZ AVANZADOS -->
+<section class="space-y-6 hidden" id="content-tab-9" role="tabpanel">
 <div class="border-l-4 border-emerald-500 bg-slate-900 p-4 rounded-r-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 <div>
 <h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="text-emerald-400" data-lucide="graduation-cap"></i> Banco de Entrenamiento de Casos Clínicos</h2>
@@ -636,6 +844,8 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <option value="1">Quiz 1: Diagnóstico y Tamizaje Basado en Evidencia</option>
 <option value="2">Quiz 2: Reanimación Hídrica y Hemodinámica</option>
 <option value="3">Quiz 3: Choque Séptico y Casos Clínicos Complejos</option>
+<option value="4">Quiz 4: Metas de Cuidado y Transición al Alta (SSC 2026)</option>
+<option value="5">Quiz 5: Fenotipos Avanzados y Actualización 2021→2026</option>
 </select>
 </div>
 </div>
@@ -645,7 +855,7 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 <div>
 <div class="flex justify-between items-center text-xs text-slate-400 mb-1.5 font-medium">
 <span class="text-emerald-400 font-bold" id="quiz-badge-title">Quiz 1</span>
-<span>Pregunta <span class="text-white font-bold" id="current-q-num">1</span> de 8</span>
+<span>Pregunta <span class="text-white font-bold" id="current-q-num">1</span> de <span class="text-white font-bold" id="total-q-num">8</span></span>
 </div>
 <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
 <div class="bg-emerald-500 h-full transition-all duration-300" id="quiz-progress-bar" style="width: 12.5%"></div>
@@ -693,6 +903,64 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
                     </button>
 </div>
 </section>
+<!-- PESTAÑA 11: RESUMEN 2021→2026 Y TARJETA DE BOLSILLO -->
+<section class="space-y-6 hidden" id="content-tab-10" role="tabpanel">
+<div class="border-l-4 border-indigo-500 bg-slate-900 p-4 rounded-r-xl flex items-start justify-between gap-3 flex-wrap print:hidden">
+<div>
+<h2 class="text-xl font-bold text-white flex items-center gap-2"><i class="text-indigo-400" data-lucide="git-compare"></i> Qué Cambió: SSC 2021 → SSC 2026</h2>
+<p class="text-slate-400 text-sm mt-1">129 declaraciones totales, 46 nuevas. Resumen de los cambios con mayor relevancia clínica práctica.</p>
+</div>
+<button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-lg cursor-pointer flex items-center gap-1.5 shrink-0" onclick="window.print()"><i class="w-4 h-4" data-lucide="printer"></i> Imprimir Tarjeta de Bolsillo</button>
+</div>
+<div class="overflow-x-auto bg-slate-800/80 border border-slate-700 rounded-xl print:hidden">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="bg-slate-900 text-white border-b border-slate-700">
+<th class="p-3 font-bold">Recomendación</th>
+<th class="p-3 font-bold">SSC 2021</th>
+<th class="p-3 font-bold">SSC 2026</th>
+<th class="p-3 font-bold">Cambio</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-700 text-slate-300">
+<tr><td class="p-3 font-bold text-white">Betalactámicos infusión prolongada</td><td class="p-3 text-slate-400">Sugerido (débil)</td><td class="p-3 text-slate-300">Recomendado (fuerte)</td><td class="p-3 text-emerald-400 font-semibold">⬆ Reforzada</td></tr>
+<tr><td class="p-3 font-bold text-white">Desescalonamiento antimicrobiano</td><td class="p-3 text-slate-400">Sugerido (débil)</td><td class="p-3 text-slate-300">Recomendado (fuerte)</td><td class="p-3 text-emerald-400 font-semibold">⬆ Reforzada</td></tr>
+<tr><td class="p-3 font-bold text-white">Cristaloides balanceados vs SSN 0.9%</td><td class="p-3 text-slate-400">Sugerido</td><td class="p-3 text-slate-300">Sugerido, con evidencia reforzada</td><td class="p-3 text-emerald-400 font-semibold">⬆ Reforzada</td></tr>
+<tr><td class="p-3 font-bold text-white">Fluidos tras 30 mL/kg + hipoperfusión persistente</td><td class="p-3 text-slate-400">Evidencia insuficiente</td><td class="p-3 text-slate-300">Sugerido: estrategia liberal o restrictiva individualizada</td><td class="p-3 text-cyan-400 font-semibold">🆕 Nueva</td></tr>
+<tr><td class="p-3 font-bold text-white">Remoción activa de líquidos post-reanimación</td><td class="p-3 text-slate-400">No abordado</td><td class="p-3 text-slate-300">Sugerido tras fase aguda si balance positivo</td><td class="p-3 text-cyan-400 font-semibold">🆕 Nueva</td></tr>
+<tr><td class="p-3 font-bold text-white">Norepinefrina primera línea</td><td class="p-3 text-slate-400">Recomendado (fuerte) sobre otros vasopresores</td><td class="p-3 text-slate-300">Sugerido (débil) sobre vasopresina o <strong>angiotensina II</strong></td><td class="p-3 text-amber-400 font-semibold">⬇ Atenuada + nuevo comparador</td></tr>
+<tr><td class="p-3 font-bold text-white">Inotrópicos en disfunción cardíaca</td><td class="p-3 text-slate-400">Sugerido: dobutamina o epinefrina específicamente</td><td class="p-3 text-slate-300">Sugerido: inotrópicos en general (dobutamina o epinefrina sola)</td><td class="p-3 text-amber-400 font-semibold">⬇ Atenuada</td></tr>
+<tr><td class="p-3 font-bold text-white">Corticosteroides IV</td><td class="p-3 text-slate-400">Sugerido solo si vasopresor en escalada</td><td class="p-3 text-slate-300">Sugerido para todo choque séptico, sin exigir escalada</td><td class="p-3 text-amber-400 font-semibold">⬇ Ampliada pero atenuada</td></tr>
+<tr><td class="p-3 font-bold text-white">Purificación sanguínea</td><td class="p-3 text-slate-400">En contra solo de polimixina B</td><td class="p-3 text-slate-300">En contra de toda purificación sanguínea</td><td class="p-3 text-emerald-400 font-semibold">⬆ Ampliada</td></tr>
+<tr><td class="p-3 font-bold text-white">Antipiréticos / Probióticos / Betabloqueantes</td><td class="p-3 text-slate-400">No abordado</td><td class="p-3 text-slate-300">Sugerido en contra de los tres para mejorar desenlaces</td><td class="p-3 text-cyan-400 font-semibold">🆕 Nueva</td></tr>
+<tr><td class="p-3 font-bold text-white">Transición de cuidados / alta</td><td class="p-3 text-slate-400">Recomendaciones aisladas</td><td class="p-3 text-slate-300">Conciliación de medicamentos, resumen de alta, rehabilitación y salud mental estructuradas</td><td class="p-3 text-cyan-400 font-semibold">🆕 Expandida</td></tr>
+</tbody>
+</table>
+</div>
+<!-- TARJETA DE BOLSILLO IMPRIMIBLE -->
+<div class="bg-white text-slate-900 rounded-xl border-2 border-slate-300 p-6 print:border-0 print:p-0" id="tarjeta-bolsillo">
+<h3 class="text-lg font-black uppercase tracking-wide border-b-2 border-slate-900 pb-2 mb-3">Tarjeta de Bolsillo — Sepsis / Choque Séptico (SSC 2026)</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-[11px] leading-snug">
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Screening</span>NEWS/NEWS2/MEWS/SIRS &gt; qSOFA solo</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Antibiótico</span>≤1h (choque/probable) · ≤3h (posible sin choque)</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Cultivos</span>2 sets hemocultivo ANTES de ATB, sin retrasarlo</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Fluidos</span>30 mL/kg cristaloide balanceado, individualizar</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">PAM meta</span>≥ 65 mmHg</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Vasopresor 1ª línea</span>Norepinefrina (vía periférica aceptable &lt;6-12h)</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Lactato</span>Aclaramiento &gt;10% en 2h</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Control de foco</span>≤ 6 horas</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Corticoide</span>Hidrocortisona 200 mg/día IV si choque séptico</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Glucosa</span>Iniciar insulina ≥180 mg/dL, meta ≤180</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Transfusión</span>Umbral restrictivo Hb &lt;7 g/dL</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Nutrición</span>Enteral &lt;72 horas</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Respiratorio</span>CNAF &gt; VMNI, pronación despierto</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Evitar</span>Antipiréticos rutinarios, probióticos, betabloqueantes, vitamina C IV</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Alta</span>Conciliar medicación, resumen escrito+verbal, rehab si VM&gt;48h/UCI&gt;72h</div>
+<div class="border border-slate-300 rounded-lg p-2"><span class="font-bold block">Metas de cuidado</span>Abordar dentro de 72h, integrar paliativos</div>
+</div>
+<p class="text-[10px] text-slate-500 mt-3">Fuente: Prescott H, Antonelli M, Alhazzani W, et al. Surviving Sepsis Campaign 2026. Crit Care Med. 2026;54(4):725-812. Elaborado por Dr. Luis E. Croce A. — Uso educativo, no reemplaza el juicio clínico individualizado.</p>
+</div>
+</section>
 </main>
 <!-- FOOTER -->
 <section aria-label="Versión de la guía" class="croce-version-box">
@@ -728,7 +996,7 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
 
         // CONTROL DE PESTAÑAS
         function cambiarPestana(index) {
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 11; i++) {
                 document.getElementById(`content-tab-${i}`).classList.add("hidden");
                 document.getElementById(`btn-tab-${i}`).className = "text-slate-400 hover:text-white px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer";
                 document.getElementById(`btn-tab-${i}`).setAttribute("aria-selected", "false");
@@ -737,8 +1005,8 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
             document.getElementById(`btn-tab-${index}`).className = "tab-active px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer";
             document.getElementById(`btn-tab-${index}`).setAttribute("aria-selected", "true");
             
-            if (index === 7) {
-                document.getElementById(`btn-tab-7`).className = "tab-active px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer bg-emerald-950/40 border border-emerald-500/30";
+            if (index === 9) {
+                document.getElementById(`btn-tab-9`).className = "tab-active px-4 py-2 whitespace-nowrap rounded-lg transition-all duration-200 cursor-pointer bg-emerald-950/40 border border-emerald-500/30";
             }
         }
 
@@ -958,6 +1226,106 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
                     c: 1,
                     f: "El paciente cumple criterios estrictos de choque séptico refractario a volumen. Postergar el inicio de norepinefrina profundiza la disoxia celular tisular irreversible."
                 }
+            ],
+            4: [
+                {
+                    q: "Según la SSC 2026, ¿en qué ventana de tiempo se recomienda abordar formalmente las metas de cuidado (goals of care) en un paciente con sepsis o choque séptico?",
+                    a: ["Únicamente al momento del ingreso a UCI, en las primeras 2 horas.", "Dentro de las primeras 72 horas, integrando principios de cuidados paliativos según juicio clínico.", "Solo si el paciente no responde a 3 vasopresores simultáneos.", "Nunca antes del día 7, para no generar ansiedad familiar prematura."],
+                    c: 1,
+                    f: "La SSC 2026 sugiere abordar las metas de cuidado de forma temprana (dentro de 72 horas) e integrar cuidados paliativos según el juicio clínico del equipo tratante, sin exigir interconsulta formal rutinaria para todos los pacientes."
+                },
+                {
+                    q: "Paciente séptico de 78 años con múltiples comorbilidades. La familia pregunta si es obligatorio solicitar interconsulta formal a cuidados paliativos. ¿Cuál es la recomendación vigente?",
+                    a: ["Es obligatoria en todo paciente mayor de 70 años con sepsis.", "Se sugiere en contra de la interconsulta formal rutinaria para todos los pacientes, prefiriendo la integración de principios paliativos basada en juicio clínico caso a caso.", "Solo aplica si el paciente firma un consentimiento específico previo.", "Está contraindicada mientras el paciente reciba vasopresores."],
+                    c: 1,
+                    f: "La guía distingue entre integrar principios de cuidados paliativos (recomendado, según juicio clínico) y exigir una interconsulta formal para todo paciente (no recomendado de rutina). La decisión se individualiza."
+                },
+                {
+                    q: "¿Cuál es el enfoque recomendado por la SSC 2026 para la conciliación de medicamentos en las transiciones de cuidado del paciente séptico?",
+                    a: ["Conciliación exclusivamente verbal realizada por el médico tratante al momento del alta.", "Conciliación integral con enfoque basado en farmacéutico clínico, realizada en cada transición: UCI, hospitalización general y alta.", "No es necesaria si el paciente no tomaba medicación previa a su ingreso.", "Se delega por completo al paciente y su familia sin participación del equipo de salud."],
+                    c: 1,
+                    f: "La guía 2026 sugiere una conciliación integral de medicamentos con enfoque basado en farmacéutico clínico en cada transición de cuidado, dado el alto riesgo de errores de medicación en estos puntos críticos."
+                },
+                {
+                    q: "Un sobreviviente de choque séptico permaneció 5 días con ventilación mecánica invasiva y 9 días en UCI. Según la SSC 2026, ¿qué se sugiere al planificar su egreso?",
+                    a: ["No requiere ninguna consideración especial adicional al alta estándar.", "Referencia a un programa de rehabilitación post-hospitalaria, dado que superó los umbrales de VM >48h y estancia en UCI >72h.", "Aislamiento domiciliario estricto por 30 días sin seguimiento médico.", "Suspender toda la medicación crónica previa al ingreso de forma preventiva."],
+                    c: 1,
+                    f: "La SSC 2026 sugiere referir a un programa de rehabilitación post-hospitalaria a todo sobreviviente con ventilación mecánica mayor a 48 horas o estancia en UCI mayor a 72 horas, dado el alto riesgo de secuelas físicas funcionales."
+                },
+                {
+                    q: "¿Qué debe incluir, como mínimo, el resumen de alta hospitalaria (escrito y verbal) de un sobreviviente de sepsis según la guía vigente?",
+                    a: ["Únicamente la lista de medicamentos nuevos prescritos.", "Información sobre la estancia hospitalaria, diagnósticos relacionados con la sepsis, tratamientos recibidos y las secuelas/impedimentos comunes esperables tras la sepsis.", "Solo el número de contacto del servicio de facturación.", "Un resumen exclusivamente verbal, ya que el escrito no ha demostrado utilidad."],
+                    c: 1,
+                    f: "La guía recomienda que el resumen de alta (en formato escrito y verbal) incluya la estancia hospitalaria, los diagnósticos relacionados, los tratamientos administrados y los impedimentos/secuelas comunes tras la sepsis, permitiendo la toma de decisiones compartida."
+                },
+                {
+                    q: "¿Cuáles son los tres dominios principales afectados en el Síndrome Post-Cuidados Intensivos (PICS) que deben vigilarse tras el alta?",
+                    a: ["Únicamente el dominio renal, hepático y hematológico.", "Discapacidades físicas, cognitivas y emocionales (incluyendo trastorno de estrés postraumático).", "Exclusivamente alteraciones dermatológicas residuales.", "Solo el dominio cardiovascular por disfunción miocárdica séptica."],
+                    c: 1,
+                    f: "El PICS abarca deficiencias físicas (debilidad, deconditioning), cognitivas (memoria, atención) y emocionales/mentales (ansiedad, depresión, TEPT), que pueden persistir meses o años tras el egreso."
+                },
+                {
+                    q: "Además de la rehabilitación física, ¿qué otro tipo de servicio de seguimiento sugiere ofrecer la SSC 2026 a todo sobreviviente de sepsis o choque séptico?",
+                    a: ["Servicios de apoyo a la salud mental tras el alta hospitalaria.", "Cirugía estética reconstructiva de rutina.", "Suspensión permanente de controles médicos ambulatorios.", "Ninguno; el seguimiento finaliza al alta hospitalaria."],
+                    c: 0,
+                    f: "La guía sugiere ofrecer servicios que apoyen la salud mental después del alta hospitalaria, además de servicios de seguimiento post-enfermedad crítica en general, reconociendo la alta carga psicológica del PICS."
+                },
+                {
+                    q: "Paciente sobreviviente de choque séptico, a las 48 horas de UCI muestra mejoría hemodinámica franca y su familia solicita claridad sobre el pronóstico funcional a largo plazo. ¿Cuál es la conducta más alineada con la SSC 2026?",
+                    a: ["Postergar toda conversación pronóstica hasta el día del alta hospitalaria.", "Iniciar una conversación de metas de cuidado dentro de las primeras 72 horas, con decisión compartida y considerando la integración de principios paliativos según el caso.", "Delegar la conversación exclusivamente al personal de enfermería sin participación médica.", "Evitar el tema para no generar falsas expectativas negativas."],
+                    c: 1,
+                    f: "Este es exactamente el escenario que la guía busca anticipar: abordar las metas de cuidado dentro de las primeras 72 horas mediante decisión compartida, incorporando principios paliativos cuando sea pertinente, independientemente de si el paciente está mejorando o no."
+                }
+            ],
+            5: [
+                {
+                    q: "Paciente masculino de 58 años con peritonitis secundaria a perforación de víscera hueca. Tras 24 horas: choque refractario a dosis crecientes de norepinefrina y vasopresina, bilirrubina 4.8 mg/dL, INR 2.1, plaquetas 62.000, lactato 6.2 mmol/L persistente. ¿Qué fenotipo de sepsis (Seymour) representa mejor este cuadro?",
+                    a: ["Fenotipo Alfa (α), por tratarse de un cuadro de bajo riesgo.", "Fenotipo Beta (β), típico del paciente añoso con comorbilidad renal.", "Fenotipo Gamma (γ), dominado por hiperinflamación pulmonar.", "Fenotipo Delta (δ), por la combinación de choque refractario, disfunción hepática y coagulopatía con hiperlactatemia severa."],
+                    c: 3,
+                    f: "La tríada de choque refractario al soporte vasoactivo escalonado, disfunción hepática franca (bilirrubina/INR alterados) y coagulopatía asociada a hiperlactatemia persistente es característica del fenotipo Delta, el de mayor mortalidad intrahospitalaria (superior al 40%)."
+                },
+                {
+                    q: "¿Qué distingue principalmente al fenotipo Delta (δ) del fenotipo Gamma (γ) en la clasificación de Seymour?",
+                    a: ["El fenotipo Delta se limita exclusivamente a pacientes pediátricos.", "El Gamma se caracteriza por hiperinflamación con pirexia sostenida y disfunción pulmonar severa, mientras que el Delta añade disfunción hepática, coagulopatía y choque refractario con la mayor mortalidad de los cuatro fenotipos.", "No existe diferencia clínicamente relevante entre ambos fenotipos.", "El fenotipo Gamma siempre presenta mayor mortalidad que el Delta."],
+                    c: 1,
+                    f: "Aunque ambos fenotipos cursan con marcada disfunción orgánica, el Gamma predomina por hiperinflamación y compromiso pulmonar, mientras que el Delta se distingue por la combinación de choque refractario, disfunción hepática y coagulopatía, asociándose a la mortalidad más alta de las cuatro categorías."
+                },
+                {
+                    q: "Respecto a la infusión de betalactámicos de vida media corta, ¿qué cambió entre la SSC 2021 y la SSC 2026?",
+                    a: ["Pasó de recomendación fuerte a sugerencia débil, debilitando la evidencia previa.", "Pasó de sugerencia débil (2021) a recomendación fuerte (2026), reforzando el uso de infusión prolongada sobre la administración en bolo.", "No tuvo ningún cambio entre ambas versiones.", "Se retiró por completo de las guías 2026 por falta de evidencia."],
+                    c: 1,
+                    f: "La infusión prolongada de betalactámicos tras una dosis de carga inicial pasó de ser una sugerencia débil en 2021 a una recomendación fuerte en 2026, uno de los cambios con mayor grado de reforzamiento en la nueva edición."
+                },
+                {
+                    q: "¿Cuál es el cambio más relevante en la recomendación de norepinefrina como vasopresor de primera línea entre 2021 y 2026?",
+                    a: ["Se eliminó a la norepinefrina como primera línea, reemplazándola por vasopresina.", "Se mantiene como primera línea, pero la fuerza de la recomendación bajó de fuerte a condicional, y se agregó a la angiotensina II como nuevo fármaco comparador.", "Ahora se recomienda exclusivamente por vía central, prohibiendo la vía periférica.", "Pasó a ser de tercera línea, después de dobutamina y epinefrina."],
+                    c: 1,
+                    f: "La norepinefrina se mantiene como vasopresor de primera línea en 2026, pero la recomendación se atenuó de fuerte a condicional; además, ahora se compara explícitamente contra vasopresina O angiotensina II, un fármaco que no figuraba como comparador en 2021."
+                },
+                {
+                    q: "Respecto al uso de corticosteroides IV (hidrocortisona) en choque séptico, ¿cómo cambió el criterio de indicación entre 2021 y 2026?",
+                    a: ["En 2026 se restringió aún más, exigiendo ahora dos vasopresores simultáneos a dosis máximas.", "En 2021 se exigía un requerimiento vasopresor en escalada; en 2026 la indicación se amplió a todo choque séptico sin exigir esa escalada explícitamente, aunque la fuerza de la recomendación bajó de fuerte a condicional.", "No hubo ningún cambio en el criterio de indicación entre ambas versiones.", "Se eliminaron por completo de las guías 2026 por riesgo de inmunosupresión."],
+                    c: 1,
+                    f: "Es un cambio con matices: la indicación se amplió (ya no exige explícitamente una dosis creciente de vasopresor como en 2021), pero paradójicamente la fuerza de la recomendación bajó de fuerte a condicional por la calidad de la evidencia disponible."
+                },
+                {
+                    q: "¿Cuál de las siguientes es una recomendación completamente NUEVA en la SSC 2026, sin equivalente en la versión 2021?",
+                    a: ["El uso de cristaloides balanceados sobre solución salina al 0.9%.", "La sugerencia de remoción activa de líquidos (diuréticos o TRR) tras completar la fase de reanimación aguda en pacientes con balance positivo significativo.", "El objetivo de PAM ≥ 65 mmHg en el choque séptico.", "El uso de norepinefrina como vasopresor de primera línea."],
+                    c: 1,
+                    f: "La remoción activa de líquidos tras la fase de reanimación aguda es una de las 46 declaraciones nuevas de la SSC 2026, dirigida a prevenir las consecuencias de la sobrecarga hídrica una vez estabilizado el paciente."
+                },
+                {
+                    q: "¿Qué cambio experimentó la recomendación sobre terapias de purificación sanguínea (blood purification) entre 2021 y 2026?",
+                    a: ["Se limitó exclusivamente a sugerir en contra de la hemoperfusión con polimixina B, sin mencionar otras técnicas.", "Se amplió: ahora se sugiere en contra de toda purificación sanguínea de forma rutinaria (hemoperfusión, hemofiltración de alto volumen y plasmaféresis), no solo polimixina B.", "Pasó a recomendarse a favor de su uso rutinario en todo choque séptico refractario.", "No se menciona en ninguna de las dos versiones de la guía."],
+                    c: 1,
+                    f: "En 2021 la recomendación en contra se limitaba específicamente a la hemoperfusión con polimixina B. La SSC 2026 amplió esta recomendación en contra a todas las terapias de purificación sanguínea de uso rutinario."
+                },
+                {
+                    q: "¿Cuál de las siguientes tres intervenciones son ahora objeto de recomendación EN CONTRA en la SSC 2026, sin haber sido abordadas formalmente en 2021?",
+                    a: ["Cristaloides balanceados, norepinefrina y control de foco.", "Antipiréticos de rutina para mejorar desenlaces clínicos, probióticos y betabloqueantes para el tratamiento de la sepsis.", "Hemocultivos, lactato sérico y PAM ≥65 mmHg.", "Hidrocortisona, dobutamina y vasopresina."],
+                    c: 1,
+                    f: "La SSC 2026 incorporó recomendaciones nuevas en contra del uso rutinario de antipiréticos para mejorar desenlaces (sí permitidos para confort sintomático), probióticos, y betabloqueantes para el tratamiento de la sepsis o choque séptico — ninguna de estas figuraba como recomendación formal en 2021."
+                }
             ]
         };
 
@@ -1021,6 +1389,7 @@ main > section > .grid > div, main > section .rounded-xl{border-color:#d8d0c6!im
             
             document.getElementById("quiz-badge-title").innerText = `Quiz ${quizActivo}`;
             document.getElementById("current-q-num").innerText = preguntaActual + 1;
+            document.getElementById("total-q-num").innerText = listaPreguntas.length;
             
             var pctProgress = ((preguntaActual + 1) / listaPreguntas.length) * 100;
             document.getElementById("quiz-progress-bar").style.width = `${pctProgress}%`;
