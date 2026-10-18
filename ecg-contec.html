@@ -465,7 +465,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <button id="bConn" class="pri">Conectar</button>
   <button id="bStart" disabled>Iniciar</button>
   <button id="bStop" class="red" disabled>Detener</button>
-  <button id="bCap" disabled>Capturar 10 s</button>
+  <button id="bCap" disabled>Capturar</button>
   <button id="bDemo">Demo</button>
   <button id="bPac">👤 Paciente</button>
   <span id="pacLbl" style="color:#cfe;font-weight:600;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
@@ -480,6 +480,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <label>Paso bajo <select id="sLp"><option value="0">Sin filtro</option><option value="40" selected>40 Hz</option><option value="100">100 Hz</option><option value="150">150 Hz</option></select></label>
   <label>Línea base <select id="sHp"><option value="0">Sin filtro</option><option value="0.05">0,05 Hz</option><option value="0.5" selected>0,5 Hz</option></select></label>
   <label>Red <select id="sNotch"><option value="0">Sin filtro</option><option value="60" selected>60 Hz</option><option value="50">50 Hz</option></select></label>
+  <label>Registro <select id="sDur"><option value="10">10 s</option><option value="30">30 s</option><option value="60">60 s</option></select></label>
   <label>Vista <select id="sLay"><option value="6x2" selected>6×2</option><option value="12">12×1</option></select></label>
 </div>
 <main>
@@ -496,7 +497,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 
 <dialog id="dRep">
   <div class="hd">
-    <b>Registro de 10 s</b><span class="sp"></span>
+    <b>Registro</b><span class="sp"></span>
     <button id="bRepPac">👤 Datos del paciente</button>
     <button id="bPdf" class="pri">Descargar PDF</button>
     <button id="bPng">Imagen</button>
@@ -520,6 +521,8 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
           <div style="font-size:12px;color:var(--mut)">Líneas: <span style="color:#2a6fdb">azul</span> = inicio/fin de P · <span style="color:#d33">rojo</span> = inicio/fin de QRS · <span style="color:#1a9a55">verde</span> = fin de T</div></details>
       </div>
     </div>
+    <div id="segRow" style="display:flex;gap:10px;align-items:center;margin:4px 0 8px;flex-wrap:wrap"><b>Segmento de 10 s en el informe:</b>
+      <input id="segSl" type="range" min="0" max="50" step="0.5" style="flex:1;min-width:200px"><span id="segTxt" style="font-variant-numeric:tabular-nums"></span></div>
     <div id="calBar"><b>Caliper:</b> <span style="color:var(--mut)">toca dos puntos en el trazado</span>
       <span id="calTxt"></span>
       <span id="calAsg" hidden>→ <button data-f="mRr">RR</button><button data-f="mPr">PR</button><button data-f="mQrs">QRS</button><button data-f="mQt">QT</button></span>
@@ -529,7 +532,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 </dialog>
 
 <dialog id="dPac" style="max-width:640px">
-  <div class="hd"><b>Datos del paciente</b><span class="sp"></span><button id="bPacNew">Nuevo paciente</button><button id="bPacOk" class="pri">Guardar</button></div>
+  <div class="hd"><b>Datos del paciente</b><span class="sp"></span><button id="bPacNew">Nuevo paciente</button><button id="bPacCancel">Cancelar</button><button id="bPacSkip" hidden>Iniciar sin datos</button><button id="bPacOk" class="pri">Guardar</button></div>
   <div class="bd">
     <div class="grid">
       <label>Paciente<input id="pNom" autocomplete="off"></label>
@@ -572,11 +575,11 @@ const hex=a=>Array.from(a,b=>b.toString(16).padStart(2,'0').toUpperCase()).join(
 const LS={get(k,d){try{const v=localStorage.getItem('ecg8k_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('ecg8k_'+k,JSON.stringify(v))}catch(e){}}};
 
 const S={fs:1000,fsDev:0,upmv:LS.get('upmv',400),fsForce:LS.get('fsForce',0),mode:LS.get('mode','auto'),inst:LS.get('inst',''),
-  fwNew:true,speed:25,gain:10,lp:40,hp:0.5,notch:60,lay:'6x2'};
+  fwNew:true,dur:LS.get('dur',60),speed:25,gain:10,lp:40,hp:0.5,notch:60,lay:'6x2'};
 function log(t){const el=$('log');const ts=new Date().toLocaleTimeString();el.textContent+=`[${ts}] ${t}\n`;if(el.textContent.length>60000)el.textContent=el.textContent.slice(-40000);el.scrollTop=el.scrollHeight}
 
 /* ===== Buffers ===== */
-let SEC=40, CAP, buf, wIdx=0, total=0;
+let SEC=75, CAP, buf, wIdx=0, total=0;
 function alloc(){CAP=Math.round(S.fs*SEC);buf=LEADS.map(()=>new Float32Array(CAP));wIdx=0;total=0;}
 alloc();
 
@@ -681,8 +684,9 @@ async function start(){
   setSt('Sin datos','');running=false;mode='cmd';btns();
   alert('El equipo no envía datos. Abre ⚙ y envíame una captura del registro.');
 }
-async function stop(){running=false;try{if(port)await write([0x90,0x00])}catch(e){}await sleep(200);mode='cmd';btns();setSt(port?'Conectado':'Sin conexión',port?'on':'');try{wake?.release();wake=null}catch(e){}
-  setTimeout(()=>{if(total>=S.fs*10)capture()},300);
+let stopping=false;
+async function stop(){if(stopping)return;stopping=true;running=false;try{if(port)await write([0x90,0x00])}catch(e){}await sleep(200);mode='cmd';btns();setSt(port?'Conectado':'Sin conexión',port?'on':'');try{wake?.release();wake=null}catch(e){}
+  stopping=false;setTimeout(()=>{if(total>=S.fs*10)capture()},300);
   log('Detenido. Paquetes: '+JSON.stringify(Object.fromEntries(Object.entries(P.cnt).map(([k,v])=>[(+k).toString(16).toUpperCase(),v])))+' · errores '+P.bad+(P.lastB?' · último estado '+P.lastB:''));}
 function btns(){const live=running||!!demoT;$('bStart').disabled=!port||running;$('bStop').disabled=!live;$('bCap').disabled=!live&&total<S.fs*10;$('bDemo').textContent=demoT?'Parar demo':'Demo'}
 
@@ -747,10 +751,12 @@ requestAnimationFrame(frame);
 
 /* ===== Informe 10 s ===== */
 let cap=null;
-function capture(){const n=Math.round(S.fs*10);if(total<n){alert('Espera a tener al menos 10 s de señal.');return}
-  cap={fs:S.fs,t:new Date(),hr:null,d:LEADS.map((_,L)=>lastN(L,n)),gain:S.gain,lp:S.lp,hp:S.hp,notch:S.notch};
+function capture(){const n10=Math.round(S.fs*10);if(total<n10){alert('Espera a tener al menos 10 s de señal.');return}
+  const n=Math.min(total,CAP,Math.round(S.dur*S.fs));
+  cap={fs:S.fs,t:new Date(),hr:null,d:LEADS.map((_,L)=>lastN(L,n)),dur:n/S.fs,seg:Math.max(0,n/S.fs-10),gain:S.gain,lp:S.lp,hp:S.hp,notch:S.notch};
   cap.hr=hrFrom(cap.d[1],cap.fs);cap.an=null;try{cap.an=analyze(cap)}catch(e){log('Análisis: '+e.message)}
-  calPts=[];applyMode(true);pacSum();drawRep();drawCal();$('dRep').showModal()}
+  calPts=[];const sl=$('segSl');sl.max=Math.max(0,cap.dur-10).toFixed(1);sl.value=cap.seg;$('segRow').hidden=cap.dur<10.5;segLbl();
+  applyMode(true);pacSum();drawRep();drawCal();$('dRep').showModal()}
 function drawRep(){if(!cap)return;const c=$('rep'),x=c.getContext('2d'),ppm=5,Wmm=297,Hmm=210;c.width=Wmm*ppm;c.height=Hmm*ppm;
   x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
   const g0x=18*ppm,g0y=40*ppm,gw=260*ppm,gh=160*ppm;drawGrid(x,g0x,g0y,gw,gh,ppm);
@@ -762,17 +768,17 @@ function drawRep(){if(!cap)return;const c=$('rep'),x=c.getContext('2d'),ppm=5,Wm
   x.fillText(`${cap.t.toLocaleString('es-EC')}${nota?'   ·   '+nota:''}`,g0x,22*ppm);
   const ml=measLines();x.font=`${3*ppm}px system-ui`;ml.forEach((s,i)=>{x.font=(i===ml.length-1&&s.startsWith('Conclusión')?'bold ':'')+`${3*ppm}px system-ui`;x.fillText(s,g0x,28*ppm+i*4.6*ppm)});x.font=`${3.2*ppm}px system-ui`;
   const fl=[cap.hp?`LB ${String(cap.hp).replace('.',',')} Hz`:'',cap.notch?`Red ${cap.notch} Hz`:'',cap.lp?`PB ${cap.lp} Hz`:''].filter(Boolean).join(' · ');
-  x.textAlign='right';x.fillText(S.inst||'',g0x+gw,10*ppm);x.fillText(`25 mm/s · ${cap.gain} mm/mV · ${fl}`,g0x+gw,16*ppm);x.fillText('CONTEC 8000GW · fs '+cap.fs+' Hz',g0x+gw,22*ppm);x.textAlign='left';
+  x.textAlign='right';x.fillText(S.inst||'',g0x+gw,10*ppm);x.fillText(`25 mm/s · ${cap.gain} mm/mV · ${fl}`,g0x+gw,16*ppm);x.fillText(`CONTEC 8000GW · registro ${Math.round(cap.dur)} s`+(cap.dur>10.5?` · mostrado ${cap.seg.toFixed(1).replace('.',',')}–${(cap.seg+10).toFixed(1).replace('.',',')} s`:''),g0x+gw,22*ppm);x.textAlign='left';
   const pmv=cap.gain*ppm,rowH=gh/4,segS=2.5,fs=cap.fs,colW=segS*25*ppm,xs=g0x+10*ppm;
-  const cols=[[0,1,2],[3,4,5],[6,7,8],[9,10,11]];
+  const cols=[[0,1,2],[3,4,5],[6,7,8],[9,10,11]],o0=Math.round(cap.seg*fs);
   x.font=`bold ${3.2*ppm}px system-ui`;
   for(let r=0;r<3;r++){const yb=g0y+rowH*r+rowH*0.55;calPulse(x,g0x+2*ppm,yb,ppm,pmv,2);
-    for(let c=0;c<4;c++){const L=cols[c][r],a=Math.round(c*segS*fs),b=Math.round((c+1)*segS*fs),D=cap.d[L];
+    for(let c=0;c<4;c++){const L=cols[c][r],a=o0+Math.round(c*segS*fs),b=o0+Math.round((c+1)*segS*fs),D=cap.d[L];
       x.save();x.beginPath();x.rect(xs+c*colW,g0y+rowH*r,colW,rowH);x.clip();trace(x,i=>D[i],a,b,xs+c*colW,yb,colW,pmv,2);x.restore();
       x.fillStyle='#111';x.fillText(LEADS[L],xs+c*colW+1.5*ppm,g0y+rowH*r+5*ppm);
       if(c){x.strokeStyle='#111';x.lineWidth=2;x.beginPath();x.moveTo(xs+c*colW,yb-3*ppm);x.lineTo(xs+c*colW,yb+3*ppm);x.stroke()}}}
   const yb=g0y+rowH*3+rowH*0.55,D=cap.d[1];calPulse(x,g0x+2*ppm,yb,ppm,pmv,2);
-  x.save();x.beginPath();x.rect(xs,g0y+rowH*3,colW*4,rowH);x.clip();trace(x,i=>D[i],0,Math.round(10*fs),xs,yb,colW*4,pmv,2);x.restore();
+  x.save();x.beginPath();x.rect(xs,g0y+rowH*3,colW*4,rowH);x.clip();trace(x,i=>D[i],o0,o0+Math.round(10*fs),xs,yb,colW*4,pmv,2);x.restore();
   x.fillStyle='#111';x.fillText('II',xs+1.5*ppm,g0y+rowH*3+5*ppm);
   x.font=`${2.4*ppm}px system-ui`;x.fillStyle='#777';x.fillText('Trazado obtenido con software no certificado. Requiere interpretación médica.'+(M.mode==='auto'?' Mediciones automáticas: verificar.':''),g0x,g0y+gh+6*ppm);}
 /* ===== Mediciones (automáticas / manuales) ===== */
@@ -797,7 +803,7 @@ function fillAuto(){const A=cap&&cap.an;MF.forEach(([id])=>$(id).value='');
   if(!A){setF('mFc',cap&&cap.hr);$('mInfo').textContent='No se pudo analizar (señal insuficiente o ruidosa). Usa mediciones manuales.';return}
   setF('mFc',A.hr);setF('mRr',A.rr);setF('mPr',A.pr);setF('mP',A.pd);setF('mQrs',A.qrs);setF('mQt',A.qt);setF('mQtc',A.qtc);setF('mQtcf',A.qtcf);
   setF('mAxP',A.axP);setF('mAxQ',A.axQ);setF('mAxT',A.axT);setF('mRv5',A.rv5,2);setF('mSv1',A.sv1,2);setF('mSok',A.sok,2);setF('mCor',A.cor,2);
-  $('mInfo').textContent=`${A.nb} latidos promediados · puedes corregir cualquier valor`;}
+  $('mInfo').textContent=`${A.nb} latidos promediados${A.nEx?` (${A.nEx} atípicos excluidos)`:''} · FC mín ${Math.round(A.hrMin)} / máx ${Math.round(A.hrMax)} · puedes corregir cualquier valor`;}
 function applyMode(fresh){$('mSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===M.mode));
   $('mBody').hidden=M.mode==='none';$('mMedD').hidden=!(cap&&cap.an);
   if(M.mode==='auto'&&cap)fillAuto();
@@ -807,7 +813,8 @@ function applyMode(fresh){$('mSeg').querySelectorAll('button').forEach(b=>b.clas
 $('mSeg').addEventListener('click',e=>{const m=e.target.dataset.m;if(!m)return;M.mode=m;LS.set('mmode',m);applyMode('seg');drawRep()});
 function measLines(){if(M.mode==='none')return $('mConc').value?['Conclusión: '+$('mConc').value]:[];
   const g=id=>$(id).value||'—',L=[];const tag=M.mode==='auto'?'Medic. automáticas':'Medic. manuales';
-  L.push(`${tag}:  FC ${g('mFc')} lpm · RR ${g('mRr')} ms · PR ${g('mPr')} ms · P ${g('mP')} ms · QRS ${g('mQrs')} ms · QT ${g('mQt')} ms · QTc ${g('mQtc')} ms (Bazett) / ${g('mQtcf')} ms (Fridericia)`);
+  const A=cap.an,rng=(M.mode==='auto'&&A&&cap.dur>10.5)?` (mín ${Math.round(A.hrMin)}–máx ${Math.round(A.hrMax)}, ${A.nb} latidos promediados${A.nEx?`, ${A.nEx} atípicos excluidos`:''})`:'';
+  L.push(`${tag}:  FC ${g('mFc')} lpm${rng} · RR ${g('mRr')} ms · PR ${g('mPr')} ms · P ${g('mP')} ms · QRS ${g('mQrs')} ms · QT ${g('mQt')} ms · QTc ${g('mQtc')} ms (Bazett) / ${g('mQtcf')} ms (Fridericia)`);
   let l2=`Ejes P/QRS/T: ${g('mAxP')}° / ${g('mAxQ')}° / ${g('mAxT')}° · RV5 ${g('mRv5')} mV · SV1 ${g('mSv1')} mV · Sokolow ${g('mSok')} mV · Cornell ${g('mCor')} mV`;
   if(M.mode==='auto'&&cap.an&&cap.an.stTxt)l2+=' · '+cap.an.stTxt;L.push(l2);
   if($('mConc').value)L.push('Conclusión: '+$('mConc').value);return L}
@@ -823,8 +830,16 @@ function analyze(c){const fs=c.fs,d=c.d,n=d[0].length,ms=v=>v*1000/fs;
   if(pk.length<3)return null;
   const rrs=[];for(let i=1;i<pk.length;i++)rrs.push(pk[i]-pk[i-1]);const rrS=[...rrs].sort((a,b)=>a-b),rr=rrS[rrS.length>>1];
   const pre=Math.min(Math.round(.42*fs),Math.round(.5*rr)),post=Math.min(Math.round(.75*fs),Math.round(.68*rr)),len=pre+post;
-  const use=pk.filter(p=>p-pre>=0&&p+post<n);if(use.length<2)return null;
-  const mb=d.map(s=>{const o=new Float32Array(len),col=new Float32Array(use.length);for(let i=0;i<len;i++){use.forEach((p,k)=>col[k]=s[p-pre+i]);col.sort();o[i]=col.length%2?col[col.length>>1]:(col[col.length/2-1]+col[col.length/2])/2}return o});
+  let use=pk.filter(p=>p-pre>=0&&p+post<n);if(use.length<2)return null;
+  const medOf=(beats)=>d.map(s=>{const o=new Float32Array(len),col=new Float32Array(beats.length);for(let i=0;i<len;i++){beats.forEach((p,k)=>col[k]=s[p-pre+i]);col.sort();o[i]=col.length%2?col[col.length>>1]:(col[col.length/2-1]+col[col.length/2])/2}return o});
+  // excluir latidos prematuros o de morfología distinta (correlación del QRS en II, V1, V5)
+  const nAll=pk.length;{const m0=medOf(use),a0=pre-Math.round(.08*fs),a1=pre+Math.round(.1*fs),LL=[1,6,10];
+    const corr=p=>{let sxy=0,sxx=0,syy=0;for(const L of LL){let mx=0,my=0;for(let i=a0;i<a1;i++){mx+=d[L][p-pre+i];my+=m0[L][i]}mx/=a1-a0;my/=a1-a0;
+      for(let i=a0;i<a1;i++){const X=d[L][p-pre+i]-mx,Y=m0[L][i]-my;sxy+=X*Y;sxx+=X*X;syy+=Y*Y}}return sxy/Math.sqrt(sxx*syy+1e-12)};
+    const keep=use.filter(p=>{const k=pk.indexOf(p),prev=k>0?p-pk[k-1]:rr;return prev>0.8*rr&&corr(p)>0.9});if(keep.length>=2)use=keep}
+  const nEx=pk.filter(p=>p-pre>=0&&p+post<n).length-use.length;
+  const rrMean=rrs.reduce((a,b)=>a+b,0)/rrs.length,hrMin=60*fs/Math.max(...rrs),hrMax=60*fs/Math.min(...rrs);
+  const mb=medOf(use);
   // energía de pendiente espacial
   const g=new Float32Array(len);for(let L=0;L<12;L++)for(let i=1;i<len-1;i++)g[i]+=Math.abs(mb[L][i+1]-mb[L][i-1]);
   let gmax=0;for(let i=pre-Math.round(.06*fs);i<=pre+Math.round(.06*fs);i++)if(g[i]>gmax)gmax=g[i];
@@ -855,7 +870,7 @@ function analyze(c){const fs=c.fs,d=c.d,n=d[0].length,ms=v=>v*1000/fs;
   const j60=off+Math.round(.06*fs);let st=null;if(j60<len){st=ALL.map(L=>v(L,j60))}
   let stTxt='';if(st){let iu=0,id=0;st.forEach((s,i)=>{if(s>st[iu])iu=i;if(s<st[id])id=i});const f=x=>(x>=0?'+':'')+x.toFixed(2).replace('.',',');stTxt=`ST(J+60) máx ${f(st[iu])} mV ${LEADS[iu]}, mín ${f(st[id])} mV ${LEADS[id]}`}
   const rrMs=ms(rr),qt=tend?ms(tend-on):null;
-  return {nb:use.length,mb,pre,len,on,off,tend,tpk,pon,poff,fs,
+  return {nb:use.length,nAll,nEx,hrMin,hrMax,hrMean:60*fs/rrMean,mb,pre,len,on,off,tend,tpk,pon,poff,fs,
     hr:60000/rrMs,rr:rrMs,pr:pon!=null?ms(on-pon):null,pd:pon!=null?ms(poff-pon):null,qrs:ms(off-on),qt,qtc:qt?qt/Math.sqrt(rrMs/1000):null,qtcf:qt?qt/Math.cbrt(rrMs/1000):null,
     axP:pon!=null?axis(pon,poff):null,axQ:axis(on,off),axT:tend?axis(off,tend):null,rv5:R[10],sv1:Sx[6],sok:Sx[6]+Math.max(R[10],R[11]),cor:R[4]+Sx[8],st,stTxt};}
 function drawMed(){const A=cap&&cap.an,c=$('medCv');if(!A)return;const ppm=4,cw=Math.round(A.len/A.fs*50*ppm)+20,ch=36*ppm;c.width=cw*4;c.height=ch*3;const x=c.getContext('2d');
@@ -884,6 +899,8 @@ $('cal').addEventListener('click',e=>{const r=e.target.getBoundingClientRect(),c
   if(calPts.length>=2)calPts=[];calPts.push(p);drawCal()});
 $('calAsg').addEventListener('click',e=>{const f=e.target.dataset.f;if(!f)return;if(M.mode==='auto'){M.mode='man';LS.set('mmode','man');applyMode(false)}
   $(f).value=$('calAsg').dataset.ms;recalcQtc(f==='mRr'?'mRr':f);alerts();drawRep()});
+function segLbl(){if(!cap)return;const a=cap.seg;$('segTxt').textContent=`${a.toFixed(1).replace('.',',')} – ${(a+10).toFixed(1).replace('.',',')} s de ${Math.round(cap.dur)} s`}
+$('segSl').addEventListener('input',e=>{cap.seg=+e.target.value;segLbl();calPts=[];drawRep();drawCal()});
 $('bCalClr').onclick=()=>{calPts=[];drawCal()};
 $('bZoom').onclick=()=>{const z=$('repWrap').classList.toggle('zoom');$('bZoom').textContent=z?'🔍 Reducir':'🔍 Ampliar'};
 $('pSexo').addEventListener('change',alerts);
@@ -892,26 +909,41 @@ const PF=['pNom','pEdad','pSexo','pId','pNota'];
 let pacThen=null;
 function pacSum(){const n=$('pNom').value.trim(),e=$('pEdad').value,s=$('pSexo').value,i=$('pId').value;
   $('pacLbl').textContent=n?('· '+n):'';$('repPac').textContent=n?[n,e&&e+' años',s,i&&'ID '+i].filter(Boolean).join(' · '):'Sin datos del paciente — toca «Datos del paciente».';}
-function openPac(then){pacThen=then||null;$('dPac').showModal();setTimeout(()=>$('pNom').focus(),100)}
+let pacSnap=null;
+function openPac(then){pacThen=then||null;pacSnap=PF.map(i=>$(i).value);$('bPacSkip').hidden=!then||then!==start;$('dPac').showModal();setTimeout(()=>$('pNom').focus(),100)}
 $('bPac').onclick=()=>openPac();
 $('bRepPac').onclick=()=>{$('dRep').close();openPac(()=>{drawRep();$('dRep').showModal()})};
 $('bPacOk').onclick=()=>{$('dPac').close();pacSum();drawRep();const f=pacThen;pacThen=null;if(f)f()};
 $('bPacNew').onclick=()=>{PF.forEach(i=>$(i).value='');pacSum();$('pNom').focus()};
-$('dPac').addEventListener('cancel',()=>{pacSum();pacThen=null});
+function pacCancel(){if(pacSnap)PF.forEach((i,k)=>$(i).value=pacSnap[k]);$('dPac').close();pacSum();const f=pacThen;pacThen=null;if(f&&f!==start)f()}
+$('bPacCancel').onclick=pacCancel;
+$('dPac').addEventListener('cancel',e=>{e.preventDefault();pacCancel()});
+$('bPacSkip').onclick=()=>{$('dPac').close();pacSum();pacThen=null;start()};
 pacSum();
+function drawRhythm(){if(!cap||cap.dur<10.5)return null;const c=document.createElement('canvas'),ppm=5;c.width=297*ppm;c.height=210*ppm;const x=c.getContext('2d');
+  x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);const fs=cap.fs,D=cap.d[1],rows=Math.ceil(cap.dur/10-0.05),g0x=18*ppm,g0y=20*ppm,gw=260*ppm,rowH=Math.min(30,180/rows)*ppm,pmv=cap.gain*ppm;
+  drawGrid(x,g0x,g0y,gw,rowH*rows,ppm);x.fillStyle='#111';x.font=`bold ${3.6*ppm}px system-ui`;
+  x.fillText(`${$('pNom').value||'—'}  ·  Tira de ritmo DII  ·  ${Math.round(cap.dur)} s`,g0x,10*ppm);x.font=`${3*ppm}px system-ui`;
+  x.textAlign='right';x.fillText(`25 mm/s · ${cap.gain} mm/mV · ${cap.t.toLocaleString('es-EC')}`,g0x+gw,10*ppm);x.textAlign='left';
+  const A=cap.an;if(A&&A.hrMin)x.fillText(`FC media ${Math.round(A.hr)} lpm · mín ${Math.round(A.hrMin)} · máx ${Math.round(A.hrMax)} · ${A.nAll} latidos`+(A.nEx?` · ${A.nEx} atípicos excluidos del promedio`:''),g0x,15.5*ppm);
+  for(let r=0;r<rows;r++){const a=Math.round(r*10*fs),b=Math.min(D.length,Math.round((r+1)*10*fs)),yb=g0y+rowH*r+rowH*.6,xs=g0x+10*ppm;calPulse(x,g0x+2*ppm,yb,ppm,pmv,2);
+    x.save();x.beginPath();x.rect(xs,g0y+rowH*r,gw-10*ppm,rowH);x.clip();trace(x,i=>D[i],a,b,xs,yb,(b-a)/fs*25*ppm,pmv,2);x.restore();
+    x.fillStyle='#555';x.font=`${2.6*ppm}px system-ui`;x.fillText(`${r*10}–${Math.min(cap.dur,(r+1)*10).toFixed(0)} s`,xs+1*ppm,g0y+rowH*r+3.5*ppm)}
+  return c}
 function fname(ext){const t=cap.t,p=n=>String(n).padStart(2,'0');return `ECG_${($('pNom').value||'paciente').replace(/[^\wáéíóúñÁÉÍÓÚÑ-]+/g,'_')}_${t.getFullYear()}${p(t.getMonth()+1)}${p(t.getDate())}_${p(t.getHours())}${p(t.getMinutes())}.${ext}`}
 function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},2000)}
 $('bPdf').onclick=()=>{const J=window.jspdf&&window.jspdf.jsPDF;if(!J){$('bPrint').click();return}
-  const pdf=new J({orientation:'landscape',unit:'mm',format:'a4'});pdf.addImage($('rep').toDataURL('image/jpeg',0.92),'JPEG',0,0,297,210);pdf.save(fname('pdf'))};
+  const pdf=new J({orientation:'landscape',unit:'mm',format:'a4'});pdf.addImage($('rep').toDataURL('image/jpeg',0.92),'JPEG',0,0,297,210);const r2=drawRhythm();if(r2){pdf.addPage('a4','landscape');pdf.addImage(r2.toDataURL('image/jpeg',0.92),'JPEG',0,0,297,210)}pdf.save(fname('pdf'))};
 $('bPng').onclick=()=>$('rep').toBlob(b=>dl(b,fname('png')),'image/png');
 $('bCsv').onclick=()=>{const n=cap.d[0].length;let s='t_s,'+LEADS.join(',')+'\n';for(let i=0;i<n;i++){s+=(i/cap.fs).toFixed(4);for(let L=0;L<12;L++)s+=','+cap.d[L][i].toFixed(4);s+='\n'}dl(new Blob([s],{type:'text/csv'}),fname('csv'))};
-$('bPrint').onclick=()=>{const u=$('rep').toDataURL('image/png');const w=open('','_blank');if(!w){alert('Permite ventanas emergentes para imprimir.');return}
-  w.document.write(`<!doctype html><title>${fname('pdf')}</title><style>@page{size:A4 landscape;margin:0}html,body{margin:0}img{width:100%;height:auto;display:block}</style><img src="${u}" onload="setTimeout(()=>print(),300)">`);w.document.close()};
+$('bPrint').onclick=()=>{const u=$('rep').toDataURL('image/png'),r2=drawRhythm(),u2=r2?r2.toDataURL('image/png'):'';const w=open('','_blank');if(!w){alert('Permite ventanas emergentes para imprimir.');return}
+  w.document.write(`<!doctype html><title>${fname('pdf')}</title><style>@page{size:A4 landscape;margin:0}html,body{margin:0}img{width:100%;height:auto;display:block;page-break-after:always}</style><img src="${u}">${u2?`<img src="${u2}">`:''}<script>onload=()=>setTimeout(()=>print(),400)<\/script>`);w.document.close()};
 $('bCloseRep').onclick=()=>$('dRep').close();
 
 /* ===== UI ===== */
 $('bConn').onclick=connect;$('bStart').onclick=()=>{if(!$('pNom').value.trim())openPac(start);else start()};$('bStop').onclick=()=>{demoT?stopDemo():stop()};$('bCap').onclick=capture;
 $('bDemo').onclick=()=>{if(demoT)stopDemo();else{if(running)return;startDemo()}};
+$('sDur').value=String(S.dur);$('sDur').onchange=e=>{S.dur=+e.target.value;LS.set('dur',S.dur)};
 $('sSpeed').onchange=e=>S.speed=+e.target.value;$('sGain').onchange=e=>S.gain=+e.target.value;$('sLay').onchange=e=>S.lay=e.target.value;
 $('sLp').onchange=e=>{S.lp=+e.target.value;mkFilters()};$('sHp').onchange=e=>{S.hp=+e.target.value;mkFilters()};$('sNotch').onchange=e=>{S.notch=+e.target.value;mkFilters()};
 $('bCfg').onclick=()=>{$('cUpmv').value=S.upmv;$('cFs').value=S.fsForce;$('cMode').value=S.mode;$('cInst').value=S.inst;$('dCfg').showModal()};
@@ -920,6 +952,9 @@ $('bCloseCfg').onclick=()=>{S.upmv=+$('cUpmv').value||400;S.fsForce=+$('cFs').va
 $('bCopyLog').onclick=()=>navigator.clipboard?.writeText($('log').textContent).then(()=>alert('Copiado'));
 if(!('serial' in navigator))$('noSerial').hidden=false;
 setInterval(btns,1000);
+setInterval(()=>{const live=running||!!demoT;if(!live)return;const s=Math.floor(total/S.fs);
+  $('st').textContent=(demoT?'Demo':'Grabando')+` ${Math.min(s,S.dur)} / ${S.dur} s`;
+  if(total>=S.dur*S.fs){if(demoT)stopDemo();else if(running&&mode==='stream'&&!stopping)stop()}},250);
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('ecg-sw.js',{scope:'./'}).catch(e=>log('SW: '+e.message));
 log('App lista. Web Serial: '+('serial' in navigator?'sí':'NO'));
 </script>
