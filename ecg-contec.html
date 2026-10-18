@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0f1720">
 <title>ECG Contec 8000GW</title>
+<link rel="manifest" href="ecg-manifest.json">
+<link rel="icon" href="ecg-icon-192.png">
+<link rel="apple-touch-icon" href="ecg-icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
 :root{--bg:#0f1720;--panel:#17212c;--line:#263443;--tx:#e6edf3;--mut:#8b9bab;--acc:#2f9e74;--warn:#d9822b;--err:#d64545;--grid1:#f6d9d9;--grid5:#e8a6a6;--paper:#fffdfb;--trace:#111}
 *{box-sizing:border-box}
@@ -30,7 +34,7 @@ main{position:relative;height:calc(100% - 58px)}
 dialog{background:var(--panel);color:var(--tx);border:1px solid var(--line);border-radius:12px;max-width:min(96vw,1100px);width:96vw;padding:0}
 dialog .hd{display:flex;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
 dialog .bd{padding:12px;max-height:78vh;overflow:auto}
-#rep{width:100%;height:auto;background:#fff;border-radius:4px}
+#rep{background:#fff;border-radius:4px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-bottom:10px}
 .grid label{display:flex;flex-direction:column;gap:4px;color:var(--mut);font-size:13px}
 #log{white-space:pre-wrap;font:12px/1.4 ui-monospace,Menlo,Consolas,monospace;background:#0b1118;border:1px solid var(--line);border-radius:8px;padding:8px;max-height:50vh;overflow:auto;margin:0}
@@ -38,6 +42,22 @@ dialog .bd{padding:12px;max-height:78vh;overflow:auto}
 #msg[hidden]{display:none}
 #msg div{background:rgba(15,23,32,.88);color:#fff;padding:18px 22px;border-radius:12px;max-width:560px;text-align:center;pointer-events:auto}
 #msg p{margin:6px 0;color:#c8d3dd}
+.seg{display:inline-flex;border:1px solid #34475a;border-radius:9px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:#1d2a37;min-height:36px;padding:6px 12px}
+.seg button.on{background:var(--acc);color:#fff}
+#mPanel{border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px}
+#mFields{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:6px;margin:10px 0 6px}
+#mFields label{display:flex;flex-direction:column;gap:2px;color:var(--mut);font-size:12px}
+#mFields input{min-height:34px;padding:4px 8px;width:100%}
+.chip{display:inline-block;border:1px solid var(--warn);color:#f3c38f;border-radius:20px;padding:2px 10px;margin:2px 4px 2px 0;font-size:12px}
+#calBar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0;font-size:14px}
+#calBar button{min-height:32px;padding:4px 10px}
+#calTxt{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+#repWrap{position:relative;width:100%}
+#repWrap.zoom{width:220%}
+#rep,#cal{width:100%;height:auto;display:block}
+#cal{position:absolute;inset:0;height:100%}
+#medCv{width:100%;height:auto;background:#fffdfb;border-radius:6px;margin-top:6px}
 .warnbox{border:1px solid var(--warn);color:#f3c38f;padding:8px 10px;border-radius:8px;margin:8px 0;font-size:13px}
 </style>
 <script>/** @license
@@ -447,6 +467,8 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
   <button id="bStop" class="red" disabled>Detener</button>
   <button id="bCap" disabled>Capturar 10 s</button>
   <button id="bDemo">Demo</button>
+  <button id="bPac">👤 Paciente</button>
+  <span id="pacLbl" style="color:#cfe;font-weight:600;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
   <span class="sp"></span>
   <span class="stat"><span class="dot" id="dot"></span><span id="st">Sin conexión</span>
     <span>FC <b id="hr">--</b> lpm</span><span>fs <b id="fs">--</b> Hz</span></span>
@@ -475,6 +497,7 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
 <dialog id="dRep">
   <div class="hd">
     <b>Registro de 10 s</b><span class="sp"></span>
+    <button id="bRepPac">👤 Datos del paciente</button>
     <button id="bPdf" class="pri">Descargar PDF</button>
     <button id="bPng">Imagen</button>
     <button id="bPrint">Imprimir</button>
@@ -482,14 +505,40 @@ function(t){t.__bidiEngine__=t.prototype.__bidiEngine__=function(t){var r,n,i,a,
     <button id="bCloseRep">Cerrar</button>
   </div>
   <div class="bd">
+    <p style="margin:0 0 10px;color:var(--mut)" id="repPac"></p>
+    <div id="mPanel">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+        <b>Mediciones</b>
+        <span class="seg" id="mSeg"><button data-m="auto">Automáticas</button><button data-m="man">Manuales</button><button data-m="none">Sin mediciones</button></span>
+        <span id="mInfo" style="color:var(--mut);font-size:13px"></span>
+      </div>
+      <div id="mBody">
+        <div id="mFields"></div>
+        <label style="display:flex;flex-direction:column;gap:2px;color:var(--mut);font-size:12px">Conclusión (la escribes tú; sale en el informe)<input id="mConc" autocomplete="off"></label>
+        <div id="mAlerts" style="margin-top:6px"></div>
+        <details id="mMedD" style="margin-top:6px"><summary style="cursor:pointer;color:var(--mut);font-size:13px">Ver latido promedio y puntos detectados</summary><canvas id="medCv"></canvas>
+          <div style="font-size:12px;color:var(--mut)">Líneas: <span style="color:#2a6fdb">azul</span> = inicio/fin de P · <span style="color:#d33">rojo</span> = inicio/fin de QRS · <span style="color:#1a9a55">verde</span> = fin de T</div></details>
+      </div>
+    </div>
+    <div id="calBar"><b>Caliper:</b> <span style="color:var(--mut)">toca dos puntos en el trazado</span>
+      <span id="calTxt"></span>
+      <span id="calAsg" hidden>→ <button data-f="mRr">RR</button><button data-f="mPr">PR</button><button data-f="mQrs">QRS</button><button data-f="mQt">QT</button></span>
+      <span class="sp"></span><button id="bCalClr">Borrar caliper</button><button id="bZoom">🔍 Ampliar</button></div>
+    <div id="repWrap"><canvas id="rep"></canvas><canvas id="cal"></canvas></div>
+  </div>
+</dialog>
+
+<dialog id="dPac" style="max-width:640px">
+  <div class="hd"><b>Datos del paciente</b><span class="sp"></span><button id="bPacNew">Nuevo paciente</button><button id="bPacOk" class="pri">Guardar</button></div>
+  <div class="bd">
     <div class="grid">
       <label>Paciente<input id="pNom" autocomplete="off"></label>
       <label>Edad<input id="pEdad" inputmode="numeric" autocomplete="off"></label>
       <label>Sexo<select id="pSexo"><option></option><option>M</option><option>F</option></select></label>
       <label>ID / HC<input id="pId" autocomplete="off"></label>
-      <label>Nota<input id="pNota" autocomplete="off"></label>
+      <label>Motivo / nota<input id="pNota" autocomplete="off"></label>
     </div>
-    <canvas id="rep"></canvas>
+    <p style="color:var(--mut);font-size:13px;margin:4px 0 0">Estos datos aparecen en el informe y en el nombre del PDF. No se guardan en ningún servidor.</p>
   </div>
 </dialog>
 
@@ -700,17 +749,18 @@ requestAnimationFrame(frame);
 let cap=null;
 function capture(){const n=Math.round(S.fs*10);if(total<n){alert('Espera a tener al menos 10 s de señal.');return}
   cap={fs:S.fs,t:new Date(),hr:null,d:LEADS.map((_,L)=>lastN(L,n)),gain:S.gain,lp:S.lp,hp:S.hp,notch:S.notch};
-  cap.hr=hrFrom(cap.d[1],cap.fs);drawRep();$('dRep').showModal()}
+  cap.hr=hrFrom(cap.d[1],cap.fs);cap.an=null;try{cap.an=analyze(cap)}catch(e){log('Análisis: '+e.message)}
+  calPts=[];applyMode(true);pacSum();drawRep();drawCal();$('dRep').showModal()}
 function drawRep(){if(!cap)return;const c=$('rep'),x=c.getContext('2d'),ppm=5,Wmm=297,Hmm=210;c.width=Wmm*ppm;c.height=Hmm*ppm;
   x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
-  const g0x=18*ppm,g0y=30*ppm,gw=260*ppm,gh=172*ppm;drawGrid(x,g0x,g0y,gw,gh,ppm);
+  const g0x=18*ppm,g0y=40*ppm,gw=260*ppm,gh=160*ppm;drawGrid(x,g0x,g0y,gw,gh,ppm);
   x.fillStyle='#111';x.font=`bold ${4.2*ppm}px system-ui`;
   const nom=$('pNom').value||'—';x.fillText(nom,g0x,10*ppm);
   x.font=`${3.2*ppm}px system-ui`;
   const ed=$('pEdad').value,sx=$('pSexo').value,id=$('pId').value,nota=$('pNota').value;
   x.fillText([ed&&('Edad: '+ed),sx&&('Sexo: '+sx),id&&('ID: '+id)].filter(Boolean).join('   ')||' ',g0x,16*ppm);
-  x.fillText(`FC: ${cap.hr??'--'} lpm   ·   ${cap.t.toLocaleString('es-EC')}`,g0x,22*ppm);
-  if(nota)x.fillText(nota,g0x,27*ppm);
+  x.fillText(`${cap.t.toLocaleString('es-EC')}${nota?'   ·   '+nota:''}`,g0x,22*ppm);
+  const ml=measLines();x.font=`${3*ppm}px system-ui`;ml.forEach((s,i)=>{x.font=(i===ml.length-1&&s.startsWith('Conclusión')?'bold ':'')+`${3*ppm}px system-ui`;x.fillText(s,g0x,28*ppm+i*4.6*ppm)});x.font=`${3.2*ppm}px system-ui`;
   const fl=[cap.hp?`LB ${String(cap.hp).replace('.',',')} Hz`:'',cap.notch?`Red ${cap.notch} Hz`:'',cap.lp?`PB ${cap.lp} Hz`:''].filter(Boolean).join(' · ');
   x.textAlign='right';x.fillText(S.inst||'',g0x+gw,10*ppm);x.fillText(`25 mm/s · ${cap.gain} mm/mV · ${fl}`,g0x+gw,16*ppm);x.fillText('CONTEC 8000GW · fs '+cap.fs+' Hz',g0x+gw,22*ppm);x.textAlign='left';
   const pmv=cap.gain*ppm,rowH=gh/4,segS=2.5,fs=cap.fs,colW=segS*25*ppm,xs=g0x+10*ppm;
@@ -724,8 +774,131 @@ function drawRep(){if(!cap)return;const c=$('rep'),x=c.getContext('2d'),ppm=5,Wm
   const yb=g0y+rowH*3+rowH*0.55,D=cap.d[1];calPulse(x,g0x+2*ppm,yb,ppm,pmv,2);
   x.save();x.beginPath();x.rect(xs,g0y+rowH*3,colW*4,rowH);x.clip();trace(x,i=>D[i],0,Math.round(10*fs),xs,yb,colW*4,pmv,2);x.restore();
   x.fillStyle='#111';x.fillText('II',xs+1.5*ppm,g0y+rowH*3+5*ppm);
-  x.font=`${2.4*ppm}px system-ui`;x.fillStyle='#777';x.fillText('Trazado obtenido con software no certificado. Requiere interpretación médica.',g0x,g0y+gh+6*ppm);}
-['pNom','pEdad','pSexo','pId','pNota'].forEach(i=>$(i).addEventListener('input',drawRep));
+  x.font=`${2.4*ppm}px system-ui`;x.fillStyle='#777';x.fillText('Trazado obtenido con software no certificado. Requiere interpretación médica.'+(M.mode==='auto'?' Mediciones automáticas: verificar.':''),g0x,g0y+gh+6*ppm);}
+/* ===== Mediciones (automáticas / manuales) ===== */
+const M={mode:LS.get('mmode','auto')};
+const MF=[['mFc','FC','lpm'],['mRr','RR','ms'],['mPr','PR','ms'],['mP','P (dur.)','ms'],['mQrs','QRS','ms'],['mQt','QT','ms'],['mQtc','QTc Bazett','ms'],['mQtcf','QTc Fridericia','ms'],
+  ['mAxP','Eje P','°'],['mAxQ','Eje QRS','°'],['mAxT','Eje T','°'],['mRv5','RV5','mV'],['mSv1','SV1','mV'],['mSok','Sokolow','mV'],['mCor','Cornell','mV']];
+$('mFields').innerHTML=MF.map(([id,l,u])=>`<label>${l} (${u})<input id="${id}" inputmode="decimal" autocomplete="off"></label>`).join('');
+const fv=id=>{const v=parseFloat(String($(id).value).replace(',','.'));return isFinite(v)?v:null};
+const setF=(id,v,dec=0)=>{$(id).value=v==null||!isFinite(v)?'':(dec?v.toFixed(dec):Math.round(v))};
+function recalcQtc(src){const rr=fv('mRr'),qt=fv('mQt');
+  if(src==='mRr'&&rr)setF('mFc',60000/rr);if(src==='mFc'&&fv('mFc'))setF('mRr',60000/fv('mFc'));
+  const R=fv('mRr');if(R&&qt){setF('mQtc',qt/Math.sqrt(R/1000));setF('mQtcf',qt/Math.cbrt(R/1000))}
+  const rv5=fv('mRv5'),sv1=fv('mSv1');if(src==='mRv5'||src==='mSv1'){if(rv5!=null&&sv1!=null)setF('mSok',rv5+sv1,2)}}
+MF.forEach(([id])=>$(id).addEventListener('input',()=>{recalcQtc(id);alerts();drawRep()}));
+$('mConc').addEventListener('input',drawRep);
+function alerts(){const a=[],sx=$('pSexo').value,f=fv('mFc'),pr=fv('mPr'),q=fv('mQrs'),qc=fv('mQtc'),ax=fv('mAxQ'),sok=fv('mSok'),cor=fv('mCor');
+  if(f!=null&&f<50)a.push('FC < 50');if(f!=null&&f>100)a.push('FC > 100');if(pr!=null&&pr>200)a.push('PR > 200 ms');if(pr!=null&&pr<120)a.push('PR < 120 ms');
+  if(q!=null&&q>=120)a.push('QRS ≥ 120 ms');if(qc!=null&&qc>(sx==='F'?470:450))a.push('QTc prolongado');if(qc!=null&&qc<340)a.push('QTc corto');
+  if(ax!=null&&ax<-30)a.push('Eje QRS < −30°');if(ax!=null&&ax>90)a.push('Eje QRS > +90°');if(sok!=null&&sok>3.5)a.push('Sokolow > 3,5 mV');if(cor!=null&&cor>(sx==='F'?2.0:2.8))a.push('Cornell elevado');
+  $('mAlerts').innerHTML=a.length?'<span style="font-size:12px;color:var(--mut)">Alertas (no diagnósticas): </span>'+a.map(s=>`<span class="chip">${s}</span>`).join(''):'';}
+function fillAuto(){const A=cap&&cap.an;MF.forEach(([id])=>$(id).value='');
+  if(!A){setF('mFc',cap&&cap.hr);$('mInfo').textContent='No se pudo analizar (señal insuficiente o ruidosa). Usa mediciones manuales.';return}
+  setF('mFc',A.hr);setF('mRr',A.rr);setF('mPr',A.pr);setF('mP',A.pd);setF('mQrs',A.qrs);setF('mQt',A.qt);setF('mQtc',A.qtc);setF('mQtcf',A.qtcf);
+  setF('mAxP',A.axP);setF('mAxQ',A.axQ);setF('mAxT',A.axT);setF('mRv5',A.rv5,2);setF('mSv1',A.sv1,2);setF('mSok',A.sok,2);setF('mCor',A.cor,2);
+  $('mInfo').textContent=`${A.nb} latidos promediados · puedes corregir cualquier valor`;}
+function applyMode(fresh){$('mSeg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===M.mode));
+  $('mBody').hidden=M.mode==='none';$('mMedD').hidden=!(cap&&cap.an);
+  if(M.mode==='auto'&&cap)fillAuto();
+  else if(M.mode==='man'&&cap&&fresh!==false){MF.forEach(([id])=>$(id).value='');setF('mFc',cap.hr);$('mInfo').textContent='Mide con el caliper y asigna (→ RR/PR/QRS/QT), o escribe los valores.'}
+  else $('mInfo').textContent='';
+  if(fresh===true)$('mConc').value='';alerts();drawMed();}
+$('mSeg').addEventListener('click',e=>{const m=e.target.dataset.m;if(!m)return;M.mode=m;LS.set('mmode',m);applyMode('seg');drawRep()});
+function measLines(){if(M.mode==='none')return $('mConc').value?['Conclusión: '+$('mConc').value]:[];
+  const g=id=>$(id).value||'—',L=[];const tag=M.mode==='auto'?'Medic. automáticas':'Medic. manuales';
+  L.push(`${tag}:  FC ${g('mFc')} lpm · RR ${g('mRr')} ms · PR ${g('mPr')} ms · P ${g('mP')} ms · QRS ${g('mQrs')} ms · QT ${g('mQt')} ms · QTc ${g('mQtc')} ms (Bazett) / ${g('mQtcf')} ms (Fridericia)`);
+  let l2=`Ejes P/QRS/T: ${g('mAxP')}° / ${g('mAxQ')}° / ${g('mAxT')}° · RV5 ${g('mRv5')} mV · SV1 ${g('mSv1')} mV · Sokolow ${g('mSok')} mV · Cornell ${g('mCor')} mV`;
+  if(M.mode==='auto'&&cap.an&&cap.an.stTxt)l2+=' · '+cap.an.stTxt;L.push(l2);
+  if($('mConc').value)L.push('Conclusión: '+$('mConc').value);return L}
+
+// --- análisis automático: detección de R, latido mediano, delineación ---
+function analyze(c){const fs=c.fs,d=c.d,n=d[0].length,ms=v=>v*1000/fs;
+  const e=new Float32Array(n);for(let L=0;L<12;L++){const s=d[L];for(let i=1;i<n-1;i++){const v=s[i+1]-s[i-1];e[i]+=v*v}}
+  const w=Math.max(1,Math.round(.04*fs)),sm=new Float32Array(n);let acc=0;for(let i=0;i<n;i++){acc+=e[i];if(i>=w)acc-=e[i-w];sm[i]=acc/w}
+  const srt=Float32Array.from(sm).sort(),thr=srt[Math.floor(n*.99)]*0.3,ref=Math.round(.25*fs);let pk=[];
+  for(let i=1;i<n-1;i++)if(sm[i]>thr&&sm[i]>=sm[i-1]&&sm[i]>sm[i+1]){if(pk.length&&i-pk[pk.length-1]<ref){if(sm[i]>sm[pk[pk.length-1]])pk[pk.length-1]=i}else pk.push(i)}
+  // refinar: máximo de energía instantánea en ±50 ms del pico suavizado (centro de la ventana)
+  pk=pk.map(p=>{let b=p,best=-1;for(let i=Math.max(1,p-w-Math.round(.05*fs));i<Math.min(n-1,p+Math.round(.03*fs));i++)if(e[i]>best){best=e[i];b=i}return b});
+  if(pk.length<3)return null;
+  const rrs=[];for(let i=1;i<pk.length;i++)rrs.push(pk[i]-pk[i-1]);const rrS=[...rrs].sort((a,b)=>a-b),rr=rrS[rrS.length>>1];
+  const pre=Math.min(Math.round(.42*fs),Math.round(.5*rr)),post=Math.min(Math.round(.75*fs),Math.round(.68*rr)),len=pre+post;
+  const use=pk.filter(p=>p-pre>=0&&p+post<n);if(use.length<2)return null;
+  const mb=d.map(s=>{const o=new Float32Array(len),col=new Float32Array(use.length);for(let i=0;i<len;i++){use.forEach((p,k)=>col[k]=s[p-pre+i]);col.sort();o[i]=col.length%2?col[col.length>>1]:(col[col.length/2-1]+col[col.length/2])/2}return o});
+  // energía de pendiente espacial
+  const g=new Float32Array(len);for(let L=0;L<12;L++)for(let i=1;i<len-1;i++)g[i]+=Math.abs(mb[L][i+1]-mb[L][i-1]);
+  let gmax=0;for(let i=pre-Math.round(.06*fs);i<=pre+Math.round(.06*fs);i++)if(g[i]>gmax)gmax=g[i];
+  const k=Math.max(2,Math.round(.01*fs)),gt=gmax*0.07;
+  let on=pre-Math.round(.04*fs);for(let i=pre;i>Math.max(k,pre-Math.round(.16*fs));i--){let ok=true;for(let j=0;j<k;j++)if(g[i-j]>gt){ok=false;break}if(ok){on=i;break}}
+  let off=pre+Math.round(.05*fs);for(let i=pre;i<Math.min(len-k,pre+Math.round(.2*fs));i++){let ok=true;for(let j=0;j<k;j++)if(g[i+j]>gt){ok=false;break}if(ok){off=i;break}}
+  const b0=Math.max(0,on-Math.round(.02*fs)),b1=Math.max(b0+1,on-Math.round(.006*fs));
+  const base=mb.map(s=>{let a=0;for(let i=b0;i<b1;i++)a+=s[i];return a/(b1-b0)});
+  const v=(L,i)=>mb[L][Math.max(0,Math.min(len-1,i))]-base[L];
+  const mag=(i,ls)=>{let a=0;for(const L of ls){const q=v(L,i);a+=q*q}return Math.sqrt(a)};
+  const ALL=[0,1,2,3,4,5,6,7,8,9,10,11];
+  // T
+  const t0=off+Math.round(.08*fs),t1=Math.min(len-2,on+Math.round(.62*fs));let tpk=-1,tmx=0;
+  for(let i=t0;i<t1;i++){const m=mag(i,ALL);if(m>tmx){tmx=m;tpk=i}}
+  let tend=null;if(tpk>0&&tmx>0.05){const ks=Math.max(1,Math.round(.008*fs));let best=0,bi=-1;
+    for(let i=tpk+ks;i<Math.min(len-ks-1,tpk+Math.round(.2*fs));i++){const sl=(mag(i+ks,ALL)-mag(i-ks,ALL))/(2*ks);if(sl<best){best=sl;bi=i}}
+    let floor=1e9;for(let i=Math.max(tpk,0);i<len-1;i++){const m=mag(i,ALL);if(m<floor)floor=m}
+    if(bi>0&&best<0)tend=Math.min(len-1,Math.round(bi+(mag(bi,ALL)-floor)/(-best)))}
+  // P
+  const PL=[0,1,5,6],p0=Math.max(1,on-Math.round(.30*fs)),p1=on-Math.round(.03*fs);let ppk=-1,pmx=0;
+  for(let i=p0;i<p1;i++){const m=mag(i,PL);if(m>pmx){pmx=m;ppk=i}}
+  let pon=null,poff=null;if(ppk>0){let f1=1e9,f2=1e9;for(let i=p0;i<=ppk;i++)f1=Math.min(f1,mag(i,PL));for(let i=ppk;i<on;i++)f2=Math.min(f2,mag(i,PL));
+    if(pmx-Math.max(f1,f2)>0.03){const th1=f1+(pmx-f1)*.15,th2=f2+(pmx-f2)*.15;pon=ppk;while(pon>p0&&mag(pon,PL)>th1)pon--;poff=ppk;while(poff<on-2&&mag(poff,PL)>th2)poff++;
+      if(pon<=p0+1||ms(poff-pon)>160||ms(poff-pon)<40){pon=null;poff=null}}}
+  const area=(L,a,b)=>{let s=0;for(let i=a;i<=b;i++)s+=v(L,i);return s};
+  const axis=(a,b)=>{const I=area(0,a,b),F=area(5,a,b);if(Math.abs(I)+Math.abs(F)<1e-6)return null;let ang=Math.atan2(F*2/Math.sqrt(3),I)*180/Math.PI;return Math.round(ang)};
+  const R=[],Sx=[];for(let L=0;L<12;L++){let mx=0,mn=0;for(let i=on;i<=off;i++){const q=v(L,i);if(q>mx)mx=q;if(q<mn)mn=q}R.push(mx);Sx.push(-mn)}
+  const j60=off+Math.round(.06*fs);let st=null;if(j60<len){st=ALL.map(L=>v(L,j60))}
+  let stTxt='';if(st){let iu=0,id=0;st.forEach((s,i)=>{if(s>st[iu])iu=i;if(s<st[id])id=i});const f=x=>(x>=0?'+':'')+x.toFixed(2).replace('.',',');stTxt=`ST(J+60) máx ${f(st[iu])} mV ${LEADS[iu]}, mín ${f(st[id])} mV ${LEADS[id]}`}
+  const rrMs=ms(rr),qt=tend?ms(tend-on):null;
+  return {nb:use.length,mb,pre,len,on,off,tend,tpk,pon,poff,fs,
+    hr:60000/rrMs,rr:rrMs,pr:pon!=null?ms(on-pon):null,pd:pon!=null?ms(poff-pon):null,qrs:ms(off-on),qt,qtc:qt?qt/Math.sqrt(rrMs/1000):null,qtcf:qt?qt/Math.cbrt(rrMs/1000):null,
+    axP:pon!=null?axis(pon,poff):null,axQ:axis(on,off),axT:tend?axis(off,tend):null,rv5:R[10],sv1:Sx[6],sok:Sx[6]+Math.max(R[10],R[11]),cor:R[4]+Sx[8],st,stTxt};}
+function drawMed(){const A=cap&&cap.an,c=$('medCv');if(!A)return;const ppm=4,cw=Math.round(A.len/A.fs*50*ppm)+20,ch=36*ppm;c.width=cw*4;c.height=ch*3;const x=c.getContext('2d');
+  drawGrid(x,0,0,c.width,c.height,ppm);const cols=[[0,1,2],[3,4,5],[6,7,8],[9,10,11]];x.font='bold 13px system-ui';
+  for(let cc=0;cc<4;cc++)for(let r=0;r<3;r++){const L=cols[cc][r],x0=cc*cw+10,yb=r*ch+ch*.6,pmv=10*ppm,sx=50*ppm/A.fs,s=A.mb[L];
+    x.save();x.beginPath();x.rect(cc*cw,r*ch,cw,ch);x.clip();
+    const mark=(i,col)=>{if(i==null)return;x.strokeStyle=col;x.lineWidth=1.5;x.beginPath();x.moveTo(x0+i*sx,r*ch+4);x.lineTo(x0+i*sx,r*ch+ch-4);x.stroke()};
+    mark(A.pon,'#2a6fdb');mark(A.poff,'#2a6fdb');mark(A.on,'#d33');mark(A.off,'#d33');mark(A.tend,'#1a9a55');
+    trace(x,i=>s[i],0,A.len,x0,yb,A.len*sx,pmv,1.6);x.restore();x.fillStyle='#111';x.fillText(LEADS[L],cc*cw+6,r*ch+16)}
+  x.fillStyle='#555';x.font='12px system-ui';x.fillText('Latido promedio · 50 mm/s · 10 mm/mV',6,c.height-6)}
+
+// --- caliper ---
+let calPts=[];
+function calToMs(dx){return dx/5/25*1000}
+function drawCal(){const r=$('rep'),c=$('cal');c.width=r.width;c.height=r.height;const x=c.getContext('2d');x.clearRect(0,0,c.width,c.height);
+  $('calTxt').textContent='';$('calAsg').hidden=true;if(!calPts.length)return;
+  x.strokeStyle='#0a62d0';x.fillStyle='#0a62d0';x.lineWidth=3;
+  calPts.forEach(p=>{x.beginPath();x.moveTo(p.x,p.y-60);x.lineTo(p.x,p.y+60);x.stroke();x.beginPath();x.arc(p.x,p.y,7,0,7);x.fill()});
+  if(calPts.length===2){const [a,b]=calPts,dms=Math.abs(calToMs(b.x-a.x)),dmv=-(b.y-a.y)/5/(cap?cap.gain:10);
+    x.setLineDash([10,6]);x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,a.y);x.lineTo(b.x,b.y);x.stroke();x.setLineDash([]);
+    const t=`${Math.round(dms)} ms · ${dmv>=0?'+':''}${dmv.toFixed(2).replace('.',',')} mV`+(dms>150?` · ${Math.round(60000/dms)} lpm`:'');
+    x.font='bold 26px system-ui';const tw=x.measureText(t).width,tx=Math.min(Math.max(a.x,b.x)+10,c.width-tw-10),ty=Math.min(a.y,b.y)-20;
+    x.fillStyle='rgba(255,255,255,.9)';x.fillRect(tx-6,ty-26,tw+12,34);x.fillStyle='#0a62d0';x.fillText(t,tx,ty);
+    $('calTxt').textContent=t;$('calAsg').hidden=false;$('calAsg').dataset.ms=Math.round(dms)}}
+$('cal').addEventListener('click',e=>{const r=e.target.getBoundingClientRect(),c=$('cal');const p={x:(e.clientX-r.left)*c.width/r.width,y:(e.clientY-r.top)*c.height/r.height};
+  if(calPts.length>=2)calPts=[];calPts.push(p);drawCal()});
+$('calAsg').addEventListener('click',e=>{const f=e.target.dataset.f;if(!f)return;if(M.mode==='auto'){M.mode='man';LS.set('mmode','man');applyMode(false)}
+  $(f).value=$('calAsg').dataset.ms;recalcQtc(f==='mRr'?'mRr':f);alerts();drawRep()});
+$('bCalClr').onclick=()=>{calPts=[];drawCal()};
+$('bZoom').onclick=()=>{const z=$('repWrap').classList.toggle('zoom');$('bZoom').textContent=z?'🔍 Reducir':'🔍 Ampliar'};
+$('pSexo').addEventListener('change',alerts);
+
+const PF=['pNom','pEdad','pSexo','pId','pNota'];
+let pacThen=null;
+function pacSum(){const n=$('pNom').value.trim(),e=$('pEdad').value,s=$('pSexo').value,i=$('pId').value;
+  $('pacLbl').textContent=n?('· '+n):'';$('repPac').textContent=n?[n,e&&e+' años',s,i&&'ID '+i].filter(Boolean).join(' · '):'Sin datos del paciente — toca «Datos del paciente».';}
+function openPac(then){pacThen=then||null;$('dPac').showModal();setTimeout(()=>$('pNom').focus(),100)}
+$('bPac').onclick=()=>openPac();
+$('bRepPac').onclick=()=>{$('dRep').close();openPac(()=>{drawRep();$('dRep').showModal()})};
+$('bPacOk').onclick=()=>{$('dPac').close();pacSum();drawRep();const f=pacThen;pacThen=null;if(f)f()};
+$('bPacNew').onclick=()=>{PF.forEach(i=>$(i).value='');pacSum();$('pNom').focus()};
+$('dPac').addEventListener('cancel',()=>{pacSum();pacThen=null});
+pacSum();
 function fname(ext){const t=cap.t,p=n=>String(n).padStart(2,'0');return `ECG_${($('pNom').value||'paciente').replace(/[^\wáéíóúñÁÉÍÓÚÑ-]+/g,'_')}_${t.getFullYear()}${p(t.getMonth()+1)}${p(t.getDate())}_${p(t.getHours())}${p(t.getMinutes())}.${ext}`}
 function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},2000)}
 $('bPdf').onclick=()=>{const J=window.jspdf&&window.jspdf.jsPDF;if(!J){$('bPrint').click();return}
@@ -737,7 +910,7 @@ $('bPrint').onclick=()=>{const u=$('rep').toDataURL('image/png');const w=open(''
 $('bCloseRep').onclick=()=>$('dRep').close();
 
 /* ===== UI ===== */
-$('bConn').onclick=connect;$('bStart').onclick=start;$('bStop').onclick=()=>{demoT?stopDemo():stop()};$('bCap').onclick=capture;
+$('bConn').onclick=connect;$('bStart').onclick=()=>{if(!$('pNom').value.trim())openPac(start);else start()};$('bStop').onclick=()=>{demoT?stopDemo():stop()};$('bCap').onclick=capture;
 $('bDemo').onclick=()=>{if(demoT)stopDemo();else{if(running)return;startDemo()}};
 $('sSpeed').onchange=e=>S.speed=+e.target.value;$('sGain').onchange=e=>S.gain=+e.target.value;$('sLay').onchange=e=>S.lay=e.target.value;
 $('sLp').onchange=e=>{S.lp=+e.target.value;mkFilters()};$('sHp').onchange=e=>{S.hp=+e.target.value;mkFilters()};$('sNotch').onchange=e=>{S.notch=+e.target.value;mkFilters()};
@@ -747,6 +920,7 @@ $('bCloseCfg').onclick=()=>{S.upmv=+$('cUpmv').value||400;S.fsForce=+$('cFs').va
 $('bCopyLog').onclick=()=>navigator.clipboard?.writeText($('log').textContent).then(()=>alert('Copiado'));
 if(!('serial' in navigator))$('noSerial').hidden=false;
 setInterval(btns,1000);
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('ecg-sw.js',{scope:'./'}).catch(e=>log('SW: '+e.message));
 log('App lista. Web Serial: '+('serial' in navigator?'sí':'NO'));
 </script>
 </body>
