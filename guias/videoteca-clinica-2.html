@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Videoteca Clínica 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: cabecera compacta + barra de pestañas (una por video) + panel con secciones en columna única, fichas de dosis en rejilla */
+:root{
+  --bg:#f3f6f7; --surface:#ffffff; --fg:#14232b; --muted:#56666e; --line:#d6e0e3;
+  --accent:#0b5d6b; --accent-soft:#dcedf0;
+  --crit:#b3261e; --crit-soft:#fbe6e4; --warn:#9a5b00; --warn-soft:#fdf0d8; --ok:#1e6b3a; --ok-soft:#e1f2e6;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f181c; --surface:#16232a; --fg:#e4ecef; --muted:#9aaab1; --line:#2a3b43;
+  --accent:#5cc3d3; --accent-soft:#173a42;
+  --crit:#ff8a80; --crit-soft:#3a1c1a; --warn:#f2b552; --warn-soft:#3a2c12; --ok:#7fd49a; --ok-soft:#173523;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f181c; --surface:#16232a; --fg:#e4ecef; --muted:#9aaab1; --line:#2a3b43;
+  --accent:#5cc3d3; --accent-soft:#173a42;
+  --crit:#ff8a80; --crit-soft:#3a1c1a; --warn:#f2b552; --warn-soft:#3a2c12; --ok:#7fd49a; --ok-soft:#173523;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+header{display:flex;flex-direction:column;gap:2px;padding-bottom:14px;border-bottom:2px solid var(--fg)}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--f-display);font-size:clamp(2rem,6vw,2.8rem);line-height:1;margin:0;letter-spacing:.01em}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;overflow-x:auto;padding-block:12px;border-bottom:1px solid var(--line)}
+.tab{flex:0 0 auto;font:600 15px var(--f-body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.tab:focus-visible,.subnav a:focus-visible,.opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tab.next{border-style:dashed;cursor:default}
+.panel{display:flex;flex-direction:column;gap:28px;padding-top:22px}
+h2{font-family:var(--f-display);font-size:1.9rem;line-height:1.05;margin:0;text-wrap:balance}
+h3{font-family:var(--f-display);font-size:1.35rem;margin:0 0 8px;letter-spacing:.01em;text-wrap:balance}
+p{margin:0;max-width:68ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--muted);margin-top:6px}
+.subnav{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+.subnav a{color:var(--accent);text-decoration:none;font-weight:600}
+.subnav a:hover{text-decoration:underline}
+section{display:flex;flex-direction:column;gap:10px;scroll-margin-top:70px}
+.lead{font-size:1.08rem}
+.note{font-size:14px;color:var(--muted)}
+/* Algoritmo */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-left:3px solid var(--accent);margin-left:14px}
+.step{position:relative;padding:0 0 18px 26px}
+.step:last-child{padding-bottom:0}
+.num{position:absolute;left:-16px;top:0;width:29px;height:29px;border-radius:50%;background:var(--accent);color:var(--surface);font:700 15px var(--f-display);display:grid;place-items:center}
+.step h4{margin:0 0 4px;font-family:var(--f-display);font-size:1.25rem;letter-spacing:.02em;text-transform:uppercase}
+.step ul{margin:4px 0 0;padding-left:18px}
+.step li{margin:2px 0}
+.dose{font-family:var(--f-mono);font-size:.9em;background:var(--accent-soft);padding:1px 6px;border-radius:4px;white-space:nowrap}
+/* Niveles */
+.levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lvl{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--warn);padding:12px;border-radius:6px;min-width:0}
+.lvl.l2{border-top-color:var(--crit)} .lvl.l3{border-top-color:var(--fg)}
+.lvl b{display:block;font-family:var(--f-display);font-size:1.1rem;text-transform:uppercase;letter-spacing:.04em}
+.lvl .v{font-family:var(--f-mono);font-size:1.15rem;margin:2px 0}
+.lvl small{color:var(--muted);font-size:14px;line-height:1.4;display:block}
+/* Tabla */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+tr:last-child td{border-bottom:0}
+td.m{font-family:var(--f-mono);font-size:14px}
+/* Comentario experto */
+.verdicts{display:flex;flex-direction:column;gap:8px}
+.vd{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px}
+.tag{font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;white-space:nowrap}
+.tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.add{background:var(--warn-soft);color:var(--warn)} .tag.crit{background:var(--crit-soft);color:var(--crit)}
+.vd p{min-width:0}
+.callout{background:var(--crit-soft);border-left:4px solid var(--crit);padding:12px 14px;border-radius:0 6px 6px 0}
+.callout strong{color:var(--crit)}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0}
+.box ul{margin:4px 0 0;padding-left:18px}
+/* Quiz */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.q p{font-weight:600}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{font:15px var(--f-body);text-align:left;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok)}
+.opt.wrong{background:var(--crit-soft);border-color:var(--crit)}
+.opt:disabled{cursor:default}
+.exp{font-size:14px;color:var(--muted)}
+.score{font-family:var(--f-display);font-size:1.3rem}
+.calc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.calc label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;min-width:0}
+.calc select,.calc input{font:15px var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 8px;width:100%}
+.calc select:focus-visible,.calc input:focus-visible{outline:3px solid var(--accent);outline-offset:1px}
+.result{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.result .big{font-family:var(--f-display);font-size:2rem;line-height:1;font-variant-numeric:tabular-nums}
+.pill{font:700 12px var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.add{background:var(--warn-soft);color:var(--warn)} .pill.crit{background:var(--crit-soft);color:var(--crit)}
+@media (max-width:620px){.calc{grid-template-columns:1fr}}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:32px}
+@media (max-width:620px){.levels,.cols{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
+  <h1>Videoteca Clínica 2</h1>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Videos">
+  <button class="tab" role="tab" id="t-v11" aria-controls="v11" aria-selected="true">11 · Código sepsis SSC 2026</button>
+  <button class="tab" role="tab" id="t-v12" aria-controls="v12" aria-selected="false">12 · Crisis hipertensiva AHA/ACC 2025</button>
+  <button class="tab" role="tab" id="t-v13" aria-controls="v13" aria-selected="false">13 · Hipertensión severa vs emergencia</button>
+  <button class="tab" role="tab" id="t-v14" aria-controls="v14" aria-selected="false">14 · Anemia de la inflamación</button>
+  <button class="tab" role="tab" id="t-v15" aria-controls="v15" aria-selected="false">15 · Fórmulas metabólicas</button>
+  <button class="tab" role="tab" id="t-v16" aria-controls="v16" aria-selected="false">16 · Perfil hepático (Tiagoritmo)</button>
+  <button class="tab" role="tab" id="t-v17" aria-controls="v17" aria-selected="false">17 · Pantorrilla y sarcopenia</button>
+  <button class="tab" role="tab" id="t-v18" aria-controls="v18" aria-selected="false">18 · Crisis hipertensiva: fármacos y dosis</button>
+  <button class="tab" role="tab" id="t-v19" aria-controls="v19" aria-selected="false">19 · Emergencias en ECG</button>
+  <button class="tab" role="tab" id="t-v20" aria-controls="v20" aria-selected="false">20 · AR: abordaje completo</button>
+  <span class="tab next" aria-hidden="true">continúa en Videoteca 3</span>
+</nav>
+
+<!-- ============ VIDEO 11 ============ -->
+<article class="panel" id="v11" role="tabpanel" aria-labelledby="t-v11">
+  <div>
+    <h2>Hora 1: código sepsis en 4 claves (Surviving Sepsis Campaign 2026)</h2>
+    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:24</span><span>Recibido 24/10/2026</span><span>Base citada: guía Surviving Sepsis Campaign 2026</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 11">
+    <a href="#v11-resumen">Resumen</a><a href="#v11-claves">4 claves</a><a href="#v11-caso">Caso</a><a href="#v11-calc">Dosis de norepinefrina</a><a href="#v11-analisis">Análisis crítico</a><a href="#v11-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v11-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">"Si el antibiótico llega en la hora dos, llegaste tarde." Según el video, la guía SSC 2026 redefinió quién entra a la hora uno al distinguir sepsis <b>definitiva, probable y posible</b>. Presenta 4 claves: reconocer y clasificar, líquidos sin desbordar, vasopresor sin esperar el catéter, y cómo (no solo cuándo) dar el antibiótico.</p>
+  </section>
+
+  <section id="v11-claves">
+    <h3>Las 4 claves del video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Reconoce y clasifica</h4>
+        <ul>
+          <li>"Como una alarma de humo." Sepsis <b>definitiva o probable</b> → antibiótico en la <b>primera hora</b>.</li>
+          <li>Sepsis <b>posible sin choque</b> → descarta primero causas no infecciosas.</li>
+          <li>Mide el <b>lactato</b> siempre que sospeches sepsis.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>Líquidos: llena el tanque sin desbordarlo</h4>
+        <ul>
+          <li>Con hipotensión, lactato elevado o choque: al menos <span class="dose">30 mL/kg de cristaloide</span> en las primeras 3 horas.</li>
+          <li><b>Nada de almidones.</b></li>
+          <li>Después de reanimar, <b>retira el exceso</b>: la guía insiste en no inundar.</li>
+        </ul></li>
+      <li class="step"><span class="num">3</span><h4>Vasopresor: la presión no espera el catéter</h4>
+        <ul>
+          <li><b>Norepinefrina</b> de primera línea; <b>epinefrina</b> si hay disfunción cardíaca.</li>
+          <li>Empezar por <b>vía periférica</b>, sin esperar el acceso central.</li>
+          <li>Meta inicial: <b>PAM 65</b>. En ≥ 65 años, rango <b>60–65</b>.</li>
+          <li>Si la norepinefrina sigue subiendo, agregar <b>vasopresina</b>.</li>
+        </ul></li>
+      <li class="step"><span class="num">4</span><h4>Cómo dar el antibiótico</h4>
+        <ul>
+          <li>Un betalactámico trabaja por <b>tiempo, no por pico</b>: <b>infusión prolongada</b> después de la dosis de carga, en vez de bolos.</li>
+          <li>Choque séptico: se sugiere <b>corticoide IV</b>.</li>
+          <li>Se sugiere <b>no usar</b> vitamina C, vitamina D ni betabloqueadores.</li>
+        </ul></li>
+    </ol>
+  </section>
+
+  <section id="v11-caso">
+    <h3>Pausa y responde</h3>
+    <div class="box">
+      <p><b>Mujer de 78 años con neumonía.</b> Ya recibió 30 mL/kg de cristaloide. PA 78/40, lactato 4,8 mmol/L. ¿Siguiente paso?</p>
+      <ul><li>A. Otros 2 L y reevaluar</li><li>B. Esperar el catéter central</li><li>C. Hidrocortisona primero</li><li>D. Norepinefrina periférica, ya</li></ul>
+    </div>
+    <div class="callout"><strong>Respuesta: D.</strong> Persiste la hipotensión tras 30 mL/kg: es choque séptico. Norepinefrina por vía periférica de inmediato, con meta de PAM 60–65 por la edad. Más volumen solo si hay respuesta a fluidos demostrada. La hidrocortisona se agrega si persiste la necesidad de norepinefrina, no antes.</div>
+  </section>
+
+  <section id="v11-calc">
+    <h3>Dosis de norepinefrina (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="n-mg">Norepinefrina en la mezcla (mg)<input id="n-mg" type="number" min="0.5" max="64" step="0.5" value="8"></label>
+        <label for="n-ml">Volumen de la mezcla (mL)<input id="n-ml" type="number" min="10" max="1000" value="250"></label>
+        <label for="n-rate">Velocidad de la bomba (mL/h)<input id="n-rate" type="number" min="0" max="200" step="0.5" value="30"></label>
+        <label for="n-kg">Peso (kg)<input id="n-kg" type="number" min="20" max="250" value="60"></label>
+      </div>
+      <div class="result" aria-live="polite"><span class="big" id="n-out">0,27</span><span>µg/kg/min</span><span class="pill" id="n-pill"></span></div>
+      <p class="note" style="margin-top:8px" id="n-conc">Valores de ejemplo cargados. Con ≥ 0,25 µg/kg/min durante ≥ 4 h: considerar hidrocortisona. Con 0,25–0,5 µg/kg/min: agregar vasopresina 0,03 U/min.</p>
+    </div>
+  </section>
+
+  <section id="v11-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Video correcto y bien sintetizado. No pude verificar el texto final de la SSC 2026, así que la comparo con la evidencia que la sustenta y con la SSC 2021.</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Vasopresor periférico:</b> SSC 2021 ya lo sugería para no retrasar la reperfusión tisular. Usar una vena proximal (antecubital o superior), vigilar el sitio y pasar a central en las primeras 24–48 h si sigue necesitándose.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>PAM 60–65 en ≥ 65 años:</b> respaldado por el ensayo 65 (Lamontagne, JAMA 2020), sin aumento de mortalidad con la meta permisiva y con menor exposición a vasopresor.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Infusión prolongada de betalactámicos:</b> el ensayo BLING III y el metaanálisis de Abdul-Aziz (JAMA 2024) mostraron menor mortalidad a 90 días frente a la administración intermitente.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>No vitamina C ni betabloqueadores:</b> LOVIT (NEJM 2022) mostró daño con vitamina C; STRESS-L (landiolol, JAMA 2023) no mostró beneficio. Los almidones aumentan la lesión renal y la necesidad de diálisis.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Sepsis posible sin choque:</b> la SSC 2021 da una ventana de evaluación rápida y antibiótico dentro de <b>3 horas</b> si persiste la sospecha. El video lo resume como "descarta primero causas no infecciosas", sin mencionar el plazo.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>30 mL/kg no es dogma:</b> en la SSC 2021 era una recomendación débil con evidencia de baja calidad. Más allá del bolo inicial, reevaluar la respuesta a fluidos (elevación pasiva de piernas, VPP, VTI) y usar el <b>llenado capilar</b> como guía (ANDROMEDA-SHOCK). Cristaloides balanceados mejor que salino.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Corticoide:</b> hidrocortisona 200 mg/día (50 mg IV c/6 h o infusión) cuando la norepinefrina es ≥ 0,25 µg/kg/min durante ≥ 4 h. Reduce el tiempo en choque; el efecto sobre la mortalidad es modesto y depende del ensayo (ADRENAL vs APROCCHSS).</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Lactato:</b> repetir a las 2–4 h si está elevado. El objetivo es la tendencia a la baja, no un número aislado. Un lactato ≥ 4 mmol/L obliga a reanimación aunque la PA sea normal (choque críptico).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Control del foco</b> (drenaje, desbridamiento, retiro de catéteres) también es de la hora cero y el video no lo menciona. Sin él, el antibiótico perfecto fracasa.</p></div>
+    </div>
+    <div class="callout"><strong>Perla:</strong> la reanimación de la hora 1 son cinco acciones en paralelo, no en serie: lactato, hemocultivos, antibiótico, cristaloide y norepinefrina si la PAM no llega a 65.</div>
+  </section>
+
+  <section id="v11-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v11"></div>
+  </section>
+  <p class="note">Referencias: Surviving Sepsis Campaign 2026 (citada en el video); Evans L et al. SSC 2021, Crit Care Med 2021; Lamontagne F et al. ensayo 65, JAMA 2020; Abdul-Aziz MH et al. infusión prolongada de betalactámicos, JAMA 2024; Lamontagne F et al. LOVIT, NEJM 2022; Whitehouse T et al. STRESS-L, JAMA 2023; Hernández G et al. ANDROMEDA-SHOCK, JAMA 2019.</p>
+</article>
+
+<!-- ============ VIDEO 12 ============ -->
+<article class="panel" id="v12" role="tabpanel" aria-labelledby="t-v12" hidden>
+  <div>
+    <h2>Crisis hipertensiva: nifedipino sublingual nunca más</h2>
+    <div class="meta"><span>Fuente: TikTok @medicina.en.resumen · "Hipertensión, parte 4"</span><span>Duración 2:25</span><span>Recibido 23/10/2026</span><span>Base citada: AHA/ACC 2025, sección 6.2 y tabla 27</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 12">
+    <a href="#v12-resumen">Resumen</a><a href="#v12-algoritmo">Algoritmo</a><a href="#v12-metas">Metas por condición</a><a href="#v12-calc">Calculadora</a><a href="#v12-analisis">Análisis crítico</a><a href="#v12-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v12-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Carrusel en video con referencias en cada lámina. Una sola pregunta divide todo: <b>¿hay daño agudo a órgano?</b> (corazón, cerebro, riñón, retina, aorta). Sin daño, la AHA/ACC 2025 abandona el término "urgencia hipertensiva" y habla de <b>hipertensión grave</b>: vía oral y sin prisa. Con daño, es <b>emergencia</b>: terapia intensiva e infusión IV titulable, con metas distintas según el órgano.</p>
+  </section>
+
+  <section id="v12-algoritmo">
+    <h3>Algoritmo del video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">?</span><h4>¿Hay daño agudo a órgano?</h4>
+        <ul><li>Corazón, cerebro, riñón, retina, aorta.</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>Sin daño: hipertensión grave (≥ 180 y/o ≥ 120)</h4>
+        <ul>
+          <li><b>En consulta:</b> vía oral, sin prisa. Reiniciar o ajustar el tratamiento y control ambulatorio.</li>
+          <li>Enviarlo a urgencias no cambia los eventos CV a 6 meses (0,9 % vs 0,9 %), pero sí aumenta la hospitalización a 7 días (8,2 % vs 4,7 %) (Patel, JAMA Intern Med 2016).</li>
+          <li><b>Hospitalizado por otra causa:</b> en 40–50 % la presión baja sola, sin fármacos. Tratarla de forma aguda aumentó la lesión renal aguda (10,3 % vs 7,9 %) y la lesión miocárdica (1,2 % vs 0,6 %) (Rastogi, JAMA Intern Med 2021). AHA/ACC 2025: <b>clase 3, daño</b>.</li>
+        </ul></li>
+      <li class="step"><span class="num">✕</span><h4>Nifedipino de acción corta sublingual</h4>
+        <ul><li>Nunca fue aprobado para crisis hipertensiva. Produce una caída brusca e impredecible de la PA, con riesgo de infarto y EVC (Grossman, JAMA 1996).</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Con daño: emergencia hipertensiva</h4>
+        <ul>
+          <li>Terapia intensiva + infusión IV titulable: <b>nicardipino o labetalol</b>.</li>
+          <li><b>Sin condición específica:</b> 1.ª hora bajar no más del 25 % → <span class="dose">&lt; 160/100</span> en 2–6 h si está estable → <span class="dose">sistólica 130–140</span> de forma gradual en 24–48 h.</li>
+        </ul></li>
+    </ol>
+  </section>
+
+  <section id="v12-metas">
+    <h3>Cada condición, su meta y su fármaco</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Condición</th><th>Meta</th><th>Fármaco</th></tr></thead>
+      <tbody>
+        <tr><td><b>Disección aórtica</b></td><td class="m">PAS ≤ 120 en 20 min<br>FC ≤ 60</td><td>1.º esmolol o labetalol, después el vasodilatador</td></tr>
+        <tr><td><b>Edema pulmonar</b></td><td class="m">PAS &lt; 140</td><td>Nitroglicerina o nitroprusiato + diurético de asa. <b style="color:var(--crit)">Betabloqueador contraindicado</b></td></tr>
+        <tr><td><b>Síndrome coronario agudo</b></td><td class="m">PAS &lt; 140</td><td>Nitroglicerina o esmolol</td></tr>
+        <tr><td><b>Hemorragia intracerebral</b></td><td class="m">Meta 140<br>Nunca &lt; 130</td><td>Bajar a &lt; 130 es clase 3 (daño). Nicardipino o labetalol</td></tr>
+        <tr><td><b>Isquemia cerebral sin trombólisis</b></td><td class="m">Tratar solo si &gt; 220/120</td><td>Nicardipino o labetalol</td></tr>
+        <tr><td><b>Isquemia cerebral con trombólisis</b></td><td class="m">&lt; 185/110 antes</td><td>Nicardipino o labetalol</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Todo esto es fuera del embarazo; ahí las metas y los fármacos son otros.</p>
+  </section>
+
+  <section id="v12-calc">
+    <h3>Calculadora de metas (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="h12-pas">PA sistólica inicial (mmHg)<input id="h12-pas" type="number" min="100" max="300" value="220"></label>
+        <label for="h12-pad">PA diastólica inicial (mmHg)<input id="h12-pad" type="number" min="40" max="180" value="130"></label>
+        <label for="h12-cond">Condición
+          <select id="h12-cond">
+            <option value="gen" selected>Emergencia sin condición específica</option>
+            <option value="aorta">Disección aórtica</option>
+            <option value="eap">Edema pulmonar</option>
+            <option value="sca">Síndrome coronario agudo</option>
+            <option value="hic">Hemorragia intracerebral</option>
+            <option value="isq">Isquemia cerebral sin trombólisis</option>
+            <option value="tpa">Isquemia cerebral con trombólisis</option>
+            <option value="grave">Hipertensión grave sin daño</option>
+          </select></label>
+      </div>
+      <div class="result" aria-live="polite"><span>PAM</span><span class="big" id="h12-pam">160</span><span id="h12-txt" style="flex:1 1 260px;min-width:0"></span></div>
+    </div>
+  </section>
+
+  <section id="v12-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Excelente material: cada lámina cita su fuente y las cifras de los estudios están bien. Para el especialista en hipertensión, estos son los matices y lo que falta:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Abandono del nifedipino sublingual</b> (Grossman 1996): la absorción sublingual es mínima; actúa por absorción gastrointestinal rápida, con hipotensión impredecible, isquemia cerebral y coronaria. No existe dosis segura en crisis fuera del embarazo.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>HIC: no bajar de 130</b>, coincide con AHA/ASA 2022. INTERACT-3/4 y ATACH-2 mostraron que la reducción agresiva no mejora el pronóstico y aumenta la lesión renal. Mantener 130–150 con poca variabilidad.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Isquemia con trombólisis:</b> además de &lt; 185/110 antes, mantener <b>&lt; 180/105 durante 24 h</b> después del trombolítico. Sin trombólisis y con PA &gt; 220/120: bajar solo ~15 % en las primeras 24 h.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>¿25 % de qué?</b> La AHA/ACC lo expresa sobre la <b>PAS</b>; el documento de la ESC (2019), sobre la <b>PAM</b>. En la práctica dan cifras parecidas; la calculadora muestra ambas. Excepciones donde la meta es inmediata: disección aórtica, preeclampsia grave/eclampsia y feocromocitoma.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Condiciones que faltan:</b></p></div>
+      <div class="vd"><span class="tag add">↳</span><p><b>Preeclampsia/eclampsia:</b> PA ≥ 160/110 tratar en 30–60 min; labetalol IV, hidralazina IV o <b>nifedipino oral de liberación inmediata</b> (en el embarazo sí es de primera línea, ACOG). Sulfato de magnesio para prevenir convulsiones.</p></div>
+      <div class="vd"><span class="tag add">↳</span><p><b>Feocromocitoma o simpaticomiméticos (cocaína, anfetaminas):</b> fentolamina o nicardipino + benzodiacepina. <b>Nunca betabloqueador solo</b> (estimulación α sin oposición).</p></div>
+      <div class="vd"><span class="tag add">↳</span><p><b>Hipertensión maligna</b> (retinopatía grado III–IV) y <b>microangiopatía trombótica</b> (esquistocitos, LDH alta, plaquetas bajas): son emergencias aunque no haya síntomas. El fondo de ojo es parte de la evaluación.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Evaluación mínima de daño a órgano:</b> ECG, troponina, creatinina, examen de orina, fondo de ojo, frotis/LDH si hay sospecha de MAT; TAC de cráneo si hay focalidad o alteración de conciencia; angio-TC si hay dolor torácico o dorsal desgarrante.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Disponibilidad en Ecuador:</b> nicardipino y clevidipino son poco accesibles. En la práctica se usan <b>labetalol IV</b>, <b>nitroprusiato</b> (evitar uso prolongado por toxicidad por cianuro, sobre todo en ERC) y <b>nitroglicerina</b> (SCA, EAP). Elegir según el órgano afectado y lo disponible.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Hospitalizado con PA alta asintomática:</b> antes de tratar, buscar la causa: dolor, ansiedad, retención urinaria, abstinencia, suspensión de antihipertensivos, fármacos (AINE, corticoides, simpaticomiméticos). Tratar la causa, no el número.</p></div>
+    </div>
+    <div class="callout"><strong>En consulta (Salitre/Guayas):</strong> paciente con 190/115 sin síntomas ni daño → reposo 30 min, repetir la toma, reiniciar o ajustar antihipertensivos orales y control en 24–72 h. No enviar a urgencias ni administrar nada sublingual.</div>
+  </section>
+
+  <section id="v12-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v12"></div>
+  </section>
+  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults (sección 6.2, tabla 27); van den Born BJH et al. ESC position document on hypertensive emergencies, EHJ-CVP 2019; Patel KK et al. JAMA Intern Med 2016; Rastogi R et al. JAMA Intern Med 2021; Grossman E et al. JAMA 1996; AHA/ASA 2022 hemorragia intracerebral; AHA/ASA 2019 ictus isquémico; ACOG 2020 hipertensión gestacional.</p>
+</article>
+
+<!-- ============ VIDEO 13 ============ -->
+<article class="panel" id="v13" role="tabpanel" aria-labelledby="t-v13" hidden>
+  <div>
+    <h2>"210/120 sin síntomas": hipertensión severa vs emergencia hipertensiva</h2>
+    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:55</span><span>Recibido 20/10/2026</span><span>Base citada: guía AHA/ACC 2025</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 13">
+    <a href="#v13-resumen">Resumen</a><a href="#v13-claves">4 claves</a><a href="#v13-caso">Caso</a><a href="#v13-comp">Comparación con la pestaña 12</a><a href="#v13-analisis">Análisis crítico</a><a href="#v13-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v13-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Mismo tema que la pestaña 12, contado por otro autor. Arranca con el error típico: paciente con <b>210/120 sin síntomas</b>, le diste captopril y la bajaste en 1 hora: "ese es el error". La "urgencia hipertensiva" ya no existe: <b>el número no define nada, el órgano sí</b>.</p>
+    <p class="note">Para metas por órgano y la calculadora, ver la pestaña 12. Aquí va lo propio de este video y en qué difieren ambos.</p>
+  </section>
+
+  <section id="v13-claves">
+    <h3>Las 4 claves del video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>El órgano manda</h4>
+        <ul>
+          <li>La alarma suena igual si se quema el pan o la casa.</li>
+          <li><b>&gt; 180/120 sin daño agudo</b> de órgano blanco → <b>hipertensión severa</b> (antes "urgencia hipertensiva").</li>
+          <li><b>&gt; 180/120 con daño agudo</b> → <b>emergencia hipertensiva</b>.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>Busca el incendio en 4 sitios</h4>
+        <ul>
+          <li><b>Cerebro:</b> encefalopatía, ACV, hemorragia. <b>Corazón:</b> SCA, edema pulmonar. <b>Aorta:</b> disección. <b>Riñón.</b></li>
+          <li><b>Gestante:</b> preeclampsia severa o eclampsia.</li>
+          <li>Pide: ECG, troponina, creatinina y parcial de orina.</li>
+        </ul></li>
+      <li class="step"><span class="num">3</span><h4>Severa ≠ emergencia</h4>
+        <ul>
+          <li>No necesita medicamentos IV ni bajar rápido. Guía 2025: <b>no bolos IV ni dosis extra</b> en el hospitalizado.</li>
+          <li>Busca la causa: dolor, ansiedad, retención urinaria, dosis olvidadas.</li>
+          <li>Reinicia o ajusta la vía oral y control en días. <b>Nada de nifedipino de acción corta.</b></li>
+        </ul></li>
+      <li class="step"><span class="num">4</span><h4>Emergencia → UCI</h4>
+        <ul>
+          <li>Monitoría continua y fármaco IV titulable. "La presión se aterriza, no se desploma."</li>
+          <li>1.ª hora: <b>↓ ≤ 25 %</b> · 2–6 h: <b>&lt; 160/100</b> · 24–48 h: <b>PAS 130–140</b>.</li>
+          <li>Excepciones: <b>disección aórtica</b>, PAS &lt; 120 en la 1.ª hora; <b>preeclampsia severa y feocromocitoma</b>, metas más rápidas.</li>
+        </ul></li>
+    </ol>
+  </section>
+
+  <section id="v13-caso">
+    <h3>Pausa y responde</h3>
+    <div class="box">
+      <p><b>Mujer de 58 años, PA 205/115.</b> Asintomática, examen normal, troponina y creatinina normales. Dejó su losartán hace 3 días. ¿Qué haces?</p>
+      <ul><li>A. Labetalol IV</li><li>B. Nifedipino sublingual</li><li>C. Reiniciar VO + control ambulatorio</li><li>D. Ingreso a UCI</li></ul>
+    </div>
+    <div class="callout"><strong>Respuesta: C.</strong> Hipertensión severa sin daño agudo, con causa clara: abandono del losartán. Reiniciarlo (o ajustar el esquema), confirmar adherencia y control en 2–7 días. Ni IV, ni sublingual, ni UCI.</div>
+  </section>
+
+  <section id="v13-comp">
+    <h3>Comparación con la pestaña 12 (@medicina.en.resumen)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Punto</th><th>Pestaña 12</th><th>Este video</th><th>Comentario</th></tr></thead>
+      <tbody>
+        <tr><td>Umbral</td><td class="m">&gt;180 y/o &gt;120</td><td class="m">&gt;180/120</td><td>Equivalentes: basta con que una de las dos cifras supere el umbral.</td></tr>
+        <tr><td>Disección aórtica</td><td class="m">PAS ≤ 120 en 20 min</td><td class="m">PAS &lt; 120 en la 1.ª hora</td><td>ESC 2019 apunta a 20 min; AHA/ACC dice 1.ª hora. En la práctica: lo antes posible, con FC ≤ 60 primero.</td></tr>
+        <tr><td>Embarazo</td><td>Lo excluye</td><td>Lo incluye como excepción</td><td>En preeclampsia severa la meta es inmediata (PAS &lt; 160, PAD &lt; 110 en 30–60 min).</td></tr>
+        <tr><td>Evidencia</td><td>Cita estudios (Patel, Rastogi)</td><td>Sin cifras</td><td>La pestaña 12 es más sólida; esta es más didáctica.</td></tr>
+        <tr><td>Evaluación</td><td>No la detalla</td><td>ECG, troponina, creatinina, orina</td><td>Falta el fondo de ojo en ambas.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v13-analisis">
+    <h3>Análisis crítico</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>El mensaje central coincide con la AHA/ACC 2025 y con la pestaña 12: el daño de órgano define la conducta, no el número.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El captopril no es el villano.</b> El error del ejemplo es el objetivo (bajar en 1 hora), no el fármaco. Un IECA oral es razonable para reiniciar el tratamiento; lo que no se busca es normalizar la PA en horas, porque la autorregulación cerebral y coronaria está desplazada en el hipertenso crónico.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Fondo de ojo:</b> hemorragias en llama, exudados o papiledema (hipertensión maligna) convierten un caso "asintomático" en emergencia. Es el examen más olvidado en consulta.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Riñón:</b> no basta con la creatinina. Hematuria o proteinuria nuevas, o un aumento agudo de creatinina respecto a un valor previo, sugieren lesión aguda. Pensar en microangiopatía si hay anemia y plaquetas bajas.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>"Asintomático" se pregunta dirigido:</b> cefalea intensa, alteraciones visuales, dolor torácico o dorsal, disnea, déficit neurológico, oliguria. Muchos pacientes no los refieren espontáneamente.</p></div>
+    </div>
+  </section>
+
+  <section id="v13-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v13"></div>
+  </section>
+  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults; van den Born BJH et al. EHJ-CVP 2019; Whelton PK et al. ACC/AHA 2017; ACOG 2020.</p>
+</article>
+
+<!-- ============ VIDEO 14 ============ -->
+<article class="panel" id="v14" role="tabpanel" aria-labelledby="t-v14" hidden>
+  <div>
+    <h2>"Anemia en 2 minutos": no es una receta de cocina</h2>
+    <div class="meta"><span>Fuente: TikTok @drkeiph</span><span>Duración 2:20</span><span>Recibido 19/10/2026</span><span>Formato: sketch hablado (docente y residente)</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 14">
+    <a href="#v14-resumen">Resumen</a><a href="#v14-discurso">Lo que dice</a><a href="#v14-ferro">Perfil ferrocinético</a><a href="#v14-calc">Índice sTfR</a><a href="#v14-analisis">Análisis crítico</a><a href="#v14-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v14-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Sketch: el docente revisa una historia y reclama porque alguien clasificó la anemia "como si fuese una receta de cocina". El mensaje: el VCM orienta, pero hay que saber si la anemia es <b>regenerativa o arregenerativa</b> (reticulocitos), mirar el <b>frotis</b> y el <b>perfil ferrocinético</b>, y recordar que en el paciente <b>infectado o con SRIS</b> la inflamación produce una anemia propia.</p>
+    <p class="note">Video hablado con subtítulos intermitentes; algunas frases quedaron incompletas. El contenido se complementa con la pestaña 5 (Algoritmo de anemia) de la Videoteca 1, que tiene las calculadoras de IRC/IPR y Mentzer.</p>
+  </section>
+
+  <section id="v14-discurso">
+    <h3>Lo que dice el video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>La "receta" del residente</h4>
+        <ul><li>Macrocítica (VCM &gt; 100) = déficit de ácido fólico; la otra: hemorragia, hemólisis o patologías crónicas. El docente lo critica como simplificación.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Índice de Mentzer</h4>
+        <ul><li>VCM dividido entre el número de eritrocitos: permite sospechar talasemia.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>¿Por qué está anémico?</h4>
+        <ul><li>Por hemólisis, por pérdida, o porque la médula no produce adecuadamente.</li><li>Pedir <b>frotis de sangre periférica con recuento de reticulocitos</b> y, según el caso, <b>perfil ferrocinético completo</b>.</li><li>Ver si la médula está liberando formas inmaduras de eritrocitos.</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>El paciente infectado</h4>
+        <ul><li>Séptico o con SRIS: tiene hierro, pero <b>no lo puede liberar hacia la sangre</b>. Puede parecer una anemia ferropénica.</li><li>La inflamación además <b>disminuye la producción de eritropoyetina</b>.</li><li>Cierre: estudiar cómo se clasifican, y si son regenerativas o arregenerativas.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v14-ferro">
+    <h3>Perfil ferrocinético: ferropenia vs inflamación (agregado)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Parámetro</th><th>Ferropenia</th><th>Anemia de la inflamación</th><th>Mixta</th></tr></thead>
+      <tbody>
+        <tr><td>Hierro sérico</td><td>↓</td><td>↓</td><td>↓</td></tr>
+        <tr><td>Ferritina (ng/mL)</td><td class="m">&lt; 30</td><td class="m">&gt; 100</td><td class="m">30–100</td></tr>
+        <tr><td>Transferrina / TIBC</td><td>↑</td><td>↓ o normal</td><td>Normal</td></tr>
+        <tr><td>Saturación de transferrina</td><td class="m">&lt; 20 %</td><td class="m">&lt; 20 %</td><td class="m">&lt; 20 %</td></tr>
+        <tr><td>Receptor soluble de transferrina</td><td>↑</td><td>Normal</td><td>↑</td></tr>
+        <tr><td>VCM</td><td>Bajo</td><td>Normal (bajo si es crónica)</td><td>Bajo o normal</td></tr>
+        <tr><td>PCR</td><td>Normal</td><td>↑</td><td>↑</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">La saturación baja no distingue entre ambas; la ferritina, el TIBC y el receptor soluble sí.</p>
+  </section>
+
+  <section id="v14-calc">
+    <h3>Índice sTfR/log ferritina (agregado)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="t14-stfr">Receptor soluble de transferrina (mg/L)<input id="t14-stfr" type="number" min="0.1" max="50" step="0.1" value="4.2"></label>
+        <label for="t14-fer">Ferritina (ng/mL)<input id="t14-fer" type="number" min="1" max="5000" value="65"></label>
+      </div>
+      <div class="result" aria-live="polite"><span class="big" id="t14-out">2,3</span><span class="pill" id="t14-pill"></span></div>
+      <p class="note" style="margin-top:8px">&lt; 1: anemia de la inflamación. &gt; 2: ferropenia (sola o asociada a inflamación). Los cortes dependen del método del laboratorio. Valores de ejemplo cargados.</p>
+    </div>
+  </section>
+
+  <section id="v14-analisis">
+    <h3>Análisis crítico</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Fisiopatología:</b> la IL-6 induce hepcidina, que degrada la ferroportina y atrapa el hierro en macrófagos y enterocitos. Además la inflamación suprime la EPO y acorta la vida del eritrocito. El video lo resume bien ("tiene hierro pero no lo puede liberar").</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Macrocitosis no es sinónimo de déficit de folato.</b> También déficit de B12 (descartarlo siempre antes de dar ácido fólico), alcohol, hepatopatía, hipotiroidismo, mielodisplasia, fármacos y reticulocitosis.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Reticulocitos:</b> corregir por hematocrito y maduración (IPR). Un porcentaje "normal" en anemia grave es una respuesta insuficiente. Calculadora en la pestaña 5, Videoteca 1.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Anemia del paciente crítico:</b> además de la inflamación, contribuyen las extracciones repetidas de sangre, la hemodilución y el sangrado oculto. La transfusión se reserva para Hb &lt; 7 g/dL (umbrales restrictivos, TRICC/TRISS); el hierro IV en la fase aguda tiene beneficio dudoso.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento de la anemia mixta:</b> con PCR alta, el hierro oral se absorbe mal por la hepcidina; preferir hierro IV cuando hay ferropenia real (ferritina &lt; 100 con saturación &lt; 20 %), especialmente en ERC e IC.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p>"Infectado" no explica cualquier anemia. Si la caída es brusca, buscar sangrado o hemólisis (LDH, bilirrubina indirecta, haptoglobina, Coombs) antes de atribuirla a la inflamación.</p></div>
+    </div>
+  </section>
+
+  <section id="v14-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v14"></div>
+  </section>
+  <p class="note">Referencias: Weiss G, Ganz T, Goodnough LT. Anemia of inflammation, Blood 2019; Camaschella C. Iron-deficiency anemia, NEJM 2015; Ganz T. Hepcidin, Blood 2011; Hébert PC et al. TRICC, NEJM 1999.</p>
+</article>
+
+<!-- ============ MATERIAL 15 (imágenes) ============ -->
+<article class="panel" id="v15" role="tabpanel" aria-labelledby="t-v15" hidden>
+  <div>
+    <h2>"Fórmulas que uso para conocer tu metabolismo"</h2>
+    <div class="meta"><span>Fuente: 8 láminas, TikTok @dra.maria.endocrino</span><span>Fecha del material: 15/10/2026</span><span>Público original: pacientes</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 15">
+    <a href="#v15-resumen">Resumen</a><a href="#v15-tabla">Las 6 fórmulas</a><a href="#v15-calc">Calculadora integrada</a><a href="#v15-analisis">Análisis crítico</a><a href="#v15-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v15-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Carrusel de una endocrinóloga: "No todo es índice HOMA". Presenta 6 fórmulas sencillas con datos de rutina para estimar riesgo metabólico: <b>HOMA-IR, TyG, colesterol no-HDL, índice cintura/cadera, relación cintura/estatura y FIB-4</b>. Cierra con el mensaje correcto: <b>ninguna sustituye una valoración médica individualizada</b>.</p>
+    <p class="note">HOMA-IR y TyG ya se analizaron en la pestaña 7 (Videoteca 1); FIB-4 en la pestaña 8. Aquí van juntas en una sola calculadora.</p>
+  </section>
+
+  <section id="v15-tabla">
+    <h3>Las 6 fórmulas del carrusel</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Fórmula</th><th>Cálculo</th><th>Corte del carrusel</th><th>Qué estima</th></tr></thead>
+      <tbody>
+        <tr><td><b>HOMA-IR</b></td><td class="m">glucosa × insulina / 405</td><td class="m">≈ 2–2,5</td><td>Resistencia a la insulina. "No existe un punto de corte universal; no es diagnóstico."</td></tr>
+        <tr><td><b>TyG</b></td><td class="m">ln(TG × glucosa / 2)</td><td class="m">8,5–8,8</td><td>Resistencia a la insulina, sin necesidad de medir insulina.</td></tr>
+        <tr><td><b>Colesterol no-HDL</b></td><td class="m">CT − HDL</td><td class="m">&lt; 130 mg/dL</td><td>Todo el colesterol aterogénico. "Varía según el riesgo cardiovascular."</td></tr>
+        <tr><td><b>Índice cintura/cadera</b></td><td class="m">cintura / cadera</td><td class="m">M &lt; 0,85 · H &lt; 0,90</td><td>Distribución de la grasa.</td></tr>
+        <tr><td><b>Cintura/estatura</b></td><td class="m">cintura / estatura</td><td class="m">&lt; 0,5 · 0,5–0,59 · ≥ 0,6</td><td>Adiposidad central. "La cintura debería medir menos de la mitad de tu estatura."</td></tr>
+        <tr><td><b>FIB-4</b></td><td class="m">edad × AST / (plaq × √ALT)</td><td class="m">&lt; 1,3 · 1,3–2,67 · &gt; 2,67</td><td>Fibrosis hepática avanzada.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v15-calc">
+    <h3>Calculadora metabólica integrada (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="m15-sex">Sexo<select id="m15-sex"><option value="F" selected>Mujer</option><option value="M">Hombre</option></select></label>
+        <label for="m15-age">Edad (años)<input id="m15-age" type="number" min="18" max="100" value="52"></label>
+        <label for="m15-cin">Cintura (cm)<input id="m15-cin" type="number" min="40" max="200" value="94"></label>
+        <label for="m15-cad">Cadera (cm)<input id="m15-cad" type="number" min="50" max="200" value="104"></label>
+        <label for="m15-tal">Estatura (cm)<input id="m15-tal" type="number" min="100" max="220" value="158"></label>
+        <label for="m15-glu">Glucosa en ayunas (mg/dL)<input id="m15-glu" type="number" min="40" max="500" value="104"></label>
+        <label for="m15-ins">Insulina en ayunas (µUI/mL, opcional)<input id="m15-ins" type="number" min="0" max="300" step="0.1" value="14"></label>
+        <label for="m15-tg">Triglicéridos (mg/dL)<input id="m15-tg" type="number" min="20" max="3000" value="190"></label>
+        <label for="m15-ct">Colesterol total (mg/dL)<input id="m15-ct" type="number" min="50" max="600" value="215"></label>
+        <label for="m15-hdl">HDL (mg/dL)<input id="m15-hdl" type="number" min="5" max="150" value="42"></label>
+        <label for="m15-ast">AST (U/L)<input id="m15-ast" type="number" min="1" max="2000" value="34"></label>
+        <label for="m15-alt">ALT (U/L)<input id="m15-alt" type="number" min="1" max="2000" value="40"></label>
+        <label for="m15-plt">Plaquetas (×10³/µL)<input id="m15-plt" type="number" min="5" max="1000" value="230"></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0">
+        <thead><tr><th>Índice</th><th>Valor</th><th>Interpretación</th></tr></thead>
+        <tbody id="m15-out"></tbody>
+      </table></div>
+      <p class="note" style="margin-top:8px">Valores de ejemplo cargados. Cintura: IDF para Latinoamérica ≥ 80 cm en mujeres y ≥ 90 cm en hombres. FIB-4 ajusta el corte inferior a 2,0 en ≥ 65 años.</p>
+    </div>
+  </section>
+
+  <section id="v15-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Material correcto y honesto: aclara que HOMA y TyG no tienen corte universal y que ninguna fórmula reemplaza la consulta. Precisiones y lo que falta:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Los cortes de HOMA-IR, TyG, cintura/estatura y FIB-4 coinciden con la literatura. La relación cintura/estatura &lt; 0,5 tiene la ventaja de servir para ambos sexos y casi todas las etnias (NICE 2022 la recomienda).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>No-HDL &lt; 130 es solo para riesgo moderado.</b> La meta es el objetivo de LDL + 30: &lt; 100 en riesgo alto y &lt; 85 en muy alto (ESC/EAS 2019; ADA para diabetes con ECV). En hipertrigliceridemia y diabetes es mejor marcador que el LDL.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Cintura/cadera:</b> los cortes de la OMS son ≥ 0,85 (M) y ≥ 0,90 (H) como riesgo. Es más difícil de medir bien que la cintura sola; la cadera se mide en la parte más prominente de los glúteos.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Cintura sola:</b> el dato más simple y validado para síndrome metabólico. En población latinoamericana (IDF/ALAD), ≥ 80 cm en mujeres y ≥ 90 cm en hombres.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros índices útiles:</b> relación TG/HDL (&gt; 3 sugiere resistencia a la insulina y LDL pequeñas y densas); ApoB (mejor marcador del número de partículas aterogénicas); Lp(a) una vez en la vida.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Marcadores, no diagnósticos.</b> La conducta la definen la glucosa (ayunas, HbA1c, PTOG), el riesgo cardiovascular global (SCORE2, PREVENT), la PA y la imagen hepática. Útiles para motivar al paciente, no para etiquetarlo.</p></div>
+    </div>
+  </section>
+
+  <section id="v15-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v15"></div>
+  </section>
+  <p class="note">Referencias: Matthews DR et al. Diabetologia 1985; Simental-Mendía LE et al. 2008; Mach F et al. ESC/EAS 2019 dislipidemias; NICE NG246 2022 (relación cintura/estatura); OMS 2008 circunferencia de cintura y cadera; Alberti KG et al. IDF/AHA síndrome metabólico, Circulation 2009; Rinella ME et al. AASLD 2023.</p>
+</article>
+
+<!-- ============ MATERIAL 16 (imágenes) ============ -->
+<article class="panel" id="v16" role="tabpanel" aria-labelledby="t-v16" hidden>
+  <div>
+    <h2>Tiagoritmo: interpretar cualquier perfil hepático</h2>
+    <div class="meta"><span>Fuente: 16 láminas, TiagoMed (@soytiagomed)</span><span>Fecha del material: 12/09/2026</span><span>Bases citadas: ACG 2017 (Kwo), Gastroenterology 2026 (Kwo), AASLD DILI 2023, ACR 2023, NEJM 2022</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 16">
+    <a href="#v16-resumen">Resumen</a><a href="#v16-algoritmo">Algoritmo</a><a href="#v16-calc">Calculadora</a><a href="#v16-magnitud">Magnitud</a><a href="#v16-patrones">Patrones</a><a href="#v16-alarma">Alarma</a><a href="#v16-analisis">Análisis crítico</a><a href="#v16-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v16-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Infografías ordenadas en un algoritmo de 5 pasos. Idea base: <b>no todo el "perfil hepático" mide lo mismo</b>. Se divide en 3 grupos que se interpretan por separado y después se integran: <b>enzimas</b> (AST, ALT, FA, GGT), <b>bilirrubinas</b> (total, directa, indirecta) y <b>función de síntesis</b> (albúmina, TP/INR).</p>
+  </section>
+
+  <section id="v16-algoritmo">
+    <h3>Los 5 pasos</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Mira las enzimas</h4>
+        <ul>
+          <li><b>AST/ALT:</b> lesión hepatocelular. ALT es más específica de hígado; AST también viene de músculo y otros tejidos. <b>AST aislada elevada → pedir CK.</b></li>
+          <li><b>FA/GGT:</b> colestasis. La FA también viene de hueso, placenta e intestino. <b>FA ↑ + GGT ↑ = origen hepatobiliar; FA ↑ + GGT normal = considerar origen no hepático.</b></li>
+          <li>Referencias de la lámina: ALT 7–40, AST 10–40, FA 40–120, GGT 10–50 U/L. Usar siempre el LSN del propio laboratorio.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>Calcula el índice R</h4>
+        <ul><li><span class="dose">R = (ALT/LSN) ÷ (FA/LSN)</span> → <b>&gt; 5 hepatocelular · 2–5 mixto · &lt; 2 colestásico</b>.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Fracciona la bilirrubina</h4>
+        <ul>
+          <li>Referencias: total 0,2–1,2 · directa &lt; 0,3 · indirecta 0,2–0,9 mg/dL.</li>
+          <li><b>Predomina la indirecta:</b> hemólisis, Gilbert, reabsorción de hematomas, sepsis, fármacos (antirretrovirales, eltrombopag). Pedir LDH, haptoglobina, reticulocitos y frotis.</li>
+          <li><b>Predomina la directa:</b> alteración hepatocelular o colestasis. Aplicar el índice R y buscar la causa según el patrón.</li>
+        </ul></li>
+      <li class="step"><span class="num">4</span><h4>Evalúa la síntesis</h4>
+        <ul>
+          <li><b>Albúmina</b> 3,5–5,0 g/dL. Vida media ~20 días: cambia lentamente y orienta a <b>enfermedad hepática crónica</b>, pero no es específica (inflamación, desnutrición, pérdidas renales o digestivas).</li>
+          <li><b>TP</b> 11–13,5 s · <b>INR</b> 0,8–1,2. El INR cambia más rápido: refleja disfunción sintética. Pero no todo INR alto es hígado: déficit de vitamina K, anticoagulación, CID.</li>
+        </ul></li>
+      <li class="step"><span class="num">5</span><h4>Integra el patrón</h4>
+        <ul><li>Correlaciona con la clínica y otros hallazgos.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v16-calc">
+    <h3>Calculadora de perfil hepático (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="l16-alt">ALT (U/L)<input id="l16-alt" type="number" min="1" max="20000" value="150"></label>
+        <label for="l16-altn">LSN de ALT<input id="l16-altn" type="number" min="10" max="80" value="40"></label>
+        <label for="l16-ast">AST (U/L)<input id="l16-ast" type="number" min="1" max="20000" value="125"></label>
+        <label for="l16-fa">FA (U/L)<input id="l16-fa" type="number" min="1" max="5000" value="220"></label>
+        <label for="l16-fan">LSN de FA<input id="l16-fan" type="number" min="50" max="400" value="120"></label>
+        <label for="l16-ggt">GGT (U/L)<input id="l16-ggt" type="number" min="1" max="5000" value="180"></label>
+        <label for="l16-bt">Bilirrubina total (mg/dL)<input id="l16-bt" type="number" min="0" max="60" step="0.1" value="2.3"></label>
+        <label for="l16-bd">Bilirrubina directa (mg/dL)<input id="l16-bd" type="number" min="0" max="40" step="0.1" value="1.6"></label>
+        <label for="l16-alb">Albúmina (g/dL)<input id="l16-alb" type="number" min="0.5" max="6" step="0.1" value="3.2"></label>
+        <label for="l16-inr">INR<input id="l16-inr" type="number" min="0.5" max="10" step="0.1" value="1.4"></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0">
+        <thead><tr><th>Componente</th><th>Resultado</th><th>Lectura</th></tr></thead>
+        <tbody id="l16-out"></tbody>
+      </table></div>
+      <p class="note" style="margin-top:8px">Valores de ejemplo: los de la portada del Tiagoritmo. Ajusta los LSN a los de tu laboratorio.</p>
+    </div>
+  </section>
+
+  <section id="v16-magnitud">
+    <h3>¿Cuánto subieron? La magnitud orienta la causa</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Grado (AST/ALT)</th><th>Causas típicas</th></tr></thead>
+      <tbody>
+        <tr><td><b>&lt; 2× LSN</b> borderline · <b>2–5×</b> leve</td><td>MASLD/MASH (casi siempre &lt; 100–200), hepatitis viral crónica, alcohol (AST/ALT &gt; 1,5, usualmente &lt; 400)</td></tr>
+        <tr><td><b>5–15×</b> moderada</td><td>DILI (muy variable), hepatitis viral aguda, hepatitis autoinmune</td></tr>
+        <tr><td><b>&gt; 15×</b> severa</td><td>Hepatitis viral aguda, DILI, hepatitis isquémica</td></tr>
+        <tr><td><b>&gt; 10 000 U/L</b> masiva</td><td>Hepatitis isquémica, sobredosis de paracetamol o tóxicos</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Hepatocelular severo o masivo: busca primero</b></p>
+    <div class="tbl"><table>
+      <thead><tr><th>Pregunta</th><th>Sospecha</th><th>Solicita</th></tr></thead>
+      <tbody>
+        <tr><td>¿Hipotensión o shock?</td><td>Hepatitis isquémica</td><td>LDH, lactato, función renal; documentar la causa de hipoperfusión</td></tr>
+        <tr><td>¿Paracetamol o tóxicos?</td><td>Toxicidad / DILI</td><td>Nivel de paracetamol, INR, creatinina; revisar fármacos, suplementos y tóxicos</td></tr>
+        <tr><td>¿Cuadro agudo compatible?</td><td>Hepatitis viral aguda</td><td>IgM anti-VHA, HBsAg, IgM anti-HBc, anti-VHC, ARN-VHC</td></tr>
+        <tr><td>¿Ascitis y estado protrombótico?</td><td>Budd-Chiari</td><td>Doppler hepático</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">En todos: bilirrubina total y directa, INR, glucemia y creatinina.</p>
+  </section>
+
+  <section id="v16-patrones">
+    <h3>Patrones</h3>
+    <div class="cols">
+      <div class="box"><b>Hepatocelular (R &gt; 5)</b><ul>
+        <li>Hepatitis virales: HBsAg + anti-HBc, anti-VHC ± ARN, IgM anti-VHA si es agudo</li>
+        <li>Esteatosis / enfermedad metabólica: ecografía, perfil metabólico</li>
+        <li>Alcohol: historia de consumo, AST/ALT</li>
+        <li>Medicamentos y suplementos, incluidos OTC y herbales</li>
+        <li>Hepatitis autoinmune: ANA, ASMA, IgG</li>
+        <li>Hemocromatosis: ferritina, saturación de transferrina</li>
+        <li>Según contexto: Wilson (ceruloplasmina ± cobre urinario), déficit de α1-antitripsina</li>
+      </ul></div>
+      <div class="box"><b>Colestásico (R &lt; 2) → ecografía hepatobiliar</b><ul>
+        <li><b>Con dilatación:</b> cáncer de páncreas, colangiocarcinoma, estenosis benigna, compresión extrínseca, tumor ampular → TAC contrastado o colangio-RM.</li>
+        <li><b>Sin dilatación:</b> colestasis por sepsis, CBP (AMA), CEP (IgG4 sérica), fármacos, cirrosis avanzada → biopsia si el diagnóstico sigue incierto.</li>
+      </ul></div>
+    </div>
+    <div class="tbl" style="margin-top:10px"><table>
+      <thead><tr><th>Coledocolitiasis (ASGE)</th><th>Criterios</th><th>Conducta</th></tr></thead>
+      <tbody>
+        <tr><td><b style="color:var(--crit)">Alto riesgo</b> (≥ 1)</td><td>Cálculo visible en colédoco; colangitis ascendente; bilirrubina &gt; 4 mg/dL + colédoco dilatado</td><td>CPRE</td></tr>
+        <tr><td><b style="color:var(--warn)">Intermedio</b> (≥ 1, sin alto riesgo)</td><td>Perfil hepático alterado; vía biliar dilatada; edad &gt; 55 años</td><td>Colangio-RM o ecoendoscopia</td></tr>
+        <tr><td><b style="color:var(--ok)">Bajo</b></td><td>Sin predictores</td><td>Buscar otras causas de colestasis</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v16-alarma">
+    <h3>No pases por alto una disfunción hepática grave</h3>
+    <div class="cols">
+      <div class="box" style="border-top:4px solid var(--crit)"><b>Sin cirrosis previa</b><ul><li><b>INR ≥ 1,5 + encefalopatía</b> en contexto de lesión hepática aguda → <b>falla hepática aguda</b>.</li></ul></div>
+      <div class="box" style="border-top:4px solid var(--fg)"><b>Con cirrosis previa</b><ul><li>Nueva descompensación (encefalopatía, ictericia, ascitis, sangrado) + falla de órganos (renal, respiratoria, cardiovascular, cerebral) → <b>considerar ACLF</b>.</li><li>Identificar y tratar el precipitante; valorar gravedad y trasplante.</li></ul></div>
+    </div>
+    <div class="callout"><strong>Ante cualquiera de estos escenarios:</strong> referencia urgente a un centro con trasplante.</div>
+  </section>
+
+  <section id="v16-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Muy buen material: completo, bien ordenado y con referencias reales. Es el más denso que me has enviado. Precisiones:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Índice R, criterios ASGE 2019 de coledocolitiasis, separación por magnitud y definición de falla hepática aguda coinciden con ACG 2017 y AASLD.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Ahora integra ALT + FA":</b> el índice R siempre se calculó así (criterios del consenso internacional de DILI, 1990). Lo novedoso es usarlo para cualquier perfil, no solo para fármacos.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>LSN de ALT:</b> la ACG 2017 propone un LSN "real" de <b>29–33 U/L en hombres y 19–25 U/L en mujeres</b>. Con el corte de 40 del laboratorio se pierden casos de MASLD y hepatitis crónica. Al calcular R, usar el LSN del laboratorio, pero evaluar con ALT &gt; 33/25 como anormal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Falla hepática aguda:</b> requiere además ausencia de cirrosis previa y evolución <b>&lt; 26 semanas</b>. Excepciones: Wilson, hepatitis B reactivada y hepatitis autoinmune aunque haya cirrosis.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>INR alto:</b> antes de atribuirlo al hígado, dar vitamina K 10 mg IV. Si se corrige, era déficit de vitamina K (colestasis, antibióticos, desnutrición), no falla de síntesis.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Hepatitis E:</b> no aparece en el panel viral agudo y es causa frecuente de hepatitis aguda, sobre todo en gestantes (riesgo de falla hepática). Pedir IgM anti-VHE.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Contexto tropical (Guayas):</b> el <b>dengue</b> eleva transaminasas con AST &gt; ALT (puede llegar a &gt; 1000 en dengue grave); la <b>leptospirosis</b> da ictericia con bilirrubina directa muy alta y transaminasas apenas elevadas, más lesión renal; considerar también fiebre amarilla y malaria según la procedencia.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Transaminasas normales no descartan enfermedad:</b> la cirrosis "quemada" y la MASLD con fibrosis pueden tener ALT normal. Calcular el FIB-4 (pestaña 8, Videoteca 1).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>FA aislada con GGT normal:</b> en adolescentes y gestantes es fisiológica. En el adulto mayor, pensar en Paget, metástasis óseas o hiperparatiroidismo.</p></div>
+    </div>
+    <div class="callout"><strong>Caso de la portada:</strong> ALT 150 (3,75× LSN), FA 220 (1,8×) → R = 2,0: patrón <b>mixto en el límite colestásico</b>. Bilirrubina directa predominante, albúmina baja e INR 1,4: posible hepatopatía con compromiso de síntesis. Siguiente paso: ecografía hepatobiliar, serologías virales, vitamina K para ver si corrige el INR, y FIB-4.</div>
+  </section>
+
+  <section id="v16-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v16"></div>
+  </section>
+  <p class="note">Referencias: Kwo PY et al. ACG Clinical Guideline: Evaluation of Abnormal Liver Chemistries, Am J Gastroenterol 2017; Kwo PY et al. Gastroenterology 2026 (citada en las láminas); Fontana RJ et al. AASLD DILI 2023; ASGE Standards of Practice Committee, coledocolitiasis, Gastrointest Endosc 2019; Bataller R et al. NEJM 2022; Bénichou C. Criterios del consenso internacional de DILI, J Hepatol 1990.</p>
+</article>
+
+<!-- ============ VIDEO 17 ============ -->
+<article class="panel" id="v17" role="tabpanel" aria-labelledby="t-v17" hidden>
+  <div>
+    <h2>Circunferencia de pantorrilla: una prueba sencilla para sospechar sarcopenia</h2>
+    <div class="meta"><span>Fuente: TikTok @dr.ricardio (cardiólogo clínico)</span><span>Duración 1:50</span><span>Público original: pacientes</span><span>Bases citadas: AWGS 2019; Am J Clin Nutr 2025 (SARC-CalF ajustado por IMC)</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 17">
+    <a href="#v17-resumen">Resumen</a><a href="#v17-pasos">Lo que dice</a><a href="#v17-calc">Calculadora</a><a href="#v17-dx">Diagnóstico completo</a><a href="#v17-analisis">Análisis crítico</a><a href="#v17-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v17-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">La masa muscular se mide con resonancia, DEXA o ecografía, pero hay mediciones indirectas validadas. La más simple: <b>la circunferencia de pantorrilla</b> con cinta métrica. Puntos de corte de AWGS 2019: <b>&lt; 34 cm en hombres y &lt; 33 cm en mujeres</b>. Con IMC alto, la grasa alrededor del músculo da una falsa normalidad, por eso se propone <b>ajustar por IMC</b>.</p>
+  </section>
+
+  <section id="v17-pasos">
+    <h3>Lo que dice el video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Por qué importa</h4>
+        <ul><li>La pérdida de músculo se asocia a problemas metabólicos, caídas, hospitalización y hasta sarcopenia.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Cómo medir</h4>
+        <ul><li>De pie, de forma estandarizada, con cinta métrica en la parte más ancha de la pantorrilla. En el ejemplo: 43 cm.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Puntos de corte (AWGS 2019)</h4>
+        <ul><li><b>Hombres &lt; 34 cm · Mujeres &lt; 33 cm.</b> La lámina menciona además "riesgo de sarcopenia: menos de 31 cm".</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>Ajuste por IMC ("falsa negativa")</h4>
+        <div class="tbl" style="margin-top:6px"><table style="min-width:0">
+          <thead><tr><th>IMC (kg/m²)</th><th>Ajuste a la CP medida</th></tr></thead>
+          <tbody>
+            <tr><td class="m">&lt; 18,5</td><td class="m">+1 cm (según la lámina)</td></tr>
+            <tr><td class="m">18,5–24,9</td><td class="m">0</td></tr>
+            <tr><td class="m">25–29,9</td><td class="m">−3 cm</td></tr>
+            <tr><td class="m">30–39,9</td><td class="m">−7 cm</td></tr>
+            <tr><td class="m">≥ 40</td><td class="m">−12 cm</td></tr>
+          </tbody>
+        </table></div>
+        <ul><li><b>Ejemplo del video:</b> mujer de 92 kg y 1,65 m (IMC 34) con CP de 36 cm, aparentemente normal. Ajustada: 36 − 7 = <b>29 cm → riesgo real</b>.</li></ul></li>
+      <li class="step"><span class="num">5</span><h4>Qué hacer</h4>
+        <ul><li>Si está baja: ejercicio de fuerza y evaluación médica completa.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v17-calc">
+    <h3>Calculadora: pantorrilla ajustada + SARC-CalF (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="s17-sex">Sexo<select id="s17-sex"><option value="F" selected>Mujer</option><option value="M">Hombre</option></select></label>
+        <label for="s17-cp">Circunferencia de pantorrilla (cm)<input id="s17-cp" type="number" min="15" max="70" step="0.5" value="36"></label>
+        <label for="s17-kg">Peso (kg)<input id="s17-kg" type="number" min="25" max="250" value="92"></label>
+        <label for="s17-cm">Estatura (cm)<input id="s17-cm" type="number" min="100" max="220" value="165"></label>
+      </div>
+      <p class="note" style="margin-top:10px">SARC-F: 0 = ninguna dificultad · 1 = alguna · 2 = mucha o no puede</p>
+      <div class="calc" style="margin-top:6px">
+        <label for="s17-q1">Fuerza: levantar y cargar 4,5 kg<select id="s17-q1"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select></label>
+        <label for="s17-q2">Caminar a través de una habitación<select id="s17-q2"><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option></select></label>
+        <label for="s17-q3">Levantarse de una silla o cama<select id="s17-q3"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select></label>
+        <label for="s17-q4">Subir 10 escalones<select id="s17-q4"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option></select></label>
+        <label for="s17-q5">Caídas en el último año<select id="s17-q5"><option value="0" selected>0 (ninguna)</option><option value="1">1 (1–3 caídas)</option><option value="2">2 (≥ 4 caídas)</option></select></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="s17-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">SARC-CalF = SARC-F + 10 puntos si la pantorrilla está bajo el corte. ≥ 11 = sospecha de sarcopenia. Ajuste por IMC según González et al. 2021 (−3, −7, −12 cm). Valores de ejemplo: el caso del video.</p>
+    </div>
+  </section>
+
+  <section id="v17-dx">
+    <h3>Del cribado al diagnóstico (agregado)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Paso</th><th>Prueba</th><th>EWGSOP2 (Europa)</th><th>AWGS 2019 (Asia)</th></tr></thead>
+      <tbody>
+        <tr><td>1. Sospechar</td><td>SARC-F / pantorrilla</td><td class="m">SARC-F ≥ 4</td><td class="m">CP &lt; 34 H / &lt; 33 M · SARC-CalF ≥ 11</td></tr>
+        <tr><td>2. Fuerza</td><td>Dinamometría de prensión</td><td class="m">&lt; 27 kg H / &lt; 16 kg M</td><td class="m">&lt; 28 kg H / &lt; 18 kg M</td></tr>
+        <tr><td></td><td>Levantarse 5 veces de la silla</td><td class="m">&gt; 15 s</td><td class="m">≥ 12 s</td></tr>
+        <tr><td>3. Masa muscular</td><td>DEXA (ASM/talla²) o BIA</td><td class="m">&lt; 7,0 H / &lt; 5,5 M kg/m²</td><td class="m">DEXA &lt; 7,0 H / &lt; 5,4 M</td></tr>
+        <tr><td>4. Gravedad</td><td>Velocidad de marcha (4 m)</td><td class="m">≤ 0,8 m/s</td><td class="m">&lt; 1,0 m/s</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">EWGSOP2: fuerza baja = sarcopenia probable; + masa baja = confirmada; + rendimiento bajo = grave.</p>
+  </section>
+
+  <section id="v17-analisis">
+    <h3>Análisis crítico</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>La pantorrilla es un marcador validado de masa muscular y predice mortalidad y reingreso. Los cortes de 34/33 cm son los de AWGS 2019, y el ajuste por IMC (−3, −7, −12 cm) coincide con González et al. (Am J Clin Nutr 2021, NHANES).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Menos de 31 cm"</b> es el corte antiguo de la MNA y de EWGSOP2 para ambos sexos. No es otro escalón de riesgo de AWGS; mezclar ambos confunde. AWGS es para población asiática; en Latinoamérica se usan los de EWGSOP2 o los de NHANES (≤ 34 H, ≤ 33 M).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El "+1 cm" para IMC &lt; 18,5</b> no figura en el ajuste original de González 2021, que solo define reducciones para IMC ≥ 25. Tomarlo como orientativo.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Técnica:</b> la mayoría de los estudios mide sentado con la rodilla a 90° o de pie con peso repartido, en la pierna no dominante, sin comprimir la piel. Tomar el valor máximo de 2–3 mediciones.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Edema:</b> en insuficiencia cardíaca, ERC, hepatopatía o insuficiencia venosa, el edema eleva falsamente la circunferencia. En esos pacientes la medición no es fiable; usar la dinamometría y la prueba de la silla.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Es cribado, no diagnóstico:</b> la sarcopenia se define primero por <b>fuerza baja</b> (dinamómetro o prueba de la silla), no por la masa. Un dinamómetro de mano es barato y aporta más que la cinta.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento:</b> ejercicio de fuerza progresivo 2–3 veces por semana, proteína 1,0–1,2 g/kg/día (1,2–1,5 si hay enfermedad aguda o crónica, salvo ERC avanzada), vitamina D si hay déficit. Revisar fármacos que favorecen la pérdida muscular y, con arGLP-1 o tirzepatida, vigilar la masa magra durante la pérdida de peso.</p></div>
+    </div>
+    <div class="callout"><strong>Perla:</strong> la "obesidad sarcopénica" es frecuente en diabéticos con IMC alto y se pasa por alto porque "se ven fuertes". Este ajuste por IMC es justamente para ellos.</div>
+  </section>
+
+  <section id="v17-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v17"></div>
+  </section>
+  <p class="note">Referencias: Chen LK et al. AWGS 2019, J Am Med Dir Assoc 2020; Cruz-Jentoft AJ et al. EWGSOP2, Age Ageing 2019; González MC et al. Calf circumference cutoffs from NHANES, Am J Clin Nutr 2021; SARC-CalF ajustado por IMC, Am J Clin Nutr 2025 (citado en el video); Barbosa-Silva TG et al. SARC-CalF, J Am Med Dir Assoc 2016.</p>
+</article>
+
+<!-- ============ MATERIAL 18 (imágenes) ============ -->
+<article class="panel" id="v18" role="tabpanel" aria-labelledby="t-v18" hidden>
+  <div>
+    <h2>Tiagoritmo: crisis hipertensiva, ¿cómo abordarla?</h2>
+    <div class="meta"><span>Fuente: 14 láminas, TiagoMed (@soytiagomed)</span><span>Recibido 26/10/2026</span><span>Bases citadas: AHA/ACC 2025, ESC 2024, AHA 2024 (cuidado agudo), AHA/ASA 2022 y 2019</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 18">
+    <a href="#v18-resumen">Resumen</a><a href="#v18-algoritmo">Algoritmo</a><a href="#v18-escenarios">Escenarios y dosis</a><a href="#v18-calc">Calculadora de infusiones</a><a href="#v18-comp">Tres materiales</a><a href="#v18-analisis">Análisis crítico</a><a href="#v18-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v18-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Tercer material sobre el tema (ver pestañas 12 y 13). Mismo mensaje, pero este es el más útil para la guardia porque <b>trae las dosis</b> de cada fármaco por escenario y agrega un paso que los otros omiten: <b>confirmar que la presión es real</b> antes de tratarla.</p>
+  </section>
+
+  <section id="v18-algoritmo">
+    <h3>El algoritmo en 5 pasos</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>¿La presión es real?</h4>
+        <ul><li>Repetir la medición: reposo ≥ 5 min, espalda apoyada y pies en el suelo, brazo apoyado a nivel del corazón, manguito del tamaño adecuado.</li><li>No tratar un número mal medido: diagnóstico erróneo, tratamiento innecesario, efectos adversos.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>¿PA &gt; 180/120? ¿Hay daño agudo?</h4>
+        <ul><li>La cifra sola no define la emergencia. Con daño agudo: <b>emergencia hipertensiva</b>. Sin daño: <b>hipertensión severa</b>.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Pregunta, examina y confirma</h4>
+        <div class="tbl" style="margin-top:6px"><table style="min-width:0">
+          <thead><tr><th>Órgano</th><th>Sospecha clínica</th><th>Estudio</th></tr></thead>
+          <tbody>
+            <tr><td>Cerebro</td><td>Déficit focal, alteración del sensorio, convulsiones → ACV, encefalopatía</td><td>TAC de cráneo</td></tr>
+            <tr><td>Corazón/aorta</td><td>Dolor torácico → SCA, disección</td><td>ECG + troponina; angio-TAC si se sospecha disección</td></tr>
+            <tr><td>Pulmón</td><td>Disnea, crépitos, hipoxemia → edema pulmonar</td><td>Rx de tórax ± POCUS</td></tr>
+            <tr><td>Riñón</td><td>Oliguria → lesión renal aguda</td><td>Creatinina + uroanálisis</td></tr>
+            <tr><td>Retina</td><td>Alteraciones visuales → papiledema, hemorragias</td><td>Fondo de ojo</td></tr>
+          </tbody>
+        </table></div></li>
+      <li class="step"><span class="num">4</span><h4>Sin daño agudo: no trates el número</h4>
+        <ul><li><b>No</b> antihipertensivos IV · <b>no</b> dosis "PRN" para corregir el número · <b>no</b> normalizar rápido.</li><li>Busca desencadenantes (dolor, ansiedad, fármacos, mala adherencia) → reinicia o ajusta la vía oral → reduce gradualmente → seguimiento estrecho.</li></ul></li>
+      <li class="step"><span class="num">5</span><h4>Con daño agudo: cuánto bajar</h4>
+        <ul><li><b>Regla general:</b> 1.ª hora PAS ↓ no más del 25 % → 2–6 h &lt; 160/100.</li><li><b>Excepción, disección aórtica:</b> PAS ≤ 120 y FC ≤ 60 en ~20 min, primero betabloqueo.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v18-escenarios">
+    <h3>Escenarios: meta y fármaco con dosis</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Escenario</th><th>Meta</th><th>Fármaco y dosis</th><th>Evitar</th></tr></thead>
+      <tbody>
+        <tr><td><b>Disección aórtica</b></td><td class="m">PAS ≤ 120, FC ≤ 60 en ~20 min</td><td><b>Esmolol</b> 500 µg/kg en 1 min → 50–200 µg/kg/min, o <b>labetalol</b> 20 mg en 2 min → 20–80 mg c/10 min o 0,5–2 mg/min. Si sigue hipertenso: añadir nicardipino o clevidipino.</td><td>Vasodilatar primero</td></tr>
+        <tr><td><b>Edema pulmonar cardiogénico</b></td><td class="m">1.ª h ≤ 25 % · 2–6 h &lt; 160/100</td><td><b>Nitroglicerina</b> 5 µg/min, titular rápido hasta 200 µg/min. Oxígeno si hay hipoxemia, VNI si hay dificultad respiratoria, diurético IV si hay sobrecarga.</td><td>Betabloqueo en fase aguda</td></tr>
+        <tr><td><b>SCA</b></td><td class="m">1.ª h ≤ 25 % · 2–6 h &lt; 160/100</td><td><b>Nitroglicerina</b> 5 µg/min, ↑ 5 µg/min c/3–5 min (más rápido si no responde a 20), máx. 200. <b>Esmolol</b> si está indicado. Tratar el SCA (antiagregación, anticoagulación, reperfusión).</td><td>Betabloqueo con EAP, shock/bajo gasto, bradicardia o bloqueo AV</td></tr>
+        <tr><td><b>ACV isquémico sin reperfusión</b></td><td class="m">≤ 220/120: no bajar · &gt; 220/120: ↓ ~15 %</td><td><b>Labetalol</b> 10–20 mg IV en 1–2 min (repetir 1 vez) o <b>nicardipino</b> 5 mg/h, ↑ 2,5 mg/h c/5–15 min, máx. 15.</td><td>Descenso excesivo</td></tr>
+        <tr><td><b>ACV con trombólisis o trombectomía</b></td><td class="m">Antes &lt; 185/110 · después &lt; 180/105</td><td>Igual que el anterior.</td><td>Descenso excesivo</td></tr>
+        <tr><td><b>Hemorragia intracerebral</b></td><td class="m">PAS 150–220 → 130–&lt;140</td><td><b>Nicardipino</b> o <b>labetalol</b>, mismas dosis.</td><td>PAS &lt; 130</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v18-calc">
+    <h3>Calculadora de infusiones (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="i18-drug">Fármaco
+          <select id="i18-drug">
+            <option value="ntg" selected>Nitroglicerina (µg/min)</option>
+            <option value="esm">Esmolol (µg/kg/min)</option>
+            <option value="nic">Nicardipino (mg/h)</option>
+            <option value="lab">Labetalol (mg/min)</option>
+          </select></label>
+        <label for="i18-dose">Dosis deseada<input id="i18-dose" type="number" min="0" step="0.1" value="20"></label>
+        <label for="i18-mg">Fármaco en la mezcla (mg)<input id="i18-mg" type="number" min="0.1" step="0.1" value="50"></label>
+        <label for="i18-ml">Volumen de la mezcla (mL)<input id="i18-ml" type="number" min="1" value="250"></label>
+        <label for="i18-kg">Peso (kg, solo esmolol)<input id="i18-kg" type="number" min="20" max="250" value="70"></label>
+      </div>
+      <div class="result" aria-live="polite"><span class="big" id="i18-out">6</span><span>mL/h</span><span id="i18-txt" class="note" style="flex:1 1 220px;min-width:0"></span></div>
+      <p class="note" style="margin-top:8px">Diluciones habituales: nitroglicerina 50 mg/250 mL (200 µg/mL); esmolol 2500 mg/250 mL (10 mg/mL); nicardipino 25 mg/250 mL (0,1 mg/mL); labetalol 200 mg/200 mL (1 mg/mL). Verificar con la presentación de tu hospital.</p>
+    </div>
+  </section>
+
+  <section id="v18-comp">
+    <h3>Los tres materiales sobre crisis hipertensiva</h3>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>Pestaña 12</th><th>Pestaña 13</th><th>Pestaña 18</th></tr></thead>
+      <tbody>
+        <tr><td>Fortaleza</td><td>Estudios con cifras (Patel, Rastogi)</td><td>Didáctico, caso clínico</td><td>Dosis por escenario; "¿la PA es real?"</td></tr>
+        <tr><td>Edema pulmonar</td><td class="m">PAS &lt; 140</td><td>—</td><td class="m">≤ 25 % → &lt; 160/100</td></tr>
+        <tr><td>Disección</td><td class="m">≤ 120 en 20 min</td><td class="m">&lt; 120 en 1 h</td><td class="m">≤ 120 en ~20 min</td></tr>
+        <tr><td>Embarazo / feocromocitoma</td><td>No</td><td>Excepciones</td><td>No</td></tr>
+        <tr><td>Fondo de ojo</td><td>No</td><td>No</td><td>Sí</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">La diferencia en edema pulmonar es real entre fuentes: la tabla de la AHA/ACC 2025 da PAS &lt; 140 de inmediato; la regla general (25 % → 160/100) es la de las guías previas. En la práctica, el EAP hipertensivo (SCAPE) responde a nitratos en dosis altas con descenso rápido.</p>
+  </section>
+
+  <section id="v18-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Material sólido, bien referenciado y con dosis correctas. Precisiones:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Dosis de esmolol, labetalol, nicardipino y nitroglicerina coinciden con AHA/ASA 2019, AHA/ASA 2022 y ACC/AHA 2017. El paso "¿la presión es real?" es el más olvidado y el más barato.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Edema pulmonar hipertensivo (SCAPE):</b> en la práctica se usan <b>bolos de nitroglicerina en dosis altas</b> (400–1000 µg IV o infusión de 100–400 µg/min) con VNI; empezar con 5 µg/min es demasiado lento para este cuadro. El diurético pasa a segundo plano si no hay sobrecarga real (el problema es redistribución, no volumen).</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Labetalol en la emergencia general:</b> 20 mg IV en 2 min, luego 20–80 mg c/10 min (máx. 300 mg) o infusión 0,5–2 mg/min. Contraindicado en asma/EPOC grave, bradicardia, bloqueo AV e IC descompensada.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Disponibilidad local:</b> si no hay nicardipino ni clevidipino, el vasodilatador de segunda línea en la disección es el <b>nitroprusiato</b> (0,25–0,5 µg/kg/min), siempre después del betabloqueo.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Escenarios que faltan:</b> encefalopatía hipertensiva (bajar 25 % en la 1.ª h; labetalol o nicardipino), preeclampsia/eclampsia y feocromocitoma/cocaína (ver pestaña 12).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Nitroglicerina:</b> contraindicada con inhibidores de la PDE-5 en las últimas 24–48 h y en infarto de VD (V4R). Tolerancia tras 24 h de infusión continua.</p></div>
+    </div>
+  </section>
+
+  <section id="v18-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v18"></div>
+  </section>
+  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults; McEvoy JW et al. ESC 2024 Hypertension Guidelines; Bress AP et al. AHA Scientific Statement: Management of Elevated BP in the Acute Care Setting, Hypertension 2024; Greenberg SM et al. AHA/ASA 2022 hemorragia intracerebral; Powers WJ et al. AHA/ASA 2019 ictus isquémico; Mathew R et al. SCAPE, Ann Emerg Med 2023.</p>
+</article>
+
+<!-- ============ MATERIAL 19 (imágenes) ============ -->
+<article class="panel" id="v19" role="tabpanel" aria-labelledby="t-v19" hidden>
+  <div>
+    <h2>Emergencias de ECG que no te puedes perder (parte 1)</h2>
+    <div class="meta"><span>Fuente: 10 láminas, TikTok @nickystudy12</span><span>Recibido 26/10/2026</span><span>Nivel: estudiante / interno</span><span>Sin referencias citadas</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 19">
+    <a href="#v19-resumen">Resumen</a><a href="#v19-ritmos">8 ritmos</a><a href="#v19-dosis">Dosis completas</a><a href="#v19-calc">QTc</a><a href="#v19-analisis">Análisis crítico</a><a href="#v19-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v19-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Fichas de 8 ritmos de emergencia: <b>FV, TV sin pulso, asistolia, IAMCEST, hiperpotasemia, TSV, FA con respuesta rápida y torsades de pointes</b>. Cada una con un trazo ilustrativo y 4–5 acciones. Correctas en lo esencial, pero superficiales: faltan dosis, energías y las trampas diagnósticas.</p>
+    <p class="note">La última lámina es publicidad de una aplicación de IA médica ("MedDeep AI"); no se incluye.</p>
+  </section>
+
+  <section id="v19-ritmos">
+    <h3>Los 8 ritmos del material</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Ritmo</th><th>ECG</th><th>Lo que indica la lámina</th></tr></thead>
+      <tbody>
+        <tr><td><b>FV</b></td><td>Caótico, sin QRS organizado, sin pulso</td><td>Desfibrilar ya · RCP inmediata tras cada descarga · epinefrina 1 mg c/3–5 min · amiodarona 300 mg, luego 150 mg · Hs y Ts</td></tr>
+        <tr><td><b>TV sin pulso</b></td><td>Regular, QRS ancho, sin pulso</td><td>Igual que la FV: primero descarga, luego fármacos</td></tr>
+        <tr><td><b>Asistolia</b></td><td>Línea plana, no desfibrilable</td><td>No desfibrilar · confirmar en 2 derivaciones · RCP de alta calidad · epinefrina 1 mg c/3–5 min · Hs y Ts</td></tr>
+        <tr><td><b>IAMCEST</b></td><td>ST elevado en derivaciones contiguas (ej. V2–V5)</td><td>Aspirina 162–325 mg masticada · ECG de 12 derivaciones y activar hemodinamia · ICP primaria · O₂ solo si hay hipoxemia · DAPT y anticoagulación</td></tr>
+        <tr><td><b>Hiperpotasemia</b></td><td>T picuda → QRS ancho → onda sinusal → FV/asistolia</td><td>Gluconato de calcio primero si hay cambios en el ECG · insulina + dextrosa · salbutamol nebulizado · bicarbonato si hay acidosis · diálisis si es grave o refractaria</td></tr>
+        <tr><td><b>TSV (TRNAV/TRAV)</b></td><td>QRS estrecho y regular, 150–250 lpm</td><td>Maniobras vagales (Valsalva modificada) · adenosina 6 mg en bolo rápido + lavado · 12 mg si es necesario · evitar adenosina en taquicardia irregular de QRS ancho o FA preexcitada</td></tr>
+        <tr><td><b>FA con RV rápida</b></td><td>Irregularmente irregular, sin P</td><td>Diltiazem o metoprolol · anticoagulación según CHA₂DS₂-VASc · inestable → cardioversión sincronizada · tratar el desencadenante</td></tr>
+        <tr><td><b>Torsades de pointes</b></td><td>TV polimórfica con QT largo</td><td>Sulfato de magnesio 2 g IV aunque el Mg sea normal · suspender fármacos que prolonguen el QT · K⁺ &gt; 4 y Mg &gt; 2 · marcapasos si es dependiente de pausas · sin pulso → desfibrilar</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v19-dosis">
+    <h3>Dosis y energías que faltan (agregado)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Situación</th><th>Dosis / energía</th></tr></thead>
+      <tbody>
+        <tr><td>Desfibrilación FV/TVsP</td><td class="m">Bifásico 120–200 J (según fabricante; si no se conoce, el máximo) · monofásico 360 J</td></tr>
+        <tr><td>Epinefrina en ritmo desfibrilable</td><td>1 mg tras la <b>2.ª descarga</b>, luego c/3–5 min. En no desfibrilable: <b>lo antes posible</b>.</td></tr>
+        <tr><td>Alternativa a amiodarona</td><td class="m">Lidocaína 1–1,5 mg/kg, luego 0,5–0,75 mg/kg (máx. 3 mg/kg)</td></tr>
+        <tr><td>Cardioversión sincronizada</td><td class="m">TSV/flutter 50–100 J · FA 120–200 J · TV monomórfica con pulso 100 J</td></tr>
+        <tr><td>Gluconato de calcio 10 %</td><td class="m">30 mL (3 g) IV en 5–10 min; repetir si persisten los cambios · o cloruro de calcio 10 % 10 mL por vía central</td></tr>
+        <tr><td>Insulina + dextrosa</td><td class="m">Insulina regular 10 U IV (5 U si ERC o riesgo de hipoglucemia) + 25 g de dextrosa si glucosa &lt; 250; glucemia c/hora × 6 h</td></tr>
+        <tr><td>Salbutamol nebulizado</td><td class="m">10–20 mg (4–8 veces la dosis broncodilatadora)</td></tr>
+        <tr><td>Eliminar K⁺</td><td>Furosemida si hay diuresis; ciclosilicato de sodio y zirconio 10 g c/8 h o patirómero; diálisis</td></tr>
+        <tr><td>Adenosina</td><td class="m">6 mg → 12 mg → 12 mg. Reducir a 3 mg con vía central, trasplante cardíaco o dipiridamol</td></tr>
+        <tr><td>Diltiazem / verapamilo</td><td class="m">Diltiazem 0,25 mg/kg IV en 2 min (≈ 15–20 mg), 0,35 mg/kg a los 15 min · verapamilo 5–10 mg</td></tr>
+        <tr><td>Metoprolol</td><td class="m">2,5–5 mg IV en 2 min, repetir c/5 min hasta 15 mg</td></tr>
+        <tr><td>Torsades refractaria</td><td>Isoproterenol 2–10 µg/min o estimulación (overdrive) a 100–120 lpm</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v19-calc">
+    <h3>Calculadora de QTc (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="q19-qt">QT medido (ms)<input id="q19-qt" type="number" min="200" max="800" value="440"></label>
+        <label for="q19-hr">Frecuencia cardíaca (lpm)<input id="q19-hr" type="number" min="30" max="220" value="88"></label>
+        <label for="q19-sex">Sexo<select id="q19-sex"><option value="M" selected>Hombre</option><option value="F">Mujer</option></select></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="q19-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">Bazett sobrecorrige con FC &gt; 90; Fridericia y Framingham son más fiables en taquicardia. QTc &gt; 500 ms o aumento &gt; 60 ms sobre el basal: alto riesgo de torsades.</p>
+    </div>
+  </section>
+
+  <section id="v19-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Fichas útiles para estudiantes. Para un nivel de electrofisiología, estos son los puntos débiles:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Epinefrina en ritmos desfibrilables:</b> la lámina la pone al mismo nivel que en la asistolia. En FV/TVsP va <b>después de la 2.ª descarga</b>; en ritmos no desfibrilables, lo antes posible. La amiodarona va tras la 3.ª descarga.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Unidad del magnesio:</b> la meta habitual es Mg &gt; 2 <b>mg/dL</b> (≈ 1,6 mEq/L). "&gt; 2 mEq/L" equivale a ~2,4 mg/dL, por encima de lo necesario.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Anticoagulación en FA:</b> la ESC 2024 reemplazó el CHA₂DS₂-VASc por el <b>CHA₂DS₂-VA</b> (sin el punto por sexo femenino). Antes de cardiovertir una FA de &gt; 48 h (ESC 2024: &gt; 24 h) se necesita anticoagulación de 3 semanas o ETE.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>FA con RV rápida:</b> diltiazem y verapamilo están contraindicados con FEVI &lt; 40 % o IC descompensada (usar betabloqueador con cautela, amiodarona o digoxina). En <b>FA preexcitada</b> (irregular, QRS ancho y variable, &gt; 250 lpm) no usar ningún bloqueador del nodo: procainamida, ibutilida o cardioversión.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Hiperpotasemia:</b> la secuencia real es T picuda → aplanamiento y pérdida de la P → PR largo → QRS ancho → onda sinusal. El ECG es poco sensible: hasta la mitad de los pacientes con K⁺ &gt; 6,5 no tienen cambios, y también hay bradicardias, bloqueos y pseudo-STEMI (patrón tipo Brugada).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>TSV:</b> la Valsalva modificada (REVERT) es soplar 15 s contra 40 mmHg y luego decúbito con elevación pasiva de piernas; duplica la tasa de reversión. Si no hay adenosina: verapamilo o diltiazem. Si es antidrómica (QRS ancho), tratar como TV hasta demostrar lo contrario.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>IAMCEST:</b> faltan los tiempos (primer contacto–balón &lt; 90 min, &lt; 120 min si hay traslado; si no, fibrinólisis en &lt; 30 min) y los criterios de voltaje (V2–V3 ≥ 2 mm en hombres ≥ 40 años, ≥ 2,5 mm &lt; 40, ≥ 1,5 mm en mujeres). Y lo de la pestaña 10: buscar también la oclusión sin supradesnivel.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Asistolia:</b> además de 2 derivaciones, revisar ganancia y conexiones. Si hay ondas P sin QRS (asistolia con P), es un bloqueo completo: considerar marcapasos. La atropina no está indicada en el paro.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Trazos ilustrativos:</b> son esquemas, no registros reales. El trazo de "TV sin pulso" es sinusoidal (más parecido a un aleteo ventricular o a la onda sinusal de la hiperpotasemia que a una TV monomórfica típica). Útil para docencia como ejemplo de diferencial.</p></div>
+      <div class="vd"><span class="tag crit">Nota</span><p>La lámina de "MedDeep AI" es promoción de un producto, no contenido clínico.</p></div>
+    </div>
+    <div class="callout"><strong>Para la cátedra:</strong> este material sirve como punto de partida; un buen ejercicio es pedir a los alumnos que identifiquen los errores que se señalan aquí.</div>
+  </section>
+
+  <section id="v19-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v19"></div>
+  </section>
+  <p class="note">Referencias: Panchal AR et al. AHA Guidelines for CPR and ECC 2020 y actualizaciones posteriores; Van Gelder IC et al. ESC 2024 Guidelines for AF; Byrne RA et al. ESC 2023 ACS Guidelines; Appelboam A et al. REVERT, Lancet 2015; KDIGO 2020 Controversies Conference on potassium; Drew BJ et al. AHA/ACCF Scientific Statement on torsades de pointes, Circulation 2010.</p>
+</article>
+
+<!-- ============ MATERIAL 20 (imágenes) ============ -->
+<article class="panel" id="v20" role="tabpanel" aria-labelledby="t-v20" hidden>
+  <div>
+    <h2>Artritis reumatoide: ¿cómo abordarla? (Tiagoritmo)</h2>
+    <div class="meta"><span>Fuente: 16 láminas, TiagoMed con el reumatólogo Andrés Felipe Vargas</span><span>Recibido 26/10/2026</span><span>Bases citadas: ACR/EULAR 2010, ACR 2021, EULAR 2022 y 2025, Lancet 2016</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 20">
+    <a href="#v20-resumen">Resumen</a><a href="#v20-dx">Sospecha y estudios</a><a href="#v20-clinica">Clínica</a><a href="#v20-tx">Tratamiento</a><a href="#v20-calc">DAS28 / SDAI</a><a href="#v20-analisis">Análisis crítico</a><a href="#v20-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v20-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">El abordaje completo de la AR, de la sospecha al biológico, hecho con un reumatólogo. Complementa la <b>pestaña 4 de la Videoteca 1</b> (criterios ACR/EULAR y CDAI) con lo que allí faltaba: <b>imitadores agudos, deformidades, manifestaciones extraarticulares, DAS28, cuándo declarar falla al metotrexato y qué biológico elegir</b>.</p>
+    <p>Idea central: <b>la clave es la sinovitis</b>. Dolor articular sin tumefacción es artralgia, no artritis.</p>
+  </section>
+
+  <section id="v20-dx">
+    <h3>Sospecha, imitadores y estudios</h3>
+    <div class="cols">
+      <div class="box"><b>Piensa en AR ante</b><ul>
+        <li>Tumefacción articular persistente</li>
+        <li>Compromiso simétrico</li>
+        <li>Predominio en MCF, IFP y muñecas</li>
+        <li>Rigidez matinal &gt; 30 min</li>
+        <li>Síntomas ≥ 6 semanas</li>
+      </ul></div>
+      <div class="box"><b>Antes, descarta los imitadores agudos</b><ul>
+        <li><b>Monoartritis + fiebre:</b> artritis séptica hasta demostrar lo contrario → artrocentesis</li>
+        <li><b>Inicio agudo intenso:</b> artritis por cristales → cristales en líquido sinovial</li>
+        <li><b>Poliartritis aguda:</b> artritis viral (parvovirus B19, hepatitis)</li>
+      </ul></div>
+    </div>
+    <div class="tbl" style="margin-top:10px"><table>
+      <thead><tr><th>Grupo</th><th>Estudios</th></tr></thead>
+      <tbody>
+        <tr><td>Serología</td><td>Factor reumatoide, anti-CCP</td></tr>
+        <tr><td>Actividad inflamatoria</td><td>PCR, VSG</td></tr>
+        <tr><td>Daño estructural basal</td><td>Radiografía de manos y pies</td></tr>
+        <tr><td>Si el examen es dudoso</td><td>Ecografía articular con Doppler de potencia: sinovitis o tenosinovitis subclínica</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">FR y anti-CCP negativos, o PCR/VSG normales, no descartan una AR temprana. Criterios ACR/EULAR 2010 con calculadora: pestaña 4, Videoteca 1.</p>
+  </section>
+
+  <section id="v20-clinica">
+    <h3>Deformidades y manifestaciones extraarticulares</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Deformidad</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td><b>Cuello de cisne</b></td><td>IFP en hiperextensión + IFD en flexión</td></tr>
+        <tr><td><b>Boutonnière (en ojal)</b></td><td>IFP en flexión + IFD en hiperextensión</td></tr>
+        <tr><td><b>Desviación cubital</b></td><td>Dedos desviados hacia el cúbito desde las MCF</td></tr>
+        <tr><td><b>Pulgar en Z</b></td><td>MCF en flexión + interfalángica en hiperextensión</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tbl" style="margin-top:10px"><table>
+      <thead><tr><th>Órgano</th><th>Manifestación (frecuencia aproximada)</th></tr></thead>
+      <tbody>
+        <tr><td>Ojos</td><td>Ojo seco 15–25 % · epiescleritis ≈ 5 % (ojo rojo localizado, sin pérdida visual) · escleritis ≈ 2 %</td></tr>
+        <tr><td>Pulmón</td><td>Enfermedad intersticial ≈ 10 % (hasta 20–25 % por TACAR) · pleuritis sintomática &lt; 5 %</td></tr>
+        <tr><td>Corazón</td><td>Pericarditis clínica &lt; 2 % · compromiso subclínico 30–50 %</td></tr>
+        <tr><td>Piel</td><td>Nódulos reumatoideos 20–30 % (firmes, indoloros, superficies de extensión, olécranon) · vasculitis reumatoide &lt; 1 % (púrpura palpable, úlceras, infartos periungueales)</td></tr>
+        <tr><td>Sangre y bazo</td><td>Anemia 30–60 % · síndrome de Felty &lt; 1 %</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v20-tx">
+    <h3>Tratamiento y seguimiento</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Inicio: metotrexato para todos</h4>
+        <ul>
+          <li><span class="dose">15 mg una vez por semana</span>, escalar rápido a 20–25 mg/semana según respuesta y tolerancia.</li>
+          <li>Siempre con <b>ácido fólico ≥ 5 mg/semana</b>, en un día distinto al MTX.</li>
+          <li>Si está contraindicado o no se tolera: <b>leflunomida 20 mg/día</b> o <b>sulfasalazina 1–3 g/día</b>.</li>
+          <li>Puente: <b>prednisona 5–10 mg/día</b>, la menor dosis efectiva, retirada antes de 3 meses.</li>
+          <li>Contraindicaciones del MTX: embarazo o lactancia, hepatopatía crónica significativa, ERC avanzada, citopenias graves, consumo nocivo de alcohol, infección activa grave.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>¿Funcionó? Reevalúa con el mismo índice</h4>
+        <ul><li>DAS28, CDAI o SDAI. <b>3 meses:</b> ¿bajó ≥ 50 %? Si no, optimizar o cambiar. <b>6 meses:</b> meta = remisión o baja actividad.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>¿Falló el metotrexato? Antes confirma</h4>
+        <ul>
+          <li><b>Dosis optimizada:</b> ≥ 15 mg/semana en 4–6 semanas, hasta 20–25 mg si se tolera.</li>
+          <li><b>Intolerancia o respuesta insuficiente:</b> dividir la dosis oral en 24 h, aumentar el ácido fólico, pasar a <b>MTX subcutáneo</b>.</li>
+          <li><b>Tiempo suficiente:</b> no esperar 6 meses si a los 3 no hay mejoría.</li>
+        </ul></li>
+      <li class="step"><span class="num">4</span><h4>¿Qué sigue? Agregar un FAME biológico (mantener el MTX)</h4>
+        <ul>
+          <li>Anti-TNF (adalimumab, etanercept, infliximab, golimumab, certolizumab) · anti-IL-6 (tocilizumab, sarilumab) · abatacept · rituximab.</li>
+          <li><b>Inhibidor JAK:</b> tras evaluar riesgo cardiovascular, malignidad y tromboembolismo.</li>
+          <li>Si falla el primero: otro biológico (misma u otra clase) o JAK. <b>No combinar</b> dos biológicos ni biológico + JAK.</li>
+        </ul></li>
+      <li class="step"><span class="num">!</span><h4>Antes del biológico o JAK: tamizaje</h4>
+        <ul>
+          <li>TB (PPD o IGRA + Rx de tórax), VHB (HBsAg, anti-HBc total, anti-HBs), anti-VHC, VIH según riesgo.</li>
+          <li>Hemograma, transaminasas, creatinina; perfil lipídico si será JAK.</li>
+          <li>Vacunas: influenza, neumococo, zóster recombinante, COVID-19, hepatitis B.</li>
+          <li>No iniciar con infección activa grave.</li>
+        </ul></li>
+    </ol>
+  </section>
+
+  <section id="v20-calc">
+    <h3>Calculadora DAS28 y SDAI (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="d20-tjc">Articulaciones dolorosas (0–28)<input id="d20-tjc" type="number" min="0" max="28" value="8"></label>
+        <label for="d20-sjc">Articulaciones inflamadas (0–28)<input id="d20-sjc" type="number" min="0" max="28" value="6"></label>
+        <label for="d20-pga">Evaluación global del paciente (0–100 mm)<input id="d20-pga" type="number" min="0" max="100" value="60"></label>
+        <label for="d20-ega">Evaluación global del médico (0–100 mm)<input id="d20-ega" type="number" min="0" max="100" value="50"></label>
+        <label for="d20-vsg">VSG (mm/h)<input id="d20-vsg" type="number" min="1" max="150" value="38"></label>
+        <label for="d20-pcr">PCR (mg/L)<input id="d20-pcr" type="number" min="0" max="300" step="0.1" value="18"></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="d20-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">DAS28-VSG: remisión &lt; 2,6 · baja ≤ 3,2 · moderada ≤ 5,1 · alta &gt; 5,1. DAS28-PCR usa los mismos cortes pero sobrestima la remisión. SDAI (PCR en mg/dL): remisión ≤ 3,3 · baja ≤ 11 · moderada ≤ 26 · alta &gt; 26. CDAI en la pestaña 4.</p>
+    </div>
+  </section>
+
+  <section id="v20-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Material de buena calidad, revisado por un reumatólogo y alineado con ACR 2021 y EULAR 2022. Precisiones y complementos:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Optimizar el MTX antes de declarar falla (dosis, vía SC, fraccionar la dosis, ácido fólico) es lo que más se omite en la práctica; la biodisponibilidad oral cae por encima de 15 mg y la SC la recupera.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>DAS28-PCR</b> da valores ~0,3–0,5 menores que DAS28-VSG y clasifica como remisión a más pacientes. Para remisión estricta, el SDAI/CDAI o la remisión booleana ACR/EULAR (articulaciones dolorosas, inflamadas, PCR en mg/dL y global del paciente ≤ 1) son más exigentes.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Biológico vs JAK:</b> EULAR 2022 coloca biológico y JAK al mismo nivel, pero restringe el JAK a cuando no hay alternativa en ≥ 65 años, fumadores, con riesgo CV o de cáncer. Sin factores de mal pronóstico, la alternativa es otro FAME convencional (triple terapia con <b>hidroxicloroquina</b>, que el material no menciona). La "actualización EULAR 2025" se cita como aparece; no pude verificar su contenido.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Embarazo:</b> suspender MTX 1–3 meses antes de concebir; la leflunomida requiere lavado con colestiramina. Sulfasalazina, hidroxicloroquina, prednisona a dosis bajas y certolizumab son compatibles con el embarazo.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>MTX y pulmón:</b> la enfermedad intersticial previa no contraindica el MTX de forma absoluta; los estudios recientes no muestran que cause EPI-AR. La neumonitis por MTX es rara (&lt; 1 %), aguda e idiosincrática.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Escleritis</b> (dolor intenso, profundo, que despierta) es una emergencia oftalmológica, a diferencia de la epiescleritis; la forma necrotizante indica vasculitis sistémica. Otras extraarticulares: Sjögren secundario, osteoporosis y riesgo CV 1,5–2 veces mayor.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chikungunya</b> falta entre los imitadores y en la costa ecuatoriana es el más importante: poliartritis simétrica que puede persistir meses e incluso cumplir criterios de AR. Preguntar por fiebre y exantema previos y pedir IgG/IgM. También dengue, VHB, VHC y rubéola.</p></div>
+    </div>
+  </section>
+
+  <section id="v20-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v20"></div>
+  </section>
+  <p class="note">Referencias: Aletaha D et al. ACR/EULAR 2010; Fraenkel L et al. ACR 2021, Arthritis Care Res 2021; Smolen JS et al. EULAR 2022, Ann Rheum Dis 2023; EULAR 2025 (citada en las láminas); Smolen JS et al. Lancet 2016; Whiting PF et al. Ann Intern Med 2010; Prevoo ML et al. DAS28, Arthritis Rheum 1995; Smolen JS et al. SDAI, Rheumatology 2003.</p>
+</article>
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Continuación de Videoteca Clínica 1 (pestañas 1–10); pestañas 11–20.</footer>
+</div>
+
+<script>
+const QUIZ = {
+  v11: [
+    {q:"Según el video y la SSC, ¿cuándo debe recibir antibiótico un paciente con sepsis probable?",
+     o:["Dentro de la primera hora","Dentro de 3 horas","Después del cultivo y el resultado del Gram","Solo si hay choque"], a:0,
+     e:"Sepsis definitiva o probable, y todo choque: antibiótico en la primera hora."},
+    {q:"Mujer de 78 años, ya recibió 30 mL/kg, PA 78/40, lactato 4,8. ¿Siguiente paso?",
+     o:["Otros 2 L y reevaluar","Esperar el catéter central","Hidrocortisona primero","Norepinefrina periférica, ya"], a:3,
+     e:"Choque séptico con hipotensión persistente: vasopresor periférico sin demora, PAM 60–65 por la edad."},
+    {q:"¿Por qué se prefiere la infusión prolongada de betalactámicos?",
+     o:["Su efecto depende del tiempo sobre la CIM","Reduce el costo","Evita la nefrotoxicidad","Su efecto depende del pico"], a:0,
+     e:"Los betalactámicos son tiempo-dependientes. BLING III y el metaanálisis de 2024 mostraron menor mortalidad."},
+    {q:"Norepinefrina 8 mg en 250 mL a 30 mL/h, paciente de 60 kg. ¿Dosis aproximada?",
+     o:["0,027 µg/kg/min","0,27 µg/kg/min","2,7 µg/kg/min","0,5 µg/kg/min"], a:1,
+     e:"32 µg/mL × 30 mL/h = 960 µg/h = 16 µg/min; ÷ 60 kg ≈ 0,27 µg/kg/min. Considerar vasopresina e hidrocortisona."},
+    {q:"¿Qué intervención NO se recomienda en el choque séptico?",
+     o:["Cristaloides balanceados","Vitamina C IV","Hidrocortisona con norepinefrina ≥ 0,25","Vasopresina como segundo vasopresor"], a:1,
+     e:"LOVIT mostró más muerte o disfunción orgánica persistente con vitamina C."}
+  ],
+  v12: [
+    {q:"Paciente en consulta con PA 196/118, asintomático, sin daño agudo a órgano. ¿Conducta?",
+     o:["Nifedipino sublingual","Enviarlo a urgencias","Reiniciar o ajustar antihipertensivos orales y control ambulatorio","Captopril SL y observar 2 h"], a:2,
+     e:"Hipertensión grave sin daño: vía oral, sin prisa. Enviar a urgencias no mejora los eventos y aumenta las hospitalizaciones."},
+    {q:"Emergencia hipertensiva sin condición específica. ¿Cuánto bajar en la primera hora?",
+     o:["Hasta normalizar","No más del 25 % de la PAM","50 %","Nada; esperar 24 h"], a:1,
+     e:"≤ 25 % en la 1.ª hora, luego < 160/100 en 2–6 h, y normalización gradual en 24–48 h."},
+    {q:"Disección aórtica tipo B con PA 190/110 y FC 105. ¿Primer fármaco?",
+     o:["Nitroprusiato solo","Esmolol o labetalol","Hidralazina","Nifedipino"], a:1,
+     e:"Primero controlar la FC (≤ 60) con betabloqueador; el vasodilatador después, para evitar taquicardia refleja."},
+    {q:"Hemorragia intracerebral con PAS 210. ¿Meta?",
+     o:["< 120","Alrededor de 140, nunca < 130","< 180","No tratar"], a:1,
+     e:"Bajar a < 130 es clase 3 (daño) según AHA/ASA 2022."},
+    {q:"Paciente con PA 230/130 tras consumo de cocaína. ¿Qué evitas?",
+     o:["Benzodiacepina","Betabloqueador solo","Fentolamina","Nicardipino"], a:1,
+     e:"El betabloqueo sin bloqueo α deja la estimulación α sin oposición y puede empeorar la hipertensión y la isquemia coronaria."}
+  ],
+  v13: [
+    {q:"Mujer de 58 años, PA 205/115, asintomática, troponina y creatinina normales, dejó su losartán hace 3 días. ¿Conducta?",
+     o:["Labetalol IV","Nifedipino sublingual","Reiniciar VO + control ambulatorio","Ingreso a UCI"], a:2,
+     e:"Hipertensión severa sin daño agudo, con causa identificada: reiniciar el tratamiento oral."},
+    {q:"PA 200/125 con papiledema y hemorragias en llama, sin síntomas. ¿Qué es?",
+     o:["Hipertensión severa","Emergencia hipertensiva (hipertensión maligna)","Urgencia hipertensiva","Hipertensión de bata blanca"], a:1,
+     e:"La retinopatía grado III–IV es daño agudo de órgano blanco, aunque no haya síntomas."},
+    {q:"¿Cuál es el principal error en 'le diste captopril y la bajaste en 1 hora'?",
+     o:["Usar un IECA","Bajar la PA rápidamente sin daño de órgano","No usar nifedipino","No usar diurético"], a:1,
+     e:"Sin daño agudo, la meta es un descenso gradual en días, no en horas."},
+    {q:"Gestante de 34 semanas con PA 168/112 y cefalea. ¿Meta inmediata?",
+     o:["Bajar ≤ 25 % en 1 hora y esperar","PA < 160/110 en 30–60 min","PAS < 120","No tratar"], a:1,
+     e:"Preeclampsia severa: tratamiento urgente (labetalol IV, hidralazina o nifedipino oral) más sulfato de magnesio."},
+    {q:"Paciente hospitalizado por fractura de cadera con PA 186/104 y dolor intenso. ¿Primer paso?",
+     o:["Bolo IV de hidralazina","Analgesia y reevaluar la PA","Nifedipino sublingual","Infusión de labetalol"], a:1,
+     e:"Buscar y tratar la causa (dolor). La guía 2025 desaconseja bolos IV en el hospitalizado sin daño de órgano."}
+  ],
+  v14: [
+    {q:"¿Qué molécula atrapa el hierro en los macrófagos en la anemia de la inflamación?",
+     o:["Transferrina","Hepcidina","Eritropoyetina","Ferritina"], a:1,
+     e:"La IL-6 induce hepcidina, que degrada la ferroportina e impide liberar el hierro."},
+    {q:"Paciente séptico: Hb 8,9, ferritina 420 ng/mL, saturación 12 %, TIBC bajo. ¿Diagnóstico más probable?",
+     o:["Ferropenia pura","Anemia de la inflamación","Talasemia","Anemia megaloblástica"], a:1,
+     e:"Ferritina alta y TIBC bajo con saturación baja: hierro secuestrado."},
+    {q:"Paciente con AR activa: ferritina 55 ng/mL, saturación 9 %, receptor soluble elevado. ¿Qué indica?",
+     o:["Solo inflamación","Anemia mixta con ferropenia real","Hemólisis","Déficit de B12"], a:1,
+     e:"Con inflamación, una ferritina < 100 y el receptor soluble alto indican ferropenia asociada."},
+    {q:"VCM 112 fL. Antes de indicar ácido fólico, ¿qué debes descartar?",
+     o:["Ferropenia","Déficit de vitamina B12","Talasemia","Anemia de la inflamación"], a:1,
+     e:"El ácido fólico puede corregir la anemia y enmascarar el daño neurológico del déficit de B12."},
+    {q:"En la anemia de la inflamación con PCR muy alta, ¿por qué el hierro oral funciona mal?",
+     o:["Se elimina por el riñón","La hepcidina bloquea la absorción intestinal","Causa hemólisis","Inhibe la EPO"], a:1,
+     e:"La hepcidina degrada la ferroportina del enterocito; por eso se prefiere el hierro IV si hay ferropenia real."}
+  ],
+  v15: [
+    {q:"Paciente con DM2 y enfermedad coronaria. ¿Meta de colesterol no-HDL?",
+     o:["< 160 mg/dL","< 130 mg/dL","< 100 mg/dL","< 85 mg/dL"], a:3,
+     e:"Riesgo muy alto: LDL < 55, por lo tanto no-HDL < 85 mg/dL (ESC/EAS)."},
+    {q:"Mujer de 160 cm con cintura de 88 cm. ¿Relación cintura/estatura?",
+     o:["0,45: normal","0,55: adiposidad central aumentada","0,65: elevada","No se puede calcular"], a:1,
+     e:"88/160 = 0,55."},
+    {q:"¿Qué índice de resistencia a la insulina NO requiere medir insulina?",
+     o:["HOMA-IR","TyG","QUICKI","Matsuda"], a:1,
+     e:"TyG usa solo triglicéridos y glucosa en ayunas."},
+    {q:"Punto de corte de cintura para síndrome metabólico en hombres latinoamericanos (IDF):",
+     o:["≥ 80 cm","≥ 90 cm","≥ 102 cm","≥ 94 cm"], a:1,
+     e:"≥ 90 cm en hombres y ≥ 80 cm en mujeres para población sudamericana."},
+    {q:"¿Cuál es la limitación principal de estas fórmulas?",
+     o:["Son caras","No tienen valor diagnóstico por sí solas","Requieren biopsia","Solo sirven en niños"], a:1,
+     e:"Son marcadores de riesgo; la conducta se define con la valoración clínica completa."}
+  ],
+  v16: [
+    {q:"ALT 400 U/L (LSN 40), FA 130 U/L (LSN 120). ¿Índice R y patrón?",
+     o:["R ≈ 2: colestásico","R ≈ 9: hepatocelular","R ≈ 4: mixto","R ≈ 0,5: colestásico"], a:1,
+     e:"(400/40) ÷ (130/120) = 10 ÷ 1,08 ≈ 9,2 → hepatocelular."},
+    {q:"FA 380 U/L con GGT normal en un hombre de 72 años. ¿Qué sospechas primero?",
+     o:["Colestasis intrahepática","Origen óseo (Paget, metástasis)","Coledocolitiasis","Hepatitis alcohólica"], a:1,
+     e:"FA elevada con GGT normal sugiere origen no hepático."},
+    {q:"Patrón colestásico, colédoco de 9 mm, bilirrubina 5,1 mg/dL. ¿Conducta según ASGE?",
+     o:["Colangio-RM","CPRE","Repetir laboratorio","Biopsia hepática"], a:1,
+     e:"Bilirrubina > 4 con colédoco dilatado = alto riesgo de coledocolitiasis → CPRE."},
+    {q:"AST 6800, ALT 5200 U/L en paciente que tuvo shock séptico ayer. ¿Diagnóstico más probable?",
+     o:["Hepatitis alcohólica","Hepatitis isquémica","MASLD","Colangitis biliar primaria"], a:1,
+     e:"Elevación masiva tras hipoperfusión, con LDH muy alta y descenso rápido en días."},
+    {q:"INR 1,9 en paciente con colestasis prolongada, sin encefalopatía. ¿Primer paso?",
+     o:["Plasma fresco congelado","Vitamina K IV y repetir el INR","Derivar a trasplante","Albúmina IV"], a:1,
+     e:"Si el INR corrige con vitamina K, era déficit de absorción y no falla de síntesis."}
+  ],
+  v17: [
+    {q:"Mujer con IMC 34 y pantorrilla de 36 cm. ¿Pantorrilla ajustada?",
+     o:["36 cm: normal","33 cm: limítrofe","29 cm: riesgo","24 cm: riesgo grave"], a:2,
+     e:"IMC 30–39,9: restar 7 cm → 29 cm, bajo el corte de 33."},
+    {q:"Según EWGSOP2, ¿qué define la sarcopenia probable?",
+     o:["Pantorrilla baja","Fuerza muscular baja","Masa muscular baja en DEXA","IMC bajo"], a:1,
+     e:"La fuerza baja (dinamometría o prueba de la silla) es el criterio principal."},
+    {q:"Paciente con IC y edema maleolar: pantorrilla de 37 cm. ¿Interpretación?",
+     o:["Descarta sarcopenia","Medición no fiable por el edema","Confirma obesidad","Debe ajustarse +3 cm"], a:1,
+     e:"El edema eleva falsamente la circunferencia; usar fuerza y rendimiento."},
+    {q:"SARC-F de 3 y pantorrilla bajo el corte. ¿SARC-CalF?",
+     o:["3: normal","13: sospecha de sarcopenia","10: limítrofe","No aplica"], a:1,
+     e:"3 + 10 = 13; ≥ 11 indica sospecha."},
+    {q:"Diabético con obesidad que inicia tirzepatida. ¿Qué recomiendas para preservar músculo?",
+     o:["Reducir la proteína","Ejercicio de fuerza y proteína suficiente","Solo caminar","Suspender metformina"], a:1,
+     e:"La pérdida de peso rápida incluye masa magra; la fuerza y la proteína la protegen."}
+  ],
+  v18: [
+    {q:"Paciente con PA 198/112 en triaje, ansioso y con manguito pequeño. ¿Primer paso?",
+     o:["Labetalol IV","Repetir la medición con técnica y manguito adecuados","Nifedipino","TAC de cráneo"], a:1,
+     e:"No tratar un número mal medido: reposo ≥ 5 min, brazo a nivel del corazón, manguito adecuado."},
+    {q:"Disección aórtica tipo A con PA 200/110 y FC 112. ¿Qué das primero?",
+     o:["Nicardipino","Nitroprusiato","Esmolol 500 µg/kg en 1 min y luego infusión","Hidralazina"], a:2,
+     e:"Primero betabloqueo para FC ≤ 60; luego vasodilatador si sigue hipertenso."},
+    {q:"Edema pulmonar con PA 210/120. ¿Qué evitas en la fase aguda?",
+     o:["Nitroglicerina","VNI","Betabloqueador","Diurético si hay sobrecarga"], a:2,
+     e:"El betabloqueo deprime la contractilidad en la fase aguda del edema pulmonar."},
+    {q:"Hemorragia intracerebral con PAS 190. ¿Meta?",
+     o:["< 120","130–< 140","< 160","No tratar"], a:1,
+     e:"PAS 150–220: bajar a 130–< 140, evitando < 130."},
+    {q:"ACV isquémico, no candidato a reperfusión, PA 210/115. ¿Conducta?",
+     o:["Bajar 25 % en 1 h","No bajar de rutina","Labetalol hasta < 140","Nicardipino hasta < 160"], a:1,
+     e:"Con PA ≤ 220/120 sin reperfusión no se baja de rutina (hipertensión permisiva)."}
+  ],
+  v19: [
+    {q:"FV: tras la primera descarga y 2 min de RCP persiste la FV. ¿Siguiente paso?",
+     o:["Amiodarona 300 mg","Segunda descarga y luego epinefrina 1 mg","Epinefrina sin descarga","Atropina"], a:1,
+     e:"En ritmos desfibrilables la epinefrina va tras la 2.ª descarga; la amiodarona tras la 3.ª."},
+    {q:"Taquicardia irregular de QRS ancho y variable a 260 lpm en un joven estable. ¿Qué evitas?",
+     o:["Procainamida","Cardioversión sincronizada","Adenosina, verapamilo o diltiazem","Ibutilida"], a:2,
+     e:"Sugiere FA preexcitada: bloquear el nodo favorece la conducción por la vía accesoria y puede degenerar en FV."},
+    {q:"K⁺ 7,1 mEq/L con QRS de 140 ms. ¿Primera medida?",
+     o:["Furosemida","Gluconato de calcio IV","Resinas de intercambio","Bicarbonato"], a:1,
+     e:"El calcio estabiliza la membrana en minutos; no baja el K⁺, por eso se acompaña de insulina + dextrosa."},
+    {q:"FA con RV a 150 lpm en paciente con FEVI 25 %. ¿Qué evitas?",
+     o:["Amiodarona","Digoxina","Diltiazem","Cardioversión si se inestabiliza"], a:2,
+     e:"Los calcioantagonistas no dihidropiridínicos están contraindicados con FEVI reducida."},
+    {q:"QT 480 ms con FC 100 lpm. ¿QTc por Bazett aproximado?",
+     o:["≈ 430 ms","≈ 480 ms","≈ 570 ms","≈ 620 ms"], a:3,
+     e:"RR = 0,6 s; √0,6 = 0,775 → 480/0,775 ≈ 620 ms. Fridericia da ≈ 570: Bazett sobrecorrige en taquicardia, pero ambos superan 500."}
+  ],
+  v20: [
+    {q:"Paciente con MTX oral 15 mg/semana desde hace 3 meses, con náuseas y respuesta parcial. ¿Antes de agregar un biológico?",
+     o:["Suspender el MTX","Pasar a MTX subcutáneo y subir a 20–25 mg","Agregar prednisona 20 mg indefinida","Cambiar a AINE"], a:1,
+     e:"Optimizar dosis y vía antes de declarar falla; la vía SC mejora tolerancia y biodisponibilidad."},
+    {q:"Deformidad con IFP en flexión e IFD en hiperextensión:",
+     o:["Cuello de cisne","Boutonnière","Pulgar en Z","Desviación cubital"], a:1,
+     e:"En ojal (boutonnière): IFP en flexión + IFD en hiperextensión."},
+    {q:"Mujer de 34 años con poliartritis simétrica de 8 semanas tras fiebre alta y exantema, en Guayas. ¿Qué pides antes de rotular AR?",
+     o:["Solo FR","Serología de chikungunya","Ácido úrico","HLA-B27"], a:1,
+     e:"La artritis crónica por chikungunya imita a la AR y es frecuente en la región."},
+    {q:"Con AR activa pese a MTX optimizado, ¿qué combinación está contraindicada?",
+     o:["MTX + anti-TNF","MTX + abatacept","Anti-TNF + inhibidor JAK","MTX + tocilizumab"], a:2,
+     e:"No se combinan biológicos entre sí ni biológico + JAK por riesgo de infecciones sin beneficio adicional."},
+    {q:"Paciente con AR que desea embarazarse. ¿Qué fármaco requiere lavado con colestiramina?",
+     o:["Sulfasalazina","Hidroxicloroquina","Leflunomida","Prednisona"], a:2,
+     e:"La leflunomida persiste meses en circulación; se elimina con colestiramina antes de la concepción."}
+  ]
+};
+function d20Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const t=g('d20-tjc'), s=g('d20-sjc'), p=g('d20-pga'), e=g('d20-ega'), v=g('d20-vsg'), c=g('d20-pcr');
+  if([t,s,p].some(isNaN)) return;
+  const pill=(x,k)=>'<span class="pill '+k+'">'+x+'</span>';
+  const das=x=>x<2.6?pill('Remisión','ok'):x<=3.2?pill('Baja','ok'):x<=5.1?pill('Moderada','add'):pill('Alta','crit');
+  const rows=[];
+  if(!isNaN(v)&&v>0){const x=0.56*Math.sqrt(t)+0.28*Math.sqrt(s)+0.70*Math.log(v)+0.014*p; rows.push(['DAS28-VSG',x.toFixed(2).replace('.',','),das(x)]);}
+  if(!isNaN(c)&&c>=0){const x=0.56*Math.sqrt(t)+0.28*Math.sqrt(s)+0.36*Math.log(c+1)+0.014*p+0.96; rows.push(['DAS28-PCR',x.toFixed(2).replace('.',','),das(x)]);}
+  if(!isNaN(e)&&!isNaN(c)){const x=t+s+p/10+e/10+c/10; rows.push(['SDAI',x.toFixed(1).replace('.',','),x<=3.3?pill('Remisión','ok'):x<=11?pill('Baja','ok'):x<=26?pill('Moderada','add'):pill('Alta','crit')]);}
+  if(!isNaN(e)){const x=t+s+p/10+e/10; rows.push(['CDAI',x.toFixed(1).replace('.',','),x<=2.8?pill('Remisión','ok'):x<=10?pill('Baja','ok'):x<=22?pill('Moderada','add'):pill('Alta','crit')]);}
+  document.getElementById('d20-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
+}
+['d20-tjc','d20-sjc','d20-pga','d20-ega','d20-vsg','d20-pcr'].forEach(id=>document.getElementById(id).addEventListener('input',d20Calc));
+d20Calc();
+function q19Calc(){
+  const qt=parseFloat(document.getElementById('q19-qt').value), hr=parseFloat(document.getElementById('q19-hr').value), sex=document.getElementById('q19-sex').value;
+  if(isNaN(qt)||isNaN(hr)||hr<=0) return;
+  const rr=60/hr;
+  const v={Bazett:qt/Math.sqrt(rr), Fridericia:qt/Math.cbrt(rr), Framingham:qt+154*(1-rr)};
+  const lim=sex==='F'?460:450;
+  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
+  document.getElementById('q19-out').innerHTML='<tr><td>RR</td><td class="m">'+Math.round(rr*1000)+' ms</td><td></td></tr>'+Object.keys(v).map(k=>{const x=Math.round(v[k]);return '<tr><td>'+k+'</td><td class="m">'+x+' ms</td><td>'+(x>500?pill('> 500: alto riesgo','crit'):x>lim?pill('Prolongado','add'):pill('Normal','ok'))+'</td></tr>';}).join('');
+}
+['q19-qt','q19-hr','q19-sex'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',q19Calc);e.addEventListener('change',q19Calc);});
+q19Calc();
+function i18Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const d=document.getElementById('i18-drug').value, dose=g('i18-dose'), mg=g('i18-mg'), ml=g('i18-ml'), kg=g('i18-kg');
+  if([dose,mg,ml].some(isNaN)||ml<=0||mg<=0) return;
+  const mgPerMl=mg/ml; let mgh;
+  if(d==='ntg') mgh=dose*60/1000;
+  else if(d==='esm') mgh=isNaN(kg)?NaN:dose*kg*60/1000;
+  else if(d==='nic') mgh=dose;
+  else mgh=dose*60;
+  const r=mgh/mgPerMl;
+  document.getElementById('i18-out').textContent=isNaN(r)?'—':(r<10?r.toFixed(1):Math.round(r)).toString().replace('.',',');
+  const rng={ntg:'Rango 5–200 µg/min',esm:'Rango 50–200 µg/kg/min (carga 500 µg/kg)',nic:'Rango 5–15 mg/h',lab:'Rango 0,5–2 mg/min'};
+  document.getElementById('i18-txt').textContent='Concentración '+(mgPerMl*1000).toFixed(0)+' µg/mL. '+rng[d]+'.';
+}
+['i18-drug','i18-dose','i18-mg','i18-ml','i18-kg'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',i18Calc);e.addEventListener('change',i18Calc);});
+i18Calc();
+function s17Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const sex=document.getElementById('s17-sex').value, cp=g('s17-cp'), kg=g('s17-kg'), cm=g('s17-cm');
+  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
+  if([cp,kg,cm].some(isNaN)||cm<=0) return;
+  const imc=kg/Math.pow(cm/100,2);
+  const adj=imc<18.5?1:imc<25?0:imc<30?-3:imc<40?-7:-12;
+  const cpa=cp+adj, lim=sex==='M'?34:33, low=cpa<lim;
+  let sf=0; for(let i=1;i<=5;i++) sf+=parseInt(document.getElementById('s17-q'+i).value,10);
+  const calf=sf+(low?10:0);
+  const fx=v=>v.toFixed(1).replace('.',',');
+  const rows=[
+    ['IMC',fx(imc)+' kg/m²',''],
+    ['Ajuste por IMC',(adj>0?'+':'')+adj+' cm',''],
+    ['Pantorrilla ajustada',fx(cpa)+' cm (corte < '+lim+')',low?pill('Bajo el corte','crit'):pill('Normal','ok')],
+    ['SARC-F',sf+' / 10',sf>=4?pill('Positivo (≥ 4)','add'):pill('Negativo','ok')],
+    ['SARC-CalF',calf+' / 20',calf>=11?pill('Sospecha de sarcopenia: medir fuerza','crit'):pill('Cribado negativo','ok')]
+  ];
+  document.getElementById('s17-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
+}
+['s17-sex','s17-cp','s17-kg','s17-cm','s17-q1','s17-q2','s17-q3','s17-q4','s17-q5'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',s17Calc);e.addEventListener('change',s17Calc);});
+s17Calc();
+function l16Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const alt=g('l16-alt'), an=g('l16-altn'), ast=g('l16-ast'), fa=g('l16-fa'), fn=g('l16-fan'), ggt=g('l16-ggt'), bt=g('l16-bt'), bd=g('l16-bd'), alb=g('l16-alb'), inr=g('l16-inr');
+  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
+  const fx=(v,d)=>v.toFixed(d).replace('.',',');
+  const rows=[];
+  if(!isNaN(alt)&&an>0){const x=alt/an; const gr=x<2?'borderline':x<5?'leve':x<15?'moderada':'severa'; rows.push(['ALT',fx(x,1)+'× LSN',alt>=10000?pill('Elevación masiva','crit'):x>1?pill('Elevación '+gr,x>=15?'crit':'add'):pill('Normal','ok')]);}
+  if(!isNaN(ast)&&!isNaN(alt)&&alt>0){const r=ast/alt; rows.push(['AST/ALT',fx(r,2),r>=2?pill('Sugiere alcohol (o cirrosis)','add'):r>1?pill('AST > ALT: alcohol, cirrosis, músculo','add'):pill('ALT predominante','ok')]);}
+  let R=NaN;
+  if(!isNaN(alt)&&!isNaN(fa)&&an>0&&fn>0&&fa>0){R=(alt/an)/(fa/fn); rows.push(['Índice R',fx(R,1),R>5?pill('Hepatocelular','crit'):R>=2?pill('Mixto','add'):pill('Colestásico','add')]);}
+  if(!isNaN(fa)&&!isNaN(ggt)&&fn>0){const faUp=fa>fn, gUp=ggt>50; rows.push(['FA / GGT',fa+' / '+ggt,faUp&&gUp?pill('Origen hepatobiliar','add'):faUp?pill('FA aislada: pensar en hueso','add'):gUp?pill('GGT aislada: alcohol, fármacos','add'):pill('Normales','ok')]);}
+  if(!isNaN(bt)&&!isNaN(bd)&&bt>0){const fr=bd/bt; rows.push(['Bilirrubina',fx(bt,1)+' mg/dL ('+Math.round(fr*100)+' % directa)',bt<=1.2?pill('Normal','ok'):fr<0.2?pill('Predomina indirecta: hemólisis, Gilbert','add'):pill('Predomina directa: hepatocelular o colestasis','add')]);}
+  if(!isNaN(alb)){rows.push(['Albúmina',fx(alb,1)+' g/dL',alb<3.5?pill('Baja: cronicidad (no específica)','add'):pill('Normal','ok')]);}
+  if(!isNaN(inr)){rows.push(['INR',fx(inr,1),inr>=1.5?pill('≥ 1,5: descartar falla hepática; probar vitamina K','crit'):inr>1.2?pill('Elevado: probar vitamina K','add'):pill('Normal','ok')]);}
+  document.getElementById('l16-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
+}
+['l16-alt','l16-altn','l16-ast','l16-fa','l16-fan','l16-ggt','l16-bt','l16-bd','l16-alb','l16-inr'].forEach(id=>document.getElementById(id).addEventListener('input',l16Calc));
+l16Calc();
+function m15Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const sex=document.getElementById('m15-sex').value, age=g('m15-age'), cin=g('m15-cin'), cad=g('m15-cad'), tal=g('m15-tal'), glu=g('m15-glu'), ins=g('m15-ins'), tg=g('m15-tg'), ct=g('m15-ct'), hdl=g('m15-hdl'), ast=g('m15-ast'), alt=g('m15-alt'), plt=g('m15-plt');
+  const f=(v,d)=>isNaN(v)?'—':v.toFixed(d).replace('.',',');
+  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
+  const rows=[];
+  if(!isNaN(cin)){const lim=sex==='F'?80:90; rows.push(['Cintura',cin+' cm',cin>=lim?pill('Aumentada','add'):pill('Normal','ok')]);}
+  if(!isNaN(cin)&&!isNaN(tal)&&tal>0){const v=cin/tal; rows.push(['Cintura/estatura',f(v,2),v<0.5?pill('Poca adiposidad central','ok'):v<0.6?pill('Aumentada','add'):pill('Elevada','crit')]);}
+  if(!isNaN(cin)&&!isNaN(cad)&&cad>0){const v=cin/cad, lim=sex==='F'?0.85:0.90; rows.push(['Cintura/cadera',f(v,2),v<lim?pill('Normal','ok'):pill('Riesgo aumentado','add')]);}
+  if(!isNaN(glu)&&!isNaN(ins)&&ins>0){const v=glu*ins/405; rows.push(['HOMA-IR',f(v,1),v>=2.5?pill('Sugiere RI','add'):pill('Bajo','ok')]);}
+  if(!isNaN(glu)&&!isNaN(tg)&&glu>0&&tg>0){const v=Math.log(tg*glu/2); rows.push(['TyG',f(v,2),v>=8.8?pill('Sugiere RI','add'):v>=8.5?pill('Limítrofe','add'):pill('Bajo','ok')]);}
+  if(!isNaN(tg)&&!isNaN(hdl)&&hdl>0){const v=tg/hdl; rows.push(['TG/HDL',f(v,1),v>3?pill('Elevado','add'):pill('Normal','ok')]);}
+  if(!isNaN(ct)&&!isNaN(hdl)){const v=ct-hdl; rows.push(['No-HDL',Math.round(v)+' mg/dL',v<85?pill('Meta riesgo muy alto','ok'):v<100?pill('Meta riesgo alto','ok'):v<130?pill('Meta riesgo moderado','add'):pill('Elevado','crit')]);}
+  if([age,ast,alt,plt].every(x=>!isNaN(x))&&alt>0&&plt>0){const v=age*ast/(plt*Math.sqrt(alt)), lo=age>=65?2.0:1.3; rows.push(['FIB-4',f(v,2),age<35?pill('No fiable < 35 años','add'):v<lo?pill('Bajo riesgo','ok'):v<=2.67?pill('Indeterminado','add'):pill('Riesgo elevado','crit')]);}
+  document.getElementById('m15-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
+}
+['m15-sex','m15-age','m15-cin','m15-cad','m15-tal','m15-glu','m15-ins','m15-tg','m15-ct','m15-hdl','m15-ast','m15-alt','m15-plt'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',m15Calc);e.addEventListener('change',m15Calc);});
+m15Calc();
+function t14Calc(){
+  const s=parseFloat(document.getElementById('t14-stfr').value), f=parseFloat(document.getElementById('t14-fer').value);
+  if(isNaN(s)||isNaN(f)||f<=1) return;
+  const v=s/Math.log10(f);
+  document.getElementById('t14-out').textContent=v.toFixed(1).replace('.',',');
+  const p=document.getElementById('t14-pill');
+  if(v<1){p.textContent='Anemia de la inflamación';p.className='pill add';}
+  else if(v>2){p.textContent='Ferropenia (sola o mixta)';p.className='pill crit';}
+  else{p.textContent='Zona intermedia';p.className='pill';}
+}
+['t14-stfr','t14-fer'].forEach(id=>document.getElementById(id).addEventListener('input',t14Calc));
+t14Calc();
+function h12Calc(){
+  const s=parseFloat(document.getElementById('h12-pas').value), d=parseFloat(document.getElementById('h12-pad').value), c=document.getElementById('h12-cond').value;
+  if(isNaN(s)||isNaN(d)) return;
+  const pam=Math.round((s+2*d)/3), p75=Math.round(pam*0.75), s75=Math.round(s*0.75);
+  document.getElementById('h12-pam').textContent=pam;
+  const t={
+    gen:'1.ª hora: PAS no menor de '+s75+' (−25 %, AHA/ACC) o PAM no menor de '+p75+' (ESC). 2–6 h: < 160/100 si está estable. 24–48 h: sistólica 130–140 de forma gradual.',
+    aorta:'PAS ≤ 120 en 20 min y FC ≤ 60. Primero esmolol o labetalol; luego vasodilatador.',
+    eap:'PAS < 140 de inmediato. Nitroglicerina o nitroprusiato + diurético de asa. Sin betabloqueador.',
+    sca:'PAS < 140. Nitroglicerina; esmolol si no hay insuficiencia cardíaca.',
+    hic:'PAS ~140, mantener 130–150. Nunca < 130.',
+    isq:(s>220||d>120)?'PA > 220/120: bajar ~15 % en 24 h (PAS ≈ '+Math.round(s*0.85)+').':'No tratar: PA ≤ 220/120 sin trombólisis. Permitir hipertensión permisiva.',
+    tpa:'Antes del trombolítico < 185/110; después < 180/105 durante 24 h.',
+    grave:'Sin daño agudo: vía oral, reiniciar o ajustar tratamiento, control en 24–72 h. No bajar de forma aguda.'
+  };
+  document.getElementById('h12-txt').textContent=t[c];
+}
+['h12-pas','h12-pad','h12-cond'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',h12Calc);e.addEventListener('change',h12Calc);});
+h12Calc();
+function noreCalc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const mg=g('n-mg'), ml=g('n-ml'), r=g('n-rate'), kg=g('n-kg');
+  if([mg,ml,r,kg].some(isNaN)||ml<=0||kg<=0) return;
+  const conc=mg*1000/ml, d=conc*r/60/kg;
+  document.getElementById('n-out').textContent=d.toFixed(2).replace('.',',');
+  document.getElementById('n-conc').textContent='Concentración: '+conc.toFixed(0)+' µg/mL. Con ≥ 0,25 µg/kg/min durante ≥ 4 h: considerar hidrocortisona. Con 0,25–0,5 µg/kg/min: agregar vasopresina 0,03 U/min.';
+  const p=document.getElementById('n-pill');
+  if(d<0.25){p.textContent='Dosis baja-moderada';p.className='pill ok';}
+  else if(d<=0.5){p.textContent='Agregar vasopresina; considerar hidrocortisona';p.className='pill add';}
+  else{p.textContent='Dosis alta: reevaluar, epinefrina/inotrópico';p.className='pill crit';}
+}
+['n-mg','n-ml','n-rate','n-kg'].forEach(id=>document.getElementById(id).addEventListener('input',noreCalc));
+noreCalc();
+function renderQuiz(el){
+  const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
+  const sc = document.createElement('div'); sc.className='score';
+  items.forEach((it,i)=>{
+    const box=document.createElement('div'); box.className='q';
+    box.innerHTML='<p>'+(i+1)+'. '+it.q+'</p>';
+    const opts=document.createElement('div'); opts.className='opts';
+    const exp=document.createElement('div'); exp.className='exp'; exp.hidden=true; exp.textContent=it.e;
+    it.o.forEach((t,j)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button'; b.id='q-'+el.dataset.quiz+'-'+i+'-'+j; b.textContent=t;
+      b.onclick=()=>{
+        [...opts.children].forEach((x,k)=>{x.disabled=true; if(k===it.a) x.classList.add('right');});
+        if(j===it.a) score++; else b.classList.add('wrong');
+        exp.hidden=false; done++;
+        if(done===items.length) sc.textContent='Resultado: '+score+' / '+items.length;
+      };
+      opts.appendChild(b);
+    });
+    box.append(opts,exp); el.appendChild(box);
+  });
+  el.appendChild(sc); el.style.display='flex'; el.style.flexDirection='column'; el.style.gap='10px';
+}
+document.querySelectorAll('[data-quiz]').forEach(renderQuiz);
+
+const tabs=[...document.querySelectorAll('.tab[role="tab"]')];
+function show(id){
+  tabs.forEach(t=>{const on=t.getAttribute('aria-controls')===id; t.setAttribute('aria-selected',on); document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
+  try{localStorage.setItem('vc2-tab',id)}catch(e){}
+}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.getAttribute('aria-controls'))));
+let start=tabs[0].getAttribute('aria-controls');
+const h=location.hash.slice(1);
+if(h && document.getElementById(h) && document.getElementById(h).getAttribute('role')==='tabpanel') start=h;
+else { try{const s=localStorage.getItem('vc2-tab'); if(s && document.getElementById(s)) start=s;}catch(e){} }
+show(start);
+</script>
+
+</body>
+</html>
