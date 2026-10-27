@@ -80,6 +80,7 @@ td.m{font-family:var(--f-mono);font-size:14px}
 .tag{font:700 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;white-space:nowrap}
 .tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.add{background:var(--warn-soft);color:var(--warn)} .tag.crit{background:var(--crit-soft);color:var(--crit)}
 .vd p{min-width:0}
+.vd p~p{grid-column:2;margin-top:0}
 .callout{background:var(--crit-soft);border-left:4px solid var(--crit);padding:12px 14px;border-radius:0 6px 6px 0}
 .callout strong{color:var(--crit)}
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -108,6 +109,7 @@ td.m{font-family:var(--f-mono);font-size:14px}
 footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:32px}
 @media (max-width:620px){.levels,.cols{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+footer a{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -117,394 +119,124 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 2</h1>
+  <span class="eyebrow">Diabetes y metabolismo · pestañas 17–24</span>
 </header>
 
+
 <nav class="tabs" role="tablist" aria-label="Videos">
-  <button class="tab" role="tab" id="t-v11" aria-controls="v11" aria-selected="true">11 · Código sepsis SSC 2026</button>
-  <button class="tab" role="tab" id="t-v12" aria-controls="v12" aria-selected="false">12 · Crisis hipertensiva AHA/ACC 2025</button>
-  <button class="tab" role="tab" id="t-v13" aria-controls="v13" aria-selected="false">13 · Hipertensión severa vs emergencia</button>
-  <button class="tab" role="tab" id="t-v14" aria-controls="v14" aria-selected="false">14 · Anemia de la inflamación</button>
-  <button class="tab" role="tab" id="t-v15" aria-controls="v15" aria-selected="false">15 · Fórmulas metabólicas</button>
-  <button class="tab" role="tab" id="t-v16" aria-controls="v16" aria-selected="false">16 · Perfil hepático (Tiagoritmo)</button>
-  <button class="tab" role="tab" id="t-v17" aria-controls="v17" aria-selected="false">17 · Pantorrilla y sarcopenia</button>
-  <button class="tab" role="tab" id="t-v18" aria-controls="v18" aria-selected="false">18 · Crisis hipertensiva: fármacos y dosis</button>
-  <button class="tab" role="tab" id="t-v19" aria-controls="v19" aria-selected="false">19 · Emergencias en ECG</button>
-  <button class="tab" role="tab" id="t-v20" aria-controls="v20" aria-selected="false">20 · AR: abordaje completo</button>
-  <span class="tab next" aria-hidden="true">continúa en Videoteca 3</span>
+  <button class="tab" role="tab" id="t-v7" aria-controls="v7" aria-selected="true">17 · Curva de glucosa e insulina</button>
+  <button class="tab" role="tab" id="t-v15" aria-controls="v15" aria-selected="false">18 · Fórmulas metabólicas</button>
+  <button class="tab" role="tab" id="t-v9" aria-controls="v9" aria-selected="false">19 · ¿GLP-1 o insulina?</button>
+  <button class="tab" role="tab" id="t-v3" aria-controls="v3" aria-selected="false">20 · Errores de prescripción en DM2</button>
+  <button class="tab" role="tab" id="t-v6" aria-controls="v6" aria-selected="false">21 · Ejercicio y DM2</button>
+  <button class="tab" role="tab" id="t-v17" aria-controls="v17" aria-selected="false">22 · Pantorrilla y sarcopenia</button>
+  <button class="tab" role="tab" id="t-v1" aria-controls="v1" aria-selected="false">23 · Hipoglucemia refractaria</button>
+  <button class="tab" role="tab" id="t-v2" aria-controls="v2" aria-selected="false">24 · Cetoacidosis diabética</button>
 </nav>
 
-<!-- ============ VIDEO 11 ============ -->
-<article class="panel" id="v11" role="tabpanel" aria-labelledby="t-v11">
+<!-- ============ PESTAÑA 17 (antes 7) ============ -->
+<article class="panel" id="v7" role="tabpanel" aria-labelledby="t-v7">
   <div>
-    <h2>Hora 1: código sepsis en 4 claves (Surviving Sepsis Campaign 2026)</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:24</span><span>Recibido 24/10/2026</span><span>Base citada: guía Surviving Sepsis Campaign 2026</span></div>
+    <h2>"Tu glucosa en ayunas puede dar perfecta": la curva de glucosa e insulina</h2>
+    <div class="meta"><span>Fuente: TikTok @drprincich</span><span>Duración 2:20</span><span>Recibido 14/09/2026</span><span>Público original: pacientes</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 11">
-    <a href="#v11-resumen">Resumen</a><a href="#v11-claves">4 claves</a><a href="#v11-caso">Caso</a><a href="#v11-calc">Dosis de norepinefrina</a><a href="#v11-analisis">Análisis crítico</a><a href="#v11-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones del video 7">
+    <a href="#v7-resumen">Resumen</a><a href="#v7-discurso">Lo que dice</a><a href="#v7-ogtt">Interpretación PTOG</a><a href="#v7-analisis">Análisis crítico</a><a href="#v7-calc">HOMA-IR y TyG</a><a href="#v7-quiz">Autoevaluación</a>
   </nav>
 
-  <section id="v11-resumen">
+  <section id="v7-resumen">
     <h3>Resumen</h3>
-    <p class="lead">"Si el antibiótico llega en la hora dos, llegaste tarde." Según el video, la guía SSC 2026 redefinió quién entra a la hora uno al distinguir sepsis <b>definitiva, probable y posible</b>. Presenta 4 claves: reconocer y clasificar, líquidos sin desbordar, vasopresor sin esperar el catéter, y cómo (no solo cuándo) dar el antibiótico.</p>
+    <p class="lead">Video hablado, sin láminas; el contenido se reconstruyó a partir de los subtítulos. Tesis: <b>la glucosa en ayunas es "la foto" y la curva de glucosa con insulina es "la película"</b>. Una persona puede tener glucosa normal en ayunas y en la curva, pero insulina muy elevada, lo que sería resistencia a la insulina temprana, detectable años antes.</p>
+    <p>Mensaje final: "La próxima vez que te digan que tu glucosa en ayunas está perfecta, pensá que estás viendo la foto y no la película completa."</p>
   </section>
 
-  <section id="v11-claves">
-    <h3>Las 4 claves del video</h3>
-    <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>Reconoce y clasifica</h4>
-        <ul>
-          <li>"Como una alarma de humo." Sepsis <b>definitiva o probable</b> → antibiótico en la <b>primera hora</b>.</li>
-          <li>Sepsis <b>posible sin choque</b> → descarta primero causas no infecciosas.</li>
-          <li>Mide el <b>lactato</b> siempre que sospeches sepsis.</li>
-        </ul></li>
-      <li class="step"><span class="num">2</span><h4>Líquidos: llena el tanque sin desbordarlo</h4>
-        <ul>
-          <li>Con hipotensión, lactato elevado o choque: al menos <span class="dose">30 mL/kg de cristaloide</span> en las primeras 3 horas.</li>
-          <li><b>Nada de almidones.</b></li>
-          <li>Después de reanimar, <b>retira el exceso</b>: la guía insiste en no inundar.</li>
-        </ul></li>
-      <li class="step"><span class="num">3</span><h4>Vasopresor: la presión no espera el catéter</h4>
-        <ul>
-          <li><b>Norepinefrina</b> de primera línea; <b>epinefrina</b> si hay disfunción cardíaca.</li>
-          <li>Empezar por <b>vía periférica</b>, sin esperar el acceso central.</li>
-          <li>Meta inicial: <b>PAM 65</b>. En ≥ 65 años, rango <b>60–65</b>.</li>
-          <li>Si la norepinefrina sigue subiendo, agregar <b>vasopresina</b>.</li>
-        </ul></li>
-      <li class="step"><span class="num">4</span><h4>Cómo dar el antibiótico</h4>
-        <ul>
-          <li>Un betalactámico trabaja por <b>tiempo, no por pico</b>: <b>infusión prolongada</b> después de la dosis de carga, en vez de bolos.</li>
-          <li>Choque séptico: se sugiere <b>corticoide IV</b>.</li>
-          <li>Se sugiere <b>no usar</b> vitamina C, vitamina D ni betabloqueadores.</li>
-        </ul></li>
-    </ol>
-  </section>
-
-  <section id="v11-caso">
-    <h3>Pausa y responde</h3>
-    <div class="box">
-      <p><b>Mujer de 78 años con neumonía.</b> Ya recibió 30 mL/kg de cristaloide. PA 78/40, lactato 4,8 mmol/L. ¿Siguiente paso?</p>
-      <ul><li>A. Otros 2 L y reevaluar</li><li>B. Esperar el catéter central</li><li>C. Hidrocortisona primero</li><li>D. Norepinefrina periférica, ya</li></ul>
-    </div>
-    <div class="callout"><strong>Respuesta: D.</strong> Persiste la hipotensión tras 30 mL/kg: es choque séptico. Norepinefrina por vía periférica de inmediato, con meta de PAM 60–65 por la edad. Más volumen solo si hay respuesta a fluidos demostrada. La hidrocortisona se agrega si persiste la necesidad de norepinefrina, no antes.</div>
-  </section>
-
-  <section id="v11-calc">
-    <h3>Dosis de norepinefrina (agregada)</h3>
-    <div class="box">
-      <div class="calc">
-        <label for="n-mg">Norepinefrina en la mezcla (mg)<input id="n-mg" type="number" min="0.5" max="64" step="0.5" value="8"></label>
-        <label for="n-ml">Volumen de la mezcla (mL)<input id="n-ml" type="number" min="10" max="1000" value="250"></label>
-        <label for="n-rate">Velocidad de la bomba (mL/h)<input id="n-rate" type="number" min="0" max="200" step="0.5" value="30"></label>
-        <label for="n-kg">Peso (kg)<input id="n-kg" type="number" min="20" max="250" value="60"></label>
-      </div>
-      <div class="result" aria-live="polite"><span class="big" id="n-out">0,27</span><span>µg/kg/min</span><span class="pill" id="n-pill"></span></div>
-      <p class="note" style="margin-top:8px" id="n-conc">Valores de ejemplo cargados. Con ≥ 0,25 µg/kg/min durante ≥ 4 h: considerar hidrocortisona. Con 0,25–0,5 µg/kg/min: agregar vasopresina 0,03 U/min.</p>
-    </div>
-  </section>
-
-  <section id="v11-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video correcto y bien sintetizado. No pude verificar el texto final de la SSC 2026, así que la comparo con la evidencia que la sustenta y con la SSC 2021.</p>
-    <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Vasopresor periférico:</b> SSC 2021 ya lo sugería para no retrasar la reperfusión tisular. Usar una vena proximal (antecubital o superior), vigilar el sitio y pasar a central en las primeras 24–48 h si sigue necesitándose.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>PAM 60–65 en ≥ 65 años:</b> respaldado por el ensayo 65 (Lamontagne, JAMA 2020), sin aumento de mortalidad con la meta permisiva y con menor exposición a vasopresor.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Infusión prolongada de betalactámicos:</b> el ensayo BLING III y el metaanálisis de Abdul-Aziz (JAMA 2024) mostraron menor mortalidad a 90 días frente a la administración intermitente.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>No vitamina C ni betabloqueadores:</b> LOVIT (NEJM 2022) mostró daño con vitamina C; STRESS-L (landiolol, JAMA 2023) no mostró beneficio. Los almidones aumentan la lesión renal y la necesidad de diálisis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Sepsis posible sin choque:</b> la SSC 2021 da una ventana de evaluación rápida y antibiótico dentro de <b>3 horas</b> si persiste la sospecha. El video lo resume como "descarta primero causas no infecciosas", sin mencionar el plazo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>30 mL/kg no es dogma:</b> en la SSC 2021 era una recomendación débil con evidencia de baja calidad. Más allá del bolo inicial, reevaluar la respuesta a fluidos (elevación pasiva de piernas, VPP, VTI) y usar el <b>llenado capilar</b> como guía (ANDROMEDA-SHOCK). Cristaloides balanceados mejor que salino.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Corticoide:</b> hidrocortisona 200 mg/día (50 mg IV c/6 h o infusión) cuando la norepinefrina es ≥ 0,25 µg/kg/min durante ≥ 4 h. Reduce el tiempo en choque; el efecto sobre la mortalidad es modesto y depende del ensayo (ADRENAL vs APROCCHSS).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lactato:</b> repetir a las 2–4 h si está elevado. El objetivo es la tendencia a la baja, no un número aislado. Un lactato ≥ 4 mmol/L obliga a reanimación aunque la PA sea normal (choque críptico).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Control del foco</b> (drenaje, desbridamiento, retiro de catéteres) también es de la hora cero y el video no lo menciona. Sin él, el antibiótico perfecto fracasa.</p></div>
-    </div>
-    <div class="callout"><strong>Perla:</strong> la reanimación de la hora 1 son cinco acciones en paralelo, no en serie: lactato, hemocultivos, antibiótico, cristaloide y norepinefrina si la PAM no llega a 65.</div>
-  </section>
-
-  <section id="v11-quiz">
-    <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v11"></div>
-  </section>
-  <p class="note">Referencias: Surviving Sepsis Campaign 2026 (citada en el video); Evans L et al. SSC 2021, Crit Care Med 2021; Lamontagne F et al. ensayo 65, JAMA 2020; Abdul-Aziz MH et al. infusión prolongada de betalactámicos, JAMA 2024; Lamontagne F et al. LOVIT, NEJM 2022; Whitehouse T et al. STRESS-L, JAMA 2023; Hernández G et al. ANDROMEDA-SHOCK, JAMA 2019.</p>
-</article>
-
-<!-- ============ VIDEO 12 ============ -->
-<article class="panel" id="v12" role="tabpanel" aria-labelledby="t-v12" hidden>
-  <div>
-    <h2>Crisis hipertensiva: nifedipino sublingual nunca más</h2>
-    <div class="meta"><span>Fuente: TikTok @medicina.en.resumen · "Hipertensión, parte 4"</span><span>Duración 2:25</span><span>Recibido 23/10/2026</span><span>Base citada: AHA/ACC 2025, sección 6.2 y tabla 27</span></div>
-  </div>
-  <nav class="subnav" aria-label="Secciones del video 12">
-    <a href="#v12-resumen">Resumen</a><a href="#v12-algoritmo">Algoritmo</a><a href="#v12-metas">Metas por condición</a><a href="#v12-calc">Calculadora</a><a href="#v12-analisis">Análisis crítico</a><a href="#v12-quiz">Autoevaluación</a>
-  </nav>
-
-  <section id="v12-resumen">
-    <h3>Resumen</h3>
-    <p class="lead">Carrusel en video con referencias en cada lámina. Una sola pregunta divide todo: <b>¿hay daño agudo a órgano?</b> (corazón, cerebro, riñón, retina, aorta). Sin daño, la AHA/ACC 2025 abandona el término "urgencia hipertensiva" y habla de <b>hipertensión grave</b>: vía oral y sin prisa. Con daño, es <b>emergencia</b>: terapia intensiva e infusión IV titulable, con metas distintas según el órgano.</p>
-  </section>
-
-  <section id="v12-algoritmo">
-    <h3>Algoritmo del video</h3>
-    <ol class="steps">
-      <li class="step"><span class="num">?</span><h4>¿Hay daño agudo a órgano?</h4>
-        <ul><li>Corazón, cerebro, riñón, retina, aorta.</li></ul></li>
-      <li class="step"><span class="num">1</span><h4>Sin daño: hipertensión grave (≥ 180 y/o ≥ 120)</h4>
-        <ul>
-          <li><b>En consulta:</b> vía oral, sin prisa. Reiniciar o ajustar el tratamiento y control ambulatorio.</li>
-          <li>Enviarlo a urgencias no cambia los eventos CV a 6 meses (0,9 % vs 0,9 %), pero sí aumenta la hospitalización a 7 días (8,2 % vs 4,7 %) (Patel, JAMA Intern Med 2016).</li>
-          <li><b>Hospitalizado por otra causa:</b> en 40–50 % la presión baja sola, sin fármacos. Tratarla de forma aguda aumentó la lesión renal aguda (10,3 % vs 7,9 %) y la lesión miocárdica (1,2 % vs 0,6 %) (Rastogi, JAMA Intern Med 2021). AHA/ACC 2025: <b>clase 3, daño</b>.</li>
-        </ul></li>
-      <li class="step"><span class="num">✕</span><h4>Nifedipino de acción corta sublingual</h4>
-        <ul><li>Nunca fue aprobado para crisis hipertensiva. Produce una caída brusca e impredecible de la PA, con riesgo de infarto y EVC (Grossman, JAMA 1996).</li></ul></li>
-      <li class="step"><span class="num">2</span><h4>Con daño: emergencia hipertensiva</h4>
-        <ul>
-          <li>Terapia intensiva + infusión IV titulable: <b>nicardipino o labetalol</b>.</li>
-          <li><b>Sin condición específica:</b> 1.ª hora bajar no más del 25 % → <span class="dose">&lt; 160/100</span> en 2–6 h si está estable → <span class="dose">sistólica 130–140</span> de forma gradual en 24–48 h.</li>
-        </ul></li>
-    </ol>
-  </section>
-
-  <section id="v12-metas">
-    <h3>Cada condición, su meta y su fármaco</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Condición</th><th>Meta</th><th>Fármaco</th></tr></thead>
-      <tbody>
-        <tr><td><b>Disección aórtica</b></td><td class="m">PAS ≤ 120 en 20 min<br>FC ≤ 60</td><td>1.º esmolol o labetalol, después el vasodilatador</td></tr>
-        <tr><td><b>Edema pulmonar</b></td><td class="m">PAS &lt; 140</td><td>Nitroglicerina o nitroprusiato + diurético de asa. <b style="color:var(--crit)">Betabloqueador contraindicado</b></td></tr>
-        <tr><td><b>Síndrome coronario agudo</b></td><td class="m">PAS &lt; 140</td><td>Nitroglicerina o esmolol</td></tr>
-        <tr><td><b>Hemorragia intracerebral</b></td><td class="m">Meta 140<br>Nunca &lt; 130</td><td>Bajar a &lt; 130 es clase 3 (daño). Nicardipino o labetalol</td></tr>
-        <tr><td><b>Isquemia cerebral sin trombólisis</b></td><td class="m">Tratar solo si &gt; 220/120</td><td>Nicardipino o labetalol</td></tr>
-        <tr><td><b>Isquemia cerebral con trombólisis</b></td><td class="m">&lt; 185/110 antes</td><td>Nicardipino o labetalol</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">Todo esto es fuera del embarazo; ahí las metas y los fármacos son otros.</p>
-  </section>
-
-  <section id="v12-calc">
-    <h3>Calculadora de metas (agregada)</h3>
-    <div class="box">
-      <div class="calc">
-        <label for="h12-pas">PA sistólica inicial (mmHg)<input id="h12-pas" type="number" min="100" max="300" value="220"></label>
-        <label for="h12-pad">PA diastólica inicial (mmHg)<input id="h12-pad" type="number" min="40" max="180" value="130"></label>
-        <label for="h12-cond">Condición
-          <select id="h12-cond">
-            <option value="gen" selected>Emergencia sin condición específica</option>
-            <option value="aorta">Disección aórtica</option>
-            <option value="eap">Edema pulmonar</option>
-            <option value="sca">Síndrome coronario agudo</option>
-            <option value="hic">Hemorragia intracerebral</option>
-            <option value="isq">Isquemia cerebral sin trombólisis</option>
-            <option value="tpa">Isquemia cerebral con trombólisis</option>
-            <option value="grave">Hipertensión grave sin daño</option>
-          </select></label>
-      </div>
-      <div class="result" aria-live="polite"><span>PAM</span><span class="big" id="h12-pam">160</span><span id="h12-txt" style="flex:1 1 260px;min-width:0"></span></div>
-    </div>
-  </section>
-
-  <section id="v12-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Excelente material: cada lámina cita su fuente y las cifras de los estudios están bien. Para el especialista en hipertensión, estos son los matices y lo que falta:</p>
-    <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Abandono del nifedipino sublingual</b> (Grossman 1996): la absorción sublingual es mínima; actúa por absorción gastrointestinal rápida, con hipotensión impredecible, isquemia cerebral y coronaria. No existe dosis segura en crisis fuera del embarazo.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>HIC: no bajar de 130</b>, coincide con AHA/ASA 2022. INTERACT-3/4 y ATACH-2 mostraron que la reducción agresiva no mejora el pronóstico y aumenta la lesión renal. Mantener 130–150 con poca variabilidad.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Isquemia con trombólisis:</b> además de &lt; 185/110 antes, mantener <b>&lt; 180/105 durante 24 h</b> después del trombolítico. Sin trombólisis y con PA &gt; 220/120: bajar solo ~15 % en las primeras 24 h.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>¿25 % de qué?</b> La AHA/ACC lo expresa sobre la <b>PAS</b>; el documento de la ESC (2019), sobre la <b>PAM</b>. En la práctica dan cifras parecidas; la calculadora muestra ambas. Excepciones donde la meta es inmediata: disección aórtica, preeclampsia grave/eclampsia y feocromocitoma.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Condiciones que faltan:</b></p></div>
-      <div class="vd"><span class="tag add">↳</span><p><b>Preeclampsia/eclampsia:</b> PA ≥ 160/110 tratar en 30–60 min; labetalol IV, hidralazina IV o <b>nifedipino oral de liberación inmediata</b> (en el embarazo sí es de primera línea, ACOG). Sulfato de magnesio para prevenir convulsiones.</p></div>
-      <div class="vd"><span class="tag add">↳</span><p><b>Feocromocitoma o simpaticomiméticos (cocaína, anfetaminas):</b> fentolamina o nicardipino + benzodiacepina. <b>Nunca betabloqueador solo</b> (estimulación α sin oposición).</p></div>
-      <div class="vd"><span class="tag add">↳</span><p><b>Hipertensión maligna</b> (retinopatía grado III–IV) y <b>microangiopatía trombótica</b> (esquistocitos, LDH alta, plaquetas bajas): son emergencias aunque no haya síntomas. El fondo de ojo es parte de la evaluación.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Evaluación mínima de daño a órgano:</b> ECG, troponina, creatinina, examen de orina, fondo de ojo, frotis/LDH si hay sospecha de MAT; TAC de cráneo si hay focalidad o alteración de conciencia; angio-TC si hay dolor torácico o dorsal desgarrante.</p></div>
-      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Disponibilidad en Ecuador:</b> nicardipino y clevidipino son poco accesibles. En la práctica se usan <b>labetalol IV</b>, <b>nitroprusiato</b> (evitar uso prolongado por toxicidad por cianuro, sobre todo en ERC) y <b>nitroglicerina</b> (SCA, EAP). Elegir según el órgano afectado y lo disponible.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Hospitalizado con PA alta asintomática:</b> antes de tratar, buscar la causa: dolor, ansiedad, retención urinaria, abstinencia, suspensión de antihipertensivos, fármacos (AINE, corticoides, simpaticomiméticos). Tratar la causa, no el número.</p></div>
-    </div>
-    <div class="callout"><strong>En consulta (Salitre/Guayas):</strong> paciente con 190/115 sin síntomas ni daño → reposo 30 min, repetir la toma, reiniciar o ajustar antihipertensivos orales y control en 24–72 h. No enviar a urgencias ni administrar nada sublingual.</div>
-  </section>
-
-  <section id="v12-quiz">
-    <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v12"></div>
-  </section>
-  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults (sección 6.2, tabla 27); van den Born BJH et al. ESC position document on hypertensive emergencies, EHJ-CVP 2019; Patel KK et al. JAMA Intern Med 2016; Rastogi R et al. JAMA Intern Med 2021; Grossman E et al. JAMA 1996; AHA/ASA 2022 hemorragia intracerebral; AHA/ASA 2019 ictus isquémico; ACOG 2020 hipertensión gestacional.</p>
-</article>
-
-<!-- ============ VIDEO 13 ============ -->
-<article class="panel" id="v13" role="tabpanel" aria-labelledby="t-v13" hidden>
-  <div>
-    <h2>"210/120 sin síntomas": hipertensión severa vs emergencia hipertensiva</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:55</span><span>Recibido 20/10/2026</span><span>Base citada: guía AHA/ACC 2025</span></div>
-  </div>
-  <nav class="subnav" aria-label="Secciones del video 13">
-    <a href="#v13-resumen">Resumen</a><a href="#v13-claves">4 claves</a><a href="#v13-caso">Caso</a><a href="#v13-comp">Comparación con la pestaña 12</a><a href="#v13-analisis">Análisis crítico</a><a href="#v13-quiz">Autoevaluación</a>
-  </nav>
-
-  <section id="v13-resumen">
-    <h3>Resumen</h3>
-    <p class="lead">Mismo tema que la pestaña 12, contado por otro autor. Arranca con el error típico: paciente con <b>210/120 sin síntomas</b>, le diste captopril y la bajaste en 1 hora: "ese es el error". La "urgencia hipertensiva" ya no existe: <b>el número no define nada, el órgano sí</b>.</p>
-    <p class="note">Para metas por órgano y la calculadora, ver la pestaña 12. Aquí va lo propio de este video y en qué difieren ambos.</p>
-  </section>
-
-  <section id="v13-claves">
-    <h3>Las 4 claves del video</h3>
-    <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>El órgano manda</h4>
-        <ul>
-          <li>La alarma suena igual si se quema el pan o la casa.</li>
-          <li><b>&gt; 180/120 sin daño agudo</b> de órgano blanco → <b>hipertensión severa</b> (antes "urgencia hipertensiva").</li>
-          <li><b>&gt; 180/120 con daño agudo</b> → <b>emergencia hipertensiva</b>.</li>
-        </ul></li>
-      <li class="step"><span class="num">2</span><h4>Busca el incendio en 4 sitios</h4>
-        <ul>
-          <li><b>Cerebro:</b> encefalopatía, ACV, hemorragia. <b>Corazón:</b> SCA, edema pulmonar. <b>Aorta:</b> disección. <b>Riñón.</b></li>
-          <li><b>Gestante:</b> preeclampsia severa o eclampsia.</li>
-          <li>Pide: ECG, troponina, creatinina y parcial de orina.</li>
-        </ul></li>
-      <li class="step"><span class="num">3</span><h4>Severa ≠ emergencia</h4>
-        <ul>
-          <li>No necesita medicamentos IV ni bajar rápido. Guía 2025: <b>no bolos IV ni dosis extra</b> en el hospitalizado.</li>
-          <li>Busca la causa: dolor, ansiedad, retención urinaria, dosis olvidadas.</li>
-          <li>Reinicia o ajusta la vía oral y control en días. <b>Nada de nifedipino de acción corta.</b></li>
-        </ul></li>
-      <li class="step"><span class="num">4</span><h4>Emergencia → UCI</h4>
-        <ul>
-          <li>Monitoría continua y fármaco IV titulable. "La presión se aterriza, no se desploma."</li>
-          <li>1.ª hora: <b>↓ ≤ 25 %</b> · 2–6 h: <b>&lt; 160/100</b> · 24–48 h: <b>PAS 130–140</b>.</li>
-          <li>Excepciones: <b>disección aórtica</b>, PAS &lt; 120 en la 1.ª hora; <b>preeclampsia severa y feocromocitoma</b>, metas más rápidas.</li>
-        </ul></li>
-    </ol>
-  </section>
-
-  <section id="v13-caso">
-    <h3>Pausa y responde</h3>
-    <div class="box">
-      <p><b>Mujer de 58 años, PA 205/115.</b> Asintomática, examen normal, troponina y creatinina normales. Dejó su losartán hace 3 días. ¿Qué haces?</p>
-      <ul><li>A. Labetalol IV</li><li>B. Nifedipino sublingual</li><li>C. Reiniciar VO + control ambulatorio</li><li>D. Ingreso a UCI</li></ul>
-    </div>
-    <div class="callout"><strong>Respuesta: C.</strong> Hipertensión severa sin daño agudo, con causa clara: abandono del losartán. Reiniciarlo (o ajustar el esquema), confirmar adherencia y control en 2–7 días. Ni IV, ni sublingual, ni UCI.</div>
-  </section>
-
-  <section id="v13-comp">
-    <h3>Comparación con la pestaña 12 (@medicina.en.resumen)</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Punto</th><th>Pestaña 12</th><th>Este video</th><th>Comentario</th></tr></thead>
-      <tbody>
-        <tr><td>Umbral</td><td class="m">&gt;180 y/o &gt;120</td><td class="m">&gt;180/120</td><td>Equivalentes: basta con que una de las dos cifras supere el umbral.</td></tr>
-        <tr><td>Disección aórtica</td><td class="m">PAS ≤ 120 en 20 min</td><td class="m">PAS &lt; 120 en la 1.ª hora</td><td>ESC 2019 apunta a 20 min; AHA/ACC dice 1.ª hora. En la práctica: lo antes posible, con FC ≤ 60 primero.</td></tr>
-        <tr><td>Embarazo</td><td>Lo excluye</td><td>Lo incluye como excepción</td><td>En preeclampsia severa la meta es inmediata (PAS &lt; 160, PAD &lt; 110 en 30–60 min).</td></tr>
-        <tr><td>Evidencia</td><td>Cita estudios (Patel, Rastogi)</td><td>Sin cifras</td><td>La pestaña 12 es más sólida; esta es más didáctica.</td></tr>
-        <tr><td>Evaluación</td><td>No la detalla</td><td>ECG, troponina, creatinina, orina</td><td>Falta el fondo de ojo en ambas.</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section id="v13-analisis">
-    <h3>Análisis crítico</h3>
-    <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>El mensaje central coincide con la AHA/ACC 2025 y con la pestaña 12: el daño de órgano define la conducta, no el número.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>El captopril no es el villano.</b> El error del ejemplo es el objetivo (bajar en 1 hora), no el fármaco. Un IECA oral es razonable para reiniciar el tratamiento; lo que no se busca es normalizar la PA en horas, porque la autorregulación cerebral y coronaria está desplazada en el hipertenso crónico.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Fondo de ojo:</b> hemorragias en llama, exudados o papiledema (hipertensión maligna) convierten un caso "asintomático" en emergencia. Es el examen más olvidado en consulta.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Riñón:</b> no basta con la creatinina. Hematuria o proteinuria nuevas, o un aumento agudo de creatinina respecto a un valor previo, sugieren lesión aguda. Pensar en microangiopatía si hay anemia y plaquetas bajas.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>"Asintomático" se pregunta dirigido:</b> cefalea intensa, alteraciones visuales, dolor torácico o dorsal, disnea, déficit neurológico, oliguria. Muchos pacientes no los refieren espontáneamente.</p></div>
-    </div>
-  </section>
-
-  <section id="v13-quiz">
-    <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v13"></div>
-  </section>
-  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults; van den Born BJH et al. EHJ-CVP 2019; Whelton PK et al. ACC/AHA 2017; ACOG 2020.</p>
-</article>
-
-<!-- ============ VIDEO 14 ============ -->
-<article class="panel" id="v14" role="tabpanel" aria-labelledby="t-v14" hidden>
-  <div>
-    <h2>"Anemia en 2 minutos": no es una receta de cocina</h2>
-    <div class="meta"><span>Fuente: TikTok @drkeiph</span><span>Duración 2:20</span><span>Recibido 19/10/2026</span><span>Formato: sketch hablado (docente y residente)</span></div>
-  </div>
-  <nav class="subnav" aria-label="Secciones del video 14">
-    <a href="#v14-resumen">Resumen</a><a href="#v14-discurso">Lo que dice</a><a href="#v14-ferro">Perfil ferrocinético</a><a href="#v14-calc">Índice sTfR</a><a href="#v14-analisis">Análisis crítico</a><a href="#v14-quiz">Autoevaluación</a>
-  </nav>
-
-  <section id="v14-resumen">
-    <h3>Resumen</h3>
-    <p class="lead">Sketch: el docente revisa una historia y reclama porque alguien clasificó la anemia "como si fuese una receta de cocina". El mensaje: el VCM orienta, pero hay que saber si la anemia es <b>regenerativa o arregenerativa</b> (reticulocitos), mirar el <b>frotis</b> y el <b>perfil ferrocinético</b>, y recordar que en el paciente <b>infectado o con SRIS</b> la inflamación produce una anemia propia.</p>
-    <p class="note">Video hablado con subtítulos intermitentes; algunas frases quedaron incompletas. El contenido se complementa con la pestaña 5 (Algoritmo de anemia) de la Videoteca 1, que tiene las calculadoras de IRC/IPR y Mentzer.</p>
-  </section>
-
-  <section id="v14-discurso">
+  <section id="v7-discurso">
     <h3>Lo que dice el video</h3>
     <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>La "receta" del residente</h4>
-        <ul><li>Macrocítica (VCM &gt; 100) = déficit de ácido fólico; la otra: hemorragia, hemólisis o patologías crónicas. El docente lo critica como simplificación.</li></ul></li>
-      <li class="step"><span class="num">2</span><h4>Índice de Mentzer</h4>
-        <ul><li>VCM dividido entre el número de eritrocitos: permite sospechar talasemia.</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>¿Por qué está anémico?</h4>
-        <ul><li>Por hemólisis, por pérdida, o porque la médula no produce adecuadamente.</li><li>Pedir <b>frotis de sangre periférica con recuento de reticulocitos</b> y, según el caso, <b>perfil ferrocinético completo</b>.</li><li>Ver si la médula está liberando formas inmaduras de eritrocitos.</li></ul></li>
-      <li class="step"><span class="num">4</span><h4>El paciente infectado</h4>
-        <ul><li>Séptico o con SRIS: tiene hierro, pero <b>no lo puede liberar hacia la sangre</b>. Puede parecer una anemia ferropénica.</li><li>La inflamación además <b>disminuye la producción de eritropoyetina</b>.</li><li>Cierre: estudiar cómo se clasifican, y si son regenerativas o arregenerativas.</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>La limitación del ayuno</h4>
+        <ul><li>La glucosa en ayunas muestra cómo amanece el cuerpo tras 10–12 h sin comer, pero "no vivís en ayunas, vivís comiendo". Importa qué pasa en la sangre en las horas siguientes a cada comida.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>La curva de glucosa e insulina (PTOG)</h4>
+        <ul><li>Medición en ayunas, carga de glucosa, nueva medición a la hora y a las 2 horas, <b>de glucosa e insulina en cada punto</b>.</li><li>Pedir insulina, no solo glucosa, "porque ahí se esconde lo que nadie ve".</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>El hallazgo típico que describe</h4>
+        <div class="tbl" style="margin-top:6px"><table style="min-width:0">
+          <thead><tr><th></th><th>Ayunas</th><th>2 horas</th><th>Lectura del video</th></tr></thead>
+          <tbody>
+            <tr><td>Glucosa (mg/dL)</td><td class="m">92</td><td class="m">130</td><td>"Excelente" y "aceptable": todo aprobado</td></tr>
+            <tr><td>Insulina (µUI/mL)</td><td class="m">12</td><td class="m">90 → 120</td><td>"Descarga monumental" del páncreas</td></tr>
+          </tbody>
+        </table></div>
+        <ul><li>La glucosa aprobó porque la insulina "rindió por ella", con un costo enorme. Insulina disparada con glucosa sostenida = resistencia a la insulina en su fase más temprana, años antes de que se altere el valor en ayunas.</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>Los síntomas que lo explicarían</h4>
+        <ul><li>La descarga de insulina "sobrecorrige": la glucosa cae en picada a las 3–4 h y aparece el sueño brutal después de comer, el hambre urgente y el temblor de media tarde.</li></ul></li>
+      <li class="step"><span class="num">5</span><h4>Cuándo pedirla, según el video</h4>
+        <ul><li>Ayunas normal, pero síntomas y contexto que dicen otra cosa: triglicéridos altos, perímetro abdominal aumentado, sueño posprandial. "Lo decide tu médico."</li></ul></li>
     </ol>
   </section>
 
-  <section id="v14-ferro">
-    <h3>Perfil ferrocinético: ferropenia vs inflamación (agregado)</h3>
+  <section id="v7-ogtt">
+    <h3>Interpretación validada de la PTOG con 75 g (agregado)</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Parámetro</th><th>Ferropenia</th><th>Anemia de la inflamación</th><th>Mixta</th></tr></thead>
+      <thead><tr><th>Tiempo</th><th>Normal</th><th>Riesgo / prediabetes</th><th>Diabetes</th><th>Fuente</th></tr></thead>
       <tbody>
-        <tr><td>Hierro sérico</td><td>↓</td><td>↓</td><td>↓</td></tr>
-        <tr><td>Ferritina (ng/mL)</td><td class="m">&lt; 30</td><td class="m">&gt; 100</td><td class="m">30–100</td></tr>
-        <tr><td>Transferrina / TIBC</td><td>↑</td><td>↓ o normal</td><td>Normal</td></tr>
-        <tr><td>Saturación de transferrina</td><td class="m">&lt; 20 %</td><td class="m">&lt; 20 %</td><td class="m">&lt; 20 %</td></tr>
-        <tr><td>Receptor soluble de transferrina</td><td>↑</td><td>Normal</td><td>↑</td></tr>
-        <tr><td>VCM</td><td>Bajo</td><td>Normal (bajo si es crónica)</td><td>Bajo o normal</td></tr>
-        <tr><td>PCR</td><td>Normal</td><td>↑</td><td>↑</td></tr>
+        <tr><td>Ayunas</td><td class="m">&lt; 100</td><td class="m">100–125 (GAA)</td><td class="m">≥ 126</td><td>ADA</td></tr>
+        <tr><td>1 hora</td><td class="m">&lt; 155</td><td class="m">155–208</td><td class="m">≥ 209</td><td>IDF 2024</td></tr>
+        <tr><td>2 horas</td><td class="m">&lt; 140</td><td class="m">140–199 (ITG)</td><td class="m">≥ 200</td><td>ADA / OMS</td></tr>
+        <tr><td>Insulina</td><td colspan="3">Sin puntos de corte diagnósticos validados</td><td>—</td></tr>
       </tbody>
     </table></div>
-    <p class="note">La saturación baja no distingue entre ambas; la ferritina, el TIBC y el receptor soluble sí.</p>
+    <p class="note">Glucosa en mg/dL. La glucosa a la hora ≥ 155 mg/dL (posición IDF 2024) es el marcador validado de la "película" que describe el video: detecta riesgo con glucosa en ayunas y a las 2 h normales.</p>
   </section>
 
-  <section id="v14-calc">
-    <h3>Índice sTfR/log ferritina (agregado)</h3>
+  <section id="v7-analisis">
+    <h3>Análisis crítico</h3>
+    <p>La idea de fondo es válida: la glucosa en ayunas sola subdiagnostica alteraciones del metabolismo de la glucosa. Pero el video presenta como diagnóstico algo que no lo es.</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>La glucosa en ayunas es insensible. Una parte importante de las personas con intolerancia a la glucosa, e incluso con diabetes por la curva, tiene ayunas normal. La PTOG de glucosa tiene valor real en pacientes de riesgo.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>La hiperinsulinemia compensadora precede por años a la hiperglucemia. Es fisiopatología bien establecida.</p></div>
+      <div class="vd"><span class="tag crit">Problema</span><p><b>La insulina en la curva no tiene valores de referencia validados.</b> Ninguna guía (ADA, AACE, Endocrine Society, IDF) la recomienda para diagnosticar resistencia a la insulina. Los ensayos de insulina no están estandarizados entre laboratorios y la variabilidad entre personas sanas es enorme.</p></div>
+      <div class="vd"><span class="tag crit">Problema</span><p><b>El ejemplo no es necesariamente anormal:</b> tras 75 g de glucosa, picos de insulina de 50–150 µUI/mL a los 30–60 min son frecuentes en personas sanas, y a las 2 h el rango es muy amplio. Rotularlo como "descarga monumental" no tiene respaldo.</p></div>
+      <div class="vd"><span class="tag crit">Problema</span><p><b>La PTOG no sirve para diagnosticar hipoglucemia reactiva.</b> Hasta 10 % de personas sanas tiene glucosas bajas a las 3–5 h sin síntomas. El diagnóstico requiere la tríada de Whipple documentada en la vida real o con comida mixta (Endocrine Society 2009). El sueño posprandial es inespecífico.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>No cambia la conducta:</b> si el paciente tiene obesidad abdominal, triglicéridos altos o HDL bajo, ya tiene criterio clínico de resistencia a la insulina (síndrome metabólico). El tratamiento (dieta, ejercicio, peso) es el mismo con o sin curva de insulina.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Alternativas más baratas y estandarizadas:</b> índice TyG (triglicéridos y glucosa en ayunas), relación TG/HDL, perímetro de cintura, HOMA-IR, y la glucosa a la hora de la PTOG. Todas son marcadores de riesgo, no diagnósticos, con puntos de corte que varían según la población.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Indicaciones reales de la PTOG (solo glucosa):</b> antecedente de diabetes gestacional, SOP, prediabetes por HbA1c o ayunas, discordancia entre HbA1c y glucemia, fibrosis quística, post-trasplante, y screening en el embarazo.</p></div>
+    </div>
+    <div class="callout"><strong>En consulta:</strong> si el paciente llega pidiendo la "curva de insulina" por este video, la versión con respaldo es una PTOG de glucosa a 0, 60 y 120 min, más perfil lipídico y cintura. La resistencia a la insulina se diagnostica con la clínica; el número de la insulina no cambia el plan.</div>
+  </section>
+
+  <section id="v7-calc">
+    <h3>Calculadora HOMA-IR y TyG (agregada)</h3>
     <div class="box">
       <div class="calc">
-        <label for="t14-stfr">Receptor soluble de transferrina (mg/L)<input id="t14-stfr" type="number" min="0.1" max="50" step="0.1" value="4.2"></label>
-        <label for="t14-fer">Ferritina (ng/mL)<input id="t14-fer" type="number" min="1" max="5000" value="65"></label>
+        <label for="h-glu">Glucosa en ayunas (mg/dL)<input id="h-glu" type="number" min="40" max="400" value="92"></label>
+        <label for="h-ins">Insulina en ayunas (µUI/mL)<input id="h-ins" type="number" min="0" max="200" step="0.1" value="12"></label>
+        <label for="h-tg">Triglicéridos (mg/dL)<input id="h-tg" type="number" min="20" max="2000" value="180"></label>
       </div>
-      <div class="result" aria-live="polite"><span class="big" id="t14-out">2,3</span><span class="pill" id="t14-pill"></span></div>
-      <p class="note" style="margin-top:8px">&lt; 1: anemia de la inflamación. &gt; 2: ferropenia (sola o asociada a inflamación). Los cortes dependen del método del laboratorio. Valores de ejemplo cargados.</p>
+      <div class="result" aria-live="polite"><span>HOMA-IR</span><span class="big" id="h-homa">2,7</span><span class="pill" id="h-pill1"></span><span>TyG</span><span class="big" id="h-tyg">9,0</span><span class="pill" id="h-pill2"></span></div>
+      <p class="note" style="margin-top:8px">HOMA-IR = glucosa (mg/dL) × insulina / 405. TyG = ln[TG (mg/dL) × glucosa (mg/dL) / 2]. Cortes orientativos: HOMA-IR ≥ 2,5 y TyG ≥ 8,8 (varían según la población y el laboratorio). Valores de ejemplo: los del video, con TG supuestos en 180.</p>
     </div>
   </section>
 
-  <section id="v14-analisis">
-    <h3>Análisis crítico</h3>
-    <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Fisiopatología:</b> la IL-6 induce hepcidina, que degrada la ferroportina y atrapa el hierro en macrófagos y enterocitos. Además la inflamación suprime la EPO y acorta la vida del eritrocito. El video lo resume bien ("tiene hierro pero no lo puede liberar").</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Macrocitosis no es sinónimo de déficit de folato.</b> También déficit de B12 (descartarlo siempre antes de dar ácido fólico), alcohol, hepatopatía, hipotiroidismo, mielodisplasia, fármacos y reticulocitosis.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Reticulocitos:</b> corregir por hematocrito y maduración (IPR). Un porcentaje "normal" en anemia grave es una respuesta insuficiente. Calculadora en la pestaña 5, Videoteca 1.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Anemia del paciente crítico:</b> además de la inflamación, contribuyen las extracciones repetidas de sangre, la hemodilución y el sangrado oculto. La transfusión se reserva para Hb &lt; 7 g/dL (umbrales restrictivos, TRICC/TRISS); el hierro IV en la fase aguda tiene beneficio dudoso.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento de la anemia mixta:</b> con PCR alta, el hierro oral se absorbe mal por la hepcidina; preferir hierro IV cuando hay ferropenia real (ferritina &lt; 100 con saturación &lt; 20 %), especialmente en ERC e IC.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p>"Infectado" no explica cualquier anemia. Si la caída es brusca, buscar sangrado o hemólisis (LDH, bilirrubina indirecta, haptoglobina, Coombs) antes de atribuirla a la inflamación.</p></div>
-    </div>
-  </section>
-
-  <section id="v14-quiz">
+  <section id="v7-quiz">
     <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v14"></div>
+    <div class="quiz" data-quiz="v7"></div>
   </section>
-  <p class="note">Referencias: Weiss G, Ganz T, Goodnough LT. Anemia of inflammation, Blood 2019; Camaschella C. Iron-deficiency anemia, NEJM 2015; Ganz T. Hepcidin, Blood 2011; Hébert PC et al. TRICC, NEJM 1999.</p>
+  <p class="note">Referencias: ADA Standards of Care, cap. Diagnosis and Classification; Bergman M et al. IDF position statement on the 1-hour post-load plasma glucose, Diabetes Res Clin Pract 2024; Cryer PE et al. Evaluation and management of adult hypoglycemic disorders, Endocrine Society 2009; Matthews DR et al. HOMA, Diabetologia 1985; Simental-Mendía LE et al. índice TyG, Metab Syndr Relat Disord 2008.</p>
 </article>
 
-<!-- ============ MATERIAL 15 (imágenes) ============ -->
+<!-- ============ PESTAÑA 18 (antes 15) ============ -->
 <article class="panel" id="v15" role="tabpanel" aria-labelledby="t-v15" hidden>
   <div>
     <h2>"Fórmulas que uso para conocer tu metabolismo"</h2>
     <div class="meta"><span>Fuente: 8 láminas, TikTok @dra.maria.endocrino</span><span>Fecha del material: 15/10/2026</span><span>Público original: pacientes</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 15">
+  <nav class="subnav" aria-label="Secciones del material 18">
     <a href="#v15-resumen">Resumen</a><a href="#v15-tabla">Las 6 fórmulas</a><a href="#v15-calc">Calculadora integrada</a><a href="#v15-analisis">Análisis crítico</a><a href="#v15-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v15-resumen">
     <h3>Resumen</h3>
     <p class="lead">Carrusel de una endocrinóloga: "No todo es índice HOMA". Presenta 6 fórmulas sencillas con datos de rutina para estimar riesgo metabólico: <b>HOMA-IR, TyG, colesterol no-HDL, índice cintura/cadera, relación cintura/estatura y FIB-4</b>. Cierra con el mensaje correcto: <b>ninguna sustituye una valoración médica individualizada</b>.</p>
-    <p class="note">HOMA-IR y TyG ya se analizaron en la pestaña 7 (Videoteca 1); FIB-4 en la pestaña 8. Aquí van juntas en una sola calculadora.</p>
+    <p class="note">HOMA-IR y TyG ya se analizaron en la pestaña 17; FIB-4 en la pestaña 34 de la Videoteca 4. Aquí van juntas en una sola calculadora.</p>
   </section>
 
   <section id="v15-tabla">
@@ -568,156 +300,271 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
   <p class="note">Referencias: Matthews DR et al. Diabetologia 1985; Simental-Mendía LE et al. 2008; Mach F et al. ESC/EAS 2019 dislipidemias; NICE NG246 2022 (relación cintura/estatura); OMS 2008 circunferencia de cintura y cadera; Alberti KG et al. IDF/AHA síndrome metabólico, Circulation 2009; Rinella ME et al. AASLD 2023.</p>
 </article>
 
-<!-- ============ MATERIAL 16 (imágenes) ============ -->
-<article class="panel" id="v16" role="tabpanel" aria-labelledby="t-v16" hidden>
+<!-- ============ PESTAÑA 19 (antes 9) ============ -->
+<article class="panel" id="v9" role="tabpanel" aria-labelledby="t-v9" hidden>
   <div>
-    <h2>Tiagoritmo: interpretar cualquier perfil hepático</h2>
-    <div class="meta"><span>Fuente: 16 láminas, TiagoMed (@soytiagomed)</span><span>Fecha del material: 12/09/2026</span><span>Bases citadas: ACG 2017 (Kwo), Gastroenterology 2026 (Kwo), AASLD DILI 2023, ACR 2023, NEJM 2022</span></div>
+    <h2>"No leíste la letra pequeña": ¿GLP-1 o insulina como primer inyectable?</h2>
+    <div class="meta"><span>Fuente: video en colaboración con @sanofi_copac (MAT-AR-2601976)</span><span>Duración 1:00</span><span>Base citada: ADA Standards of Care 2026, sección 9</span><span>Público: médicos</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 16">
-    <a href="#v16-resumen">Resumen</a><a href="#v16-algoritmo">Algoritmo</a><a href="#v16-calc">Calculadora</a><a href="#v16-magnitud">Magnitud</a><a href="#v16-patrones">Patrones</a><a href="#v16-alarma">Alarma</a><a href="#v16-analisis">Análisis crítico</a><a href="#v16-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones del video 9">
+    <a href="#v9-resumen">Resumen</a><a href="#v9-dialogo">El caso</a><a href="#v9-decision">Herramienta</a><a href="#v9-analisis">Análisis crítico</a><a href="#v9-quiz">Autoevaluación</a>
   </nav>
 
-  <section id="v16-resumen">
+  <section id="v9-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Infografías ordenadas en un algoritmo de 5 pasos. Idea base: <b>no todo el "perfil hepático" mide lo mismo</b>. Se divide en 3 grupos que se interpretan por separado y después se integran: <b>enzimas</b> (AST, ALT, FA, GGT), <b>bilirrubinas</b> (total, directa, indirecta) y <b>función de síntesis</b> (albúmina, TP/INR).</p>
+    <p class="lead">Diálogo entre un residente y un tratante. Un paciente con DM2 fuera de metas pese a metformina + iSGLT2 + iDPP-4 a dosis óptimas. El residente propone un arGLP-1; el tratante le recuerda que la ADA recomienda arGLP-1 antes que insulina "en la mayoría de los escenarios", pero que la <b>letra pequeña</b> del algoritmo indica <b>insulina como primer inyectable</b> si hay síntomas de hiperglucemia, HbA1c &gt; 10 % o glucemia al azar ≥ 300 mg/dL.</p>
+    <p>Cierre: la decisión depende del perfil individual del paciente y no de una sola variable.</p>
   </section>
 
-  <section id="v16-algoritmo">
-    <h3>Los 5 pasos</h3>
+  <section id="v9-dialogo">
+    <h3>El caso del video</h3>
     <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>Mira las enzimas</h4>
-        <ul>
-          <li><b>AST/ALT:</b> lesión hepatocelular. ALT es más específica de hígado; AST también viene de músculo y otros tejidos. <b>AST aislada elevada → pedir CK.</b></li>
-          <li><b>FA/GGT:</b> colestasis. La FA también viene de hueso, placenta e intestino. <b>FA ↑ + GGT ↑ = origen hepatobiliar; FA ↑ + GGT normal = considerar origen no hepático.</b></li>
-          <li>Referencias de la lámina: ALT 7–40, AST 10–40, FA 40–120, GGT 10–50 U/L. Usar siempre el LSN del propio laboratorio.</li>
-        </ul></li>
-      <li class="step"><span class="num">2</span><h4>Calcula el índice R</h4>
-        <ul><li><span class="dose">R = (ALT/LSN) ÷ (FA/LSN)</span> → <b>&gt; 5 hepatocelular · 2–5 mixto · &lt; 2 colestásico</b>.</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>Fracciona la bilirrubina</h4>
-        <ul>
-          <li>Referencias: total 0,2–1,2 · directa &lt; 0,3 · indirecta 0,2–0,9 mg/dL.</li>
-          <li><b>Predomina la indirecta:</b> hemólisis, Gilbert, reabsorción de hematomas, sepsis, fármacos (antirretrovirales, eltrombopag). Pedir LDH, haptoglobina, reticulocitos y frotis.</li>
-          <li><b>Predomina la directa:</b> alteración hepatocelular o colestasis. Aplicar el índice R y buscar la causa según el patrón.</li>
-        </ul></li>
-      <li class="step"><span class="num">4</span><h4>Evalúa la síntesis</h4>
-        <ul>
-          <li><b>Albúmina</b> 3,5–5,0 g/dL. Vida media ~20 días: cambia lentamente y orienta a <b>enfermedad hepática crónica</b>, pero no es específica (inflamación, desnutrición, pérdidas renales o digestivas).</li>
-          <li><b>TP</b> 11–13,5 s · <b>INR</b> 0,8–1,2. El INR cambia más rápido: refleja disfunción sintética. Pero no todo INR alto es hígado: déficit de vitamina K, anticoagulación, CID.</li>
-        </ul></li>
-      <li class="step"><span class="num">5</span><h4>Integra el patrón</h4>
-        <ul><li>Correlaciona con la clínica y otros hallazgos.</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>Escenario</h4><ul><li>DM2 con metformina, iSGLT2 e iDPP-4 a dosis óptimas, y sigue fuera de metas.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Residente: "un GLP-1"</h4><ul><li>"Es una opción válida, pero ¿revisó TODOS los criterios del algoritmo?" El algoritmo de la ADA dice considerar arGLP-1 (o GIP/GLP-1) antes que la insulina en la mayoría de los escenarios. "Esa es la recomendación general."</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>La letra pequeña (ADA 2026, figura 9.5)</h4>
+        <ul><li>Insulina como primer inyectable si hay:</li>
+          <li><b>Síntomas de hiperglucemia</b> (catabolismo)</li>
+          <li><b>HbA1c &gt; 10 %</b></li>
+          <li><b>Glucemia ≥ 300 mg/dL</b></li>
+          <li class="note">El texto original de la ADA añade un cuarto criterio que el video omite: cuando <b>la DM1 es una posibilidad</b>.</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>Guía colombiana</h4><ul><li>Según el video, agrega el <b>IMC</b> como otra variable a considerar.</li></ul></li>
     </ol>
   </section>
 
-  <section id="v16-calc">
-    <h3>Calculadora de perfil hepático (agregada)</h3>
+  <section id="v9-decision">
+    <h3>Primer inyectable: herramienta de decisión (agregada)</h3>
     <div class="box">
-      <div class="calc">
-        <label for="l16-alt">ALT (U/L)<input id="l16-alt" type="number" min="1" max="20000" value="150"></label>
-        <label for="l16-altn">LSN de ALT<input id="l16-altn" type="number" min="10" max="80" value="40"></label>
-        <label for="l16-ast">AST (U/L)<input id="l16-ast" type="number" min="1" max="20000" value="125"></label>
-        <label for="l16-fa">FA (U/L)<input id="l16-fa" type="number" min="1" max="5000" value="220"></label>
-        <label for="l16-fan">LSN de FA<input id="l16-fan" type="number" min="50" max="400" value="120"></label>
-        <label for="l16-ggt">GGT (U/L)<input id="l16-ggt" type="number" min="1" max="5000" value="180"></label>
-        <label for="l16-bt">Bilirrubina total (mg/dL)<input id="l16-bt" type="number" min="0" max="60" step="0.1" value="2.3"></label>
-        <label for="l16-bd">Bilirrubina directa (mg/dL)<input id="l16-bd" type="number" min="0" max="40" step="0.1" value="1.6"></label>
-        <label for="l16-alb">Albúmina (g/dL)<input id="l16-alb" type="number" min="0.5" max="6" step="0.1" value="3.2"></label>
-        <label for="l16-inr">INR<input id="l16-inr" type="number" min="0.5" max="10" step="0.1" value="1.4"></label>
+      <p class="note">Marca lo que tenga el paciente:</p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+        <label for="d-sint"><input type="checkbox" id="d-sint"> Síntomas catabólicos: poliuria, polidipsia, pérdida de peso</label>
+        <label for="d-a1c"><input type="checkbox" id="d-a1c"> HbA1c &gt; 10 %</label>
+        <label for="d-glu"><input type="checkbox" id="d-glu"> Glucemia ≥ 300 mg/dL</label>
+        <label for="d-dm1"><input type="checkbox" id="d-dm1"> Posible DM1/LADA: delgado, cetosis, progresión rápida, anti-GAD +</label>
+        <label for="d-imc"><input type="checkbox" id="d-imc" checked> IMC ≥ 30 o necesidad de bajar peso</label>
+        <label for="d-ecv"><input type="checkbox" id="d-ecv"> Enfermedad CV aterosclerótica establecida</label>
       </div>
-      <div class="tbl" style="margin-top:12px"><table style="min-width:0">
-        <thead><tr><th>Componente</th><th>Resultado</th><th>Lectura</th></tr></thead>
-        <tbody id="l16-out"></tbody>
-      </table></div>
-      <p class="note" style="margin-top:8px">Valores de ejemplo: los de la portada del Tiagoritmo. Ajusta los LSN a los de tu laboratorio.</p>
+      <div class="result" aria-live="polite"><span class="pill" id="d-pill"></span><span id="d-text" style="flex:1 1 260px;min-width:0"></span></div>
     </div>
   </section>
 
-  <section id="v16-magnitud">
-    <h3>¿Cuánto subieron? La magnitud orienta la causa</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Grado (AST/ALT)</th><th>Causas típicas</th></tr></thead>
-      <tbody>
-        <tr><td><b>&lt; 2× LSN</b> borderline · <b>2–5×</b> leve</td><td>MASLD/MASH (casi siempre &lt; 100–200), hepatitis viral crónica, alcohol (AST/ALT &gt; 1,5, usualmente &lt; 400)</td></tr>
-        <tr><td><b>5–15×</b> moderada</td><td>DILI (muy variable), hepatitis viral aguda, hepatitis autoinmune</td></tr>
-        <tr><td><b>&gt; 15×</b> severa</td><td>Hepatitis viral aguda, DILI, hepatitis isquémica</td></tr>
-        <tr><td><b>&gt; 10 000 U/L</b> masiva</td><td>Hepatitis isquémica, sobredosis de paracetamol o tóxicos</td></tr>
-      </tbody>
-    </table></div>
-    <p><b>Hepatocelular severo o masivo: busca primero</b></p>
-    <div class="tbl"><table>
-      <thead><tr><th>Pregunta</th><th>Sospecha</th><th>Solicita</th></tr></thead>
-      <tbody>
-        <tr><td>¿Hipotensión o shock?</td><td>Hepatitis isquémica</td><td>LDH, lactato, función renal; documentar la causa de hipoperfusión</td></tr>
-        <tr><td>¿Paracetamol o tóxicos?</td><td>Toxicidad / DILI</td><td>Nivel de paracetamol, INR, creatinina; revisar fármacos, suplementos y tóxicos</td></tr>
-        <tr><td>¿Cuadro agudo compatible?</td><td>Hepatitis viral aguda</td><td>IgM anti-VHA, HBsAg, IgM anti-HBc, anti-VHC, ARN-VHC</td></tr>
-        <tr><td>¿Ascitis y estado protrombótico?</td><td>Budd-Chiari</td><td>Doppler hepático</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">En todos: bilirrubina total y directa, INR, glucemia y creatinina.</p>
-  </section>
-
-  <section id="v16-patrones">
-    <h3>Patrones</h3>
-    <div class="cols">
-      <div class="box"><b>Hepatocelular (R &gt; 5)</b><ul>
-        <li>Hepatitis virales: HBsAg + anti-HBc, anti-VHC ± ARN, IgM anti-VHA si es agudo</li>
-        <li>Esteatosis / enfermedad metabólica: ecografía, perfil metabólico</li>
-        <li>Alcohol: historia de consumo, AST/ALT</li>
-        <li>Medicamentos y suplementos, incluidos OTC y herbales</li>
-        <li>Hepatitis autoinmune: ANA, ASMA, IgG</li>
-        <li>Hemocromatosis: ferritina, saturación de transferrina</li>
-        <li>Según contexto: Wilson (ceruloplasmina ± cobre urinario), déficit de α1-antitripsina</li>
-      </ul></div>
-      <div class="box"><b>Colestásico (R &lt; 2) → ecografía hepatobiliar</b><ul>
-        <li><b>Con dilatación:</b> cáncer de páncreas, colangiocarcinoma, estenosis benigna, compresión extrínseca, tumor ampular → TAC contrastado o colangio-RM.</li>
-        <li><b>Sin dilatación:</b> colestasis por sepsis, CBP (AMA), CEP (IgG4 sérica), fármacos, cirrosis avanzada → biopsia si el diagnóstico sigue incierto.</li>
-      </ul></div>
-    </div>
-    <div class="tbl" style="margin-top:10px"><table>
-      <thead><tr><th>Coledocolitiasis (ASGE)</th><th>Criterios</th><th>Conducta</th></tr></thead>
-      <tbody>
-        <tr><td><b style="color:var(--crit)">Alto riesgo</b> (≥ 1)</td><td>Cálculo visible en colédoco; colangitis ascendente; bilirrubina &gt; 4 mg/dL + colédoco dilatado</td><td>CPRE</td></tr>
-        <tr><td><b style="color:var(--warn)">Intermedio</b> (≥ 1, sin alto riesgo)</td><td>Perfil hepático alterado; vía biliar dilatada; edad &gt; 55 años</td><td>Colangio-RM o ecoendoscopia</td></tr>
-        <tr><td><b style="color:var(--ok)">Bajo</b></td><td>Sin predictores</td><td>Buscar otras causas de colestasis</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section id="v16-alarma">
-    <h3>No pases por alto una disfunción hepática grave</h3>
-    <div class="cols">
-      <div class="box" style="border-top:4px solid var(--crit)"><b>Sin cirrosis previa</b><ul><li><b>INR ≥ 1,5 + encefalopatía</b> en contexto de lesión hepática aguda → <b>falla hepática aguda</b>.</li></ul></div>
-      <div class="box" style="border-top:4px solid var(--fg)"><b>Con cirrosis previa</b><ul><li>Nueva descompensación (encefalopatía, ictericia, ascitis, sangrado) + falla de órganos (renal, respiratoria, cardiovascular, cerebral) → <b>considerar ACLF</b>.</li><li>Identificar y tratar el precipitante; valorar gravedad y trasplante.</li></ul></div>
-    </div>
-    <div class="callout"><strong>Ante cualquiera de estos escenarios:</strong> referencia urgente a un centro con trasplante.</div>
-  </section>
-
-  <section id="v16-analisis">
+  <section id="v9-analisis">
     <h3>Análisis crítico</h3>
-    <p>Muy buen material: completo, bien ordenado y con referencias reales. Es el más denso que me has enviado. Precisiones:</p>
+    <p>El contenido técnico es correcto: la figura 9.5 de la ADA 2026 dice exactamente eso. Pero hay que leer también la letra pequeña del propio video.</p>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Índice R, criterios ASGE 2019 de coledocolitiasis, separación por magnitud y definición de falla hepática aguda coinciden con ACG 2017 y AASLD.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Ahora integra ALT + FA":</b> el índice R siempre se calculó así (criterios del consenso internacional de DILI, 1990). Lo novedoso es usarlo para cualquier perfil, no solo para fármacos.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>LSN de ALT:</b> la ACG 2017 propone un LSN "real" de <b>29–33 U/L en hombres y 19–25 U/L en mujeres</b>. Con el corte de 40 del laboratorio se pierden casos de MASLD y hepatitis crónica. Al calcular R, usar el LSN del laboratorio, pero evaluar con ALT &gt; 33/25 como anormal.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Falla hepática aguda:</b> requiere además ausencia de cirrosis previa y evolución <b>&lt; 26 semanas</b>. Excepciones: Wilson, hepatitis B reactivada y hepatitis autoinmune aunque haya cirrosis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>INR alto:</b> antes de atribuirlo al hígado, dar vitamina K 10 mg IV. Si se corrige, era déficit de vitamina K (colestasis, antibióticos, desnutrición), no falla de síntesis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Hepatitis E:</b> no aparece en el panel viral agudo y es causa frecuente de hepatitis aguda, sobre todo en gestantes (riesgo de falla hepática). Pedir IgM anti-VHE.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Contexto tropical (Guayas):</b> el <b>dengue</b> eleva transaminasas con AST &gt; ALT (puede llegar a &gt; 1000 en dengue grave); la <b>leptospirosis</b> da ictericia con bilirrubina directa muy alta y transaminasas apenas elevadas, más lesión renal; considerar también fiebre amarilla y malaria según la procedencia.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Transaminasas normales no descartan enfermedad:</b> la cirrosis "quemada" y la MASLD con fibrosis pueden tener ALT normal. Calcular el FIB-4 (pestaña 8, Videoteca 1).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>FA aislada con GGT normal:</b> en adolescentes y gestantes es fisiológica. En el adulto mayor, pensar en Paget, metástasis óseas o hiperparatiroidismo.</p></div>
+      <div class="vd"><span class="tag crit">Conflicto</span><p><b>Contenido patrocinado por Sanofi</b> (código MAT-AR-2601976 al final). Sanofi comercializa glargina, glulisina y la combinación fija glargina/lixisenatida. El mensaje, "no te apures con el GLP-1, mira cuándo va insulina", favorece su portafolio. No lo invalida, pero hay que leerlo con eso en mente.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>ADA 2026: en la mayoría de los pacientes con DM2 que necesitan un inyectable, arGLP-1 o GIP/GLP-1 antes que insulina: igual o mayor reducción de HbA1c, pérdida de peso, menos hipoglucemia y beneficio CV demostrado.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Los criterios de insulina primero (síntomas, HbA1c &gt; 10 %, glucosa ≥ 300) son textuales de la guía.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Considerar" no es "obligatorio":</b> con HbA1c &gt; 10 % <i>sin</i> catabolismo, tirzepatida y semaglutida reducen la HbA1c 2–2,5 % y son opción válida. La insulina es imprescindible cuando hay catabolismo, cetosis o sospecha de DM1.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La insulina por glucotoxicidad puede ser transitoria.</b> Una vez controlada la hiperglucemia, se puede desescalar a arGLP-1 y reducir o retirar la insulina. La ADA lo contempla.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Error del caso:</b> si se agrega un arGLP-1, hay que <b>suspender el iDPP-4</b>. Actúan sobre la misma vía incretínica y su combinación no aporta beneficio.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Mejor que elegir uno: combinar.</b> En el paciente que ya requiere insulina, sumar arGLP-1 a la basal (o usar combinación fija) mejora la HbA1c con menos insulina, menos peso y menos hipoglucemia que intensificar con prandial.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Sospecha de DM1/LADA:</b> paciente delgado, con progresión rápida o cetosis. Pedir anti-GAD y péptido C antes de rotularlo como DM2 resistente al tratamiento.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Contexto local:</b> el costo y la disponibilidad pesan. En la red pública ecuatoriana la NPH y la glargina suelen ser más accesibles que los arGLP-1. Una opción realista y sostenida es mejor que la ideal que el paciente no compra.</p></div>
     </div>
-    <div class="callout"><strong>Caso de la portada:</strong> ALT 150 (3,75× LSN), FA 220 (1,8×) → R = 2,0: patrón <b>mixto en el límite colestásico</b>. Bilirrubina directa predominante, albúmina baja e INR 1,4: posible hepatopatía con compromiso de síntesis. Siguiente paso: ecografía hepatobiliar, serologías virales, vitamina K para ver si corrige el INR, y FIB-4.</div>
+    <div class="callout"><strong>Resumen operativo:</strong> catabolismo, cetosis o sospecha de DM1 → insulina. HbA1c alta sin catabolismo → arGLP-1 o GIP/GLP-1 es válido, sobre todo con obesidad o ECV. Si ya hay insulina y no llega a meta → sumar arGLP-1 antes que prandial.</div>
   </section>
 
-  <section id="v16-quiz">
+  <section id="v9-quiz">
     <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v16"></div>
+    <div class="quiz" data-quiz="v9"></div>
   </section>
-  <p class="note">Referencias: Kwo PY et al. ACG Clinical Guideline: Evaluation of Abnormal Liver Chemistries, Am J Gastroenterol 2017; Kwo PY et al. Gastroenterology 2026 (citada en las láminas); Fontana RJ et al. AASLD DILI 2023; ASGE Standards of Practice Committee, coledocolitiasis, Gastrointest Endosc 2019; Bataller R et al. NEJM 2022; Bénichou C. Criterios del consenso internacional de DILI, J Hepatol 1990.</p>
+  <p class="note">Referencias: ADA Standards of Care in Diabetes 2026, sección 9 (figura 9.5, intensificación a terapia inyectable); Davies MJ et al. Consenso ADA/EASD 2022; Frías JP et al. SURPASS-2, NEJM 2021.</p>
 </article>
 
-<!-- ============ VIDEO 17 ============ -->
+<!-- ============ PESTAÑA 20 (antes 3) ============ -->
+<article class="panel" id="v3" role="tabpanel" aria-labelledby="t-v3" hidden>
+  <div>
+    <h2>5 errores de prescripción en DM2 que se ven en cada guardia</h2>
+    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 1:40</span><span>Recibido 04/10/2026</span><span>Bases citadas: KDIGO 2022/2024, FDA 2016, EMPA-KIDNEY, RABBIT 2</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 3">
+    <a href="#v3-resumen">Resumen</a><a href="#v3-errores">Los 5 errores</a><a href="#v3-tabla">Tabla rápida</a><a href="#v3-analisis">Análisis crítico</a><a href="#v3-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v3-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">El video parte de una receta típica de hospitalización con tres indicaciones, todas incorrectas: <b>"Metformina: suspender · Glargina 60 U · Insulina según escala"</b>. Desarma 5 errores, del menos al más común, y cierra con que una sola receta puede tenerlos todos.</p>
+  </section>
+
+  <section id="v3-errores">
+    <h3>Los 5 errores (del 5 al 1)</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">5</span><h4>Suspender metformina por filtrado</h4>
+        <ul>
+          <li>Rx errónea: suspender metformina con TFGe 40.</li>
+          <li>El corte para suspender es <b>TFGe &lt; 30</b>.</li>
+          <li>Con 30–44 se <b>ajusta</b>: máximo <span class="dose">1000 mg/día</span>. No iniciar si TFGe &lt; 45.</li>
+        </ul></li>
+      <li class="step"><span class="num">4</span><h4>Suspender el iSGLT2 cuando cae el filtrado</h4>
+        <ul>
+          <li>Al iniciar empagliflozina, la TFGe baja en las primeras semanas y luego se estabiliza.</li>
+          <li>Si cae <b>menos del 30 %</b>, es lo esperado: el glomérulo descansa (menos hiperfiltración). <b>Continúala.</b></li>
+        </ul></li>
+      <li class="step"><span class="num">3</span><h4>Subir la basal sin techo</h4>
+        <ul>
+          <li>20 → 30 → 40 → 60 U… Pasar de <span class="dose">0,5 U/kg/día</span> de basal = <b>sobrebasalización</b>.</li>
+          <li>La salida no es más basal: agregar <b>arGLP-1</b> o <b>insulina prandial</b>.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>Elegir el tratamiento solo por la HbA1c</h4>
+        <ul>
+          <li>HbA1c 6,8 % en meta → "sin cambios". Error si tiene <b>IC o ERC</b>.</li>
+          <li>Se elige por el órgano que protege: <b>iSGLT2</b>, independiente de la HbA1c.</li>
+        </ul></li>
+      <li class="step"><span class="num">1</span><h4>Insulina según escala, sola, en el hospitalizado (el más común)</h4>
+        <ul>
+          <li>La escala solo persigue la glucosa: corrige la hiperglucemia después de que ocurrió.</li>
+          <li>RABBIT 2: glucosa en meta (&lt; 140 mg/dL) en <b>66 %</b> con basal-bolo vs <b>38 %</b> con escala sola.</li>
+          <li>Lo correcto: <b>basal-bolo</b> <span class="dose">0,4–0,5 U/kg/día</span>, 50 % basal y 50 % bolos.</li>
+        </ul></li>
+    </ol>
+  </section>
+
+  <section id="v3-tabla">
+    <h3>Tabla rápida</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Situación</th><th>Conducta correcta</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td>Metformina, TFGe ≥ 45</td><td>Dosis plena</td><td class="m">hasta 2000–2550 mg/día</td></tr>
+        <tr><td>Metformina, TFGe 30–44</td><td>Mantener con dosis reducida; no iniciar</td><td class="m">máx. 1000 mg/día</td></tr>
+        <tr><td>Metformina, TFGe &lt; 30</td><td>Suspender</td><td class="m">—</td></tr>
+        <tr><td>iSGLT2, caída de TFGe &lt; 30 %</td><td>Continuar</td><td class="m">60 → 48 mL/min: seguir</td></tr>
+        <tr><td>iSGLT2, inicio</td><td>Iniciar si TFGe ≥ 20; mantener hasta diálisis</td><td class="m">empagliflozina 10 mg/día</td></tr>
+        <tr><td>Basal &gt; 0,5 U/kg/día</td><td>No subir más: arGLP-1 o prandial</td><td class="m">80 kg → techo ≈ 40 U</td></tr>
+        <tr><td>Hospitalizado, basal-bolo</td><td>0,4–0,5 U/kg/día, 50/50</td><td class="m">80 kg → 36 U: 18 basal + 6 por comida</td></tr>
+        <tr><td>Hospitalizado frágil</td><td>0,2–0,3 U/kg/día</td><td class="m">&gt; 70 años o TFGe &lt; 60</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Las columnas de ejemplo y las filas de inicio de iSGLT2 y del paciente frágil son agregadas; no están en el video.</p>
+  </section>
+
+  <section id="v3-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Los 5 mensajes son correctos y están respaldados por la evidencia que cita. Algunos matices que el formato corto no alcanza a cubrir:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Metformina: los cortes 30/45 son los de la FDA (2016) y KDIGO 2022. La metformina se elimina por vía renal y con TFGe &lt; 30 sube el riesgo de acidosis láctica.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Caída inicial de TFGe con iSGLT2: es hemodinámica (vasoconstricción de la arteriola aferente), reversible, y se asocia a mejor pronóstico renal a largo plazo (EMPA-KIDNEY, DAPA-CKD, CREDENCE).</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Elegir por comorbilidad: ADA Standards of Care indica iSGLT2 en IC o ERC, y arGLP-1 o iSGLT2 en enfermedad cardiovascular aterosclerótica, independientemente de la HbA1c.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>RABBIT 2 (Umpierrez 2007): 66 % vs 38 % en meta. Escala sola: el paciente pasa de hiper a hipo sin control de fondo.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Metformina en el hospital:</b> la ADA recomienda insulina como base en el paciente hospitalizado y suspender los orales en agudos inestables (sepsis, hipoperfusión, contraste, LRA). El error del video es suspenderla <i>por una TFGe estable de 40</i>, no suspenderla en un paciente agudo grave.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>iSGLT2 en el hospital:</b> suspender durante enfermedad aguda, ayuno o 3 días antes de cirugía (4 para ertugliflozina) por riesgo de CAD euglucémica (ver pestaña 24). Una caída de TFGe &gt; 30 % obliga a buscar otra causa: depleción de volumen, diuréticos, estenosis de arteria renal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Glucosa como efecto:</b> con TFGe &lt; 45 el iSGLT2 baja poco la glucosa, pero mantiene el beneficio cardiorrenal. Se continúa por el riñón y el corazón, no por la HbA1c.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros signos de sobrebasalización:</b> diferencia glucosa de acostarse menos ayunas ≥ 50 mg/dL, hipoglucemias, alta variabilidad. Opciones: arGLP-1, combinación fija (glargina/lixisenatida, degludec/liraglutida) o basal-plus.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Ingesta pobre o en ayuno:</b> basal-bolo completo puede causar hipoglucemia. Usar <b>basal + corrección</b> (basal-plus), que tuvo control similar en RABBIT 2 Surgery y Basal Plus Trial.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Dosis inicial menor</b> (0,2–0,3 U/kg/día) en mayores de 70 años, TFGe &lt; 60 o bajo peso. La escala de corrección sigue siendo útil como complemento, no como único esquema.</p></div>
+    </div>
+    <div class="callout"><strong>Perla de turno:</strong> antes de firmar, tres preguntas: ¿la TFGe justifica lo que suspendo?, ¿la basal ya pasó 0,5 U/kg?, ¿hay algo más que la escala cubriendo las comidas?</div>
+  </section>
+
+  <section id="v3-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v3"></div>
+  </section>
+  <p class="note">Referencias: KDIGO 2022 Diabetes in CKD; KDIGO 2024 CKD; FDA Drug Safety Communication 2016 (metformina); EMPA-KIDNEY, NEJM 2023; Umpierrez GE et al. RABBIT 2, Diabetes Care 2007; ADA Standards of Care, cap. Diabetes Care in the Hospital y Pharmacologic Approaches.</p>
+</article>
+
+<!-- ============ PESTAÑA 21 (antes 6) ============ -->
+<article class="panel" id="v6" role="tabpanel" aria-labelledby="t-v6" hidden>
+  <div>
+    <h2>Tu músculo se come tu azúcar: ejercicio de fuerza en DM2</h2>
+    <div class="meta"><span>Fuente: 8 láminas, @leonardorj_kinesiologo</span><span>Recibido 11/10/2026</span><span>Público original: pacientes</span><span>Base citada: Jansson et al. 2022</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 21">
+    <a href="#v6-resumen">Resumen</a><a href="#v6-ideas">Las 5 ideas</a><a href="#v6-semana">Plan semanal</a><a href="#v6-seguridad">Seguridad</a><a href="#v6-analisis">Análisis crítico</a><a href="#v6-consulta">Para la consulta</a><a href="#v6-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v6-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Carrusel educativo para pacientes: <b>las pesas también son tratamiento para la DM2</b>. El músculo es el mayor depósito de glucosa, el ejercicio la capta sin necesitar insulina, y el entrenamiento de fuerza baja la HbA1c alrededor de 0,4 puntos. Cierra con un plan semanal y advertencias de hipoglucemia y cuidado de pies.</p>
+    <p>Mensaje final: "Más músculo, mejor azúcar". La diabetes no se trata solo dejando el pan.</p>
+  </section>
+
+  <section id="v6-ideas">
+    <h3>Las 5 ideas del carrusel</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>El azúcar de tu comida va al músculo (80 %)</h4>
+        <ul><li>El músculo es la "bodega" más grande de glucosa. Si es pequeña y no se usa, la glucosa se queda en la sangre.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Moverte abre otra puerta, sin insulina</h4>
+        <ul><li>La contracción muscular capta glucosa por una vía independiente de la insulina. Por eso caminar baja la glucosa aunque haya resistencia a la insulina.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>El dato: −0,4 puntos de HbA1c</h4>
+        <ul><li>Solo con entrenamiento de fuerza. A más fuerza ganada, más baja la glucosa.</li><li class="note">Metaanálisis: 20 estudios, 1172 personas con DM2 (Jansson et al., 2022).</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>El truco: camina 10 minutos después de comer</h4>
+        <ul><li>Baja el pico de glucosa de esa comida, mejor que caminar lo mismo en ayunas. La comida más pesada es la que más lo agradece.</li></ul></li>
+      <li class="step"><span class="num">5</span><h4>Cuidado con las bajadas de azúcar</h4>
+        <ul><li>Con insulina o pastillas que bajan la glucosa: medir antes de entrenar. <b>Si está por debajo de 100, comer algo primero.</b> Llevar algo dulce.</li><li>Revisar los pies cada día. El buen calzado es parte del tratamiento.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v6-semana">
+    <h3>Plan semanal del carrusel</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Componente</th><th>Indicación</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td>Pesas</td><td class="m">2–3 días/semana</td><td>En días no consecutivos. Piernas, espalda, pecho y brazos.</td></tr>
+        <tr><td>Volumen</td><td class="m">3 × 8–10 reps</td><td>Esfuerzo que deje 2–3 repeticiones "de sobra" (RIR 2–3).</td></tr>
+        <tr><td>Caminata posprandial</td><td class="m">10–15 min</td><td>Tras cada comida. El hábito que más rinde.</td></tr>
+        <tr><td>Continuidad</td><td class="m">≤ 2 días sin moverse</td><td>El efecto sobre la glucosa dura unas 24–48 h.</td></tr>
+        <tr><td>Registro</td><td>Medir y anotar</td><td>Llevar los números a consulta para ajustar el medicamento.</td></tr>
+        <tr><td><i>Aeróbico (agregado)</i></td><td class="m">≥ 150 min/semana</td><td>Intensidad moderada, repartidos en ≥ 3 días. No figura en el carrusel; es la base de la recomendación ADA.</td></tr>
+        <tr><td><i>Sedentarismo (agregado)</i></td><td class="m">Cada 30 min</td><td>Interrumpir el tiempo sentado con 3 min de actividad ligera.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v6-seguridad">
+    <h3>Glucosa antes de entrenar (agregado)</h3>
+    <p class="note">Aplica a pacientes con insulina o sulfonilureas. Con metformina, iSGLT2, arGLP-1 o iDPP-4 solos, el riesgo de hipoglucemia es bajo.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Glucosa previa</th><th>Conducta</th></tr></thead>
+      <tbody>
+        <tr><td class="m">&lt; 90 mg/dL</td><td><b style="color:var(--crit)">No empezar.</b> 15–30 g de carbohidrato rápido; volver a medir en 15 min.</td></tr>
+        <tr><td class="m">90–124 mg/dL</td><td>10–15 g de carbohidrato antes de empezar (el carrusel lo simplifica como "&lt; 100, come algo").</td></tr>
+        <tr><td class="m">125–250 mg/dL</td><td>Entrenar sin cambios.</td></tr>
+        <tr><td class="m">&gt; 250 mg/dL</td><td>En DM2 se puede entrenar si se siente bien e hidratado. Si hay síntomas o cetonas (o es DM1), no entrenar.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v6-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Mensajes correctos, bien traducidos para pacientes y con evidencia real detrás. Precisiones para el médico:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>"Otra puerta":</b> la contracción transloca GLUT4 a la membrana por vía AMPK/calcio, independiente de la vía de la insulina. Además, la sensibilidad a la insulina mejora durante 24–48 h después del ejercicio.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Jansson et al. 2022</b> (BMJ Open Diabetes Res Care): el entrenamiento de fuerza redujo la HbA1c ≈ 0,4 % (20 ECA, 1172 participantes), con relación dosis-respuesta según la ganancia de fuerza.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p><b>Caminata posprandial:</b> Reynolds et al. (Diabetologia 2016) mostró que 10 min después de cada comida bajan la glucosa posprandial ≈ 12 % más que 30 min seguidos en otro momento. El beneficio mayor está tras la cena.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El 80 %</b> proviene de estudios con clamp euglucémico hiperinsulinémico (DeFronzo). Tras una comida real, el músculo capta ≈ 30–40 % y el hígado otro tanto. El mensaje de fondo es válido; la cifra está sobredimensionada.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Falta el aeróbico:</b> ADA recomienda ≥ 150 min/semana de aeróbico moderado más 2–3 sesiones de fuerza. La combinación baja más la HbA1c que cualquiera por separado (HART-D, DARE).</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Hipoglucemia tardía:</b> puede aparecer hasta 24 h después, sobre todo nocturna, en pacientes con insulina o sulfonilureas. Considerar reducir la dosis previa o la basal nocturna en días de entrenamiento intenso.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Retinopatía proliferativa o preproliferativa:</b> evitar cargas máximas, maniobra de Valsalva y ejercicios con la cabeza hacia abajo, por riesgo de hemorragia vítrea. Fondo de ojo antes de iniciar pesas en diabetes de larga evolución.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Neuropatía autonómica</b> (taquicardia en reposo, hipotensión ortostática): evaluación cardiológica antes de ejercicio vigoroso. La prueba de esfuerzo no es rutinaria en asintomáticos que inician actividad leve a moderada.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>iSGLT2 + ejercicio prolongado + dieta muy baja en carbohidratos</b> favorece la CAD euglucémica (ver pestaña 24). Asegurar hidratación y no combinar con ayuno.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Neuropatía periférica:</b> no contraindica caminar ni cargar peso si hay buen calzado y revisión diaria de pies. Con úlcera activa, cambiar a ejercicio sin carga (bicicleta estática, natación sin heridas abiertas, trabajo en silla).</p></div>
+    </div>
+    <div class="callout"><strong>Perla:</strong> en el adulto mayor con DM2, la sarcopenia empeora el control glucémico y el riesgo de caídas. La fuerza es tratamiento metabólico y funcional; acompañarla con proteína suficiente (≈ 1–1,2 g/kg/día si la función renal lo permite).</div>
+  </section>
+
+  <section id="v6-consulta">
+    <h3>Para la consulta</h3>
+    <div class="box">
+      <p><b>Mensaje para el paciente</b>, en lenguaje sencillo:</p>
+      <ul>
+        <li>Camine 10–15 minutos después de cada comida, sobre todo después de la cena.</li>
+        <li>Haga ejercicios de fuerza 2 o 3 veces por semana, en días separados: piernas, espalda, pecho y brazos.</li>
+        <li>Muévase todos los días; no pase más de 2 días sin actividad.</li>
+        <li>Si usa insulina o glibenclamida, mida su azúcar antes. Si está bajo 100, coma algo y lleve un dulce.</li>
+        <li>Revise sus pies todos los días y use zapatos cerrados y cómodos.</li>
+        <li>Anote sus valores y tráigalos a la próxima cita.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="v6-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v6"></div>
+  </section>
+  <p class="note">Referencias: Jansson AK et al. BMJ Open Diabetes Res Care 2022; Reynolds AN et al. Diabetologia 2016; Colberg SR et al. Physical activity/exercise and diabetes: ADA position statement, Diabetes Care 2016; ADA Standards of Care, cap. Facilitating Positive Health Behaviors; Church TS et al. HART-D, JAMA 2010.</p>
+</article>
+
+<!-- ============ PESTAÑA 22 (antes 17) ============ -->
 <article class="panel" id="v17" role="tabpanel" aria-labelledby="t-v17" hidden>
   <div>
     <h2>Circunferencia de pantorrilla: una prueba sencilla para sospechar sarcopenia</h2>
@@ -816,420 +663,261 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
   <p class="note">Referencias: Chen LK et al. AWGS 2019, J Am Med Dir Assoc 2020; Cruz-Jentoft AJ et al. EWGSOP2, Age Ageing 2019; González MC et al. Calf circumference cutoffs from NHANES, Am J Clin Nutr 2021; SARC-CalF ajustado por IMC, Am J Clin Nutr 2025 (citado en el video); Barbosa-Silva TG et al. SARC-CalF, J Am Med Dir Assoc 2016.</p>
 </article>
 
-<!-- ============ MATERIAL 18 (imágenes) ============ -->
-<article class="panel" id="v18" role="tabpanel" aria-labelledby="t-v18" hidden>
+<!-- ============ PESTAÑA 23 (antes 1) ============ -->
+<article class="panel" id="v1" role="tabpanel" aria-labelledby="t-v1" hidden>
   <div>
-    <h2>Tiagoritmo: crisis hipertensiva, ¿cómo abordarla?</h2>
-    <div class="meta"><span>Fuente: 14 láminas, TiagoMed (@soytiagomed)</span><span>Recibido 26/10/2026</span><span>Bases citadas: AHA/ACC 2025, ESC 2024, AHA 2024 (cuidado agudo), AHA/ASA 2022 y 2019</span></div>
+    <h2>Hipoglucemia: ya le pasaste dextrosa y sigue en LOW</h2>
+    <div class="meta"><span>Fuente: TikTok @don.urgencias</span><span>Duración 2:53</span><span>Recibido 09/10/2026</span><span>Ámbito: urgencias / hospitalización</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 18">
-    <a href="#v18-resumen">Resumen</a><a href="#v18-algoritmo">Algoritmo</a><a href="#v18-escenarios">Escenarios y dosis</a><a href="#v18-calc">Calculadora de infusiones</a><a href="#v18-comp">Tres materiales</a><a href="#v18-analisis">Análisis crítico</a><a href="#v18-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones del video 1">
+    <a href="#v1-resumen">Resumen</a><a href="#v1-algoritmo">Algoritmo</a><a href="#v1-dosis">Dosis</a><a href="#v1-analisis">Análisis crítico</a><a href="#v1-causas">Causas</a><a href="#v1-quiz">Autoevaluación</a>
   </nav>
 
-  <section id="v18-resumen">
+  <section id="v1-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Tercer material sobre el tema (ver pestañas 12 y 13). Mismo mensaje, pero este es el más útil para la guardia porque <b>trae las dosis</b> de cada fármaco por escenario y agrega un paso que los otros omiten: <b>confirmar que la presión es real</b> antes de tratarla.</p>
+    <p class="lead">El video plantea un escenario frecuente: paciente con hipoglucemia que recibe un bolo de dextrosa, sube, y vuelve a caer. Propone un algoritmo de 6 pasos: reconocer, medir y clasificar, corregir con dextrosa IV, vigilar de cerca, y dos rescates para la hipoglucemia refractaria: octreótido si hay sulfonilureas y hidrocortisona si se sospecha crisis suprarrenal.</p>
+    <p>Mensaje central: <strong>alteración neurológica = glucosa ya</strong>. Si un paciente está confuso o convulsionando, la glucometría se hace en ese momento.</p>
   </section>
 
-  <section id="v18-algoritmo">
-    <h3>El algoritmo en 5 pasos</h3>
+  <section id="v1-algoritmo">
+    <h3>Algoritmo del video</h3>
     <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>¿La presión es real?</h4>
-        <ul><li>Repetir la medición: reposo ≥ 5 min, espalda apoyada y pies en el suelo, brazo apoyado a nivel del corazón, manguito del tamaño adecuado.</li><li>No tratar un número mal medido: diagnóstico erróneo, tratamiento innecesario, efectos adversos.</li></ul></li>
-      <li class="step"><span class="num">2</span><h4>¿PA &gt; 180/120? ¿Hay daño agudo?</h4>
-        <ul><li>La cifra sola no define la emergencia. Con daño agudo: <b>emergencia hipertensiva</b>. Sin daño: <b>hipertensión severa</b>.</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>Pregunta, examina y confirma</h4>
-        <div class="tbl" style="margin-top:6px"><table style="min-width:0">
-          <thead><tr><th>Órgano</th><th>Sospecha clínica</th><th>Estudio</th></tr></thead>
-          <tbody>
-            <tr><td>Cerebro</td><td>Déficit focal, alteración del sensorio, convulsiones → ACV, encefalopatía</td><td>TAC de cráneo</td></tr>
-            <tr><td>Corazón/aorta</td><td>Dolor torácico → SCA, disección</td><td>ECG + troponina; angio-TAC si se sospecha disección</td></tr>
-            <tr><td>Pulmón</td><td>Disnea, crépitos, hipoxemia → edema pulmonar</td><td>Rx de tórax ± POCUS</td></tr>
-            <tr><td>Riñón</td><td>Oliguria → lesión renal aguda</td><td>Creatinina + uroanálisis</td></tr>
-            <tr><td>Retina</td><td>Alteraciones visuales → papiledema, hemorragias</td><td>Fondo de ojo</td></tr>
-          </tbody>
-        </table></div></li>
-      <li class="step"><span class="num">4</span><h4>Sin daño agudo: no trates el número</h4>
-        <ul><li><b>No</b> antihipertensivos IV · <b>no</b> dosis "PRN" para corregir el número · <b>no</b> normalizar rápido.</li><li>Busca desencadenantes (dolor, ansiedad, fármacos, mala adherencia) → reinicia o ajusta la vía oral → reduce gradualmente → seguimiento estrecho.</li></ul></li>
-      <li class="step"><span class="num">5</span><h4>Con daño agudo: cuánto bajar</h4>
-        <ul><li><b>Regla general:</b> 1.ª hora PAS ↓ no más del 25 % → 2–6 h &lt; 160/100.</li><li><b>Excepción, disección aórtica:</b> PAS ≤ 120 y FC ≤ 60 en ~20 min, primero betabloqueo.</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>Reconócela</h4>
+        <ul>
+          <li><b>Autonómica (adrenérgica/colinérgica):</b> sudoración, temblor, palpitaciones, ansiedad.</li>
+          <li><b>Neuroglucopénica:</b> confusión, conducta extraña, convulsiones, coma.</li>
+        </ul></li>
+      <li class="step"><span class="num">2</span><h4>Mide y define el nivel</h4>
+        <div class="levels" style="margin-top:6px">
+          <div class="lvl"><b>Nivel 1</b><div class="v">54–69 mg/dL</div><small>Alerta. Tratar y prevenir progresión.</small></div>
+          <div class="lvl l2"><b>Nivel 2</b><div class="v">&lt; 54 mg/dL</div><small>Clínicamente significativa.</small></div>
+          <div class="lvl l3"><b>Nivel 3</b><div class="v">Sin umbral</div><small>Alteración mental o física que requiere ayuda de otra persona. No depende del número.</small></div>
+        </div></li>
+      <li class="step"><span class="num">3</span><h4>Corrige con dextrosa IV</h4>
+        <ul><li><span class="dose">D50W 50 mL IV</span> o <span class="dose">D10W 250 mL IV</span> (ambos = 25 g de glucosa). Titular según respuesta.</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>Seguimiento estrecho</h4>
+        <ul>
+          <li>Glucosa capilar <b>cada 15–30 min</b> hasta estabilidad.</li>
+          <li>Considerar infusión de <span class="dose">D10% 50–100 mL/h</span>.</li>
+          <li>Mantener glucosa &gt; 70 mg/dL.</li>
+          <li>Alto riesgo de recurrencia: sulfonilureas, insuficiencia renal, hipoglucemia persistente o refractaria.</li>
+        </ul></li>
+      <li class="step"><span class="num">5</span><h4>Sigue cayendo: ¿sulfonilureas?</h4>
+        <ul><li>Octreótido <span class="dose">100 µg IV carga</span> → <span class="dose">50 µg SC c/6 h</span>.</li></ul></li>
+      <li class="step"><span class="num">6</span><h4>Sigue sin mejorar: ¿crisis suprarrenal?</h4>
+        <ul><li>Hidrocortisona <span class="dose">100 mg IV/IM ahora</span> → <span class="dose">200 mg/24 h</span>.</li></ul></li>
     </ol>
   </section>
 
-  <section id="v18-escenarios">
-    <h3>Escenarios: meta y fármaco con dosis</h3>
+  <section id="v1-dosis">
+    <h3>Tabla de dosis (adulto)</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Escenario</th><th>Meta</th><th>Fármaco y dosis</th><th>Evitar</th></tr></thead>
+      <thead><tr><th>Fármaco</th><th>Dosis</th><th>Comentario</th></tr></thead>
       <tbody>
-        <tr><td><b>Disección aórtica</b></td><td class="m">PAS ≤ 120, FC ≤ 60 en ~20 min</td><td><b>Esmolol</b> 500 µg/kg en 1 min → 50–200 µg/kg/min, o <b>labetalol</b> 20 mg en 2 min → 20–80 mg c/10 min o 0,5–2 mg/min. Si sigue hipertenso: añadir nicardipino o clevidipino.</td><td>Vasodilatar primero</td></tr>
-        <tr><td><b>Edema pulmonar cardiogénico</b></td><td class="m">1.ª h ≤ 25 % · 2–6 h &lt; 160/100</td><td><b>Nitroglicerina</b> 5 µg/min, titular rápido hasta 200 µg/min. Oxígeno si hay hipoxemia, VNI si hay dificultad respiratoria, diurético IV si hay sobrecarga.</td><td>Betabloqueo en fase aguda</td></tr>
-        <tr><td><b>SCA</b></td><td class="m">1.ª h ≤ 25 % · 2–6 h &lt; 160/100</td><td><b>Nitroglicerina</b> 5 µg/min, ↑ 5 µg/min c/3–5 min (más rápido si no responde a 20), máx. 200. <b>Esmolol</b> si está indicado. Tratar el SCA (antiagregación, anticoagulación, reperfusión).</td><td>Betabloqueo con EAP, shock/bajo gasto, bradicardia o bloqueo AV</td></tr>
-        <tr><td><b>ACV isquémico sin reperfusión</b></td><td class="m">≤ 220/120: no bajar · &gt; 220/120: ↓ ~15 %</td><td><b>Labetalol</b> 10–20 mg IV en 1–2 min (repetir 1 vez) o <b>nicardipino</b> 5 mg/h, ↑ 2,5 mg/h c/5–15 min, máx. 15.</td><td>Descenso excesivo</td></tr>
-        <tr><td><b>ACV con trombólisis o trombectomía</b></td><td class="m">Antes &lt; 185/110 · después &lt; 180/105</td><td>Igual que el anterior.</td><td>Descenso excesivo</td></tr>
-        <tr><td><b>Hemorragia intracerebral</b></td><td class="m">PAS 150–220 → 130–&lt;140</td><td><b>Nicardipino</b> o <b>labetalol</b>, mismas dosis.</td><td>PAS &lt; 130</td></tr>
+        <tr><td>Carbohidrato oral</td><td class="m">15–20 g VO</td><td>Solo si está consciente y deglute. Recontrolar a los 15 min (regla 15/15).</td></tr>
+        <tr><td>Dextrosa 50%</td><td class="m">50 mL IV (25 g)</td><td>Vía de buen calibre. Riesgo de flebitis y necrosis si se extravasa.</td></tr>
+        <tr><td>Dextrosa 10%</td><td class="m">250 mL IV (25 g)<br>o 100 mL (10 g) y repetir</td><td>Igual eficacia que D50 con menos hiperglucemia de rebote y menos daño venoso.</td></tr>
+        <tr><td>Infusión D10%</td><td class="m">50–100 mL/h</td><td>Tras el bolo si hay riesgo de recurrencia. Ajustar a glucosa.</td></tr>
+        <tr><td>Glucagón</td><td class="m">1 mg IM/SC/IV<br>(intranasal 3 mg)</td><td>Si no hay acceso IV. Poco útil en alcohol, ayuno prolongado o hepatopatía. No es de elección con sulfonilureas.</td></tr>
+        <tr><td>Octreótido</td><td class="m">50–100 µg SC/IV<br>c/6–12 h</td><td>Hipoglucemia recurrente por sulfonilureas (o meglitinidas, quinina). El esquema del video está dentro de lo descrito.</td></tr>
+        <tr><td>Hidrocortisona</td><td class="m">100 mg IV/IM →<br>200 mg/24 h</td><td>En bolos (50 mg c/6 h) o infusión continua. Tomar cortisol y ACTH antes si no retrasa el tratamiento.</td></tr>
+        <tr><td>Tiamina</td><td class="m">100 mg IV</td><td>Alcoholismo o desnutrición. Darla junto con la glucosa, sin retrasarla.</td></tr>
       </tbody>
     </table></div>
   </section>
 
-  <section id="v18-calc">
-    <h3>Calculadora de infusiones (agregada)</h3>
-    <div class="box">
-      <div class="calc">
-        <label for="i18-drug">Fármaco
-          <select id="i18-drug">
-            <option value="ntg" selected>Nitroglicerina (µg/min)</option>
-            <option value="esm">Esmolol (µg/kg/min)</option>
-            <option value="nic">Nicardipino (mg/h)</option>
-            <option value="lab">Labetalol (mg/min)</option>
-          </select></label>
-        <label for="i18-dose">Dosis deseada<input id="i18-dose" type="number" min="0" step="0.1" value="20"></label>
-        <label for="i18-mg">Fármaco en la mezcla (mg)<input id="i18-mg" type="number" min="0.1" step="0.1" value="50"></label>
-        <label for="i18-ml">Volumen de la mezcla (mL)<input id="i18-ml" type="number" min="1" value="250"></label>
-        <label for="i18-kg">Peso (kg, solo esmolol)<input id="i18-kg" type="number" min="20" max="250" value="70"></label>
-      </div>
-      <div class="result" aria-live="polite"><span class="big" id="i18-out">6</span><span>mL/h</span><span id="i18-txt" class="note" style="flex:1 1 220px;min-width:0"></span></div>
-      <p class="note" style="margin-top:8px">Diluciones habituales: nitroglicerina 50 mg/250 mL (200 µg/mL); esmolol 2500 mg/250 mL (10 mg/mL); nicardipino 25 mg/250 mL (0,1 mg/mL); labetalol 200 mg/200 mL (1 mg/mL). Verificar con la presentación de tu hospital.</p>
-    </div>
-  </section>
-
-  <section id="v18-comp">
-    <h3>Los tres materiales sobre crisis hipertensiva</h3>
-    <div class="tbl"><table>
-      <thead><tr><th></th><th>Pestaña 12</th><th>Pestaña 13</th><th>Pestaña 18</th></tr></thead>
-      <tbody>
-        <tr><td>Fortaleza</td><td>Estudios con cifras (Patel, Rastogi)</td><td>Didáctico, caso clínico</td><td>Dosis por escenario; "¿la PA es real?"</td></tr>
-        <tr><td>Edema pulmonar</td><td class="m">PAS &lt; 140</td><td>—</td><td class="m">≤ 25 % → &lt; 160/100</td></tr>
-        <tr><td>Disección</td><td class="m">≤ 120 en 20 min</td><td class="m">&lt; 120 en 1 h</td><td class="m">≤ 120 en ~20 min</td></tr>
-        <tr><td>Embarazo / feocromocitoma</td><td>No</td><td>Excepciones</td><td>No</td></tr>
-        <tr><td>Fondo de ojo</td><td>No</td><td>No</td><td>Sí</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">La diferencia en edema pulmonar es real entre fuentes: la tabla de la AHA/ACC 2025 da PAS &lt; 140 de inmediato; la regla general (25 % → 160/100) es la de las guías previas. En la práctica, el EAP hipertensivo (SCAPE) responde a nitratos en dosis altas con descenso rápido.</p>
-  </section>
-
-  <section id="v18-analisis">
+  <section id="v1-analisis">
     <h3>Análisis crítico</h3>
-    <p>Material sólido, bien referenciado y con dosis correctas. Precisiones:</p>
+    <p>El algoritmo es correcto y útil como ayuda de turno. Estos son los puntos de acuerdo y lo que conviene agregar.</p>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Dosis de esmolol, labetalol, nicardipino y nitroglicerina coinciden con AHA/ASA 2019, AHA/ASA 2022 y ACC/AHA 2017. El paso "¿la presión es real?" es el más olvidado y el más barato.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Edema pulmonar hipertensivo (SCAPE):</b> en la práctica se usan <b>bolos de nitroglicerina en dosis altas</b> (400–1000 µg IV o infusión de 100–400 µg/min) con VNI; empezar con 5 µg/min es demasiado lento para este cuadro. El diurético pasa a segundo plano si no hay sobrecarga real (el problema es redistribución, no volumen).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Labetalol en la emergencia general:</b> 20 mg IV en 2 min, luego 20–80 mg c/10 min (máx. 300 mg) o infusión 0,5–2 mg/min. Contraindicado en asma/EPOC grave, bradicardia, bloqueo AV e IC descompensada.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Disponibilidad local:</b> si no hay nicardipino ni clevidipino, el vasodilatador de segunda línea en la disección es el <b>nitroprusiato</b> (0,25–0,5 µg/kg/min), siempre después del betabloqueo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Escenarios que faltan:</b> encefalopatía hipertensiva (bajar 25 % en la 1.ª h; labetalol o nicardipino), preeclampsia/eclampsia y feocromocitoma/cocaína (ver pestaña 12).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Nitroglicerina:</b> contraindicada con inhibidores de la PDE-5 en las últimas 24–48 h y en infarto de VD (V4R). Tolerancia tras 24 h de infusión continua.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>La clasificación en 3 niveles coincide con ADA / International Hypoglycaemia Study Group. El nivel 3 es un criterio clínico, no numérico.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>D50 50 mL y D10 250 mL aportan la misma carga (25 g). La D10 tiene evidencia de recuperación clínica equivalente con menos rebote, por lo que es razonable preferirla.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Octreótido en hipoglucemia por sulfonilureas: suprime la secreción de insulina y evita el círculo dextrosa → más insulina → nueva caída. Es la indicación con mejor respaldo.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Hidrocortisona 100 mg + 200 mg/24 h es la dosis de estrés estándar de las guías de insuficiencia suprarrenal.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p>Falta la vía oral. Si el paciente está consciente y deglute, 15–20 g de carbohidrato rápido es el primer paso; la vía IV es para nivel 3 o cuando no puede tomar.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p>Sin vía IV: glucagón 1 mg IM. No funciona si no hay glucógeno (alcohol, ayuno, hepatopatía) y con sulfonilureas puede estimular más insulina.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p>Duración de la vigilancia: con glibenclamida o glimepirida la hipoglucemia puede reaparecer durante 24–72 h, más en ERC y ancianos. Observar al menos 24 h, y 12–24 h después de suspender dextrosa u octreótido.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p>"LOW" en el glucómetro: tratar de inmediato, pero confirmar con glucosa sérica. Los glucómetros pierden precisión en shock, hipoperfusión y alteraciones del hematocrito.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p>Muestra crítica en hipoglucemia sin causa clara (no diabético): glucosa, insulina, péptido C, proinsulina, β-hidroxibutirato y screening de sulfonilureas, tomada antes de corregir si no retrasa el tratamiento.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p>Pistas de crisis suprarrenal antes de llegar al paso 6: hipotensión que no responde a volumen, hiponatremia, hiperpotasemia, uso crónico de corticoides, hiperpigmentación. En ese contexto la hidrocortisona no debe esperar a que fallen los pasos previos.</p></div>
     </div>
+    <div class="callout"><strong>Perla de turno:</strong> si necesitas más de un bolo de dextrosa, la pregunta deja de ser "cuánta glucosa" y pasa a ser "por qué recae". Busca la fuente de insulina (exógena, sulfonilurea, insulinoma) o la falta de contrarregulación (cortisol, hígado, sepsis).</div>
   </section>
 
-  <section id="v18-quiz">
-    <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v18"></div>
-  </section>
-  <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults; McEvoy JW et al. ESC 2024 Hypertension Guidelines; Bress AP et al. AHA Scientific Statement: Management of Elevated BP in the Acute Care Setting, Hypertension 2024; Greenberg SM et al. AHA/ASA 2022 hemorragia intracerebral; Powers WJ et al. AHA/ASA 2019 ictus isquémico; Mathew R et al. SCAPE, Ann Emerg Med 2023.</p>
-</article>
-
-<!-- ============ MATERIAL 19 (imágenes) ============ -->
-<article class="panel" id="v19" role="tabpanel" aria-labelledby="t-v19" hidden>
-  <div>
-    <h2>Emergencias de ECG que no te puedes perder (parte 1)</h2>
-    <div class="meta"><span>Fuente: 10 láminas, TikTok @nickystudy12</span><span>Recibido 26/10/2026</span><span>Nivel: estudiante / interno</span><span>Sin referencias citadas</span></div>
-  </div>
-  <nav class="subnav" aria-label="Secciones del material 19">
-    <a href="#v19-resumen">Resumen</a><a href="#v19-ritmos">8 ritmos</a><a href="#v19-dosis">Dosis completas</a><a href="#v19-calc">QTc</a><a href="#v19-analisis">Análisis crítico</a><a href="#v19-quiz">Autoevaluación</a>
-  </nav>
-
-  <section id="v19-resumen">
-    <h3>Resumen</h3>
-    <p class="lead">Fichas de 8 ritmos de emergencia: <b>FV, TV sin pulso, asistolia, IAMCEST, hiperpotasemia, TSV, FA con respuesta rápida y torsades de pointes</b>. Cada una con un trazo ilustrativo y 4–5 acciones. Correctas en lo esencial, pero superficiales: faltan dosis, energías y las trampas diagnósticas.</p>
-    <p class="note">La última lámina es publicidad de una aplicación de IA médica ("MedDeep AI"); no se incluye.</p>
-  </section>
-
-  <section id="v19-ritmos">
-    <h3>Los 8 ritmos del material</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Ritmo</th><th>ECG</th><th>Lo que indica la lámina</th></tr></thead>
-      <tbody>
-        <tr><td><b>FV</b></td><td>Caótico, sin QRS organizado, sin pulso</td><td>Desfibrilar ya · RCP inmediata tras cada descarga · epinefrina 1 mg c/3–5 min · amiodarona 300 mg, luego 150 mg · Hs y Ts</td></tr>
-        <tr><td><b>TV sin pulso</b></td><td>Regular, QRS ancho, sin pulso</td><td>Igual que la FV: primero descarga, luego fármacos</td></tr>
-        <tr><td><b>Asistolia</b></td><td>Línea plana, no desfibrilable</td><td>No desfibrilar · confirmar en 2 derivaciones · RCP de alta calidad · epinefrina 1 mg c/3–5 min · Hs y Ts</td></tr>
-        <tr><td><b>IAMCEST</b></td><td>ST elevado en derivaciones contiguas (ej. V2–V5)</td><td>Aspirina 162–325 mg masticada · ECG de 12 derivaciones y activar hemodinamia · ICP primaria · O₂ solo si hay hipoxemia · DAPT y anticoagulación</td></tr>
-        <tr><td><b>Hiperpotasemia</b></td><td>T picuda → QRS ancho → onda sinusal → FV/asistolia</td><td>Gluconato de calcio primero si hay cambios en el ECG · insulina + dextrosa · salbutamol nebulizado · bicarbonato si hay acidosis · diálisis si es grave o refractaria</td></tr>
-        <tr><td><b>TSV (TRNAV/TRAV)</b></td><td>QRS estrecho y regular, 150–250 lpm</td><td>Maniobras vagales (Valsalva modificada) · adenosina 6 mg en bolo rápido + lavado · 12 mg si es necesario · evitar adenosina en taquicardia irregular de QRS ancho o FA preexcitada</td></tr>
-        <tr><td><b>FA con RV rápida</b></td><td>Irregularmente irregular, sin P</td><td>Diltiazem o metoprolol · anticoagulación según CHA₂DS₂-VASc · inestable → cardioversión sincronizada · tratar el desencadenante</td></tr>
-        <tr><td><b>Torsades de pointes</b></td><td>TV polimórfica con QT largo</td><td>Sulfato de magnesio 2 g IV aunque el Mg sea normal · suspender fármacos que prolonguen el QT · K⁺ &gt; 4 y Mg &gt; 2 · marcapasos si es dependiente de pausas · sin pulso → desfibrilar</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section id="v19-dosis">
-    <h3>Dosis y energías que faltan (agregado)</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Situación</th><th>Dosis / energía</th></tr></thead>
-      <tbody>
-        <tr><td>Desfibrilación FV/TVsP</td><td class="m">Bifásico 120–200 J (según fabricante; si no se conoce, el máximo) · monofásico 360 J</td></tr>
-        <tr><td>Epinefrina en ritmo desfibrilable</td><td>1 mg tras la <b>2.ª descarga</b>, luego c/3–5 min. En no desfibrilable: <b>lo antes posible</b>.</td></tr>
-        <tr><td>Alternativa a amiodarona</td><td class="m">Lidocaína 1–1,5 mg/kg, luego 0,5–0,75 mg/kg (máx. 3 mg/kg)</td></tr>
-        <tr><td>Cardioversión sincronizada</td><td class="m">TSV/flutter 50–100 J · FA 120–200 J · TV monomórfica con pulso 100 J</td></tr>
-        <tr><td>Gluconato de calcio 10 %</td><td class="m">30 mL (3 g) IV en 5–10 min; repetir si persisten los cambios · o cloruro de calcio 10 % 10 mL por vía central</td></tr>
-        <tr><td>Insulina + dextrosa</td><td class="m">Insulina regular 10 U IV (5 U si ERC o riesgo de hipoglucemia) + 25 g de dextrosa si glucosa &lt; 250; glucemia c/hora × 6 h</td></tr>
-        <tr><td>Salbutamol nebulizado</td><td class="m">10–20 mg (4–8 veces la dosis broncodilatadora)</td></tr>
-        <tr><td>Eliminar K⁺</td><td>Furosemida si hay diuresis; ciclosilicato de sodio y zirconio 10 g c/8 h o patirómero; diálisis</td></tr>
-        <tr><td>Adenosina</td><td class="m">6 mg → 12 mg → 12 mg. Reducir a 3 mg con vía central, trasplante cardíaco o dipiridamol</td></tr>
-        <tr><td>Diltiazem / verapamilo</td><td class="m">Diltiazem 0,25 mg/kg IV en 2 min (≈ 15–20 mg), 0,35 mg/kg a los 15 min · verapamilo 5–10 mg</td></tr>
-        <tr><td>Metoprolol</td><td class="m">2,5–5 mg IV en 2 min, repetir c/5 min hasta 15 mg</td></tr>
-        <tr><td>Torsades refractaria</td><td>Isoproterenol 2–10 µg/min o estimulación (overdrive) a 100–120 lpm</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section id="v19-calc">
-    <h3>Calculadora de QTc (agregada)</h3>
-    <div class="box">
-      <div class="calc">
-        <label for="q19-qt">QT medido (ms)<input id="q19-qt" type="number" min="200" max="800" value="440"></label>
-        <label for="q19-hr">Frecuencia cardíaca (lpm)<input id="q19-hr" type="number" min="30" max="220" value="88"></label>
-        <label for="q19-sex">Sexo<select id="q19-sex"><option value="M" selected>Hombre</option><option value="F">Mujer</option></select></label>
-      </div>
-      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="q19-out"></tbody></table></div>
-      <p class="note" style="margin-top:8px">Bazett sobrecorrige con FC &gt; 90; Fridericia y Framingham son más fiables en taquicardia. QTc &gt; 500 ms o aumento &gt; 60 ms sobre el basal: alto riesgo de torsades.</p>
-    </div>
-  </section>
-
-  <section id="v19-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Fichas útiles para estudiantes. Para un nivel de electrofisiología, estos son los puntos débiles:</p>
-    <div class="verdicts">
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Epinefrina en ritmos desfibrilables:</b> la lámina la pone al mismo nivel que en la asistolia. En FV/TVsP va <b>después de la 2.ª descarga</b>; en ritmos no desfibrilables, lo antes posible. La amiodarona va tras la 3.ª descarga.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Unidad del magnesio:</b> la meta habitual es Mg &gt; 2 <b>mg/dL</b> (≈ 1,6 mEq/L). "&gt; 2 mEq/L" equivale a ~2,4 mg/dL, por encima de lo necesario.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Anticoagulación en FA:</b> la ESC 2024 reemplazó el CHA₂DS₂-VASc por el <b>CHA₂DS₂-VA</b> (sin el punto por sexo femenino). Antes de cardiovertir una FA de &gt; 48 h (ESC 2024: &gt; 24 h) se necesita anticoagulación de 3 semanas o ETE.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>FA con RV rápida:</b> diltiazem y verapamilo están contraindicados con FEVI &lt; 40 % o IC descompensada (usar betabloqueador con cautela, amiodarona o digoxina). En <b>FA preexcitada</b> (irregular, QRS ancho y variable, &gt; 250 lpm) no usar ningún bloqueador del nodo: procainamida, ibutilida o cardioversión.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Hiperpotasemia:</b> la secuencia real es T picuda → aplanamiento y pérdida de la P → PR largo → QRS ancho → onda sinusal. El ECG es poco sensible: hasta la mitad de los pacientes con K⁺ &gt; 6,5 no tienen cambios, y también hay bradicardias, bloqueos y pseudo-STEMI (patrón tipo Brugada).</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>TSV:</b> la Valsalva modificada (REVERT) es soplar 15 s contra 40 mmHg y luego decúbito con elevación pasiva de piernas; duplica la tasa de reversión. Si no hay adenosina: verapamilo o diltiazem. Si es antidrómica (QRS ancho), tratar como TV hasta demostrar lo contrario.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>IAMCEST:</b> faltan los tiempos (primer contacto–balón &lt; 90 min, &lt; 120 min si hay traslado; si no, fibrinólisis en &lt; 30 min) y los criterios de voltaje (V2–V3 ≥ 2 mm en hombres ≥ 40 años, ≥ 2,5 mm &lt; 40, ≥ 1,5 mm en mujeres). Y lo de la pestaña 10: buscar también la oclusión sin supradesnivel.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Asistolia:</b> además de 2 derivaciones, revisar ganancia y conexiones. Si hay ondas P sin QRS (asistolia con P), es un bloqueo completo: considerar marcapasos. La atropina no está indicada en el paro.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Trazos ilustrativos:</b> son esquemas, no registros reales. El trazo de "TV sin pulso" es sinusoidal (más parecido a un aleteo ventricular o a la onda sinusal de la hiperpotasemia que a una TV monomórfica típica). Útil para docencia como ejemplo de diferencial.</p></div>
-      <div class="vd"><span class="tag crit">Nota</span><p>La lámina de "MedDeep AI" es promoción de un producto, no contenido clínico.</p></div>
-    </div>
-    <div class="callout"><strong>Para la cátedra:</strong> este material sirve como punto de partida; un buen ejercicio es pedir a los alumnos que identifiquen los errores que se señalan aquí.</div>
-  </section>
-
-  <section id="v19-quiz">
-    <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v19"></div>
-  </section>
-  <p class="note">Referencias: Panchal AR et al. AHA Guidelines for CPR and ECC 2020 y actualizaciones posteriores; Van Gelder IC et al. ESC 2024 Guidelines for AF; Byrne RA et al. ESC 2023 ACS Guidelines; Appelboam A et al. REVERT, Lancet 2015; KDIGO 2020 Controversies Conference on potassium; Drew BJ et al. AHA/ACCF Scientific Statement on torsades de pointes, Circulation 2010.</p>
-</article>
-
-<!-- ============ MATERIAL 20 (imágenes) ============ -->
-<article class="panel" id="v20" role="tabpanel" aria-labelledby="t-v20" hidden>
-  <div>
-    <h2>Artritis reumatoide: ¿cómo abordarla? (Tiagoritmo)</h2>
-    <div class="meta"><span>Fuente: 16 láminas, TiagoMed con el reumatólogo Andrés Felipe Vargas</span><span>Recibido 26/10/2026</span><span>Bases citadas: ACR/EULAR 2010, ACR 2021, EULAR 2022 y 2025, Lancet 2016</span></div>
-  </div>
-  <nav class="subnav" aria-label="Secciones del material 20">
-    <a href="#v20-resumen">Resumen</a><a href="#v20-dx">Sospecha y estudios</a><a href="#v20-clinica">Clínica</a><a href="#v20-tx">Tratamiento</a><a href="#v20-calc">DAS28 / SDAI</a><a href="#v20-analisis">Análisis crítico</a><a href="#v20-quiz">Autoevaluación</a>
-  </nav>
-
-  <section id="v20-resumen">
-    <h3>Resumen</h3>
-    <p class="lead">El abordaje completo de la AR, de la sospecha al biológico, hecho con un reumatólogo. Complementa la <b>pestaña 4 de la Videoteca 1</b> (criterios ACR/EULAR y CDAI) con lo que allí faltaba: <b>imitadores agudos, deformidades, manifestaciones extraarticulares, DAS28, cuándo declarar falla al metotrexato y qué biológico elegir</b>.</p>
-    <p>Idea central: <b>la clave es la sinovitis</b>. Dolor articular sin tumefacción es artralgia, no artritis.</p>
-  </section>
-
-  <section id="v20-dx">
-    <h3>Sospecha, imitadores y estudios</h3>
+  <section id="v1-causas">
+    <h3>Causas de hipoglucemia que recae</h3>
     <div class="cols">
-      <div class="box"><b>Piensa en AR ante</b><ul>
-        <li>Tumefacción articular persistente</li>
-        <li>Compromiso simétrico</li>
-        <li>Predominio en MCF, IFP y muñecas</li>
-        <li>Rigidez matinal &gt; 30 min</li>
-        <li>Síntomas ≥ 6 semanas</li>
+      <div class="box"><b>Exceso de insulina</b><ul>
+        <li>Sobredosis o error con insulina (sobre todo basal)</li>
+        <li>Sulfonilureas, meglitinidas</li>
+        <li>ERC: menor aclaramiento de insulina y sulfonilureas</li>
+        <li>Insulinoma, nesidioblastosis</li>
+        <li>Fármacos: quinina, quinolonas, pentamidina</li>
       </ul></div>
-      <div class="box"><b>Antes, descarta los imitadores agudos</b><ul>
-        <li><b>Monoartritis + fiebre:</b> artritis séptica hasta demostrar lo contrario → artrocentesis</li>
-        <li><b>Inicio agudo intenso:</b> artritis por cristales → cristales en líquido sinovial</li>
-        <li><b>Poliartritis aguda:</b> artritis viral (parvovirus B19, hepatitis)</li>
+      <div class="box"><b>Falta de producción o contrarregulación</b><ul>
+        <li>Insuficiencia suprarrenal, hipopituitarismo</li>
+        <li>Insuficiencia hepática</li>
+        <li>Sepsis</li>
+        <li>Alcohol, ayuno prolongado, desnutrición</li>
+        <li>Tumores no-islote (IGF-2)</li>
       </ul></div>
     </div>
-    <div class="tbl" style="margin-top:10px"><table>
-      <thead><tr><th>Grupo</th><th>Estudios</th></tr></thead>
-      <tbody>
-        <tr><td>Serología</td><td>Factor reumatoide, anti-CCP</td></tr>
-        <tr><td>Actividad inflamatoria</td><td>PCR, VSG</td></tr>
-        <tr><td>Daño estructural basal</td><td>Radiografía de manos y pies</td></tr>
-        <tr><td>Si el examen es dudoso</td><td>Ecografía articular con Doppler de potencia: sinovitis o tenosinovitis subclínica</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">FR y anti-CCP negativos, o PCR/VSG normales, no descartan una AR temprana. Criterios ACR/EULAR 2010 con calculadora: pestaña 4, Videoteca 1.</p>
   </section>
 
-  <section id="v20-clinica">
-    <h3>Deformidades y manifestaciones extraarticulares</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Deformidad</th><th>Descripción</th></tr></thead>
-      <tbody>
-        <tr><td><b>Cuello de cisne</b></td><td>IFP en hiperextensión + IFD en flexión</td></tr>
-        <tr><td><b>Boutonnière (en ojal)</b></td><td>IFP en flexión + IFD en hiperextensión</td></tr>
-        <tr><td><b>Desviación cubital</b></td><td>Dedos desviados hacia el cúbito desde las MCF</td></tr>
-        <tr><td><b>Pulgar en Z</b></td><td>MCF en flexión + interfalángica en hiperextensión</td></tr>
-      </tbody>
-    </table></div>
-    <div class="tbl" style="margin-top:10px"><table>
-      <thead><tr><th>Órgano</th><th>Manifestación (frecuencia aproximada)</th></tr></thead>
-      <tbody>
-        <tr><td>Ojos</td><td>Ojo seco 15–25 % · epiescleritis ≈ 5 % (ojo rojo localizado, sin pérdida visual) · escleritis ≈ 2 %</td></tr>
-        <tr><td>Pulmón</td><td>Enfermedad intersticial ≈ 10 % (hasta 20–25 % por TACAR) · pleuritis sintomática &lt; 5 %</td></tr>
-        <tr><td>Corazón</td><td>Pericarditis clínica &lt; 2 % · compromiso subclínico 30–50 %</td></tr>
-        <tr><td>Piel</td><td>Nódulos reumatoideos 20–30 % (firmes, indoloros, superficies de extensión, olécranon) · vasculitis reumatoide &lt; 1 % (púrpura palpable, úlceras, infartos periungueales)</td></tr>
-        <tr><td>Sangre y bazo</td><td>Anemia 30–60 % · síndrome de Felty &lt; 1 %</td></tr>
-      </tbody>
-    </table></div>
+  <section id="v1-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v1"></div>
+  </section>
+  <p class="note">Referencias: ADA Standards of Care (Glycemic Targets / Hypoglycemia); International Hypoglycaemia Study Group 2017; Endocrine Society, insuficiencia suprarrenal primaria 2016; Endocrine Society, trastornos hipoglucémicos en adultos 2009.</p>
+</article>
+
+<!-- ============ PESTAÑA 24 (antes 2) ============ -->
+<article class="panel" id="v2" role="tabpanel" aria-labelledby="t-v2" hidden>
+  <div>
+    <h2>Cetoacidosis diabética en 4 pasos, y en orden</h2>
+    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 3:36</span><span>Recibido 05/10/2026</span><span>Base citada: Umpierrez et al., Diabetes Care 2024</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 2">
+    <a href="#v2-resumen">Resumen</a><a href="#v2-algoritmo">Algoritmo</a><a href="#v2-dosis">Cálculo 70 kg</a><a href="#v2-analisis">Análisis crítico</a><a href="#v2-calc">Fórmulas</a><a href="#v2-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v2-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Caso guía: paciente de 70 kg, pH 7,1, glucosa 480 mg/dL y cetonas elevadas. El video ordena el manejo en <b>líquidos → potasio → insulina → bicarbonato</b>, y cierra con los 3 criterios de resolución y la transición a insulina subcutánea.</p>
+    <p>Mensajes centrales: medir el potasio <strong>antes de la primera unidad de insulina</strong>; cuando la glucosa baja, <strong>no apagar la insulina, agregar dextrosa</strong>; y la glucosa <strong>no</strong> es criterio de resolución.</p>
   </section>
 
-  <section id="v20-tx">
-    <h3>Tratamiento y seguimiento</h3>
+  <section id="v2-algoritmo">
+    <h3>Algoritmo del video</h3>
     <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>Inicio: metotrexato para todos</h4>
+      <li class="step"><span class="num">0</span><h4>Confírmala</h4>
+        <div class="levels" style="margin-top:6px">
+          <div class="lvl"><b>D · Diabetes</b><div class="v">Glucosa ≥ 200</div><small>o diabetes conocida</small></div>
+          <div class="lvl l2"><b>K · Cetosis</b><div class="v">β-OHB ≥ 3</div><small>mmol/L, o cetonuria ≥ 2+</small></div>
+          <div class="lvl l3"><b>A · Acidosis</b><div class="v">pH &lt; 7,3</div><small>o HCO₃ &lt; 18 mEq/L</small></div>
+        </div>
+        <ul><li><b>Ojo con iSGLT2 (gliflozinas):</b> la glucosa puede estar casi normal (CAD euglucémica).</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>Líquidos</h4>
         <ul>
-          <li><span class="dose">15 mg una vez por semana</span>, escalar rápido a 20–25 mg/semana según respuesta y tolerancia.</li>
-          <li>Siempre con <b>ácido fólico ≥ 5 mg/semana</b>, en un día distinto al MTX.</li>
-          <li>Si está contraindicado o no se tolera: <b>leflunomida 20 mg/día</b> o <b>sulfasalazina 1–3 g/día</b>.</li>
-          <li>Puente: <b>prednisona 5–10 mg/día</b>, la menor dosis efectiva, retirada antes de 3 meses.</li>
-          <li>Contraindicaciones del MTX: embarazo o lactancia, hepatopatía crónica significativa, ERC avanzada, citopenias graves, consumo nocivo de alcohol, infección activa grave.</li>
+          <li>Déficit estimado ≈ <span class="dose">100 mL/kg</span> (≈ 7 L en 70 kg).</li>
+          <li>1.ª hora: <span class="dose">1–1,5 L</span>; luego <span class="dose">500–1000 mL/h</span>.</li>
+          <li>SSN 0,9 % o Ringer lactato.</li>
+          <li>Van primero porque sin volumen no hay perfusión, y el líquido solo ya baja la glucosa.</li>
         </ul></li>
-      <li class="step"><span class="num">2</span><h4>¿Funcionó? Reevalúa con el mismo índice</h4>
-        <ul><li>DAS28, CDAI o SDAI. <b>3 meses:</b> ¿bajó ≥ 50 %? Si no, optimizar o cambiar. <b>6 meses:</b> meta = remisión o baja actividad.</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>¿Falló el metotrexato? Antes confirma</h4>
+      <li class="step"><span class="num">2</span><h4>Potasio, antes de la 1.ª unidad de insulina</h4>
+        <ul><li>Un K⁺ sérico normal o alto (p. ej. 5,2) engaña: el K⁺ corporal total está vacío, y la insulina lo mete a la célula.</li></ul>
+        <div class="tbl" style="margin-top:8px"><table style="min-width:0">
+          <thead><tr><th>K⁺ sérico</th><th>Conducta</th></tr></thead>
+          <tbody>
+            <tr><td class="m">&lt; 3,5</td><td><b style="color:var(--crit)">NO insulina.</b> KCl <span class="dose">10–20 mEq/h</span> hasta K⁺ &gt; 3,5</td></tr>
+            <tr><td class="m">3,5–5</td><td><span class="dose">20–30 mEq</span> en cada litro de solución</td></tr>
+            <tr><td class="m">&gt; 5</td><td>No reponer; control c/2 h</td></tr>
+          </tbody>
+        </table></div>
+        <ul><li>Meta: <b>K⁺ 4–5 mEq/L</b>.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Insulina IV</h4>
         <ul>
-          <li><b>Dosis optimizada:</b> ≥ 15 mg/semana en 4–6 semanas, hasta 20–25 mg si se tolera.</li>
-          <li><b>Intolerancia o respuesta insuficiente:</b> dividir la dosis oral en 24 h, aumentar el ácido fólico, pasar a <b>MTX subcutáneo</b>.</li>
-          <li><b>Tiempo suficiente:</b> no esperar 6 meses si a los 3 no hay mejoría.</li>
+          <li>Regular, IV, en infusión: <span class="dose">0,1 U/kg/h</span> → 70 kg = <b>7 U/h</b>.</li>
+          <li>Objetivo: glucosa ↓ 50–75 mg/dL/h.</li>
+          <li>Cuando la glucosa llega a ~250: <b>no la apagues</b>. Agrega dextrosa 5 % y baja la insulina a <span class="dose">0,05 U/kg/h</span>. La glucosa se corrige en horas; las cetonas tardan más.</li>
+          <li>Caso: glucemia 180 y pH 7,2 → ¿suspendes la insulina? <b>No.</b> Sube la dextrosa; la insulina sigue.</li>
         </ul></li>
-      <li class="step"><span class="num">4</span><h4>¿Qué sigue? Agregar un FAME biológico (mantener el MTX)</h4>
+      <li class="step"><span class="num">4</span><h4>Bicarbonato: casi nunca</h4>
         <ul>
-          <li>Anti-TNF (adalimumab, etanercept, infliximab, golimumab, certolizumab) · anti-IL-6 (tocilizumab, sarilumab) · abatacept · rituximab.</li>
-          <li><b>Inhibidor JAK:</b> tras evaluar riesgo cardiovascular, malignidad y tromboembolismo.</li>
-          <li>Si falla el primero: otro biológico (misma u otra clase) o JAK. <b>No combinar</b> dos biológicos ni biológico + JAK.</li>
+          <li>Solo si <b>pH &lt; 7,0</b>: <span class="dose">100 mEq en 400 mL de agua</span> en 2 h + <span class="dose">20 mEq de K⁺</span>.</li>
+          <li>Por qué tan poco: empeora la hipopotasemia, produce acidosis paradójica en SNC y no acelera la resolución.</li>
         </ul></li>
-      <li class="step"><span class="num">!</span><h4>Antes del biológico o JAK: tamizaje</h4>
+      <li class="step"><span class="num">5</span><h4>¿Resuelta? 3 criterios</h4>
         <ul>
-          <li>TB (PPD o IGRA + Rx de tórax), VHB (HBsAg, anti-HBc total, anti-HBs), anti-VHC, VIH según riesgo.</li>
-          <li>Hemograma, transaminasas, creatinina; perfil lipídico si será JAK.</li>
-          <li>Vacunas: influenza, neumococo, zóster recombinante, COVID-19, hepatitis B.</li>
-          <li>No iniciar con infección activa grave.</li>
+          <li><b>pH ≥ 7,3</b> · <b>HCO₃ ≥ 15</b> · <b>β-OHB &lt; 0,6 mmol/L</b>.</li>
+          <li>La glucosa <b>no está en la lista</b>.</li>
+        </ul></li>
+      <li class="step"><span class="num">→</span><h4>Paso a subcutánea</h4>
+        <ul>
+          <li>Insulina basal SC <b>2 h antes</b> de apagar la bomba. Si la apagas antes, la CAD vuelve.</li>
+          <li>Busca el desencadenante: infección, omisión de insulina, infarto.</li>
         </ul></li>
     </ol>
   </section>
 
-  <section id="v20-calc">
-    <h3>Calculadora DAS28 y SDAI (agregada)</h3>
-    <div class="box">
-      <div class="calc">
-        <label for="d20-tjc">Articulaciones dolorosas (0–28)<input id="d20-tjc" type="number" min="0" max="28" value="8"></label>
-        <label for="d20-sjc">Articulaciones inflamadas (0–28)<input id="d20-sjc" type="number" min="0" max="28" value="6"></label>
-        <label for="d20-pga">Evaluación global del paciente (0–100 mm)<input id="d20-pga" type="number" min="0" max="100" value="60"></label>
-        <label for="d20-ega">Evaluación global del médico (0–100 mm)<input id="d20-ega" type="number" min="0" max="100" value="50"></label>
-        <label for="d20-vsg">VSG (mm/h)<input id="d20-vsg" type="number" min="1" max="150" value="38"></label>
-        <label for="d20-pcr">PCR (mg/L)<input id="d20-pcr" type="number" min="0" max="300" step="0.1" value="18"></label>
-      </div>
-      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="d20-out"></tbody></table></div>
-      <p class="note" style="margin-top:8px">DAS28-VSG: remisión &lt; 2,6 · baja ≤ 3,2 · moderada ≤ 5,1 · alta &gt; 5,1. DAS28-PCR usa los mismos cortes pero sobrestima la remisión. SDAI (PCR en mg/dL): remisión ≤ 3,3 · baja ≤ 11 · moderada ≤ 26 · alta &gt; 26. CDAI en la pestaña 4.</p>
-    </div>
+  <section id="v2-dosis">
+    <h3>Caso aplicado: 70 kg, pH 7,1, glucosa 480</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Medida</th><th>Cálculo</th><th>Comentario</th></tr></thead>
+      <tbody>
+        <tr><td>Déficit de agua</td><td class="m">≈ 7 L</td><td>Reponer en 24–48 h, ajustando a hemodinamia, diuresis y función cardíaca/renal.</td></tr>
+        <tr><td>Bolo inicial</td><td class="m">1–1,5 L en 1 h<br>(15–20 mL/kg)</td><td>Más rápido si hay shock.</td></tr>
+        <tr><td>Insulina regular IV</td><td class="m">7 U/h</td><td>Bolo de 0,1 U/kg opcional; sin bolo, algunos protocolos usan 0,14 U/kg/h (≈ 10 U/h).</td></tr>
+        <tr><td>Insulina con dextrosa</td><td class="m">3,5 U/h</td><td>0,05 U/kg/h al llegar a glucosa ~250, con dextrosa 5–10 %.</td></tr>
+        <tr><td>Bicarbonato</td><td class="m">No indicado</td><td>pH 7,1 &gt; 7,0.</td></tr>
+        <tr><td>Insulina basal al transicionar</td><td class="m">≈ 10–14 U/día (glargina)</td><td>Paciente nuevo: dosis total 0,5–0,6 U/kg/día (≈ 35–40 U), mitad basal y mitad prandial. Si ya usaba insulina, retomar su esquema.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">La fila de transición SC es un cálculo agregado (no está en el video). Ajustar en ancianos, ERC o con ingesta pobre.</p>
   </section>
 
-  <section id="v20-analisis">
+  <section id="v2-analisis">
     <h3>Análisis crítico</h3>
-    <p>Material de buena calidad, revisado por un reumatólogo y alineado con ACR 2021 y EULAR 2022. Precisiones y complementos:</p>
+    <p>El video está bien alineado con el consenso ADA/EASD/JBDS/AACE/DTS 2024 sobre crisis hiperglucémicas. Puntos de acuerdo y complementos:</p>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Optimizar el MTX antes de declarar falla (dosis, vía SC, fraccionar la dosis, ácido fólico) es lo que más se omite en la práctica; la biodisponibilidad oral cae por encima de 15 mg y la SC la recupera.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>DAS28-PCR</b> da valores ~0,3–0,5 menores que DAS28-VSG y clasifica como remisión a más pacientes. Para remisión estricta, el SDAI/CDAI o la remisión booleana ACR/EULAR (articulaciones dolorosas, inflamadas, PCR en mg/dL y global del paciente ≤ 1) son más exigentes.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Biológico vs JAK:</b> EULAR 2022 coloca biológico y JAK al mismo nivel, pero restringe el JAK a cuando no hay alternativa en ≥ 65 años, fumadores, con riesgo CV o de cáncer. Sin factores de mal pronóstico, la alternativa es otro FAME convencional (triple terapia con <b>hidroxicloroquina</b>, que el material no menciona). La "actualización EULAR 2025" se cita como aparece; no pude verificar su contenido.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Embarazo:</b> suspender MTX 1–3 meses antes de concebir; la leflunomida requiere lavado con colestiramina. Sulfasalazina, hidroxicloroquina, prednisona a dosis bajas y certolizumab son compatibles con el embarazo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>MTX y pulmón:</b> la enfermedad intersticial previa no contraindica el MTX de forma absoluta; los estudios recientes no muestran que cause EPI-AR. La neumonitis por MTX es rara (&lt; 1 %), aguda e idiosincrática.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Escleritis</b> (dolor intenso, profundo, que despierta) es una emergencia oftalmológica, a diferencia de la epiescleritis; la forma necrotizante indica vasculitis sistémica. Otras extraarticulares: Sjögren secundario, osteoporosis y riesgo CV 1,5–2 veces mayor.</p></div>
-      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chikungunya</b> falta entre los imitadores y en la costa ecuatoriana es el más importante: poliartritis simétrica que puede persistir meses e incluso cumplir criterios de AR. Preguntar por fiebre y exantema previos y pedir IgG/IgM. También dengue, VHB, VHC y rubéola.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Criterios diagnósticos y de resolución son los del consenso 2024: β-OHB ≥ 3,0 mmol/L para diagnosticar y &lt; 0,6 mmol/L para resolver. El anion gap salió de los criterios de resolución.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Potasio antes de la insulina, con umbral de 3,5 mEq/L. Iniciar insulina con K⁺ bajo puede causar arritmias y paro respiratorio por debilidad muscular.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>"No la apagues": la insulina se titula según la acidosis/cetonas; la glucosa se maneja con la dextrosa. Es el error más frecuente en sala.</p></div>
+      <div class="vd"><span class="tag ok">Correcto</span><p>Bicarbonato solo con pH &lt; 7,0, con la pauta de 100 mmol en 400 mL + 20 mEq KCl en 2 h, repitiendo cada 2 h hasta pH ≥ 7,0.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Sodio corregido:</b> la hiperglucemia diluye el Na⁺. Un Na⁺ medido "normal" con glucosa 480 equivale a un Na⁺ real alto. Sirve para elegir la solución después de la primera hora.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Ringer lactato vs SSN:</b> los cristaloides balanceados producen menos acidosis hiperclorémica. Con SSN, el HCO₃ puede quedar bajo aunque las cetonas ya se aclararon; por eso el β-OHB es mejor marcador de resolución.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>CAD euglucémica por iSGLT2:</b> si la glucosa es &lt; 250 desde el inicio, la dextrosa va desde el principio junto con la insulina. Suspender la gliflozina y no reiniciarla hasta resolver el cuadro y la causa.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>CAD leve a moderada sin complicaciones:</b> el consenso 2024 acepta análogos rápidos SC (lispro/aspart) cada 1–2 h fuera de UCI, como alternativa a la bomba.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Basal temprana:</b> iniciar glargina 0,15–0,3 U/kg en las primeras horas, sin apagar la bomba, reduce la hiperglucemia de rebote al transicionar.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Fosfato:</b> no se repone de rutina. Indicado si P &lt; 1,0 mg/dL o hay disfunción cardíaca, respiratoria o hemólisis.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Volumen en cardiópatas y ERC:</b> el ritmo de 500–1000 mL/h es para un adulto sin comorbilidad. En IC o ERC, bolos más pequeños y reevaluación frecuente.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Edema cerebral:</b> más frecuente en niños y adultos jóvenes. Cefalea, deterioro de conciencia o bradicardia durante el tratamiento: manitol 0,5–1 g/kg o salina hipertónica. Evitar caídas de glucosa &gt; 100 mg/dL/h y de osmolaridad &gt; 3 mOsm/kg/h.</p></div>
+    </div>
+    <div class="callout"><strong>Perla de turno:</strong> si la glucosa no baja al menos 50 mg/dL en la primera hora, revisa primero la hidratación y la vía de la bomba; si están bien, duplica la infusión de insulina.</div>
+  </section>
+
+  <section id="v2-calc">
+    <h3>Fórmulas útiles</h3>
+    <div class="cols">
+      <div class="box"><b>Sodio corregido</b><p class="m" style="font-family:var(--f-mono);font-size:14px;margin-top:4px">Na⁺ + 1,6 × (glucosa − 100) / 100</p><p class="note" style="margin-top:4px">Algunos usan 2,4 cuando la glucosa supera 400.</p></div>
+      <div class="box"><b>Anion gap</b><p style="font-family:var(--f-mono);font-size:14px;margin-top:4px">Na⁺ − (Cl⁻ + HCO₃⁻)</p><p class="note" style="margin-top:4px">Normal ≈ 10–12 mEq/L.</p></div>
+      <div class="box"><b>Osmolaridad efectiva</b><p style="font-family:var(--f-mono);font-size:14px;margin-top:4px">2 × Na⁺ + glucosa / 18</p><p class="note" style="margin-top:4px">&gt; 320 mOsm/kg con alteración de conciencia: pensar en estado hiperosmolar mixto.</p></div>
+      <div class="box"><b>Monitoreo</b><ul>
+        <li>Glucosa capilar c/1 h</li>
+        <li>Electrolitos, gases venosos, β-OHB c/2–4 h</li>
+        <li>K⁺ c/2 h si &gt; 5 o en reposición activa</li>
+      </ul></div>
     </div>
   </section>
 
-  <section id="v20-quiz">
+  <section id="v2-quiz">
     <h3>Autoevaluación</h3>
-    <div class="quiz" data-quiz="v20"></div>
+    <div class="quiz" data-quiz="v2"></div>
   </section>
-  <p class="note">Referencias: Aletaha D et al. ACR/EULAR 2010; Fraenkel L et al. ACR 2021, Arthritis Care Res 2021; Smolen JS et al. EULAR 2022, Ann Rheum Dis 2023; EULAR 2025 (citada en las láminas); Smolen JS et al. Lancet 2016; Whiting PF et al. Ann Intern Med 2010; Prevoo ML et al. DAS28, Arthritis Rheum 1995; Smolen JS et al. SDAI, Rheumatology 2003.</p>
+  <p class="note">Referencias: Umpierrez GE et al. Hyperglycemic crises in adults with diabetes: a consensus report. Diabetes Care 2024;47:1257–1275; Kitabchi AE et al. Diabetes Care 2009;32:1335–1343.</p>
 </article>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Continuación de Videoteca Clínica 1 (pestañas 1–10); pestañas 11–20.</footer>
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16)</a> · <b>Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24)</b> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40)</a>.</footer>
 </div>
 
 <script>
 const QUIZ = {
-  v11: [
-    {q:"Según el video y la SSC, ¿cuándo debe recibir antibiótico un paciente con sepsis probable?",
-     o:["Dentro de la primera hora","Dentro de 3 horas","Después del cultivo y el resultado del Gram","Solo si hay choque"], a:0,
-     e:"Sepsis definitiva o probable, y todo choque: antibiótico en la primera hora."},
-    {q:"Mujer de 78 años, ya recibió 30 mL/kg, PA 78/40, lactato 4,8. ¿Siguiente paso?",
-     o:["Otros 2 L y reevaluar","Esperar el catéter central","Hidrocortisona primero","Norepinefrina periférica, ya"], a:3,
-     e:"Choque séptico con hipotensión persistente: vasopresor periférico sin demora, PAM 60–65 por la edad."},
-    {q:"¿Por qué se prefiere la infusión prolongada de betalactámicos?",
-     o:["Su efecto depende del tiempo sobre la CIM","Reduce el costo","Evita la nefrotoxicidad","Su efecto depende del pico"], a:0,
-     e:"Los betalactámicos son tiempo-dependientes. BLING III y el metaanálisis de 2024 mostraron menor mortalidad."},
-    {q:"Norepinefrina 8 mg en 250 mL a 30 mL/h, paciente de 60 kg. ¿Dosis aproximada?",
-     o:["0,027 µg/kg/min","0,27 µg/kg/min","2,7 µg/kg/min","0,5 µg/kg/min"], a:1,
-     e:"32 µg/mL × 30 mL/h = 960 µg/h = 16 µg/min; ÷ 60 kg ≈ 0,27 µg/kg/min. Considerar vasopresina e hidrocortisona."},
-    {q:"¿Qué intervención NO se recomienda en el choque séptico?",
-     o:["Cristaloides balanceados","Vitamina C IV","Hidrocortisona con norepinefrina ≥ 0,25","Vasopresina como segundo vasopresor"], a:1,
-     e:"LOVIT mostró más muerte o disfunción orgánica persistente con vitamina C."}
-  ],
-  v12: [
-    {q:"Paciente en consulta con PA 196/118, asintomático, sin daño agudo a órgano. ¿Conducta?",
-     o:["Nifedipino sublingual","Enviarlo a urgencias","Reiniciar o ajustar antihipertensivos orales y control ambulatorio","Captopril SL y observar 2 h"], a:2,
-     e:"Hipertensión grave sin daño: vía oral, sin prisa. Enviar a urgencias no mejora los eventos y aumenta las hospitalizaciones."},
-    {q:"Emergencia hipertensiva sin condición específica. ¿Cuánto bajar en la primera hora?",
-     o:["Hasta normalizar","No más del 25 % de la PAM","50 %","Nada; esperar 24 h"], a:1,
-     e:"≤ 25 % en la 1.ª hora, luego < 160/100 en 2–6 h, y normalización gradual en 24–48 h."},
-    {q:"Disección aórtica tipo B con PA 190/110 y FC 105. ¿Primer fármaco?",
-     o:["Nitroprusiato solo","Esmolol o labetalol","Hidralazina","Nifedipino"], a:1,
-     e:"Primero controlar la FC (≤ 60) con betabloqueador; el vasodilatador después, para evitar taquicardia refleja."},
-    {q:"Hemorragia intracerebral con PAS 210. ¿Meta?",
-     o:["< 120","Alrededor de 140, nunca < 130","< 180","No tratar"], a:1,
-     e:"Bajar a < 130 es clase 3 (daño) según AHA/ASA 2022."},
-    {q:"Paciente con PA 230/130 tras consumo de cocaína. ¿Qué evitas?",
-     o:["Benzodiacepina","Betabloqueador solo","Fentolamina","Nicardipino"], a:1,
-     e:"El betabloqueo sin bloqueo α deja la estimulación α sin oposición y puede empeorar la hipertensión y la isquemia coronaria."}
-  ],
-  v13: [
-    {q:"Mujer de 58 años, PA 205/115, asintomática, troponina y creatinina normales, dejó su losartán hace 3 días. ¿Conducta?",
-     o:["Labetalol IV","Nifedipino sublingual","Reiniciar VO + control ambulatorio","Ingreso a UCI"], a:2,
-     e:"Hipertensión severa sin daño agudo, con causa identificada: reiniciar el tratamiento oral."},
-    {q:"PA 200/125 con papiledema y hemorragias en llama, sin síntomas. ¿Qué es?",
-     o:["Hipertensión severa","Emergencia hipertensiva (hipertensión maligna)","Urgencia hipertensiva","Hipertensión de bata blanca"], a:1,
-     e:"La retinopatía grado III–IV es daño agudo de órgano blanco, aunque no haya síntomas."},
-    {q:"¿Cuál es el principal error en 'le diste captopril y la bajaste en 1 hora'?",
-     o:["Usar un IECA","Bajar la PA rápidamente sin daño de órgano","No usar nifedipino","No usar diurético"], a:1,
-     e:"Sin daño agudo, la meta es un descenso gradual en días, no en horas."},
-    {q:"Gestante de 34 semanas con PA 168/112 y cefalea. ¿Meta inmediata?",
-     o:["Bajar ≤ 25 % en 1 hora y esperar","PA < 160/110 en 30–60 min","PAS < 120","No tratar"], a:1,
-     e:"Preeclampsia severa: tratamiento urgente (labetalol IV, hidralazina o nifedipino oral) más sulfato de magnesio."},
-    {q:"Paciente hospitalizado por fractura de cadera con PA 186/104 y dolor intenso. ¿Primer paso?",
-     o:["Bolo IV de hidralazina","Analgesia y reevaluar la PA","Nifedipino sublingual","Infusión de labetalol"], a:1,
-     e:"Buscar y tratar la causa (dolor). La guía 2025 desaconseja bolos IV en el hospitalizado sin daño de órgano."}
-  ],
-  v14: [
-    {q:"¿Qué molécula atrapa el hierro en los macrófagos en la anemia de la inflamación?",
-     o:["Transferrina","Hepcidina","Eritropoyetina","Ferritina"], a:1,
-     e:"La IL-6 induce hepcidina, que degrada la ferroportina e impide liberar el hierro."},
-    {q:"Paciente séptico: Hb 8,9, ferritina 420 ng/mL, saturación 12 %, TIBC bajo. ¿Diagnóstico más probable?",
-     o:["Ferropenia pura","Anemia de la inflamación","Talasemia","Anemia megaloblástica"], a:1,
-     e:"Ferritina alta y TIBC bajo con saturación baja: hierro secuestrado."},
-    {q:"Paciente con AR activa: ferritina 55 ng/mL, saturación 9 %, receptor soluble elevado. ¿Qué indica?",
-     o:["Solo inflamación","Anemia mixta con ferropenia real","Hemólisis","Déficit de B12"], a:1,
-     e:"Con inflamación, una ferritina < 100 y el receptor soluble alto indican ferropenia asociada."},
-    {q:"VCM 112 fL. Antes de indicar ácido fólico, ¿qué debes descartar?",
-     o:["Ferropenia","Déficit de vitamina B12","Talasemia","Anemia de la inflamación"], a:1,
-     e:"El ácido fólico puede corregir la anemia y enmascarar el daño neurológico del déficit de B12."},
-    {q:"En la anemia de la inflamación con PCR muy alta, ¿por qué el hierro oral funciona mal?",
-     o:["Se elimina por el riñón","La hepcidina bloquea la absorción intestinal","Causa hemólisis","Inhibe la EPO"], a:1,
-     e:"La hepcidina degrada la ferroportina del enterocito; por eso se prefiere el hierro IV si hay ferropenia real."}
+  v7: [
+    {q:"PTOG con 75 g: ayunas 94, 1 h 172, 2 h 128 mg/dL. ¿Interpretación?",
+     o:["Normal en todos los puntos","Riesgo aumentado por glucosa a la hora ≥ 155 (IDF 2024)","Diabetes","Intolerancia a la glucosa"], a:1,
+     e:"Ayunas y 2 h son normales, pero la glucosa a la hora ≥ 155 identifica hiperglucemia intermedia con riesgo de progresión."},
+    {q:"¿Qué guía recomienda medir insulina en la curva para diagnosticar resistencia a la insulina?",
+     o:["ADA","AACE","Endocrine Society","Ninguna; no hay puntos de corte validados"], a:3,
+     e:"Los ensayos no están estandarizados y no existen valores de referencia diagnósticos."},
+    {q:"Paciente con somnolencia y hambre 3 h después de comer; en la PTOG de 5 h tuvo glucosa de 58 mg/dL a las 4 h, sin síntomas. ¿Conclusión?",
+     o:["Hipoglucemia reactiva confirmada","No confirma nada: se requiere tríada de Whipple documentada","Insulinoma","Iniciar metformina"], a:1,
+     e:"Valores bajos en PTOG prolongada aparecen en personas sanas. Sin síntomas simultáneos y corrección con glucosa, no hay diagnóstico."},
+    {q:"Glucosa en ayunas 100 mg/dL e insulina 15 µUI/mL. ¿HOMA-IR?",
+     o:["≈ 1,5","≈ 3,7","≈ 6,7","≈ 15"], a:1,
+     e:"100 × 15 / 405 ≈ 3,7. Orienta a resistencia a la insulina, con puntos de corte que dependen de la población."},
+    {q:"Paciente con cintura de 104 cm, TG 210 mg/dL, HDL 35 mg/dL y glucosa en ayunas de 96 pide una 'curva de insulina'. ¿Qué es lo más útil?",
+     o:["Curva de insulina de 5 h","PTOG de glucosa (0, 60, 120 min) e intervención en el estilo de vida","Péptido C","Ninguna evaluación"], a:1,
+     e:"Ya cumple criterios clínicos de síndrome metabólico. La PTOG de glucosa busca prediabetes o diabetes; la insulina no cambia la conducta."}
   ],
   v15: [
     {q:"Paciente con DM2 y enfermedad coronaria. ¿Meta de colesterol no-HDL?",
@@ -1248,22 +936,56 @@ const QUIZ = {
      o:["Son caras","No tienen valor diagnóstico por sí solas","Requieren biopsia","Solo sirven en niños"], a:1,
      e:"Son marcadores de riesgo; la conducta se define con la valoración clínica completa."}
   ],
-  v16: [
-    {q:"ALT 400 U/L (LSN 40), FA 130 U/L (LSN 120). ¿Índice R y patrón?",
-     o:["R ≈ 2: colestásico","R ≈ 9: hepatocelular","R ≈ 4: mixto","R ≈ 0,5: colestásico"], a:1,
-     e:"(400/40) ÷ (130/120) = 10 ÷ 1,08 ≈ 9,2 → hepatocelular."},
-    {q:"FA 380 U/L con GGT normal en un hombre de 72 años. ¿Qué sospechas primero?",
-     o:["Colestasis intrahepática","Origen óseo (Paget, metástasis)","Coledocolitiasis","Hepatitis alcohólica"], a:1,
-     e:"FA elevada con GGT normal sugiere origen no hepático."},
-    {q:"Patrón colestásico, colédoco de 9 mm, bilirrubina 5,1 mg/dL. ¿Conducta según ASGE?",
-     o:["Colangio-RM","CPRE","Repetir laboratorio","Biopsia hepática"], a:1,
-     e:"Bilirrubina > 4 con colédoco dilatado = alto riesgo de coledocolitiasis → CPRE."},
-    {q:"AST 6800, ALT 5200 U/L en paciente que tuvo shock séptico ayer. ¿Diagnóstico más probable?",
-     o:["Hepatitis alcohólica","Hepatitis isquémica","MASLD","Colangitis biliar primaria"], a:1,
-     e:"Elevación masiva tras hipoperfusión, con LDH muy alta y descenso rápido en días."},
-    {q:"INR 1,9 en paciente con colestasis prolongada, sin encefalopatía. ¿Primer paso?",
-     o:["Plasma fresco congelado","Vitamina K IV y repetir el INR","Derivar a trasplante","Albúmina IV"], a:1,
-     e:"Si el INR corrige con vitamina K, era déficit de absorción y no falla de síntesis."}
+  v9: [
+    {q:"Según la ADA 2026, ¿cuál NO es un criterio para iniciar insulina como primer inyectable?",
+     o:["Síntomas de hiperglucemia","HbA1c > 10 %","IMC ≥ 35","Posibilidad de DM1"], a:2,
+     e:"Los criterios son síntomas, HbA1c > 10 %, glucosa ≥ 300 mg/dL y posible DM1. El IMC alto favorece el arGLP-1."},
+    {q:"Paciente con metformina + iSGLT2 + iDPP-4; decides agregar semaglutida. ¿Qué haces con el iDPP-4?",
+     o:["Mantenerlo","Suspenderlo","Duplicar la dosis","Cambiarlo por sulfonilurea"], a:1,
+     e:"Ambos actúan sobre la vía incretínica; combinarlos no aporta beneficio."},
+    {q:"HbA1c 10,8 %, IMC 36, sin poliuria ni pérdida de peso, sin cetonuria. ¿Opción razonable?",
+     o:["Solo insulina basal-bolo","arGLP-1 o tirzepatida es válido; insulina si no responde o aparece catabolismo","Agregar sulfonilurea","Esperar 6 meses"], a:1,
+     e:"Sin catabolismo, los incretínicos logran reducciones de 2–2,5 % con pérdida de peso."},
+    {q:"Paciente de 38 años, IMC 22, pérdida de 6 kg, glucosa 340 mg/dL, cetonuria +. ¿Conducta?",
+     o:["arGLP-1","Insulina y estudio de anti-GAD/péptido C","iDPP-4","Solo dieta"], a:1,
+     e:"Catabolismo, cetosis y fenotipo delgado: insulina y descartar DM1/LADA."},
+    {q:"Paciente con glargina 0,5 U/kg/día y HbA1c 8,4 %. ¿Siguiente paso preferido?",
+     o:["Subir la glargina sin límite","Agregar arGLP-1 o combinación fija","Agregar sulfonilurea","Suspender la insulina"], a:1,
+     e:"Evita la sobrebasalización (ver pestaña 20) con menos peso e hipoglucemia que agregar prandial."}
+  ],
+  v3: [
+    {q:"Paciente ambulatorio estable con DM2 y TFGe 38 mL/min, tomando metformina 850 mg c/12 h. ¿Conducta?",
+     o:["Suspender metformina","Mantener 1700 mg/día","Reducir a máximo 1000 mg/día","Cambiar a glibenclamida"], a:2,
+     e:"Con TFGe 30–44 se mantiene con dosis máxima de 1000 mg/día. Se suspende con TFGe < 30."},
+    {q:"A las 4 semanas de iniciar empagliflozina, la TFGe pasa de 52 a 44 mL/min. ¿Qué haces?",
+     o:["Suspenderla","Continuarla: la caída es del 15 %, esperada","Reducir la dosis a la mitad","Agregar un IECA"], a:1,
+     e:"Una caída menor al 30 % es hemodinámica y esperada. Si supera el 30 %, busca depleción de volumen u otra causa."},
+    {q:"Paciente de 80 kg con glargina 56 U/día y glucosa de ayunas aún alta. ¿Siguiente paso?",
+     o:["Subir a 64 U","Cambiar a NPH","Agregar arGLP-1 o insulina prandial","Agregar una escala móvil"], a:2,
+     e:"56 U = 0,7 U/kg/día: ya hay sobrebasalización. La salida es arGLP-1 o prandial, no más basal."},
+    {q:"DM2 con IC con FEVI reducida y HbA1c 6,8 %. ¿Qué agregas?",
+     o:["Nada, está en meta","iSGLT2","Sulfonilurea","Pioglitazona"], a:1,
+     e:"El iSGLT2 se indica por la IC, independiente de la HbA1c. La pioglitazona está contraindicada en IC."},
+    {q:"Hospitalizado de 70 kg, 55 años, come bien, glucosas de 220–280. ¿Esquema inicial?",
+     o:["Solo escala de corrección","Basal-bolo: ≈ 30 U/día, 15 basal + 5 por comida","Glargina 60 U","Metformina + sulfonilurea"], a:1,
+     e:"0,4–0,5 U/kg/día → 28–35 U, mitad basal y mitad repartida en las comidas, más corrección."}
+  ],
+  v6: [
+    {q:"¿Por qué el ejercicio baja la glucosa aun con resistencia a la insulina?",
+     o:["Aumenta la secreción de insulina","La contracción transloca GLUT4 por una vía independiente de insulina","Inhibe la absorción intestinal de glucosa","Aumenta la excreción renal de glucosa"], a:1,
+     e:"La vía AMPK/calcio lleva GLUT4 a la membrana sin depender de la señal de insulina."},
+    {q:"¿Cuánto reduce la HbA1c el entrenamiento de fuerza solo en DM2, según Jansson 2022?",
+     o:["≈ 0,1 %","≈ 0,4 %","≈ 1,5 %","≈ 2 %"], a:1,
+     e:"≈ 0,4 puntos, con más efecto en quienes ganaron más fuerza."},
+    {q:"Paciente con glargina y glibenclamida, glucosa de 82 mg/dL antes de entrenar. ¿Conducta?",
+     o:["Entrenar normalmente","No empezar: 15–30 g de carbohidrato y volver a medir","Aplicar insulina rápida","Solo hidratarse"], a:1,
+     e:"Con < 90 mg/dL y fármacos hipoglucemiantes, primero se corrige y se vuelve a medir antes de iniciar."},
+    {q:"Paciente con retinopatía diabética proliferativa quiere iniciar pesas. ¿Qué indicas?",
+     o:["Sin restricción","Evitar cargas máximas, Valsalva y cabeza abajo; coordinar con oftalmología","Prohibir todo ejercicio","Solo ejercicio isométrico máximo"], a:1,
+     e:"El aumento brusco de presión puede causar hemorragia vítrea o desprendimiento de retina."},
+    {q:"¿Qué componente de la recomendación ADA falta en el plan del carrusel?",
+     o:["Entrenamiento de fuerza","Interrumpir el tiempo sentado","≥ 150 min/semana de ejercicio aeróbico moderado","Caminata posprandial"], a:2,
+     e:"El carrusel se centra en fuerza y caminatas cortas; la base ADA incluye ≥ 150 min/semana de aeróbico."}
   ],
   v17: [
     {q:"Mujer con IMC 34 y pantorrilla de 36 cm. ¿Pantorrilla ajustada?",
@@ -1282,100 +1004,89 @@ const QUIZ = {
      o:["Reducir la proteína","Ejercicio de fuerza y proteína suficiente","Solo caminar","Suspender metformina"], a:1,
      e:"La pérdida de peso rápida incluye masa magra; la fuerza y la proteína la protegen."}
   ],
-  v18: [
-    {q:"Paciente con PA 198/112 en triaje, ansioso y con manguito pequeño. ¿Primer paso?",
-     o:["Labetalol IV","Repetir la medición con técnica y manguito adecuados","Nifedipino","TAC de cráneo"], a:1,
-     e:"No tratar un número mal medido: reposo ≥ 5 min, brazo a nivel del corazón, manguito adecuado."},
-    {q:"Disección aórtica tipo A con PA 200/110 y FC 112. ¿Qué das primero?",
-     o:["Nicardipino","Nitroprusiato","Esmolol 500 µg/kg en 1 min y luego infusión","Hidralazina"], a:2,
-     e:"Primero betabloqueo para FC ≤ 60; luego vasodilatador si sigue hipertenso."},
-    {q:"Edema pulmonar con PA 210/120. ¿Qué evitas en la fase aguda?",
-     o:["Nitroglicerina","VNI","Betabloqueador","Diurético si hay sobrecarga"], a:2,
-     e:"El betabloqueo deprime la contractilidad en la fase aguda del edema pulmonar."},
-    {q:"Hemorragia intracerebral con PAS 190. ¿Meta?",
-     o:["< 120","130–< 140","< 160","No tratar"], a:1,
-     e:"PAS 150–220: bajar a 130–< 140, evitando < 130."},
-    {q:"ACV isquémico, no candidato a reperfusión, PA 210/115. ¿Conducta?",
-     o:["Bajar 25 % en 1 h","No bajar de rutina","Labetalol hasta < 140","Nicardipino hasta < 160"], a:1,
-     e:"Con PA ≤ 220/120 sin reperfusión no se baja de rutina (hipertensión permisiva)."}
+  v1: [
+    {q:"Paciente diabético con glucosa capilar de 82 mg/dL, desorientado y sudoroso, que no responde órdenes. ¿Cómo se clasifica?",
+     o:["Nivel 1","Nivel 2","Nivel 3","No es hipoglucemia"], a:2,
+     e:"El nivel 3 es un evento con alteración mental o física que requiere ayuda, sin umbral numérico. Además, el glucómetro puede sobrestimar; trata y confirma."},
+    {q:"¿Cuántos gramos de glucosa aportan 250 mL de dextrosa al 10%?",
+     o:["10 g","25 g","50 g","100 g"], a:1,
+     e:"10 g por cada 100 mL → 25 g. Es la misma carga que 50 mL de D50."},
+    {q:"Paciente con ERC que tomaba glibenclamida. Sube con dextrosa y vuelve a caer dos veces. ¿Siguiente paso más específico?",
+     o:["Glucagón 1 mg IM","Octreótido","Hidrocortisona 100 mg IV","Duplicar el bolo de D50"], a:1,
+     e:"El octreótido inhibe la secreción de insulina inducida por la sulfonilurea y corta el ciclo de rebote."},
+    {q:"¿Por qué el glucagón no es buena opción en un paciente alcohólico desnutrido?",
+     o:["Produce hipopotasemia","Sus reservas de glucógeno hepático están agotadas","Está contraindicado con tiamina","Solo funciona por vía IV"], a:1,
+     e:"El glucagón actúa movilizando glucógeno hepático. Sin reservas, no hay respuesta."},
+    {q:"Hipoglucemia refractaria con hipotensión que no responde a volumen, Na 128 y K 5,9 mEq/L. ¿Qué indicas?",
+     o:["Octreótido 100 µg IV","Hidrocortisona 100 mg IV","Más dextrosa y esperar","Diazóxido oral"], a:1,
+     e:"El cuadro sugiere crisis suprarrenal. Hidrocortisona 100 mg IV de inmediato y luego 200 mg/24 h."}
   ],
-  v19: [
-    {q:"FV: tras la primera descarga y 2 min de RCP persiste la FV. ¿Siguiente paso?",
-     o:["Amiodarona 300 mg","Segunda descarga y luego epinefrina 1 mg","Epinefrina sin descarga","Atropina"], a:1,
-     e:"En ritmos desfibrilables la epinefrina va tras la 2.ª descarga; la amiodarona tras la 3.ª."},
-    {q:"Taquicardia irregular de QRS ancho y variable a 260 lpm en un joven estable. ¿Qué evitas?",
-     o:["Procainamida","Cardioversión sincronizada","Adenosina, verapamilo o diltiazem","Ibutilida"], a:2,
-     e:"Sugiere FA preexcitada: bloquear el nodo favorece la conducción por la vía accesoria y puede degenerar en FV."},
-    {q:"K⁺ 7,1 mEq/L con QRS de 140 ms. ¿Primera medida?",
-     o:["Furosemida","Gluconato de calcio IV","Resinas de intercambio","Bicarbonato"], a:1,
-     e:"El calcio estabiliza la membrana en minutos; no baja el K⁺, por eso se acompaña de insulina + dextrosa."},
-    {q:"FA con RV a 150 lpm en paciente con FEVI 25 %. ¿Qué evitas?",
-     o:["Amiodarona","Digoxina","Diltiazem","Cardioversión si se inestabiliza"], a:2,
-     e:"Los calcioantagonistas no dihidropiridínicos están contraindicados con FEVI reducida."},
-    {q:"QT 480 ms con FC 100 lpm. ¿QTc por Bazett aproximado?",
-     o:["≈ 430 ms","≈ 480 ms","≈ 570 ms","≈ 620 ms"], a:3,
-     e:"RR = 0,6 s; √0,6 = 0,775 → 480/0,775 ≈ 620 ms. Fridericia da ≈ 570: Bazett sobrecorrige en taquicardia, pero ambos superan 500."}
+  v2: [
+    {q:"Paciente con CAD, K⁺ 3,1 mEq/L. ¿Qué haces con la insulina?",
+     o:["Iniciar 0,1 U/kg/h y reponer K⁺ en paralelo","No iniciar insulina; KCl 10–20 mEq/h hasta K⁺ > 3,5","Bolo de insulina 0,1 U/kg","Iniciar bicarbonato"], a:1,
+     e:"La insulina mete K⁺ a la célula; con K⁺ < 3,5 primero se repone para evitar arritmias y debilidad respiratoria."},
+    {q:"En plena infusión, glucemia 180 mg/dL y pH 7,2. ¿Conducta?",
+     o:["Suspender la insulina","Pasar a insulina SC","Mantener la insulina y aumentar la dextrosa","Bolo de bicarbonato"], a:2,
+     e:"La acidosis no se ha resuelto. La insulina sigue (≈ 0,05 U/kg/h) y la glucosa se sostiene con dextrosa."},
+    {q:"¿Cuál NO es criterio de resolución de CAD según el consenso 2024?",
+     o:["pH ≥ 7,3","HCO₃ ≥ 15 mEq/L","β-OHB < 0,6 mmol/L","Glucosa < 200 mg/dL"], a:3,
+     e:"La glucosa se corrige mucho antes que la cetosis; no define resolución."},
+    {q:"Paciente en tratamiento con empagliflozina: pH 7,15, β-OHB 5,2 mmol/L, glucosa 190 mg/dL. ¿Qué es lo más adecuado?",
+     o:["Descartar CAD porque la glucosa es < 250","CAD euglucémica: insulina + dextrosa desde el inicio","Solo hidratación","Bicarbonato y observar"], a:1,
+     e:"Los iSGLT2 producen CAD con glucosa casi normal. Se trata igual, pero la dextrosa acompaña a la insulina desde el comienzo."},
+    {q:"¿Cuándo se apaga la bomba de insulina al pasar a SC?",
+     o:["Al mismo tiempo que se aplica la basal","1–2 h después de aplicar la insulina basal SC","Cuando la glucosa baja de 250","6 h antes de la basal"], a:1,
+     e:"La insulina IV tiene vida media de minutos. La basal SC necesita 1–2 h para actuar; apagar antes deja un hueco y la CAD reaparece."}
   ],
-  v20: [
-    {q:"Paciente con MTX oral 15 mg/semana desde hace 3 meses, con náuseas y respuesta parcial. ¿Antes de agregar un biológico?",
-     o:["Suspender el MTX","Pasar a MTX subcutáneo y subir a 20–25 mg","Agregar prednisona 20 mg indefinida","Cambiar a AINE"], a:1,
-     e:"Optimizar dosis y vía antes de declarar falla; la vía SC mejora tolerancia y biodisponibilidad."},
-    {q:"Deformidad con IFP en flexión e IFD en hiperextensión:",
-     o:["Cuello de cisne","Boutonnière","Pulgar en Z","Desviación cubital"], a:1,
-     e:"En ojal (boutonnière): IFP en flexión + IFD en hiperextensión."},
-    {q:"Mujer de 34 años con poliartritis simétrica de 8 semanas tras fiebre alta y exantema, en Guayas. ¿Qué pides antes de rotular AR?",
-     o:["Solo FR","Serología de chikungunya","Ácido úrico","HLA-B27"], a:1,
-     e:"La artritis crónica por chikungunya imita a la AR y es frecuente en la región."},
-    {q:"Con AR activa pese a MTX optimizado, ¿qué combinación está contraindicada?",
-     o:["MTX + anti-TNF","MTX + abatacept","Anti-TNF + inhibidor JAK","MTX + tocilizumab"], a:2,
-     e:"No se combinan biológicos entre sí ni biológico + JAK por riesgo de infecciones sin beneficio adicional."},
-    {q:"Paciente con AR que desea embarazarse. ¿Qué fármaco requiere lavado con colestiramina?",
-     o:["Sulfasalazina","Hidroxicloroquina","Leflunomida","Prednisona"], a:2,
-     e:"La leflunomida persiste meses en circulación; se elimina con colestiramina antes de la concepción."}
-  ]
 };
-function d20Calc(){
-  const g=id=>parseFloat(document.getElementById(id).value);
-  const t=g('d20-tjc'), s=g('d20-sjc'), p=g('d20-pga'), e=g('d20-ega'), v=g('d20-vsg'), c=g('d20-pcr');
-  if([t,s,p].some(isNaN)) return;
-  const pill=(x,k)=>'<span class="pill '+k+'">'+x+'</span>';
-  const das=x=>x<2.6?pill('Remisión','ok'):x<=3.2?pill('Baja','ok'):x<=5.1?pill('Moderada','add'):pill('Alta','crit');
-  const rows=[];
-  if(!isNaN(v)&&v>0){const x=0.56*Math.sqrt(t)+0.28*Math.sqrt(s)+0.70*Math.log(v)+0.014*p; rows.push(['DAS28-VSG',x.toFixed(2).replace('.',','),das(x)]);}
-  if(!isNaN(c)&&c>=0){const x=0.56*Math.sqrt(t)+0.28*Math.sqrt(s)+0.36*Math.log(c+1)+0.014*p+0.96; rows.push(['DAS28-PCR',x.toFixed(2).replace('.',','),das(x)]);}
-  if(!isNaN(e)&&!isNaN(c)){const x=t+s+p/10+e/10+c/10; rows.push(['SDAI',x.toFixed(1).replace('.',','),x<=3.3?pill('Remisión','ok'):x<=11?pill('Baja','ok'):x<=26?pill('Moderada','add'):pill('Alta','crit')]);}
-  if(!isNaN(e)){const x=t+s+p/10+e/10; rows.push(['CDAI',x.toFixed(1).replace('.',','),x<=2.8?pill('Remisión','ok'):x<=10?pill('Baja','ok'):x<=22?pill('Moderada','add'):pill('Alta','crit')]);}
-  document.getElementById('d20-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
+function homaCalc(){
+  const g=parseFloat(document.getElementById('h-glu').value), i=parseFloat(document.getElementById('h-ins').value), t=parseFloat(document.getElementById('h-tg').value);
+  const p1=document.getElementById('h-pill1'), p2=document.getElementById('h-pill2');
+  if(!isNaN(g)&&!isNaN(i)){
+    const h=g*i/405; document.getElementById('h-homa').textContent=h.toFixed(1).replace('.',',');
+    if(h>=2.5){p1.textContent='Sugiere RI';p1.className='pill add';}else{p1.textContent='Bajo';p1.className='pill ok';}
+  }
+  if(!isNaN(g)&&!isNaN(t)&&g>0&&t>0){
+    const y=Math.log(t*g/2); document.getElementById('h-tyg').textContent=y.toFixed(1).replace('.',',');
+    if(y>=8.8){p2.textContent='Sugiere RI';p2.className='pill add';}else{p2.textContent='Bajo';p2.className='pill ok';}
+  }
 }
-['d20-tjc','d20-sjc','d20-pga','d20-ega','d20-vsg','d20-pcr'].forEach(id=>document.getElementById(id).addEventListener('input',d20Calc));
-d20Calc();
-function q19Calc(){
-  const qt=parseFloat(document.getElementById('q19-qt').value), hr=parseFloat(document.getElementById('q19-hr').value), sex=document.getElementById('q19-sex').value;
-  if(isNaN(qt)||isNaN(hr)||hr<=0) return;
-  const rr=60/hr;
-  const v={Bazett:qt/Math.sqrt(rr), Fridericia:qt/Math.cbrt(rr), Framingham:qt+154*(1-rr)};
-  const lim=sex==='F'?460:450;
+['h-glu','h-ins','h-tg'].forEach(id=>document.getElementById(id).addEventListener('input',homaCalc));
+homaCalc();
+
+function m15Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const sex=document.getElementById('m15-sex').value, age=g('m15-age'), cin=g('m15-cin'), cad=g('m15-cad'), tal=g('m15-tal'), glu=g('m15-glu'), ins=g('m15-ins'), tg=g('m15-tg'), ct=g('m15-ct'), hdl=g('m15-hdl'), ast=g('m15-ast'), alt=g('m15-alt'), plt=g('m15-plt');
+  const f=(v,d)=>isNaN(v)?'—':v.toFixed(d).replace('.',',');
   const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
-  document.getElementById('q19-out').innerHTML='<tr><td>RR</td><td class="m">'+Math.round(rr*1000)+' ms</td><td></td></tr>'+Object.keys(v).map(k=>{const x=Math.round(v[k]);return '<tr><td>'+k+'</td><td class="m">'+x+' ms</td><td>'+(x>500?pill('> 500: alto riesgo','crit'):x>lim?pill('Prolongado','add'):pill('Normal','ok'))+'</td></tr>';}).join('');
+  const rows=[];
+  if(!isNaN(cin)){const lim=sex==='F'?80:90; rows.push(['Cintura',cin+' cm',cin>=lim?pill('Aumentada','add'):pill('Normal','ok')]);}
+  if(!isNaN(cin)&&!isNaN(tal)&&tal>0){const v=cin/tal; rows.push(['Cintura/estatura',f(v,2),v<0.5?pill('Poca adiposidad central','ok'):v<0.6?pill('Aumentada','add'):pill('Elevada','crit')]);}
+  if(!isNaN(cin)&&!isNaN(cad)&&cad>0){const v=cin/cad, lim=sex==='F'?0.85:0.90; rows.push(['Cintura/cadera',f(v,2),v<lim?pill('Normal','ok'):pill('Riesgo aumentado','add')]);}
+  if(!isNaN(glu)&&!isNaN(ins)&&ins>0){const v=glu*ins/405; rows.push(['HOMA-IR',f(v,1),v>=2.5?pill('Sugiere RI','add'):pill('Bajo','ok')]);}
+  if(!isNaN(glu)&&!isNaN(tg)&&glu>0&&tg>0){const v=Math.log(tg*glu/2); rows.push(['TyG',f(v,2),v>=8.8?pill('Sugiere RI','add'):v>=8.5?pill('Limítrofe','add'):pill('Bajo','ok')]);}
+  if(!isNaN(tg)&&!isNaN(hdl)&&hdl>0){const v=tg/hdl; rows.push(['TG/HDL',f(v,1),v>3?pill('Elevado','add'):pill('Normal','ok')]);}
+  if(!isNaN(ct)&&!isNaN(hdl)){const v=ct-hdl; rows.push(['No-HDL',Math.round(v)+' mg/dL',v<85?pill('Meta riesgo muy alto','ok'):v<100?pill('Meta riesgo alto','ok'):v<130?pill('Meta riesgo moderado','add'):pill('Elevado','crit')]);}
+  if([age,ast,alt,plt].every(x=>!isNaN(x))&&alt>0&&plt>0){const v=age*ast/(plt*Math.sqrt(alt)), lo=age>=65?2.0:1.3; rows.push(['FIB-4',f(v,2),age<35?pill('No fiable < 35 años','add'):v<lo?pill('Bajo riesgo','ok'):v<=2.67?pill('Indeterminado','add'):pill('Riesgo elevado','crit')]);}
+  document.getElementById('m15-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
 }
-['q19-qt','q19-hr','q19-sex'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',q19Calc);e.addEventListener('change',q19Calc);});
-q19Calc();
-function i18Calc(){
-  const g=id=>parseFloat(document.getElementById(id).value);
-  const d=document.getElementById('i18-drug').value, dose=g('i18-dose'), mg=g('i18-mg'), ml=g('i18-ml'), kg=g('i18-kg');
-  if([dose,mg,ml].some(isNaN)||ml<=0||mg<=0) return;
-  const mgPerMl=mg/ml; let mgh;
-  if(d==='ntg') mgh=dose*60/1000;
-  else if(d==='esm') mgh=isNaN(kg)?NaN:dose*kg*60/1000;
-  else if(d==='nic') mgh=dose;
-  else mgh=dose*60;
-  const r=mgh/mgPerMl;
-  document.getElementById('i18-out').textContent=isNaN(r)?'—':(r<10?r.toFixed(1):Math.round(r)).toString().replace('.',',');
-  const rng={ntg:'Rango 5–200 µg/min',esm:'Rango 50–200 µg/kg/min (carga 500 µg/kg)',nic:'Rango 5–15 mg/h',lab:'Rango 0,5–2 mg/min'};
-  document.getElementById('i18-txt').textContent='Concentración '+(mgPerMl*1000).toFixed(0)+' µg/mL. '+rng[d]+'.';
+['m15-sex','m15-age','m15-cin','m15-cad','m15-tal','m15-glu','m15-ins','m15-tg','m15-ct','m15-hdl','m15-ast','m15-alt','m15-plt'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',m15Calc);e.addEventListener('change',m15Calc);});
+m15Calc();
+
+function decCalc(){
+  const c=id=>document.getElementById(id).checked;
+  const ins=c('d-sint')||c('d-a1c')||c('d-glu')||c('d-dm1');
+  const p=document.getElementById('d-pill'), t=document.getElementById('d-text');
+  if(c('d-sint')||c('d-dm1')){p.textContent='Insulina';p.className='pill crit';
+    t.textContent='Catabolismo o posible DM1: insulina obligatoria. Si es DM2, considerar sumar arGLP-1 y desescalar al controlar la glucotoxicidad.';}
+  else if(ins){p.textContent='Insulina o arGLP-1';p.className='pill add';
+    t.textContent='ADA sugiere considerar insulina primero. Sin catabolismo, arGLP-1 o tirzepatida también son válidos'+(c('d-imc')||c('d-ecv')?', y aquí el IMC o la ECV los favorecen.':'.');}
+  else{p.textContent='arGLP-1 o GIP/GLP-1';p.className='pill ok';
+    t.textContent='Primer inyectable preferido en la mayoría de los pacientes'+(c('d-ecv')?', con beneficio CV demostrado.':'.')+' Suspender el iDPP-4 si lo usa.';}
 }
-['i18-drug','i18-dose','i18-mg','i18-ml','i18-kg'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',i18Calc);e.addEventListener('change',i18Calc);});
-i18Calc();
+['d-sint','d-a1c','d-glu','d-dm1','d-imc','d-ecv'].forEach(id=>document.getElementById(id).addEventListener('change',decCalc));
+decCalc();
+
 function s17Calc(){
   const g=id=>parseFloat(document.getElementById(id).value);
   const sex=document.getElementById('s17-sex').value, cp=g('s17-cp'), kg=g('s17-kg'), cm=g('s17-cm');
@@ -1398,87 +1109,7 @@ function s17Calc(){
 }
 ['s17-sex','s17-cp','s17-kg','s17-cm','s17-q1','s17-q2','s17-q3','s17-q4','s17-q5'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',s17Calc);e.addEventListener('change',s17Calc);});
 s17Calc();
-function l16Calc(){
-  const g=id=>parseFloat(document.getElementById(id).value);
-  const alt=g('l16-alt'), an=g('l16-altn'), ast=g('l16-ast'), fa=g('l16-fa'), fn=g('l16-fan'), ggt=g('l16-ggt'), bt=g('l16-bt'), bd=g('l16-bd'), alb=g('l16-alb'), inr=g('l16-inr');
-  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
-  const fx=(v,d)=>v.toFixed(d).replace('.',',');
-  const rows=[];
-  if(!isNaN(alt)&&an>0){const x=alt/an; const gr=x<2?'borderline':x<5?'leve':x<15?'moderada':'severa'; rows.push(['ALT',fx(x,1)+'× LSN',alt>=10000?pill('Elevación masiva','crit'):x>1?pill('Elevación '+gr,x>=15?'crit':'add'):pill('Normal','ok')]);}
-  if(!isNaN(ast)&&!isNaN(alt)&&alt>0){const r=ast/alt; rows.push(['AST/ALT',fx(r,2),r>=2?pill('Sugiere alcohol (o cirrosis)','add'):r>1?pill('AST > ALT: alcohol, cirrosis, músculo','add'):pill('ALT predominante','ok')]);}
-  let R=NaN;
-  if(!isNaN(alt)&&!isNaN(fa)&&an>0&&fn>0&&fa>0){R=(alt/an)/(fa/fn); rows.push(['Índice R',fx(R,1),R>5?pill('Hepatocelular','crit'):R>=2?pill('Mixto','add'):pill('Colestásico','add')]);}
-  if(!isNaN(fa)&&!isNaN(ggt)&&fn>0){const faUp=fa>fn, gUp=ggt>50; rows.push(['FA / GGT',fa+' / '+ggt,faUp&&gUp?pill('Origen hepatobiliar','add'):faUp?pill('FA aislada: pensar en hueso','add'):gUp?pill('GGT aislada: alcohol, fármacos','add'):pill('Normales','ok')]);}
-  if(!isNaN(bt)&&!isNaN(bd)&&bt>0){const fr=bd/bt; rows.push(['Bilirrubina',fx(bt,1)+' mg/dL ('+Math.round(fr*100)+' % directa)',bt<=1.2?pill('Normal','ok'):fr<0.2?pill('Predomina indirecta: hemólisis, Gilbert','add'):pill('Predomina directa: hepatocelular o colestasis','add')]);}
-  if(!isNaN(alb)){rows.push(['Albúmina',fx(alb,1)+' g/dL',alb<3.5?pill('Baja: cronicidad (no específica)','add'):pill('Normal','ok')]);}
-  if(!isNaN(inr)){rows.push(['INR',fx(inr,1),inr>=1.5?pill('≥ 1,5: descartar falla hepática; probar vitamina K','crit'):inr>1.2?pill('Elevado: probar vitamina K','add'):pill('Normal','ok')]);}
-  document.getElementById('l16-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
-}
-['l16-alt','l16-altn','l16-ast','l16-fa','l16-fan','l16-ggt','l16-bt','l16-bd','l16-alb','l16-inr'].forEach(id=>document.getElementById(id).addEventListener('input',l16Calc));
-l16Calc();
-function m15Calc(){
-  const g=id=>parseFloat(document.getElementById(id).value);
-  const sex=document.getElementById('m15-sex').value, age=g('m15-age'), cin=g('m15-cin'), cad=g('m15-cad'), tal=g('m15-tal'), glu=g('m15-glu'), ins=g('m15-ins'), tg=g('m15-tg'), ct=g('m15-ct'), hdl=g('m15-hdl'), ast=g('m15-ast'), alt=g('m15-alt'), plt=g('m15-plt');
-  const f=(v,d)=>isNaN(v)?'—':v.toFixed(d).replace('.',',');
-  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span>';
-  const rows=[];
-  if(!isNaN(cin)){const lim=sex==='F'?80:90; rows.push(['Cintura',cin+' cm',cin>=lim?pill('Aumentada','add'):pill('Normal','ok')]);}
-  if(!isNaN(cin)&&!isNaN(tal)&&tal>0){const v=cin/tal; rows.push(['Cintura/estatura',f(v,2),v<0.5?pill('Poca adiposidad central','ok'):v<0.6?pill('Aumentada','add'):pill('Elevada','crit')]);}
-  if(!isNaN(cin)&&!isNaN(cad)&&cad>0){const v=cin/cad, lim=sex==='F'?0.85:0.90; rows.push(['Cintura/cadera',f(v,2),v<lim?pill('Normal','ok'):pill('Riesgo aumentado','add')]);}
-  if(!isNaN(glu)&&!isNaN(ins)&&ins>0){const v=glu*ins/405; rows.push(['HOMA-IR',f(v,1),v>=2.5?pill('Sugiere RI','add'):pill('Bajo','ok')]);}
-  if(!isNaN(glu)&&!isNaN(tg)&&glu>0&&tg>0){const v=Math.log(tg*glu/2); rows.push(['TyG',f(v,2),v>=8.8?pill('Sugiere RI','add'):v>=8.5?pill('Limítrofe','add'):pill('Bajo','ok')]);}
-  if(!isNaN(tg)&&!isNaN(hdl)&&hdl>0){const v=tg/hdl; rows.push(['TG/HDL',f(v,1),v>3?pill('Elevado','add'):pill('Normal','ok')]);}
-  if(!isNaN(ct)&&!isNaN(hdl)){const v=ct-hdl; rows.push(['No-HDL',Math.round(v)+' mg/dL',v<85?pill('Meta riesgo muy alto','ok'):v<100?pill('Meta riesgo alto','ok'):v<130?pill('Meta riesgo moderado','add'):pill('Elevado','crit')]);}
-  if([age,ast,alt,plt].every(x=>!isNaN(x))&&alt>0&&plt>0){const v=age*ast/(plt*Math.sqrt(alt)), lo=age>=65?2.0:1.3; rows.push(['FIB-4',f(v,2),age<35?pill('No fiable < 35 años','add'):v<lo?pill('Bajo riesgo','ok'):v<=2.67?pill('Indeterminado','add'):pill('Riesgo elevado','crit')]);}
-  document.getElementById('m15-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td class="m">'+r[1]+'</td><td>'+r[2]+'</td></tr>').join('');
-}
-['m15-sex','m15-age','m15-cin','m15-cad','m15-tal','m15-glu','m15-ins','m15-tg','m15-ct','m15-hdl','m15-ast','m15-alt','m15-plt'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',m15Calc);e.addEventListener('change',m15Calc);});
-m15Calc();
-function t14Calc(){
-  const s=parseFloat(document.getElementById('t14-stfr').value), f=parseFloat(document.getElementById('t14-fer').value);
-  if(isNaN(s)||isNaN(f)||f<=1) return;
-  const v=s/Math.log10(f);
-  document.getElementById('t14-out').textContent=v.toFixed(1).replace('.',',');
-  const p=document.getElementById('t14-pill');
-  if(v<1){p.textContent='Anemia de la inflamación';p.className='pill add';}
-  else if(v>2){p.textContent='Ferropenia (sola o mixta)';p.className='pill crit';}
-  else{p.textContent='Zona intermedia';p.className='pill';}
-}
-['t14-stfr','t14-fer'].forEach(id=>document.getElementById(id).addEventListener('input',t14Calc));
-t14Calc();
-function h12Calc(){
-  const s=parseFloat(document.getElementById('h12-pas').value), d=parseFloat(document.getElementById('h12-pad').value), c=document.getElementById('h12-cond').value;
-  if(isNaN(s)||isNaN(d)) return;
-  const pam=Math.round((s+2*d)/3), p75=Math.round(pam*0.75), s75=Math.round(s*0.75);
-  document.getElementById('h12-pam').textContent=pam;
-  const t={
-    gen:'1.ª hora: PAS no menor de '+s75+' (−25 %, AHA/ACC) o PAM no menor de '+p75+' (ESC). 2–6 h: < 160/100 si está estable. 24–48 h: sistólica 130–140 de forma gradual.',
-    aorta:'PAS ≤ 120 en 20 min y FC ≤ 60. Primero esmolol o labetalol; luego vasodilatador.',
-    eap:'PAS < 140 de inmediato. Nitroglicerina o nitroprusiato + diurético de asa. Sin betabloqueador.',
-    sca:'PAS < 140. Nitroglicerina; esmolol si no hay insuficiencia cardíaca.',
-    hic:'PAS ~140, mantener 130–150. Nunca < 130.',
-    isq:(s>220||d>120)?'PA > 220/120: bajar ~15 % en 24 h (PAS ≈ '+Math.round(s*0.85)+').':'No tratar: PA ≤ 220/120 sin trombólisis. Permitir hipertensión permisiva.',
-    tpa:'Antes del trombolítico < 185/110; después < 180/105 durante 24 h.',
-    grave:'Sin daño agudo: vía oral, reiniciar o ajustar tratamiento, control en 24–72 h. No bajar de forma aguda.'
-  };
-  document.getElementById('h12-txt').textContent=t[c];
-}
-['h12-pas','h12-pad','h12-cond'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',h12Calc);e.addEventListener('change',h12Calc);});
-h12Calc();
-function noreCalc(){
-  const g=id=>parseFloat(document.getElementById(id).value);
-  const mg=g('n-mg'), ml=g('n-ml'), r=g('n-rate'), kg=g('n-kg');
-  if([mg,ml,r,kg].some(isNaN)||ml<=0||kg<=0) return;
-  const conc=mg*1000/ml, d=conc*r/60/kg;
-  document.getElementById('n-out').textContent=d.toFixed(2).replace('.',',');
-  document.getElementById('n-conc').textContent='Concentración: '+conc.toFixed(0)+' µg/mL. Con ≥ 0,25 µg/kg/min durante ≥ 4 h: considerar hidrocortisona. Con 0,25–0,5 µg/kg/min: agregar vasopresina 0,03 U/min.';
-  const p=document.getElementById('n-pill');
-  if(d<0.25){p.textContent='Dosis baja-moderada';p.className='pill ok';}
-  else if(d<=0.5){p.textContent='Agregar vasopresina; considerar hidrocortisona';p.className='pill add';}
-  else{p.textContent='Dosis alta: reevaluar, epinefrina/inotrópico';p.className='pill crit';}
-}
-['n-mg','n-ml','n-rate','n-kg'].forEach(id=>document.getElementById(id).addEventListener('input',noreCalc));
-noreCalc();
+
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
   const sc = document.createElement('div'); sc.className='score';
@@ -1506,13 +1137,13 @@ document.querySelectorAll('[data-quiz]').forEach(renderQuiz);
 const tabs=[...document.querySelectorAll('.tab[role="tab"]')];
 function show(id){
   tabs.forEach(t=>{const on=t.getAttribute('aria-controls')===id; t.setAttribute('aria-selected',on); document.getElementById(t.getAttribute('aria-controls')).hidden=!on;});
-  try{localStorage.setItem('vc2-tab',id)}catch(e){}
+  try{localStorage.setItem('vc2r-tab',id)}catch(e){}
 }
 tabs.forEach(t=>t.addEventListener('click',()=>show(t.getAttribute('aria-controls'))));
 let start=tabs[0].getAttribute('aria-controls');
 const h=location.hash.slice(1);
 if(h && document.getElementById(h) && document.getElementById(h).getAttribute('role')==='tabpanel') start=h;
-else { try{const s=localStorage.getItem('vc2-tab'); if(s && document.getElementById(s)) start=s;}catch(e){} }
+else { try{const s=localStorage.getItem('vc2r-tab'); if(s && document.getElementById(s)) start=s;}catch(e){} }
 show(start);
 </script>
 
