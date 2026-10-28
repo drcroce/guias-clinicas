@@ -119,7 +119,7 @@ footer a{color:var(--accent)}
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 3</h1>
-  <span class="eyebrow">Urgencias, críticos y medio interno · pestañas 25–31</span>
+  <span class="eyebrow">Urgencias, críticos y medio interno · pestañas 25–31 y 43</span>
 </header>
 
 
@@ -131,6 +131,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v32" aria-controls="v32" aria-selected="false">29 · Bicarbonato en acidosis grave</button>
   <button class="tab" role="tab" id="t-v30" aria-controls="v30" aria-selected="false">30 · Hiponatremia crónica</button>
   <button class="tab" role="tab" id="t-v35" aria-controls="v35" aria-selected="false">31 · Hipopotasemia: KCl IV rápido</button>
+  <button class="tab" role="tab" id="t-v43" aria-controls="v43" aria-selected="false">43 · Hemorragia digestiva alta</button>
 </nav>
 
 <!-- ============ PESTAÑA 25 (antes 11) ============ -->
@@ -860,7 +861,87 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: Kruse JA, Carlson RW. Rapid correction of hypokalemia using concentrated intravenous potassium chloride infusions, Arch Intern Med 1990;150:613–617; Sterns RH et al. Internal potassium balance and the control of the plasma potassium concentration, Medicine 1981; Gennari FJ. Hypokalemia, NEJM 1998; Campbell NG et al. TIGHT-K, JAMA 2024; ISMP. List of High-Alert Medications in Acute Care Settings.</p>
 </article>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40)</a>.</footer>
+<!-- ============ PESTAÑA 43 ============ -->
+<article class="panel" id="v43" role="tabpanel" aria-labelledby="t-v43" hidden>
+  <div>
+    <h2>Hemorragia digestiva alta: algoritmo de manejo</h2>
+    <div class="meta"><span>Fuente: 1 infografía en video, TikTok @zmymed0 (ZmyMed)</span><span>Duración 0:18</span><span>Recibido 27/10/2026</span><span>Bases citadas: guía MINSAL Chile 2023 (no verificada), Baveno VII 2022, ACG 2021, ESGE 2021</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 43">
+    <a href="#v43-resumen">Resumen</a><a href="#v43-algo">Algoritmo</a><a href="#v43-calc">Glasgow-Blatchford</a><a href="#v43-analisis">Análisis crítico</a><a href="#v43-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v43-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Algoritmo de una lámina: <b>estabilizar (ABCDE)</b> → tratamiento empírico según sospecha (<b>no variceal: omeprazol</b>; <b>variceal: terlipresina + ceftriaxona</b>) → ¿estable? → <b>endoscopia</b> en ≤ 12 h (variceal o alto riesgo) o ≤ 24 h → hemostasia endoscópica o ligadura (± TIPS precoz) → si recurre, segunda endoscopia, embolización o cirugía. Metas: PAS ≥ 90 o PAM ≥ 65, FC &lt; 100, diuresis ≥ 0,5 mL/kg/h, transfundir con Hb &lt; 7 g/dL.</p>
+    <p class="note">Infografía generada por IA (marca de agua "AI-generated"). Su contenido es en general correcto. Los hallazgos de la endoscopia se interpretan con la clasificación de Forrest (agregada en el análisis).</p>
+  </section>
+
+  <section id="v43-algo">
+    <h3>El algoritmo de la infografía</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Etapa</th><th>Infografía</th><th>Ajuste (agregado)</th></tr></thead>
+      <tbody>
+        <tr><td><b>C · Circulación</b></td><td>2 vías gruesas, SSN 0,9 %, laboratorio con grupo y pruebas cruzadas; transfundir con Hb &lt; 7 (meta 7–9)</td><td>Cardiopatía isquémica: umbral Hb &lt; 8, meta ≥ 10 (ESGE). Variceal: evitar la sobretransfusión y el exceso de volumen (suben la presión portal)</td></tr>
+        <tr><td><b>No variceal</b></td><td>Omeprazol 80 mg IV bolo + 8 mg/h</td><td>Antes de la endoscopia, bolo de 80 mg y luego 40 mg c/12 h es suficiente. La infusión (o bolos intermitentes ≥ 2 veces al día) es para después de la hemostasia de estigmas de alto riesgo, durante 72 h (ACG 2021)</td></tr>
+        <tr><td><b>Variceal</b></td><td>Terlipresina 2 mg c/4 h; ceftriaxona 1 g/24 h</td><td>Terlipresina 2–5 días (bajar a 1 mg c/4 h al controlar); alternativa: octreótido 50 µg bolo + 50 µg/h. Ceftriaxona hasta 7 días (Baveno VII)</td></tr>
+        <tr><td><b>Endoscopia</b></td><td>≤ 12 h si variceal o alto riesgo; ≤ 24 h en el resto. Eritromicina 250 mg IV 30–90 min antes</td><td>Variceal: ≤ 12 h. No variceal de alto riesgo: la endoscopia urgente (&lt; 6 h) no redujo la mortalidad (Lau, NEJM 2020); ≤ 24 h tras estabilizar</td></tr>
+        <tr><td><b>TIPS precoz</b></td><td>24–72 h en Child-Pugh C o B con sangrado activo</td><td>Baveno VII: Child C 10–13 puntos, o Child B &gt; 7 con sangrado activo en la endoscopia, idealmente en &lt; 72 h</td></tr>
+        <tr><td><b>Resangrado</b></td><td>Segunda endoscopia → embolización → cirugía</td><td>Variceal refractario: balón de Sengstaken o stent esofágico como puente al TIPS de rescate</td></tr>
+        <tr><td><b>Alta</b></td><td>Erradicar <i>H. pylori</i>, suspender AINE, ajustar antitrombóticos; Glasgow-Blatchford</td><td>GBS ≤ 1: alta sin endoscopia urgente (ACG 2021). Reiniciar aspirina en prevención secundaria lo antes posible (≤ 3–5 días)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v43-calc">
+    <h3>Calculadora Glasgow-Blatchford (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="g43-bun">BUN (mg/dL)<input id="g43-bun" type="number" min="1" max="200" value="42"></label>
+        <label for="g43-hb">Hb (g/dL)<input id="g43-hb" type="number" step="0.1" min="2" max="20" value="9.4"></label>
+        <label for="g43-sx">Sexo<select id="g43-sx"><option value="m" selected>Hombre</option><option value="f">Mujer</option></select></label>
+        <label for="g43-pas">PAS (mmHg)<input id="g43-pas" type="number" min="40" max="250" value="104"></label>
+        <label for="g43-fc">FC (lpm)<input id="g43-fc" type="number" min="20" max="200" value="108"></label>
+        <label for="g43-mel">Melena<select id="g43-mel"><option value="0">No</option><option value="1" selected>Sí</option></select></label>
+        <label for="g43-sin">Síncope<select id="g43-sin"><option value="0" selected>No</option><option value="2">Sí</option></select></label>
+        <label for="g43-hep">Hepatopatía<select id="g43-hep"><option value="0" selected>No</option><option value="2">Sí</option></select></label>
+        <label for="g43-ic">Insuficiencia cardíaca<select id="g43-ic"><option value="0" selected>No</option><option value="2">Sí</option></select></label>
+        <label for="g43-cv">Cardiopatía isquémica<select id="g43-cv"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+      </div>
+      <div class="result"><span class="big" id="g43-score">—</span><span id="g43-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="g43-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">La escala original usa urea en mmol/L; aquí se convierte desde BUN (urea mmol/L = BUN × 0,357). GBS ≤ 1: bajo riesgo, manejo ambulatorio; ≥ 7: mayor probabilidad de requerir intervención endoscópica.</p>
+    </div>
+  </section>
+
+  <section id="v43-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Algoritmo bien estructurado y en general fiel a Baveno VII, ACG y ESGE. Puntos para ajustar:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>Estabilizar antes de la endoscopia, transfusión restrictiva con Hb &lt; 7 (Villanueva, NEJM 2013), terlipresina y ceftriaxona antes de la endoscopia en sospecha variceal, ligadura elástica, TIPS precoz, eritromicina previa, erradicar <i>H. pylori</i> y Glasgow-Blatchford para el alta. Las referencias de Baveno VII, ACG 2021 y ESGE 2021 existen; la guía MINSAL 2023 no la pude verificar.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Omeprazol en infusión antes de la endoscopia:</b> el IBP previo reduce los estigmas de alto riesgo, pero no la mortalidad ni el resangrado. La infusión de 8 mg/h está respaldada para después de la hemostasia endoscópica de una úlcera de alto riesgo (72 h). Antes, 80 mg seguido de bolos c/12 h es suficiente y ahorra fármaco.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>"≤ 12 h si alto riesgo" en la hemorragia no variceal no está respaldado:</b> en Lau (NEJM 2020), la endoscopia en menos de 6 h en pacientes con GBS ≥ 12 no redujo la mortalidad a 30 días. ESGE: endoscopia en ≤ 24 h tras la reanimación. El ≤ 12 h es para la sospecha variceal.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>"Corregir coagulopatía" en el cirrótico no significa plasma por INR.</b> El INR no refleja el riesgo de sangrado (hemostasia rebalanceada); Baveno VII desaconseja el plasma. Sí corregir anticoagulantes: warfarina → complejo protrombínico + vitamina K; dabigatrán → idarucizumab. El ácido tranexámico no sirve en la HDA (HALT-IT, Lancet 2020): más trombosis venosa.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Clasificación de Forrest</b> (decide la terapia endoscópica y la infusión de IBP): Ia en chorro, Ib en capa, IIa vaso visible → alto riesgo, hemostasia; IIb coágulo adherido → considerar; IIc mancha pigmentada y III base limpia → bajo riesgo, IBP oral y alta temprana. Terapia endoscópica: la inyección de adrenalina nunca sola, siempre combinada.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Terlipresina:</b> contraindicada en cardiopatía isquémica y enfermedad arterial periférica grave; produce hiponatremia. Vigilar el sodio y signos de isquemia. En cirrosis, la profilaxis secundaria posterior es betabloqueador no selectivo (propranolol o carvedilol) + ligadura.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
+        <p><b>Fármacos:</b> la terlipresina no siempre está en el cuadro básico público; el octreótido o la somatostatina son la alternativa práctica.</p>
+        <p><b><i>H. pylori</i>:</b> su prevalencia es alta. Biopsia o test en el episodio; si es negativo en el sangrado agudo, repetir (falso negativo con IBP).</p>
+        <p><b>Hemorragia febril:</b> el dengue grave y la leptospirosis pueden dar HDA. Pensar en ellos ante fiebre, plaquetopenia o ictericia; no son úlcera.</p>
+        <p><b>Ecografía con transductor lineal:</b> esplenomegalia, recanalización de la umbilical o ascitis orientan a hipertensión portal mientras se espera la endoscopia.</p></div>
+    </div>
+    <div class="callout"><strong>En la guardia:</strong> calcula el GBS; si es ≤ 1, alta con IBP oral y endoscopia ambulatoria. Si sospechas cirrosis: terlipresina u octreótido + ceftriaxona antes de la endoscopia, transfusión restrictiva y endoscopia en ≤ 12 h.</div>
+  </section>
+
+  <section id="v43-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v43"></div>
+  </section>
+  <p class="note">Referencias: de Franchis R et al. Baveno VII – Renewing consensus in portal hypertension, J Hepatol 2022; Laine L et al. ACG Clinical Guideline: Upper GI and Ulcer Bleeding, Am J Gastroenterol 2021; Gralnek IM et al. ESGE Guideline: Endoscopic diagnosis and management of nonvariceal upper GI hemorrhage, Endoscopy 2021; Villanueva C et al. Transfusion strategies for acute upper GI bleeding, NEJM 2013; Lau JYW et al. Timing of endoscopy for acute upper GI bleeding, NEJM 2020; HALT-IT Trial Collaborators, Lancet 2020; Blatchford O et al. Lancet 2000.</p>
+</article>
+
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41 y 44)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31 y 43)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</a>.</footer>
 </div>
 
 <script>
@@ -983,6 +1064,23 @@ const QUIZ = {
     {q:"Hallazgo ECG típico de hipopotasemia grave:",
      o:["T picudas y QRS ancho","Ondas U prominentes e intervalo QU largo","Onda J de Osborn","PR corto con onda delta"], a:1,
      e:"T aplanada, ondas U, descenso del ST e intervalo QU prolongado."}
+  ],
+  v43: [
+    {q:"Paciente con HDA, sin cardiopatía, Hb 7,8 g/dL, estable. ¿Transfundir?",
+     o:["Sí, para llegar a 10","No: umbral < 7 g/dL","Sí, siempre en HDA","Solo plasma"], a:1,
+     e:"Estrategia restrictiva (Villanueva 2013): transfundir con Hb < 7; < 8 en cardiopatía isquémica."},
+    {q:"Cirrótico con hematemesis. Antes de la endoscopia, ¿qué indicas?",
+     o:["Solo IBP","Terlipresina (u octreótido) + ceftriaxona","Plasma hasta INR < 1,5","Ácido tranexámico"], a:1,
+     e:"Vasoactivo y antibiótico profiláctico desde la sospecha (Baveno VII)."},
+    {q:"Úlcera duodenal con vaso visible no sangrante. ¿Forrest y conducta?",
+     o:["IIc, alta","IIa, hemostasia endoscópica + IBP en dosis alta 72 h","III, IBP oral","Ib, cirugía"], a:1,
+     e:"El vaso visible es Forrest IIa, de alto riesgo de resangrado."},
+    {q:"Paciente con melena leve, BUN 15, Hb 14 (hombre), PAS 130, FC 80, sin comorbilidades. GBS = 1. ¿Conducta?",
+     o:["Endoscopia urgente","Alta con IBP oral y endoscopia ambulatoria","UCI","Transfusión"], a:1,
+     e:"GBS ≤ 1: bajo riesgo, manejo ambulatorio (ACG 2021)."},
+    {q:"¿Cuál de estas medidas NO se recomienda en la HDA?",
+     o:["Eritromicina 250 mg IV antes de la endoscopia","Ácido tranexámico IV","Ceftriaxona en el cirrótico","Ligadura de várices"], a:1,
+     e:"HALT-IT: sin beneficio en mortalidad y más eventos trombóticos."}
   ],
 };
 function noreCalc(){
@@ -1167,6 +1265,35 @@ function k35Calc(){
 }
 ['k35-k','k35-obj','k35-kg','k35-via','k35-ren','k35-mg','k35-ecg','k35-cad'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',k35Calc);e.addEventListener('change',k35Calc);});
 k35Calc();
+
+function g43Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value), s=id=>+document.getElementById(id).value;
+  const bun=g('g43-bun'), hb=g('g43-hb'), f=document.getElementById('g43-sx').value==='f', pas=g('g43-pas'), fc=g('g43-fc');
+  if([bun,hb,pas,fc].some(isNaN)) return;
+  const urea=bun*0.357;
+  const pU= urea>=25?6: urea>=10?4: urea>=8?3: urea>=6.5?2:0;
+  const pH= f ? (hb<10?6: hb<12?1:0) : (hb<10?6: hb<12?3: hb<13?1:0);
+  const pP= pas<90?3: pas<100?2: pas<110?1:0;
+  const pF= fc>=100?1:0;
+  const tot=pU+pH+pP+pF+s('g43-mel')+s('g43-sin')+s('g43-hep')+s('g43-ic');
+  const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
+  document.getElementById('g43-score').textContent=tot;
+  let k,c;
+  if(tot<=1){k='ok';c='Bajo riesgo: alta con IBP oral y endoscopia ambulatoria (ACG 2021)';}
+  else if(tot<7){k='add';c='Hospitalizar; endoscopia en ≤ 24 h tras estabilizar';}
+  else {k='crit';c='Alto riesgo de intervención: reanimación, endoscopia en ≤ 24 h (≤ 12 h si sospecha variceal); valorar UCI';}
+  document.getElementById('g43-pill').innerHTML=pill(tot<=1?'Bajo riesgo':tot<7?'Intermedio':'Alto',k);
+  const umbral= s('g43-cv')?8:7;
+  const rows=[
+    ['Desglose','Urea '+urea.toFixed(1).replace('.',',')+' mmol/L → '+pU+' · Hb '+pH+' · PAS '+pP+' · FC '+pF+' · otros '+(s('g43-mel')+s('g43-sin')+s('g43-hep')+s('g43-ic'))],
+    ['Conducta',c],
+    ['Transfusión','Umbral Hb < '+umbral+' g/dL'+(s('g43-cv')?' (cardiopatía isquémica; meta ≥ 10)':' (meta 7–9)')+(hb<umbral?' → <b>transfundir</b>':' → no por ahora')]
+  ];
+  if(s('g43-hep')) rows.push(['Hepatopatía','Sospecha variceal: terlipresina u octreótido + ceftriaxona antes de la endoscopia; no plasma por INR']);
+  document.getElementById('g43-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['g43-bun','g43-hb','g43-sx','g43-pas','g43-fc','g43-mel','g43-sin','g43-hep','g43-ic','g43-cv'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',g43Calc);e.addEventListener('change',g43Calc);});
+g43Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;

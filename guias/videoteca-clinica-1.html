@@ -119,7 +119,7 @@ footer a{color:var(--accent)}
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 1</h1>
-  <span class="eyebrow">Cardiología y ECG · pestañas 1–16</span>
+  <span class="eyebrow">Cardiología y ECG · pestañas 1–16 y 42</span>
 </header>
 
 
@@ -140,6 +140,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v12" aria-controls="v12" aria-selected="false">14 · Crisis hipertensiva AHA/ACC 2025</button>
   <button class="tab" role="tab" id="t-v13" aria-controls="v13" aria-selected="false">15 · Hipertensión severa vs emergencia</button>
   <button class="tab" role="tab" id="t-v18" aria-controls="v18" aria-selected="false">16 · Crisis hipertensiva: fármacos y dosis</button>
+  <button class="tab" role="tab" id="t-v42" aria-controls="v42" aria-selected="false">42 · Hemibloqueos y bloqueos de rama</button>
 </nav>
 
 <!-- ============ PESTAÑA 1 (antes 38) ============ -->
@@ -1610,7 +1611,99 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: AHA/ACC 2025 Guideline for High Blood Pressure in Adults; McEvoy JW et al. ESC 2024 Hypertension Guidelines; Bress AP et al. AHA Scientific Statement: Management of Elevated BP in the Acute Care Setting, Hypertension 2024; Greenberg SM et al. AHA/ASA 2022 hemorragia intracerebral; Powers WJ et al. AHA/ASA 2019 ictus isquémico; Mathew R et al. SCAPE, Ann Emerg Med 2023.</p>
 </article>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40)</a>.</footer>
+<!-- ============ PESTAÑA 42 ============ -->
+<article class="panel" id="v42" role="tabpanel" aria-labelledby="t-v42" hidden>
+  <div>
+    <h2>Los 4 bloqueos: hemibloqueos anterior y posterior, rama derecha e izquierda</h2>
+    <div class="meta"><span>Fuente: 6 láminas, CardioArias (Dr. Luis Francisco Arias)</span><span>Recibido 27/10/2026</span><span>Base citada: criterios de Strauss (BRI); sin otras referencias</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 42">
+    <a href="#v42-resumen">Resumen</a><a href="#v42-tabla">Criterios</a><a href="#v42-combi">Combinaciones</a><a href="#v42-calc">Clasificador</a><a href="#v42-analisis">Análisis crítico</a><a href="#v42-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v42-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Carrusel de reconocimiento rápido: <b>hemibloqueo anterior izquierdo</b> (BFAI: eje −45° a −90°, qR en I y aVL, rS en inferiores), <b>hemibloqueo posterior izquierdo</b> (BFPI: eje derecho, qR en inferiores, rS en I y aVL), y <b>BRD</b> y <b>BRI</b> con los criterios de Strauss. Método: morfología → eje → duración del QRS → alteraciones asociadas.</p>
+    <p class="note">Los BRD y BRI de este carrusel repiten lo de la pestaña 1 (mismo autor, otra lámina); lo nuevo son los hemibloqueos. Relacionadas: 3 (HVI: el HBAI da falsos positivos), 6 (emergencias en ECG), 7 (bradicardia) y 10 (BRI y oclusión coronaria).</p>
+  </section>
+
+  <section id="v42-tabla">
+    <h3>Criterios (AHA/ACCF/HRS 2009, con lo del material)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>QRS</th><th>Eje</th><th>Morfología</th><th>Comentario</th></tr></thead>
+      <tbody>
+        <tr><td><b>BFAI</b></td><td class="m">&lt; 120 ms</td><td class="m">−45° a −90°</td><td>qR en I y aVL; rS en II, III, aVF; tiempo al pico de R en aVL ≥ 45 ms</td><td>El más frecuente. Entre −30° y −45° es solo desviación izquierda, no BFAI</td></tr>
+        <tr><td><b>BFPI</b></td><td class="m">&lt; 120 ms</td><td class="m">+90° a +180°</td><td>rS en I y aVL; qR en III y aVF</td><td><b>Diagnóstico de exclusión:</b> descartar crecimiento del VD, infarto lateral, biotipo delgado o vertical, EPOC, TEP</td></tr>
+        <tr><td><b>BRD</b></td><td class="m">≥ 120 ms</td><td>Normal</td><td>rsR′ en V1–V2; S ancha (≥ 40 ms o &gt; R) en I y V6</td><td>Eje izquierdo → + BFAI; eje derecho → + BFPI. Criterios en la pestaña 1</td></tr>
+        <tr><td><b>BRI</b></td><td class="m">≥ 140 H / ≥ 130 M (Strauss)</td><td>Normal o izquierdo</td><td>QS o rS en V1–V2; muesca mesoQRS en ≥ 2 de V1, V2, V5, V6, I, aVL; sin q en I, V5–V6</td><td>Criterio AHA convencional: QRS ≥ 120 ms</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">QRS 110–119 ms con morfología de rama: bloqueo incompleto. La discordancia ST-T es una alteración secundaria, no un criterio.</p>
+  </section>
+
+  <section id="v42-combi">
+    <h3>Combinaciones y cuándo preocuparse (agregado)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Patrón</th><th>Significado</th><th>Conducta (ESC 2021, estimulación)</th></tr></thead>
+      <tbody>
+        <tr><td><b>BRD + BFAI</b> (bifascicular)</td><td>El más frecuente; en zona endémica, firma de <b>Chagas</b></td><td>Asintomático: seguimiento. Con síncope inexplicado: estudio electrofisiológico (HV ≥ 70 ms → marcapasos) o Holter implantable</td></tr>
+        <tr><td><b>BRD + BFPI</b></td><td>Menos frecuente, mayor riesgo de progresión</td><td>Igual que arriba</td></tr>
+        <tr><td><b>Bifascicular + BAV de 1.º grado</b></td><td>Mal llamado "trifascicular": el PR largo puede ser nodal</td><td>No es indicación de marcapasos por sí solo</td></tr>
+        <tr><td><b>Bloqueo de rama alternante</b></td><td>BRD y BRI en distintos registros</td><td><b>Marcapasos (clase I)</b></td></tr>
+        <tr><td><b>BRI nuevo</b> con dolor torácico</td><td>No equivale a STEMI</td><td>Sgarbossa modificado (pestaña 10)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v42-calc">
+    <h3>Clasificador de bloqueos (agregado)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="f42-qrs">QRS (ms)<input id="f42-qrs" type="number" min="60" max="220" value="136"></label>
+        <label for="f42-sx">Sexo<select id="f42-sx"><option value="m" selected>Hombre</option><option value="f">Mujer</option></select></label>
+        <label for="f42-v1">Morfología en V1<select id="f42-v1"><option value="rsr" selected>rsR′ / R ancha</option><option value="qs">rS o QS</option><option value="otro">Otra</option></select></label>
+        <label for="f42-s">S ancha en I y V6<select id="f42-s"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
+        <label for="f42-notch">Muesca mesoQRS en ≥ 2 de V1, V2, V5, V6, I, aVL<select id="f42-notch"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+        <label for="f42-i">QRS neto en I (mm, + o −)<input id="f42-i" type="number" step="0.5" min="-30" max="30" value="4"></label>
+        <label for="f42-ii">QRS neto en II (mm, + o −)<input id="f42-ii" type="number" step="0.5" min="-30" max="30" value="-6"></label>
+        <label for="f42-avf">QRS neto en aVF (mm, + o −)<input id="f42-avf" type="number" step="0.5" min="-30" max="30" value="-8"></label>
+        <label for="f42-pr">PR (ms)<input id="f42-pr" type="number" min="60" max="500" value="220"></label>
+        <label for="f42-exc">Para BFPI: VD, infarto lateral, biotipo delgado o EPOC descartados<select id="f42-exc"><option value="0">No</option><option value="1" selected>Sí</option></select></label>
+        <label for="f42-sin">Síncope o presíncope inexplicado<select id="f42-sin"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="f42-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">Ejemplo precargado: BRD + BFAI con PR de 220 ms (el patrón de Chagas). El eje se estima con I y aVF; II confirma el BFAI (II negativo = eje más allá de −30°).</p>
+    </div>
+  </section>
+
+  <section id="v42-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Útil como repaso visual; los hemibloqueos están bien descritos en lo esencial. La lámina resumen tiene un error de eje y varios dibujos del sistema hexaxial están mal rotulados:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>BFAI: eje −45° a −90°, qR en I y aVL, rS en II, III y aVF, QRS &lt; 120 ms (AHA 2009). BFPI: eje +90° a +180°, qR en inferiores, rS en I y aVL. Criterios de Strauss para el BRI. Es cierto que el BFAI es el hemibloqueo más frecuente.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>El BRD no tiene "eje derecho entre −30° y −90°".</b> La lámina resumen le asigna ese rango, que además es eje izquierdo. El BRD aislado tiene eje normal; un eje izquierdo sugiere BRD + BFAI, y uno derecho, BRD + BFPI.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Ejes inconsistentes:</b> el BFPI figura como "+90° y +120°" en el resumen y "+90° a +180°" en su lámina; el correcto es el segundo. El BRI lleva "eje izquierdo −30° a −90°" como criterio en el resumen: no es un criterio, la mayoría de los BRI tienen eje normal.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>Sistema hexaxial mal rotulado:</b> en las láminas del BFAI y del BFPI, la derivación III aparece en +150°, pero <b>III está en +120°</b> (+150° es el polo negativo de aVL). En la del BFAI, la flecha del eje se dibuja casi en −120°, fuera del sector señalado. Para un estudiante, es un error de base.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El BFPI es un diagnóstico de exclusión</b> y el material no lo dice. El eje derecho con rS en I es mucho más a menudo crecimiento del VD, infarto lateral, TEP, EPOC o un biotipo delgado. Es más útil cuando el eje cambia respecto a un ECG previo. En el BRD, la T negativa en V1 vuelve a aparecer como criterio: es secundaria (pestaña 1).</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Consecuencias del BFAI en otros diagnósticos:</b></p>
+        <p>Hace "positiva" la R de aVL y Cornell: falsos positivos de HVI (pestaña 3).</p>
+        <p>Las r pequeñas en inferiores pueden ocultar las Q de un infarto inferior antiguo; y la ausencia de r inicial puede simular uno.</p>
+        <p>Desplaza la zona de transición y puede dar S profundas hasta V6.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Signos que obligan a derivar:</b> bloqueo bifascicular con síncope, bloqueo de rama alternante (marcapasos), BRI nuevo con dolor torácico (pestaña 10), y BRI en un paciente con IC y FEVI ≤ 35 % (candidato a resincronización, más aún con QRS ≥ 150 ms).</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chagas:</b> en Guayas, El Oro, Manabí y Loja, un BRD + BFAI en un adulto, sobre todo de origen rural, obliga a pedir serología (dos técnicas), ecocardiograma y Holter. Es la causa de bloqueo bifascicular que más se pasa por alto en nuestro medio. El tratamiento antiparasitario se valora en menores de 50 años sin miocardiopatía avanzada.</p></div>
+    </div>
+    <div class="callout"><strong>Para la cátedra:</strong> enseñar el sistema hexaxial con III en +120° y aVL en −30°. Con I positivo y aVF negativo, mirar II: si II es negativo, el eje pasa de −30°; si además es ≤ −45° con qR en aVL, es BFAI.</div>
+  </section>
+
+  <section id="v42-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v42"></div>
+  </section>
+  <p class="note">Referencias: Surawicz B et al. AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the ECG, Part III: intraventricular conduction disturbances, Circulation 2009; Strauss DG et al. Am J Cardiol 2011; Glikson M et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy, Eur Heart J 2021; Elizari MV et al. Hemiblocks revisited, Circulation 2007; Nunes MCP et al. Chagas Cardiomyopathy, AHA Scientific Statement, Circulation 2018.</p>
+</article>
+
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41 y 44)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31 y 43)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</a>.</footer>
 </div>
 
 <script>
@@ -1886,6 +1979,23 @@ const QUIZ = {
     {q:"ACV isquémico, no candidato a reperfusión, PA 210/115. ¿Conducta?",
      o:["Bajar 25 % en 1 h","No bajar de rutina","Labetalol hasta < 140","Nicardipino hasta < 160"], a:1,
      e:"Con PA ≤ 220/120 sin reperfusión no se baja de rutina (hipertensión permisiva)."}
+  ],
+  v42: [
+    {q:"QRS 96 ms, eje −60°, qR en aVL y rS en II, III y aVF. ¿Diagnóstico?",
+     o:["BFPI","BFAI","BRI incompleto","Infarto inferior"], a:1,
+     e:"Eje −45° a −90° con qR en aVL y rS inferior, QRS < 120 ms: hemibloqueo anterior izquierdo."},
+    {q:"Eje +110° con rS en I. Antes de diagnosticar BFPI, ¿qué hay que descartar?",
+     o:["Nada: es diagnóstico","Crecimiento del VD, infarto lateral, biotipo delgado, EPOC","Solo hiperpotasemia","Hipotiroidismo"], a:1,
+     e:"El BFPI es un diagnóstico de exclusión."},
+    {q:"¿En qué grados se ubica la derivación III en el sistema hexaxial?",
+     o:["+90°","+120°","+150°","−30°"], a:1,
+     e:"I 0°, II +60°, III +120°, aVF +90°, aVL −30°, aVR −150°."},
+    {q:"Agricultor de 48 años de Manabí con BRD + BFAI asintomático. ¿Qué pides?",
+     o:["Nada","Serología para Chagas, ecocardiograma y Holter","Marcapasos","Solo troponina"], a:1,
+     e:"BRD + BFAI es la firma electrocardiográfica de la miocardiopatía chagásica."},
+    {q:"¿Cuál de estos hallazgos es indicación de marcapasos clase I?",
+     o:["BFAI aislado","BRD + BFAI asintomático","Bloqueo de rama alternante","BRD + BAV de 1.º grado asintomático"], a:2,
+     e:"ESC 2021: el bloqueo de rama alternante indica afectación de ambas ramas."}
   ],
 };
 function q38Calc(){
@@ -2216,6 +2326,53 @@ function i18Calc(){
 }
 ['i18-drug','i18-dose','i18-mg','i18-ml','i18-kg'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',i18Calc);e.addEventListener('change',i18Calc);});
 i18Calc();
+
+function f42Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value), s=id=>document.getElementById(id).value;
+  const qrs=g('f42-qrs'), f=s('f42-sx')==='f', v1=s('f42-v1'), sw=s('f42-s')==='1', notch=s('f42-notch')==='1';
+  const di=g('f42-i'), dii=g('f42-ii'), avf=g('f42-avf'), pr=g('f42-pr'), exc=s('f42-exc')==='1', sin=s('f42-sin')==='1';
+  if(isNaN(qrs)) return;
+  const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span> ', rows=[];
+  let ax=NaN;
+  if(!isNaN(di)&&!isNaN(avf)&&(di!==0||avf!==0)) ax=Math.round(Math.atan2(avf,di)*180/Math.PI);
+  if(!isNaN(ax)) rows.push(['Eje estimado',ax+'°'+(!isNaN(dii)&&di>0&&avf<0?(dii<0?' (II negativo: más allá de −30°)':' (II positivo: entre 0° y −30°)'):'')]);
+  // rama
+  let rama='';
+  const brdOk=v1==='rsr'&&sw, briOk=v1==='qs'&&notch;
+  if(qrs>=120&&brdOk) rama='BRD';
+  else if(briOk&&qrs>=(f?130:140)) rama='BRI';
+  else if(briOk&&qrs>=120) rama='BRI (convencional)';
+  else if(qrs>=110&&qrs<120&&(brdOk||v1==='qs')) rama='incompleto';
+  // fascicular
+  let fasc='';
+  if(rama!=='BRI'&&rama!=='BRI (convencional)'&&!isNaN(ax)){
+    if(ax<=-45&&ax>=-90&&(isNaN(dii)||dii<0)) fasc='BFAI';
+    else if(ax>=90&&ax<=180) fasc=exc?'BFPI':'BFPI?';
+  }
+  let dx;
+  if(rama==='BRD'&&fasc==='BFAI') dx=pill('Bifascicular','crit')+'BRD + BFAI';
+  else if(rama==='BRD'&&fasc==='BFPI') dx=pill('Bifascicular','crit')+'BRD + BFPI';
+  else if(rama==='BRD') dx=pill('BRD','add')+'completo'+(fasc==='BFPI?'?'; eje derecho sin exclusiones: no diagnosticar BFPI aún':'');
+  else if(rama==='BRI') dx=pill('BRI','add')+'cumple Strauss';
+  else if(rama==='BRI (convencional)') dx=pill('BRI','add')+'criterio AHA (≥ 120 ms), no llega a Strauss ('+(f?130:140)+' ms)';
+  else if(rama==='incompleto') dx=pill('Incompleto','ok')+'QRS 110–119 ms con morfología de rama';
+  else if(fasc==='BFAI') dx=pill('BFAI','add')+'hemibloqueo anterior izquierdo';
+  else if(fasc==='BFPI') dx=pill('BFPI','add')+'hemibloqueo posterior izquierdo';
+  else if(fasc==='BFPI?') dx=pill('Eje derecho','add')+'no diagnosticar BFPI hasta descartar VD, infarto lateral, biotipo y EPOC';
+  else if(qrs>=120) dx=pill('QRS ancho','add')+'trastorno de conducción inespecífico (o ritmo ventricular, preexcitación, hiperpotasemia)';
+  else dx=pill('Sin bloqueo','ok')+(!isNaN(ax)&&ax<-30&&ax>-45?'desviación izquierda (−30° a −45°): no llega a BFAI':'conducción intraventricular normal');
+  rows.push(['Diagnóstico',dx]);
+  const bif=dx.includes('Bifascicular');
+  if(bif&&!isNaN(pr)&&pr>200) rows.push(['PR '+pr+' ms','Bifascicular + BAV de 1.º grado: mal llamado "trifascicular"; no es indicación de marcapasos por sí solo']);
+  if(bif&&sin) rows.push(['Síncope',pill('Derivar','crit')+'Estudio electrofisiológico (HV ≥ 70 ms → marcapasos) o Holter implantable (ESC 2021)']);
+  else if(bif) rows.push(['Seguimiento','Asintomático: control clínico y ECG; buscar la causa']);
+  if(rama==='BRD'&&fasc==='BFAI') rows.push(['Contexto local','Firma de Chagas: serología, ecocardiograma y Holter']);
+  if(fasc==='BFAI') rows.push(['Ojo','El BFAI da falsos positivos de HVI (R aVL, Cornell) y puede ocultar Q inferiores']);
+  if(rama.startsWith('BRI')) rows.push(['Ojo','Invalida los criterios de HVI y de isquemia habituales: con dolor torácico, Sgarbossa modificado']);
+  document.getElementById('f42-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['f42-qrs','f42-sx','f42-v1','f42-s','f42-notch','f42-i','f42-ii','f42-avf','f42-pr','f42-exc','f42-sin'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',f42Calc);e.addEventListener('change',f42Calc);});
+f42Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
