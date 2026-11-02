@@ -119,7 +119,7 @@ footer a{color:var(--accent)}
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 2</h1>
-  <span class="eyebrow">Diabetes y metabolismo · pestañas 17–24, 41 y 44</span>
+  <span class="eyebrow">Diabetes y metabolismo · pestañas 17–24, 41, 44 y 46</span>
 </header>
 
 
@@ -134,6 +134,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v2" aria-controls="v2" aria-selected="false">24 · Cetoacidosis diabética</button>
   <button class="tab" role="tab" id="t-v41" aria-controls="v41" aria-selected="false">41 · Titulación de insulina basal</button>
   <button class="tab" role="tab" id="t-v44" aria-controls="v44" aria-selected="false">44 · Estado hiperosmolar</button>
+  <button class="tab" role="tab" id="t-v46" aria-controls="v46" aria-selected="false">46 · Síndrome CKM 2026</button>
 </nav>
 
 <!-- ============ PESTAÑA 17 (antes 7) ============ -->
@@ -1053,7 +1054,98 @@ footer a{color:var(--accent)}
 </article>
 
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <b>Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41 y 44)</b> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31 y 43)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</a>.</footer>
+<!-- ============ PESTAÑA 46 ============ -->
+<article class="panel" id="v46" role="tabpanel" aria-labelledby="t-v46" hidden>
+  <div>
+    <h2>Síndrome cardiovascular, renal y metabólico (CKM): guía 2026</h2>
+    <div class="meta"><span>Fuente: TikTok @medicina.en.resumen</span><span>Duración 2:10</span><span>Recibido 29/10/2026</span><span>Bases citadas: guía AHA/ACC/ADA/ASN 2026 de síndrome CKM (Ndumele, JACC/Circulation, junio 2026) — existe, verificada; KDIGO 2024; EMPA-KIDNEY, FIDELITY, FLOW</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del material 46">
+    <a href="#v46-resumen">Resumen</a><a href="#v46-estadios">Estadios</a><a href="#v46-renal">Algoritmo renal</a><a href="#v46-calc">Calculadora</a><a href="#v46-analisis">Análisis crítico</a><a href="#v46-quiz">Autoevaluación</a>
+  </nav>
+
+  <section id="v46-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Gancho: <b>pedir solo creatinina muestra la mitad del diagnóstico renal</b>. La ERC se define por <b>filtrado &lt; 60 o albuminuria (UACR) ≥ 30 mg/g</b>, y la creatinina no ve la segunda. Luego, los <b>5 estadios CKM</b> (0–4), el riesgo con <b>PREVENT</b> (en DM2 con riesgo a 10 años ≥ 7,5 %: iSGLT2 o arGLP-1 con beneficio demostrado, sin importar la HbA1c ni la metformina) y el <b>algoritmo renal</b>: IECA/ARA-II a dosis máxima → + iSGLT2 desde filtrado ≥ 20 → si persiste la albuminuria en DM2, finerenona (UACR ≥ 30) o semaglutida (UACR ≥ 100). Una caída del filtrado de hasta 30 % al iniciar es esperable.</p>
+    <p class="note">Video generado por IA; contenido tomado del texto en pantalla. Cierra ofreciendo un PDF a cambio de comentarios o mensajes (captación de seguidores, sin producto patrocinado). Relacionadas: 19 (¿GLP-1 o insulina?), 20 (errores en DM2: caída del filtrado con iSGLT2) y 13 de la Videoteca 1 (IC: dosis).</p>
+  </section>
+
+  <section id="v46-estadios">
+    <h3>Estadios CKM</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Estadio</th><th>Video</th><th>Precisión (guía y declaración AHA 2023)</th></tr></thead>
+      <tbody>
+        <tr><td class="m">0</td><td>Sin factores de riesgo</td><td>Peso, glucosa, PA, lípidos y función renal normales: prevención primordial</td></tr>
+        <tr><td class="m">1</td><td>Adiposidad: sobrepeso, cintura, prediabetes</td><td>Exceso de adiposidad o disfunción del tejido adiposo, sin otros factores</td></tr>
+        <tr><td class="m">2</td><td>Factores metabólicos o ERC: HTA, triglicéridos, DM2, ERC</td><td>Hipertrigliceridemia ≥ 135 mg/dL, HTA, síndrome metabólico, DM2 o ERC moderada a alto riesgo</td></tr>
+        <tr><td class="m">3</td><td>Enfermedad subclínica: calcio coronario ≥ 100, riesgo a 10 años ≥ 20 %</td><td>Aterosclerosis o IC subclínicas (pre-IC), o equivalentes: ERC de muy alto riesgo (KDIGO) o PREVENT alto</td></tr>
+        <tr><td class="m">4</td><td>Enfermedad cardiovascular establecida</td><td>Cardiopatía coronaria, IC, ACV, enfermedad arterial periférica o FA, con factores CKM (4a sin falla renal, 4b con falla renal)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v46-renal">
+    <h3>Algoritmo renal del video</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Medir filtrado + UACR</h4><ul><li>ERC: filtrado &lt; 60 o UACR ≥ 30 mg/g, persistente ≥ 3 meses. Clasificar G1–G5 y A1–A3 (KDIGO).</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>IECA o ARA-II a dosis máxima tolerada</h4><ul><li>Indicación clara con albuminuria (A2–A3) y en DM2 o HTA.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>+ iSGLT2 desde filtrado ≥ 20</h4><ul><li>Mantener hasta diálisis o trasplante (EMPA-KIDNEY, DAPA-CKD).</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>DM2 + albuminuria persistente</h4><ul><li><b>Finerenona</b> si UACR ≥ 30, filtrado ≥ 25 y K⁺ ≤ 5,0 (FIDELITY).</li><li><b>Semaglutida</b> si UACR ≥ 100 (FLOW); preferirla con obesidad, glucosa descontrolada o hígado graso.</li></ul></li>
+      <li class="step"><span class="num">!</span><h4>Al iniciar</h4><ul><li>Caída del filtrado hasta 30 %: hemodinámica y esperable. Control de creatinina y K⁺ a las 2–4 semanas.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v46-calc">
+    <h3>Calculadora CKM y renal (agregada)</h3>
+    <div class="box">
+      <div class="calc">
+        <label for="k46-egfr">Filtrado (mL/min/1,73 m²)<input id="k46-egfr" type="number" min="3" max="150" value="52"></label>
+        <label for="k46-uacr">UACR (mg/g)<input id="k46-uacr" type="number" min="0" max="10000" value="180"></label>
+        <label for="k46-cron">Alteración persistente ≥ 3 meses<select id="k46-cron"><option value="1" selected>Sí</option><option value="0">No o una sola medición</option></select></label>
+        <label for="k46-k">K⁺ (mEq/L)<input id="k46-k" type="number" step="0.1" min="2" max="8" value="4.6"></label>
+        <label for="k46-dm">Diabetes tipo 2<select id="k46-dm"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
+        <label for="k46-ob">Obesidad, glucosa descontrolada o hígado graso<select id="k46-ob"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
+        <label for="k46-ras">IECA o ARA-II a dosis máxima<select id="k46-ras"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
+        <label for="k46-sglt">Recibe iSGLT2<select id="k46-sglt"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
+        <label for="k46-ecv">Enfermedad CV establecida (coronaria, IC, ACV, EAP, FA)<select id="k46-ecv"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+        <label for="k46-sub">Subclínica (CAC ≥ 100, pre-IC) <select id="k46-sub"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+        <label for="k46-prev">PREVENT riesgo CV a 10 años (%, opcional)<input id="k46-prev" type="number" step="0.1" min="0" max="80" value="9.2"></label>
+      </div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="k46-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">El PREVENT se calcula en la calculadora oficial de la AHA (incluye filtrado y, opcionalmente, UACR y HbA1c). Ejemplo precargado: DM2 con ERC G3a A2 en tratamiento con IECA e iSGLT2.</p>
+    </div>
+  </section>
+
+  <section id="v46-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Buen resumen del enfoque CKM y del algoritmo renal, alineado con KDIGO. Faltan matices y hay un umbral que no pude verificar:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>La guía existe: AHA/ACC/ADA/ASN, publicada el 9 de junio de 2026 en JACC y Circulation, primer autor Ndumele; es la primera guía de síndrome CKM y recomienda medir <b>filtrado y UACR</b>. El algoritmo renal (bloqueo del SRAA → iSGLT2 desde 20 → finerenona o semaglutida) y la caída esperable del filtrado coinciden con KDIGO 2024 y los ensayos citados.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Umbral de PREVENT ≥ 7,5 % en DM2:</b> no pude verificar en las fuentes accesibles que sea el corte de la guía para iniciar iSGLT2 o arGLP-1. En DM2 con ERC, IC o enfermedad aterosclerótica, la indicación es independiente del riesgo calculado y de la HbA1c (ADA 2026). Tomar el 7,5 % como dato del video hasta confirmarlo en el texto completo.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La ERC necesita persistencia ≥ 3 meses.</b> Una sola UACR alta puede deberse a fiebre, ejercicio, ITU, descompensación o menstruación: repetir (2 de 3 muestras). El filtrado debe calcularse con CKD-EPI 2021 sin raza; la cistatina C ayuda en sarcopenia o extremos de peso.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que el video omite:</b></p>
+        <p><b>Estatina</b> en todo adulto con ERC no dialítica ≥ 50 años (KDIGO); <b>meta de PA</b> &lt; 120–130 sistólica si se tolera.</p>
+        <p><b>Finerenona:</b> controlar el K⁺ al mes; suspender si &gt; 5,5. No combinar con espironolactona.</p>
+        <p><b>Semaglutida en FLOW:</b> 1 mg semanal subcutánea redujo en 24 % el desenlace renal compuesto; la oral no está probada en ERC.</p>
+        <p>Los estadios CKM son <b>acumulativos</b> y orientan la intensidad de la prevención.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>"Hasta 30 % es esperable" tiene condiciones:</b> el paciente debe estar euvolémico y sin AINE ni nefrotóxicos. Si la caída supera el 30 %, o el K⁺ pasa de 5,5: buscar depleción de volumen, estenosis de la arteria renal u obstrucción; reducir el IECA/ARA-II antes de suspender el iSGLT2.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
+        <p><b>UACR:</b> no siempre está en el laboratorio público. Pedirla expresamente (no "microalbuminuria en tira") y no confundirla con la proteinuria de 24 h.</p>
+        <p><b>Fármacos:</b> la dapagliflozina y la empagliflozina tienen genéricos accesibles. La finerenona y la semaglutida son privadas y caras; la espironolactona no tiene la evidencia renal de la finerenona.</p>
+        <p><b>Calor de la costa:</b> el iSGLT2 aumenta la diuresis; advertir sobre deshidratación con fiebre, diarrea o trabajo bajo el sol (suspender temporalmente: "sick day rules").</p></div>
+    </div>
+    <div class="callout"><strong>En la consulta del diabético e hipertenso:</strong> pedir creatinina con filtrado <b>y</b> UACR al menos una vez al año. Con ERC: IECA/ARA-II a dosis máxima + iSGLT2; si sigue con albuminuria, finerenona o semaglutida según disponibilidad. Control de creatinina y K⁺ a las 2–4 semanas de cada cambio.</div>
+  </section>
+
+  <section id="v46-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v46"></div>
+  </section>
+  <p class="note">Referencias: Ndumele CE et al. 2026 AHA/ACC/ADA/ASN Guideline for the Prevention, Detection, Evaluation, and Management of Cardiovascular-Kidney-Metabolic Syndrome, JACC 2026 (doi 10.1016/j.jacc.2026.03.056) / Circulation 2026; Ndumele CE et al. CKM Health: a Presidential Advisory from the AHA, Circulation 2023; Khan SS et al. PREVENT equations, Circulation 2024; KDIGO 2024 Clinical Practice Guideline for CKD; EMPA-KIDNEY, NEJM 2023; Agarwal R et al. FIDELITY, Eur Heart J 2022; Perkovic V et al. FLOW, NEJM 2024.</p>
+</article>
+
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <b>Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44 y 46)</b> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31 y 43)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</a>.</footer>
 </div>
 
 <script>
@@ -1228,6 +1320,23 @@ const QUIZ = {
      o:["≤ 10 mmol/L","≤ 20 mmol/L","No importa si baja la glucosa","≤ 2 mmol/L"], a:0,
      e:"Consenso 2024 y JBDS: no más de 10 mmol/L en 24 h."}
   ],
+  v46: [
+    {q:"Diabético con filtrado 78 y UACR 120 mg/g en dos muestras separadas por 3 meses. ¿Tiene ERC?",
+     o:["No: el filtrado es > 60","Sí: G2 A2 por albuminuria persistente","Solo si la creatinina sube","No: requiere biopsia"], a:1,
+     e:"La ERC se define por filtrado < 60 o UACR ≥ 30 persistentes; la creatinina sola no la detecta."},
+    {q:"Paciente con DM2, ERC con UACR 400 mg/g, con IECA a dosis máxima. ¿Qué agregas primero?",
+     o:["Espironolactona","iSGLT2 (filtrado ≥ 20)","Diurético de asa","Nada"], a:1,
+     e:"El iSGLT2 se suma al bloqueo del SRAA desde filtrado ≥ 20."},
+    {q:"Con IECA e iSGLT2, persiste UACR 250 mg/g en un diabético con K⁺ 4,4 y filtrado 45. ¿Opción con evidencia renal?",
+     o:["Finerenona","Aliskiren","Doble bloqueo IECA + ARA-II","Furosemida"], a:0,
+     e:"FIDELITY: finerenona con UACR ≥ 30, filtrado ≥ 25 y K⁺ ≤ 5,0. El doble bloqueo está contraindicado."},
+    {q:"Al iniciar un iSGLT2 el filtrado baja de 50 a 40 (−20 %). ¿Conducta?",
+     o:["Suspenderlo","Mantenerlo: caída hemodinámica esperable","Pasar a insulina","Suspender el IECA"], a:1,
+     e:"Una caída de hasta 30 % es esperable y reversible; vigilar volumen y nefrotóxicos."},
+    {q:"Hipertenso con obesidad, sin diabetes ni ERC, calcio coronario de 180. ¿Estadio CKM?",
+     o:["1","2","3","4"], a:2,
+     e:"Enfermedad aterosclerótica subclínica (CAC ≥ 100): estadio 3."}
+  ],
 };
 function homaCalc(){
   const g=parseFloat(document.getElementById('h-glu').value), i=parseFloat(document.getElementById('h-ins').value), t=parseFloat(document.getElementById('h-tg').value);
@@ -1375,6 +1484,54 @@ function o44Calc(){
 }
 ['o44-glu','o44-na','o44-bun','o44-k','o44-bhb','o44-ph','o44-hco3','o44-kg','o44-car'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',o44Calc);e.addEventListener('change',o44Calc);});
 o44Calc();
+
+function k46Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value), s=id=>document.getElementById(id).value==='1';
+  const egfr=g('k46-egfr'), uacr=g('k46-uacr'), k=g('k46-k'), prev=g('k46-prev');
+  const cron=s('k46-cron'), dm=s('k46-dm'), ob=s('k46-ob'), ras=s('k46-ras'), sglt=s('k46-sglt'), ecv=s('k46-ecv'), sub=s('k46-sub');
+  if([egfr,uacr].some(isNaN)) return;
+  const pill=(t,c)=>'<span class="pill '+c+'">'+t+'</span> ', rows=[];
+  const G= egfr>=90?'G1': egfr>=60?'G2': egfr>=45?'G3a': egfr>=30?'G3b': egfr>=15?'G4':'G5';
+  const A= uacr<30?'A1': uacr<300?'A2':'A3';
+  const ckd=(egfr<60||uacr>=30);
+  // riesgo KDIGO
+  const gi=['G1','G2','G3a','G3b','G4','G5'].indexOf(G), ai=['A1','A2','A3'].indexOf(A);
+  const grid=[[0,1,2],[0,1,2],[1,2,3],[2,3,3],[3,3,3],[3,3,3]];
+  const r=ckd?grid[gi][ai]:-1;
+  const rn=['Bajo','Moderado','Alto','Muy alto'][r]||'—', rc=['ok','add','crit','crit'][r]||'ok';
+  if(ckd&&!cron) rows.push(['ERC',pill('Confirmar','add')+G+' '+A+': repetir en 3 meses (UACR 2 de 3 muestras) antes de diagnosticar']);
+  else if(ckd) rows.push(['ERC',pill(G+' '+A,rc)+'Riesgo KDIGO '+rn.toLowerCase()]);
+  else rows.push(['ERC',pill('No','ok')+G+' '+A+': control anual de filtrado y UACR si hay DM2 o HTA']);
+  // estadio CKM
+  let st;
+  if(ecv) st='4';
+  else if(sub||(ckd&&cron&&r===3)||(!isNaN(prev)&&prev>=20)) st='3';
+  else if(dm||(ckd&&cron)) st='2';
+  else if(ob) st='1 o 2 (según PA y lípidos)';
+  else st='0–2 (completar con PA, lípidos y peso)';
+  rows.push(['Estadio CKM',st+(st==='3'&&!isNaN(prev)&&prev>=20?' (PREVENT ≥ 20 %)':'')]);
+  // tratamiento renal
+  if(ckd&&cron){
+    const steps=[];
+    if(uacr>=30||dm) steps.push(ras?'IECA/ARA-II a dosis máxima ✓':pill('Iniciar','add')+'IECA o ARA-II, titular a dosis máxima');
+    if(egfr>=20) steps.push(sglt?'iSGLT2 ✓ (mantener hasta diálisis)':pill('Agregar','add')+'iSGLT2 (filtrado ≥ 20)');
+    else steps.push('Filtrado < 20: no iniciar iSGLT2 (si ya lo recibe, puede continuarse)');
+    if(dm&&uacr>=30&&ras){
+      if(!isNaN(k)&&k<=5.0&&egfr>=25) steps.push(pill('Considerar','add')+'Finerenona (UACR ≥ 30, filtrado ≥ 25, K⁺ ≤ 5,0); K⁺ al mes');
+      else steps.push('Finerenona no indicada ahora ('+(egfr<25?'filtrado < 25':'K⁺ > 5,0')+')');
+      if(uacr>=100) steps.push((ob?pill('Preferir','ok'):'')+'Semaglutida 1 mg semanal SC (FLOW, UACR ≥ 100)'+(ob?': obesidad, glucosa descontrolada o hígado graso':''));
+    }
+    steps.push('Estatina (≥ 50 años o riesgo alto); PA sistólica < 120–130 si se tolera');
+    rows.push(['Plan renal',steps.join('<br>')]);
+    rows.push(['Al iniciar','Caída del filtrado ≤ 30 % esperable; creatinina y K⁺ a las 2–4 semanas']);
+  }
+  if(dm&&!ecv&&!ckd&&!isNaN(prev)){
+    rows.push(['DM2 sin ERC ni ECV',prev>=7.5?pill('PREVENT ≥ 7,5 %','add')+'Según el video: iSGLT2 o arGLP-1 con beneficio CV, sin importar la HbA1c (umbral no verificado)':'Riesgo < 7,5 %: elegir por glucemia, peso y preferencias']);
+  }
+  document.getElementById('k46-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['k46-egfr','k46-uacr','k46-cron','k46-k','k46-dm','k46-ob','k46-ras','k46-sglt','k46-ecv','k46-sub','k46-prev'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',k46Calc);e.addEventListener('change',k46Calc);});
+k46Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
