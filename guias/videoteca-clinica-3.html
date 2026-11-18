@@ -119,7 +119,7 @@ footer a{color:var(--accent)}
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 3</h1>
-  <span class="eyebrow">Urgencias, críticos y medio interno · pestañas 25–31, 43, 47, 48 y 50</span>
+  <span class="eyebrow">Urgencias, críticos y medio interno · pestañas 25–31, 43, 47, 48, 50 y 52</span>
 </header>
 
 
@@ -135,6 +135,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v47" aria-controls="v47" aria-selected="false">47 · Desmielinización osmótica</button>
   <button class="tab" role="tab" id="t-v48" aria-controls="v48" aria-selected="false">48 · Gasometría en 4 pasos</button>
   <button class="tab" role="tab" id="t-v50" aria-controls="v50" aria-selected="false">50 · Lesión renal aguda</button>
+  <button class="tab" role="tab" id="t-v52" aria-controls="v52" aria-selected="false">52 · Delta-delta</button>
 </nav>
 
 <!-- ============ PESTAÑA 25 (antes 11) ============ -->
@@ -1216,8 +1217,123 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: KDIGO Clinical Practice Guideline for Acute Kidney Injury, Kidney Int Suppl 2012; KDIGO 2026 Clinical Practice Guideline for AKI and AKD, borrador para consulta pública (kdigo.org, 2026); STARRT-AKI Investigators. Timing of initiation of renal-replacement therapy in acute kidney injury, NEJM 2020; Semler MW et al. Balanced crystalloids versus saline in critically ill adults (SMART), NEJM 2018; Carvounis CP et al. Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure, Kidney Int 2002; Perazella MA, Coca SG. Traditional urinary biomarkers in the assessment of hospital-acquired AKI, Clin J Am Soc Nephrol 2012.</p>
 </article>
 
+<!-- ============ PESTAÑA 52 ============ -->
+<article class="panel" id="v52" role="tabpanel" aria-labelledby="t-v52" hidden>
+  <div>
+    <h2>Delta-delta: el trastorno que esconde un bicarbonato "casi normal"</h2>
+    <div class="meta"><span>Fuente: video animado de TikTok, autor no visible ("¿Brecha aniónica alta y ya terminaste?"); ampliado a pedido del Dr. Croce</span><span>Duración 1:18</span><span>Recibido 18/11/2026</span><span>Bases: Rastegar (JASN 2007), Berend (NEJM 2014), Kraut y Madias (CJASN 2007), Figge (CCM 1998); referencias clásicas</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones de la pestaña 52">
+    <a href="#v52-resumen">Resumen</a><a href="#v52-video">El video</a><a href="#v52-formula">Fórmula</a><a href="#v52-casos">Casos</a><a href="#v52-calc">Calculadora</a><a href="#v52-analisis">Límites</a><a href="#v52-quiz">Autoevaluación</a>
+  </nav>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48 y 50)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</a>.</footer>
+  <section id="v52-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">En una acidosis con <b>anión gap alto</b>, cada mEq de ácido que se acumula consume, en teoría, un mEq de bicarbonato. El delta-delta compara <b>cuánto subió el anión gap</b> con <b>cuánto bajó el bicarbonato</b>. Si bajaron en proporción, la acidosis es pura. Si el bicarbonato bajó menos de lo esperado, hay una <b>alcalosis metabólica escondida</b> (vómitos, diuréticos, sonda nasogástrica). Si bajó más, hay además una <b>acidosis hiperclorémica</b> (diarrea, salino en exceso, acidosis tubular). Es el paso que descubre un tercer trastorno cuando la gasometría "no parece tan grave": un HCO₃⁻ de 22 con anión gap de 25 no es normal.</p>
+    <p class="note">Completa la <b>pestaña 48</b> (gasometría en 4 pasos) y la <b>pestaña 29</b> (anión gap y bicarbonato en la acidosis grave). Úsalo solo si el anión gap corregido por albúmina está elevado.</p>
+  </section>
+
+  <section id="v52-video">
+    <h3>Lo que muestra el video</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Lámina</th><th>Video</th><th>Precisión (agregado)</th></tr></thead>
+      <tbody>
+        <tr><td><b>La lógica</b></td><td>"1 ácido consume 1 bicarbonato": si la brecha sube 12, el HCO₃⁻ debería bajar 12</td><td>Correcto como idea. En la práctica la relación no es 1:1 (ver Límites)</td></tr>
+        <tr><td><b>La fórmula</b></td><td>ΔΔ = (brecha − 12) / (24 − HCO₃⁻)</td><td>Falta la corrección por albúmina y usar el AG normal del laboratorio</td></tr>
+        <tr><td><b>Interpretación</b></td><td>1–2: acidosis con brecha elevada pura · &lt; 1: el HCO₃⁻ bajó de más → + acidosis con brecha normal · &gt; 2: bajó de menos → + alcalosis metabólica</td><td>Versión simplificada de dos cortes. Con los de Rastegar (0,4 · 0,8 · 2), la acidosis pura empieza en 0,8: una cetoacidosis pura (≈ 1) puede quedar por debajo de 1 sin ser mixta</td></tr>
+        <tr><td><b>Caso clínico</b></td><td>Cetoacidosis + 2 días vomitando. Na 140, Cl 90, HCO₃⁻ 18 → brecha 32; 20 / 6 = 3,3 → cetoacidosis + alcalosis metabólica</td><td>Cálculo correcto (es el caso 6 de la tabla y de la calculadora). HCO₃⁻ corregido 38</td></tr>
+        <tr><td><b>Cierre</b></td><td>"Sin el delta-delta, un HCO₃⁻ de 18 'casi normal' te habría engañado"</td><td>18 no es casi normal: es una acidosis. El engaño real es que subestima la gravedad: la acidosis "verdadera" es mucho mayor</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v52-formula">
+    <h3>La fórmula y su lectura</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Anión gap, corregido por albúmina</h4>
+        <ul><li>AG = Na⁺ − (Cl⁻ + HCO₃⁻). Normal ≈ <span class="dose">12</span> (usa el de tu laboratorio; con electrodos ion-selectivos puede ser 8–10).</li><li>AG corregido = AG + <span class="dose">2,5 × (4 − albúmina g/dL)</span>. Sin esta corrección, la hipoalbuminemia esconde la acidosis.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Los dos deltas</h4>
+        <ul><li>ΔAG = AG corregido − 12.</li><li>ΔHCO₃⁻ = 24 − HCO₃⁻ medido (o el bicarbonato basal del paciente, si lo conoces).</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Cociente ΔAG / ΔHCO₃⁻</h4>
+        <div class="tbl"><table style="min-width:0">
+          <thead><tr><th>Cociente</th><th>Interpretación</th><th>Ejemplos</th></tr></thead>
+          <tbody>
+            <tr><td class="m">&lt; 0,4</td><td>Predomina la acidosis hiperclorémica (AG normal)</td><td>Diarrea, salino 0,9 % en exceso, acidosis tubular</td></tr>
+            <tr><td class="m">0,4–0,8</td><td>Mixta: AG alto + hiperclorémica</td><td>Láctica + diarrea; cetoacidosis en tratamiento; ERC</td></tr>
+            <tr><td class="m">0,8–2,0</td><td>Acidosis con AG alto pura</td><td>Cetoacidosis (≈ 1), láctica (≈ 1,6)</td></tr>
+            <tr><td class="m">&gt; 2,0</td><td>AG alto + alcalosis metabólica (o HCO₃⁻ basal alto)</td><td>Cetoacidosis con vómitos; EPOC con retención crónica de CO₂</td></tr>
+          </tbody>
+        </table></div></li>
+      <li class="step"><span class="num">4</span><h4>Atajo: el bicarbonato "corregido"</h4>
+        <ul><li>HCO₃⁻ corregido = HCO₃⁻ medido + ΔAG. Es el bicarbonato que tendría el paciente si no existiera la acidosis con AG alto.</li><li><b>&gt; 28</b>: alcalosis metabólica escondida. <b>&lt; 22</b>: acidosis hiperclorémica agregada. Es lo mismo que el cociente, pero se lee más rápido al pie de la cama.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v52-casos">
+    <h3>Casos prácticos: el bicarbonato engaña</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Caso</th><th>Datos</th><th>Cálculo</th><th>Lectura</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Cetoacidosis con vómitos</b></td><td>Glucemia 480, cetonas +. Na 135, Cl 88, HCO₃⁻ 22, PaCO₂ 37, pH 7,39, albúmina 4</td><td>AG 25 · ΔAG 13 · ΔHCO₃⁻ 2 · cociente 6,5 · HCO₃⁻ corregido 35</td><td><b>Gasometría casi normal con dos trastornos graves:</b> cetoacidosis y alcalosis metabólica por vómitos. Mira la cetonemia y el AG, no el pH</td></tr>
+        <tr><td><b>2 · Choque séptico con diarrea</b></td><td>Na 138, Cl 108, HCO₃⁻ 10, PaCO₂ 23, albúmina 4, lactato 6</td><td>AG 20 · ΔAG 8 · ΔHCO₃⁻ 14 · cociente 0,57 · HCO₃⁻ corregido 18</td><td>Acidosis láctica + hiperclorémica por pérdida intestinal. Solo la láctica responde a tratar el choque</td></tr>
+        <tr><td><b>3 · Cirrótico séptico</b></td><td>Na 135, Cl 105, HCO₃⁻ 18, albúmina 2,0</td><td>AG 12 "normal" → corregido 17 · ΔAG 5 · ΔHCO₃⁻ 6 · cociente 0,83</td><td>Sin corregir por albúmina, parece hiperclorémica pura; en realidad es una <b>acidosis láctica</b> escondida</td></tr>
+        <tr><td><b>4 · EPOC con sepsis</b></td><td>HCO₃⁻ basal conocido 32. Hoy Na 138, Cl 92, HCO₃⁻ 26, albúmina 4</td><td>AG 20 · ΔAG 8. Con 24 de referencia: ΔHCO₃⁻ −2 (sin sentido). Con su basal de 32: ΔHCO₃⁻ 6 · cociente 1,3</td><td>Un HCO₃⁻ de 26 "normal" es una caída de 6 para él: acidosis láctica pura sobre una retención crónica de CO₂. Usa el basal del paciente</td></tr>
+        <tr><td><b>5 · Cetoacidosis en tratamiento</b></td><td>A las 12 h de salino 0,9 %: Na 140, Cl 115, HCO₃⁻ 14, albúmina 3,6</td><td>AG 11 → corregido 12 · ΔAG 0 · cociente ≈ 0</td><td>Cetonas aclaradas, pero persiste una acidosis <b>hiperclorémica</b> por el salino y la cetonuria. Es esperable: no indica que la cetoacidosis siga activa (cetonemia y AG para seguirla; pestaña 24 de la Videoteca 2)</td></tr>
+        <tr><td><b>6 · Caso del video</b></td><td>Cetoacidosis + 2 días de vómitos. Na 140, Cl 90, HCO₃⁻ 18, albúmina 4</td><td>AG 32 · ΔAG 20 · ΔHCO₃⁻ 6 · cociente 3,3 · HCO₃⁻ corregido 38</td><td>Cetoacidosis grave + alcalosis metabólica por vómitos. Un HCO₃⁻ de 18 hace subestimar una brecha de 32</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v52-calc">
+    <h3>Calculadora de delta-delta</h3>
+    <div class="box">
+      <p class="note">Precargado con el caso 1. Los botones cargan los otros casos de la tabla (el 6 es el del video).</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
+        <button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="0">Caso 1</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="1">Caso 2</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="2">Caso 3</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="3">Caso 4</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="4">Caso 5</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="5">Caso 6 (video)</button>
+      </div>
+      <div class="calc">
+        <label for="d52-na">Na⁺ (mEq/L)<input id="d52-na" type="number" min="100" max="180" value="135"></label>
+        <label for="d52-cl">Cl⁻ (mEq/L)<input id="d52-cl" type="number" min="60" max="140" value="88"></label>
+        <label for="d52-hc">HCO₃⁻ (mEq/L)<input id="d52-hc" type="number" min="1" max="60" value="22"></label>
+        <label for="d52-alb">Albúmina (g/dL)<input id="d52-alb" type="number" step="0.1" min="1" max="6" value="4"></label>
+        <label for="d52-agn">AG normal de tu laboratorio<input id="d52-agn" type="number" min="4" max="16" value="12"></label>
+        <label for="d52-hcb">HCO₃⁻ basal del paciente<input id="d52-hcb" type="number" min="15" max="45" value="24"></label>
+      </div>
+      <div class="result"><span class="big" id="d52-dx">—</span><span id="d52-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="d52-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">Deja el HCO₃⁻ basal en 24 salvo que conozcas el del paciente (EPOC, ERC). Para el trastorno respiratorio y la compensación usa la pestaña 48. Herramienta educativa.</p>
+    </div>
+  </section>
+
+  <section id="v52-analisis">
+    <h3>Límites y matices</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>El fundamento fisiológico es sólido. En una acidosis con AG alto pura, la acumulación del anión no medido debería equivaler a la pérdida de bicarbonato. Los cortes (&lt; 0,4 · 0,4–0,8 · 0,8–2 · &gt; 2) son los de Rastegar (JASN 2007) y el uso integrado está en Berend (NEJM 2014).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Sobre el video:</b> es claro, correcto en el cálculo y bien animado; no tiene contenido comercial. Sus cortes simplificados (&lt; 1, 1–2, &gt; 2) son útiles para empezar, pero llevan a sobrediagnosticar trastornos mixtos en la cetoacidosis pura, cuyo cociente ronda 1 por la pérdida urinaria de cetoaniones. Entre 0,8 y 1, piensa primero en acidosis pura.</p></div>
+      <div class="vd"><span class="tag add">Corrección</span><p><b>"HCO₃⁻ 18 casi normal"</b> es una exageración retórica: 18 mEq/L es una acidosis metabólica. Lo que engaña es la magnitud, no la existencia del trastorno: con una brecha de 32, la cetoacidosis es grave aunque el bicarbonato "solo" esté en 18. El ejemplo del caso 1 (HCO₃⁻ 22, pH 7,39) es la versión extrema del mismo fenómeno.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La relación no es exactamente 1:1.</b> En la acidosis láctica parte del H⁺ se amortigua dentro de las células y el hueso, y el cociente ronda 1,6. En la cetoacidosis, el riñón elimina cetoaniones por la orina (el AG sube menos) y el cociente ronda 1. Por eso el rango "puro" es amplio (0,8–2) y los valores cercanos a los cortes no deben sobreinterpretarse.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El AG normal depende del laboratorio.</b> Con analizadores modernos es más bajo (≈ 8–10) que el 12 clásico. Usar 12 cuando tu normal es 8 subestima el ΔAG. Ajusta el valor en la calculadora.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Sin cloro no hay delta-delta.</b> Muchos ionogramas informan solo Na⁺ y K⁺: pide el cloro siempre que pidas una gasometría. Y corrige por albúmina: en el paciente crítico o cirrótico, la hipoalbuminemia puede esconder un AG elevado (caso 3).</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros "aniones" del AG alto que el delta-delta ayuda a sospechar:</b> lactato, cetonas, uremia, tóxicos (metanol, etilenglicol, salicilatos), D-lactato y piroglutamato (paracetamol crónico en desnutridos). Si el AG es alto sin lactato, cetonas ni uremia, calcula la brecha osmolar.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas:</b></p>
+        <p><b>Cetoacidosis con vómitos</b> (caso 1): es la causa más frecuente de un bicarbonato "casi normal" con cetoacidosis real. El paciente llega con pH aceptable y se subestima.</p>
+        <p><b>Choque por dengue o gastroenteritis</b> (caso 2): acidosis láctica más pérdida intestinal de bicarbonato.</p>
+        <p><b>Reanimación con salino 0,9 %:</b> el cociente baja durante el tratamiento por la acidosis hiperclorémica (caso 5). Si hay disponibilidad, prefiere el Ringer lactato.</p>
+        <p><b>Metanol:</b> brotes por alcohol adulterado en Ecuador; sospecha ante AG muy alto con brecha osmolar y trastornos visuales.</p></div>
+      <div class="vd"><span class="tag add">Para la cátedra</span><p>Dar el caso 1 con solo pH, PaCO₂ y HCO₃⁻: el alumno dirá "normal". Luego agregar Na⁺ y Cl⁻: descubre dos trastornos. Enseña que una gasometría sin electrolitos está incompleta.</p></div>
+    </div>
+    <div class="callout"><strong>En la guardia:</strong> si el anión gap está alto, suma el ΔAG al HCO₃⁻ medido. Más de 28: hay una alcalosis metabólica escondida (pregunta por vómitos y diuréticos). Menos de 22: hay además una acidosis hiperclorémica (diarrea, salino). Un HCO₃⁻ "casi normal" con AG alto nunca es normal.</div>
+  </section>
+
+  <section id="v52-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v52"></div>
+  </section>
+  <p class="note">Referencias: Rastegar A. Use of the ΔAG/ΔHCO3⁻ ratio in the diagnosis of mixed acid-base disorders, J Am Soc Nephrol 2007;18:2429–2431; Berend K, de Vries APJ, Gans ROB. Physiological approach to assessment of acid–base disturbances, NEJM 2014; Kraut JA, Madias NE. Serum anion gap: its uses and limitations in clinical medicine, Clin J Am Soc Nephrol 2007; Figge J et al. Anion gap and hypoalbuminemia, Crit Care Med 1998; Wrenn K. The delta (Δ) gap: an approach to mixed acid-base disorders, Ann Emerg Med 1990.</p>
+</article>
+
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
 </div>
 
 <script>
@@ -1408,6 +1524,23 @@ const QUIZ = {
     {q:"Mujer de 72 años con diarrea, enalapril e ibuprofeno, creatinina 2,4 (basal 1,0) y K⁺ 6,1. Además de cristaloide y suspender ambos fármacos, ¿qué es prioritario?",
      o:["Ecografía Doppler renal","Tratar la hiperpotasemia y obtener un ECG","Biopsia renal","Furosemida en dosis alta"], a:1,
      e:"IECA + LRA + diarrea: la hiperpotasemia puede matar antes que la creatinina. ECG y tratamiento."}
+  ],
+  v52: [
+    {q:"Na 140, Cl 90, HCO₃⁻ 24, albúmina 4. pH 7,40. ¿Qué concluyes?",
+     o:["Equilibrio ácido-base normal","AG 26: acidosis con AG alto + alcalosis metabólica que normalizan el HCO₃⁻","Alcalosis respiratoria","Acidosis hiperclorémica"], a:1,
+     e:"AG = 140 − 90 − 24 = 26. ΔAG 14 y ΔHCO₃⁻ 0: el HCO₃⁻ corregido sería 38. Dos trastornos opuestos."},
+    {q:"Acidosis con AG 22, HCO₃⁻ 8 y albúmina 4. ¿Qué indica el delta-delta?",
+     o:["Acidosis con AG alto pura","AG alto + acidosis hiperclorémica (cociente ≈ 0,6)","AG alto + alcalosis metabólica","Error de laboratorio"], a:1,
+     e:"ΔAG 10 / ΔHCO₃⁻ 16 = 0,63. HCO₃⁻ corregido 18 (< 22): hay además una pérdida de bicarbonato."},
+    {q:"Cirrótico con albúmina 2,0: Na 136, Cl 106, HCO₃⁻ 18. ¿Cuál es el paso clave?",
+     o:["Concluir acidosis hiperclorémica (AG 12)","Corregir el AG por albúmina: ≈ 17, AG alto escondido","Pedir cloro urinario","Calcular la brecha osmolar"], a:1,
+     e:"AG 12 + 2,5 × (4 − 2) = 17. Sin la corrección se pierde una acidosis láctica."},
+    {q:"Cetoacidosis tratada con salino 0,9 %: el AG se normalizó pero el HCO₃⁻ sigue en 15. ¿Interpretación?",
+     o:["La cetoacidosis sigue activa","Acidosis hiperclorémica esperable por el salino y la cetonuria","Hay una alcalosis escondida","Insuficiencia renal"], a:1,
+     e:"El cociente cae durante el tratamiento. Para seguir la cetoacidosis, mira la cetonemia y el AG, no solo el HCO₃⁻."},
+    {q:"EPOC con HCO₃⁻ basal 33. Hoy HCO₃⁻ 27 y AG 19 (albúmina 4). ¿Qué haces?",
+     o:["Calcular ΔHCO₃⁻ con 24: no hay acidosis","Usar su basal: ΔHCO₃⁻ 6, ΔAG 7 → acidosis con AG alto pura","Diagnosticar alcalosis metabólica","Ignorar el AG"], a:1,
+     e:"Con 24 de referencia el delta no tiene sentido. Con el basal del paciente, el cociente es ≈ 1,2: acidosis con AG alto."}
   ],
 };
 function noreCalc(){
@@ -1805,6 +1938,43 @@ function r50Calc(){
 }
 ['r50-cr','r50-crb','r50-d48','r50-diu','r50-hdiu','r50-nap','r50-nau','r50-cru','r50-bun','r50-uu','r50-diur','r50-erc'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',r50Calc);e.addEventListener('change',r50Calc);});
 r50Calc();
+
+function d52Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value);
+  const na=g('d52-na'), cl=g('d52-cl'), hc=g('d52-hc'), alb=g('d52-alb'), agn=g('d52-agn'), hcb=g('d52-hcb');
+  const dx=document.getElementById('d52-dx'), pillEl=document.getElementById('d52-pill'), out=document.getElementById('d52-out');
+  if([na,cl,hc].some(isNaN)){dx.textContent='—';pillEl.innerHTML='';out.innerHTML='';return;}
+  const f=(x,d)=>x.toFixed(d).replace('.',','); const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
+  const N=isNaN(agn)?12:agn, B=isNaN(hcb)?24:hcb;
+  const ag=na-cl-hc, agc=isNaN(alb)?ag:ag+2.5*(4-alb), dag=agc-N, dhc=B-hc, hcc=hc+dag;
+  const rows=[['Anión gap',f(ag,0)+(isNaN(alb)?'':' · corregido por albúmina '+f(agc,1))+' (normal '+N+')']];
+  let d,k,t;
+  if(dag<=4){
+    d='AG no elevado'; k='ok';
+    t=hc<B-2?'Acidosis metabólica con AG normal (hiperclorémica): diarrea, salino, acidosis tubular. El delta-delta no aplica.':'Sin acidosis con AG alto: el delta-delta no aplica.';
+    rows.push(['ΔAG',f(dag,1)+' → el delta-delta solo se usa con AG elevado']);
+  } else {
+    rows.push(['ΔAG / ΔHCO₃⁻',f(dag,1)+' / '+f(dhc,1)+(B!==24?' (con HCO₃⁻ basal '+B+')':'')]);
+    if(dhc<=0){d='AG alto + alcalosis metabólica';k='crit';t='El HCO₃⁻ no bajó pese al AG alto: alcalosis metabólica que lo enmascara (vómitos, diuréticos, SNG), o HCO₃⁻ basal alto (EPOC: ajusta el basal).';rows.push(['Cociente','No calculable (ΔHCO₃⁻ ≤ 0)']);}
+    else{
+      const r=dag/dhc; rows.push(['Cociente',f(r,2)]);
+      if(r<0.4){d='Predomina la hiperclorémica';k='add';t='El HCO₃⁻ cayó mucho más de lo que explica el AG: acidosis hiperclorémica dominante con un AG levemente alto.';}
+      else if(r<0.8){d='AG alto + hiperclorémica';k='crit';t='Acidosis mixta: AG alto (lactato, cetonas, uremia) más pérdida de HCO₃⁻ (diarrea, salino, cetoacidosis en tratamiento, ERC).';}
+      else if(r<=2){d='Acidosis con AG alto pura';k='ok';t='Proporción esperada (cetoacidosis ≈ 1; láctica ≈ 1,6). Sin trastorno metabólico agregado.';}
+      else {d='AG alto + alcalosis metabólica';k='crit';t='El HCO₃⁻ bajó menos que lo que subió el AG: alcalosis metabólica concomitante (vómitos, diuréticos) o HCO₃⁻ basal alto (acidosis respiratoria crónica).';}
+    }
+    rows.push(['HCO₃⁻ corregido',f(hcc,1)+' (medido + ΔAG) → '+(hcc>B+4?'<b>alto</b>: alcalosis metabólica escondida':hcc<B-2?'<b>bajo</b>: acidosis hiperclorémica agregada':'normal: no hay otro trastorno metabólico')]);
+  }
+  rows.push(['Lectura',t]);
+  if(!isNaN(alb)&&alb<3.5&&ag<=N+4&&agc>N+4) rows.push(['Atención','La hipoalbuminemia escondía el AG alto: sin corregir parecería normal']);
+  if(dag>4) rows.push(['Buscar','Lactato, cetonas, urea/creatinina; si nada lo explica, brecha osmolar (metanol, etilenglicol)']);
+  dx.textContent=d; pillEl.innerHTML=pill(k==='crit'?'Mixto':k==='add'?'Revisar':'Simple',k);
+  out.innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+const D52EJ=[[135,88,22,4,12,24],[138,108,10,4,12,24],[135,105,18,2,12,24],[138,92,26,4,12,32],[140,115,14,3.6,12,24],[140,90,18,4,12,24]];
+document.querySelectorAll('.d52-ej').forEach(b=>b.addEventListener('click',()=>{const e=D52EJ[+b.dataset.ej];['na','cl','hc','alb','agn','hcb'].forEach((id,i)=>{document.getElementById('d52-'+id).value=e[i];});d52Calc();}));
+['d52-na','d52-cl','d52-hc','d52-alb','d52-agn','d52-hcb'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',d52Calc);e.addEventListener('change',d52Calc);});
+d52Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
