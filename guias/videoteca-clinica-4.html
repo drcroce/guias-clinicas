@@ -119,7 +119,7 @@ footer a{color:var(--accent)}
 <header>
   <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 4</h1>
-  <span class="eyebrow">Hígado, hematología, reumatología y neurología · pestañas 32–40 y 45</span>
+  <span class="eyebrow">Hígado, hematología, reumatología y neurología · pestañas 32–40, 45 y 51</span>
 </header>
 
 
@@ -134,6 +134,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v29" aria-controls="v29" aria-selected="false">39 · Síndromes vasculares del ACV</button>
   <button class="tab" role="tab" id="t-v28" aria-controls="v28" aria-selected="false">40 · Hipo persistente</button>
   <button class="tab" role="tab" id="t-v45" aria-controls="v45" aria-selected="false">45 · MASLD y ALT normal</button>
+  <button class="tab" role="tab" id="t-v51" aria-controls="v51" aria-selected="false">51 · Función hepática real</button>
 </nav>
 
 <!-- ============ PESTAÑA 32 (antes 16) ============ -->
@@ -1236,8 +1237,87 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: Rinella ME et al. A multisociety Delphi consensus statement on new fatty liver disease nomenclature, J Hepatol / Hepatology 2023; Rinella ME et al. AASLD Practice Guidance on NAFLD, Hepatology 2023; EASL-EASD-EASO Clinical Practice Guidelines on MASLD, J Hepatol 2024; Harrison SA et al. MAESTRO-NASH (resmetirom), NEJM 2024; Sanyal AJ et al. ESSENCE (semaglutide in MASH), NEJM 2025; FDA, aprobación de semaglutida 2,4 mg para MASH, agosto 2025.</p>
 </article>
 
+<!-- ============ PESTAÑA 51 ============ -->
+<article class="panel" id="v51" role="tabpanel" aria-labelledby="t-v51" hidden>
+  <div>
+    <h2>"Deja de llamarlas PFH": daño, colestasis y la función hepática que sí se mide</h2>
+    <div class="meta"><span>Fuente: TikTok @droscarleal (Dr. Oscar Leal, Medicina Interna)</span><span>Duración 2:13</span><span>Recibido 16/11/2026</span><span>Sin referencias citadas; complementado con ACG 2017, MELD 3.0 (Kim 2021, verificado), ALBI y AGA 2019</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones del video 51">
+    <a href="#v51-resumen">Resumen</a><a href="#v51-mapa">Qué mide cada prueba</a><a href="#v51-calc">Child-Pugh, MELD 3.0 y ALBI</a><a href="#v51-analisis">Análisis crítico</a><a href="#v51-quiz">Autoevaluación</a>
+  </nav>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48 y 50)</a> · <b>Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40 y 45)</b>.</footer>
+  <section id="v51-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">Mensaje central: <b>las "pruebas de función hepática" (PFH) no miden función</b>. Las transaminasas reflejan <b>daño</b>: viven dentro del hepatocito y salen a la sangre cuando se rompe (fármacos, tóxicos, isquemia). La ALT es más específica de hígado y la AST está también en otros tejidos; ambas elevadas definen el <b>patrón hepatocelular</b>. La FA y la GGT reflejan el <b>canalículo y el epitelio biliar</b>: suben con la obstrucción (litos, tumor) y la irritación por ácidos biliares; con la bilirrubina directa forman el <b>patrón colestásico</b>. Lo que sí mide función: <b>albúmina</b> (síntesis), <b>TP/INR</b> (factores II, VII, IX y X; sobre todo el VII) y <b>bilirrubina</b> (conjugación por la UDP-glucuroniltransferasa y excreción).</p>
+    <p class="note">Repite en gran parte las <b>pestañas 32 y 33</b>, que ya traen los grupos del perfil, el índice R, la magnitud, los patrones, el De Ritis, el origen de la FA y la prueba de la vitamina K. Para completar el tema, aquí agrego lo que el video sugiere sin desarrollar: <b>cómo se cuantifica la función hepática</b> (Child-Pugh, MELD 3.0 y ALBI) y por qué el INR del cirrótico no se "corrige" con plasma.</p>
+  </section>
+
+  <section id="v51-mapa">
+    <h3>Qué mide cada prueba</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Prueba</th><th>Qué refleja</th><th>Trampa (agregado)</th></tr></thead>
+      <tbody>
+        <tr><td><b>ALT, AST</b></td><td>Daño del hepatocito</td><td>No miden función: pueden ser normales en la cirrosis avanzada y bajar en la falla hepática aguda mientras el INR empeora (mal pronóstico)</td></tr>
+        <tr><td><b>FA, GGT</b></td><td>Colestasis</td><td>La FA también viene de hueso y placenta; la GGT sube con alcohol y fármacos (pestaña 33)</td></tr>
+        <tr><td><b>Albúmina</b></td><td>Síntesis lenta (vida media ≈ 20 días)</td><td>Baja también con la inflamación, el síndrome nefrótico, la enteropatía o la desnutrición</td></tr>
+        <tr><td><b>TP/INR</b></td><td>Síntesis rápida (factor VII, ≈ 6 h)</td><td>El déficit de vitamina K, la warfarina y la CID también lo alargan. En el cirrótico no predice el sangrado</td></tr>
+        <tr><td><b>Bilirrubina</b></td><td>Conjugación y excreción</td><td>La indirecta sube con hemólisis y Gilbert sin enfermedad hepática</td></tr>
+        <tr><td><b>Otras (agregado)</b></td><td>Glucemia, factor V, amonio</td><td>Hipoglucemia y factor V bajo en la falla aguda (el factor V no depende de la vitamina K). El amonio no sirve para diagnosticar ni seguir la encefalopatía</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v51-calc">
+    <h3>Calculadora de función hepática: Child-Pugh, MELD 3.0 y ALBI (agregada)</h3>
+    <div class="box">
+      <p class="note">Precargado: hombre de 56 años con cirrosis por alcohol, ictericia leve y ascitis leve, sin encefalopatía ni diálisis.</p>
+      <div class="calc">
+        <label for="c51-bil">Bilirrubina total (mg/dL)<input id="c51-bil" type="number" step="0.1" min="0.1" max="50" value="2.4"></label>
+        <label for="c51-alb">Albúmina (g/dL)<input id="c51-alb" type="number" step="0.1" min="1" max="6" value="2.9"></label>
+        <label for="c51-inr">INR<input id="c51-inr" type="number" step="0.1" min="0.8" max="10" value="1.6"></label>
+        <label for="c51-cr">Creatinina (mg/dL)<input id="c51-cr" type="number" step="0.1" min="0.2" max="15" value="1.3"></label>
+        <label for="c51-na">Na⁺ (mEq/L)<input id="c51-na" type="number" min="100" max="170" value="131"></label>
+        <label for="c51-sexo">Sexo<select id="c51-sexo"><option value="0" selected>Hombre</option><option value="1">Mujer</option></select></label>
+        <label for="c51-asc">Ascitis<select id="c51-asc"><option value="1">Ausente</option><option value="2" selected>Leve o controlada</option><option value="3">Moderada a tensa</option></select></label>
+        <label for="c51-enc">Encefalopatía<select id="c51-enc"><option value="1" selected>Ausente</option><option value="2">Grado 1–2 o controlada</option><option value="3">Grado 3–4</option></select></label>
+        <label for="c51-dia">Diálisis ≥ 2 veces en la última semana<select id="c51-dia"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+        <label for="c51-awk">Toma warfarina<select id="c51-awk"><option value="0" selected>No</option><option value="1">Sí</option></select></label>
+      </div>
+      <div class="result"><span class="big" id="c51-dx">—</span><span id="c51-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="c51-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">MELD 3.0 (Kim, Gastroenterology 2021; OPTN desde 2023). Límites: bilirrubina, INR y creatinina &lt; 1 se toman como 1; creatinina máxima 3,0 (3,0 con diálisis); Na⁺ entre 125 y 137; albúmina entre 1,5 y 3,5. ALBI = 0,66 × log₁₀(bilirrubina en µmol/L) − 0,085 × albúmina (g/L). Mortalidad orientativa por MELD tomada de las cohortes del MELD original. Herramienta educativa.</p>
+    </div>
+  </section>
+
+  <section id="v51-analisis">
+    <h3>Análisis crítico</h3>
+    <p>Mensaje correcto y necesario, bien ilustrado. Algunas simplificaciones:</p>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Correcto</span><p>"PFH" es un nombre engañoso. La guía ACG 2017 (Kwo) habla de "bioquímica hepática" o "pruebas hepáticas" y reserva "función" para la albúmina, el INR y la bilirrubina. La lógica daño (ALT/AST), colestasis (FA/GGT + bilirrubina directa) y función (albúmina, TP/INR, bilirrubina) es la correcta, igual que el papel del factor VII y de la UDP-glucuroniltransferasa.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"ALT: solo hígado"</b> es una exageración útil para enseñar. Hay ALT en el músculo esquelético y el riñón: la rabdomiólisis o una miositis pueden subir ambas transaminasas. Si la AST predomina sin explicación, pide CK (pestaña 32).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Las pruebas "de función" tampoco son puras.</b> La albúmina es un reactante de fase aguda negativo (la inflamación la baja; el video no lo dice). El INR se alarga por déficit de vitamina K; la prueba con 10 mg IV está en las pestañas 32 y 33. La bilirrubina indirecta no habla del hígado en la hemólisis ni en el Gilbert. Por eso la función se valora <b>en conjunto</b>, con escalas que combinan varias pruebas con la clínica.</p></div>
+      <div class="vd"><span class="tag add">Agregar</span><p><b>Cómo se cuantifica la función:</b></p><p><b>Child-Pugh</b> (5 variables, incluida la clínica): A 5–6, B 7–9, C 10–15. Sobrevida clásica a 1 año: ≈ 100 %, 80 % y 45 %.</p><p><b>MELD 3.0</b> (2021, usado desde 2023 para la lista de trasplante en EE. UU.): agrega albúmina y sexo femenino al MELD-Na y baja el tope de creatinina a 3,0. Un MELD ≥ 15 es el umbral habitual para derivar a evaluación de trasplante.</p><p><b>ALBI:</b> solo albúmina y bilirrubina, sin variables subjetivas; validado sobre todo en hepatocarcinoma.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>El INR del cirrótico no mide su riesgo de sangrado.</b> En la cirrosis bajan a la vez los procoagulantes y los anticoagulantes (proteína C, antitrombina): la hemostasia está "rebalanceada". No se transfunde plasma para "corregir" el INR antes de una paracentesis o una ligadura (AGA, Clinical Practice Update 2019). El plasma aumenta la volemia y la presión portal sin reducir el sangrado.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En la costa:</b></p>
+        <p><b>Dengue:</b> suele dar AST &gt; ALT, y su magnitud se asocia con gravedad. Un INR que se alarga en el dengue indica afectación hepática real, no solo "transaminasas altas".</p>
+        <p><b>Leptospirosis:</b> ictericia intensa (bilirrubina directa alta) con transaminasas solo moderadamente elevadas. Es el ejemplo clásico de que la bilirrubina y las transaminasas no se mueven juntas (pestaña 33).</p>
+        <p><b>Laboratorio:</b> el INR se informa con el ISI del reactivo; en pacientes con warfarina, el MELD y el Child-Pugh pierden validez.</p>
+        <p><b>Derivación:</b> el trasplante hepático en Ecuador se gestiona a través del INDOT. Con MELD ≥ 15, o con descompensación (ascitis, hemorragia variceal, encefalopatía, ictericia), corresponde hepatología de tercer nivel.</p></div>
+      <div class="vd"><span class="tag add">Para la cátedra</span><p>Mismo ALT de 900 U/L en dos pacientes. Uno tiene INR 1,0 y bilirrubina 1,1: hepatitis aguda con función conservada. El otro tiene INR 2,4, bilirrubina 8 y somnolencia: falla hepática aguda, derivación urgente. El número de las transaminasas no los distingue; la función sí.</p></div>
+    </div>
+    <div class="callout"><strong>En la consulta:</strong> ante un "perfil hepático" alterado, separa daño, colestasis y función. Si hay cirrosis, no te quedes con las transaminasas: calcula Child-Pugh y MELD en cada control. Un MELD ≥ 15 o cualquier descompensación es motivo de derivación.</div>
+  </section>
+
+  <section id="v51-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v51"></div>
+  </section>
+  <p class="note">Referencias: Kwo PY, Cohen SM, Lim JK. ACG Clinical Guideline: evaluation of abnormal liver chemistries, Am J Gastroenterol 2017; Kim WR et al. MELD 3.0: the Model for End-stage Liver Disease updated for the modern era, Gastroenterology 2021;161:1887–1895; Johnson PJ et al. Assessment of liver function in patients with hepatocellular carcinoma: the ALBI grade, J Clin Oncol 2015; Pugh RNH et al. Transection of the oesophagus for bleeding oesophageal varices, Br J Surg 1973; O'Leary JG et al. AGA Clinical Practice Update: coagulation in cirrhosis, Gastroenterology 2019; Wiesner R et al. Model for end-stage liver disease (MELD) and allocation of donor livers, Gastroenterology 2003.</p>
+</article>
+
+
+<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</a> · <b>Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</b>.</footer>
 </div>
 
 <script>
@@ -1411,6 +1491,23 @@ const QUIZ = {
     {q:"¿Qué aporta el transductor lineal en la evaluación del hígado graso?",
      o:["Gradúa mejor la esteatosis","Detecta la nodularidad de la superficie hepática (fibrosis avanzada)","Reemplaza a la elastografía","Mide la fibrosis en kPa"], a:1,
      e:"La alta frecuencia muestra bien el contorno; para la esteatosis es mejor el convexo."}
+  ],
+  v51: [
+    {q:"ALT 850 U/L, albúmina 4,2, INR 1,0 y bilirrubina 0,9. ¿Cómo está la función hepática?",
+     o:["Gravemente alterada por la ALT","Conservada: hay daño hepatocelular agudo sin falla de síntesis ni de excreción","No se puede saber sin biopsia","Alterada por la albúmina"], a:1,
+     e:"Las transaminasas miden daño; la albúmina, el INR y la bilirrubina normales indican función conservada."},
+    {q:"Cirrótico con transaminasas normales. ¿Qué concluyes?",
+     o:["Que la cirrosis está compensada","Nada sobre la función: puede tener albúmina baja e INR alto con transaminasas normales","Que no tiene cirrosis","Que el hígado se regeneró"], a:1,
+     e:"En la cirrosis avanzada queda poco hepatocito que dañar. La función se evalúa con albúmina, INR, bilirrubina y la clínica."},
+    {q:"Cirrótico Child B con INR 1,9 y paracentesis programada. ¿Plasma antes del procedimiento?",
+     o:["Sí, hasta INR < 1,5","No: el INR no predice el sangrado en la cirrosis","Sí, con vitamina K y plasma","Suspender la paracentesis"], a:1,
+     e:"Hemostasia rebalanceada (AGA 2019). El plasma aumenta la volemia y la presión portal sin beneficio demostrado."},
+    {q:"¿Qué variables agregó el MELD 3.0 respecto del MELD-Na?",
+     o:["Ascitis y encefalopatía","Albúmina y sexo femenino","Plaquetas y edad","GGT y FA"], a:1,
+     e:"MELD 3.0 suma albúmina, sexo femenino e interacciones, y baja el tope de creatinina a 3,0 mg/dL."},
+    {q:"Bilirrubina 3,5, albúmina 2,6, INR 1,5, ascitis moderada y encefalopatía grado 1–2. ¿Child-Pugh?",
+     o:["A (6)","B (9)","C (12)","C (15)"], a:2,
+     e:"Bilirrubina > 3 = 3; albúmina < 2,8 = 3; INR < 1,7 = 1; ascitis moderada = 3; encefalopatía 1–2 = 2. Total 12: C."}
   ],
 };
 function l16Calc(){
@@ -1649,6 +1746,37 @@ function m45Calc(){
 }
 ['m45-est','m45-sx','m45-imc','m45-glu','m45-pa','m45-tg','m45-hdl','m45-alc','m45-otra','m45-fib','m45-age','m45-kpa'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',m45Calc);e.addEventListener('change',m45Calc);});
 m45Calc();
+
+function c51Calc(){
+  const g=id=>parseFloat(document.getElementById(id).value), v=id=>document.getElementById(id).value;
+  const bil=g('c51-bil'), alb=g('c51-alb'), inr=g('c51-inr'), cr=g('c51-cr'), na=g('c51-na');
+  const fem=+v('c51-sexo'), asc=+v('c51-asc'), enc=+v('c51-enc'), dia=v('c51-dia')==='1', awk=v('c51-awk')==='1';
+  const dx=document.getElementById('c51-dx'), pillEl=document.getElementById('c51-pill'), out=document.getElementById('c51-out');
+  if([bil,alb,inr].some(isNaN)){dx.textContent='—';pillEl.innerHTML='';out.innerHTML='';return;}
+  const f=(x,d)=>x.toFixed(d).replace('.',','); const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
+  const pb=bil<2?1:bil<=3?2:3, pa=alb>3.5?1:alb>=2.8?2:3, pi=inr<1.7?1:inr<=2.3?2:3;
+  const cp=pb+pa+pi+asc+enc, cl=cp<=6?'A':cp<=9?'B':'C';
+  const sv={A:'≈ 100 % a 1 año · 85 % a 2 años',B:'≈ 80 % a 1 año · 60 % a 2 años',C:'≈ 45 % a 1 año · 35 % a 2 años'}[cl];
+  const rows=[['Child-Pugh',cp+' puntos → clase <b>'+cl+'</b> (bilirrubina '+pb+', albúmina '+pa+', INR '+pi+', ascitis '+asc+', encefalopatía '+enc+'). Sobrevida clásica '+sv]];
+  let meld=null;
+  if(!isNaN(cr)&&!isNaN(na)){
+    const B=Math.max(bil,1), I=Math.max(inr,1), C=dia?3:Math.min(Math.max(cr,1),3), N=Math.min(Math.max(na,125),137), A=Math.min(Math.max(alb,1.5),3.5);
+    meld=Math.round(1.33*fem+4.56*Math.log(B)+0.82*(137-N)-0.24*(137-N)*Math.log(B)+9.09*Math.log(I)+11.14*Math.log(C)+1.85*(3.5-A)-1.83*(3.5-A)*Math.log(C)+6);
+    const mort=meld<10?'≈ 2 %':meld<20?'≈ 6 %':meld<30?'≈ 20 %':meld<40?'≈ 50 %':'≈ 70 %';
+    rows.push(['MELD 3.0','<b>'+meld+'</b> · mortalidad a 90 días orientativa '+mort+(meld>=15?' · <b>derivar a evaluación de trasplante</b>':'')]);
+  } else rows.push(['MELD 3.0','Falta creatinina o Na⁺']);
+  const albi=0.66*Math.log10(bil*17.1)-0.085*(alb*10), ag=albi<=-2.60?1:albi<=-1.39?2:3;
+  rows.push(['ALBI',f(albi,2)+' → grado '+ag+(ag===1?' (función mejor conservada)':ag===3?' (función más deteriorada)':'')]);
+  if(awk) rows.push(['Advertencia','Con warfarina, el INR no refleja la síntesis hepática: Child-Pugh y MELD sobrestiman la gravedad']);
+  if(inr>=1.5) rows.push(['INR','No transfundir plasma solo para "corregirlo" antes de procedimientos (AGA 2019)']);
+  if(asc>1||enc>1||bil>=3) rows.push(['Descompensación','Ascitis, encefalopatía o ictericia: hepatología de tercer nivel']);
+  dx.textContent='Child-Pugh '+cl+(meld!==null?' · MELD 3.0 '+meld:'');
+  const k=(cl==='C'||(meld!==null&&meld>=20))?'crit':(cl==='B'||(meld!==null&&meld>=15))?'add':'ok';
+  pillEl.innerHTML=pill(k==='crit'?'Grave':k==='add'?'Moderada':'Compensada',k);
+  out.innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['c51-bil','c51-alb','c51-inr','c51-cr','c51-na','c51-sexo','c51-asc','c51-enc','c51-dia','c51-awk'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',c51Calc);e.addEventListener('change',c51Calc);});
+c51Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
