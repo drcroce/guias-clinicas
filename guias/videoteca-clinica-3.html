@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: cabecera compacta + barra de pestañas (una por video) + panel con secciones en columna única, fichas de dosis en rejilla */
+/* Layout: cabecera compacta + barra de pestañas (una por tema) + panel con secciones en columna única, fichas de dosis en rejilla */
 :root{
   --bg:#f3f6f7; --surface:#ffffff; --fg:#14232b; --muted:#56666e; --line:#d6e0e3;
   --accent:#0b5d6b; --accent-soft:#dcedf0;
@@ -117,13 +117,13 @@ footer a{color:var(--accent)}
 
 <div class="wrap">
 <header>
-  <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
+  <span class="eyebrow">Temas clínicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 3</h1>
   <span class="eyebrow">Urgencias, críticos y medio interno · pestañas 25–31, 43, 47, 48, 50 y 52</span>
 </header>
 
 
-<nav class="tabs" role="tablist" aria-label="Videos">
+<nav class="tabs" role="tablist" aria-label="Temas">
   <button class="tab" role="tab" id="t-v11" aria-controls="v11" aria-selected="true">25 · Código sepsis SSC 2026</button>
   <button class="tab" role="tab" id="t-v34" aria-controls="v34" aria-selected="false">26 · Código sepsis: consenso Delphi</button>
   <button class="tab" role="tab" id="t-v22" aria-controls="v22" aria-selected="false">27 · NAC: guía colombiana 2026</button>
@@ -136,25 +136,26 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v48" aria-controls="v48" aria-selected="false">48 · Gasometría en 4 pasos</button>
   <button class="tab" role="tab" id="t-v50" aria-controls="v50" aria-selected="false">50 · Lesión renal aguda</button>
   <button class="tab" role="tab" id="t-v52" aria-controls="v52" aria-selected="false">52 · Delta-delta</button>
+  <button class="tab" role="tab" id="t-v53" aria-controls="v53" aria-selected="false">53 · Neumonía nosocomial y NAV</button>
 </nav>
 
 <!-- ============ PESTAÑA 25 (antes 11) ============ -->
 <article class="panel" id="v11" role="tabpanel" aria-labelledby="t-v11">
   <div>
     <h2>Hora 1: código sepsis en 4 claves (Surviving Sepsis Campaign 2026)</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:24</span><span>Recibido 24/10/2026</span><span>Base citada: guía Surviving Sepsis Campaign 2026</span></div>
+    <div class="meta"><span>Bases: Surviving Sepsis Campaign 2026 y 2021, ensayos 65, LOVIT, ANDROMEDA-SHOCK, BLING III</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 11">
-    <a href="#v11-resumen">Resumen</a><a href="#v11-claves">4 claves</a><a href="#v11-caso">Caso</a><a href="#v11-calc">Dosis de norepinefrina</a><a href="#v11-analisis">Análisis crítico</a><a href="#v11-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v11-resumen">Resumen</a><a href="#v11-claves">4 claves</a><a href="#v11-caso">Caso</a><a href="#v11-calc">Dosis de norepinefrina</a><a href="#v11-analisis">Puntos clave</a><a href="#v11-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v11-resumen">
     <h3>Resumen</h3>
-    <p class="lead">"Si el antibiótico llega en la hora dos, llegaste tarde." Según el video, la guía SSC 2026 redefinió quién entra a la hora uno al distinguir sepsis <b>definitiva, probable y posible</b>. Presenta 4 claves: reconocer y clasificar, líquidos sin desbordar, vasopresor sin esperar el catéter, y cómo (no solo cuándo) dar el antibiótico.</p>
+    <p class="lead">"Si el antibiótico llega en la hora dos, llegaste tarde." La guía SSC 2026 redefine quién entra a la hora uno al distinguir sepsis <b>definitiva, probable y posible</b>. Cuatro claves: reconocer y clasificar, líquidos sin desbordar, vasopresor sin esperar el catéter, y cómo (no solo cuándo) dar el antibiótico.</p>
   </section>
 
   <section id="v11-claves">
-    <h3>Las 4 claves del video</h3>
+    <h3>Las 4 claves</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Reconoce y clasifica</h4>
         <ul>
@@ -194,7 +195,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v11-calc">
-    <h3>Dosis de norepinefrina (agregada)</h3>
+    <h3>Dosis de norepinefrina</h3>
     <div class="box">
       <div class="calc">
         <label for="n-mg">Norepinefrina en la mezcla (mg)<input id="n-mg" type="number" min="0.5" max="64" step="0.5" value="8"></label>
@@ -208,18 +209,17 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v11-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video correcto y bien sintetizado. No pude verificar el texto final de la SSC 2026, así que la comparo con la evidencia que la sustenta y con la SSC 2021.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Vasopresor periférico:</b> SSC 2021 ya lo sugería para no retrasar la reperfusión tisular. Usar una vena proximal (antecubital o superior), vigilar el sitio y pasar a central en las primeras 24–48 h si sigue necesitándose.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>PAM 60–65 en ≥ 65 años:</b> respaldado por el ensayo 65 (Lamontagne, JAMA 2020), sin aumento de mortalidad con la meta permisiva y con menor exposición a vasopresor.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Infusión prolongada de betalactámicos:</b> el ensayo BLING III y el metaanálisis de Abdul-Aziz (JAMA 2024) mostraron menor mortalidad a 90 días frente a la administración intermitente.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>No vitamina C ni betabloqueadores:</b> LOVIT (NEJM 2022) mostró daño con vitamina C; STRESS-L (landiolol, JAMA 2023) no mostró beneficio. Los almidones aumentan la lesión renal y la necesidad de diálisis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Sepsis posible sin choque:</b> la SSC 2021 da una ventana de evaluación rápida y antibiótico dentro de <b>3 horas</b> si persiste la sospecha. El video lo resume como "descarta primero causas no infecciosas", sin mencionar el plazo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>30 mL/kg no es dogma:</b> en la SSC 2021 era una recomendación débil con evidencia de baja calidad. Más allá del bolo inicial, reevaluar la respuesta a fluidos (elevación pasiva de piernas, VPP, VTI) y usar el <b>llenado capilar</b> como guía (ANDROMEDA-SHOCK). Cristaloides balanceados mejor que salino.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Corticoide:</b> hidrocortisona 200 mg/día (50 mg IV c/6 h o infusión) cuando la norepinefrina es ≥ 0,25 µg/kg/min durante ≥ 4 h. Reduce el tiempo en choque; el efecto sobre la mortalidad es modesto y depende del ensayo (ADRENAL vs APROCCHSS).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lactato:</b> repetir a las 2–4 h si está elevado. El objetivo es la tendencia a la baja, no un número aislado. Un lactato ≥ 4 mmol/L obliga a reanimación aunque la PA sea normal (choque críptico).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Control del foco</b> (drenaje, desbridamiento, retiro de catéteres) también es de la hora cero y el video no lo menciona. Sin él, el antibiótico perfecto fracasa.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Vasopresor periférico:</b> SSC 2021 ya lo sugería para no retrasar la reperfusión tisular. Usar una vena proximal (antecubital o superior), vigilar el sitio y pasar a central en las primeras 24–48 h si sigue necesitándose.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>PAM 60–65 en ≥ 65 años:</b> respaldado por el ensayo 65 (Lamontagne, JAMA 2020), sin aumento de mortalidad con la meta permisiva y con menor exposición a vasopresor.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Infusión prolongada de betalactámicos:</b> el ensayo BLING III y el metaanálisis de Abdul-Aziz (JAMA 2024) mostraron menor mortalidad a 90 días frente a la administración intermitente.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>No vitamina C ni betabloqueadores:</b> LOVIT (NEJM 2022) mostró daño con vitamina C; STRESS-L (landiolol, JAMA 2023) no mostró beneficio. Los almidones aumentan la lesión renal y la necesidad de diálisis.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Sepsis posible sin choque:</b> la SSC 2021 da una ventana de evaluación rápida y antibiótico dentro de <b>3 horas</b> si persiste la sospecha, mientras se descartan causas no infecciosas.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>30 mL/kg no es dogma:</b> en la SSC 2021 era una recomendación débil con evidencia de baja calidad. Más allá del bolo inicial, reevaluar la respuesta a fluidos (elevación pasiva de piernas, VPP, VTI) y usar el <b>llenado capilar</b> como guía (ANDROMEDA-SHOCK). Cristaloides balanceados mejor que salino.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Corticoide:</b> hidrocortisona 200 mg/día (50 mg IV c/6 h o infusión) cuando la norepinefrina es ≥ 0,25 µg/kg/min durante ≥ 4 h. Reduce el tiempo en choque; el efecto sobre la mortalidad es modesto y depende del ensayo (ADRENAL vs APROCCHSS).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Lactato:</b> repetir a las 2–4 h si está elevado. El objetivo es la tendencia a la baja, no un número aislado. Un lactato ≥ 4 mmol/L obliga a reanimación aunque la PA sea normal (choque críptico).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Control del foco</b> (drenaje, desbridamiento, retiro de catéteres) también es de la hora cero. Sin él, el antibiótico perfecto fracasa.</p></div>
     </div>
     <div class="callout"><strong>Perla:</strong> la reanimación de la hora 1 son cinco acciones en paralelo, no en serie: lactato, hemocultivos, antibiótico, cristaloide y norepinefrina si la PAM no llega a 65.</div>
   </section>
@@ -228,32 +228,32 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v11"></div>
   </section>
-  <p class="note">Referencias: Surviving Sepsis Campaign 2026 (citada en el video); Evans L et al. SSC 2021, Crit Care Med 2021; Lamontagne F et al. ensayo 65, JAMA 2020; Abdul-Aziz MH et al. infusión prolongada de betalactámicos, JAMA 2024; Lamontagne F et al. LOVIT, NEJM 2022; Whitehouse T et al. STRESS-L, JAMA 2023; Hernández G et al. ANDROMEDA-SHOCK, JAMA 2019.</p>
+  <p class="note">Referencias: Surviving Sepsis Campaign 2026; Evans L et al. SSC 2021, Crit Care Med 2021; Lamontagne F et al. ensayo 65, JAMA 2020; Abdul-Aziz MH et al. infusión prolongada de betalactámicos, JAMA 2024; Lamontagne F et al. LOVIT, NEJM 2022; Whitehouse T et al. STRESS-L, JAMA 2023; Hernández G et al. ANDROMEDA-SHOCK, JAMA 2019.</p>
 </article>
 
 <!-- ============ PESTAÑA 26 (antes 34) ============ -->
 <article class="panel" id="v34" role="tabpanel" aria-labelledby="t-v34" hidden>
   <div>
     <h2>Código sepsis 2026: 5 cambios del consenso Delphi internacional</h2>
-    <div class="meta"><span>Fuente: TikTok @investigacionclinica1</span><span>Duración 2:23</span><span>Video del 23/08/2026 · recibido 27/10/2026</span><span>Base mostrada: Borges-Sa M et al. International multidisciplinary consensus statement on sepsis code guidelines: a Delphi approach, J Intern Med 2026 (doi 10.1111/joim.70145) — existe, verificado</span></div>
+    <div class="meta"><span>Bases: Borges-Sa M et al. International multidisciplinary consensus statement on sepsis code guidelines: a Delphi approach, J Intern Med 2026 (doi 10.1111/joim.70145); SSC 2021 y 2026</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 26">
-    <a href="#v34-resumen">Resumen</a><a href="#v34-cinco">Los 5 cambios</a><a href="#v34-hemo">Hemodinamia</a><a href="#v34-calc">NEWS2</a><a href="#v34-analisis">Análisis crítico</a><a href="#v34-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v34-resumen">Resumen</a><a href="#v34-cinco">Los 5 cambios</a><a href="#v34-hemo">Hemodinamia</a><a href="#v34-calc">NEWS2</a><a href="#v34-analisis">Puntos clave</a><a href="#v34-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v34-resumen">
     <h3>Resumen</h3>
-    <p class="lead">El video presenta un consenso Delphi internacional sobre la activación del <b>código sepsis</b>, publicado en el Journal of Internal Medicine (julio 2026). Según la infografía final participaron 164 expertos de 22 países y 105 sociedades. Cinco mensajes: <b>reconocer antes</b> (NEWS2), <b>diagnosticar mejor</b> (procalcitonina como complemento), <b>controlar el foco sin demora</b> (≤ 6 h), <b>reanimar según fisiología</b> y <b>tratar inteligente</b> (empezar fuerte, terminar temprano).</p>
-    <p class="note">Video hablado; contenido tomado de subtítulos, figuras del artículo e infografía final. No es la guía Surviving Sepsis 2026 de la pestaña 25: es otro documento, de menor nivel de evidencia.</p>
+    <p class="lead">Consenso Delphi internacional sobre la activación del <b>código sepsis</b>, publicado en el Journal of Internal Medicine (julio 2026), con expertos de 22 países y 105 sociedades. Cinco mensajes: <b>reconocer antes</b> (NEWS2), <b>diagnosticar mejor</b> (procalcitonina como complemento), <b>controlar el foco sin demora</b> (≤ 6 h), <b>reanimar según fisiología</b> y <b>tratar inteligente</b> (empezar fuerte, terminar temprano).</p>
+    <p class="note">No es la guía Surviving Sepsis 2026 de la pestaña 25: es otro documento, de menor nivel de evidencia.</p>
   </section>
 
   <section id="v34-cinco">
-    <h3>Los 5 cambios del video</h3>
+    <h3>Los 5 dominios del consenso</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Dominio</th><th>Qué dice el consenso (según el video)</th></tr></thead>
+      <thead><tr><th>Dominio</th><th>Qué recomienda el consenso</th></tr></thead>
       <tbody>
         <tr><td><b>1. Reconocer antes</b></td><td><b>NEWS2</b> es la herramienta preferida para detectar sepsis. qSOFA, criterios SIRS (Sepsis-2) y Sepsis-3 no alcanzaron consenso como herramientas de reconocimiento: estratificar el riesgo no es lo mismo que activar un código</td></tr>
-        <tr><td><b>2. Diagnosticar mejor</b></td><td><b>Procalcitonina</b> "protagonista con un matiz": complementa la evaluación clínica, apoya el diagnóstico y orienta decisiones sobre antibióticos. La <b>PCR no debe usarse sola</b> para iniciar antibióticos. Diagnóstico microbiológico rápido + cultivo convencional</td></tr>
+        <tr><td><b>2. Diagnosticar mejor</b></td><td><b>Procalcitonina</b>: complementa la evaluación clínica, apoya el diagnóstico y orienta decisiones sobre antibióticos. La <b>PCR no debe usarse sola</b> para iniciar antibióticos. Diagnóstico microbiológico rápido + cultivo convencional</td></tr>
         <tr><td><b>3. Controlar el foco</b></td><td>No esperar: <b>drenaje o cirugía en las primeras 6 h</b>, incluso con inestabilidad hemodinámica. La estabilización no debe ser una excusa para retrasarlo</td></tr>
         <tr><td><b>4. Reanimar según fisiología</b></td><td>Estrategia dinámica: cristaloides balanceados, evaluación dinámica (llenado capilar, ecocardiografía), vasopresores tempranos, norepinefrina de primera línea</td></tr>
         <tr><td><b>5. Tratar inteligente</b></td><td>"Empezar fuerte y terminar temprano": <b>dosis plenas iniciales incluso con disfunción renal</b>, <b>infusiones prolongadas</b> de antibióticos tiempo-dependientes, desescalamiento temprano según microbiología y evolución, elección guiada por resistencia local y PK/PD</td></tr>
@@ -263,7 +263,7 @@ footer a{color:var(--accent)}
 
   <section id="v34-hemo">
     <h3>Manejo hemodinámico: votos del panel (figura 10 del artículo)</h3>
-    <p class="note">Consenso definido como ≥ 70 % de acuerdo o desacuerdo. Transcrito de la figura mostrada en el video.</p>
+    <p class="note">Consenso definido como ≥ 70 % de acuerdo o desacuerdo.</p>
     <div class="tbl"><table>
       <thead><tr><th>Enunciado</th><th>Resultado</th></tr></thead>
       <tbody>
@@ -290,7 +290,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v34-calc">
-    <h3>Calculadora NEWS2 y activación (agregada)</h3>
+    <h3>Calculadora NEWS2 y activación</h3>
     <div class="box">
       <div class="calc">
         <label for="n34-fr">FR (rpm)<input id="n34-fr" type="number" min="0" max="60" value="24"></label>
@@ -312,15 +312,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v34-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Buen resumen del artículo, que existe y está bien citado en pantalla. El problema es el peso que se le da: un Delphi no cambia la práctica por sí solo.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Dosis plenas iniciales sin ajustar por función renal en las primeras 24 h, infusión prolongada de betalactámicos (respaldada por BLING III y el metaanálisis asociado, 2024), desescalamiento temprano, norepinefrina de primera línea con vasopresina añadida a 0,25–0,5 µg/kg/min, PAM 65 y transfusión con Hb 7: coinciden con la Surviving Sepsis Campaign.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Un consenso Delphi es opinión de expertos</b>, el nivel más bajo de evidencia. Sirve para organizar un código hospitalario, no para contradecir una guía GRADE. Cifras: la infografía habla de 164 expertos, pero la figura 2 del artículo indica <b>n = 150</b> votantes; probablemente 164 invitados y 150 que completaron las rondas.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"NEWS2 en lugar de qSOFA" no es nuevo.</b> La SSC 2021 ya recomendó no usar qSOFA como herramienta única de cribado (recomendación fuerte) y prefería SIRS, NEWS o MEWS. Sepsis-3 es una definición, no una herramienta de reconocimiento; su escala SOFA fue actualizada como SOFA-2 (JAMA 2025).</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>El consenso contradice a la guía en los 30 mL/kg.</b> El 88 % del panel rechazó darlos a todos, mientras la SSC (2021 y, según la pestaña 25, 2026) sugiere al menos 30 mL/kg en hipotensión o lactato ≥ 4 en las primeras 3 h. Es una recomendación débil; la postura razonable es iniciarlos y reevaluar con parámetros dinámicos. El video no menciona este conflicto.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Dosis plenas iniciales sin ajustar por función renal en las primeras 24 h, infusión prolongada de betalactámicos (respaldada por BLING III y el metaanálisis asociado, 2024), desescalamiento temprano, norepinefrina de primera línea con vasopresina añadida a 0,25–0,5 µg/kg/min, PAM 65 y transfusión con Hb 7: coinciden con la Surviving Sepsis Campaign.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Un consenso Delphi es opinión de expertos</b>, el nivel más bajo de evidencia. Sirve para organizar un código hospitalario, no para contradecir una guía GRADE. Votaron 150 panelistas en las rondas finales.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>NEWS2 frente a qSOFA:</b> la SSC 2021 ya recomendó no usar qSOFA como herramienta única de cribado (recomendación fuerte) y prefería SIRS, NEWS o MEWS. Sepsis-3 es una definición, no una herramienta de reconocimiento; su escala SOFA fue actualizada como SOFA-2 (JAMA 2025).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El consenso contradice a la guía en los 30 mL/kg.</b> El 88 % del panel rechazó darlos a todos, mientras la SSC (2021 y, según la pestaña 25, 2026) sugiere al menos 30 mL/kg en hipotensión o lactato ≥ 4 en las primeras 3 h. Es una recomendación débil; la postura razonable es iniciarlos y reevaluar con parámetros dinámicos.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Procalcitonina:</b> la SSC 2021 sugiere <b>no usarla</b> para decidir el <b>inicio</b> del antibiótico, sí para acortar su duración. Nunca se espera el resultado para dar el antibiótico en sepsis probable o shock. Además, es cara y no siempre está disponible en el sector público ecuatoriano.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>"Control del foco dentro de 6 h incluso inestable"</b> no significa llevar al quirófano a un paciente en shock sin reanimación en curso. Se reanima en paralelo y se prefiere el procedimiento menos invasivo eficaz (drenaje percutáneo, retirar un catéter infectado, desobstrucción endoscópica de la vía biliar).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Control del foco en ≤ 6 h, incluso inestable,</b> no significa llevar al quirófano a un paciente en shock sin reanimación en curso. Se reanima en paralelo y se prefiere el procedimiento menos invasivo eficaz (drenaje percutáneo, retirar un catéter infectado, desobstrucción endoscópica de la vía biliar).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas, el código sepsis debe pensar en:</b></p>
         <p><b>Leptospirosis:</b> fiebre, ictericia, IRA, mialgias en pantorrillas. Cubrir con ceftriaxona o penicilina.</p>
         <p><b>Dengue con signos de alarma o shock</b> como diagnóstico diferencial. Antibióticos solo si hay coinfección sospechada; líquidos según el protocolo de dengue, no según el de sepsis.</p>
@@ -340,10 +339,10 @@ footer a{color:var(--accent)}
 <article class="panel" id="v22" role="tabpanel" aria-labelledby="t-v22" hidden>
   <div>
     <h2>NAC 2026 en 8 decisiones (guía colombiana ACIN)</h2>
-    <div class="meta"><span>Fuente: 14 láminas, TiagoMed (@soytiagomed)</span><span>Recibido 26/10/2026</span><span>Base citada: GPC de NAC de la Asociación Colombiana de Infectología, revista Infectio 2026</span></div>
+    <div class="meta"><span>Bases: GPC de NAC de la Asociación Colombiana de Infectología (Infectio 2026), ATS/IDSA 2019 y 2025</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 27">
-    <a href="#v22-resumen">Resumen</a><a href="#v22-dx">Diagnóstico</a><a href="#v22-sev">Gravedad</a><a href="#v22-micro">Microbiología</a><a href="#v22-tx">Tratamiento</a><a href="#v22-calc">Calculadora</a><a href="#v22-analisis">Análisis crítico</a><a href="#v22-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v22-resumen">Resumen</a><a href="#v22-dx">Diagnóstico</a><a href="#v22-sev">Gravedad</a><a href="#v22-micro">Microbiología</a><a href="#v22-tx">Tratamiento</a><a href="#v22-calc">Calculadora</a><a href="#v22-analisis">Puntos clave</a><a href="#v22-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v22-resumen">
@@ -430,7 +429,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v22-calc">
-    <h3>Calculadora CURB-65 y criterios ATS/IDSA (agregada)</h3>
+    <h3>Calculadora CURB-65 y criterios ATS/IDSA</h3>
     <div class="box">
       <div style="display:flex;flex-direction:column;gap:6px">
         <b>CURB-65</b>
@@ -456,15 +455,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v22-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material completo y fiel a una guía con metodología GRADE. Donde difiere de la ATS/IDSA 2019 hay razones válidas, pero conviene conocerlas:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Betalactámico solo en NAC moderada hospitalizada:</b> respaldado por CAP-START (Postma, NEJM 2015). La ATS/IDSA indica combinación con macrólido para todo hospitalizado; la guía colombiana la reserva para la grave o la mala evolución. En la grave, el macrólido reduce mortalidad (ACCESS, claritromicina, 2023).</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Duración de 5 días, oseltamivir sin importar el tiempo, dexametasona solo con O₂</b> y no usar corticoide en influenza: coinciden con la ATS/IDSA, la evidencia de RECOVERY y los metaanálisis de influenza.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Hidrocortisona en NAC grave:</b> CAPE COD (Dequin, NEJM 2023) usó 200 mg/día por 4 u 8 días <b>con descenso</b> (total 8 o 14 días), y excluyó a pacientes con choque séptico al ingreso. El esquema fijo de 7 días sin desmonte es una simplificación de la guía.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Betalactámico solo en NAC moderada hospitalizada:</b> respaldado por CAP-START (Postma, NEJM 2015). La ATS/IDSA indica combinación con macrólido para todo hospitalizado; la guía colombiana la reserva para la grave o la mala evolución. En la grave, el macrólido reduce mortalidad (ACCESS, claritromicina, 2023).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Duración de 5 días, oseltamivir sin importar el tiempo, dexametasona solo con O₂</b> y no usar corticoide en influenza: coinciden con la ATS/IDSA, la evidencia de RECOVERY y los metaanálisis de influenza.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Hidrocortisona en NAC grave:</b> CAPE COD (Dequin, NEJM 2023) usó 200 mg/día por 4 u 8 días <b>con descenso</b> (total 8 o 14 días), y excluyó a pacientes con choque séptico al ingreso. Un esquema fijo de 7 días sin descenso no reproduce el del ensayo.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Claritromicina como única alternativa en alergia:</b> la resistencia de neumococo a macrólidos en Latinoamérica supera el 20–30 %. La doxiciclina 100 mg c/12 h es alternativa válida. Las fluoroquinolonas respiratorias, reservadas: enmascaran tuberculosis, frecuente en Ecuador.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Vancomicina:</b> carga de 20–35 mg/kg en grave y ajuste por AUC/MIC (400–600) o niveles valle. Piperacilina/tazobactam y cefepime en <b>infusión prolongada</b> (ver pestaña 25). Si se cubre SAMR o <i>Pseudomonas</i> de forma empírica, desescalar a las 48 h si los cultivos son negativos.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ecografía pulmonar en consulta:</b> sensibilidad &gt; 90 % para consolidación. El transductor lineal (7–12 MHz) es ideal para la línea pleural y las consolidaciones subpleurales pequeñas; para consolidaciones profundas y derrame, convexo. Signos: hepatización con broncograma aéreo dinámico, signo del fragmento (shred), líneas B focales.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Vancomicina:</b> carga de 20–35 mg/kg en grave y ajuste por AUC/MIC (400–600) o niveles valle. Piperacilina/tazobactam y cefepime en <b>infusión prolongada</b> (ver pestaña 25). Si se cubre SAMR o <i>Pseudomonas</i> de forma empírica, desescalar a las 48 h si los cultivos son negativos.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ecografía pulmonar en consulta:</b> sensibilidad &gt; 90 % para consolidación. El transductor lineal (7–12 MHz) es ideal para la línea pleural y las consolidaciones subpleurales pequeñas; para consolidaciones profundas y derrame, convexo. Signos: hepatización con broncograma aéreo dinámico, signo del fragmento (shred), líneas B focales.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>Diagnósticos alternativos en Guayas:</b> leptospirosis con hemorragia pulmonar, dengue con derrame, tuberculosis, e infección por hongos en inmunosuprimidos. Si no hay estabilidad al día 3–5, pensar en ellos antes de escalar antibióticos.</p></div>
     </div>
   </section>
@@ -473,22 +471,22 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v22"></div>
   </section>
-  <p class="note">Referencias: Varón-Vega F et al. Guía de práctica clínica para el diagnóstico y tratamiento de la NAC. Infectio 2026;30(2):185–223, doi 10.22354/24223794.1293 (existencia verificada; el texto completo no fue accesible desde aquí); Metlay JP et al. ATS/IDSA 2019; Mandell LA et al. ATS/IDSA 2007 (criterios de gravedad); Postma DF et al. CAP-START, NEJM 2015; Dequin PF et al. CAPE COD, NEJM 2023; Giamarellos-Bourboulis EJ et al. ACCESS, Lancet Respir Med 2024; RECOVERY, NEJM 2021.</p>
+  <p class="note">Referencias: Varón-Vega F et al. Guía de práctica clínica para el diagnóstico y tratamiento de la NAC. Infectio 2026;30(2):185–223, doi 10.22354/24223794.1293; Metlay JP et al. ATS/IDSA 2019; Mandell LA et al. ATS/IDSA 2007 (criterios de gravedad); Postma DF et al. CAP-START, NEJM 2015; Dequin PF et al. CAPE COD, NEJM 2023; Giamarellos-Bourboulis EJ et al. ACCESS, Lancet Respir Med 2024; RECOVERY, NEJM 2021.</p>
 </article>
 
 <!-- ============ PESTAÑA 28 (antes 39) ============ -->
 <article class="panel" id="v39" role="tabpanel" aria-labelledby="t-v39" hidden>
   <div>
     <h2>NAC: estratificación del riesgo (CURB-65 y PSI) y tratamiento dirigido</h2>
-    <div class="meta"><span>Fuente: 7 láminas, TikTok @mymedicalperson</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas (el esquema coincide con la guía colombiana ACIN 2026 de la pestaña 27)</span></div>
+    <div class="meta"><span>Bases: BTS 2009 (CURB-65), Fine 1997 (PSI), ATS/IDSA 2019 y 2025, ACIN 2026</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 28">
-    <a href="#v39-resumen">Resumen</a><a href="#v39-escalas">Escalas</a><a href="#v39-tx">Tratamiento</a><a href="#v39-calc">Calculadora PSI</a><a href="#v39-analisis">Análisis crítico</a><a href="#v39-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v39-resumen">Resumen</a><a href="#v39-escalas">Escalas</a><a href="#v39-tx">Tratamiento</a><a href="#v39-calc">Calculadora PSI</a><a href="#v39-analisis">Puntos clave</a><a href="#v39-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v39-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel de NAC del adulto: <b>CURB-65</b>, <b>PSI</b> y <b>criterios ATS/IDSA</b> para UCI, tratamiento empírico por gravedad (amoxicilina → ampicilina/sulbactam → ampicilina/sulbactam + claritromicina), cobertura de <b>SAMR</b> y <b>P. aeruginosa</b> solo con aislamiento previo, <b>oseltamivir</b> y dosis. Lo nuevo frente a la pestaña 27 es el <b>PSI</b> completo con sus clases.</p>
+    <p class="lead">NAC del adulto: <b>CURB-65</b>, <b>PSI</b> y <b>criterios ATS/IDSA</b> para UCI, tratamiento empírico por gravedad (amoxicilina 1 g c/8 h → ampicilina/sulbactam → ampicilina/sulbactam + claritromicina), cobertura de <b>SAMR</b> y <b>P. aeruginosa</b> solo con aislamiento previo, <b>oseltamivir</b> y dosis. Lo nuevo frente a la pestaña 27 es el <b>PSI</b> completo con sus clases.</p>
     <p class="note">La pestaña 27 ya tiene CURB-65, los criterios ATS/IDSA, la microbiología y su calculadora; aquí no se repiten.</p>
   </section>
 
@@ -508,34 +506,34 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v39-tx">
-    <h3>Tratamiento del material, con ajustes</h3>
+    <h3>Tratamiento empírico</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Escenario</th><th>Material</th><th>Ajuste (agregado)</th></tr></thead>
+      <thead><tr><th>Escenario</th><th>Esquema</th><th>Detalle</th></tr></thead>
       <tbody>
-        <tr><td><b>Ambulatorio</b> (5 días)</td><td>Amoxicilina; alergia: doxiciclina o claritromicina</td><td><b>Amoxicilina 1 g c/8 h</b> (no 500 mg). Macrólido solo si la resistencia local del neumococo es &lt; 25 %. Con comorbilidad: amoxicilina/clavulánico + macrólido o doxiciclina (ATS 2019)</td></tr>
+        <tr><td><b>Ambulatorio</b> (5 días)</td><td>Amoxicilina 1 g c/8 h; alergia: doxiciclina o claritromicina</td><td>Macrólido solo si la resistencia local del neumococo es &lt; 25 %. Con comorbilidad: amoxicilina/clavulánico + macrólido o doxiciclina (ATS 2019)</td></tr>
         <tr><td><b>Moderada</b> (5 días)</td><td>Ampicilina/sulbactam; alergia: ceftriaxona o cefuroxima</td><td>Cefalosporina válida en alergia no anafiláctica; en anafilaxia, levofloxacino 750 mg o moxifloxacino 400 mg (descartar TB antes)</td></tr>
         <tr><td><b>Grave</b></td><td>Ampicilina/sulbactam + claritromicina; alergia: ceftriaxona + claritromicina</td><td>Mínimo 5 días con estabilidad clínica. Hidrocortisona en NAC grave (ATS 2025, condicional), no en influenza</td></tr>
         <tr><td><b>SAMR previo</b></td><td>Vancomicina o linezolid + cultivo o PCR</td><td>PCR nasal de SAMR negativa → retirar la cobertura (valor predictivo negativo &gt; 95 %)</td></tr>
         <tr><td><b>P. aeruginosa previa</b></td><td>Piperacilina/tazobactam o cefepime + cultivo</td><td>Desescalar a las 48–72 h según cultivos</td></tr>
-        <tr><td><b>Influenza +</b></td><td>Oseltamivir solo en NAC grave</td><td><b>A todo paciente con NAC e influenza</b>, sin importar la gravedad ni el tiempo de evolución (ATS 2019, pestaña 27). La ATS 2025 mantiene el antibiótico asociado en hospitalizados</td></tr>
+        <tr><td><b>Influenza +</b></td><td>Oseltamivir</td><td><b>A todo paciente con NAC e influenza</b>, sin importar la gravedad ni el tiempo de evolución (ATS 2019, pestaña 27). La ATS 2025 mantiene el antibiótico asociado en hospitalizados</td></tr>
       </tbody>
     </table></div>
     <div class="tbl"><table>
-      <thead><tr><th>Fármaco</th><th>Dosis del material</th><th>Comentario</th></tr></thead>
+      <thead><tr><th>Fármaco</th><th>Dosis</th><th>Comentario</th></tr></thead>
       <tbody>
-        <tr><td>Amoxicilina</td><td>500 mg – 1 g c/8 h VO</td><td>Usar <b>1 g c/8 h</b> para cubrir neumococo con sensibilidad reducida</td></tr>
-        <tr><td>Doxiciclina</td><td>Carga 200 mg, luego 100 mg c/12 h</td><td>Correcto</td></tr>
+        <tr><td>Amoxicilina</td><td>1 g c/8 h VO</td><td>Dosis alta para cubrir neumococo con sensibilidad reducida</td></tr>
+        <tr><td>Doxiciclina</td><td>Carga 200 mg, luego 100 mg c/12 h</td><td>Alternativa en alergia o atípicos</td></tr>
         <tr><td>Claritromicina</td><td>500 mg c/12 h</td><td>Interacciones (estatinas, anticoagulantes) y QT largo. Alternativa: azitromicina 500 mg/día × 3 días</td></tr>
         <tr><td>Ampicilina/sulbactam</td><td>1,5–3 g IV c/6 h</td><td>En NAC hospitalizada, 3 g c/6 h</td></tr>
-        <tr><td>Ceftriaxona</td><td>1–2 g IV c/24 h</td><td>Correcto</td></tr>
+        <tr><td>Ceftriaxona</td><td>1–2 g IV c/24 h</td><td>2 g en NAC grave o con sospecha de neumococo resistente</td></tr>
         <tr><td>Vancomicina</td><td>Carga 25–30 mg/kg, luego 15 mg/kg c/12 h</td><td>Ajustar por AUC 400–600 o niveles valle; función renal</td></tr>
-        <tr><td>Piperacilina/tazobactam</td><td>4,5 g IV c/6 h</td><td>Infusión extendida (pestaña 26)</td></tr>
+        <tr><td>Piperacilina/tazobactam</td><td>4,5 g IV c/6 h</td><td>Infusión extendida (pestaña 25)</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v39-calc">
-    <h3>Calculadora PSI y CURB-65 (agregada)</h3>
+    <h3>Calculadora PSI y CURB-65</h3>
     <div class="box">
       <div class="calc">
         <label for="p39-age">Edad (años)<input id="p39-age" type="number" min="18" max="110" value="72"></label>
@@ -567,14 +565,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v39-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material útil y ordenado, sin conflicto de interés. Contiene cuatro imprecisiones con impacto clínico:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Las 20 variables del PSI con su puntaje y la mortalidad por clase (Fine 1997), los criterios ATS/IDSA y la cobertura de SAMR o <i>P. aeruginosa</i> solo con aislamiento previo coinciden con la ATS/IDSA 2019. La duración de 5 días y la monoterapia con betalactámico en la NAC moderada siguen la guía colombiana ACIN 2026.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Oseltamivir no es solo para la NAC grave.</b> La ATS/IDSA 2019 lo recomienda en <b>todo</b> adulto con NAC y prueba positiva de influenza, ambulatorio u hospitalizado, sin importar los días de evolución. La ATS 2025 desaconseja además los corticoides en la influenza.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>CURB-65 ≥ 3 no es "ingreso a UCI".</b> Indica hospitalizar y <b>valorar</b> la UCI (sobre todo con 4–5); la UCI se decide con los criterios ATS/IDSA. Detalles de la lámina: la edad es <b>≥ 65</b> (no &gt; 65), la presión es PAS &lt; 90 <b>o</b> PAD ≤ 60, y la categoría es "≥ 3", no "&gt; 3".</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Amoxicilina 500 mg c/8 h es subterapéutica</b> para la NAC: la ATS usa 1 g c/8 h. Y "3 de 9 criterios menores obliga a UCI" es exagerado: define NAC grave e indica un nivel de cuidado mayor, no ingreso obligatorio a la UCI.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>ATS 2025</b> (actualización independiente de la IDSA): hidrocortisona en la NAC grave (condicional, mejor si se inicia en las primeras 24 h), no en la NAC no grave (fuerte en contra). Duración de 3–5 días en la NAC no grave con estabilidad clínica; mínimo 5 días en la grave. Ecografía pulmonar aceptable si no hay Rx y el operador está entrenado.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Las 20 variables del PSI con su puntaje y la mortalidad por clase (Fine 1997), los criterios ATS/IDSA y la cobertura de SAMR o <i>P. aeruginosa</i> solo con aislamiento previo coinciden con la ATS/IDSA 2019. La duración de 5 días y la monoterapia con betalactámico en la NAC moderada siguen la guía colombiana ACIN 2026.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Oseltamivir no es solo para la NAC grave.</b> La ATS/IDSA 2019 lo recomienda en <b>todo</b> adulto con NAC y prueba positiva de influenza, ambulatorio u hospitalizado, sin importar los días de evolución. La ATS 2025 desaconseja además los corticoides en la influenza.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>CURB-65 ≥ 3 no es "ingreso a UCI".</b> Indica hospitalizar y <b>valorar</b> la UCI (sobre todo con 4–5); la UCI se decide con los criterios ATS/IDSA. Criterios exactos: edad <b>≥ 65</b>, PAS &lt; 90 <b>o</b> PAD ≤ 60, y alto riesgo con puntaje <b>≥ 3</b>.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Amoxicilina 500 mg c/8 h es subterapéutica</b> para la NAC: la ATS usa 1 g c/8 h. Y "3 de 9 criterios menores obliga a UCI" es exagerado: define NAC grave e indica un nivel de cuidado mayor, no ingreso obligatorio a la UCI.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>ATS 2025</b> (actualización independiente de la IDSA): hidrocortisona en la NAC grave (condicional, mejor si se inicia en las primeras 24 h), no en la NAC no grave (fuerte en contra). Duración de 3–5 días en la NAC no grave con estabilidad clínica; mínimo 5 días en la grave. Ecografía pulmonar aceptable si no hay Rx y el operador está entrenado.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Quinolonas y tuberculosis:</b> en el alérgico grave a la penicilina, levofloxacino o moxifloxacino son la alternativa, pero en nuestro medio hay que descartar TB antes (baciloscopia, GeneXpert). La quinolona enmascara la TB y genera resistencia.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas, la "neumonía que no responde" puede ser otra cosa:</b></p>
         <p><b>Tuberculosis:</b> tos de más de 2 semanas, pérdida de peso, infiltrados apicales o cavitados.</p>
@@ -596,20 +593,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v32" role="tabpanel" aria-labelledby="t-v32" hidden>
   <div>
     <h2>Acidosis metabólica grave: ¿bicarbonato o no?</h2>
-    <div class="meta"><span>Fuente: TikTok @rafaelsalazar2510 ("Medicina en urgencias")</span><span>Duración 2:14</span><span>Video del 26/08/2026 · recibido 27/10/2026</span><span>Bases citadas: BICAR-ICU y BICARICU-2</span></div>
+    <div class="meta"><span>Bases: BICAR-ICU (Lancet 2018), BICARICU-2 (2025), SSC 2021, Kraut y Madias</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 29">
-    <a href="#v32-resumen">Resumen</a><a href="#v32-pasos">Algoritmo</a><a href="#v32-evid">Evidencia</a><a href="#v32-calc">Calculadora</a><a href="#v32-riesgos">Riesgos e intubación</a><a href="#v32-analisis">Análisis crítico</a><a href="#v32-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v32-resumen">Resumen</a><a href="#v32-pasos">Algoritmo</a><a href="#v32-evid">Evidencia</a><a href="#v32-calc">Calculadora</a><a href="#v32-riesgos">Riesgos e intubación</a><a href="#v32-analisis">Puntos clave</a><a href="#v32-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v32-resumen">
     <h3>Resumen</h3>
     <p class="lead">Ante un pH de 6,9 el error no es solo dejarlo bajo, sino <b>corregirlo sin comprenderlo</b>. Mensaje: abandonar los extremos, ni bicarbonato automático ni rechazarlo como si nunca sirviera. Primero se confirma el trastorno y se identifica el fenotipo. El bicarbonato <b>no reduce la mortalidad</b> de forma consistente, pero en pacientes seleccionados (pH &lt; 7,20 con lesión renal aguda moderada o grave) <b>disminuye o retrasa la terapia de reemplazo renal</b>. Es un puente que <b>nunca sustituye el tratamiento etiológico</b>.</p>
-    <p class="note">Video hablado con infografías generadas por IA; contenido tomado de los subtítulos en pantalla. Cierra con promoción de su página web y suscripción, sin patrocinio de productos. La pestaña 24 de la Videoteca 2 cubre el bicarbonato en la cetoacidosis.</p>
+    <p class="note">La pestaña 24 de la Videoteca 2 cubre el bicarbonato en la cetoacidosis.</p>
   </section>
 
   <section id="v32-pasos">
-    <h3>Algoritmo del video</h3>
+    <h3>Algoritmo</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><p><b>Confirmar el trastorno:</b> pH, HCO₃⁻ y PaCO₂.</p></li>
       <li class="step"><span class="num">2</span><p><b>Calcular el anión gap</b> y <b>corregirlo por albúmina</b>.</p></li>
@@ -620,7 +617,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v32-evid">
-    <h3>Lo que dicen los ensayos (verificado)</h3>
+    <h3>Lo que dicen los ensayos</h3>
     <div class="tbl"><table>
       <thead><tr><th>Ensayo</th><th>Pacientes</th><th>Resultado principal</th><th>Terapia de reemplazo renal</th></tr></thead>
       <tbody>
@@ -632,7 +629,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v32-calc">
-    <h3>Calculadora ácido-base y criterios BICARICU (agregada)</h3>
+    <h3>Calculadora ácido-base y criterios BICARICU</h3>
     <div class="box">
       <div class="calc">
         <label for="a32-ph">pH<input id="a32-ph" type="number" step="0.01" min="6.5" max="7.8" value="7.08"></label>
@@ -646,34 +643,33 @@ footer a{color:var(--accent)}
         <label for="a32-kg">Peso (kg)<input id="a32-kg" type="number" min="20" max="250" value="70"></label>
       </div>
       <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="a32-out"></tbody></table></div>
-      <p class="note" style="margin-top:8px">Valores precargados: la gasometría que muestra el video. La calculadora revisa además la coherencia interna con Henderson-Hasselbalch: <b>esa gasometría no es coherente</b> (ver Análisis). Prueba PaCO₂ 28 para ver cómo cambia.</p>
+      <p class="note" style="margin-top:8px">Valores precargados: una gasometría <b>incoherente a propósito</b>, para practicar la verificación con Henderson-Hasselbalch (ver Puntos clave). Prueba PaCO₂ 28 para ver cómo cambia.</p>
     </div>
   </section>
 
   <section id="v32-riesgos">
     <h3>Riesgos del bicarbonato y la trampa de la intubación</h3>
     <div class="cols">
-      <div class="box"><p><b>Riesgos que enumera el video</b></p>
+      <div class="box"><p><b>Riesgos del bicarbonato</b></p>
         <ul><li>Sobrecarga de sodio y volumen</li><li>Hipernatremia</li><li>Hipopotasemia</li><li>Descenso del calcio iónico</li><li>Más CO₂: si el paciente no puede eliminarlo, la acidosis intracelular y la situación pueden empeorar</li></ul></div>
       <div class="box"><p><b>Intubación</b></p>
         <p>Estos pacientes sobreviven gracias a una ventilación minuto muy elevada. Si la sedación elimina esa compensación y el ventilador no la reproduce de inmediato, la PaCO₂ sube bruscamente y puede provocar <b>colapso cardiovascular</b>.</p></div>
     </div>
-    <div class="callout"><strong>Al intubar (agregado):</strong> si es posible, evitar la intubación (VNI o ventilación espontánea vigilada mientras se corrige la causa). Si es inevitable, minimizar la apnea, tener listo un vasopresor en bolo y programar desde el inicio FR 28–35 con VT 6–8 mL/kg de peso predicho, buscando reproducir la PaCO₂ previa. Gasometría a los 15–30 min y vigilar la autoPEEP.</div>
+    <div class="callout"><strong>Al intubar:</strong> si es posible, evitar la intubación (VNI o ventilación espontánea vigilada mientras se corrige la causa). Si es inevitable, minimizar la apnea, tener listo un vasopresor en bolo y programar desde el inicio FR 28–35 con VT 6–8 mL/kg de peso predicho, buscando reproducir la PaCO₂ previa. Gasometría a los 15–30 min y vigilar la autoPEEP.</div>
   </section>
 
   <section id="v32-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensaje equilibrado y actualizado; cita bien BICARICU-2. Un error en la infografía y varios complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Ni bicarbonato automático ni rechazo absoluto; confirmar el trastorno, corregir el AG por albúmina y aplicar Winter antes de decidir. El resumen de la evidencia coincide con BICARICU-2 (JAMA 2025): sin efecto sobre la mortalidad a 90 días, con menor uso de terapia de reemplazo renal.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>La gasometría de la infografía es incoherente.</b> Con HCO₃⁻ 8 la PaCO₂ esperada por Winter es 1,5 × 8 + 8 = <b>20 ± 2</b>, no "18 ± 2". Además, con HCO₃⁻ 8 y PaCO₂ 18, Henderson-Hasselbalch da un pH ≈ 7,27, no 7,08. Para un pH de 7,08 la PaCO₂ debería ser ≈ 28: eso sería una <b>acidosis respiratoria agregada</b>, justo el escenario donde el bicarbonato es más peligroso. El AG (24) y el AG corregido (29) sí son correctos.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Disminuye o retrasa la diálisis" hay que leerlo con cuidado.</b> En BICARICU-2 el pH ≤ 7,15 era uno de los criterios para iniciarla: el bicarbonato corrige el gatillo, pero no la oliguria ni la uremia. Los días libres de diálisis fueron 0 en ambos grupos, y hubo más balance positivo y más vasopresores. Ganar tiempo vale, pero no es protección renal.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Los ensayos exigieron PaCO₂ ≤ 45 y HCO₃⁻ ≤ 20</b>: acidosis metabólica pura, con ventilación capaz de eliminar el CO₂ extra. El video dice "pH &lt; 7,20" sin esa condición. En acidosis mixta con PaCO₂ alta, el bicarbonato no está respaldado y puede empeorar la acidosis intracelular.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Donde el bicarbonato sí tiene indicación más clara</b> (el video no lo dice):</p>
+      <div class="vd"><span class="tag ok">Clave</span><p>Ni bicarbonato automático ni rechazo absoluto; confirmar el trastorno, corregir el AG por albúmina y aplicar Winter antes de decidir. Evidencia de BICARICU-2 (JAMA 2025): sin efecto sobre la mortalidad a 90 días, con menor uso de terapia de reemplazo renal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Verifica siempre la coherencia de la gasometría.</b> Ejemplo: pH 7,08, HCO₃⁻ 8 y PaCO₂ 18. Por Winter, la PaCO₂ esperada es 1,5 × 8 + 8 = <b>20 ± 2</b>; y con HCO₃⁻ 8 y PaCO₂ 18, Henderson-Hasselbalch da un pH ≈ 7,27, no 7,08. Para un pH de 7,08 la PaCO₂ debería ser ≈ 28: eso sería una <b>acidosis respiratoria agregada</b>, justo el escenario donde el bicarbonato es más peligroso.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Disminuye o retrasa la diálisis" se interpreta con cuidado.</b> En BICARICU-2 el pH ≤ 7,15 era uno de los criterios para iniciarla: el bicarbonato corrige el gatillo, pero no la oliguria ni la uremia. Los días libres de diálisis fueron 0 en ambos grupos, y hubo más balance positivo y más vasopresores. Ganar tiempo vale, pero no es protección renal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Los ensayos exigieron PaCO₂ ≤ 45 y HCO₃⁻ ≤ 20</b>: acidosis metabólica pura, con ventilación capaz de eliminar el CO₂ extra. El criterio "pH &lt; 7,20" solo aplica con esa condición. En acidosis mixta con PaCO₂ alta, el bicarbonato no está respaldado y puede empeorar la acidosis intracelular.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Donde el bicarbonato tiene indicación más clara:</b></p>
         <p>Acidosis con anión gap normal por pérdida de bicarbonato: diarrea, acidosis tubular renal.</p>
         <p>Hiperpotasemia con acidosis.</p>
         <p>Intoxicaciones: antidepresivos tricíclicos con QRS &gt; 100 ms, salicilatos (alcalinizar la orina), metanol y etilenglicol junto con el antídoto y la hemodiálisis.</p>
-        <p>Cetoacidosis diabética solo con pH &lt; 7,0 (pestaña 24 de la Videoteca 2). La guía de sepsis SSC 2021 lo sugería en shock séptico con pH ≤ 7,2 y LRA AKIN 2–3 (recomendación débil), basada en BICAR-ICU; no verifiqué si la actualización 2026 lo cambió tras BICARICU-2.</p></div>
+        <p>Cetoacidosis diabética solo con pH &lt; 7,0 (pestaña 24 de la Videoteca 2). La guía de sepsis SSC 2021 lo sugería en shock séptico con pH ≤ 7,2 y LRA AKIN 2–3 (recomendación débil), basada en BICAR-ICU.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>El bicarbonato al 8,4 % es hipertónico</b> (≈ 2000 mOsm/L): usar vía central o diluirlo; la extravasación causa necrosis. Medir el calcio iónico y el potasio antes y después, y vigilar el QT. Evitar mezclarlo con calcio en la misma vía, porque precipita.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas, los fenotipos frecuentes</b> son el shock séptico (incluidas la leptospirosis con lesión renal aguda y el dengue grave), la cetoacidosis diabética y la acidosis láctica en diabéticos con metformina y lesión renal aguda. Ante un anión gap muy alto sin lactato ni cetonas que lo expliquen, calcular el <b>gap osmolar</b> y pensar en <b>metanol</b> (alcohol adulterado; Ecuador ha tenido brotes).</p>
         <p><b>Disponibilidad:</b> lo habitual es el bicarbonato al 8,4 % (1 mEq/mL). Si no hay al 4,2 %, se diluye 1:1 con agua estéril o se preparan 150 mEq en 1 L de dextrosa al 5 % (solución casi isotónica).</p></div>
@@ -691,20 +687,20 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 30 (antes 30) ============ -->
 <article class="panel" id="v30" role="tabpanel" aria-labelledby="t-v30" hidden>
   <div>
-    <h2>"112 no significa 135 hoy": corrección segura de la hiponatremia crónica</h2>
-    <div class="meta"><span>Fuente: TikTok @criteriomedico</span><span>Duración 1:38</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas</span></div>
+    <h2>Corrección segura de la hiponatremia crónica</h2>
+    <div class="meta"><span>Bases: guía europea de hiponatremia 2014, panel de EE. UU. 2013 (Verbalis), Sterns (NEJM 2015)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 30">
-    <a href="#v30-resumen">Resumen</a><a href="#v30-claves">Claves</a><a href="#v30-calc">Calculadora</a><a href="#v30-tx">Tratamiento</a><a href="#v30-analisis">Análisis crítico</a><a href="#v30-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v30-resumen">Resumen</a><a href="#v30-claves">Claves</a><a href="#v30-calc">Calculadora</a><a href="#v30-tx">Tratamiento</a><a href="#v30-analisis">Puntos clave</a><a href="#v30-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v30-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Escena: el interno quiere "corregirle hoy" el sodio de 112 a una paciente. El video explica por qué es un error: en la hiponatremia <b>crónica</b> (&gt; 48 h) el cerebro se adaptó perdiendo osmoles; si el sodio sube rápido, el agua sale de las neuronas y aparece la <b>desmielinización osmótica</b>. Regla: <b>≤ 8 mEq/L en 24 h</b>; con síntomas graves, <b>subir 4–6 mEq/L</b> al inicio basta para mejorar al paciente.</p>
+    <p class="lead">Escena: el interno quiere "corregirle hoy" el sodio de 112 a una paciente. Por qué es un error: en la hiponatremia <b>crónica</b> (&gt; 48 h) el cerebro se adaptó perdiendo osmoles; si el sodio sube rápido, el agua sale de las neuronas y aparece la <b>desmielinización osmótica</b>. Regla: <b>≤ 8 mEq/L en 24 h</b>; con síntomas graves, <b>subir 4–6 mEq/L</b> al inicio basta para mejorar al paciente.</p>
   </section>
 
   <section id="v30-claves">
-    <h3>Las claves del video</h3>
+    <h3>Las claves</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>El cerebro se adapta</h4><ul><li>Después de 48 h, las células expulsan K⁺, Na⁺ y osmolitos orgánicos, lo que limita el edema cerebral.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>El riesgo de corregir rápido</h4><ul><li>Con menos osmoles dentro de la célula, una subida brusca del sodio extrae agua: deshidratación neuronal y desmielinización osmótica.</li></ul></li>
@@ -714,7 +710,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v30-calc">
-    <h3>Calculadora de Adrogué-Madias y límites (agregada)</h3>
+    <h3>Calculadora de Adrogué-Madias y límites</h3>
     <div class="box">
       <div class="calc">
         <label for="n30-na">Na⁺ sérico (mEq/L)<input id="n30-na" type="number" min="90" max="135" value="112"></label>
@@ -733,7 +729,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v30-tx">
-    <h3>Tratamiento (agregado)</h3>
+    <h3>Tratamiento</h3>
     <div class="tbl"><table>
       <thead><tr><th>Situación</th><th>Conducta</th></tr></thead>
       <tbody>
@@ -760,14 +756,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v30-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensaje central correcto y muy necesario. Una imprecisión y varios complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Adaptación cerebral a las 48 h, límite de 8 mEq/L en pacientes de alto riesgo y subida inicial de 4–6 mEq/L ante síntomas graves: coinciden con la guía europea 2014 y el panel de expertos de EE. UU. 2013.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Las convulsiones son de la hiponatremia, no de la corrección.</b> Una lámina dice que "la corrección rápida puede causar convulsiones". El síndrome de desmielinización osmótica aparece <b>2–6 días después</b>: disartria, disfagia, cuadriparesia, síndrome de cautiverio. Las convulsiones son el síntoma grave que obliga a dar salino hipertónico.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Adaptación cerebral a las 48 h, límite de 8 mEq/L en pacientes de alto riesgo y subida inicial de 4–6 mEq/L ante síntomas graves: coinciden con la guía europea 2014 y el panel de expertos de EE. UU. 2013.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Las convulsiones son de la hiponatremia, no de la corrección.</b> El síndrome de desmielinización osmótica aparece <b>2–6 días después</b>: disartria, disfagia, cuadriparesia, síndrome de cautiverio. Las convulsiones son el síntoma grave que obliga a dar salino hipertónico.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Límites:</b> mínimo 4–6 mEq/L y máximo 10–12 mEq/L/24 h en riesgo habitual; <b>8 mEq/L</b> en alto riesgo (Na⁺ ≤ 105, hipopotasemia, alcoholismo, desnutrición, hepatopatía). En la práctica, apuntar a 4–8.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>El peligro oculto es la autocorrección:</b> al reponer volumen, suspender una tiazida o corregir la hipopotasemia, el riñón elimina agua libre y el sodio sube solo. Vigilar la diuresis: &gt; 100 mL/h de orina diluida anuncia sobrecorrección. El potasio también eleva el sodio.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>En el diabético:</b> corregir el sodio por la glucosa (+1,6–2,4 mEq/L por cada 100 mg/dL sobre 100) antes de interpretarlo (pestaña 24 de la Videoteca 2). Los iSGLT2 y la urea oral son opciones nuevas en el SIADH crónico.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>El peligro oculto es la autocorrección:</b> al reponer volumen, suspender una tiazida o corregir la hipopotasemia, el riñón elimina agua libre y el sodio sube solo. Vigilar la diuresis: &gt; 100 mL/h de orina diluida anuncia sobrecorrección. El potasio también eleva el sodio.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>En el diabético:</b> corregir el sodio por la glucosa (+1,6–2,4 mEq/L por cada 100 mg/dL sobre 100) antes de interpretarlo (pestaña 24 de la Videoteca 2). Los iSGLT2 y la urea oral son opciones nuevas en el SIADH crónico.</p></div>
     </div>
     <div class="callout"><strong>En la guardia:</strong> paciente con Na⁺ 112 crónico y estable → no hay urgencia; buscar la causa, medir Na⁺ cada 4 h y no superar 8 mEq/L en 24 h. Solo los síntomas graves justifican el bolo de salino hipertónico.</div>
   </section>
@@ -783,44 +778,43 @@ footer a{color:var(--accent)}
 <article class="panel" id="v35" role="tabpanel" aria-labelledby="t-v35" hidden>
   <div>
     <h2>Hipopotasemia en el paciente crítico: reposición rápida de KCl IV</h2>
-    <div class="meta"><span>Fuente: 8 láminas, TikTok @emergency.medical88 ("Emergency Medical Facts")</span><span>Recibido 27/10/2026</span><span>Base citada: Kruse JA, Carlson RW. Arch Intern Med 1990;150:613–617</span></div>
+    <div class="meta"><span>Bases: Kruse JA, Carlson RW. Arch Intern Med 1990;150:613–617; Gennari NEJM 1998; KDIGO 2020</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 31">
-    <a href="#v35-resumen">Resumen</a><a href="#v35-estudio">El estudio</a><a href="#v35-deficit">Déficit</a><a href="#v35-calc">Planificador</a><a href="#v35-analisis">Análisis crítico</a><a href="#v35-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v35-resumen">Resumen</a><a href="#v35-estudio">El estudio</a><a href="#v35-deficit">Déficit</a><a href="#v35-calc">Planificador</a><a href="#v35-analisis">Puntos clave</a><a href="#v35-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v35-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel basado en un solo estudio observacional de 1990: <b>20 mEq de KCl en 100 mL de salino 0,9 % en 1 hora</b> (20 mEq/h) elevó el K⁺ sérico en promedio <b>0,25 mEq/L</b> por dosis en 1351 infusiones en pacientes de UCI monitorizados. Mensaje práctico correcto: el déficit calculado no es la dosis inmediata; <b>administrar → medir → reevaluar → repetir</b>. Meta en el crítico: K⁺ ≥ 4,0 mEq/L.</p>
-    <p class="note">Las láminas 1 y 8 son portada y cierre. La pestaña 24 de la Videoteca 2 trata el potasio en la cetoacidosis.</p>
+    <p class="lead">El estudio observacional de referencia (Kruse y Carlson, 1990): <b>20 mEq de KCl en 100 mL de salino 0,9 % en 1 hora</b> (20 mEq/h) elevó el K⁺ sérico en promedio <b>0,25 mEq/L</b> por dosis en 1351 infusiones en pacientes de UCI monitorizados. Mensaje práctico: el déficit calculado no es la dosis inmediata; <b>administrar → medir → reevaluar → repetir</b>. Meta en el crítico: K⁺ ≥ 4,0 mEq/L.</p>
+    <p class="note">La pestaña 24 de la Videoteca 2 trata el potasio en la cetoacidosis.</p>
   </section>
 
   <section id="v35-estudio">
-    <h3>Kruse y Carlson 1990, según el material</h3>
+    <h3>El estudio de Kruse y Carlson (1990)</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Aspecto</th><th>Lámina</th></tr></thead>
+      <thead><tr><th>Aspecto</th><th>Dato</th></tr></thead>
       <tbody>
         <tr><td>Diseño</td><td>Observacional, pacientes de UCI monitorizados; 1351 infusiones individuales</td></tr>
         <tr><td>Protocolo</td><td>20 mEq KCl en 100 mL de salino 0,9 % (sin dextrosa) en 60 min = 20 mEq/h</td></tr>
         <tr><td>Resultado</td><td>Aumento promedio de 0,25 mEq/L por cada 20 mEq, con amplia variabilidad individual</td></tr>
         <tr><td>Por qué importa la hipopotasemia</td><td>Arritmias (TV/FV), debilidad hasta parálisis, ondas U, ST descendido, QT prolongado, íleo, más morbimortalidad en críticos y cardiópatas</td></tr>
-        <tr><td>Seguridad</td><td>Nunca bolos IV; no más de 20 mEq/h por vía periférica; vía central si se necesita más; monitor ECG y K⁺ cada 2–4 h</td></tr>
+        <tr><td>Seguridad</td><td>Nunca bolos IV; por vía periférica ≈ 10 mEq/h; hasta 20 mEq/h solo por vía central con monitor ECG; K⁺ cada 2–4 h</td></tr>
       </tbody>
     </table></div>
-    <p class="note">No pude acceder al resumen original para confirmar el número de pacientes ni la vía usada en cada infusión. Las cifras de 1351 infusiones y 0,25 mEq/L coinciden con lo que suele citarse de este estudio.</p>
   </section>
 
   <section id="v35-deficit">
     <h3>Estimar el déficit: dos aproximaciones</h3>
     <div class="cols">
-      <div class="box"><p><b>Fórmula de la lámina 5</b></p><p class="m">(K⁺ objetivo − K⁺ actual) × peso × 0,4</p><p>Ejemplo: (4,0 − 2,5) × 70 × 0,4 = <b>42 mEq</b>. La propia lámina advierte que <b>subestima mucho</b> el déficit corporal total.</p></div>
-      <div class="box"><p><b>Regla clásica de la lámina 6</b></p><p>Por cada 0,3 mEq/L que baja el K⁺, faltan ≈ 100 mEq. El 98 % del potasio es intracelular. Con K⁺ 2,5 el déficit puede ser de <b>varios cientos de mEq</b> (≈ 400–500 mEq).</p></div>
+      <div class="box"><p><b>Fórmula del déficit</b></p><p class="m">(K⁺ objetivo − K⁺ actual) × peso × 0,4</p><p>Ejemplo: (4,0 − 2,5) × 70 × 0,4 = <b>42 mEq</b>. Advertencia: <b>subestima mucho</b> el déficit corporal total.</p></div>
+      <div class="box"><p><b>Regla clásica</b></p><p>Por cada 0,3 mEq/L que baja el K⁺, faltan ≈ 100 mEq. El 98 % del potasio es intracelular. Con K⁺ 2,5 el déficit puede ser de <b>varios cientos de mEq</b> (≈ 400–500 mEq).</p></div>
     </div>
     <div class="callout"><strong>Lo que determina la respuesta:</strong> déficit total, pérdidas activas, función renal, pH, insulina, catecolaminas (β₂), magnesio y fármacos. Por eso no es lineal y se corrige por etapas.</div>
   </section>
 
   <section id="v35-calc">
-    <h3>Planificador de reposición (agregado)</h3>
+    <h3>Planificador de reposición</h3>
     <div class="box">
       <div class="calc">
         <label for="k35-k">K⁺ actual (mEq/L)<input id="k35-k" type="number" step="0.1" min="1" max="5" value="2.5"></label>
@@ -843,14 +837,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v35-analisis">
-    <h3>Análisis crítico</h3>
-    <p>El mensaje práctico es bueno, pero se apoya en un único estudio de 1990 y tiene un error importante sobre la vía periférica:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Nunca KCl en bolo, diluir en salino y no en dextrosa (la insulina endógena baja el K⁺), monitorizar ECG, medir el K⁺ cada 2–4 h, corregir el magnesio y no reponer todo el déficit calculado de una vez. La relación clásica de ≈ 100 mEq de déficit por cada 0,3 mEq/L de descenso es correcta.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>20 mEq en 100 mL es una solución de 200 mEq/L.</b> La lámina 4 dice que "minimiza la irritación venosa periférica", pero es al revés: es muy irritante para una vena periférica. La mayoría de los protocolos limitan la vía periférica a <b>≈ 10 mEq/h</b> y concentraciones mucho menores (en general ≤ 40–80 mEq/L). 20 mEq/h se reserva para <b>vía central con monitor ECG</b> en UCI, que es el contexto del estudio.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Evidencia que cambió la práctica" es exagerado.</b> Es un estudio observacional de un solo centro, sin grupo control, y la variabilidad individual de la respuesta fue amplia. Sirve para estimar el efecto de cada dosis, no para fijar una velocidad estándar en cualquier servicio.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Nunca KCl en bolo, diluir en salino y no en dextrosa (la insulina endógena baja el K⁺), monitorizar ECG, medir el K⁺ cada 2–4 h, corregir el magnesio y no reponer todo el déficit calculado de una vez. La relación clásica de ≈ 100 mEq de déficit por cada 0,3 mEq/L de descenso es correcta.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>20 mEq en 100 mL es una solución de 200 mEq/L</b>, muy irritante para una vena periférica. La mayoría de los protocolos limitan la vía periférica a <b>≈ 10 mEq/h</b> y concentraciones mucho menores (en general ≤ 40–80 mEq/L). 20 mEq/h se reserva para <b>vía central con monitor ECG</b> en UCI, que es el contexto del estudio.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Alcance de la evidencia:</b> es un estudio observacional de un solo centro, sin grupo control, y la variabilidad individual de la respuesta fue amplia. Sirve para estimar el efecto de cada dosis, no para fijar una velocidad estándar en cualquier servicio.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Meta K⁺ ≥ 4,0:</b> razonable en el síndrome coronario agudo, la IC y las arritmias. Pero TIGHT-K (JAMA 2024), tras cirugía cardíaca, no encontró menos fibrilación auricular con K⁺ ≥ 4,5 que con ≥ 3,6. Una meta más alta no aporta beneficio por sí sola.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>La vía oral es la preferida</b> si el paciente traga, no hay síntomas graves y el K⁺ es ≥ 2,5–3,0: KCl 40–60 mEq VO eleva el K⁺ de forma similar y es más segura. <b>El magnesio va primero o en paralelo</b> (sulfato de magnesio 2 g IV): sin él la hipopotasemia es refractaria. En la cetoacidosis no se inicia la insulina con K⁺ &lt; 3,3 (pestaña 24 de la Videoteca 2).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>La vía oral es la preferida</b> si el paciente traga, no hay síntomas graves y el K⁺ es ≥ 2,5–3,0: KCl 40–60 mEq VO eleva el K⁺ de forma similar y es más segura. <b>El magnesio va primero o en paralelo</b> (sulfato de magnesio 2 g IV): sin él la hipopotasemia es refractaria. En la cetoacidosis no se inicia la insulina con K⁺ &lt; 3,3 (pestaña 24 de la Videoteca 2).</p></div>
       <div class="vd"><span class="tag crit">Para la cátedra</span><p><b>ECG:</b> aplanamiento de T, onda U prominente (U &gt; T en V2–V3), descenso del ST e intervalo <b>QU</b> largo (más que QT verdadero, porque T y U se fusionan). Riesgo de torsades de pointes, sobre todo con fármacos que prolongan el QT o con digoxina.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>Causas frecuentes en la costa:</b> tiazidas y diuréticos de asa en hipertensos e IC, diarrea aguda, vómitos, la fase de tratamiento de la cetoacidosis, y la <b>leptospirosis</b>, que produce una IRA no oligúrica con pérdida renal de potasio y puede presentarse con hipopotasemia. Pensar en parálisis periódica tirotóxica en un varón joven con debilidad súbita.</p>
         <p><b>Presentación de KCl en Ecuador:</b> lo habitual son ampollas de KCl concentrado (en general 2 mEq/mL). Diluir en la farmacia o con doble verificación: su inyección directa es un error mortal documentado.</p></div>
@@ -869,25 +862,25 @@ footer a{color:var(--accent)}
 <article class="panel" id="v43" role="tabpanel" aria-labelledby="t-v43" hidden>
   <div>
     <h2>Hemorragia digestiva alta: algoritmo de manejo</h2>
-    <div class="meta"><span>Fuente: 1 infografía en video, TikTok @zmymed0 (ZmyMed)</span><span>Duración 0:18</span><span>Recibido 27/10/2026</span><span>Bases citadas: guía MINSAL Chile 2023 (no verificada), Baveno VII 2022, ACG 2021, ESGE 2021</span></div>
+    <div class="meta"><span>Bases: Baveno VII 2022, ACG 2021, ESGE 2021, Lau (NEJM 2020)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 43">
-    <a href="#v43-resumen">Resumen</a><a href="#v43-algo">Algoritmo</a><a href="#v43-calc">Glasgow-Blatchford</a><a href="#v43-analisis">Análisis crítico</a><a href="#v43-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v43-resumen">Resumen</a><a href="#v43-algo">Algoritmo</a><a href="#v43-calc">Glasgow-Blatchford</a><a href="#v43-analisis">Puntos clave</a><a href="#v43-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v43-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Algoritmo de una lámina: <b>estabilizar (ABCDE)</b> → tratamiento empírico según sospecha (<b>no variceal: omeprazol</b>; <b>variceal: terlipresina + ceftriaxona</b>) → ¿estable? → <b>endoscopia</b> en ≤ 12 h (variceal o alto riesgo) o ≤ 24 h → hemostasia endoscópica o ligadura (± TIPS precoz) → si recurre, segunda endoscopia, embolización o cirugía. Metas: PAS ≥ 90 o PAM ≥ 65, FC &lt; 100, diuresis ≥ 0,5 mL/kg/h, transfundir con Hb &lt; 7 g/dL.</p>
-    <p class="note">Infografía generada por IA (marca de agua "AI-generated"). Su contenido es en general correcto. Los hallazgos de la endoscopia se interpretan con la clasificación de Forrest (agregada en el análisis).</p>
+    <p class="lead">Algoritmo: <b>estabilizar (ABCDE)</b> → tratamiento empírico según sospecha (<b>no variceal: omeprazol</b>; <b>variceal: terlipresina + ceftriaxona</b>) → ¿estable? → <b>endoscopia</b> en ≤ 12 h (variceal o alto riesgo) o ≤ 24 h → hemostasia endoscópica o ligadura (± TIPS precoz) → si recurre, segunda endoscopia, embolización o cirugía. Metas: PAS ≥ 90 o PAM ≥ 65, FC &lt; 100, diuresis ≥ 0,5 mL/kg/h, transfundir con Hb &lt; 7 g/dL.</p>
+    <p class="note">Los hallazgos de la endoscopia se interpretan con la clasificación de Forrest (ver Puntos clave).</p>
   </section>
 
   <section id="v43-algo">
-    <h3>El algoritmo de la infografía</h3>
+    <h3>Algoritmo por etapas</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Etapa</th><th>Infografía</th><th>Ajuste (agregado)</th></tr></thead>
+      <thead><tr><th>Etapa</th><th>Recomendación</th><th>Detalle y matices</th></tr></thead>
       <tbody>
         <tr><td><b>C · Circulación</b></td><td>2 vías gruesas, SSN 0,9 %, laboratorio con grupo y pruebas cruzadas; transfundir con Hb &lt; 7 (meta 7–9)</td><td>Cardiopatía isquémica: umbral Hb &lt; 8, meta ≥ 10 (ESGE). Variceal: evitar la sobretransfusión y el exceso de volumen (suben la presión portal)</td></tr>
-        <tr><td><b>No variceal</b></td><td>Omeprazol 80 mg IV bolo + 8 mg/h</td><td>Antes de la endoscopia, bolo de 80 mg y luego 40 mg c/12 h es suficiente. La infusión (o bolos intermitentes ≥ 2 veces al día) es para después de la hemostasia de estigmas de alto riesgo, durante 72 h (ACG 2021)</td></tr>
+        <tr><td><b>No variceal</b></td><td>Omeprazol 80 mg IV en bolo, luego 40 mg c/12 h hasta la endoscopia</td><td>La infusión de 8 mg/h (o bolos intermitentes ≥ 2 veces al día) es para después de la hemostasia de estigmas de alto riesgo, durante 72 h (ACG 2021)</td></tr>
         <tr><td><b>Variceal</b></td><td>Terlipresina 2 mg c/4 h; ceftriaxona 1 g/24 h</td><td>Terlipresina 2–5 días (bajar a 1 mg c/4 h al controlar); alternativa: octreótido 50 µg bolo + 50 µg/h. Ceftriaxona hasta 7 días (Baveno VII)</td></tr>
         <tr><td><b>Endoscopia</b></td><td>≤ 12 h si variceal o alto riesgo; ≤ 24 h en el resto. Eritromicina 250 mg IV 30–90 min antes</td><td>Variceal: ≤ 12 h. No variceal de alto riesgo: la endoscopia urgente (&lt; 6 h) no redujo la mortalidad (Lau, NEJM 2020); ≤ 24 h tras estabilizar</td></tr>
         <tr><td><b>TIPS precoz</b></td><td>24–72 h en Child-Pugh C o B con sangrado activo</td><td>Baveno VII: Child C 10–13 puntos, o Child B &gt; 7 con sangrado activo en la endoscopia, idealmente en &lt; 72 h</td></tr>
@@ -898,7 +891,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v43-calc">
-    <h3>Calculadora Glasgow-Blatchford (agregada)</h3>
+    <h3>Calculadora Glasgow-Blatchford</h3>
     <div class="box">
       <div class="calc">
         <label for="g43-bun">BUN (mg/dL)<input id="g43-bun" type="number" min="1" max="200" value="42"></label>
@@ -919,15 +912,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v43-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Algoritmo bien estructurado y en general fiel a Baveno VII, ACG y ESGE. Puntos para ajustar:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Estabilizar antes de la endoscopia, transfusión restrictiva con Hb &lt; 7 (Villanueva, NEJM 2013), terlipresina y ceftriaxona antes de la endoscopia en sospecha variceal, ligadura elástica, TIPS precoz, eritromicina previa, erradicar <i>H. pylori</i> y Glasgow-Blatchford para el alta. Las referencias de Baveno VII, ACG 2021 y ESGE 2021 existen; la guía MINSAL 2023 no la pude verificar.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Estabilizar antes de la endoscopia, transfusión restrictiva con Hb &lt; 7 (Villanueva, NEJM 2013), terlipresina y ceftriaxona antes de la endoscopia en sospecha variceal, ligadura elástica, TIPS precoz, eritromicina previa, erradicar <i>H. pylori</i> y Glasgow-Blatchford para el alta. Las referencias de Baveno VII, ACG 2021 y ESGE 2021 existen; la guía MINSAL 2023 no la pude verificar.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Omeprazol en infusión antes de la endoscopia:</b> el IBP previo reduce los estigmas de alto riesgo, pero no la mortalidad ni el resangrado. La infusión de 8 mg/h está respaldada para después de la hemostasia endoscópica de una úlcera de alto riesgo (72 h). Antes, 80 mg seguido de bolos c/12 h es suficiente y ahorra fármaco.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"≤ 12 h si alto riesgo" en la hemorragia no variceal no está respaldado:</b> en Lau (NEJM 2020), la endoscopia en menos de 6 h en pacientes con GBS ≥ 12 no redujo la mortalidad a 30 días. ESGE: endoscopia en ≤ 24 h tras la reanimación. El ≤ 12 h es para la sospecha variceal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Endoscopia en la hemorragia no variceal de alto riesgo:</b> en Lau (NEJM 2020), la endoscopia en menos de 6 h en pacientes con GBS ≥ 12 no redujo la mortalidad a 30 días. ESGE: endoscopia en ≤ 24 h tras la reanimación. El ≤ 12 h es para la sospecha variceal.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>"Corregir coagulopatía" en el cirrótico no significa plasma por INR.</b> El INR no refleja el riesgo de sangrado (hemostasia rebalanceada); Baveno VII desaconseja el plasma. Sí corregir anticoagulantes: warfarina → complejo protrombínico + vitamina K; dabigatrán → idarucizumab. El ácido tranexámico no sirve en la HDA (HALT-IT, Lancet 2020): más trombosis venosa.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Clasificación de Forrest</b> (decide la terapia endoscópica y la infusión de IBP): Ia en chorro, Ib en capa, IIa vaso visible → alto riesgo, hemostasia; IIb coágulo adherido → considerar; IIc mancha pigmentada y III base limpia → bajo riesgo, IBP oral y alta temprana. Terapia endoscópica: la inyección de adrenalina nunca sola, siempre combinada.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Terlipresina:</b> contraindicada en cardiopatía isquémica y enfermedad arterial periférica grave; produce hiponatremia. Vigilar el sodio y signos de isquemia. En cirrosis, la profilaxis secundaria posterior es betabloqueador no selectivo (propranolol o carvedilol) + ligadura.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Clasificación de Forrest</b> (decide la terapia endoscópica y la infusión de IBP): Ia en chorro, Ib en capa, IIa vaso visible → alto riesgo, hemostasia; IIb coágulo adherido → considerar; IIc mancha pigmentada y III base limpia → bajo riesgo, IBP oral y alta temprana. Terapia endoscópica: la inyección de adrenalina nunca sola, siempre combinada.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Terlipresina:</b> contraindicada en cardiopatía isquémica y enfermedad arterial periférica grave; produce hiponatremia. Vigilar el sodio y signos de isquemia. En cirrosis, la profilaxis secundaria posterior es betabloqueador no selectivo (propranolol o carvedilol) + ligadura.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p><b>Fármacos:</b> la terlipresina no siempre está en el cuadro básico público; el octreótido o la somatostatina son la alternativa práctica.</p>
         <p><b><i>H. pylori</i>:</b> su prevalencia es alta. Biopsia o test en el episodio; si es negativo en el sangrado agudo, repetir (falso negativo con IBP).</p>
@@ -948,39 +940,37 @@ footer a{color:var(--accent)}
 <article class="panel" id="v47" role="tabpanel" aria-labelledby="t-v47" hidden>
   <div>
     <h2>Desmielinización osmótica: por qué corregir rápido el sodio lesiona el cerebro</h2>
-    <div class="meta"><span>Fuente: TikTok @doctorlobo1 (doctorlobo), animación de 10 láminas</span><span>Duración 1:24</span><span>Recibido 05/11/2026</span><span>Sin referencias citadas; evidencia del análisis verificada en la web</span></div>
+    <div class="meta"><span>Bases: Sterns (NEJM 2015), Gankam Kengne (JASN 2011), guía europea 2014, panel de EE. UU. 2013, MacMillan (NEJM Evid 2023)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 47">
-    <a href="#v47-resumen">Resumen</a><a href="#v47-sec">Secuencia</a><a href="#v47-clin">Clínica del SDO</a><a href="#v47-calc">Monitor de 24/48 h</a><a href="#v47-analisis">Análisis crítico</a><a href="#v47-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v47-resumen">Resumen</a><a href="#v47-sec">Secuencia</a><a href="#v47-clin">Clínica del SDO</a><a href="#v47-calc">Monitor de 24/48 h</a><a href="#v47-analisis">Puntos clave</a><a href="#v47-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v47-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Caso educativo: sodio de <b>110</b> que sube a <b>126 mEq/L</b> (+16): sobrecorrección. El video muestra, célula por célula (astrocito, neurona, oligodendrocito), cómo el cerebro se adapta a la hiponatremia crónica <b>vaciándose de osmolitos</b>. Si después el sodio sube rápido, el agua sale, la glía se contrae y la <b>mielina se separa</b>: mielinólisis pontina y extrapontina, con síntomas <b>días después</b>. Cierra con dos escenarios: rescate con salino 3 % ante síntomas graves (+4–6) y corrección lenta en la hiponatremia crónica. Además advierte que el bolo cuenta dentro del total de 24 h.</p>
-    <p class="note">Repite en parte la <b>pestaña 30</b>: allí están los límites de corrección, la calculadora de Adrogué-Madias, el esquema del salino 3 % y la re-disminución con dextrosa 5 % y desmopresina. Esta pestaña agrega solo lo nuevo: el mecanismo celular, la clínica del síndrome de desmielinización osmótica (SDO), la evidencia de 2023–2026 y un monitor de la trayectoria del sodio.</p>
+    <p class="lead">Caso: sodio de <b>110</b> que sube a <b>126 mEq/L</b> (+16): sobrecorrección. El cerebro se adapta a la hiponatremia crónica <b>vaciándose de osmolitos</b>, célula por célula (astrocito, neurona, oligodendrocito). Si después el sodio sube rápido, el agua sale, la glía se contrae y la <b>mielina se separa</b>: mielinólisis pontina y extrapontina, con síntomas <b>días después</b>. Dos escenarios: rescate con salino 3 % ante síntomas graves (+4–6) y corrección lenta en la crónica; el bolo cuenta dentro del total de 24 h.</p>
+    <p class="note">Complementa la <b>pestaña 30</b>, donde están los límites de corrección, la calculadora de Adrogué-Madias, el esquema del salino 3 % y la re-disminución con dextrosa 5 % y desmopresina. Aquí: el mecanismo celular, la clínica del síndrome de desmielinización osmótica (SDO), la evidencia de 2023–2026 y un monitor de la trayectoria del sodio.</p>
   </section>
 
   <section id="v47-sec">
-    <h3>Las 10 láminas del video</h3>
+    <h3>Secuencia fisiopatológica</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Lámina</th><th>Video</th><th>Comentario (agregado)</th></tr></thead>
+      <thead><tr><th>Etapa</th><th>Qué ocurre</th><th>Implicación clínica</th></tr></thead>
       <tbody>
-        <tr><td><b>1 · El riesgo</b></td><td>Na⁺ 110 → 126: "corregirlo rápido lesiona el cerebro"; la lesión es diferida</td><td>+16 en 24 h duplica el límite de alto riesgo (8)</td></tr>
-        <tr><td><b>2 · El agua entra</b></td><td>Baja la tonicidad extracelular; la célula se hincha (volumen relativo 1,00 → 1,30). AQP4 en el pie perivascular del astrocito</td><td>El astrocito, con acuaporina 4, es la primera célula que se hincha y la que lidera la adaptación</td></tr>
-        <tr><td><b>3 · El cráneo</b></td><td>Límite rígido: edema cerebral</td><td>Es el riesgo de la hiponatremia <b>aguda</b> (&lt; 48 h): herniación. Por eso se rescata con salino 3 %</td></tr>
-        <tr><td><b>4 · La adaptación</b></td><td>Primero salen K⁺ y Cl⁻; luego osmolitos orgánicos (mioinositol, taurina, glutamina) en &gt; 48 h. Volumen recuperado (1,04) con reserva reducida</td><td>Correcto: los electrolitos salen en horas, los orgánicos en 24–48 h. "Adaptación progresiva, no un interruptor"</td></tr>
-        <tr><td><b>5 · La trampa</b></td><td>110 → 123 (+13/24 h). "123 aún es hiponatremia: el ascenso es relativo al cerebro adaptado". Recuperar osmolitos tarda días</td><td>Mensaje clave: el daño depende del <b>cambio</b> del sodio, no del valor final</td></tr>
-        <tr><td><b>6 · Estrés glial</b></td><td>El agua sale y la glía se contrae (0,91 → 0,66)</td><td>La reabsorción de osmolitos es lenta, sobre todo la del mioinositol</td></tr>
-        <tr><td><b>7 · Desmielinización</b></td><td>Sin soporte glial, la mielina se separa: bloqueo focal del impulso</td><td>Ver el matiz sobre la muerte del astrocito en el análisis</td></tr>
-        <tr><td><b>8 · El puente</b></td><td>Mielinólisis pontina y extrapontina (tálamo, ganglios basales); síntomas días después</td><td>Latencia típica de 2–6 días</td></tr>
-        <tr><td><b>9 · Dos escenarios</b></td><td>A) Síntomas graves: salino 3 % en bolo, +4–6 mmol/L. B) Crónica: meta +4 a +6/24 h; "límite prudente habitual +6 a 8"; alto riesgo ≤ 8. Na⁺ seriado y diuresis. "No son dosis acumulables: el bolo forma parte de la corrección diaria"</td><td>Los límites del video son más estrictos que los de las guías (ver el matiz)</td></tr>
-        <tr><td><b>10 · Protección</b></td><td>Corrección controlada: la conducción saltatoria se conserva</td><td>Cierre con llamado a guardar el video</td></tr>
+        <tr><td><b>1 · El agua entra</b></td><td>Baja la tonicidad extracelular y la célula se hincha (volumen relativo ≈ 1,30). El astrocito, con acuaporina 4 en su pie perivascular, es el primero en hincharse</td><td>El astrocito lidera la adaptación</td></tr>
+        <tr><td><b>2 · El cráneo</b></td><td>Límite rígido: edema cerebral</td><td>Riesgo de la hiponatremia <b>aguda</b> (&lt; 48 h): herniación. Se rescata con salino 3 %</td></tr>
+        <tr><td><b>3 · La adaptación</b></td><td>Primero salen K⁺ y Cl⁻ (horas); luego osmolitos orgánicos: mioinositol, taurina, glutamina (24–48 h). El volumen se recupera con la reserva osmótica reducida</td><td>Adaptación progresiva, no un interruptor</td></tr>
+        <tr><td><b>4 · La trampa</b></td><td>110 → 123 en 24 h (+13): 123 sigue siendo hiponatremia, pero el ascenso es relativo al cerebro adaptado. Recuperar osmolitos tarda días</td><td>El daño depende del <b>cambio</b> del sodio, no del valor final</td></tr>
+        <tr><td><b>5 · Estrés glial</b></td><td>El agua sale y la glía se contrae; la reabsorción de osmolitos, sobre todo del mioinositol, es lenta</td><td>El astrocito muere primero (ver Puntos clave)</td></tr>
+        <tr><td><b>6 · Desmielinización</b></td><td>Sin soporte glial, el oligodendrocito y la mielina se pierden: bloqueo de la conducción</td><td>Mielinólisis pontina y extrapontina (tálamo, ganglios basales)</td></tr>
+        <tr><td><b>7 · Latencia</b></td><td>Los síntomas aparecen días después de la corrección</td><td>Típicamente 2–6 días</td></tr>
+        <tr><td><b>8 · Dos escenarios</b></td><td>A) Síntomas graves: salino 3 % en bolo, meta +4–6 mEq/L. B) Crónica sin síntomas graves: corrección lenta, con Na⁺ seriado y diuresis</td><td>El bolo forma parte del total de 24 h: no se suma aparte</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v47-clin">
-    <h3>Clínica del SDO (agregado)</h3>
+    <h3>Clínica del SDO</h3>
     <div class="tbl"><table>
       <thead><tr><th>Aspecto</th><th>Qué buscar</th></tr></thead>
       <tbody>
@@ -996,7 +986,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v47-calc">
-    <h3>Monitor de la trayectoria del sodio (agregado)</h3>
+    <h3>Monitor de la trayectoria del sodio</h3>
     <div class="box">
       <p class="note">Anota cada natremia con la hora desde el primer valor, sin excluir las tomadas tras los bolos. El monitor calcula el mayor ascenso en cualquier ventana de 24 h y en 48 h, y lo compara con el límite según el riesgo. Ejemplo precargado: alcohólico, Na⁺ 110, convulsión, dos bolos de salino 3 % y luego autocorrección.</p>
       <div class="calc">
@@ -1026,14 +1016,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v47-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Animación excelente y fisiológicamente fiel; la mejor explicación visual del mecanismo en la colección. Puntos para ajustar:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Adaptación en dos fases (electrolitos en horas, osmolitos orgánicos en 24–48 h), reacumulación lenta tras corregir, localización pontina y extrapontina y latencia de días. Dos mensajes muy útiles: "123 todavía es hiponatremia" (cuenta el cambio, no el valor) y "el bolo forma parte de la corrección diaria".</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Los límites del video son más estrictos que las guías.</b> "+6 a 8/24 h" como límite habitual es, en realidad, el límite de alto riesgo. En riesgo habitual, la guía europea 2014 fija ≤ 10 en las primeras 24 h y ≤ 18 en 48 h; el panel de EE. UU. 2013 acepta 10–12. La meta (4–8) no es el techo.</p><p>Usa mEq/L y mmol/L indistintamente; para el sodio son equivalentes.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Adaptación en dos fases (electrolitos en horas, osmolitos orgánicos en 24–48 h), reacumulación lenta tras corregir, localización pontina y extrapontina y latencia de días. Dos mensajes muy útiles: "123 todavía es hiponatremia" (cuenta el cambio, no el valor) y "el bolo forma parte de la corrección diaria".</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Límites de corrección:</b> +6 a 8/24 h es el límite de alto riesgo, no el habitual. En riesgo habitual, la guía europea 2014 fija ≤ 10 en las primeras 24 h y ≤ 18 en 48 h; el panel de EE. UU. 2013 acepta 10–12. La meta (4–8) no es el techo.</p><p>Para el sodio, mEq/L y mmol/L son equivalentes.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>El SDO es raro y la velocidad no lo explica todo.</b> En Toronto (22 858 internaciones), la corrección rápida ocurrió en el 17,7 % y el SDO en el 0,05 %; 7 de 12 casos no habían tenido corrección rápida (MacMillan, NEJM Evid 2023). Un metaanálisis de 2025 halló un SDO del 0,73 % con corrección rápida y del 0,10 % sin ella (OR 3,16).</p><p>Otro metaanálisis observacional (Chauhan, JAMA Intern Med 2025) asoció la corrección más rápida con menor mortalidad, aunque con confusión probable. En una cohorte de Kaiser (preprint, sin revisión por pares), el Na⁺ ≤ 105, el K⁺ &lt; 3 y el alcohol pesaron más que la velocidad. El debate sigue abierto (Kidney International 2026) y las guías de 2013–2014 no se han actualizado.</p><p><b>Consecuencia práctica:</b> el miedo al SDO no debe retrasar el bolo ni dejar al paciente subtratado; en el paciente de alto riesgo, el límite de 8 se mantiene.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Mecanismo:</b> el video atribuye el daño a la contracción glial. La evidencia experimental (Gankam Kengne, JASN 2011) muestra que el astrocito muere primero (pierde AQP4 y no recupera osmolitos). Siguen la ruptura de la barrera hematoencefálica, la activación de la microglía y, al final, la pérdida del oligodendrocito y de la mielina. El dibujo es compatible, pero el actor central es el astrocito.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>La sobrecorrección casi nunca viene del bolo: viene de la autocorrección.</b> Ocurre al reponer volumen en el hipovolémico, suspender la tiazida, dar corticoide en la insuficiencia suprarrenal o tratar la potomanía. El riñón empieza a eliminar agua libre: una diuresis &gt; 100 mL/h de orina clara anuncia el salto.</p><p>En el alto riesgo se puede usar desmopresina de forma proactiva ("clamp") junto con el salino 3 %. El manejo de la re-disminución está en la pestaña 30.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Mecanismo:</b> la evidencia experimental (Gankam Kengne, JASN 2011) muestra que el astrocito muere primero (pierde AQP4 y no recupera osmolitos). Siguen la ruptura de la barrera hematoencefálica, la activación de la microglía y, al final, la pérdida del oligodendrocito y de la mielina. El actor central es el astrocito.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>La sobrecorrección casi nunca viene del bolo: viene de la autocorrección.</b> Ocurre al reponer volumen en el hipovolémico, suspender la tiazida, dar corticoide en la insuficiencia suprarrenal o tratar la potomanía. El riñón empieza a eliminar agua libre: una diuresis &gt; 100 mL/h de orina clara anuncia el salto.</p><p>En el alto riesgo se puede usar desmopresina de forma proactiva ("clamp") junto con el salino 3 %. El manejo de la re-disminución está en la pestaña 30.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>El potasio también sube el sodio.</b> El KCl entra en la ecuación de Edelman: reponer 40–60 mEq en el paciente con K⁺ &lt; 3 puede sumar varios mEq/L de sodio. Cuéntalo dentro del límite (dosis de KCl en la pestaña 31).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p><b>Salino 3 %:</b> rara vez viene preparado. Con ampollas de NaCl al 20 %: 445 mL de SS 0,9 % + 55 mL de NaCl 20 % ≈ 500 mL al 3 %. Verifica la concentración en la etiqueta, porque existen otras.</p>
@@ -1055,20 +1044,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v48" role="tabpanel" aria-labelledby="t-v48" hidden>
   <div>
     <h2>Gasometría en 4 pasos: pH, causa, compensación y trastorno mixto</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain (recibido por WhatsApp)</span><span>Duración 2:50</span><span>Recibido 05/11/2026</span><span>Sin referencias citadas; fórmulas verificadas con la literatura estándar</span></div>
+    <div class="meta"><span>Bases: Berend (NEJM 2014), Seifter (NEJM 2014), Winters 1967, Kraut y Madias 2007, Villacorta-Cordova 2020</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 48">
-    <a href="#v48-resumen">Resumen</a><a href="#v48-pasos">4 pasos</a><a href="#v48-calc">Clasificador</a><a href="#v48-analisis">Análisis crítico</a><a href="#v48-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v48-resumen">Resumen</a><a href="#v48-pasos">4 pasos</a><a href="#v48-calc">Clasificador</a><a href="#v48-analisis">Puntos clave</a><a href="#v48-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v48-resumen">
     <h3>Resumen</h3>
-    <p class="lead">"Un pH normal no descarta un trastorno ácido-base: puede esconder dos opuestos." El video propone leer la gasometría en 4 pasos: <b>1) pH</b> (acidemia o alcalemia), <b>2) causa</b> (PaCO₂ o HCO₃⁻), <b>3) compensación esperada</b> ("el paso que casi todos omiten") y <b>4) comparar</b> lo medido con lo esperado: si coincide, el trastorno es simple; si se aleja, es mixto y cambia el tratamiento. Ejemplo: pH 7,25, HCO₃⁻ 12, PaCO₂ 26; la esperada por Winters es 26 ± 2, así que es una acidosis metabólica simple. Cierra con un caso para responder: pH 7,26, PaCO₂ 60, HCO₃⁻ 26.</p>
-    <p class="note">Se complementa con la <b>pestaña 29</b>, que tiene la calculadora de anión gap corregido por albúmina, Winters y coherencia de Henderson para la acidosis metabólica grave. Esta pestaña agrega los cuatro trastornos primarios con sus reglas de compensación aguda y crónica. El video no da la respuesta de su caso; aquí sí (ver el análisis).</p>
+    <p class="lead">"Un pH normal no descarta un trastorno ácido-base: puede esconder dos opuestos." La gasometría se lee en 4 pasos: <b>1) pH</b> (acidemia o alcalemia), <b>2) causa</b> (PaCO₂ o HCO₃⁻), <b>3) compensación esperada</b> (el paso que más se omite) y <b>4) comparar</b> lo medido con lo esperado: si coincide, el trastorno es simple; si se aleja, es mixto y cambia el tratamiento. Ejemplo: pH 7,25, HCO₃⁻ 12, PaCO₂ 26; la esperada por Winters es 26 ± 2: acidosis metabólica simple.</p>
+    <p class="note">Se complementa con la <b>pestaña 29</b>, que tiene la calculadora de anión gap corregido por albúmina, Winters y coherencia de Henderson para la acidosis metabólica grave. Aquí: los cuatro trastornos primarios con sus reglas de compensación aguda y crónica.</p>
   </section>
 
   <section id="v48-pasos">
-    <h3>Los 4 pasos del video</h3>
+    <h3>Los 4 pasos</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Mira el pH</h4>
         <ul><li>&lt; 7,35: acidemia; &gt; 7,45: alcalemia.</li><li>"El pH avisa, no dice qué es". Un 7,40 puede ser normal o dos trastornos opuestos.</li></ul></li>
@@ -1076,14 +1065,14 @@ footer a{color:var(--accent)}
         <ul><li>Normales: PaCO₂ <span class="dose">35–45</span>, HCO₃⁻ <span class="dose">22–26</span>.</li><li>pH ↓ con PaCO₂ ↑: respiratoria. pH ↓ con HCO₃⁻ ↓: metabólica. En la alcalemia, al revés.</li></ul></li>
       <li class="step"><span class="num">3</span><h4>Compensación esperada</h4>
         <div class="tbl"><table style="min-width:0">
-          <thead><tr><th>Trastorno primario</th><th>Video</th><th>Ajuste (agregado)</th></tr></thead>
+          <thead><tr><th>Trastorno primario</th><th>Compensación esperada</th><th>Margen</th></tr></thead>
           <tbody>
             <tr><td>Acidosis metabólica</td><td class="m">PaCO₂ = 1,5 × HCO₃⁻ + 8</td><td>± 2 (Winters)</td></tr>
             <tr><td>Acidosis respiratoria aguda</td><td class="m">HCO₃⁻ +1 por cada 10</td><td>± 2</td></tr>
             <tr><td>Acidosis respiratoria crónica</td><td class="m">HCO₃⁻ +4 por cada 10</td><td>3,5–4; ± 2</td></tr>
             <tr><td>Alcalosis metabólica</td><td class="m">PaCO₂ +0,7 por cada 1</td><td>± 5; rara vez supera 55 mmHg</td></tr>
-            <tr><td><b>Alcalosis respiratoria aguda</b></td><td>No la menciona</td><td class="m">HCO₃⁻ −2 por cada 10</td></tr>
-            <tr><td><b>Alcalosis respiratoria crónica</b></td><td>No la menciona</td><td class="m">HCO₃⁻ −4 a −5 por cada 10</td></tr>
+            <tr><td><b>Alcalosis respiratoria aguda</b></td><td class="m">HCO₃⁻ −2 por cada 10</td><td>± 2</td></tr>
+            <tr><td><b>Alcalosis respiratoria crónica</b></td><td class="m">HCO₃⁻ −4 a −5 por cada 10</td><td>± 2; única que puede normalizar el pH</td></tr>
           </tbody>
         </table></div></li>
       <li class="step"><span class="num">4</span><h4>Compara</h4>
@@ -1092,9 +1081,9 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v48-calc">
-    <h3>Clasificador ácido-base de los 4 trastornos (agregado)</h3>
+    <h3>Clasificador ácido-base de los 4 trastornos</h3>
     <div class="box">
-      <p class="note">Precargado: hombre de 68 años con EPOC (consulta por disnea de 3 días). Cambia los valores para probar otros casos, por ejemplo el del video (7,26 / 60 / 26).</p>
+      <p class="note">Precargado: hombre de 68 años con EPOC (consulta por disnea de 3 días). Cambia los valores para probar otros casos, por ejemplo 7,26 / 60 / 26.</p>
       <div class="calc">
         <label for="g48-ph">pH<input id="g48-ph" type="number" step="0.01" min="6.8" max="7.8" value="7.28"></label>
         <label for="g48-pc">PaCO₂ (mmHg)<input id="g48-pc" type="number" min="10" max="150" value="68"></label>
@@ -1110,15 +1099,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v48-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Método claro y bien animado, con fórmulas correctas. Le falta un trastorno primario y un par de pasos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Un pH normal no descarta trastorno; la secuencia pH → causa → compensación → comparación es el abordaje fisiológico clásico (Berend, NEJM 2014). Winters, +1/10 en la acidosis respiratoria aguda, +4/10 en la crónica y +0,7 en la alcalosis metabólica son correctos. El ejemplo (7,25 / 12 / 26) es coherente con Henderson y es una acidosis metabólica simple.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Respuesta del caso del video (7,26 / PaCO₂ 60 / HCO₃⁻ 26): A, acidosis respiratoria aguda.</b> PaCO₂ +20 → HCO₃⁻ esperado 24 + 2 = 26 en la aguda (en la crónica sería ≈ 32). El pH esperado en la aguda es ≈ 7,24 (−0,08 por cada 10). Coincide: trastorno simple, agudo. Piensa en hipoventilación aguda (opioides, sedantes, fatiga muscular, crisis asmática grave).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Falta la alcalosis respiratoria</b>, el cuarto trastorno primario: HCO₃⁻ −2 por cada 10 en la aguda y −4 a −5 en la crónica. Es la única compensación que puede normalizar el pH (en la crónica). Las demás nunca llegan a 7,40 ni lo cruzan: si el pH es normal con PaCO₂ y HCO₃⁻ alterados, sospecha un trastorno mixto. Es frecuente en sepsis, embarazo, hepatopatía, ansiedad y salicilatos.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Los pasos que también se omiten:</b></p><p><b>Paso 0, coherencia:</b> H⁺ = 24 × PaCO₂ / HCO₃⁻; si el pH calculado no coincide, el resultado es un error de muestra o de transcripción (la pestaña 29 encontró una gasometría incoherente en otro video).</p><p><b>Paso 5:</b> en toda acidosis metabólica, el anión gap corregido por albúmina y, si está alto, el delta-delta para detectar una acidosis hiperclorémica o una alcalosis metabólica escondidas. Un AG alto con pH normal ya indica un trastorno mixto.</p><p><b>Oxigenación:</b> PaO₂ y gradiente A-a. El video la pone como opción ("¿qué miras primero?") pero no la analiza; en la guardia la hipoxemia mata antes que el pH.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Primero la compensación, después el diagnóstico"</b> invierte el orden. Primero se identifica el trastorno primario (pasos 1–2) y después la compensación confirma si es simple o mixto. Mejor: "no cierres el diagnóstico sin calcular la compensación".</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Cambia el tratamiento"</b>, dicho sin ejemplo. El más importante: en la cetoacidosis o la acidosis láctica, una PaCO₂ por encima de la esperada por Winters indica fatiga respiratoria e insuficiencia ventilatoria inminente. Es el paciente más peligroso para intubar (pestaña 29; cetoacidosis en la pestaña 24 de la Videoteca 2).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Un pH normal no descarta trastorno; la secuencia pH → causa → compensación → comparación es el abordaje fisiológico clásico (Berend, NEJM 2014). Reglas: Winters, +1/10 en la acidosis respiratoria aguda, +4/10 en la crónica y +0,7 en la alcalosis metabólica. El ejemplo (7,25 / 12 / 26) es coherente con Henderson y es una acidosis metabólica simple.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ejemplo resuelto (7,26 / PaCO₂ 60 / HCO₃⁻ 26): acidosis respiratoria aguda.</b> PaCO₂ +20 → HCO₃⁻ esperado 24 + 2 = 26 en la aguda (en la crónica sería ≈ 32). El pH esperado en la aguda es ≈ 7,24 (−0,08 por cada 10). Coincide: trastorno simple, agudo. Piensa en hipoventilación aguda (opioides, sedantes, fatiga muscular, crisis asmática grave).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Alcalosis respiratoria</b>, el cuarto trastorno primario: HCO₃⁻ −2 por cada 10 en la aguda y −4 a −5 en la crónica. Es la única compensación que puede normalizar el pH (en la crónica). Las demás nunca llegan a 7,40 ni lo cruzan: si el pH es normal con PaCO₂ y HCO₃⁻ alterados, sospecha un trastorno mixto. Es frecuente en sepsis, embarazo, hepatopatía, ansiedad y salicilatos.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Pasos complementarios:</b></p><p><b>Paso 0, coherencia:</b> H⁺ = 24 × PaCO₂ / HCO₃⁻; si el pH calculado no coincide, el resultado es un error de muestra o de transcripción (ejemplo en la pestaña 29).</p><p><b>Paso 5:</b> en toda acidosis metabólica, el anión gap corregido por albúmina y, si está alto, el delta-delta para detectar una acidosis hiperclorémica o una alcalosis metabólica escondidas. Un AG alto con pH normal ya indica un trastorno mixto.</p><p><b>Oxigenación:</b> PaO₂ y gradiente A-a; en la guardia, la hipoxemia mata antes que el pH.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El orden importa:</b> primero se identifica el trastorno primario (pasos 1–2) y después la compensación confirma si es simple o mixto. No cierres el diagnóstico sin calcular la compensación.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Por qué el trastorno mixto cambia el tratamiento.</b> El ejemplo más importante: en la cetoacidosis o la acidosis láctica, una PaCO₂ por encima de la esperada por Winters indica fatiga respiratoria e insuficiencia ventilatoria inminente. Es el paciente más peligroso para intubar (pestaña 29; cetoacidosis en la pestaña 24 de la Videoteca 2).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p><b>Altura:</b> estas fórmulas y normales valen para la costa. En Quito (2 850 m), la PaCO₂ normal es ≈ 32 mmHg y el HCO₃⁻ ≈ 20 mEq/L; en Manta, ≈ 38 y 24 (Villacorta-Cordova, 2020). Un paciente de la Sierra con PaCO₂ 32 y HCO₃⁻ 20 no tiene una acidosis metabólica compensada.</p>
         <p><b>Gasometría venosa:</b> si no hay gasómetro arterial a mano, la venosa periférica sirve para el estado ácido-base (pH ≈ 0,03 menor, HCO₃⁻ similar), no para la PaO₂ ni, en el shock, para la PaCO₂. Basta para seguir una cetoacidosis.</p>
@@ -1140,22 +1128,22 @@ footer a{color:var(--accent)}
 <article class="panel" id="v50" role="tabpanel" aria-labelledby="t-v50" hidden>
   <div>
     <h2>Lesión renal aguda en 3 pasos: confirma, descarta obstrucción y separa prerrenal de renal</h2>
-    <div class="meta"><span>Fuente: TikTok, autor no visible en el video ("Nefrología · Urgencias"; promociona una plataforma de pago para el ENARM)</span><span>Duración 1:56</span><span>Recibido 10/11/2026</span><span>Sin referencias citadas; criterios KDIGO 2012 (verificados) y borrador KDIGO 2026</span></div>
+    <div class="meta"><span>Bases: KDIGO 2012, borrador KDIGO 2026 (LRA/ERA), STARRT-AKI (NEJM 2020), SMART (NEJM 2018)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 50">
-    <a href="#v50-resumen">Resumen</a><a href="#v50-pasos">3 pasos</a><a href="#v50-calc">Calculadora</a><a href="#v50-analisis">Análisis crítico</a><a href="#v50-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v50-resumen">Resumen</a><a href="#v50-pasos">3 pasos</a><a href="#v50-calc">Calculadora</a><a href="#v50-analisis">Puntos clave</a><a href="#v50-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v50-resumen">
     <h3>Resumen</h3>
     <p class="lead">Tres pasos. <b>1) Confirmar</b> con criterios KDIGO: creatinina +0,3 mg/dL en 48 h, ≥ 1,5 veces la basal en 7 días o diuresis &lt; 0,5 mL/kg/h durante 6 h. <b>2) Descartar obstrucción</b>: globo vesical (sonda) y ecografía buscando hidronefrosis (próstata, litos, tumor pélvico → posrenal). <b>3) Fracción excretada de sodio</b>: &lt; 1 % prerrenal (diarrea, vómito, hemorragia), &gt; 2 % renal, con el sedimento (cilindros granulosos "café" en la NTA, eritrocitarios en la glomerulonefritis, leucocitarios en la nefritis intersticial). Trampa: con diuréticos, usar la FE de urea (&lt; 35 % prerrenal). Diálisis urgente cuando, a pesar del tratamiento, hay acidosis grave, potasio alto, intoxicación dializable, sobrecarga de volumen o uremia (pericarditis o encefalopatía). Caso: mujer de 72 años con diarrea de 3 días, enalapril e ibuprofeno; creatinina 2,4 (basal 1,0), sin hidronefrosis, FENa 0,4 % → prerrenal, estadio 2: cristaloide y suspender ambos fármacos.</p>
-    <p class="note">Cierra promocionando una plataforma de medicina por suscripción para el ENARM (examen de residencias de México): contenido con fin comercial, sin patrocinio farmacéutico. La pestaña 29 trata el bicarbonato y la diálisis en la acidosis grave; la pestaña 46 de la Videoteca 2, la ERC dentro del síndrome CKM.</p>
+    <p class="note">La pestaña 29 trata el bicarbonato y la diálisis en la acidosis grave; la pestaña 46 de la Videoteca 2, la ERC dentro del síndrome CKM.</p>
   </section>
 
   <section id="v50-pasos">
     <h3>Los 3 pasos y la estadificación</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Paso</th><th>Video</th><th>Complemento (agregado)</th></tr></thead>
+      <thead><tr><th>Paso</th><th>Criterio</th><th>Detalle</th></tr></thead>
       <tbody>
         <tr><td><b>1 · Confirmar</b></td><td>+0,3 en 48 h · ×1,5 en 7 días · &lt; 0,5 mL/kg/h × 6 h</td><td>Estadios KDIGO: <b>1</b> = 1,5–1,9× o +0,3, o diuresis &lt; 0,5 durante 6–12 h; <b>2</b> = 2,0–2,9×, o &lt; 0,5 ≥ 12 h; <b>3</b> = ≥ 3×, creatinina ≥ 4,0, diálisis, &lt; 0,3 ≥ 24 h o anuria ≥ 12 h</td></tr>
         <tr><td><b>2 · Obstrucción</b></td><td>Globo vesical → sonda; ecografía: hidronefrosis (próstata, litos, tumor pélvico)</td><td>La obstrucción precoz, la bilateral parcial y la retroperitoneal (fibrosis, tumor) pueden no dilatar al inicio. Medir el residuo posmiccional</td></tr>
@@ -1167,9 +1155,9 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v50-calc">
-    <h3>Calculadora KDIGO, FENa y FEUrea (agregada)</h3>
+    <h3>Calculadora KDIGO, FENa y FEUrea</h3>
     <div class="box">
-      <p class="note">Precargado con el caso del video (Na⁺ y creatinina urinarios elegidos para dar su FENa de 0,4 %).</p>
+      <p class="note">Precargado: mujer de 72 años con diarrea, enalapril e ibuprofeno; creatinina 2,4 (basal 1,0), FENa ≈ 0,4 %.</p>
       <div class="calc">
         <label for="r50-cr">Creatinina actual (mg/dL)<input id="r50-cr" type="number" step="0.1" min="0.1" max="25" value="2.4"></label>
         <label for="r50-crb">Creatinina basal (mg/dL)<input id="r50-crb" type="number" step="0.1" min="0.1" max="15" value="1.0"></label>
@@ -1191,20 +1179,18 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v50-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Algoritmo correcto, ordenado y con un buen caso. Las fracciones excretadas se presentan con más poder diagnóstico del que tienen:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Criterios KDIGO 2012, el orden confirmar → descartar obstrucción → prerrenal o renal, los cortes de FENa (&lt; 1 / &gt; 2 %) y FEUrea (&lt; 35 %), los cilindros y las indicaciones de diálisis urgente "a pesar del tratamiento". El caso está bien resuelto: 2,4 / 1,0 = 2,4× es estadio 2, y suspender el IECA y el AINE es la conducta central.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Criterios KDIGO 2012, el orden confirmar → descartar obstrucción → prerrenal o renal, los cortes de FENa (&lt; 1 / &gt; 2 %) y FEUrea (&lt; 35 %), los cilindros y las indicaciones de diálisis urgente "a pesar del tratamiento". En el caso: 2,4 / 1,0 = 2,4× es estadio 2, y suspender el IECA y el AINE es la conducta central.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>La FENa baja no es sinónimo de prerrenal.</b> Es &lt; 1 % también en la nefropatía por contraste, la rabdomiólisis, la glomerulonefritis aguda, la obstrucción precoz, la sepsis, el síndrome hepatorrenal y la insuficiencia cardíaca.</p><p><b>Y la alta no siempre es renal:</b> sube con diuréticos, ERC previa, edad avanzada, bicarbonaturia o glucosuria. Además solo es interpretable en la oliguria. El mejor "test" del prerrenal es terapéutico: la creatinina vuelve a la basal en 24–72 h con volumen y retirada de fármacos.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>El caso es hemodinámico más que "prerrenal" puro.</b> IECA + AINE + depleción de volumen: el IECA dilata la arteriola eferente y el AINE contrae la aferente. Si se agrega un diurético, es la "triple whammy". En la paciente de 72 años del caso, la FENa podría no bajar de 1 % pese a ser hemodinámica.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que falta tras el diagnóstico:</b> potasio y gasometría de entrada (IECA + LRA = hiperpotasemia), suspender también metformina, diuréticos, iSGLT2 y otros nefrotóxicos, ajustar dosis por filtrado y preferir cristaloides balanceados frente al salino 0,9 % en volúmenes grandes (SMART, NEJM 2018).</p><p>Reiniciar el IECA cuando se recupere la creatinina (no abandonarlo) y controlar a los 3 meses: la LRA aumenta el riesgo de ERC.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>KDIGO 2026:</b> el borrador de la nueva guía de LRA y enfermedad renal aguda (primera revisión mayor desde 2012; consulta pública cerrada en mayo de 2026) incorpora la cistatina C cuando la creatinina es poco fiable, biomarcadores estructurales, un método jerárquico para fijar la creatinina basal y el seguimiento después del alta. La versión final aún no está publicada; los criterios del video siguen vigentes.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Tras el diagnóstico:</b> potasio y gasometría de entrada (IECA + LRA = hiperpotasemia), suspender también metformina, diuréticos, iSGLT2 y otros nefrotóxicos, ajustar dosis por filtrado y preferir cristaloides balanceados frente al salino 0,9 % en volúmenes grandes (SMART, NEJM 2018).</p><p>Reiniciar el IECA cuando se recupere la creatinina (no abandonarlo) y controlar a los 3 meses: la LRA aumenta el riesgo de ERC.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>KDIGO 2026:</b> el borrador de la nueva guía de LRA y enfermedad renal aguda (primera revisión mayor desde 2012; consulta pública cerrada en mayo de 2026) incorpora la cistatina C cuando la creatinina es poco fiable, biomarcadores estructurales, un método jerárquico para fijar la creatinina basal y el seguimiento después del alta. La versión final aún no está publicada; los criterios de 2012 siguen vigentes.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas:</b></p>
-        <p><b>Causas de la costa que no menciona:</b> leptospirosis (LRA no oligúrica con hipopotasemia y FENa alta, a menudo con ictericia), dengue grave (choque y rabdomiólisis), mordedura de serpiente <i>Bothrops</i> en zonas arroceras y bananeras, y golpe de calor o rabdomiólisis por esfuerzo en jornaleros.</p>
+        <p><b>Causas propias de la costa:</b> leptospirosis (LRA no oligúrica con hipopotasemia y FENa alta, a menudo con ictericia), dengue grave (choque y rabdomiólisis), mordedura de serpiente <i>Bothrops</i> en zonas arroceras y bananeras, y golpe de calor o rabdomiólisis por esfuerzo en jornaleros.</p>
         <p><b>AINE:</b> se venden sin receta y son la causa evitable más común en la consulta.</p>
         <p><b>Ecografía:</b> el transductor lineal (L12-5Q) sirve para estimar el volumen vesical en pacientes delgados, pero no basta para valorar la hidronefrosis en el adulto: se necesita uno convexo de 2–5 MHz.</p>
         <p><b>Laboratorio:</b> el Na⁺ y la creatinina urinarios suelen estar disponibles en el laboratorio privado; la urea urinaria, menos.</p></div>
-      <div class="vd"><span class="tag crit">Conflicto</span><p>El video termina con la promoción de una plataforma de pago orientada al ENARM (México). No afecta el contenido técnico, pero su público objetivo y sus referencias de examen no son ecuatorianos.</p></div>
       <div class="vd"><span class="tag add">Para la cátedra</span><p>Mostrar tres pacientes con FENa 0,5 %: deshidratado por diarrea, rabdomiólisis por esfuerzo y nefropatía por contraste. Solo el primero es prerrenal; la evolución tras el volumen los separa.</p></div>
     </div>
     <div class="callout"><strong>En la guardia:</strong> confirma con la creatinina basal, pide potasio y gasometría, coloca sonda si hay globo, y suspende IECA/ARA-II, AINE, diuréticos y metformina. Da cristaloide si hay depleción. La FENa ayuda, pero la que decide es la respuesta de la creatinina en 24–72 h.</div>
@@ -1221,30 +1207,16 @@ footer a{color:var(--accent)}
 <article class="panel" id="v52" role="tabpanel" aria-labelledby="t-v52" hidden>
   <div>
     <h2>Delta-delta: el trastorno que esconde un bicarbonato "casi normal"</h2>
-    <div class="meta"><span>Fuente: video animado de TikTok, autor no visible ("¿Brecha aniónica alta y ya terminaste?"); ampliado a pedido del Dr. Croce</span><span>Duración 1:18</span><span>Recibido 18/11/2026</span><span>Bases: Rastegar (JASN 2007), Berend (NEJM 2014), Kraut y Madias (CJASN 2007), Figge (CCM 1998); referencias clásicas</span></div>
+    <div class="meta"><span>Bases: Rastegar (JASN 2007), Berend (NEJM 2014), Kraut y Madias (CJASN 2007), Figge (CCM 1998); referencias clásicas</span></div>
   </div>
   <nav class="subnav" aria-label="Secciones de la pestaña 52">
-    <a href="#v52-resumen">Resumen</a><a href="#v52-video">El video</a><a href="#v52-formula">Fórmula</a><a href="#v52-casos">Casos</a><a href="#v52-calc">Calculadora</a><a href="#v52-analisis">Límites</a><a href="#v52-quiz">Autoevaluación</a>
+    <a href="#v52-resumen">Resumen</a><a href="#v52-formula">Fórmula</a><a href="#v52-casos">Casos</a><a href="#v52-calc">Calculadora</a><a href="#v52-analisis">Límites</a><a href="#v52-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v52-resumen">
     <h3>Resumen</h3>
     <p class="lead">En una acidosis con <b>anión gap alto</b>, cada mEq de ácido que se acumula consume, en teoría, un mEq de bicarbonato. El delta-delta compara <b>cuánto subió el anión gap</b> con <b>cuánto bajó el bicarbonato</b>. Si bajaron en proporción, la acidosis es pura. Si el bicarbonato bajó menos de lo esperado, hay una <b>alcalosis metabólica escondida</b> (vómitos, diuréticos, sonda nasogástrica). Si bajó más, hay además una <b>acidosis hiperclorémica</b> (diarrea, salino en exceso, acidosis tubular). Es el paso que descubre un tercer trastorno cuando la gasometría "no parece tan grave": un HCO₃⁻ de 22 con anión gap de 25 no es normal.</p>
     <p class="note">Completa la <b>pestaña 48</b> (gasometría en 4 pasos) y la <b>pestaña 29</b> (anión gap y bicarbonato en la acidosis grave). Úsalo solo si el anión gap corregido por albúmina está elevado.</p>
-  </section>
-
-  <section id="v52-video">
-    <h3>Lo que muestra el video</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>Lámina</th><th>Video</th><th>Precisión (agregado)</th></tr></thead>
-      <tbody>
-        <tr><td><b>La lógica</b></td><td>"1 ácido consume 1 bicarbonato": si la brecha sube 12, el HCO₃⁻ debería bajar 12</td><td>Correcto como idea. En la práctica la relación no es 1:1 (ver Límites)</td></tr>
-        <tr><td><b>La fórmula</b></td><td>ΔΔ = (brecha − 12) / (24 − HCO₃⁻)</td><td>Falta la corrección por albúmina y usar el AG normal del laboratorio</td></tr>
-        <tr><td><b>Interpretación</b></td><td>1–2: acidosis con brecha elevada pura · &lt; 1: el HCO₃⁻ bajó de más → + acidosis con brecha normal · &gt; 2: bajó de menos → + alcalosis metabólica</td><td>Versión simplificada de dos cortes. Con los de Rastegar (0,4 · 0,8 · 2), la acidosis pura empieza en 0,8: una cetoacidosis pura (≈ 1) puede quedar por debajo de 1 sin ser mixta</td></tr>
-        <tr><td><b>Caso clínico</b></td><td>Cetoacidosis + 2 días vomitando. Na 140, Cl 90, HCO₃⁻ 18 → brecha 32; 20 / 6 = 3,3 → cetoacidosis + alcalosis metabólica</td><td>Cálculo correcto (es el caso 6 de la tabla y de la calculadora). HCO₃⁻ corregido 38</td></tr>
-        <tr><td><b>Cierre</b></td><td>"Sin el delta-delta, un HCO₃⁻ de 18 'casi normal' te habría engañado"</td><td>18 no es casi normal: es una acidosis. El engaño real es que subestima la gravedad: la acidosis "verdadera" es mucho mayor</td></tr>
-      </tbody>
-    </table></div>
   </section>
 
   <section id="v52-formula">
@@ -1279,7 +1251,7 @@ footer a{color:var(--accent)}
         <tr><td><b>3 · Cirrótico séptico</b></td><td>Na 135, Cl 105, HCO₃⁻ 18, albúmina 2,0</td><td>AG 12 "normal" → corregido 17 · ΔAG 5 · ΔHCO₃⁻ 6 · cociente 0,83</td><td>Sin corregir por albúmina, parece hiperclorémica pura; en realidad es una <b>acidosis láctica</b> escondida</td></tr>
         <tr><td><b>4 · EPOC con sepsis</b></td><td>HCO₃⁻ basal conocido 32. Hoy Na 138, Cl 92, HCO₃⁻ 26, albúmina 4</td><td>AG 20 · ΔAG 8. Con 24 de referencia: ΔHCO₃⁻ −2 (sin sentido). Con su basal de 32: ΔHCO₃⁻ 6 · cociente 1,3</td><td>Un HCO₃⁻ de 26 "normal" es una caída de 6 para él: acidosis láctica pura sobre una retención crónica de CO₂. Usa el basal del paciente</td></tr>
         <tr><td><b>5 · Cetoacidosis en tratamiento</b></td><td>A las 12 h de salino 0,9 %: Na 140, Cl 115, HCO₃⁻ 14, albúmina 3,6</td><td>AG 11 → corregido 12 · ΔAG 0 · cociente ≈ 0</td><td>Cetonas aclaradas, pero persiste una acidosis <b>hiperclorémica</b> por el salino y la cetonuria. Es esperable: no indica que la cetoacidosis siga activa (cetonemia y AG para seguirla; pestaña 24 de la Videoteca 2)</td></tr>
-        <tr><td><b>6 · Caso del video</b></td><td>Cetoacidosis + 2 días de vómitos. Na 140, Cl 90, HCO₃⁻ 18, albúmina 4</td><td>AG 32 · ΔAG 20 · ΔHCO₃⁻ 6 · cociente 3,3 · HCO₃⁻ corregido 38</td><td>Cetoacidosis grave + alcalosis metabólica por vómitos. Un HCO₃⁻ de 18 hace subestimar una brecha de 32</td></tr>
+        <tr><td><b>6 · Cetoacidosis con vómitos (2 días)</b></td><td>Cetoacidosis + 2 días de vómitos. Na 140, Cl 90, HCO₃⁻ 18, albúmina 4</td><td>AG 32 · ΔAG 20 · ΔHCO₃⁻ 6 · cociente 3,3 · HCO₃⁻ corregido 38</td><td>Cetoacidosis grave + alcalosis metabólica por vómitos. Un HCO₃⁻ de 18 hace subestimar una brecha de 32</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -1287,9 +1259,9 @@ footer a{color:var(--accent)}
   <section id="v52-calc">
     <h3>Calculadora de delta-delta</h3>
     <div class="box">
-      <p class="note">Precargado con el caso 1. Los botones cargan los otros casos de la tabla (el 6 es el del video).</p>
+      <p class="note">Precargado con el caso 1. Los botones cargan los otros casos de la tabla.</p>
       <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-        <button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="0">Caso 1</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="1">Caso 2</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="2">Caso 3</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="3">Caso 4</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="4">Caso 5</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="5">Caso 6 (video)</button>
+        <button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="0">Caso 1</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="1">Caso 2</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="2">Caso 3</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="3">Caso 4</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="4">Caso 5</button><button type="button" class="d52-ej" style="padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;cursor:pointer" data-ej="5">Caso 6</button>
       </div>
       <div class="calc">
         <label for="d52-na">Na⁺ (mEq/L)<input id="d52-na" type="number" min="100" max="180" value="135"></label>
@@ -1308,13 +1280,13 @@ footer a{color:var(--accent)}
   <section id="v52-analisis">
     <h3>Límites y matices</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>El fundamento fisiológico es sólido. En una acidosis con AG alto pura, la acumulación del anión no medido debería equivaler a la pérdida de bicarbonato. Los cortes (&lt; 0,4 · 0,4–0,8 · 0,8–2 · &gt; 2) son los de Rastegar (JASN 2007) y el uso integrado está en Berend (NEJM 2014).</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Sobre el video:</b> es claro, correcto en el cálculo y bien animado; no tiene contenido comercial. Sus cortes simplificados (&lt; 1, 1–2, &gt; 2) son útiles para empezar, pero llevan a sobrediagnosticar trastornos mixtos en la cetoacidosis pura, cuyo cociente ronda 1 por la pérdida urinaria de cetoaniones. Entre 0,8 y 1, piensa primero en acidosis pura.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"HCO₃⁻ 18 casi normal"</b> es una exageración retórica: 18 mEq/L es una acidosis metabólica. Lo que engaña es la magnitud, no la existencia del trastorno: con una brecha de 32, la cetoacidosis es grave aunque el bicarbonato "solo" esté en 18. El ejemplo del caso 1 (HCO₃⁻ 22, pH 7,39) es la versión extrema del mismo fenómeno.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>El fundamento fisiológico es sólido. En una acidosis con AG alto pura, la acumulación del anión no medido debería equivaler a la pérdida de bicarbonato. Los cortes (&lt; 0,4 · 0,4–0,8 · 0,8–2 · &gt; 2) son los de Rastegar (JASN 2007) y el uso integrado está en Berend (NEJM 2014).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Cortes simplificados</b> (&lt; 1, 1–2, &gt; 2): útiles para empezar, pero llevan a sobrediagnosticar trastornos mixtos en la cetoacidosis pura, cuyo cociente ronda 1 por la pérdida urinaria de cetoaniones. Entre 0,8 y 1, piensa primero en acidosis pura.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Un HCO₃⁻ de 18 no es "casi normal":</b> es una acidosis metabólica. Lo que engaña es la magnitud: con una brecha de 32, la cetoacidosis es grave aunque el bicarbonato "solo" esté en 18. El ejemplo del caso 1 (HCO₃⁻ 22, pH 7,39) es la versión extrema del mismo fenómeno.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>La relación no es exactamente 1:1.</b> En la acidosis láctica parte del H⁺ se amortigua dentro de las células y el hueso, y el cociente ronda 1,6. En la cetoacidosis, el riñón elimina cetoaniones por la orina (el AG sube menos) y el cociente ronda 1. Por eso el rango "puro" es amplio (0,8–2) y los valores cercanos a los cortes no deben sobreinterpretarse.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>El AG normal depende del laboratorio.</b> Con analizadores modernos es más bajo (≈ 8–10) que el 12 clásico. Usar 12 cuando tu normal es 8 subestima el ΔAG. Ajusta el valor en la calculadora.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Sin cloro no hay delta-delta.</b> Muchos ionogramas informan solo Na⁺ y K⁺: pide el cloro siempre que pidas una gasometría. Y corrige por albúmina: en el paciente crítico o cirrótico, la hipoalbuminemia puede esconder un AG elevado (caso 3).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros "aniones" del AG alto que el delta-delta ayuda a sospechar:</b> lactato, cetonas, uremia, tóxicos (metanol, etilenglicol, salicilatos), D-lactato y piroglutamato (paracetamol crónico en desnutridos). Si el AG es alto sin lactato, cetonas ni uremia, calcula la brecha osmolar.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otros "aniones" del AG alto que el delta-delta ayuda a sospechar:</b> lactato, cetonas, uremia, tóxicos (metanol, etilenglicol, salicilatos), D-lactato y piroglutamato (paracetamol crónico en desnutridos). Si el AG es alto sin lactato, cetonas ni uremia, calcula la brecha osmolar.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas:</b></p>
         <p><b>Cetoacidosis con vómitos</b> (caso 1): es la causa más frecuente de un bicarbonato "casi normal" con cetoacidosis real. El paciente llega con pH aceptable y se subestima.</p>
         <p><b>Choque por dengue o gastroenteritis</b> (caso 2): acidosis láctica más pérdida intestinal de bicarbonato.</p>
@@ -1332,14 +1304,176 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: Rastegar A. Use of the ΔAG/ΔHCO3⁻ ratio in the diagnosis of mixed acid-base disorders, J Am Soc Nephrol 2007;18:2429–2431; Berend K, de Vries APJ, Gans ROB. Physiological approach to assessment of acid–base disturbances, NEJM 2014; Kraut JA, Madias NE. Serum anion gap: its uses and limitations in clinical medicine, Clin J Am Soc Nephrol 2007; Figge J et al. Anion gap and hypoalbuminemia, Crit Care Med 1998; Wrenn K. The delta (Δ) gap: an approach to mixed acid-base disorders, Ann Emerg Med 1990.</p>
 </article>
 
+<article class="panel" id="v53" role="tabpanel" aria-labelledby="t-v53" hidden>
+  <div>
+    <h2>Neumonía nosocomial y asociada a ventilación mecánica: antibiótico empírico según el riesgo</h2>
+    <div class="meta"><span>Bases: IDSA/ATS 2016 (NAH/NAV), ERS/ESICM/ESCMID/ALAT 2017, IDSA guía de gramnegativos resistentes 2026, ATS 2025 (NAC)</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones de la pestaña 53">
+    <a href="#v53-resumen">Resumen</a><a href="#v53-dx">Diagnóstico</a><a href="#v53-riesgo">Riesgo</a><a href="#v53-esquemas">Esquemas</a><a href="#v53-dirigido">Dirigido</a><a href="#v53-calc">Asistente</a><a href="#v53-analisis">Puntos clave</a><a href="#v53-quiz">Autoevaluación</a>
+  </nav>
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
+  <section id="v53-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">La neumonía <b>adquirida en el hospital</b> (NAH) aparece ≥ 48 h después del ingreso sin ventilación mecánica; la <b>asociada a ventilación</b> (NAV), ≥ 48 h después de la intubación. A diferencia de la neumonía de la comunidad, el problema no es el neumococo sino <b>S. aureus, P. aeruginosa y los gramnegativos multirresistentes</b>. El esquema empírico se arma respondiendo tres preguntas: <b>¿cubro SAMR?</b>, <b>¿uno o dos antipseudomónicos?</b> y <b>¿qué dice el antibiograma de mi UCI?</b> Después, a las 48–72 h, se desescala con el cultivo y se trata <b>7 días</b>.</p>
+    <p class="note">La NAC (ambulatoria, hospitalizada y grave) está en las <b>pestañas 27 y 28</b>; la sepsis y la infusión prolongada de betalactámicos, en la <b>pestaña 25</b>.</p>
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th></th><th>NAC grave</th><th>NAH (sin VM)</th><th>NAV</th></tr></thead>
+      <tbody>
+        <tr><td><b>Gérmenes</b></td><td>Neumococo, Legionella, H. influenzae, S. aureus, virus</td><td>S. aureus, enterobacterias, P. aeruginosa</td><td>P. aeruginosa, S. aureus, Klebsiella, Acinetobacter</td></tr>
+        <tr><td><b>Base empírica</b></td><td>Betalactámico + macrólido</td><td>Antipseudomónico (± SAMR)</td><td>Antipseudomónico + anti-S. aureus siempre</td></tr>
+        <tr><td><b>Duración</b></td><td>≥ 5 días con estabilidad</td><td>7 días</td><td>7 días</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v53-dx">
+    <h3>Diagnóstico: infiltrado nuevo + clínica, y cultivo antes del antibiótico</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Sospecha</h4>
+        <ul><li>Infiltrado nuevo o progresivo en la imagen, más al menos dos de: fiebre &gt; 38 °C o hipotermia, leucocitosis o leucopenia, secreciones purulentas, empeoramiento de la oxigenación.</li><li>En el ventilado, la radiografía portátil es poco específica: atelectasia, edema y SDRA la imitan. La ecografía pulmonar (consolidación con broncograma dinámico) ayuda a separarlas.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Muestra respiratoria</h4>
+        <ul><li>NAV: aspirado endotraqueal semicuantitativo (no invasivo) es suficiente; el lavado broncoalveolar no mejora la mortalidad.</li><li>NAH: esputo inducido o aspirado si es posible. Hemocultivos en ambas.</li><li>Tómala <b>antes</b> de iniciar o cambiar el antibiótico, sin retrasarlo si hay choque.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Lo que no ayuda</h4>
+        <ul><li>No usar CPIS ni procalcitonina para decidir si se <b>inicia</b> antibiótico: la decisión es clínica.</li><li>La procalcitonina sí sirve, junto con la clínica, para <b>suspenderlo</b>.</li><li>Traqueobronquitis asociada a ventilación (secreciones purulentas sin infiltrado nuevo): no tratar con antibiótico sistémico.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v53-riesgo">
+    <h3>Factores de riesgo que cambian el esquema</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Factor</th><th>NAV</th><th>NAH</th></tr></thead>
+      <tbody>
+        <tr><td>Antibiótico IV en los últimos 90 días</td><td>Riesgo de multirresistencia (SAMR + doble antipseudomónico)</td><td>Riesgo de SAMR y de Pseudomonas resistente</td></tr>
+        <tr><td>Choque séptico al momento de la neumonía</td><td>Riesgo de multirresistencia</td><td>Alto riesgo de mortalidad: esquema amplio</td></tr>
+        <tr><td>SDRA previo a la NAV</td><td>Riesgo de multirresistencia</td><td>—</td></tr>
+        <tr><td>≥ 5 días de hospitalización antes de la NAV</td><td>Riesgo de multirresistencia</td><td>—</td></tr>
+        <tr><td>Terapia de reemplazo renal aguda previa</td><td>Riesgo de multirresistencia</td><td>—</td></tr>
+        <tr><td>Necesita ventilación por la propia neumonía</td><td>—</td><td>Alto riesgo de mortalidad: esquema amplio</td></tr>
+        <tr><td>Enfermedad pulmonar estructural (bronquiectasias, fibrosis quística)</td><td>—</td><td>Doble antipseudomónico</td></tr>
+        <tr><td>Colonización o aislamiento previo de SAMR o gramnegativo resistente</td><td>Cubrir ese germen</td><td>Cubrir ese germen</td></tr>
+        <tr><td><b>Antibiograma de la unidad</b></td><td colspan="2">SAMR &gt; 10–20 % de los S. aureus (NAV) o &gt; 20 % (NAH), o desconocido → cubrir SAMR. Gramnegativos resistentes &gt; 10 % al fármaco elegido, o desconocido → doble antipseudomónico</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">"Desconocido" cuenta como riesgo: si tu hospital no publica el antibiograma de la UCI, el esquema debe ser el amplio.</p>
+  </section>
+
+  <section id="v53-esquemas">
+    <h3>Esquemas empíricos</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Escenario</th><th>Esquema</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td><b>NAH sin riesgo de SAMR ni de mortalidad alta</b></td><td>Un fármaco: piperacilina/tazobactam, cefepime, levofloxacino, imipenem o meropenem</td><td>Cubre MSSA y P. aeruginosa sensible</td></tr>
+        <tr><td><b>NAH con riesgo de SAMR</b></td><td>Lo anterior + vancomicina o linezolid</td><td>Retira la cobertura si el cultivo o la PCR nasal de SAMR son negativos</td></tr>
+        <tr><td><b>NAH con mortalidad alta o antibiótico IV en 90 días</b></td><td>Dos antipseudomónicos de clases distintas + vancomicina o linezolid</td><td>Nunca dos betalactámicos juntos</td></tr>
+        <tr><td><b>NAV sin factores de riesgo y unidad de baja resistencia</b></td><td>Un antipseudomónico con actividad anti-MSSA: piperacilina/tazobactam, cefepime, levofloxacino, imipenem o meropenem</td><td>Toda NAV se cubre para S. aureus y P. aeruginosa</td></tr>
+        <tr><td><b>NAV con riesgo de multirresistencia (incluye choque séptico)</b></td><td>Betalactámico antipseudomónico + segundo antipseudomónico (amikacina, ciprofloxacino o levofloxacino) + vancomicina o linezolid</td><td>Ajusta el betalactámico al antibiograma: en UCI con BLEE o KPC frecuentes, meropenem o el agente que tu unidad indique</td></tr>
+        <tr><td><b>Alergia grave a betalactámicos</b></td><td>Aztreonam + amikacina o quinolona + vancomicina o linezolid</td><td>Aztreonam no cubre grampositivos: el anti-SAMR es obligatorio. Las cefalosporinas de 4.ª generación suelen tolerarse en alergia no anafiláctica a penicilina</td></tr>
+        <tr><td><b>NAC necrotizante o sospecha de S. aureus productor de PVL</b></td><td>Ceftriaxona 2 g + azitromicina + linezolid (o vancomicina + clindamicina)</td><td>Linezolid y clindamicina inhiben la síntesis de toxina; la vancomicina sola, no. Pensar en ella tras influenza, con hemoptisis, leucopenia y cavitación rápida</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Dosis del adulto con función renal normal</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Fármaco</th><th>Dosis</th><th>Comentario</th></tr></thead>
+      <tbody>
+        <tr><td>Piperacilina/tazobactam</td><td><span class="dose">4,5 g IV c/6 h</span></td><td>Infusión prolongada (3–4 h) en el crítico</td></tr>
+        <tr><td>Cefepime</td><td><span class="dose">2 g IV c/8 h</span></td><td>Neurotoxicidad si no se ajusta a la función renal</td></tr>
+        <tr><td>Ceftazidima</td><td><span class="dose">2 g IV c/8 h</span></td><td>Débil contra grampositivos: no cubre S. aureus</td></tr>
+        <tr><td>Meropenem</td><td><span class="dose">1 g IV c/8 h</span> (2 g c/8 h si CIM alta o SNC)</td><td>Infusión prolongada; reservar para BLEE o riesgo alto</td></tr>
+        <tr><td>Imipenem/cilastatina</td><td><span class="dose">500 mg IV c/6 h</span></td><td>Convulsiones con dosis altas y falla renal</td></tr>
+        <tr><td>Aztreonam</td><td><span class="dose">2 g IV c/8 h</span></td><td>Opción en anafilaxia a betalactámicos</td></tr>
+        <tr><td>Levofloxacino</td><td><span class="dose">750 mg IV/VO c/24 h</span></td><td>500 mg es subterapéutico para Pseudomonas</td></tr>
+        <tr><td>Ciprofloxacino</td><td><span class="dose">400 mg IV c/8 h</span></td><td>Mejor actividad antipseudomónica de las quinolonas</td></tr>
+        <tr><td>Amikacina</td><td><span class="dose">15–20 mg/kg IV c/24 h</span></td><td>Solo como segundo agente, nunca en monoterapia; suspender en 3–5 días</td></tr>
+        <tr><td>Vancomicina</td><td>Carga <span class="dose">25–30 mg/kg</span>, luego <span class="dose">15 mg/kg c/8–12 h</span></td><td>Ajustar por AUC 400–600 o valle 15–20; vigilar creatinina</td></tr>
+        <tr><td>Linezolid</td><td><span class="dose">600 mg IV/VO c/12 h</span></td><td>Preferible con creatinina en ascenso; vigilar plaquetas después de 10–14 días</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v53-dirigido">
+    <h3>Tratamiento dirigido de los gramnegativos resistentes</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Mecanismo</th><th>Preferido</th><th>Alternativa / nota</th></tr></thead>
+      <tbody>
+        <tr><td><b>BLEE</b> (Klebsiella, E. coli)</td><td>Meropenem o imipenem</td><td>Ertapenem si no está crítico. Piperacilina/tazobactam no se recomienda aunque el antibiograma diga "sensible"</td></tr>
+        <tr><td><b>AmpC</b> (Enterobacter, Klebsiella aerogenes, Citrobacter freundii)</td><td>Cefepime (si CIM ≤ 2)</td><td>Carbapenem si CIM de cefepime ≥ 4. Evitar ceftriaxona aunque salga sensible</td></tr>
+        <tr><td><b>Carbapenemasa KPC</b></td><td>Ceftazidima/avibactam, meropenem/vaborbactam o imipenem/relebactam</td><td>La más frecuente en hospitales ecuatorianos</td></tr>
+        <tr><td><b>Metalo-betalactamasa</b> (NDM, VIM)</td><td>Ceftazidima/avibactam + aztreonam, o cefiderocol</td><td>Ceftazidima/avibactam sola no sirve</td></tr>
+        <tr><td><b>P. aeruginosa de difícil tratamiento</b></td><td>Ceftolozano/tazobactam, ceftazidima/avibactam o imipenem/relebactam</td><td>Cefiderocol si hay resistencia a los anteriores</td></tr>
+        <tr><td><b>A. baumannii resistente a carbapenémicos</b></td><td>Sulbactam/durlobactam + carbapenem</td><td>Sin acceso: ampicilina/sulbactam en dosis alta (sulbactam 6–9 g/día) + un segundo agente (polimixina, minociclina o cefiderocol)</td></tr>
+      </tbody>
+    </table></div>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Desescalar a las 48–72 h</h4>
+        <ul><li>Con cultivo: un solo fármaco, el de menor espectro activo. Suspender el segundo antipseudomónico y el anti-SAMR si no se aislaron.</li><li>Sin crecimiento y paciente estable: considerar suspender todo y buscar otro diagnóstico.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Duración: 7 días</h4>
+        <ul><li>Igual para Pseudomonas y no fermentadores. Más tiempo solo con empiema, absceso, bacteriemia por S. aureus o respuesta lenta.</li><li>La procalcitonina en descenso, junto con la mejoría clínica, apoya la suspensión.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v53-calc">
+    <h3>Asistente de cobertura empírica (NAH/NAV)</h3>
+    <div class="box">
+      <p class="note">Precargado: varón de 58 años intubado por TEC, día 6 de ventilación, neumonía nueva con choque séptico; recibió ceftriaxona IV hace 10 días; la UCI no publica antibiograma.</p>
+      <div class="calc">
+        <label for="n53-tipo">Tipo<select id="n53-tipo"><option value="nav" selected>NAV (≥ 48 h de intubación)</option><option value="nah">NAH sin ventilación</option></select></label>
+        <label for="n53-mrsa">SAMR en la unidad<select id="n53-mrsa"><option value="bajo">&lt; 10 % de S. aureus</option><option value="medio">10–20 %</option><option value="alto">&gt; 20 %</option><option value="nd" selected>Desconocido</option></select></label>
+        <label for="n53-gn">Gramnegativos resistentes al fármaco elegido<select id="n53-gn"><option value="bajo">≤ 10 %</option><option value="alto">&gt; 10 %</option><option value="nd" selected>Desconocido</option></select></label>
+        <label for="n53-alerg">Alergia a betalactámicos<select id="n53-alerg"><option value="no" selected>No</option><option value="leve">No anafiláctica a penicilina</option><option value="grave">Anafilaxia / grave</option></select></label>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:12px">
+        <b>Factores del paciente</b>
+        <label for="n53-atb"><input type="checkbox" id="n53-atb" checked> Antibiótico IV en 90 días</label>
+        <label for="n53-shock"><input type="checkbox" id="n53-shock" checked> Choque séptico</label>
+        <label for="n53-sdra"><input type="checkbox" id="n53-sdra"> SDRA previo (NAV)</label>
+        <label for="n53-d5"><input type="checkbox" id="n53-d5" checked> ≥ 5 días hospitalizado (NAV)</label>
+        <label for="n53-trr"><input type="checkbox" id="n53-trr"> Reemplazo renal agudo previo (NAV)</label>
+        <label for="n53-vmnah"><input type="checkbox" id="n53-vmnah"> Requiere ventilación por la neumonía (NAH)</label>
+        <label for="n53-estr"><input type="checkbox" id="n53-estr"> Bronquiectasias o fibrosis quística</label>
+        <label for="n53-colm"><input type="checkbox" id="n53-colm"> SAMR previo (cultivo o PCR nasal)</label>
+        <label for="n53-colg"><input type="checkbox" id="n53-colg"> Gramnegativo BLEE o KPC previo</label>
+      </div>
+      <div class="result"><span class="big" id="n53-dx">—</span><span id="n53-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="n53-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">Dosis para función renal normal; la primera dosis no se reduce. Herramienta educativa: el antibiograma local y el infectólogo mandan.</p>
+    </div>
+  </section>
+
+  <section id="v53-analisis">
+    <h3>Puntos clave</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Toda NAV cubre S. aureus y P. aeruginosa.</b> Un esquema de ceftriaxona o ampicilina/sulbactam deja sin cobertura a Pseudomonas, que es el primer o segundo germen de la NAV en casi todas las series. Las guías europeas (ERS/ESICM/ESCMID/ALAT 2017) aceptan un esquema sin cobertura antipseudomónica solo en la NAH o NAV precoz de bajo riesgo, sin choque, en unidades con baja resistencia: es la excepción, no la regla.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>El choque séptico es, por sí mismo, un factor de multirresistencia.</b> No hay "choque sin otro factor": el paciente en choque recibe doble cobertura antipseudomónica y anti-SAMR desde el inicio, y se desescala con el cultivo. Un carbapenem en monoterapia no cubre SAMR.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Dos antipseudomónicos solo al inicio.</b> La combinación busca acertar con al menos un fármaco activo mientras llega el cultivo, no sinergia. Con el antibiograma, se deja uno. El aminoglucósido no se usa solo en neumonía (mala penetración pulmonar) y se retira en 3–5 días por nefrotoxicidad.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>PCR nasal de SAMR negativa:</b> valor predictivo negativo &gt; 95 % para neumonía por SAMR. Permite retirar vancomicina o linezolid a las 24–48 h, lo que reduce la lesión renal por vancomicina, sobre todo cuando se combina con piperacilina/tazobactam.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>En la NAC grave</b> la dosis de cefotaxima del adulto es 1–2 g IV c/8 h (el cálculo en mg/kg es pediátrico), la de levofloxacino 750 mg/día y la de azitromicina 500 mg/día IV en el hospitalizado. La ATS 2025 añade: antibiótico empírico aunque la prueba viral sea positiva en el hospitalizado, ≥ 5 días en la NAC grave y hidrocortisona en la NAC grave (condicional). Detalle en las pestañas 27 y 28.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Sensible" en el antibiograma no basta</b> para BLEE y AmpC: piperacilina/tazobactam fue inferior a meropenem en bacteriemia por BLEE (MERINO), y la ceftriaxona selecciona mutantes desreprimidos de AmpC durante el tratamiento. Pregunta al laboratorio el mecanismo, no solo la sensibilidad.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas:</b></p>
+        <p><b>Klebsiella pneumoniae productora de KPC</b> es endémica en las UCI de Guayaquil y la NDM va en aumento: un meropenem empírico puede fallar. Si el paciente tuvo KPC, el empírico debe ser ceftazidima/avibactam; si es NDM, ceftazidima/avibactam + aztreonam.</p>
+        <p><b>Acinetobacter baumannii</b> resistente a carbapenémicos es frecuente en la NAV tardía. El sulbactam/durlobactam tiene acceso muy limitado: la alternativa realista es ampicilina/sulbactam en dosis alta más polimixina.</p>
+        <p><b>Sin antibiograma de UCI</b> en muchos hospitales: asume "desconocido" y usa el esquema amplio, con desescalado obligatorio a las 48–72 h.</p>
+        <p><b>Tuberculosis:</b> Guayas concentra la mayor carga del país. Antes de dar una quinolona como segundo agente, pide baciloscopia o GeneXpert en el aspirado si hay cavitación o evolución subaguda; la quinolona enmascara la TB.</p></div>
+      <div class="vd"><span class="tag add">Para la cátedra</span><p>Presentar la misma NAV en tres versiones: día 3 sin factores y UCI de baja resistencia (un antipseudomónico), día 6 con choque y antibiograma desconocido (triple esquema) y el mismo paciente con KPC previo (ceftazidima/avibactam). Enseña que el esquema no depende de la neumonía sino del paciente y de la unidad.</p></div>
+    </div>
+    <div class="callout"><strong>En la UCI:</strong> cultivo del aspirado y hemocultivos, y antibiótico en la primera hora si hay choque. Cubre S. aureus y Pseudomonas siempre; suma SAMR y un segundo antipseudomónico si hay choque, antibiótico IV en 90 días o antibiograma desconocido. A las 48–72 h, desescala con el cultivo; total, 7 días.</div>
+  </section>
+
+  <section id="v53-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v53"></div>
+  </section>
+  <p class="note">Referencias: Kalil AC, Metersky ML, Klompas M et al. Management of adults with hospital-acquired and ventilator-associated pneumonia: 2016 clinical practice guidelines by the IDSA and ATS, Clin Infect Dis 2016;63:e61–e111; Torres A, Niederman MS, Chastre J et al. International ERS/ESICM/ESCMID/ALAT guidelines for the management of hospital-acquired and ventilator-associated pneumonia, Eur Respir J 2017;50:1700582; Tamma PD et al. IDSA guidance on the treatment of antimicrobial-resistant gram-negative infections (2024; actualización 2026); Jones BE et al. Diagnosis and management of community-acquired pneumonia, an official ATS clinical practice guideline, Am J Respir Crit Care Med 2025; Metlay JP et al. ATS/IDSA CAP 2019; Harris PNA et al. MERINO, JAMA 2018; Dequin PF et al. CAPE COD, NEJM 2023; Parente DM et al. Nasal MRSA PCR in pneumonia, Clin Infect Dis 2018.</p>
+</article>
+
+
+<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <b>Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</b> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
 </div>
 
 <script>
 const QUIZ = {
   v11: [
-    {q:"Según el video y la SSC, ¿cuándo debe recibir antibiótico un paciente con sepsis probable?",
+    {q:"Según la SSC, ¿cuándo debe recibir antibiótico un paciente con sepsis probable?",
      o:["Dentro de la primera hora","Dentro de 3 horas","Después del cultivo y el resultado del Gram","Solo si hay choque"], a:0,
      e:"Sepsis definitiva o probable, y todo choque: antibiótico en la primera hora."},
     {q:"Mujer de 78 años, ya recibió 30 mL/kg, PA 78/40, lactato 4,8. ¿Siguiente paso?",
@@ -1495,7 +1629,7 @@ const QUIZ = {
     {q:"pH 7,40, PaCO₂ 24, HCO₃⁻ 14. ¿Qué tienes?",
      o:["Gasometría normal","Alcalosis respiratoria crónica compensada","Acidosis metabólica + alcalosis respiratoria","Acidosis metabólica compensada"], a:2,
      e:"HCO₃⁻ 14 → PaCO₂ esperada 29 ± 2; la medida (24) es menor: hay una alcalosis respiratoria agregada. Típico de salicilatos o sepsis."},
-    {q:"El caso del video: pH 7,26, PaCO₂ 60, HCO₃⁻ 26. ¿Respuesta?",
+    {q:"pH 7,26, PaCO₂ 60, HCO₃⁻ 26. ¿Qué trastorno es?",
      o:["Acidosis respiratoria aguda","Acidosis respiratoria crónica","Acidosis metabólica pura","Trastorno mixto"], a:0,
      e:"+20 de PaCO₂: en la aguda el HCO₃⁻ sube 2 (26); en la crónica subiría 8 (32). Coincide con la aguda."},
     {q:"Cetoacidosis: pH 7,05, HCO₃⁻ 8, PaCO₂ 30. ¿Qué indica la PaCO₂?",
@@ -1542,6 +1676,23 @@ const QUIZ = {
      o:["Calcular ΔHCO₃⁻ con 24: no hay acidosis","Usar su basal: ΔHCO₃⁻ 6, ΔAG 7 → acidosis con AG alto pura","Diagnosticar alcalosis metabólica","Ignorar el AG"], a:1,
      e:"Con 24 de referencia el delta no tiene sentido. Con el basal del paciente, el cociente es ≈ 1,2: acidosis con AG alto."}
   ],
+  v53: [
+    {q:"Paciente intubado hace 7 días, NAV nueva con choque séptico; la UCI no tiene antibiograma publicado. ¿Esquema empírico?",
+     o:["Meropenem en monoterapia","Ceftriaxona + azitromicina","Betalactámico antipseudomónico + amikacina + vancomicina o linezolid","Ampicilina/sulbactam"], a:2,
+     e:"Choque y ≥ 5 días de hospitalización son factores de multirresistencia, y el antibiograma desconocido cuenta como riesgo: doble antipseudomónico + anti-SAMR, y desescalar a las 48–72 h."},
+    {q:"¿Qué gérmenes debe cubrir siempre el esquema empírico de cualquier NAV?",
+     o:["Neumococo y Legionella","S. aureus y P. aeruginosa","Anaerobios","Acinetobacter y KPC"], a:1,
+     e:"Toda NAV se cubre para S. aureus (al menos MSSA) y P. aeruginosa. KPC y Acinetobacter se cubren según colonización previa y epidemiología local."},
+    {q:"Neumonía nosocomial por Klebsiella BLEE con antibiograma 'sensible' a piperacilina/tazobactam. ¿Tratamiento dirigido?",
+     o:["Piperacilina/tazobactam, porque es sensible","Meropenem","Ceftriaxona","Ceftazidima/avibactam"], a:1,
+     e:"En infecciones graves por BLEE, el carbapenem es el preferido (MERINO). Ceftazidima/avibactam se reserva para carbapenemasas tipo KPC."},
+    {q:"NAV tratada con cefepime + amikacina + vancomicina. A las 48 h crece P. aeruginosa sensible a cefepime y la PCR nasal de SAMR es negativa. ¿Conducta?",
+     o:["Mantener los tres 14 días","Cefepime solo, completar 7 días","Cambiar a meropenem","Añadir colistina"], a:1,
+     e:"Desescalar a un solo fármaco activo y retirar el anti-SAMR con PCR nasal negativa. Duración total de 7 días, también para Pseudomonas."},
+    {q:"Klebsiella productora de metalo-betalactamasa (NDM) en una NAV. ¿Qué esquema es activo?",
+     o:["Ceftazidima/avibactam sola","Meropenem/vaborbactam","Ceftazidima/avibactam + aztreonam","Piperacilina/tazobactam"], a:2,
+     e:"Avibactam no inhibe las metalo-betalactamasas; aztreonam resiste su hidrólisis y avibactam lo protege de las BLEE acompañantes. Cefiderocol es la alternativa."}
+  ]
 };
 function noreCalc(){
   const g=id=>parseFloat(document.getElementById(id).value);
@@ -1975,6 +2126,55 @@ const D52EJ=[[135,88,22,4,12,24],[138,108,10,4,12,24],[135,105,18,2,12,24],[138,
 document.querySelectorAll('.d52-ej').forEach(b=>b.addEventListener('click',()=>{const e=D52EJ[+b.dataset.ej];['na','cl','hc','alb','agn','hcb'].forEach((id,i)=>{document.getElementById('d52-'+id).value=e[i];});d52Calc();}));
 ['d52-na','d52-cl','d52-hc','d52-alb','d52-agn','d52-hcb'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',d52Calc);e.addEventListener('change',d52Calc);});
 d52Calc();
+
+function n53Calc(){
+  const v=id=>document.getElementById(id).value, c=id=>document.getElementById(id).checked;
+  const tipo=v('n53-tipo'), mrsa=v('n53-mrsa'), gn=v('n53-gn'), al=v('n53-alerg');
+  const atb=c('n53-atb'), sh=c('n53-shock'), sdra=c('n53-sdra'), d5=c('n53-d5'), trr=c('n53-trr'), vm=c('n53-vmnah'), estr=c('n53-estr'), colm=c('n53-colm'), colg=c('n53-colg');
+  const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
+  const rM=[], rP=[]; let cubreM, doble;
+  if(tipo==='nav'){
+    const mdr=[atb&&'antibiótico IV en 90 días',sh&&'choque séptico',sdra&&'SDRA previo',d5&&'≥ 5 días hospitalizado',trr&&'reemplazo renal previo'].filter(Boolean);
+    if(mdr.length){rM.push('riesgo de multirresistencia ('+mdr.join(', ')+')');rP.push('riesgo de multirresistencia');}
+    if(mrsa!=='bajo') rM.push(mrsa==='nd'?'SAMR local desconocido':'SAMR local ≥ 10 %');
+    if(gn!=='bajo') rP.push(gn==='nd'?'resistencia local desconocida':'resistencia local > 10 %');
+  } else {
+    const hm=sh||vm;
+    if(hm){rM.push('mortalidad alta ('+(sh?'choque':'ventilación por la neumonía')+')');rP.push('mortalidad alta');}
+    if(atb){rM.push('antibiótico IV en 90 días');rP.push('antibiótico IV en 90 días');}
+    if(mrsa==='alto'||mrsa==='nd') rM.push(mrsa==='nd'?'SAMR local desconocido':'SAMR local > 20 %');
+    if(gn!=='bajo') rP.push(gn==='nd'?'resistencia local desconocida':'resistencia local > 10 %');
+  }
+  if(estr) rP.push('enfermedad pulmonar estructural');
+  if(colm) rM.push('SAMR previo');
+  cubreM=rM.length>0; doble=rP.length>0;
+  let bl;
+  if(al==='grave') bl='<b>Aztreonam 2 g IV c/8 h</b>';
+  else if(colg) bl='Según el aislamiento previo: <b>BLEE → meropenem 1 g IV c/8 h</b> (infusión de 3 h); <b>KPC → ceftazidima/avibactam 2,5 g IV c/8 h</b>; NDM → ceftazidima/avibactam + aztreonam';
+  else if(al==='leve') bl='<b>Cefepime 2 g IV c/8 h</b> o meropenem 1 g IV c/8 h';
+  else if(doble||sh) bl='<b>Piperacilina/tazobactam 4,5 g IV c/6 h</b> (infusión prolongada) o <b>cefepime 2 g IV c/8 h</b>; meropenem 1 g c/8 h si la UCI tiene BLEE frecuentes';
+  else bl='<b>Uno</b>: piperacilina/tazobactam 4,5 g c/6 h, cefepime 2 g c/8 h, levofloxacino 750 mg/día o meropenem 1 g c/8 h';
+  const seg=doble?'<b>Amikacina 15–20 mg/kg IV c/24 h</b> o ciprofloxacino 400 mg IV c/8 h (levofloxacino 750 mg si no se usó arriba)':'No (un solo antipseudomónico)';
+  const antiM=(cubreM||al==='grave')?'<b>Vancomicina</b> carga 25–30 mg/kg, luego 15 mg/kg c/8–12 h (AUC 400–600), o <b>linezolid 600 mg c/12 h</b>'+(cubreM?'':' (el aztreonam no cubre grampositivos)'):'No: el betalactámico cubre S. aureus sensible';
+  const n=1+(doble?1:0)+((cubreM||al==='grave')?1:0);
+  const dx=document.getElementById('n53-dx'), pe=document.getElementById('n53-pill'), out=document.getElementById('n53-out');
+  dx.textContent=n===3?'Esquema amplio: 3 fármacos':n===2?'Esquema intermedio: 2 fármacos':'Monoterapia antipseudomónica';
+  pe.innerHTML=pill(n===3?'Amplio':n===2?'Intermedio':'Estrecho',n===3?'crit':n===2?'add':'ok');
+  const rows=[
+    ['Cobertura SAMR',cubreM?'Sí: '+rM.join('; '):'No indicada'],
+    ['Antipseudomónicos',doble?'Dos de clases distintas: '+rP.join('; '):'Uno'],
+    ['Betalactámico',bl],
+    ['Segundo agente',seg],
+    ['Anti-SAMR',antiM],
+    ['Antes de empezar','Aspirado endotraqueal o esputo + 2 hemocultivos; PCR nasal de SAMR si cubres SAMR'],
+    ['48–72 h','Desescalar con el cultivo a un solo fármaco; retirar anti-SAMR si cultivo o PCR nasal negativos; retirar el aminoglucósido'],
+    ['Duración','7 días (más solo con empiema, absceso, bacteriemia por S. aureus o respuesta lenta)']
+  ];
+  if(sh) rows.splice(5,0,['Choque','Primera dosis en la primera hora, sin ajuste renal; infusión prolongada desde la segunda dosis (pestaña 25)']);
+  out.innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['n53-tipo','n53-mrsa','n53-gn','n53-alerg','n53-atb','n53-shock','n53-sdra','n53-d5','n53-trr','n53-vmnah','n53-estr','n53-colm','n53-colg'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',n53Calc);e.addEventListener('change',n53Calc);});
+n53Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
