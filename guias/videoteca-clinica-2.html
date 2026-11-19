@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: cabecera compacta + barra de pestañas (una por video) + panel con secciones en columna única, fichas de dosis en rejilla */
+/* Layout: cabecera compacta + barra de pestañas (una por tema) + panel con secciones en columna única, fichas de dosis en rejilla */
 :root{
   --bg:#f3f6f7; --surface:#ffffff; --fg:#14232b; --muted:#56666e; --line:#d6e0e3;
   --accent:#0b5d6b; --accent-soft:#dcedf0;
@@ -117,13 +117,13 @@ footer a{color:var(--accent)}
 
 <div class="wrap">
 <header>
-  <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
+  <span class="eyebrow">Temas clínicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 2</h1>
   <span class="eyebrow">Diabetes y metabolismo · pestañas 17–24, 41, 44, 46 y 49</span>
 </header>
 
 
-<nav class="tabs" role="tablist" aria-label="Videos">
+<nav class="tabs" role="tablist" aria-label="Temas">
   <button class="tab" role="tab" id="t-v7" aria-controls="v7" aria-selected="true">17 · Curva de glucosa e insulina</button>
   <button class="tab" role="tab" id="t-v15" aria-controls="v15" aria-selected="false">18 · Fórmulas metabólicas</button>
   <button class="tab" role="tab" id="t-v9" aria-controls="v9" aria-selected="false">19 · ¿GLP-1 o insulina?</button>
@@ -141,44 +141,44 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 17 (antes 7) ============ -->
 <article class="panel" id="v7" role="tabpanel" aria-labelledby="t-v7">
   <div>
-    <h2>"Tu glucosa en ayunas puede dar perfecta": la curva de glucosa e insulina</h2>
-    <div class="meta"><span>Fuente: TikTok @drprincich</span><span>Duración 2:20</span><span>Recibido 14/09/2026</span><span>Público original: pacientes</span></div>
+    <h2>Curva de glucosa e insulina: qué aporta y qué no</h2>
+    <div class="meta"><span>Bases: ADA Standards of Care 2026, IDF 2024 (glucosa a 1 h), Endocrine Society 2009 (hipoglucemia)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 7">
-    <a href="#v7-resumen">Resumen</a><a href="#v7-discurso">Lo que dice</a><a href="#v7-ogtt">Interpretación PTOG</a><a href="#v7-analisis">Análisis crítico</a><a href="#v7-calc">HOMA-IR y TyG</a><a href="#v7-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v7-resumen">Resumen</a><a href="#v7-discurso">Lo que dice</a><a href="#v7-ogtt">Interpretación PTOG</a><a href="#v7-analisis">Puntos clave</a><a href="#v7-calc">HOMA-IR y TyG</a><a href="#v7-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v7-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Video hablado, sin láminas; el contenido se reconstruyó a partir de los subtítulos. Tesis: <b>la glucosa en ayunas es "la foto" y la curva de glucosa con insulina es "la película"</b>. Una persona puede tener glucosa normal en ayunas y en la curva, pero insulina muy elevada, lo que sería resistencia a la insulina temprana, detectable años antes.</p>
+    <p class="lead">La glucosa en ayunas es <b>"la foto"</b>; la curva de tolerancia es <b>"la película"</b>. La resistencia a la insulina se compensa durante años con hiperinsulinemia antes de que suba la glucosa, y por eso se propone medir insulina en la curva. Esta pestaña explica qué parte de esa idea tiene respaldo y cuál es la forma validada de detectar el riesgo temprano.</p>
     <p>Mensaje final: "La próxima vez que te digan que tu glucosa en ayunas está perfecta, pensá que estás viendo la foto y no la película completa."</p>
   </section>
 
   <section id="v7-discurso">
-    <h3>Lo que dice el video</h3>
+    <h3>El planteamiento de la curva con insulina</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>La limitación del ayuno</h4>
-        <ul><li>La glucosa en ayunas muestra cómo amanece el cuerpo tras 10–12 h sin comer, pero "no vivís en ayunas, vivís comiendo". Importa qué pasa en la sangre en las horas siguientes a cada comida.</li></ul></li>
+        <ul><li>La glucosa en ayunas muestra cómo amanece el cuerpo tras 10–12 h sin comer, pero la mayor parte del día se vive en estado posprandial. Importa qué pasa en la sangre en las horas siguientes a cada comida.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>La curva de glucosa e insulina (PTOG)</h4>
-        <ul><li>Medición en ayunas, carga de glucosa, nueva medición a la hora y a las 2 horas, <b>de glucosa e insulina en cada punto</b>.</li><li>Pedir insulina, no solo glucosa, "porque ahí se esconde lo que nadie ve".</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>El hallazgo típico que describe</h4>
+        <ul><li>Medición en ayunas, carga de glucosa, nueva medición a la hora y a las 2 horas, <b>de glucosa e insulina en cada punto</b>.</li><li>La propuesta es medir también la insulina para detectar la hiperinsulinemia compensadora.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>El patrón que se busca</h4>
         <div class="tbl" style="margin-top:6px"><table style="min-width:0">
-          <thead><tr><th></th><th>Ayunas</th><th>2 horas</th><th>Lectura del video</th></tr></thead>
+          <thead><tr><th></th><th>Ayunas</th><th>2 horas</th><th>Interpretación propuesta</th></tr></thead>
           <tbody>
-            <tr><td>Glucosa (mg/dL)</td><td class="m">92</td><td class="m">130</td><td>"Excelente" y "aceptable": todo aprobado</td></tr>
-            <tr><td>Insulina (µUI/mL)</td><td class="m">12</td><td class="m">90 → 120</td><td>"Descarga monumental" del páncreas</td></tr>
+            <tr><td>Glucosa (mg/dL)</td><td class="m">92</td><td class="m">130</td><td>Glucosa normal</td></tr>
+            <tr><td>Insulina (µUI/mL)</td><td class="m">12</td><td class="m">90 → 120</td><td>Hiperinsulinemia (ver Puntos clave: no hay cortes validados)</td></tr>
           </tbody>
         </table></div>
-        <ul><li>La glucosa aprobó porque la insulina "rindió por ella", con un costo enorme. Insulina disparada con glucosa sostenida = resistencia a la insulina en su fase más temprana, años antes de que se altere el valor en ayunas.</li></ul></li>
+        <ul><li>La glucosa se mantiene a costa de más insulina. Insulina alta con glucosa sostenida = resistencia a la insulina en su fase más temprana, años antes de que se altere el valor en ayunas.</li></ul></li>
       <li class="step"><span class="num">4</span><h4>Los síntomas que lo explicarían</h4>
-        <ul><li>La descarga de insulina "sobrecorrige": la glucosa cae en picada a las 3–4 h y aparece el sueño brutal después de comer, el hambre urgente y el temblor de media tarde.</li></ul></li>
-      <li class="step"><span class="num">5</span><h4>Cuándo pedirla, según el video</h4>
-        <ul><li>Ayunas normal, pero síntomas y contexto que dicen otra cosa: triglicéridos altos, perímetro abdominal aumentado, sueño posprandial. "Lo decide tu médico."</li></ul></li>
+        <ul><li>Se atribuyen a una caída tardía de la glucosa (3–4 h) el sueño posprandial, el hambre urgente y el temblor de media tarde; son síntomas inespecíficos.</li></ul></li>
+      <li class="step"><span class="num">5</span><h4>Cuándo sospechar resistencia a la insulina</h4>
+        <ul><li>Ayunas normal con triglicéridos altos, HDL bajo, perímetro abdominal aumentado, acantosis, SOP o antecedente de diabetes gestacional.</li></ul></li>
     </ol>
   </section>
 
   <section id="v7-ogtt">
-    <h3>Interpretación validada de la PTOG con 75 g (agregado)</h3>
+    <h3>Interpretación validada de la PTOG con 75 g</h3>
     <div class="tbl"><table>
       <thead><tr><th>Tiempo</th><th>Normal</th><th>Riesgo / prediabetes</th><th>Diabetes</th><th>Fuente</th></tr></thead>
       <tbody>
@@ -188,27 +188,26 @@ footer a{color:var(--accent)}
         <tr><td>Insulina</td><td colspan="3">Sin puntos de corte diagnósticos validados</td><td>—</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Glucosa en mg/dL. La glucosa a la hora ≥ 155 mg/dL (posición IDF 2024) es el marcador validado de la "película" que describe el video: detecta riesgo con glucosa en ayunas y a las 2 h normales.</p>
+    <p class="note">Glucosa en mg/dL. La glucosa a la hora ≥ 155 mg/dL (posición IDF 2024) es el marcador validado de la "película": detecta riesgo con glucosa en ayunas y a las 2 h normales.</p>
   </section>
 
   <section id="v7-analisis">
-    <h3>Análisis crítico</h3>
-    <p>La idea de fondo es válida: la glucosa en ayunas sola subdiagnostica alteraciones del metabolismo de la glucosa. Pero el video presenta como diagnóstico algo que no lo es.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La glucosa en ayunas es insensible. Una parte importante de las personas con intolerancia a la glucosa, e incluso con diabetes por la curva, tiene ayunas normal. La PTOG de glucosa tiene valor real en pacientes de riesgo.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>La hiperinsulinemia compensadora precede por años a la hiperglucemia. Es fisiopatología bien establecida.</p></div>
-      <div class="vd"><span class="tag crit">Problema</span><p><b>La insulina en la curva no tiene valores de referencia validados.</b> Ninguna guía (ADA, AACE, Endocrine Society, IDF) la recomienda para diagnosticar resistencia a la insulina. Los ensayos de insulina no están estandarizados entre laboratorios y la variabilidad entre personas sanas es enorme.</p></div>
-      <div class="vd"><span class="tag crit">Problema</span><p><b>El ejemplo no es necesariamente anormal:</b> tras 75 g de glucosa, picos de insulina de 50–150 µUI/mL a los 30–60 min son frecuentes en personas sanas, y a las 2 h el rango es muy amplio. Rotularlo como "descarga monumental" no tiene respaldo.</p></div>
-      <div class="vd"><span class="tag crit">Problema</span><p><b>La PTOG no sirve para diagnosticar hipoglucemia reactiva.</b> Hasta 10 % de personas sanas tiene glucosas bajas a las 3–5 h sin síntomas. El diagnóstico requiere la tríada de Whipple documentada en la vida real o con comida mixta (Endocrine Society 2009). El sueño posprandial es inespecífico.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La glucosa en ayunas es insensible. Una parte importante de las personas con intolerancia a la glucosa, e incluso con diabetes por la curva, tiene ayunas normal. La PTOG de glucosa tiene valor real en pacientes de riesgo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La hiperinsulinemia compensadora precede por años a la hiperglucemia. Es fisiopatología bien establecida.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>La insulina en la curva no tiene valores de referencia validados.</b> Ninguna guía (ADA, AACE, Endocrine Society, IDF) la recomienda para diagnosticar resistencia a la insulina. Los ensayos de insulina no están estandarizados entre laboratorios y la variabilidad entre personas sanas es enorme.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Una insulina de 90–120 µUI/mL no es necesariamente anormal:</b> tras 75 g de glucosa, picos de insulina de 50–150 µUI/mL a los 30–60 min son frecuentes en personas sanas, y a las 2 h el rango es muy amplio.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>La PTOG no sirve para diagnosticar hipoglucemia reactiva.</b> Hasta 10 % de personas sanas tiene glucosas bajas a las 3–5 h sin síntomas. El diagnóstico requiere la tríada de Whipple documentada en la vida real o con comida mixta (Endocrine Society 2009). El sueño posprandial es inespecífico.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>No cambia la conducta:</b> si el paciente tiene obesidad abdominal, triglicéridos altos o HDL bajo, ya tiene criterio clínico de resistencia a la insulina (síndrome metabólico). El tratamiento (dieta, ejercicio, peso) es el mismo con o sin curva de insulina.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Alternativas más baratas y estandarizadas:</b> índice TyG (triglicéridos y glucosa en ayunas), relación TG/HDL, perímetro de cintura, HOMA-IR, y la glucosa a la hora de la PTOG. Todas son marcadores de riesgo, no diagnósticos, con puntos de corte que varían según la población.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Indicaciones reales de la PTOG (solo glucosa):</b> antecedente de diabetes gestacional, SOP, prediabetes por HbA1c o ayunas, discordancia entre HbA1c y glucemia, fibrosis quística, post-trasplante, y screening en el embarazo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Alternativas más baratas y estandarizadas:</b> índice TyG (triglicéridos y glucosa en ayunas), relación TG/HDL, perímetro de cintura, HOMA-IR, y la glucosa a la hora de la PTOG. Todas son marcadores de riesgo, no diagnósticos, con puntos de corte que varían según la población.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Indicaciones reales de la PTOG (solo glucosa):</b> antecedente de diabetes gestacional, SOP, prediabetes por HbA1c o ayunas, discordancia entre HbA1c y glucemia, fibrosis quística, post-trasplante, y screening en el embarazo.</p></div>
     </div>
-    <div class="callout"><strong>En consulta:</strong> si el paciente llega pidiendo la "curva de insulina" por este video, la versión con respaldo es una PTOG de glucosa a 0, 60 y 120 min, más perfil lipídico y cintura. La resistencia a la insulina se diagnostica con la clínica; el número de la insulina no cambia el plan.</div>
+    <div class="callout"><strong>En consulta:</strong> si el paciente pide la "curva de insulina", la versión con respaldo es una PTOG de glucosa a 0, 60 y 120 min, más perfil lipídico y cintura. La resistencia a la insulina se diagnostica con la clínica; el número de la insulina no cambia el plan.</div>
   </section>
 
   <section id="v7-calc">
-    <h3>Calculadora HOMA-IR y TyG (agregada)</h3>
+    <h3>Calculadora HOMA-IR y TyG</h3>
     <div class="box">
       <div class="calc">
         <label for="h-glu">Glucosa en ayunas (mg/dL)<input id="h-glu" type="number" min="40" max="400" value="92"></label>
@@ -216,7 +215,7 @@ footer a{color:var(--accent)}
         <label for="h-tg">Triglicéridos (mg/dL)<input id="h-tg" type="number" min="20" max="2000" value="180"></label>
       </div>
       <div class="result" aria-live="polite"><span>HOMA-IR</span><span class="big" id="h-homa">2,7</span><span class="pill" id="h-pill1"></span><span>TyG</span><span class="big" id="h-tyg">9,0</span><span class="pill" id="h-pill2"></span></div>
-      <p class="note" style="margin-top:8px">HOMA-IR = glucosa (mg/dL) × insulina / 405. TyG = ln[TG (mg/dL) × glucosa (mg/dL) / 2]. Cortes orientativos: HOMA-IR ≥ 2,5 y TyG ≥ 8,8 (varían según la población y el laboratorio). Valores de ejemplo: los del video, con TG supuestos en 180.</p>
+      <p class="note" style="margin-top:8px">HOMA-IR = glucosa (mg/dL) × insulina / 405. TyG = ln[TG (mg/dL) × glucosa (mg/dL) / 2]. Cortes orientativos: HOMA-IR ≥ 2,5 y TyG ≥ 8,8 (varían según la población y el laboratorio). Valores de ejemplo: glucosa 92 e insulina 12 en ayunas, TG 180.</p>
     </div>
   </section>
 
@@ -230,23 +229,23 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 18 (antes 15) ============ -->
 <article class="panel" id="v15" role="tabpanel" aria-labelledby="t-v15" hidden>
   <div>
-    <h2>"Fórmulas que uso para conocer tu metabolismo"</h2>
-    <div class="meta"><span>Fuente: 8 láminas, TikTok @dra.maria.endocrino</span><span>Fecha del material: 15/10/2026</span><span>Público original: pacientes</span></div>
+    <h2>Fórmulas para estimar el riesgo metabólico</h2>
+    <div class="meta"><span>Bases: Matthews 1985 (HOMA-IR), Simental-Mendía 2008 (TyG), Sterling 2006 (FIB-4), Amato 2010 (VAI)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 18">
-    <a href="#v15-resumen">Resumen</a><a href="#v15-tabla">Las 6 fórmulas</a><a href="#v15-calc">Calculadora integrada</a><a href="#v15-analisis">Análisis crítico</a><a href="#v15-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v15-resumen">Resumen</a><a href="#v15-tabla">Las 6 fórmulas</a><a href="#v15-calc">Calculadora integrada</a><a href="#v15-analisis">Puntos clave</a><a href="#v15-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v15-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel de una endocrinóloga: "No todo es índice HOMA". Presenta 6 fórmulas sencillas con datos de rutina para estimar riesgo metabólico: <b>HOMA-IR, TyG, colesterol no-HDL, índice cintura/cadera, relación cintura/estatura y FIB-4</b>. Cierra con el mensaje correcto: <b>ninguna sustituye una valoración médica individualizada</b>.</p>
+    <p class="lead">"No todo es índice HOMA": 6 fórmulas sencillas con datos de rutina para estimar riesgo metabólico: <b>HOMA-IR, TyG, colesterol no-HDL, índice cintura/cadera, relación cintura/estatura y FIB-4</b>. Mensaje final: <b>ninguna sustituye una valoración médica individualizada</b>.</p>
     <p class="note">HOMA-IR y TyG ya se analizaron en la pestaña 17; FIB-4 en la pestaña 34 de la Videoteca 4. Aquí van juntas en una sola calculadora.</p>
   </section>
 
   <section id="v15-tabla">
-    <h3>Las 6 fórmulas del carrusel</h3>
+    <h3>Las 6 fórmulas</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Fórmula</th><th>Cálculo</th><th>Corte del carrusel</th><th>Qué estima</th></tr></thead>
+      <thead><tr><th>Fórmula</th><th>Cálculo</th><th>Corte orientativo</th><th>Qué estima</th></tr></thead>
       <tbody>
         <tr><td><b>HOMA-IR</b></td><td class="m">glucosa × insulina / 405</td><td class="m">≈ 2–2,5</td><td>Resistencia a la insulina. "No existe un punto de corte universal; no es diagnóstico."</td></tr>
         <tr><td><b>TyG</b></td><td class="m">ln(TG × glucosa / 2)</td><td class="m">8,5–8,8</td><td>Resistencia a la insulina, sin necesidad de medir insulina.</td></tr>
@@ -259,7 +258,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v15-calc">
-    <h3>Calculadora metabólica integrada (agregada)</h3>
+    <h3>Calculadora metabólica integrada</h3>
     <div class="box">
       <div class="calc">
         <label for="m15-sex">Sexo<select id="m15-sex"><option value="F" selected>Mujer</option><option value="M">Hombre</option></select></label>
@@ -285,14 +284,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v15-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material correcto y honesto: aclara que HOMA y TyG no tienen corte universal y que ninguna fórmula reemplaza la consulta. Precisiones y lo que falta:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Los cortes de HOMA-IR, TyG, cintura/estatura y FIB-4 coinciden con la literatura. La relación cintura/estatura &lt; 0,5 tiene la ventaja de servir para ambos sexos y casi todas las etnias (NICE 2022 la recomienda).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Los cortes de HOMA-IR, TyG, cintura/estatura y FIB-4 están respaldados por la literatura. La relación cintura/estatura &lt; 0,5 tiene la ventaja de servir para ambos sexos y casi todas las etnias (NICE 2022 la recomienda).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>No-HDL &lt; 130 es solo para riesgo moderado.</b> La meta es el objetivo de LDL + 30: &lt; 100 en riesgo alto y &lt; 85 en muy alto (ESC/EAS 2019; ADA para diabetes con ECV). En hipertrigliceridemia y diabetes es mejor marcador que el LDL.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Cintura/cadera:</b> los cortes de la OMS son ≥ 0,85 (M) y ≥ 0,90 (H) como riesgo. Es más difícil de medir bien que la cintura sola; la cadera se mide en la parte más prominente de los glúteos.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Cintura sola:</b> el dato más simple y validado para síndrome metabólico. En población latinoamericana (IDF/ALAD), ≥ 80 cm en mujeres y ≥ 90 cm en hombres.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros índices útiles:</b> relación TG/HDL (&gt; 3 sugiere resistencia a la insulina y LDL pequeñas y densas); ApoB (mejor marcador del número de partículas aterogénicas); Lp(a) una vez en la vida.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Cintura sola:</b> el dato más simple y validado para síndrome metabólico. En población latinoamericana (IDF/ALAD), ≥ 80 cm en mujeres y ≥ 90 cm en hombres.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otros índices útiles:</b> relación TG/HDL (&gt; 3 sugiere resistencia a la insulina y LDL pequeñas y densas); ApoB (mejor marcador del número de partículas aterogénicas); Lp(a) una vez en la vida.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Marcadores, no diagnósticos.</b> La conducta la definen la glucosa (ayunas, HbA1c, PTOG), el riesgo cardiovascular global (SCORE2, PREVENT), la PA y la imagen hepática. Útiles para motivar al paciente, no para etiquetarlo.</p></div>
     </div>
   </section>
@@ -307,36 +305,36 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 19 (antes 9) ============ -->
 <article class="panel" id="v9" role="tabpanel" aria-labelledby="t-v9" hidden>
   <div>
-    <h2>"No leíste la letra pequeña": ¿GLP-1 o insulina como primer inyectable?</h2>
-    <div class="meta"><span>Fuente: video en colaboración con @sanofi_copac (MAT-AR-2601976)</span><span>Duración 1:00</span><span>Base citada: ADA Standards of Care 2026, sección 9</span><span>Público: médicos</span></div>
+    <h2>¿GLP-1 o insulina como primer inyectable?</h2>
+    <div class="meta"><span>Bases: ADA Standards of Care 2026 (sección 9, figura 9.5), ADA/EASD 2022</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 9">
-    <a href="#v9-resumen">Resumen</a><a href="#v9-dialogo">El caso</a><a href="#v9-decision">Herramienta</a><a href="#v9-analisis">Análisis crítico</a><a href="#v9-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v9-resumen">Resumen</a><a href="#v9-dialogo">El caso</a><a href="#v9-decision">Herramienta</a><a href="#v9-analisis">Puntos clave</a><a href="#v9-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v9-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Diálogo entre un residente y un tratante. Un paciente con DM2 fuera de metas pese a metformina + iSGLT2 + iDPP-4 a dosis óptimas. El residente propone un arGLP-1; el tratante le recuerda que la ADA recomienda arGLP-1 antes que insulina "en la mayoría de los escenarios", pero que la <b>letra pequeña</b> del algoritmo indica <b>insulina como primer inyectable</b> si hay síntomas de hiperglucemia, HbA1c &gt; 10 % o glucemia al azar ≥ 300 mg/dL.</p>
+    <p class="lead">Paciente con DM2 fuera de metas pese a metformina + iSGLT2 + iDPP-4 a dosis óptimas: ¿arGLP-1 o insulina? La ADA recomienda arGLP-1 antes que insulina en la mayoría de los escenarios, pero su algoritmo indica <b>insulina como primer inyectable</b> si hay síntomas de hiperglucemia, HbA1c &gt; 10 %, glucemia ≥ 300 mg/dL o posibilidad de DM1.</p>
     <p>Cierre: la decisión depende del perfil individual del paciente y no de una sola variable.</p>
   </section>
 
   <section id="v9-dialogo">
-    <h3>El caso del video</h3>
+    <h3>El caso</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Escenario</h4><ul><li>DM2 con metformina, iSGLT2 e iDPP-4 a dosis óptimas, y sigue fuera de metas.</li></ul></li>
-      <li class="step"><span class="num">2</span><h4>Residente: "un GLP-1"</h4><ul><li>"Es una opción válida, pero ¿revisó TODOS los criterios del algoritmo?" El algoritmo de la ADA dice considerar arGLP-1 (o GIP/GLP-1) antes que la insulina en la mayoría de los escenarios. "Esa es la recomendación general."</li></ul></li>
-      <li class="step"><span class="num">3</span><h4>La letra pequeña (ADA 2026, figura 9.5)</h4>
+      <li class="step"><span class="num">2</span><h4>La recomendación general</h4><ul><li>El algoritmo de la ADA indica considerar arGLP-1 (o GIP/GLP-1) antes que la insulina en la mayoría de los escenarios, pero antes hay que revisar todos sus criterios.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Cuándo va insulina primero (ADA 2026, figura 9.5)</h4>
         <ul><li>Insulina como primer inyectable si hay:</li>
           <li><b>Síntomas de hiperglucemia</b> (catabolismo)</li>
           <li><b>HbA1c &gt; 10 %</b></li>
           <li><b>Glucemia ≥ 300 mg/dL</b></li>
-          <li class="note">El texto original de la ADA añade un cuarto criterio que el video omite: cuando <b>la DM1 es una posibilidad</b>.</li></ul></li>
-      <li class="step"><span class="num">4</span><h4>Guía colombiana</h4><ul><li>Según el video, agrega el <b>IMC</b> como otra variable a considerar.</li></ul></li>
+          <li><b>Posibilidad de DM1</b> (o LADA)</li></ul></li>
+      <li class="step"><span class="num">4</span><h4>Peso e IMC</h4><ul><li>Con <b>IMC ≥ 30</b> o necesidad de bajar peso, el arGLP-1 o GIP/GLP-1 gana prioridad si no hay criterio de insulina.</li></ul></li>
     </ol>
   </section>
 
   <section id="v9-decision">
-    <h3>Primer inyectable: herramienta de decisión (agregada)</h3>
+    <h3>Primer inyectable: herramienta de decisión</h3>
     <div class="box">
       <p class="note">Marca lo que tenga el paciente:</p>
       <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
@@ -352,18 +350,16 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v9-analisis">
-    <h3>Análisis crítico</h3>
-    <p>El contenido técnico es correcto: la figura 9.5 de la ADA 2026 dice exactamente eso. Pero hay que leer también la letra pequeña del propio video.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag crit">Conflicto</span><p><b>Contenido patrocinado por Sanofi</b> (código MAT-AR-2601976 al final). Sanofi comercializa glargina, glulisina y la combinación fija glargina/lixisenatida. El mensaje, "no te apures con el GLP-1, mira cuándo va insulina", favorece su portafolio. No lo invalida, pero hay que leerlo con eso en mente.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>ADA 2026: en la mayoría de los pacientes con DM2 que necesitan un inyectable, arGLP-1 o GIP/GLP-1 antes que insulina: igual o mayor reducción de HbA1c, pérdida de peso, menos hipoglucemia y beneficio CV demostrado.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Los criterios de insulina primero (síntomas, HbA1c &gt; 10 %, glucosa ≥ 300) son textuales de la guía.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>ADA 2026: en la mayoría de los pacientes con DM2 que necesitan un inyectable, arGLP-1 o GIP/GLP-1 antes que insulina: igual o mayor reducción de HbA1c, pérdida de peso, menos hipoglucemia y beneficio CV demostrado.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Los criterios de insulina primero (síntomas, HbA1c &gt; 10 %, glucosa ≥ 300) provienen textualmente de la guía.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>"Considerar" no es "obligatorio":</b> con HbA1c &gt; 10 % <i>sin</i> catabolismo, tirzepatida y semaglutida reducen la HbA1c 2–2,5 % y son opción válida. La insulina es imprescindible cuando hay catabolismo, cetosis o sospecha de DM1.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>La insulina por glucotoxicidad puede ser transitoria.</b> Una vez controlada la hiperglucemia, se puede desescalar a arGLP-1 y reducir o retirar la insulina. La ADA lo contempla.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Error del caso:</b> si se agrega un arGLP-1, hay que <b>suspender el iDPP-4</b>. Actúan sobre la misma vía incretínica y su combinación no aporta beneficio.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Mejor que elegir uno: combinar.</b> En el paciente que ya requiere insulina, sumar arGLP-1 a la basal (o usar combinación fija) mejora la HbA1c con menos insulina, menos peso y menos hipoglucemia que intensificar con prandial.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Sospecha de DM1/LADA:</b> paciente delgado, con progresión rápida o cetosis. Pedir anti-GAD y péptido C antes de rotularlo como DM2 resistente al tratamiento.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Contexto local:</b> el costo y la disponibilidad pesan. En la red pública ecuatoriana la NPH y la glargina suelen ser más accesibles que los arGLP-1. Una opción realista y sostenida es mejor que la ideal que el paciente no compra.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Error del caso:</b> si se agrega un arGLP-1, hay que <b>suspender el iDPP-4</b>. Actúan sobre la misma vía incretínica y su combinación no aporta beneficio.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Mejor que elegir uno: combinar.</b> En el paciente que ya requiere insulina, sumar arGLP-1 a la basal (o usar combinación fija) mejora la HbA1c con menos insulina, menos peso y menos hipoglucemia que intensificar con prandial.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Sospecha de DM1/LADA:</b> paciente delgado, con progresión rápida o cetosis. Pedir anti-GAD y péptido C antes de rotularlo como DM2 resistente al tratamiento.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Contexto local:</b> el costo y la disponibilidad pesan. En la red pública ecuatoriana la NPH y la glargina suelen ser más accesibles que los arGLP-1. Una opción realista y sostenida es mejor que la ideal que el paciente no compra.</p></div>
     </div>
     <div class="callout"><strong>Resumen operativo:</strong> catabolismo, cetosis o sospecha de DM1 → insulina. HbA1c alta sin catabolismo → arGLP-1 o GIP/GLP-1 es válido, sobre todo con obesidad o ECV. Si ya hay insulina y no llega a meta → sumar arGLP-1 antes que prandial.</div>
   </section>
@@ -379,15 +375,15 @@ footer a{color:var(--accent)}
 <article class="panel" id="v3" role="tabpanel" aria-labelledby="t-v3" hidden>
   <div>
     <h2>5 errores de prescripción en DM2 que se ven en cada guardia</h2>
-    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 1:40</span><span>Recibido 04/10/2026</span><span>Bases citadas: KDIGO 2022/2024, FDA 2016, EMPA-KIDNEY, RABBIT 2</span></div>
+    <div class="meta"><span>Bases: ADA 2026, KDIGO 2022/2024, FDA 2016, EMPA-KIDNEY, RABBIT 2</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 3">
-    <a href="#v3-resumen">Resumen</a><a href="#v3-errores">Los 5 errores</a><a href="#v3-tabla">Tabla rápida</a><a href="#v3-analisis">Análisis crítico</a><a href="#v3-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v3-resumen">Resumen</a><a href="#v3-errores">Los 5 errores</a><a href="#v3-tabla">Tabla rápida</a><a href="#v3-analisis">Puntos clave</a><a href="#v3-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v3-resumen">
     <h3>Resumen</h3>
-    <p class="lead">El video parte de una receta típica de hospitalización con tres indicaciones, todas incorrectas: <b>"Metformina: suspender · Glargina 60 U · Insulina según escala"</b>. Desarma 5 errores, del menos al más común, y cierra con que una sola receta puede tenerlos todos.</p>
+    <p class="lead">Una receta típica de hospitalización con tres indicaciones, todas incorrectas: <b>"Metformina: suspender · Glargina 60 U · Insulina según escala"</b>. Cinco errores frecuentes, del menos al más común; una sola receta puede tenerlos todos.</p>
   </section>
 
   <section id="v3-errores">
@@ -438,22 +434,20 @@ footer a{color:var(--accent)}
         <tr><td>Hospitalizado frágil</td><td>0,2–0,3 U/kg/día</td><td class="m">&gt; 70 años o TFGe &lt; 60</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Las columnas de ejemplo y las filas de inicio de iSGLT2 y del paciente frágil son agregadas; no están en el video.</p>
   </section>
 
   <section id="v3-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Los 5 mensajes son correctos y están respaldados por la evidencia que cita. Algunos matices que el formato corto no alcanza a cubrir:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Metformina: los cortes 30/45 son los de la FDA (2016) y KDIGO 2022. La metformina se elimina por vía renal y con TFGe &lt; 30 sube el riesgo de acidosis láctica.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Caída inicial de TFGe con iSGLT2: es hemodinámica (vasoconstricción de la arteriola aferente), reversible, y se asocia a mejor pronóstico renal a largo plazo (EMPA-KIDNEY, DAPA-CKD, CREDENCE).</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Elegir por comorbilidad: ADA Standards of Care indica iSGLT2 en IC o ERC, y arGLP-1 o iSGLT2 en enfermedad cardiovascular aterosclerótica, independientemente de la HbA1c.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>RABBIT 2 (Umpierrez 2007): 66 % vs 38 % en meta. Escala sola: el paciente pasa de hiper a hipo sin control de fondo.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Metformina en el hospital:</b> la ADA recomienda insulina como base en el paciente hospitalizado y suspender los orales en agudos inestables (sepsis, hipoperfusión, contraste, LRA). El error del video es suspenderla <i>por una TFGe estable de 40</i>, no suspenderla en un paciente agudo grave.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Metformina: los cortes 30/45 son los de la FDA (2016) y KDIGO 2022. La metformina se elimina por vía renal y con TFGe &lt; 30 sube el riesgo de acidosis láctica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Caída inicial de TFGe con iSGLT2: es hemodinámica (vasoconstricción de la arteriola aferente), reversible, y se asocia a mejor pronóstico renal a largo plazo (EMPA-KIDNEY, DAPA-CKD, CREDENCE).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Elegir por comorbilidad: ADA Standards of Care indica iSGLT2 en IC o ERC, y arGLP-1 o iSGLT2 en enfermedad cardiovascular aterosclerótica, independientemente de la HbA1c.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>RABBIT 2 (Umpierrez 2007): 66 % vs 38 % en meta. Escala sola: el paciente pasa de hiper a hipo sin control de fondo.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Metformina en el hospital:</b> la ADA recomienda insulina como base en el paciente hospitalizado y suspender los orales en agudos inestables (sepsis, hipoperfusión, contraste, LRA). El error es suspenderla <i>por una TFGe estable de 40</i>, no suspenderla en un paciente agudo grave.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>iSGLT2 en el hospital:</b> suspender durante enfermedad aguda, ayuno o 3 días antes de cirugía (4 para ertugliflozina) por riesgo de CAD euglucémica (ver pestaña 24). Una caída de TFGe &gt; 30 % obliga a buscar otra causa: depleción de volumen, diuréticos, estenosis de arteria renal.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Glucosa como efecto:</b> con TFGe &lt; 45 el iSGLT2 baja poco la glucosa, pero mantiene el beneficio cardiorrenal. Se continúa por el riñón y el corazón, no por la HbA1c.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Otros signos de sobrebasalización:</b> diferencia glucosa de acostarse menos ayunas ≥ 50 mg/dL, hipoglucemias, alta variabilidad. Opciones: arGLP-1, combinación fija (glargina/lixisenatida, degludec/liraglutida) o basal-plus.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ingesta pobre o en ayuno:</b> basal-bolo completo puede causar hipoglucemia. Usar <b>basal + corrección</b> (basal-plus), que tuvo control similar en RABBIT 2 Surgery y Basal Plus Trial.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otros signos de sobrebasalización:</b> diferencia glucosa de acostarse menos ayunas ≥ 50 mg/dL, hipoglucemias, alta variabilidad. Opciones: arGLP-1, combinación fija (glargina/lixisenatida, degludec/liraglutida) o basal-plus.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ingesta pobre o en ayuno:</b> basal-bolo completo puede causar hipoglucemia. Usar <b>basal + corrección</b> (basal-plus), que tuvo control similar en RABBIT 2 Surgery y Basal Plus Trial.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Dosis inicial menor</b> (0,2–0,3 U/kg/día) en mayores de 70 años, TFGe &lt; 60 o bajo peso. La escala de corrección sigue siendo útil como complemento, no como único esquema.</p></div>
     </div>
     <div class="callout"><strong>Perla de turno:</strong> antes de firmar, tres preguntas: ¿la TFGe justifica lo que suspendo?, ¿la basal ya pasó 0,5 U/kg?, ¿hay algo más que la escala cubriendo las comidas?</div>
@@ -469,21 +463,21 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 21 (antes 6) ============ -->
 <article class="panel" id="v6" role="tabpanel" aria-labelledby="t-v6" hidden>
   <div>
-    <h2>Tu músculo se come tu azúcar: ejercicio de fuerza en DM2</h2>
-    <div class="meta"><span>Fuente: 8 láminas, @leonardorj_kinesiologo</span><span>Recibido 11/10/2026</span><span>Público original: pacientes</span><span>Base citada: Jansson et al. 2022</span></div>
+    <h2>Ejercicio de fuerza en la DM2: el músculo como depósito de glucosa</h2>
+    <div class="meta"><span>Bases: ADA Standards of Care 2026 (sección 5), ADA 2016 (actividad física), Jansson et al. 2022</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 21">
-    <a href="#v6-resumen">Resumen</a><a href="#v6-ideas">Las 5 ideas</a><a href="#v6-semana">Plan semanal</a><a href="#v6-seguridad">Seguridad</a><a href="#v6-analisis">Análisis crítico</a><a href="#v6-consulta">Para la consulta</a><a href="#v6-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v6-resumen">Resumen</a><a href="#v6-ideas">Las 5 ideas</a><a href="#v6-semana">Plan semanal</a><a href="#v6-seguridad">Seguridad</a><a href="#v6-analisis">Puntos clave</a><a href="#v6-consulta">Para la consulta</a><a href="#v6-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v6-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel educativo para pacientes: <b>las pesas también son tratamiento para la DM2</b>. El músculo es el mayor depósito de glucosa, el ejercicio la capta sin necesitar insulina, y el entrenamiento de fuerza baja la HbA1c alrededor de 0,4 puntos. Cierra con un plan semanal y advertencias de hipoglucemia y cuidado de pies.</p>
+    <p class="lead"><b>Las pesas también son tratamiento para la DM2</b>. El músculo es el mayor depósito de glucosa, el ejercicio la capta sin necesitar insulina, y el entrenamiento de fuerza baja la HbA1c alrededor de 0,4 puntos. Incluye un plan semanal y advertencias de hipoglucemia y cuidado de pies.</p>
     <p>Mensaje final: "Más músculo, mejor azúcar". La diabetes no se trata solo dejando el pan.</p>
   </section>
 
   <section id="v6-ideas">
-    <h3>Las 5 ideas del carrusel</h3>
+    <h3>Cinco ideas clave</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>El azúcar de tu comida va al músculo (80 %)</h4>
         <ul><li>El músculo es la "bodega" más grande de glucosa. Si es pequeña y no se usa, la glucosa se queda en la sangre.</li></ul></li>
@@ -499,7 +493,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v6-semana">
-    <h3>Plan semanal del carrusel</h3>
+    <h3>Plan semanal</h3>
     <div class="tbl"><table>
       <thead><tr><th>Componente</th><th>Indicación</th><th>Detalle</th></tr></thead>
       <tbody>
@@ -508,20 +502,20 @@ footer a{color:var(--accent)}
         <tr><td>Caminata posprandial</td><td class="m">10–15 min</td><td>Tras cada comida. El hábito que más rinde.</td></tr>
         <tr><td>Continuidad</td><td class="m">≤ 2 días sin moverse</td><td>El efecto sobre la glucosa dura unas 24–48 h.</td></tr>
         <tr><td>Registro</td><td>Medir y anotar</td><td>Llevar los números a consulta para ajustar el medicamento.</td></tr>
-        <tr><td><i>Aeróbico (agregado)</i></td><td class="m">≥ 150 min/semana</td><td>Intensidad moderada, repartidos en ≥ 3 días. No figura en el carrusel; es la base de la recomendación ADA.</td></tr>
-        <tr><td><i>Sedentarismo (agregado)</i></td><td class="m">Cada 30 min</td><td>Interrumpir el tiempo sentado con 3 min de actividad ligera.</td></tr>
+        <tr><td><i>Aeróbico</i></td><td class="m">≥ 150 min/semana</td><td>Intensidad moderada, repartidos en ≥ 3 días; base de la recomendación ADA.</td></tr>
+        <tr><td><i>Sedentarismo</i></td><td class="m">Cada 30 min</td><td>Interrumpir el tiempo sentado con 3 min de actividad ligera.</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v6-seguridad">
-    <h3>Glucosa antes de entrenar (agregado)</h3>
+    <h3>Glucosa antes de entrenar</h3>
     <p class="note">Aplica a pacientes con insulina o sulfonilureas. Con metformina, iSGLT2, arGLP-1 o iDPP-4 solos, el riesgo de hipoglucemia es bajo.</p>
     <div class="tbl"><table>
       <thead><tr><th>Glucosa previa</th><th>Conducta</th></tr></thead>
       <tbody>
         <tr><td class="m">&lt; 90 mg/dL</td><td><b style="color:var(--crit)">No empezar.</b> 15–30 g de carbohidrato rápido; volver a medir en 15 min.</td></tr>
-        <tr><td class="m">90–124 mg/dL</td><td>10–15 g de carbohidrato antes de empezar (el carrusel lo simplifica como "&lt; 100, come algo").</td></tr>
+        <tr><td class="m">90–124 mg/dL</td><td>10–15 g de carbohidrato antes de empezar.</td></tr>
         <tr><td class="m">125–250 mg/dL</td><td>Entrenar sin cambios.</td></tr>
         <tr><td class="m">&gt; 250 mg/dL</td><td>En DM2 se puede entrenar si se siente bien e hidratado. Si hay síntomas o cetonas (o es DM1), no entrenar.</td></tr>
       </tbody>
@@ -529,19 +523,18 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v6-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensajes correctos, bien traducidos para pacientes y con evidencia real detrás. Precisiones para el médico:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>"Otra puerta":</b> la contracción transloca GLUT4 a la membrana por vía AMPK/calcio, independiente de la vía de la insulina. Además, la sensibilidad a la insulina mejora durante 24–48 h después del ejercicio.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Jansson et al. 2022</b> (BMJ Open Diabetes Res Care): el entrenamiento de fuerza redujo la HbA1c ≈ 0,4 % (20 ECA, 1172 participantes), con relación dosis-respuesta según la ganancia de fuerza.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Caminata posprandial:</b> Reynolds et al. (Diabetologia 2016) mostró que 10 min después de cada comida bajan la glucosa posprandial ≈ 12 % más que 30 min seguidos en otro momento. El beneficio mayor está tras la cena.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>El 80 %</b> proviene de estudios con clamp euglucémico hiperinsulinémico (DeFronzo). Tras una comida real, el músculo capta ≈ 30–40 % y el hígado otro tanto. El mensaje de fondo es válido; la cifra está sobredimensionada.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Falta el aeróbico:</b> ADA recomienda ≥ 150 min/semana de aeróbico moderado más 2–3 sesiones de fuerza. La combinación baja más la HbA1c que cualquiera por separado (HART-D, DARE).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Hipoglucemia tardía:</b> puede aparecer hasta 24 h después, sobre todo nocturna, en pacientes con insulina o sulfonilureas. Considerar reducir la dosis previa o la basal nocturna en días de entrenamiento intenso.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>"Otra puerta":</b> la contracción transloca GLUT4 a la membrana por vía AMPK/calcio, independiente de la vía de la insulina. Además, la sensibilidad a la insulina mejora durante 24–48 h después del ejercicio.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Jansson et al. 2022</b> (BMJ Open Diabetes Res Care): el entrenamiento de fuerza redujo la HbA1c ≈ 0,4 % (20 ECA, 1172 participantes), con relación dosis-respuesta según la ganancia de fuerza.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Caminata posprandial:</b> Reynolds et al. (Diabetologia 2016) mostró que 10 min después de cada comida bajan la glucosa posprandial ≈ 12 % más que 30 min seguidos en otro momento. El beneficio mayor está tras la cena.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El 80 %</b> proviene de estudios con clamp euglucémico hiperinsulinémico (DeFronzo). Tras una comida real, el músculo capta ≈ 30–40 % y el hígado otro tanto. El mensaje de fondo es válido, pero esa cifra no aplica a la vida real.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>El aeróbico es la base:</b> ADA recomienda ≥ 150 min/semana de aeróbico moderado más 2–3 sesiones de fuerza. La combinación baja más la HbA1c que cualquiera por separado (HART-D, DARE).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Hipoglucemia tardía:</b> puede aparecer hasta 24 h después, sobre todo nocturna, en pacientes con insulina o sulfonilureas. Considerar reducir la dosis previa o la basal nocturna en días de entrenamiento intenso.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Retinopatía proliferativa o preproliferativa:</b> evitar cargas máximas, maniobra de Valsalva y ejercicios con la cabeza hacia abajo, por riesgo de hemorragia vítrea. Fondo de ojo antes de iniciar pesas en diabetes de larga evolución.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Neuropatía autonómica</b> (taquicardia en reposo, hipotensión ortostática): evaluación cardiológica antes de ejercicio vigoroso. La prueba de esfuerzo no es rutinaria en asintomáticos que inician actividad leve a moderada.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>iSGLT2 + ejercicio prolongado + dieta muy baja en carbohidratos</b> favorece la CAD euglucémica (ver pestaña 24). Asegurar hidratación y no combinar con ayuno.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Neuropatía periférica:</b> no contraindica caminar ni cargar peso si hay buen calzado y revisión diaria de pies. Con úlcera activa, cambiar a ejercicio sin carga (bicicleta estática, natación sin heridas abiertas, trabajo en silla).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Neuropatía periférica:</b> no contraindica caminar ni cargar peso si hay buen calzado y revisión diaria de pies. Con úlcera activa, cambiar a ejercicio sin carga (bicicleta estática, natación sin heridas abiertas, trabajo en silla).</p></div>
     </div>
     <div class="callout"><strong>Perla:</strong> en el adulto mayor con DM2, la sarcopenia empeora el control glucémico y el riesgo de caídas. La fuerza es tratamiento metabólico y funcional; acompañarla con proteína suficiente (≈ 1–1,2 g/kg/día si la función renal lo permite).</div>
   </section>
@@ -572,10 +565,10 @@ footer a{color:var(--accent)}
 <article class="panel" id="v17" role="tabpanel" aria-labelledby="t-v17" hidden>
   <div>
     <h2>Circunferencia de pantorrilla: una prueba sencilla para sospechar sarcopenia</h2>
-    <div class="meta"><span>Fuente: TikTok @dr.ricardio (cardiólogo clínico)</span><span>Duración 1:50</span><span>Público original: pacientes</span><span>Bases citadas: AWGS 2019; Am J Clin Nutr 2025 (SARC-CalF ajustado por IMC)</span></div>
+    <div class="meta"><span>Bases: AWGS 2019, EWGSOP2 2019, González 2021 y Am J Clin Nutr 2025 (ajuste por IMC)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 17">
-    <a href="#v17-resumen">Resumen</a><a href="#v17-pasos">Lo que dice</a><a href="#v17-calc">Calculadora</a><a href="#v17-dx">Diagnóstico completo</a><a href="#v17-analisis">Análisis crítico</a><a href="#v17-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v17-resumen">Resumen</a><a href="#v17-pasos">Lo que dice</a><a href="#v17-calc">Calculadora</a><a href="#v17-dx">Diagnóstico completo</a><a href="#v17-analisis">Puntos clave</a><a href="#v17-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v17-resumen">
@@ -584,33 +577,33 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v17-pasos">
-    <h3>Lo que dice el video</h3>
+    <h3>Medición paso a paso</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Por qué importa</h4>
         <ul><li>La pérdida de músculo se asocia a problemas metabólicos, caídas, hospitalización y hasta sarcopenia.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>Cómo medir</h4>
         <ul><li>De pie, de forma estandarizada, con cinta métrica en la parte más ancha de la pantorrilla. En el ejemplo: 43 cm.</li></ul></li>
       <li class="step"><span class="num">3</span><h4>Puntos de corte (AWGS 2019)</h4>
-        <ul><li><b>Hombres &lt; 34 cm · Mujeres &lt; 33 cm.</b> La lámina menciona además "riesgo de sarcopenia: menos de 31 cm".</li></ul></li>
+        <ul><li><b>Hombres &lt; 34 cm · Mujeres &lt; 33 cm.</b> Algunas fuentes usan &lt; 31 cm como corte de alto riesgo en ambos sexos.</li></ul></li>
       <li class="step"><span class="num">4</span><h4>Ajuste por IMC ("falsa negativa")</h4>
         <div class="tbl" style="margin-top:6px"><table style="min-width:0">
           <thead><tr><th>IMC (kg/m²)</th><th>Ajuste a la CP medida</th></tr></thead>
           <tbody>
-            <tr><td class="m">&lt; 18,5</td><td class="m">+1 cm (según la lámina)</td></tr>
+            <tr><td class="m">&lt; 18,5</td><td class="m">+1 cm</td></tr>
             <tr><td class="m">18,5–24,9</td><td class="m">0</td></tr>
             <tr><td class="m">25–29,9</td><td class="m">−3 cm</td></tr>
             <tr><td class="m">30–39,9</td><td class="m">−7 cm</td></tr>
             <tr><td class="m">≥ 40</td><td class="m">−12 cm</td></tr>
           </tbody>
         </table></div>
-        <ul><li><b>Ejemplo del video:</b> mujer de 92 kg y 1,65 m (IMC 34) con CP de 36 cm, aparentemente normal. Ajustada: 36 − 7 = <b>29 cm → riesgo real</b>.</li></ul></li>
+        <ul><li><b>Ejemplo:</b> mujer de 92 kg y 1,65 m (IMC 34) con CP de 36 cm, aparentemente normal. Ajustada: 36 − 7 = <b>29 cm → riesgo real</b>.</li></ul></li>
       <li class="step"><span class="num">5</span><h4>Qué hacer</h4>
         <ul><li>Si está baja: ejercicio de fuerza y evaluación médica completa.</li></ul></li>
     </ol>
   </section>
 
   <section id="v17-calc">
-    <h3>Calculadora: pantorrilla ajustada + SARC-CalF (agregada)</h3>
+    <h3>Calculadora: pantorrilla ajustada + SARC-CalF</h3>
     <div class="box">
       <div class="calc">
         <label for="s17-sex">Sexo<select id="s17-sex"><option value="F" selected>Mujer</option><option value="M">Hombre</option></select></label>
@@ -627,12 +620,12 @@ footer a{color:var(--accent)}
         <label for="s17-q5">Caídas en el último año<select id="s17-q5"><option value="0" selected>0 (ninguna)</option><option value="1">1 (1–3 caídas)</option><option value="2">2 (≥ 4 caídas)</option></select></label>
       </div>
       <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="s17-out"></tbody></table></div>
-      <p class="note" style="margin-top:8px">SARC-CalF = SARC-F + 10 puntos si la pantorrilla está bajo el corte. ≥ 11 = sospecha de sarcopenia. Ajuste por IMC según González et al. 2021 (−3, −7, −12 cm). Valores de ejemplo: el caso del video.</p>
+      <p class="note" style="margin-top:8px">SARC-CalF = SARC-F + 10 puntos si la pantorrilla está bajo el corte. ≥ 11 = sospecha de sarcopenia. Ajuste por IMC según González et al. 2021 (−3, −7, −12 cm). Valores de ejemplo: el caso de la mujer con IMC 34.</p>
     </div>
   </section>
 
   <section id="v17-dx">
-    <h3>Del cribado al diagnóstico (agregado)</h3>
+    <h3>Del cribado al diagnóstico</h3>
     <div class="tbl"><table>
       <thead><tr><th>Paso</th><th>Prueba</th><th>EWGSOP2 (Europa)</th><th>AWGS 2019 (Asia)</th></tr></thead>
       <tbody>
@@ -647,15 +640,15 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v17-analisis">
-    <h3>Análisis crítico</h3>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La pantorrilla es un marcador validado de masa muscular y predice mortalidad y reingreso. Los cortes de 34/33 cm son los de AWGS 2019, y el ajuste por IMC (−3, −7, −12 cm) coincide con González et al. (Am J Clin Nutr 2021, NHANES).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La pantorrilla es un marcador validado de masa muscular y predice mortalidad y reingreso. Los cortes de 34/33 cm son los de AWGS 2019, y el ajuste por IMC (−3, −7, −12 cm) proviene de González et al. (Am J Clin Nutr 2021, NHANES).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>"Menos de 31 cm"</b> es el corte antiguo de la MNA y de EWGSOP2 para ambos sexos. No es otro escalón de riesgo de AWGS; mezclar ambos confunde. AWGS es para población asiática; en Latinoamérica se usan los de EWGSOP2 o los de NHANES (≤ 34 H, ≤ 33 M).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>El "+1 cm" para IMC &lt; 18,5</b> no figura en el ajuste original de González 2021, que solo define reducciones para IMC ≥ 25. Tomarlo como orientativo.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Técnica:</b> la mayoría de los estudios mide sentado con la rodilla a 90° o de pie con peso repartido, en la pierna no dominante, sin comprimir la piel. Tomar el valor máximo de 2–3 mediciones.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Edema:</b> en insuficiencia cardíaca, ERC, hepatopatía o insuficiencia venosa, el edema eleva falsamente la circunferencia. En esos pacientes la medición no es fiable; usar la dinamometría y la prueba de la silla.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Es cribado, no diagnóstico:</b> la sarcopenia se define primero por <b>fuerza baja</b> (dinamómetro o prueba de la silla), no por la masa. Un dinamómetro de mano es barato y aporta más que la cinta.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento:</b> ejercicio de fuerza progresivo 2–3 veces por semana, proteína 1,0–1,2 g/kg/día (1,2–1,5 si hay enfermedad aguda o crónica, salvo ERC avanzada), vitamina D si hay déficit. Revisar fármacos que favorecen la pérdida muscular y, con arGLP-1 o tirzepatida, vigilar la masa magra durante la pérdida de peso.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Es cribado, no diagnóstico:</b> la sarcopenia se define primero por <b>fuerza baja</b> (dinamómetro o prueba de la silla), no por la masa. Un dinamómetro de mano es barato y aporta más que la cinta.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Tratamiento:</b> ejercicio de fuerza progresivo 2–3 veces por semana, proteína 1,0–1,2 g/kg/día (1,2–1,5 si hay enfermedad aguda o crónica, salvo ERC avanzada), vitamina D si hay déficit. Revisar fármacos que favorecen la pérdida muscular y, con arGLP-1 o tirzepatida, vigilar la masa magra durante la pérdida de peso.</p></div>
     </div>
     <div class="callout"><strong>Perla:</strong> la "obesidad sarcopénica" es frecuente en diabéticos con IMC alto y se pasa por alto porque "se ven fuertes". Este ajuste por IMC es justamente para ellos.</div>
   </section>
@@ -664,27 +657,27 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v17"></div>
   </section>
-  <p class="note">Referencias: Chen LK et al. AWGS 2019, J Am Med Dir Assoc 2020; Cruz-Jentoft AJ et al. EWGSOP2, Age Ageing 2019; González MC et al. Calf circumference cutoffs from NHANES, Am J Clin Nutr 2021; SARC-CalF ajustado por IMC, Am J Clin Nutr 2025 (citado en el video); Barbosa-Silva TG et al. SARC-CalF, J Am Med Dir Assoc 2016.</p>
+  <p class="note">Referencias: Chen LK et al. AWGS 2019, J Am Med Dir Assoc 2020; Cruz-Jentoft AJ et al. EWGSOP2, Age Ageing 2019; González MC et al. Calf circumference cutoffs from NHANES, Am J Clin Nutr 2021; SARC-CalF ajustado por IMC, Am J Clin Nutr 2025; Barbosa-Silva TG et al. SARC-CalF, J Am Med Dir Assoc 2016.</p>
 </article>
 
 <!-- ============ PESTAÑA 23 (antes 1) ============ -->
 <article class="panel" id="v1" role="tabpanel" aria-labelledby="t-v1" hidden>
   <div>
     <h2>Hipoglucemia: ya le pasaste dextrosa y sigue en LOW</h2>
-    <div class="meta"><span>Fuente: TikTok @don.urgencias</span><span>Duración 2:53</span><span>Recibido 09/10/2026</span><span>Ámbito: urgencias / hospitalización</span></div>
+    <div class="meta"><span>Ámbito: urgencias / hospitalización</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 1">
-    <a href="#v1-resumen">Resumen</a><a href="#v1-algoritmo">Algoritmo</a><a href="#v1-dosis">Dosis</a><a href="#v1-analisis">Análisis crítico</a><a href="#v1-causas">Causas</a><a href="#v1-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v1-resumen">Resumen</a><a href="#v1-algoritmo">Algoritmo</a><a href="#v1-dosis">Dosis</a><a href="#v1-analisis">Puntos clave</a><a href="#v1-causas">Causas</a><a href="#v1-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v1-resumen">
     <h3>Resumen</h3>
-    <p class="lead">El video plantea un escenario frecuente: paciente con hipoglucemia que recibe un bolo de dextrosa, sube, y vuelve a caer. Propone un algoritmo de 6 pasos: reconocer, medir y clasificar, corregir con dextrosa IV, vigilar de cerca, y dos rescates para la hipoglucemia refractaria: octreótido si hay sulfonilureas y hidrocortisona si se sospecha crisis suprarrenal.</p>
+    <p class="lead">Escenario frecuente: paciente con hipoglucemia que recibe un bolo de dextrosa, sube, y vuelve a caer. Algoritmo de 6 pasos: reconocer, medir y clasificar, corregir con dextrosa IV, vigilar de cerca, y dos rescates para la hipoglucemia refractaria: octreótido si hay sulfonilureas y hidrocortisona si se sospecha crisis suprarrenal.</p>
     <p>Mensaje central: <strong>alteración neurológica = glucosa ya</strong>. Si un paciente está confuso o convulsionando, la glucometría se hace en ese momento.</p>
   </section>
 
   <section id="v1-algoritmo">
-    <h3>Algoritmo del video</h3>
+    <h3>Algoritmo</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Reconócela</h4>
         <ul>
@@ -723,7 +716,7 @@ footer a{color:var(--accent)}
         <tr><td>Dextrosa 10%</td><td class="m">250 mL IV (25 g)<br>o 100 mL (10 g) y repetir</td><td>Igual eficacia que D50 con menos hiperglucemia de rebote y menos daño venoso.</td></tr>
         <tr><td>Infusión D10%</td><td class="m">50–100 mL/h</td><td>Tras el bolo si hay riesgo de recurrencia. Ajustar a glucosa.</td></tr>
         <tr><td>Glucagón</td><td class="m">1 mg IM/SC/IV<br>(intranasal 3 mg)</td><td>Si no hay acceso IV. Poco útil en alcohol, ayuno prolongado o hepatopatía. No es de elección con sulfonilureas.</td></tr>
-        <tr><td>Octreótido</td><td class="m">50–100 µg SC/IV<br>c/6–12 h</td><td>Hipoglucemia recurrente por sulfonilureas (o meglitinidas, quinina). El esquema del video está dentro de lo descrito.</td></tr>
+        <tr><td>Octreótido</td><td class="m">50–100 µg SC/IV<br>c/6–12 h</td><td>Hipoglucemia recurrente por sulfonilureas (o meglitinidas, quinina).</td></tr>
         <tr><td>Hidrocortisona</td><td class="m">100 mg IV/IM →<br>200 mg/24 h</td><td>En bolos (50 mg c/6 h) o infusión continua. Tomar cortisol y ACTH antes si no retrasa el tratamiento.</td></tr>
         <tr><td>Tiamina</td><td class="m">100 mg IV</td><td>Alcoholismo o desnutrición. Darla junto con la glucosa, sin retrasarla.</td></tr>
       </tbody>
@@ -731,18 +724,17 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v1-analisis">
-    <h3>Análisis crítico</h3>
-    <p>El algoritmo es correcto y útil como ayuda de turno. Estos son los puntos de acuerdo y lo que conviene agregar.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La clasificación en 3 niveles coincide con ADA / International Hypoglycaemia Study Group. El nivel 3 es un criterio clínico, no numérico.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>D50 50 mL y D10 250 mL aportan la misma carga (25 g). La D10 tiene evidencia de recuperación clínica equivalente con menos rebote, por lo que es razonable preferirla.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Octreótido en hipoglucemia por sulfonilureas: suprime la secreción de insulina y evita el círculo dextrosa → más insulina → nueva caída. Es la indicación con mejor respaldo.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Hidrocortisona 100 mg + 200 mg/24 h es la dosis de estrés estándar de las guías de insuficiencia suprarrenal.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p>Falta la vía oral. Si el paciente está consciente y deglute, 15–20 g de carbohidrato rápido es el primer paso; la vía IV es para nivel 3 o cuando no puede tomar.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p>Sin vía IV: glucagón 1 mg IM. No funciona si no hay glucógeno (alcohol, ayuno, hepatopatía) y con sulfonilureas puede estimular más insulina.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p>Duración de la vigilancia: con glibenclamida o glimepirida la hipoglucemia puede reaparecer durante 24–72 h, más en ERC y ancianos. Observar al menos 24 h, y 12–24 h después de suspender dextrosa u octreótido.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p>"LOW" en el glucómetro: tratar de inmediato, pero confirmar con glucosa sérica. Los glucómetros pierden precisión en shock, hipoperfusión y alteraciones del hematocrito.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p>Muestra crítica en hipoglucemia sin causa clara (no diabético): glucosa, insulina, péptido C, proinsulina, β-hidroxibutirato y screening de sulfonilureas, tomada antes de corregir si no retrasa el tratamiento.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La clasificación en 3 niveles es la de la ADA / International Hypoglycaemia Study Group. El nivel 3 es un criterio clínico, no numérico.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>D50 50 mL y D10 250 mL aportan la misma carga (25 g). La D10 tiene evidencia de recuperación clínica equivalente con menos rebote, por lo que es razonable preferirla.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Octreótido en hipoglucemia por sulfonilureas: suprime la secreción de insulina y evita el círculo dextrosa → más insulina → nueva caída. Es la indicación con mejor respaldo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Hidrocortisona 100 mg + 200 mg/24 h es la dosis de estrés estándar de las guías de insuficiencia suprarrenal.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Vía oral primero:</b> si el paciente está consciente y deglute, 15–20 g de carbohidrato rápido es el primer paso; la vía IV es para nivel 3 o cuando no puede tomar.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Sin vía IV: glucagón 1 mg IM. No funciona si no hay glucógeno (alcohol, ayuno, hepatopatía) y con sulfonilureas puede estimular más insulina.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Duración de la vigilancia: con glibenclamida o glimepirida la hipoglucemia puede reaparecer durante 24–72 h, más en ERC y ancianos. Observar al menos 24 h, y 12–24 h después de suspender dextrosa u octreótido.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>"LOW" en el glucómetro: tratar de inmediato, pero confirmar con glucosa sérica. Los glucómetros pierden precisión en shock, hipoperfusión y alteraciones del hematocrito.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Muestra crítica en hipoglucemia sin causa clara (no diabético): glucosa, insulina, péptido C, proinsulina, β-hidroxibutirato y screening de sulfonilureas, tomada antes de corregir si no retrasa el tratamiento.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p>Pistas de crisis suprarrenal antes de llegar al paso 6: hipotensión que no responde a volumen, hiponatremia, hiperpotasemia, uso crónico de corticoides, hiperpigmentación. En ese contexto la hidrocortisona no debe esperar a que fallen los pasos previos.</p></div>
     </div>
     <div class="callout"><strong>Perla de turno:</strong> si necesitas más de un bolo de dextrosa, la pregunta deja de ser "cuánta glucosa" y pasa a ser "por qué recae". Busca la fuente de insulina (exógena, sulfonilurea, insulinoma) o la falta de contrarregulación (cortisol, hígado, sepsis).</div>
@@ -779,20 +771,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v2" role="tabpanel" aria-labelledby="t-v2" hidden>
   <div>
     <h2>Cetoacidosis diabética en 4 pasos, y en orden</h2>
-    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 3:36</span><span>Recibido 05/10/2026</span><span>Base citada: Umpierrez et al., Diabetes Care 2024</span></div>
+    <div class="meta"><span>Bases: consenso ADA/EASD/JBDS/AACE/DTS 2024 (Umpierrez, Diabetes Care 2024)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 2">
-    <a href="#v2-resumen">Resumen</a><a href="#v2-algoritmo">Algoritmo</a><a href="#v2-dosis">Cálculo 70 kg</a><a href="#v2-analisis">Análisis crítico</a><a href="#v2-calc">Fórmulas</a><a href="#v2-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v2-resumen">Resumen</a><a href="#v2-algoritmo">Algoritmo</a><a href="#v2-dosis">Cálculo 70 kg</a><a href="#v2-analisis">Puntos clave</a><a href="#v2-calc">Fórmulas</a><a href="#v2-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v2-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Caso guía: paciente de 70 kg, pH 7,1, glucosa 480 mg/dL y cetonas elevadas. El video ordena el manejo en <b>líquidos → potasio → insulina → bicarbonato</b>, y cierra con los 3 criterios de resolución y la transición a insulina subcutánea.</p>
+    <p class="lead">Caso guía: paciente de 70 kg, pH 7,1, glucosa 480 mg/dL y cetonas elevadas. El manejo se ordena en <b>líquidos → potasio → insulina → bicarbonato</b>, e incluye los 3 criterios de resolución y la transición a insulina subcutánea.</p>
     <p>Mensajes centrales: medir el potasio <strong>antes de la primera unidad de insulina</strong>; cuando la glucosa baja, <strong>no apagar la insulina, agregar dextrosa</strong>; y la glucosa <strong>no</strong> es criterio de resolución.</p>
   </section>
 
   <section id="v2-algoritmo">
-    <h3>Algoritmo del video</h3>
+    <h3>Algoritmo</h3>
     <ol class="steps">
       <li class="step"><span class="num">0</span><h4>Confírmala</h4>
         <div class="levels" style="margin-top:6px">
@@ -857,23 +849,22 @@ footer a{color:var(--accent)}
         <tr><td>Insulina basal al transicionar</td><td class="m">≈ 10–14 U/día (glargina)</td><td>Paciente nuevo: dosis total 0,5–0,6 U/kg/día (≈ 35–40 U), mitad basal y mitad prandial. Si ya usaba insulina, retomar su esquema.</td></tr>
       </tbody>
     </table></div>
-    <p class="note">La fila de transición SC es un cálculo agregado (no está en el video). Ajustar en ancianos, ERC o con ingesta pobre.</p>
+    <p class="note">La transición a SC es un cálculo orientativo. Ajustar en ancianos, ERC o con ingesta pobre.</p>
   </section>
 
   <section id="v2-analisis">
-    <h3>Análisis crítico</h3>
-    <p>El video está bien alineado con el consenso ADA/EASD/JBDS/AACE/DTS 2024 sobre crisis hiperglucémicas. Puntos de acuerdo y complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Criterios diagnósticos y de resolución son los del consenso 2024: β-OHB ≥ 3,0 mmol/L para diagnosticar y &lt; 0,6 mmol/L para resolver. El anion gap salió de los criterios de resolución.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Potasio antes de la insulina, con umbral de 3,5 mEq/L. Iniciar insulina con K⁺ bajo puede causar arritmias y paro respiratorio por debilidad muscular.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>"No la apagues": la insulina se titula según la acidosis/cetonas; la glucosa se maneja con la dextrosa. Es el error más frecuente en sala.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Bicarbonato solo con pH &lt; 7,0, con la pauta de 100 mmol en 400 mL + 20 mEq KCl en 2 h, repitiendo cada 2 h hasta pH ≥ 7,0.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Sodio corregido:</b> la hiperglucemia diluye el Na⁺. Un Na⁺ medido "normal" con glucosa 480 equivale a un Na⁺ real alto. Sirve para elegir la solución después de la primera hora.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ringer lactato vs SSN:</b> los cristaloides balanceados producen menos acidosis hiperclorémica. Con SSN, el HCO₃ puede quedar bajo aunque las cetonas ya se aclararon; por eso el β-OHB es mejor marcador de resolución.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>CAD euglucémica por iSGLT2:</b> si la glucosa es &lt; 250 desde el inicio, la dextrosa va desde el principio junto con la insulina. Suspender la gliflozina y no reiniciarla hasta resolver el cuadro y la causa.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>CAD leve a moderada sin complicaciones:</b> el consenso 2024 acepta análogos rápidos SC (lispro/aspart) cada 1–2 h fuera de UCI, como alternativa a la bomba.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Basal temprana:</b> iniciar glargina 0,15–0,3 U/kg en las primeras horas, sin apagar la bomba, reduce la hiperglucemia de rebote al transicionar.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Fosfato:</b> no se repone de rutina. Indicado si P &lt; 1,0 mg/dL o hay disfunción cardíaca, respiratoria o hemólisis.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Criterios diagnósticos y de resolución son los del consenso 2024: β-OHB ≥ 3,0 mmol/L para diagnosticar y &lt; 0,6 mmol/L para resolver. El anion gap salió de los criterios de resolución.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Potasio antes de la insulina, con umbral de 3,5 mEq/L. Iniciar insulina con K⁺ bajo puede causar arritmias y paro respiratorio por debilidad muscular.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>"No la apagues": la insulina se titula según la acidosis/cetonas; la glucosa se maneja con la dextrosa. Es el error más frecuente en sala.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Bicarbonato solo con pH &lt; 7,0, con la pauta de 100 mmol en 400 mL + 20 mEq KCl en 2 h, repitiendo cada 2 h hasta pH ≥ 7,0.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Sodio corregido:</b> la hiperglucemia diluye el Na⁺. Un Na⁺ medido "normal" con glucosa 480 equivale a un Na⁺ real alto. Sirve para elegir la solución después de la primera hora.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ringer lactato vs SSN:</b> los cristaloides balanceados producen menos acidosis hiperclorémica. Con SSN, el HCO₃ puede quedar bajo aunque las cetonas ya se aclararon; por eso el β-OHB es mejor marcador de resolución.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>CAD euglucémica por iSGLT2:</b> si la glucosa es &lt; 250 desde el inicio, la dextrosa va desde el principio junto con la insulina. Suspender la gliflozina y no reiniciarla hasta resolver el cuadro y la causa.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>CAD leve a moderada sin complicaciones:</b> el consenso 2024 acepta análogos rápidos SC (lispro/aspart) cada 1–2 h fuera de UCI, como alternativa a la bomba.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Basal temprana:</b> iniciar glargina 0,15–0,3 U/kg en las primeras horas, sin apagar la bomba, reduce la hiperglucemia de rebote al transicionar.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Fosfato:</b> no se repone de rutina. Indicado si P &lt; 1,0 mg/dL o hay disfunción cardíaca, respiratoria o hemólisis.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Volumen en cardiópatas y ERC:</b> el ritmo de 500–1000 mL/h es para un adulto sin comorbilidad. En IC o ERC, bolos más pequeños y reevaluación frecuente.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Edema cerebral:</b> más frecuente en niños y adultos jóvenes. Cefalea, deterioro de conciencia o bradicardia durante el tratamiento: manitol 0,5–1 g/kg o salina hipertónica. Evitar caídas de glucosa &gt; 100 mg/dL/h y de osmolaridad &gt; 3 mOsm/kg/h.</p></div>
     </div>
@@ -905,20 +896,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v41" role="tabpanel" aria-labelledby="t-v41" hidden>
   <div>
     <h2>Insulina basal: iniciar, titular y saber cuándo dejar de subir</h2>
-    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 1:31</span><span>Recibido 27/10/2026</span><span>Bases citadas: ADA Standards of Care 2026 (sección 9), AT.LANTUS (Davies, Diabetes Care 2005), Cowart, Clin Diabetes 2023</span></div>
+    <div class="meta"><span>Bases: ADA Standards of Care 2026 (sección 9), AT.LANTUS (Davies, Diabetes Care 2005), Cowart, Clin Diabetes 2021</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 41">
-    <a href="#v41-resumen">Resumen</a><a href="#v41-pasos">Los 4 pasos</a><a href="#v41-calc">Calculadora</a><a href="#v41-analisis">Análisis crítico</a><a href="#v41-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v41-resumen">Resumen</a><a href="#v41-pasos">Los 4 pasos</a><a href="#v41-calc">Calculadora</a><a href="#v41-analisis">Puntos clave</a><a href="#v41-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v41-resumen">
     <h3>Resumen</h3>
     <p class="lead">Escena inicial: glargina 20 → 30 → 40 U y la glucosa sigue en 180. Propuesta: <b>iniciar</b> con 10 U o 0,1–0,2 U/kg una vez al día, meta de <b>glucemia en ayunas 80–130 mg/dL</b>; <b>titular</b> +2 U cada 3 días, idealmente por el propio paciente; y reconocer la <b>sobrebasalización</b>: más de 0,5 U/kg/día, diferencia acostarse–ayunas ≥ 50 mg/dL o hipoglucemias. En ese punto, no más basal: <b>arGLP-1 o insulina prandial</b>.</p>
-    <p class="note">Mismo autor que la pestaña 20 (5 errores de prescripción, donde la sobrebasalización es el error 3); complementa la pestaña 19 (¿GLP-1 o insulina?). Video con ilustraciones generadas por IA; contenido tomado del texto en pantalla. Sin patrocinio.</p>
+    <p class="note">Relacionadas: 20 (errores de prescripción; la sobrebasalización es el error 3) y 19 (¿GLP-1 o insulina?).</p>
   </section>
 
   <section id="v41-pasos">
-    <h3>Los 4 pasos del video</h3>
+    <h3>Los 4 pasos</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Iniciar</h4>
         <ul><li><span class="dose">10 U/día</span> o <span class="dose">0,1–0,2 U/kg/día</span>, una vez al día.</li><li>Meta: glucemia en ayunas <b>80–130 mg/dL</b> (ADA 2026).</li></ul></li>
@@ -932,7 +923,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v41-calc">
-    <h3>Calculadora de titulación basal (agregada)</h3>
+    <h3>Calculadora de titulación basal</h3>
     <div class="box">
       <div class="calc">
         <label for="t41-kg">Peso (kg)<input id="t41-kg" type="number" min="30" max="250" value="80"></label>
@@ -944,23 +935,22 @@ footer a{color:var(--accent)}
         <label for="t41-a1c">HbA1c actual (%)<input id="t41-a1c" type="number" step="0.1" min="4" max="18" value="8.6"></label>
       </div>
       <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="t41-out"></tbody></table></div>
-      <p class="note" style="margin-top:8px">Ejemplo precargado: el mini reto del video. Ajuste por hipoglucemia sin causa: −10 a −20 % (ADA). Orientativo; no reemplaza el criterio clínico.</p>
+      <p class="note" style="margin-top:8px">Ejemplo precargado: caso de reto. Ajuste por hipoglucemia sin causa: −10 a −20 % (ADA). Orientativo; no reemplaza el criterio clínico.</p>
     </div>
   </section>
 
   <section id="v41-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensaje correcto y práctico, alineado con la ADA. Tres matices y varios complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Dosis de inicio de 10 U o 0,1–0,2 U/kg, meta preprandial de 80–130 mg/dL, titulación de +2 U cada 3 días y criterios de sobrebasalización: coinciden con los Standards of Care de la ADA. AT.LANTUS (n = 4961) confirma que la titulación por el paciente es al menos tan eficaz, con hipoglucemia grave similar (≈ 1 %).</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>0,5 U/kg es una señal de alarma, no un techo absoluto.</b> En obesidad con resistencia a la insulina puede necesitarse más, siempre que no haya diferencia acostarse–ayunas ≥ 50 ni hipoglucemias. En el mini reto, con ayunas de 150, la respuesta correcta depende de la glucemia al acostarse: si también ronda 150, subir 2 U es razonable; si es de 230, el problema es la comida y no la basal.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Cita:</b> el video atribuye la sobrebasalización a "Cowart, Clin Diabetes 2023". El estudio de Cowart que la cuantificó (≈ 40 % de los pacientes con basal en atención primaria) es de <i>Clinical Diabetes</i> 2021. No encontré una publicación de 2023 del mismo autor.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Antes de subir la dosis, revisar lo que el video no menciona:</b></p>
+      <div class="vd"><span class="tag ok">Clave</span><p>Dosis de inicio de 10 U o 0,1–0,2 U/kg, meta preprandial de 80–130 mg/dL, titulación de +2 U cada 3 días y criterios de sobrebasalización según los Standards of Care de la ADA. AT.LANTUS (n = 4961) confirma que la titulación por el paciente es al menos tan eficaz, con hipoglucemia grave similar (≈ 1 %).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>0,5 U/kg es una señal de alarma, no un techo absoluto.</b> En obesidad con resistencia a la insulina puede necesitarse más, siempre que no haya diferencia acostarse–ayunas ≥ 50 ni hipoglucemias. En el caso de reto, con ayunas de 150, la respuesta correcta depende de la glucemia al acostarse: si también ronda 150, subir 2 U es razonable; si es de 230, el problema es la comida y no la basal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La sobrebasalización es frecuente:</b> ≈ 40 % de los pacientes con insulina basal en atención primaria la presentan (Cowart, <i>Clinical Diabetes</i> 2021).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Antes de subir la dosis, revisar:</b></p>
         <p>Técnica y sitio de inyección: la <b>lipohipertrofia</b> es muy frecuente y reduce la absorción.</p>
         <p>Adherencia y horario: la NPH dura menos de 24 h.</p>
         <p>Refrigerios nocturnos.</p>
         <p>Efecto Somogyi: es raro. Lo habitual es el fenómeno del alba.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Al iniciar basal:</b> mantener la metformina y el iSGLT2. Reducir o suspender la sulfonilurea (hipoglucemia). Si no hay contraindicación, la ADA prefiere un <b>arGLP-1 antes que la insulina</b>, salvo HbA1c &gt; 10 %, glucosa ≥ 300 o síntomas catabólicos. Las combinaciones fijas (glargina/lixisenatida, degludec/liraglutida) son una opción cuando se acerca la sobrebasalización.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Al iniciar basal:</b> mantener la metformina y el iSGLT2. Reducir o suspender la sulfonilurea (hipoglucemia). Si no hay contraindicación, la ADA prefiere un <b>arGLP-1 antes que la insulina</b>, salvo HbA1c &gt; 10 %, glucosa ≥ 300 o síntomas catabólicos. Las combinaciones fijas (glargina/lixisenatida, degludec/liraglutida) son una opción cuando se acerca la sobrebasalización.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>NPH ≠ glargina.</b> Si el paciente usa NPH, conviene dividirla (2/3 en la mañana y 1/3 al acostarse, o dos dosis). Una sola dosis nocturna alta se asocia a hipoglucemia de madrugada. Ante hipoglucemia sin causa: bajar 10–20 % o 4 U, no solo "dejar igual".</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p>En el sector público (MSP e IESS) la insulina disponible suele ser <b>NPH y regular</b>, y la glargina es más limitada. Los arGLP-1 son caros y casi exclusivamente privados; si no hay acceso, la alternativa es la intensificación prandial (basal-plus con regular antes de la comida principal).</p>
@@ -981,34 +971,34 @@ footer a{color:var(--accent)}
 <article class="panel" id="v44" role="tabpanel" aria-labelledby="t-v44" hidden>
   <div>
     <h2>Estado hiperosmolar hiperglucémico: criterios nuevos y manejo en 4 puntos</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain (Medik Brain)</span><span>Duración 3:00</span><span>Recibido 28/10/2026</span><span>Base citada: consenso ADA/EASD/JBDS/AACE/DTS 2024 (Umpierrez, Diabetes Care 2024) — verificada</span></div>
+    <div class="meta"><span>Bases: consenso ADA/EASD/JBDS/AACE/DTS 2024 (Umpierrez, Diabetes Care 2024)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 44">
-    <a href="#v44-resumen">Resumen</a><a href="#v44-cuatro">Los 4 puntos</a><a href="#v44-calc">Calculadora</a><a href="#v44-analisis">Análisis crítico</a><a href="#v44-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v44-resumen">Resumen</a><a href="#v44-cuatro">Los 4 puntos</a><a href="#v44-calc">Calculadora</a><a href="#v44-analisis">Puntos clave</a><a href="#v44-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v44-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Caso de arranque: glucosa de 600 mg/dL en un paciente despierto. Mensaje: con el consenso 2024, <b>el estupor ya no es criterio</b>; los casos graves pueden estar despiertos. Cuatro puntos: <b>criterios nuevos</b> (glucosa ≥ 600, osmolalidad efectiva &gt; 300 o total &gt; 320, sin cetosis ni acidosis), <b>líquidos primero</b> (500–1000 mL/h en 2–4 h), <b>insulina con calma</b> (0,05 U/kg/h fija, potasio antes) y el <b>error más grave</b>: corregir rápido.</p>
-    <p class="note">Video con ilustraciones generadas por IA; contenido tomado del texto en pantalla. Complementa la pestaña 24 (cetoacidosis diabética). Sin patrocinio.</p>
+    <p class="lead">Glucosa de 600 mg/dL en un paciente despierto: con el consenso 2024, <b>el estupor ya no es criterio</b>; los casos graves pueden estar despiertos. Cuatro puntos: <b>criterios nuevos</b> (glucosa ≥ 600, osmolalidad efectiva &gt; 300 o total &gt; 320, sin cetosis ni acidosis), <b>líquidos primero</b> (500–1000 mL/h en 2–4 h), <b>insulina con calma</b> (0,05 U/kg/h fija, potasio antes) y el <b>error más grave</b>: corregir rápido.</p>
+    <p class="note">Complementa la pestaña 24 (cetoacidosis diabética).</p>
   </section>
 
   <section id="v44-cuatro">
-    <h3>Los 4 puntos del video</h3>
+    <h3>Los 4 puntos del manejo</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Punto</th><th>Video</th><th>Precisión del consenso 2024 (agregada)</th></tr></thead>
+      <thead><tr><th>Punto</th><th>Recomendación</th><th>Detalle del consenso 2024</th></tr></thead>
       <tbody>
         <tr><td><b>1. Criterios</b></td><td>Glucosa ≥ 600; osmolalidad efectiva &gt; 300 (antes estupor + &gt; 320); sin cetosis (β-OHB &lt; 3 mmol/L)</td><td>Osmolalidad efectiva &gt; 300 <b>o total</b> &gt; 320 (incluye urea); sin acidosis: pH ≥ 7,3 y HCO₃⁻ ≥ 15; cetonuria ≤ 2+ si no hay β-OHB</td></tr>
         <tr><td><b>2. Líquidos</b></td><td>Cristaloide isotónico o balanceado 500–1000 mL/h por 2–4 h; ancianos, IC o ERC: bolos de 250 mL. Mitad del déficit en 8–12 h, total en 24–48 h. Salino 0,45 % solo si la osmolalidad no baja</td><td>Agregar dextrosa 5–10 % cuando la glucosa baje de 250 mg/dL</td></tr>
         <tr><td><b>3. Insulina</b></td><td>Infusión IV fija 0,05 U/kg/h; K⁺ &lt; 3,5: insulina en pausa, reponer 10–20 mmol/h; K⁺ 3,5–5: 10–20 mmol por litro; K⁺ &gt; 5: no reponer</td><td>Con cetonemia o acidosis significativas (cuadro mixto): tratar como CAD, 0,1 U/kg/h. Meta de K⁺: 4–5</td></tr>
-        <tr><td><b>4. Velocidad</b></td><td>Glucosa ≤ 90–120 mg/dL/h; Na⁺ ≤ 10 mmol/L en 24 h; osmolalidad 3–8 mOsm/kg/h; medir cada 4 h</td><td>Coincide con el consenso. Manejo en UCI</td></tr>
+        <tr><td><b>4. Velocidad</b></td><td>Glucosa ≤ 90–120 mg/dL/h; Na⁺ ≤ 10 mmol/L en 24 h; osmolalidad 3–8 mOsm/kg/h; medir cada 4 h</td><td>Manejo en UCI</td></tr>
         <tr><td><b>Resolución</b></td><td>Osmolalidad &lt; 300, glucosa &lt; 250, diuresis adecuada</td><td>Diuresis ≥ 0,5 mL/kg/h y <b>recuperación del estado mental basal</b></td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v44-calc">
-    <h3>Calculadora del estado hiperosmolar (agregada)</h3>
+    <h3>Calculadora del estado hiperosmolar</h3>
     <div class="box">
       <div class="calc">
         <label for="o44-glu">Glucosa (mg/dL)<input id="o44-glu" type="number" min="50" max="2500" value="720"></label>
@@ -1027,13 +1017,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v44-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video fiel al consenso 2024, claro y bien dosificado. Un titular exagerado y algunas omisiones:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Criterios nuevos (el deterioro mental ya no es requisito; HCO₃⁻ ≥ 15), líquidos de 500–1000 mL/h por 2–4 h, bolos de 250 mL en ancianos o cardiópatas, insulina fija de 0,05 U/kg/h, umbrales de potasio, límites de corrección (glucosa 90–120 mg/dL/h, Na⁺ ≤ 10 mmol/L en 24 h, osmolalidad 3–8 mOsm/kg/h) y control cada 4 h: todo coincide con el consenso. En el reto, la respuesta correcta es la B (reponer potasio antes de la insulina).</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"Glucosa de 600 en un paciente despierto = estado hiperosmolar" es exagerado.</b> La glucosa sola no basta: con Na⁺ 130 y glucosa 600, la osmolalidad efectiva es 293, por debajo de 300; con BUN normal tampoco llega a 320 de total. Hay que calcular la osmolalidad y descartar cetosis y acidosis.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Resolución incompleta:</b> el consenso exige además la recuperación del estado mental. Y el "error más grave" se presenta como edema cerebral, que en adultos con hiperosmolar es raro. Los riesgos más frecuentes son la mielinólisis osmótica por bajar el sodio rápido, la trombosis y la hipopotasemia.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que falta:</b></p>
+      <div class="vd"><span class="tag ok">Clave</span><p>Criterios nuevos (el deterioro mental ya no es requisito; HCO₃⁻ ≥ 15), líquidos de 500–1000 mL/h por 2–4 h, bolos de 250 mL en ancianos o cardiópatas, insulina fija de 0,05 U/kg/h, umbrales de potasio, límites de corrección (glucosa 90–120 mg/dL/h, Na⁺ ≤ 10 mmol/L en 24 h, osmolalidad 3–8 mOsm/kg/h) y control cada 4 h (consenso 2024). Con potasio bajo, se repone antes de iniciar la insulina.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La glucosa sola no define el estado hiperosmolar:</b> con Na⁺ 130 y glucosa 600, la osmolalidad efectiva es 293, por debajo de 300; con BUN normal tampoco llega a 320 de total. Hay que calcular la osmolalidad y descartar cetosis y acidosis.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Resolución:</b> exige además la recuperación del estado mental. El edema cerebral es raro en adultos con estado hiperosmolar. Los riesgos más frecuentes son la mielinólisis osmótica por bajar el sodio rápido, la trombosis y la hipopotasemia.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Además:</b></p>
         <p><b>Sodio corregido:</b> si sube durante la hidratación, no es un error mientras la osmolalidad total baje. Vigilar ambos.</p>
         <p><b>Tromboprofilaxis</b> con heparina de bajo peso molecular, salvo contraindicación (JBDS): la hiperviscosidad favorece la trombosis.</p>
         <p><b>Cuadro mixto CAD–hiperosmolar:</b> es frecuente; si hay cetonemia ≥ 3 o acidosis, insulina a 0,1 U/kg/h.</p>
@@ -1059,22 +1048,22 @@ footer a{color:var(--accent)}
 <article class="panel" id="v46" role="tabpanel" aria-labelledby="t-v46" hidden>
   <div>
     <h2>Síndrome cardiovascular, renal y metabólico (CKM): guía 2026</h2>
-    <div class="meta"><span>Fuente: TikTok @medicina.en.resumen</span><span>Duración 2:10</span><span>Recibido 29/10/2026</span><span>Bases citadas: guía AHA/ACC/ADA/ASN 2026 de síndrome CKM (Ndumele, JACC/Circulation, junio 2026) — existe, verificada; KDIGO 2024; EMPA-KIDNEY, FIDELITY, FLOW</span></div>
+    <div class="meta"><span>Bases: guía AHA/ACC/ADA/ASN 2026 de síndrome CKM (Ndumele, JACC/Circulation, junio 2026); KDIGO 2024; EMPA-KIDNEY, FIDELITY, FLOW</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 46">
-    <a href="#v46-resumen">Resumen</a><a href="#v46-estadios">Estadios</a><a href="#v46-renal">Algoritmo renal</a><a href="#v46-calc">Calculadora</a><a href="#v46-analisis">Análisis crítico</a><a href="#v46-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v46-resumen">Resumen</a><a href="#v46-estadios">Estadios</a><a href="#v46-renal">Algoritmo renal</a><a href="#v46-calc">Calculadora</a><a href="#v46-analisis">Puntos clave</a><a href="#v46-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v46-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Gancho: <b>pedir solo creatinina muestra la mitad del diagnóstico renal</b>. La ERC se define por <b>filtrado &lt; 60 o albuminuria (UACR) ≥ 30 mg/g</b>, y la creatinina no ve la segunda. Luego, los <b>5 estadios CKM</b> (0–4), el riesgo con <b>PREVENT</b> (en DM2 con riesgo a 10 años ≥ 7,5 %: iSGLT2 o arGLP-1 con beneficio demostrado, sin importar la HbA1c ni la metformina) y el <b>algoritmo renal</b>: IECA/ARA-II a dosis máxima → + iSGLT2 desde filtrado ≥ 20 → si persiste la albuminuria en DM2, finerenona (UACR ≥ 30) o semaglutida (UACR ≥ 100). Una caída del filtrado de hasta 30 % al iniciar es esperable.</p>
-    <p class="note">Video generado por IA; contenido tomado del texto en pantalla. Cierra ofreciendo un PDF a cambio de comentarios o mensajes (captación de seguidores, sin producto patrocinado). Relacionadas: 19 (¿GLP-1 o insulina?), 20 (errores en DM2: caída del filtrado con iSGLT2) y 13 de la Videoteca 1 (IC: dosis).</p>
+    <p class="lead"><b>Pedir solo creatinina muestra la mitad del diagnóstico renal</b>. La ERC se define por <b>filtrado &lt; 60 o albuminuria (UACR) ≥ 30 mg/g</b>, y la creatinina no ve la segunda. Luego, los <b>5 estadios CKM</b> (0–4), el riesgo con <b>PREVENT</b> (en DM2 con riesgo a 10 años ≥ 7,5 %: iSGLT2 o arGLP-1 con beneficio demostrado, sin importar la HbA1c ni la metformina) y el <b>algoritmo renal</b>: IECA/ARA-II a dosis máxima → + iSGLT2 desde filtrado ≥ 20 → si persiste la albuminuria en DM2, finerenona (UACR ≥ 30) o semaglutida (UACR ≥ 100). Una caída del filtrado de hasta 30 % al iniciar es esperable.</p>
+    <p class="note">Relacionadas: 19 (¿GLP-1 o insulina?), 20 (errores en DM2: caída del filtrado con iSGLT2) y 13 de la Videoteca 1 (IC: dosis).</p>
   </section>
 
   <section id="v46-estadios">
     <h3>Estadios CKM</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Estadio</th><th>Video</th><th>Precisión (guía y declaración AHA 2023)</th></tr></thead>
+      <thead><tr><th>Estadio</th><th>Definición breve</th><th>Detalle (guía 2026 y declaración AHA 2023)</th></tr></thead>
       <tbody>
         <tr><td class="m">0</td><td>Sin factores de riesgo</td><td>Peso, glucosa, PA, lípidos y función renal normales: prevención primordial</td></tr>
         <tr><td class="m">1</td><td>Adiposidad: sobrepeso, cintura, prediabetes</td><td>Exceso de adiposidad o disfunción del tejido adiposo, sin otros factores</td></tr>
@@ -1086,7 +1075,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v46-renal">
-    <h3>Algoritmo renal del video</h3>
+    <h3>Algoritmo renal</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Medir filtrado + UACR</h4><ul><li>ERC: filtrado &lt; 60 o UACR ≥ 30 mg/g, persistente ≥ 3 meses. Clasificar G1–G5 y A1–A3 (KDIGO).</li></ul></li>
       <li class="step"><span class="num">2</span><h4>IECA o ARA-II a dosis máxima tolerada</h4><ul><li>Indicación clara con albuminuria (A2–A3) y en DM2 o HTA.</li></ul></li>
@@ -1097,7 +1086,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v46-calc">
-    <h3>Calculadora CKM y renal (agregada)</h3>
+    <h3>Calculadora CKM y renal</h3>
     <div class="box">
       <div class="calc">
         <label for="k46-egfr">Filtrado (mL/min/1,73 m²)<input id="k46-egfr" type="number" min="3" max="150" value="52"></label>
@@ -1118,13 +1107,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v46-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Buen resumen del enfoque CKM y del algoritmo renal, alineado con KDIGO. Faltan matices y hay un umbral que no pude verificar:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La guía existe: AHA/ACC/ADA/ASN, publicada el 9 de junio de 2026 en JACC y Circulation, primer autor Ndumele; es la primera guía de síndrome CKM y recomienda medir <b>filtrado y UACR</b>. El algoritmo renal (bloqueo del SRAA → iSGLT2 desde 20 → finerenona o semaglutida) y la caída esperable del filtrado coinciden con KDIGO 2024 y los ensayos citados.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Umbral de PREVENT ≥ 7,5 % en DM2:</b> no pude verificar en las fuentes accesibles que sea el corte de la guía para iniciar iSGLT2 o arGLP-1. En DM2 con ERC, IC o enfermedad aterosclerótica, la indicación es independiente del riesgo calculado y de la HbA1c (ADA 2026). Tomar el 7,5 % como dato del video hasta confirmarlo en el texto completo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La guía AHA/ACC/ADA/ASN, publicada el 9 de junio de 2026 en JACC y Circulation (Ndumele), es la primera guía de síndrome CKM y recomienda medir <b>filtrado y UACR</b>. El algoritmo renal (bloqueo del SRAA → iSGLT2 desde 20 → finerenona o semaglutida) y la caída esperable del filtrado se basan en KDIGO 2024 y los ensayos clave.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>PREVENT en DM2:</b> un riesgo elevado refuerza la indicación de iSGLT2 o arGLP-1, pero en DM2 con ERC, IC o enfermedad aterosclerótica la indicación es independiente del riesgo calculado y de la HbA1c (ADA 2026).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>La ERC necesita persistencia ≥ 3 meses.</b> Una sola UACR alta puede deberse a fiebre, ejercicio, ITU, descompensación o menstruación: repetir (2 de 3 muestras). El filtrado debe calcularse con CKD-EPI 2021 sin raza; la cistatina C ayuda en sarcopenia o extremos de peso.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que el video omite:</b></p>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Además:</b></p>
         <p><b>Estatina</b> en todo adulto con ERC no dialítica ≥ 50 años (KDIGO); <b>meta de PA</b> &lt; 120–130 sistólica si se tolera.</p>
         <p><b>Finerenona:</b> controlar el K⁺ al mes; suspender si &gt; 5,5. No combinar con espironolactona.</p>
         <p><b>Semaglutida en FLOW:</b> 1 mg semanal subcutánea redujo en 24 % el desenlace renal compuesto; la oral no está probada en ERC.</p>
@@ -1149,36 +1137,36 @@ footer a{color:var(--accent)}
 <article class="panel" id="v49" role="tabpanel" aria-labelledby="t-v49" hidden>
   <div>
     <h2>Hipotiroidismo subclínico: ¿cuándo iniciar levotiroxina?</h2>
-    <div class="meta"><span>Fuente: TikTok @aprendemedicina4 (Aprende Medicina), hoja escrita a mano</span><span>Duración 2:39</span><span>Recibido 06/11/2026</span><span>Sin referencias citadas; contrastado con ETA 2013, NICE NG145, TRUST y BMJ 2019 (verificados)</span></div>
+    <div class="meta"><span>Bases: ETA 2013, NICE NG145, TRUST (NEJM 2017), BMJ Rapid Recommendation 2019, ATA (embarazo)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 49">
-    <a href="#v49-resumen">Resumen</a><a href="#v49-esq">Esquema</a><a href="#v49-calc">Decisión</a><a href="#v49-analisis">Análisis crítico</a><a href="#v49-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v49-resumen">Resumen</a><a href="#v49-esq">Esquema</a><a href="#v49-calc">Decisión</a><a href="#v49-analisis">Puntos clave</a><a href="#v49-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v49-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Esquema de una hoja dividido por edad. <b>Menores de 65 años:</b> TSH &lt; 7 mUI/L, no tratar y repetir en 2–3 meses; 7–10, considerar tratamiento; &gt; 10, tratar con <b>1,6 µg/kg/día</b> y objetivo de TSH <b>0,4–2,5</b>. <b>Mayores de 65:</b> TSH &lt; 10, no tratar; &gt; 10, tratar "con precaución" con <b>25–50 µg/día</b>.</p>
-    <p class="note">Primera pestaña de tiroides de la colección; se ubica en este volumen por ser endocrinología. Es un esquema útil como punto de partida, pero omite la T4 libre (sin ella no hay diagnóstico), la confirmación, los anticuerpos, el embarazo y la evidencia de 2017–2019 en mayores.</p>
+    <p class="lead">Hipotiroidismo subclínico: TSH alta con <b>T4 libre normal</b>, confirmada a los 2–3 meses. <b>Menores de 65–70 años:</b> con TSH ≥ 10 se trata; entre 4,5 y 10 decide el contexto (síntomas, anti-TPO, bocio, embarazo), con meta de TSH <b>0,4–2,5</b>. <b>Mayores de 65–70:</b> con TSH &lt; 10 no se trata; con ≥ 10 se individualiza, con <b>25–50 µg/día</b> y meta más laxa. Embarazo y TSH ≥ 20 son excepciones: se trata.</p>
+    <p class="note">Claves: sin T4 libre no hay diagnóstico; se confirma antes de tratar; los anti-TPO, el embarazo y la edad cambian la conducta.</p>
   </section>
 
   <section id="v49-esq">
-    <h3>El esquema del video frente a las guías</h3>
+    <h3>Conducta según la situación</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Situación</th><th>Video</th><th>Guías (agregado)</th></tr></thead>
+      <thead><tr><th>Situación</th><th>Esquema habitual</th><th>Recomendación de las guías</th></tr></thead>
       <tbody>
-        <tr><td><b>Primer TSH elevado</b></td><td>&lt; 7: "no tratar, 2–3 meses"</td><td>En todos los casos, repetir TSH + <b>T4L + anti-TPO</b> a los 2–3 meses antes de decidir (ETA). Muchos se normalizan</td></tr>
-        <tr><td><b>&lt; 65–70 años, TSH 4,5–10</b></td><td>&lt; 7 no; 7–10 considerar</td><td>El corte de 7 no aparece en las guías. Con síntomas: ensayo de 3–6 meses; si no mejora con TSH normal, suspender (ETA, NICE). Sin síntomas: vigilar</td></tr>
-        <tr><td><b>&lt; 65–70 años, TSH ≥ 10</b></td><td>Tratar, 1,6 µg/kg; meta 0,4–2,5</td><td>Tratar si se confirma (ETA, NICE). Dosis: ver el análisis. Meta 0,4–2,5 (mitad baja del rango)</td></tr>
-        <tr><td><b>&gt; 65–70 años, TSH &lt; 10</b></td><td>No tratar</td><td>De acuerdo. En ≥ 80 años, una TSH de 4–7 puede ser fisiológica</td></tr>
-        <tr><td><b>&gt; 65–70 años, TSH ≥ 10</b></td><td>Tratar con precaución, 25–50 µg</td><td>Individualizar: TRUST (≥ 65 años, TSH hasta 19,9) no mostró beneficio. Si se trata, 25 µg (12,5 en coronarios) y meta más laxa (≈ 1–5)</td></tr>
-        <tr><td><b>Embarazo o deseo de embarazo</b></td><td>No lo menciona</td><td>Excepción: umbral bajo, sobre todo con anti-TPO positivos. TSH &gt; 10 en el embarazo: tratar siempre (ATA)</td></tr>
-        <tr><td><b>TSH ≥ 20</b></td><td>No lo distingue</td><td>Tratar a cualquier edad (excepción de la recomendación BMJ 2019)</td></tr>
+        <tr><td><b>Primer TSH elevado</b></td><td>Repetir</td><td>En todos los casos, repetir TSH + <b>T4L + anti-TPO</b> a los 2–3 meses antes de decidir (ETA). Muchos se normalizan</td></tr>
+        <tr><td><b>&lt; 65–70 años, TSH 4,5–10</b></td><td>Individualizar</td><td>Con síntomas: ensayo de 3–6 meses; si no mejora con TSH normal, suspender (ETA, NICE). Sin síntomas: vigilar</td></tr>
+        <tr><td><b>&lt; 65–70 años, TSH ≥ 10</b></td><td>Tratar</td><td>Tratar si se confirma (ETA, NICE). Dosis: ver Puntos clave. Meta 0,4–2,5 (mitad baja del rango)</td></tr>
+        <tr><td><b>&gt; 65–70 años, TSH &lt; 10</b></td><td>No tratar</td><td>En ≥ 80 años, una TSH de 4–7 puede ser fisiológica</td></tr>
+        <tr><td><b>&gt; 65–70 años, TSH ≥ 10</b></td><td>Individualizar</td><td> TRUST (≥ 65 años, TSH hasta 19,9) no mostró beneficio. Si se trata, 25 µg (12,5 en coronarios) y meta más laxa (≈ 1–5)</td></tr>
+        <tr><td><b>Embarazo o deseo de embarazo</b></td><td>Umbral bajo</td><td>Excepción: umbral bajo, sobre todo con anti-TPO positivos. TSH &gt; 10 en el embarazo: tratar siempre (ATA)</td></tr>
+        <tr><td><b>TSH ≥ 20</b></td><td>Tratar</td><td>Tratar a cualquier edad (excepción de la recomendación BMJ 2019)</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v49-calc">
-    <h3>Asistente de decisión en hipotiroidismo subclínico (agregado)</h3>
+    <h3>Asistente de decisión en hipotiroidismo subclínico</h3>
     <div class="box">
       <p class="note">Precargado: mujer de 58 años, 72 kg, cansancio y estreñimiento; primera TSH 8,4 y control a los 3 meses 9,1, con T4L normal y anti-TPO positivos.</p>
       <div class="calc">
@@ -1199,23 +1187,22 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v49-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Esquema práctico y en líneas generales alineado con la conducta habitual, pero incompleto y con números que las guías no usan:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Tratar con TSH &gt; 10 en menores de 65–70 años, no tratar con TSH &lt; 10 en mayores, repetir la medición antes de decidir, meta de 0,4–2,5 en el adulto joven y dosis bajas (25–50 µg) en el mayor: coincide con ETA 2013 y NICE.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Sin T4 libre no hay diagnóstico.</b> El video solo habla de TSH. Hipotiroidismo subclínico es TSH alta con T4L normal; si la T4L está baja, es manifiesto y se trata. La confirmación correcta es TSH + T4L + anti-TPO a los 2–3 meses, no "esperar sin tratar".</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>El corte de 7 mUI/L no está en las guías.</b> ETA divide en leve (4–10) y grave (&gt; 10). Entre 4,5 y 10, lo que decide no es el número sino los síntomas, los anti-TPO, el bocio y el embarazo. El corte de edad es 70 en la ETA y 65 en NICE.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Tratar con TSH &gt; 10 en menores de 65–70 años, no tratar con TSH &lt; 10 en mayores, repetir la medición antes de decidir, meta de 0,4–2,5 en el adulto joven y dosis bajas (25–50 µg) en el mayor (ETA 2013, NICE).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Sin T4 libre no hay diagnóstico.</b> Hipotiroidismo subclínico es TSH alta con T4L normal; si la T4L está baja, es manifiesto y se trata. La confirmación correcta es TSH + T4L + anti-TPO a los 2–3 meses, no "esperar sin tratar".</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Leve y grave:</b> ETA divide en leve (4–10) y grave (&gt; 10). Entre 4,5 y 10, lo que decide no es el número sino los síntomas, los anti-TPO, el bocio y el embarazo. El corte de edad es 70 en la ETA y 65 en NICE.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>1,6 µg/kg es la dosis plena del hipotiroidismo manifiesto.</b> En el subclínico queda función tiroidea residual: la mayoría se controla con 25–75 µg/día (≈ 50). La dosis plena (1,5–1,6 µg/kg) es aceptable en el joven sin cardiopatía con TSH ≥ 10, pero en el subclínico leve sobretrata con facilidad. Una TSH suprimida duplica el problema: FA y pérdida ósea.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>En el mayor, "tratar con precaución" se queda corto.</b> TRUST (Stott, NEJM 2017; 737 pacientes ≥ 65 años, TSH 4,6–19,9) no mejoró síntomas ni calidad de vida. La recomendación rápida de la BMJ (2019) se pronuncia en contra de tratar a la mayoría de los adultos con TSH &lt; 20, salvo embarazo o deseo de embarazo. Con TSH ≥ 10 en el mayor: individualizar y, si se trata, usar una meta más laxa (≈ 1–5).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Antes de diagnosticar, descarta las causas de TSH alta transitoria o falsa:</b> recuperación de una enfermedad aguda o internación, insuficiencia suprarrenal no tratada, biotina (suspender 2 días), obesidad, amiodarona, litio, contraste yodado, inhibidores de tirosina cinasa.</p><p><b>Anti-TPO positivos:</b> progresión a manifiesto ≈ 4 % por año frente a ≈ 2 % si son negativos. Bajan el umbral para tratar y fijan el control anual.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Cómo se toma la levotiroxina:</b> en ayunas, 30–60 min antes del desayuno (o al acostarse, 3 h después de cenar), separada 4 h del calcio, el hierro y los antiácidos. Los IBP y el café reducen su absorción. Controlar la TSH a las 6–8 semanas de iniciar o cambiar la dosis o la marca, y luego una vez al año.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>En el mayor, la evidencia frena el tratamiento.</b> TRUST (Stott, NEJM 2017; 737 pacientes ≥ 65 años, TSH 4,6–19,9) no mejoró síntomas ni calidad de vida. La recomendación rápida de la BMJ (2019) se pronuncia en contra de tratar a la mayoría de los adultos con TSH &lt; 20, salvo embarazo o deseo de embarazo. Con TSH ≥ 10 en el mayor: individualizar y, si se trata, usar una meta más laxa (≈ 1–5).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Antes de diagnosticar, descarta las causas de TSH alta transitoria o falsa:</b> recuperación de una enfermedad aguda o internación, insuficiencia suprarrenal no tratada, biotina (suspender 2 días), obesidad, amiodarona, litio, contraste yodado, inhibidores de tirosina cinasa.</p><p><b>Anti-TPO positivos:</b> progresión a manifiesto ≈ 4 % por año frente a ≈ 2 % si son negativos. Bajan el umbral para tratar y fijan el control anual.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Cómo se toma la levotiroxina:</b> en ayunas, 30–60 min antes del desayuno (o al acostarse, 3 h después de cenar), separada 4 h del calcio, el hierro y los antiácidos. Los IBP y el café reducen su absorción. Controlar la TSH a las 6–8 semanas de iniciar o cambiar la dosis o la marca, y luego una vez al año.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Embarazo:</b> es la omisión más importante. En la mujer que busca embarazo o está en el primer trimestre, el umbral es bajo (sobre todo con anti-TPO positivos) y la dosis requerida aumenta ≈ 30 % al confirmar el embarazo. Una TSH &gt; 10 en el embarazo se trata siempre (ATA).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p><b>Causa:</b> la sal yodada es universal desde hace décadas; el hipotiroidismo de la costa es sobre todo autoinmune (Hashimoto), de ahí el valor de los anti-TPO. En el sector público no siempre están disponibles: la ecografía puede suplirlos en parte.</p>
         <p><b>Ecografía con transductor lineal:</b> un patrón difuso hipoecoico y heterogéneo, con pseudonódulos, sugiere tiroiditis autoinmune y respalda el riesgo de progresión. No es obligatoria para el diagnóstico.</p>
         <p><b>Levotiroxina:</b> los cambios de marca o de genérico entre la farmacia pública y la privada modifican la TSH; recontrolar a las 6–8 semanas de cada cambio.</p>
         <p><b>En el diabético (tema de este volumen):</b> pedir TSH ante una dislipidemia nueva o que empeora y antes de una estatina (riesgo de miopatía). La metformina puede bajar la TSH sin cambiar la T4L.</p></div>
-      <div class="vd"><span class="tag add">Para la cátedra</span><p>Contrastar el esquema por números del video con la decisión por contexto de las guías: misma TSH de 12 en una mujer de 30 años que busca embarazo, en un hombre de 50 y en una mujer de 82. Las tres conductas son distintas.</p></div>
+      <div class="vd"><span class="tag add">Para la cátedra</span><p>Contrastar una decisión basada solo en cifras con la decisión por contexto de las guías: misma TSH de 12 en una mujer de 30 años que busca embarazo, en un hombre de 50 y en una mujer de 82. Las tres conductas son distintas.</p></div>
     </div>
     <div class="callout"><strong>En la consulta:</strong> ante una TSH alta aislada, no recetes. Repite TSH + T4L + anti-TPO en 2–3 meses y pregunta por embarazo, biotina, amiodarona y litio. Si tratas un subclínico, empieza con 25–50 µg y no con la dosis plena; controla a las 6–8 semanas.</div>
   </section>
@@ -1228,7 +1215,7 @@ footer a{color:var(--accent)}
 </article>
 
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <b>Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</b> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
+<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <b>Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</b> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
 </div>
 
 <script>
@@ -1314,9 +1301,9 @@ const QUIZ = {
     {q:"Paciente con retinopatía diabética proliferativa quiere iniciar pesas. ¿Qué indicas?",
      o:["Sin restricción","Evitar cargas máximas, Valsalva y cabeza abajo; coordinar con oftalmología","Prohibir todo ejercicio","Solo ejercicio isométrico máximo"], a:1,
      e:"El aumento brusco de presión puede causar hemorragia vítrea o desprendimiento de retina."},
-    {q:"¿Qué componente de la recomendación ADA falta en el plan del carrusel?",
+    {q:"¿Qué componente de la recomendación ADA suele faltar en un plan centrado en fuerza y caminatas cortas?",
      o:["Entrenamiento de fuerza","Interrumpir el tiempo sentado","≥ 150 min/semana de ejercicio aeróbico moderado","Caminata posprandial"], a:2,
-     e:"El carrusel se centra en fuerza y caminatas cortas; la base ADA incluye ≥ 150 min/semana de aeróbico."}
+     e:"Un plan centrado en fuerza y caminatas cortas es incompleto; la base ADA incluye ≥ 150 min/semana de aeróbico."}
   ],
   v17: [
     {q:"Mujer con IMC 34 y pantorrilla de 36 cm. ¿Pantorrilla ajustada?",
@@ -1626,7 +1613,7 @@ function k46Calc(){
     rows.push(['Al iniciar','Caída del filtrado ≤ 30 % esperable; creatinina y K⁺ a las 2–4 semanas']);
   }
   if(dm&&!ecv&&!ckd&&!isNaN(prev)){
-    rows.push(['DM2 sin ERC ni ECV',prev>=7.5?pill('PREVENT ≥ 7,5 %','add')+'Según el video: iSGLT2 o arGLP-1 con beneficio CV, sin importar la HbA1c (umbral no verificado)':'Riesgo < 7,5 %: elegir por glucemia, peso y preferencias']);
+    rows.push(['DM2 sin ERC ni ECV',prev>=7.5?pill('PREVENT ≥ 7,5 %','add')+'Riesgo elevado: considerar iSGLT2 o arGLP-1 con beneficio CV, sin importar la HbA1c':'Riesgo < 7,5 %: elegir por glucemia, peso y preferencias']);
   }
   document.getElementById('k46-out').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
 }
