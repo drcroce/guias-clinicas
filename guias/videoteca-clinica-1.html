@@ -141,6 +141,7 @@ footer a{color:var(--accent)}
   <button class="tab" role="tab" id="t-v13" aria-controls="v13" aria-selected="false">15 · Hipertensión severa vs emergencia</button>
   <button class="tab" role="tab" id="t-v18" aria-controls="v18" aria-selected="false">16 · Crisis hipertensiva: fármacos y dosis</button>
   <button class="tab" role="tab" id="t-v42" aria-controls="v42" aria-selected="false">42 · Hemibloqueos y bloqueos de rama</button>
+  <button class="tab" role="tab" id="t-v54" aria-controls="v54" aria-selected="false">54 · Edema agudo de pulmón</button>
 </nav>
 
 <!-- ============ PESTAÑA 1 (antes 38) ============ -->
@@ -1676,8 +1677,134 @@ footer a{color:var(--accent)}
   <p class="note">Referencias: Surawicz B et al. AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the ECG, Part III: intraventricular conduction disturbances, Circulation 2009; Strauss DG et al. Am J Cardiol 2011; Glikson M et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy, Eur Heart J 2021; Elizari MV et al. Hemiblocks revisited, Circulation 2007; Nunes MCP et al. Chagas Cardiomyopathy, AHA Scientific Statement, Circulation 2018.</p>
 </article>
 
+<article class="panel" id="v54" role="tabpanel" aria-labelledby="t-v54" hidden>
+  <div>
+    <h2>Edema agudo de pulmón en urgencias: sin morfina, nitratos según la presión y furosemida guiada por la respuesta</h2>
+    <div class="meta"><span>Bases: consenso ACVC/HFA/EuSEM sobre insuficiencia cardíaca aguda en urgencias (Eur Heart J, 2026), guía ESC de insuficiencia cardíaca 2026, ESC 2021/2023, ensayos MIMO, ADVOR, CLOROTIC y PUSH-AHF</span></div>
+  </div>
+  <nav class="subnav" aria-label="Secciones de la pestaña 54">
+    <a href="#v54-resumen">Resumen</a><a href="#v54-dx">Diagnóstico</a><a href="#v54-tto">Tratamiento</a><a href="#v54-diur">Diurético</a><a href="#v54-calc">Calculadora</a><a href="#v54-alta">Destino</a><a href="#v54-analisis">Puntos clave</a><a href="#v54-quiz">Autoevaluación</a>
+  </nav>
 
-<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
+  <section id="v54-resumen">
+    <h3>Resumen</h3>
+    <p class="lead">El consenso europeo de 2026 sobre insuficiencia cardíaca aguda en la ambulancia y en urgencias ordena las primeras horas en torno a <b>cuatro fenotipos</b>: insuficiencia cardíaca aguda descompensada (75–80 %), <b>edema agudo de pulmón</b> (15–20 %), falla ventricular derecha aislada (3–5 %) y choque cardiogénico (1–2 %). En el edema agudo de pulmón el problema es la <b>redistribución</b> de líquido hacia el pulmón por poscarga alta, más que el exceso de volumen. De ahí las tres reglas: <b>la morfina sale</b> (midazolam en dosis bajas si hay ansiedad intensa), <b>el nitrato depende de la presión</b> (PAS &gt; 110 mmHg, sin bajar más del 25 % en la primera hora) y <b>la furosemida se mide</b> (sodio urinario a las 2 h y diuresis a las 6 h, y se escala si no responde).</p>
+    <p class="note">Complementa la <b>pestaña 12</b> (clasificación y definición 2026 de la IC), la <b>pestaña 13</b> (dosis de los fármacos de mantenimiento) y la <b>pestaña 16</b> (crisis hipertensiva y sus fármacos).</p>
+    <div class="tbl"><table style="min-width:0">
+      <thead><tr><th>Fenotipo</th><th>Mecanismo</th><th>Eje del tratamiento</th><th>Descartar</th></tr></thead>
+      <tbody>
+        <tr><td><b>IC aguda descompensada</b></td><td>Congestión progresiva en días</td><td>Diurético</td><td>Desencadenante (infección, FA, abandono)</td></tr>
+        <tr><td><b>Edema agudo de pulmón</b></td><td>Redistribución brusca, PA alta en la mayoría</td><td>VMNI + vasodilatador + diurético</td><td>Infarto (ECG y troponina)</td></tr>
+        <tr><td><b>Falla VD aislada</b></td><td>Congestión sistémica sin edema pulmonar</td><td>Diurético con cautela</td><td>TEP, taponamiento, infarto de VD</td></tr>
+        <tr><td><b>Choque cardiogénico</b></td><td>Hipoperfusión (lactato &gt; 2)</td><td>Noradrenalina, inotrópico, equipo de choque</td><td>Infarto y causa mecánica</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v54-dx">
+    <h3>Diagnóstico y desencadenante</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Confirma que es cardíaco</h4>
+        <ul><li><b>NT-proBNP</b> &lt; 300 pg/mL: IC aguda improbable. Probable si &gt; 450 (&lt; 50 años), &gt; 900 (50–75 años) o &gt; 1800 pg/mL (&gt; 75 años). &gt; 5000: riesgo muy alto, en general ingreso.</li><li><b>Ecografía pulmonar</b>: líneas B en 8 zonas anteriores y laterales (≥ 3 por zona en ≥ 2 zonas de cada lado), con ecocardiograma a pie de cama. La radiografía no muestra congestión en 1 de cada 5 ingresados; sirve sobre todo para descartar neumonía.</li><li><b>Troponina de alta sensibilidad en todos</b>: identifica el síndrome coronario y tiene valor pronóstico por sí misma.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Busca el desencadenante: CHAMPIT</h4>
+        <ul><li><b>C</b>oronario agudo · <b>H</b>ipertensión (emergencia, PA ≥ 180/120) · <b>A</b>rritmia · <b>M</b>ecánica (rotura, valvulopatía aguda) · <b>P</b>ulmonar (TEP) · <b>I</b>nfección · <b>T</b>aponamiento.</li><li>Infección &gt; 25 %; emergencia hipertensiva y arritmia &gt; 10 % cada una; isquemia &lt; 10 %, pero con el peor pronóstico a corto plazo.</li><li>La FA está en el 30–50 %, pero es la causa en menos del 20 %: frecuentemente es consecuencia, no origen.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Identifica el alto riesgo</h4>
+        <ul><li>PAS &lt; 90 persistente, hipoperfusión aunque la PA sea normal, falla respiratoria, disfunción multiorgánica o necesidad de vasoactivos: UCI o unidad coronaria inmediata.</li><li>Falla respiratoria en ~40 % (cualquier fenotipo); falla circulatoria en &lt; 10 %.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v54-tto">
+    <h3>Tratamiento inicial</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Medida</th><th>Cómo</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td><b>Oxígeno</b></td><td>Solo si SpO₂ &lt; 90 % o PaO₂ &lt; 60</td><td>Meta SpO₂ ≥ 94 % sin hiperoxia; sin hipoxemia puede dañar</td></tr>
+        <tr><td><b>VMNI</b></td><td>CPAP <span class="dose">5–10 cmH₂O</span> precoz; dos niveles (BiPAP) si hay hipercapnia</td><td>FR &gt; 25 y SpO₂ &lt; 90 %. Alto flujo si no tolera. Cautela en hipotensión y falla VD. Si no mejoran FR y oxigenación en 1 h, o hay fatiga: intubar</td></tr>
+        <tr><td><b>Nitroglicerina IV</b></td><td>PAS &gt; 110: <span class="dose">10–20 µg/min</span>, subir hasta <span class="dose">200 µg/min</span></td><td>EAP hipertensivo grave: bolos IV de 1–2 mg. Prehospitalario: sublingual o espray cada minuto hasta que baje la PA o mejore</td></tr>
+        <tr><td><b>Meta de PA</b></td><td>Bajar ≤ 25 % en la primera hora; 130–140 mmHg a las 6 h</td><td>Suspender si PAS &lt; 100 o hipotensión sintomática. Si cae &gt; 40 mmHg sin llegar a 100 y persiste congestión: reducir la dosis a la mitad</td></tr>
+        <tr><td><b>Furosemida IV</b></td><td><span class="dose">40 mg</span> sin diurético previo; 1–2 veces la dosis oral diaria si ya lo toma</td><td>Más alta con ERC. Bolo a ≤ 4 mg/min. Ver la sección siguiente</td></tr>
+        <tr><td><b>Morfina</b></td><td>No de rutina (clase III)</td><td>Aporta poco y se asocia a más ventilación, ingreso en UCI y mortalidad</td></tr>
+        <tr><td><b>Midazolam</b></td><td>Ansiedad intensa: bolos de <span class="dose">1 mg IV</span>, máximo <span class="dose">3 mg</span></td><td>Alternativa más segura (MIMO). En el anciano, EPOC o hipercapnia: 0,5 mg y vigilancia de la ventilación</td></tr>
+        <tr><td><b>Choque</b></td><td>Noradrenalina; inotrópico (dobutamina, levosimendán o milrinona) si PAS &lt; 90 con bajo gasto</td><td>Reto de volumen cauteloso solo si no hay congestión pulmonar</td></tr>
+        <tr><td><b>Tratamiento de fondo</b></td><td>Mantenerlo</td><td>Retirar solo con hipotensión sintomática, falla renal grave o K⁺ alto. Profilaxis tromboembólica si no está anticoagulado</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v54-diur">
+    <h3>Furosemida: dosis, respuesta y escalada</h3>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Dosis inicial</h4>
+        <ul><li>Sin diurético previo: <span class="dose">40 mg IV</span>.</li><li>Con diurético oral: 1–2 veces la dosis diaria por vía IV (la guía ESC 2026 dice el doble). Ejemplo: toma 40 mg/día → 80 mg IV.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Mide la respuesta</h4>
+        <ul><li><b>A las 2 h</b>: sodio en muestra aislada de orina. Adecuada si <b>≥ 70 mEq/L</b>.</li><li><b>En las primeras 6 h</b>: diuresis <b>≥ 100–150 mL/h</b>.</li><li>Evita la sonda vesical si el paciente puede orinar en un recipiente medido.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Si no responde: escala</h4>
+        <ul><li><b>Duplica la dosis</b> y reevalúa en 2–6 h. Techo habitual 400–600 mg/día; hasta 1000 mg/día en la insuficiencia renal grave.</li><li>Con congestión persistente, añade un segundo diurético: <b>acetazolamida 500 mg IV/día</b> (ADVOR; útil con alcalosis hipoclorémica) o <b>hidroclorotiazida</b> 25 mg si TFG &gt; 50, 50 mg si 20–50, 100 mg si &lt; 20 (CLOROTIC), preferentemente tras dosis altas de furosemida.</li><li>Si responde, repetir cada 12 h; si la diuresis es &lt; 3 L a las 24 h con congestión, escalar el día 2. Ultrafiltración si fallan los diuréticos máximos.</li></ul></li>
+    </ol>
+  </section>
+
+  <section id="v54-calc">
+    <h3>Calculadora de respuesta diurética y meta de presión</h3>
+    <div class="box">
+      <p class="note">Precargado: mujer de 70 años con EAP hipertensivo, sin diurético previo, PAS 196; recibió 40 mg de furosemida; sodio urinario a las 2 h de 48 mEq/L.</p>
+      <div class="calc">
+        <label for="e54-pas">PAS inicial (mmHg)<input id="e54-pas" type="number" min="50" max="280" value="196"></label>
+        <label for="e54-pasa">PAS actual (mmHg)<input id="e54-pasa" type="number" min="50" max="280" value="168"></label>
+        <label for="e54-oral">Furosemida oral previa (mg/día)<input id="e54-oral" type="number" min="0" max="500" value="0"></label>
+        <label for="e54-tfg">TFG (mL/min/1,73 m²)<input id="e54-tfg" type="number" min="5" max="150" value="55"></label>
+        <label for="e54-dosis">Dosis IV administrada (mg)<input id="e54-dosis" type="number" min="0" max="1000" value="40"></label>
+        <label for="e54-na">Na⁺ urinario a las 2 h (mEq/L)<input id="e54-na" type="number" min="0" max="250" placeholder="vacío si no hay"></label>
+        <label for="e54-diu">Diuresis media en 6 h (mL/h)<input id="e54-diu" type="number" min="0" max="1000" placeholder="vacío si no hay"></label>
+        <label for="e54-cong">¿Persiste congestión?<select id="e54-cong"><option value="si" selected>Sí</option><option value="no">No</option></select></label>
+      </div>
+      <div class="result"><span class="big" id="e54-dx">—</span><span id="e54-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="e54-out"></tbody></table></div>
+      <p class="note" style="margin-top:8px">Si tienes los dos datos, decide primero con el sodio a las 2 h y confirma con la diuresis a las 6 h. Herramienta educativa.</p>
+    </div>
+  </section>
+
+  <section id="v54-alta">
+    <h3>Destino: ingreso, observación o alta</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Situación</th><th>Destino</th></tr></thead>
+      <tbody>
+        <tr><td>Choque, intubación, VMNI que no se puede retirar, vasoactivos o cateterismo urgente</td><td>UCI o unidad coronaria</td></tr>
+        <tr><td>Síntomas persistentes, descongestión incompleta, empeoramiento de órganos, inestabilidad o dudas sobre el cuidado en casa</td><td>Ingreso, sea cual sea la escala</td></tr>
+        <tr><td>Primer episodio o cardiopatía estructural importante</td><td>Cardiología</td></tr>
+        <tr><td>Anciano frágil con multimorbilidad</td><td>Medicina interna o geriatría; hospitalización a domicilio si es posible</td></tr>
+        <tr><td>Bajo riesgo (EHMRG para 7 días, MEESSI-AHF para 30 días), descongestionado tras observación</td><td>Alta desde urgencias con ARM e iSGLT2 iniciados y control en ≤ 7 días agendado antes de salir</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="v54-analisis">
+    <h3>Puntos clave</h3>
+    <div class="verdicts">
+      <div class="vd"><span class="tag ok">Clave</span><p><b>La morfina salió del edema agudo de pulmón.</b> El ensayo MIMO (111 pacientes en urgencias españolas) se detuvo por seguridad: eventos adversos graves en el 42,9 % con morfina frente al 18,2 % con midazolam; la mortalidad hospitalaria (17,9 % frente a 12,7 %) no alcanzó significación por el tamaño. La morfina deprime la ventilación, produce vómitos (riesgo de aspiración con la VMNI) y retrasa la absorción de los antiagregantes en el infarto.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El midazolam no es un tratamiento del edema:</b> solo controla la ansiedad que impide tolerar la mascarilla. La evidencia definitiva falta (MIMO no tenía potencia para mortalidad). Lo primero sigue siendo la VMNI bien ajustada y el nitrato, que alivian la disnea y, con ella, la angustia.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>El nitrato es el tratamiento fisiopatológico del EAP hipertensivo</b>, aunque la recomendación formal sea débil (IIb, C) porque los ensayos en IC aguda global no mostraron beneficio en mortalidad. El límite de 110 mmHg protege del hipotenso; el de 25 % en la primera hora, del hipertenso crónico cuyo umbral de autorregulación cerebral y renal está desplazado.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Respuesta diurética: los números correctos.</b> Sodio urinario a las 2 h ≥ 70 mEq/L (no 50) y diuresis ≥ 100–150 mL/h en las primeras 6 h. Si no se alcanza, se duplica la dosis con un techo habitual de 400–600 mg/día, no de 250 mg. Una diuresis de 100 mL/h está en el límite inferior: decide con el sodio urinario y el examen.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Edema agudo de pulmón con PA normal o baja:</b> no es el mismo enfermo. Piensa en infarto extenso, insuficiencia mitral aguda o choque incipiente. Nada de nitrato si PAS &lt; 100; lactato, eco a pie de cama y hemodinamia temprana.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>El ARM y el iSGLT2 empiezan antes del alta</b>, incluso en el paciente que se va desde urgencias y sin importar la fracción de eyección: casi no afectan la PA y necesitan pocos ajustes. Retirar el betabloqueante de forma brusca es un error; en el choque, en cambio, no se inicia tratamiento de fondo.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas:</b></p>
+        <p><b>Sin NT-proBNP inmediato</b> en muchas emergencias públicas: la ecografía pulmonar llena el vacío. El transductor lineal ve bien la línea pleural y las líneas B en zonas anteriores; para el derrame y las bases, el convexo es mejor.</p>
+        <p><b>Nitroglicerina IV no siempre disponible:</b> el dinitrato de isosorbida sublingual 5 mg (repetible cada 5–10 min según la PA) es la alternativa práctica mientras llega la bomba.</p>
+        <p><b>Desencadenantes frecuentes:</b> HTA no controlada por abandono del tratamiento, exceso de sal, neumonía y dengue en temporada de lluvias, y FA no anticoagulada.</p>
+        <p><b>Sodio urinario:</b> cualquier laboratorio lo procesa en muestra aislada; pedirlo a las 2 h cambia la conducta antes de que pasen 6 h sin respuesta.</p></div>
+      <div class="vd"><span class="tag add">Para la cátedra</span><p>Comparar dos EAP: PAS 200 con SpO₂ 84 % (CPAP + nitroglicerina en bolo + furosemida) y PAS 92 con lactato 3,5 (sin nitrato, eco urgente, noradrenalina o inotrópico). Enseña que el fenotipo, no el diagnóstico de "edema pulmonar", decide el tratamiento.</p></div>
+    </div>
+    <div class="callout"><strong>En la guardia:</strong> sienta al paciente, CPAP 5–10 si SpO₂ &lt; 90 % y FR &gt; 25, nitroglicerina si PAS &gt; 110 (sin bajar más del 25 % en la primera hora), furosemida 40 mg IV (o el doble de su dosis oral) y sodio en orina a las 2 h. Sin morfina; midazolam 1 mg si la ansiedad impide la mascarilla. ECG y troponina en todos.</div>
+  </section>
+
+  <section id="v54-quiz">
+    <h3>Autoevaluación</h3>
+    <div class="quiz" data-quiz="v54"></div>
+  </section>
+  <p class="note">Referencias: Consenso ACVC/HFA/EuSEM. Acute heart failure in emergency settings, Eur Heart J 2026, doi 10.1093/eurheartj/ehag744; guía ESC 2026 de insuficiencia cardíaca; McDonagh TA et al. ESC HF guidelines 2021 y actualización 2023; Mebazaa A et al. Recommendations on pre-hospital and early hospital management of AHF, Eur J Heart Fail 2015; Domínguez-Rodríguez A et al. MIMO, Eur J Heart Fail 2022; Mullens W et al. ADVOR, NEJM 2022; Trullàs JC et al. CLOROTIC, Eur Heart J 2023; Ter Maaten JM et al. PUSH-AHF, Nat Med 2023; Chioncel O et al. Vasodilators in AHF, HFA scientific statement, Eur J Heart Fail 2025; Gray A et al. 3CPO, NEJM 2008.</p>
+</article>
+
+
+<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16, 42 y 54)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
 </div>
 
 <script>
@@ -1971,6 +2098,23 @@ const QUIZ = {
      o:["BFAI aislado","BRD + BFAI asintomático","Bloqueo de rama alternante","BRD + BAV de 1.º grado asintomático"], a:2,
      e:"ESC 2021: el bloqueo de rama alternante indica afectación de ambas ramas."}
   ],
+  v54: [
+    {q:"Varón de 74 años con EAP, PA 210/110, SpO₂ 82 % y mucha ansiedad que impide tolerar la mascarilla. ¿Qué combinación es la correcta?",
+     o:["Morfina 4 mg IV + furosemida","CPAP + nitroglicerina IV + furosemida 40 mg + midazolam 1 mg si persiste la ansiedad","Oxígeno por cánula + nifedipino sublingual","Furosemida 250 mg en bolo sola"], a:1,
+     e:"La morfina no se usa de rutina (MIMO: más eventos adversos graves). El nitrato baja la poscarga del EAP hipertensivo; el midazolam en bolos de 1 mg (máx. 3) solo facilita la VMNI."},
+    {q:"PAS inicial 200 mmHg. ¿Hasta dónde puedes bajarla en la primera hora con nitroglicerina?",
+     o:["120 mmHg","Hasta 150 mmHg (−25 %)","Hasta 100 mmHg","No importa mientras mejore la disnea"], a:1,
+     e:"No más del 25 % en la primera hora; meta de 130–140 mmHg a las 6 h. Suspender si PAS < 100."},
+    {q:"Sin diurético previo, recibió 40 mg de furosemida IV. A las 2 h el sodio urinario es 40 mEq/L y sigue congestivo. ¿Conducta?",
+     o:["Esperar 6 h más","Duplicar a 80 mg IV y reevaluar","Suspender el diurético","Añadir morfina"], a:1,
+     e:"Na⁺ urinario < 70 mEq/L a las 2 h indica respuesta insuficiente: duplicar la dosis (techo habitual 400–600 mg/día) y reevaluar en 2–6 h."},
+    {q:"Paciente con EAP y PAS 95 mmHg, extremidades frías y lactato 3,8. ¿Qué NO harías?",
+     o:["Ecocardiograma a pie de cama","Nitroglicerina IV","ECG y troponina","Valorar noradrenalina o inotrópico"], a:1,
+     e:"Con PAS < 100 el nitrato está contraindicado. Es un EAP con hipoperfusión (choque incipiente): buscar infarto o causa mecánica."},
+    {q:"Antes de dar el alta desde urgencias a un paciente con IC aguda descompensada ya descongestionado, el consenso 2026 recomienda:",
+     o:["Esperar a la consulta de cardiología para cambiar el tratamiento","Iniciar ARM e iSGLT2 y agendar control en ≤ 7 días","Suspender el betabloqueante","Duplicar el diurético de mantenimiento siempre"], a:1,
+     e:"ARM e iSGLT2 se inician antes del alta sin importar la FEVI, con control agendado antes de salir. Si el desencadenante se trató, no hace falta subir el diurético."}
+  ]
 };
 function q38Calc(){
   const g=id=>parseFloat(document.getElementById(id).value);
@@ -2347,6 +2491,52 @@ function f42Calc(){
 }
 ['f42-qrs','f42-sx','f42-v1','f42-s','f42-notch','f42-i','f42-ii','f42-avf','f42-pr','f42-exc','f42-sin'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',f42Calc);e.addEventListener('change',f42Calc);});
 f42Calc();
+
+function e54Calc(){
+  const g=id=>{const x=document.getElementById(id).value;return x===''?NaN:parseFloat(x);};
+  const pas=g('e54-pas'), pasa=g('e54-pasa'), oral=g('e54-oral'), tfg=g('e54-tfg'), dosis=g('e54-dosis'), na=g('e54-na'), diu=g('e54-diu');
+  const cong=document.getElementById('e54-cong').value==='si';
+  const dx=document.getElementById('e54-dx'), pe=document.getElementById('e54-pill'), out=document.getElementById('e54-out');
+  const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
+  const rows=[];
+  const ini=(!oral||isNaN(oral))?40:Math.round(Math.min(oral*2,600));
+  rows.push(['Dosis inicial sugerida', ini+' mg IV'+((!oral||isNaN(oral))?' (sin diurético previo)':' (doble de la dosis oral diaria; 1–2 veces según el consenso)')+(!isNaN(tfg)&&tfg<30?' · con TFG &lt; 30 suele necesitarse más':'')]);
+  let est='nd';
+  if(!isNaN(na)) est=na>=70?'ok':na>=50?'lim':'no';
+  else if(!isNaN(diu)) est=diu>=150?'ok':diu>=100?'lim':'no';
+  if(!isNaN(na)) rows.push(['Na⁺ urinario 2 h',na+' mEq/L → '+(na>=70?'adecuado (≥ 70)':na>=50?'límite (50–69)':'insuficiente (&lt; 50)')]);
+  if(!isNaN(diu)) rows.push(['Diuresis 6 h',diu+' mL/h → '+(diu>=150?'adecuada':diu>=100?'en el límite inferior (100–149)':'insuficiente (&lt; 100)')]);
+  if(!isNaN(na)&&!isNaN(diu)&&((na>=70)!==(diu>=100))) rows.push(['Discordancia','El sodio y la diuresis no coinciden: prima el sodio a las 2 h; revisa recolección, sonda y hipotensión']);
+  const d=isNaN(dosis)||dosis<=0?ini:dosis, dob=Math.min(d*2,(!isNaN(tfg)&&tfg<30)?1000:600);
+  let t,k,plan;
+  if(est==='nd'){t='Esperando la respuesta';k='add';plan='Mide el Na⁺ urinario a las 2 h y la diuresis horaria durante 6 h';}
+  else if(est==='ok'){t='Responde al diurético';k='ok';plan=cong?'Repetir la misma dosis cada 12 h. Si a las 24 h la diuresis es &lt; 3 L con congestión, escalar el día 2':'Descongestionado: pasar a dosis oral y planificar ARM + iSGLT2 antes del alta';}
+  else if(est==='lim'){t='Respuesta límite';k='add';plan=cong?'Con congestión persistente, tratar como insuficiente: '+dob+' mg IV y reevaluar en 2–6 h':'Sin congestión clínica: mantener dosis y vigilar';}
+  else {t='Respuesta insuficiente';k='crit';plan='Duplicar: '+dob+' mg IV y reevaluar en 2–6 h'+(d>=200?'. Ya con dosis altas: añadir acetazolamida 500 mg IV/día o hidroclorotiazida '+(isNaN(tfg)?'25–100':tfg>50?'25':tfg>=20?'50':'100')+' mg VO':'');}
+  rows.push(['Plan',plan]);
+  if(!isNaN(pas)){
+    let n;
+    if(pas<100) n='PAS &lt; 100: <b>sin nitrato</b>. Busca hipoperfusión (lactato, eco); valorar noradrenalina o inotrópico';
+    else if(pas<=110) n='PAS 100–110: nitrato no indicado; furosemida y VMNI';
+    else n='PAS &gt; 110: <b>nitroglicerina IV</b> 10–20 µg/min hasta 200 µg/min (bolos de 1–2 mg si EAP hipertensivo grave). Piso de la 1.ª hora: <b>'+Math.round(pas*0.75)+' mmHg</b> (−25 %); meta a las 6 h 130–140';
+    rows.push(['Vasodilatador',n]);
+    if(!isNaN(pasa)&&pas>110){
+      const caida=pas-pasa, pct=Math.round(caida/pas*100);
+      let m='Caída '+caida+' mmHg ('+pct+' %). ';
+      if(pasa<100) m+='<b>Suspender el nitrato</b> (PAS &lt; 100)';
+      else if(pct>25) m+='<b>Demasiado rápida</b>: reducir la dosis a la mitad';
+      else if(caida>40) m+='Caída &gt; 40 mmHg: reducir la dosis a la mitad si persiste congestión';
+      else if(pasa>140) m+='Puedes subir la nitroglicerina 10–20 µg/min cada 5 min sin pasar el piso';
+      else m+='En rango: mantener';
+      rows.push(['PA actual',m]);
+    }
+  }
+  dx.textContent=t; pe.innerHTML=pill(k==='ok'?'Respondedor':k==='crit'?'Escalar':'Vigilar',k);
+  out.innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
+}
+['e54-pas','e54-pasa','e54-oral','e54-tfg','e54-dosis','e54-na','e54-diu','e54-cong'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',e54Calc);e.addEventListener('change',e54Calc);});
+document.getElementById('e54-na').value='48';
+e54Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
