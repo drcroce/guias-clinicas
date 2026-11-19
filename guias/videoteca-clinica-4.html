@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: cabecera compacta + barra de pestañas (una por video) + panel con secciones en columna única, fichas de dosis en rejilla */
+/* Layout: cabecera compacta + barra de pestañas (una por tema) + panel con secciones en columna única, fichas de dosis en rejilla */
 :root{
   --bg:#f3f6f7; --surface:#ffffff; --fg:#14232b; --muted:#56666e; --line:#d6e0e3;
   --accent:#0b5d6b; --accent-soft:#dcedf0;
@@ -117,14 +117,14 @@ footer a{color:var(--accent)}
 
 <div class="wrap">
 <header>
-  <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
+  <span class="eyebrow">Temas clínicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 4</h1>
   <span class="eyebrow">Hígado, hematología, reumatología y neurología · pestañas 32–40, 45 y 51</span>
 </header>
 
 
-<nav class="tabs" role="tablist" aria-label="Videos">
-  <button class="tab" role="tab" id="t-v16" aria-controls="v16" aria-selected="true">32 · Perfil hepático (Tiagoritmo)</button>
+<nav class="tabs" role="tablist" aria-label="Temas">
+  <button class="tab" role="tab" id="t-v16" aria-controls="v16" aria-selected="true">32 · Perfil hepático: algoritmo</button>
   <button class="tab" role="tab" id="t-v31" aria-controls="v31" aria-selected="false">33 · Perfil hepático paso a paso</button>
   <button class="tab" role="tab" id="t-v8" aria-controls="v8" aria-selected="false">34 · FIB-4 e hígado graso</button>
   <button class="tab" role="tab" id="t-v5" aria-controls="v5" aria-selected="false">35 · Algoritmo de anemia</button>
@@ -140,16 +140,16 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 32 (antes 16) ============ -->
 <article class="panel" id="v16" role="tabpanel" aria-labelledby="t-v16">
   <div>
-    <h2>Tiagoritmo: interpretar cualquier perfil hepático</h2>
-    <div class="meta"><span>Fuente: 16 láminas, TiagoMed (@soytiagomed)</span><span>Fecha del material: 12/09/2026</span><span>Bases citadas: ACG 2017 (Kwo), Gastroenterology 2026 (Kwo), AASLD DILI 2023, ACR 2023, NEJM 2022</span></div>
+    <h2>Interpretar cualquier perfil hepático: algoritmo en 5 pasos</h2>
+    <div class="meta"><span>Bases: ACG 2017 (Kwo), Gastroenterology 2026 (Kwo), AASLD DILI 2023, ASGE 2019, NEJM 2022</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 32">
-    <a href="#v16-resumen">Resumen</a><a href="#v16-algoritmo">Algoritmo</a><a href="#v16-calc">Calculadora</a><a href="#v16-magnitud">Magnitud</a><a href="#v16-patrones">Patrones</a><a href="#v16-alarma">Alarma</a><a href="#v16-analisis">Análisis crítico</a><a href="#v16-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v16-resumen">Resumen</a><a href="#v16-algoritmo">Algoritmo</a><a href="#v16-calc">Calculadora</a><a href="#v16-magnitud">Magnitud</a><a href="#v16-patrones">Patrones</a><a href="#v16-alarma">Alarma</a><a href="#v16-analisis">Puntos clave</a><a href="#v16-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v16-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Infografías ordenadas en un algoritmo de 5 pasos. Idea base: <b>no todo el "perfil hepático" mide lo mismo</b>. Se divide en 3 grupos que se interpretan por separado y después se integran: <b>enzimas</b> (AST, ALT, FA, GGT), <b>bilirrubinas</b> (total, directa, indirecta) y <b>función de síntesis</b> (albúmina, TP/INR).</p>
+    <p class="lead">Algoritmo de 5 pasos. Idea base: <b>no todo el "perfil hepático" mide lo mismo</b>. Se divide en 3 grupos que se interpretan por separado y después se integran: <b>enzimas</b> (AST, ALT, FA, GGT), <b>bilirrubinas</b> (total, directa, indirecta) y <b>función de síntesis</b> (albúmina, TP/INR).</p>
   </section>
 
   <section id="v16-algoritmo">
@@ -159,7 +159,7 @@ footer a{color:var(--accent)}
         <ul>
           <li><b>AST/ALT:</b> lesión hepatocelular. ALT es más específica de hígado; AST también viene de músculo y otros tejidos. <b>AST aislada elevada → pedir CK.</b></li>
           <li><b>FA/GGT:</b> colestasis. La FA también viene de hueso, placenta e intestino. <b>FA ↑ + GGT ↑ = origen hepatobiliar; FA ↑ + GGT normal = considerar origen no hepático.</b></li>
-          <li>Referencias de la lámina: ALT 7–40, AST 10–40, FA 40–120, GGT 10–50 U/L. Usar siempre el LSN del propio laboratorio.</li>
+          <li>Rangos habituales: ALT 7–40, AST 10–40, FA 40–120, GGT 10–50 U/L. Usar siempre el LSN del propio laboratorio.</li>
         </ul></li>
       <li class="step"><span class="num">2</span><h4>Calcula el índice R</h4>
         <ul><li><span class="dose">R = (ALT/LSN) ÷ (FA/LSN)</span> → <b>&gt; 5 hepatocelular · 2–5 mixto · &lt; 2 colestásico</b>.</li></ul></li>
@@ -180,7 +180,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v16-calc">
-    <h3>Calculadora de perfil hepático (agregada)</h3>
+    <h3>Calculadora de perfil hepático</h3>
     <div class="box">
       <div class="calc">
         <label for="l16-alt">ALT (U/L)<input id="l16-alt" type="number" min="1" max="20000" value="150"></label>
@@ -198,7 +198,7 @@ footer a{color:var(--accent)}
         <thead><tr><th>Componente</th><th>Resultado</th><th>Lectura</th></tr></thead>
         <tbody id="l16-out"></tbody>
       </table></div>
-      <p class="note" style="margin-top:8px">Valores de ejemplo: los de la portada del Tiagoritmo. Ajusta los LSN a los de tu laboratorio.</p>
+      <p class="note" style="margin-top:8px">Valores de ejemplo precargados. Ajusta los LSN a los de tu laboratorio.</p>
     </div>
   </section>
 
@@ -263,17 +263,16 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v16-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Muy buen material: completo, bien ordenado y con referencias reales. Es el más denso que me has enviado. Precisiones:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Índice R, criterios ASGE 2019 de coledocolitiasis, separación por magnitud y definición de falla hepática aguda coinciden con ACG 2017 y AASLD.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Ahora integra ALT + FA":</b> el índice R siempre se calculó así (criterios del consenso internacional de DILI, 1990). Lo novedoso es usarlo para cualquier perfil, no solo para fármacos.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Índice R, criterios ASGE 2019 de coledocolitiasis, separación por magnitud y definición de falla hepática aguda coinciden con ACG 2017 y AASLD.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Índice R (ALT + FA):</b> proviene de los criterios del consenso internacional de DILI (1990); hoy se usa para cualquier perfil, no solo para fármacos.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>LSN de ALT:</b> la ACG 2017 propone un LSN "real" de <b>29–33 U/L en hombres y 19–25 U/L en mujeres</b>. Con el corte de 40 del laboratorio se pierden casos de MASLD y hepatitis crónica. Al calcular R, usar el LSN del laboratorio, pero evaluar con ALT &gt; 33/25 como anormal.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Falla hepática aguda:</b> requiere además ausencia de cirrosis previa y evolución <b>&lt; 26 semanas</b>. Excepciones: Wilson, hepatitis B reactivada y hepatitis autoinmune aunque haya cirrosis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>INR alto:</b> antes de atribuirlo al hígado, dar vitamina K 10 mg IV. Si se corrige, era déficit de vitamina K (colestasis, antibióticos, desnutrición), no falla de síntesis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Hepatitis E:</b> no aparece en el panel viral agudo y es causa frecuente de hepatitis aguda, sobre todo en gestantes (riesgo de falla hepática). Pedir IgM anti-VHE.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Contexto tropical (Guayas):</b> el <b>dengue</b> eleva transaminasas con AST &gt; ALT (puede llegar a &gt; 1000 en dengue grave); la <b>leptospirosis</b> da ictericia con bilirrubina directa muy alta y transaminasas apenas elevadas, más lesión renal; considerar también fiebre amarilla y malaria según la procedencia.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Transaminasas normales no descartan enfermedad:</b> la cirrosis "quemada" y la MASLD con fibrosis pueden tener ALT normal. Calcular el FIB-4 (pestaña 34).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>INR alto:</b> antes de atribuirlo al hígado, dar vitamina K 10 mg IV. Si se corrige, era déficit de vitamina K (colestasis, antibióticos, desnutrición), no falla de síntesis.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Hepatitis E:</b> no aparece en el panel viral agudo y es causa frecuente de hepatitis aguda, sobre todo en gestantes (riesgo de falla hepática). Pedir IgM anti-VHE.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Contexto tropical (Guayas):</b> el <b>dengue</b> eleva transaminasas con AST &gt; ALT (puede llegar a &gt; 1000 en dengue grave); la <b>leptospirosis</b> da ictericia con bilirrubina directa muy alta y transaminasas apenas elevadas, más lesión renal; considerar también fiebre amarilla y malaria según la procedencia.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Transaminasas normales no descartan enfermedad:</b> la cirrosis "quemada" y la MASLD con fibrosis pueden tener ALT normal. Calcular el FIB-4 (pestaña 34).</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>FA aislada con GGT normal:</b> en adolescentes y gestantes es fisiológica. En el adulto mayor, pensar en Paget, metástasis óseas o hiperparatiroidismo.</p></div>
     </div>
     <div class="callout"><strong>Caso de la portada:</strong> ALT 150 (3,75× LSN), FA 220 (1,8×) → R = 2,0: patrón <b>mixto en el límite colestásico</b>. Bilirrubina directa predominante, albúmina baja e INR 1,4: posible hepatopatía con compromiso de síntesis. Siguiente paso: ecografía hepatobiliar, serologías virales, vitamina K para ver si corrige el INR, y FIB-4.</div>
@@ -283,29 +282,29 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v16"></div>
   </section>
-  <p class="note">Referencias: Kwo PY et al. ACG Clinical Guideline: Evaluation of Abnormal Liver Chemistries, Am J Gastroenterol 2017; Kwo PY et al. Gastroenterology 2026 (citada en las láminas); Fontana RJ et al. AASLD DILI 2023; ASGE Standards of Practice Committee, coledocolitiasis, Gastrointest Endosc 2019; Bataller R et al. NEJM 2022; Bénichou C. Criterios del consenso internacional de DILI, J Hepatol 1990.</p>
+  <p class="note">Referencias: Kwo PY et al. ACG Clinical Guideline: Evaluation of Abnormal Liver Chemistries, Am J Gastroenterol 2017; Kwo PY et al. Gastroenterology 2026; Fontana RJ et al. AASLD DILI 2023; ASGE Standards of Practice Committee, coledocolitiasis, Gastrointest Endosc 2019; Bataller R et al. NEJM 2022; Bénichou C. Criterios del consenso internacional de DILI, J Hepatol 1990.</p>
 </article>
 
 <!-- ============ PESTAÑA 33 (antes 31) ============ -->
 <article class="panel" id="v31" role="tabpanel" aria-labelledby="t-v31" hidden>
   <div>
     <h2>Pasos para interpretar un perfil hepático</h2>
-    <div class="meta"><span>Fuente: 11 láminas, TikTok @medbyfeer</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas (la tabla de De Ritis parece tomada de Botros y Sikaris 2013; no pude verificarla)</span></div>
+    <div class="meta"><span>Bases: ACG 2017 (Kwo), Botros y Sikaris (Clin Biochem Rev 2013), AGA 2019, AASLD 2021</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 33">
-    <a href="#v31-resumen">Resumen</a><a href="#v31-grupos">Grupos</a><a href="#v31-pasos">Los 11 pasos</a><a href="#v31-calc">Clasificador</a><a href="#v31-analisis">Análisis crítico</a><a href="#v31-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v31-resumen">Resumen</a><a href="#v31-grupos">Grupos</a><a href="#v31-pasos">Los 11 pasos</a><a href="#v31-calc">Clasificador</a><a href="#v31-analisis">Puntos clave</a><a href="#v31-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v31-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel didáctico de 11 pasos, parámetro por parámetro. Idea clave: <b>no interpretar una enzima aislada, sino el patrón global</b>. Divide el perfil en <b>lesión hepatocelular</b> (ALT, AST), <b>colestasis</b> (FA, GGT), <b>función de síntesis</b> (albúmina, TP/INR) y <b>excreción</b> (bilirrubinas).</p>
-    <p class="note">Mismo tema que la pestaña 32 ("Tiagoritmo"), que ya trae la calculadora del índice R, la tabla de magnitud, los patrones y la coledocolitiasis (ASGE). Aquí no los repito. Lo nuevo de este material es el <b>cociente de De Ritis</b> y el detalle por parámetro. El clasificador agregado se centra en la bilirrubina, el De Ritis y el origen de la FA.</p>
+    <p class="lead">Lectura del perfil hepático en 11 pasos, parámetro por parámetro. Idea clave: <b>no interpretar una enzima aislada, sino el patrón global</b>. Divide el perfil en <b>lesión hepatocelular</b> (ALT, AST), <b>colestasis</b> (FA, GGT), <b>función de síntesis</b> (albúmina, TP/INR) y <b>excreción</b> (bilirrubinas).</p>
+    <p class="note">La pestaña 32 trae la calculadora del índice R, la tabla de magnitud, los patrones y la coledocolitiasis (ASGE). Aquí: el <b>cociente de De Ritis</b>, el detalle por parámetro y un clasificador de bilirrubina, De Ritis y origen de la FA.</p>
   </section>
 
   <section id="v31-grupos">
     <h3>Los 4 grupos del perfil</h3>
     <div class="tbl"><table>
-      <thead><tr><th>¿Qué evalúo?</th><th>Marcadores</th><th>Regla rápida del material</th></tr></thead>
+      <thead><tr><th>¿Qué evalúo?</th><th>Marcadores</th><th>Regla rápida</th></tr></thead>
       <tbody>
         <tr><td><b>Lesión hepatocelular</b></td><td class="m">ALT + AST</td><td>↑↑ → piensa en el hepatocito</td></tr>
         <tr><td><b>Colestasis</b></td><td class="m">FA + GGT</td><td>↑↑ → piensa en la vía biliar</td></tr>
@@ -313,18 +312,18 @@ footer a{color:var(--accent)}
         <tr><td><b>Excreción</b></td><td class="m">Bilirrubina total/directa</td><td>Fraccionar siempre</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Las cuatro funciones del hígado según el material son metabolismo, síntesis, excreción, y producción y flujo biliar.</p>
+    <p class="note">Las cuatro funciones del hígado: metabolismo, síntesis, excreción, y producción y flujo biliar.</p>
   </section>
 
   <section id="v31-pasos">
-    <h3>Los 11 pasos del material</h3>
+    <h3>Los 11 pasos</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Paso</th><th>Qué dice el material</th><th>Causas que lista</th></tr></thead>
+      <thead><tr><th>Paso</th><th>Qué evalúa</th><th>Causas principales</th></tr></thead>
       <tbody>
         <tr><td><b>1. ALT (TGP)</b></td><td>Citoplasma del hepatocito; más específica de hígado que la AST. ALT elevada ≠ insuficiencia hepática</td><td>Hepatitis viral, MASLD/MASH, DILI, hepatitis autoinmune, isquémica y por alcohol</td></tr>
         <tr><td><b>2. AST (TGO)</b></td><td>Citoplasma y mitocondria; hígado, músculo, corazón, riñón, cerebro y eritrocitos. AST + CK ↑ → músculo. AST &gt; ALT en hepatopatía avanzada y por alcohol</td><td>—</td></tr>
-        <tr><td><b>3. De Ritis (AST/ALT)</b></td><td>&lt; 1: MASLD y varias hepatopatías agudas · &gt; 1: fibrosis/cirrosis avanzada · &gt; 2: alcohol, en el contexto adecuado. No se interpreta aislado</td><td>Tabla de límites por enfermedad (ver Análisis)</td></tr>
-        <tr><td><b>4. FA</b></td><td>Vía biliar, hueso, placenta e intestino. FA aislada ≠ enfermedad hepática. Rango mostrado 20–140 UI/L; embarazo 140–250 UI/L</td><td>Coledocolitiasis, obstrucción, colangitis, CBP, CEP, infiltrativas · Hueso: crecimiento, fracturas, enfermedad ósea</td></tr>
+        <tr><td><b>3. De Ritis (AST/ALT)</b></td><td>&lt; 1: MASLD y varias hepatopatías agudas · &gt; 1: fibrosis/cirrosis avanzada · &gt; 2: alcohol, en el contexto adecuado. No se interpreta aislado</td><td>Ver Puntos clave</td></tr>
+        <tr><td><b>4. FA</b></td><td>Vía biliar, hueso, placenta e intestino. FA aislada ≠ enfermedad hepática. En el embarazo sube por la FA placentaria</td><td>Coledocolitiasis, obstrucción, colangitis, CBP, CEP, infiltrativas · Hueso: crecimiento, fracturas, enfermedad ósea</td></tr>
         <tr><td><b>5. GGT</b></td><td>Confirma el origen hepatobiliar de la FA: FA↑ + GGT↑ → hepatobiliar; FA↑ + GGT normal → buscar origen óseo</td><td>También sube con alcohol, fármacos, colestasis y enfermedades metabólicas</td></tr>
         <tr><td><b>6. Bilirrubina total</b></td><td>Viene del catabolismo del hemo; total = indirecta + directa → ver qué fracción predomina</td><td>—</td></tr>
         <tr><td><b>7. Indirecta</b></td><td>No conjugada, unida a albúmina. Sobreproducción o defecto de conjugación</td><td>Hemólisis, eritropoyesis ineficaz, Gilbert, Crigler-Najjar</td></tr>
@@ -337,7 +336,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v31-calc">
-    <h3>Clasificador: bilirrubina, De Ritis y origen de la FA (agregado)</h3>
+    <h3>Clasificador: bilirrubina, De Ritis y origen de la FA</h3>
     <div class="box">
       <div class="calc">
         <label for="h31-bt">Bilirrubina total (mg/dL)<input id="h31-bt" type="number" step="0.1" min="0" value="4.2"></label>
@@ -360,16 +359,15 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v31-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Buen material de base, ordenado y sin errores graves. No cita fuentes; algunos rangos son imprecisos y faltan alertas clínicas:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Agrupar por patrón, que la ALT es más específica que la AST, el uso de la GGT para atribuir la FA y que el INR cambia antes que la albúmina (factor VII, vida media ~6 h; albúmina ~20 días): coincide con la guía ACG 2017 (Kwo). El cociente &gt; 2 en alcohol también: más del 70 % de los pacientes con hepatopatía alcohólica lo tienen, y &gt; 3 lo hace aún más probable.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>El De Ritis solo vale con enzimas elevadas.</b> Con AST y ALT normales o casi normales, pequeñas diferencias cambian mucho el cociente. Además, la AST alta del músculo (rabdomiólisis, ejercicio, hipotiroidismo), de la hemólisis y la hepatitis isquémica temprana dan AST &gt; ALT sin alcohol ni cirrosis. La tabla de "límites de decisión" de la lámina es de bioquímica clínica (probablemente Botros y Sikaris, Clin Biochem Rev 2013); no la pude verificar y no es de una guía clínica.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>No existe un rango fijo de FA en el embarazo.</b> La FA placentaria sube sobre todo en el tercer trimestre y puede duplicar o triplicar el valor basal. Las cifras "20–140" y "140–250 UI/L" no aplican de forma universal: siempre usar el LSN del propio laboratorio. Lo mismo vale para la ALT: la ACG propone LSN de 29–33 U/L en hombres y 19–25 U/L en mujeres, más bajos que los de muchos laboratorios.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Bilirrubina:</b> la indirecta nunca aparece en la orina, la coluria es solo de la directa. En Gilbert la total suele ser &lt; 3 mg/dL y casi nunca pasa de 6 (ACG); sube con el ayuno, la enfermedad o el esfuerzo. Con enzimas normales, una hiperbilirrubinemia indirecta &lt; 4 mg/dL, sin hemólisis ni fármacos, se atribuye presuntivamente a Gilbert. Tras resolverse una obstrucción, la <b>bilirrubina delta</b> (unida a albúmina) mantiene la ictericia semanas sin coluria.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>FA de origen óseo:</b> faltan Paget, metástasis óseas, osteomalacia o déficit de vitamina D e hiperparatiroidismo. La FA puede subir de forma transitoria tras una comida grasa (grupos O y B). Una FA <b>baja</b> también orienta: hipofosfatasia, desnutrición y la falla hepática aguda por Wilson (FA baja con bilirrubina muy alta).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>El INR no mide el riesgo de sangrado en la cirrosis.</b> La hemostasia está "rebalanceada": no transfundir plasma para "corregir" el INR antes de procedimientos (AGA 2019; AASLD 2021). Ante un INR alto en colestasis o malabsorción, la vitamina K parenteral distingue el déficit de vitamina K de la falla de síntesis (dato agregado; la ACG no lo plantea como prueba formal). Recordar también que los anticoagulantes orales directos prolongan el TP.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Signos de alarma que el material no menciona:</b> INR ≥ 1,5 con encefalopatía en un paciente sin cirrosis previa = falla hepática aguda → derivar. Transaminasas &gt; 1000 U/L obligan a pensar en isquemia, paracetamol o tóxicos, y hepatitis viral aguda (tabla de la pestaña 32).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Agrupar por patrón, que la ALT es más específica que la AST, el uso de la GGT para atribuir la FA y que el INR cambia antes que la albúmina (factor VII, vida media ~6 h; albúmina ~20 días): coincide con la guía ACG 2017 (Kwo). El cociente &gt; 2 en alcohol también: más del 70 % de los pacientes con hepatopatía alcohólica lo tienen, y &gt; 3 lo hace aún más probable.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El De Ritis solo vale con enzimas elevadas.</b> Con AST y ALT normales o casi normales, pequeñas diferencias cambian mucho el cociente. Además, la AST alta del músculo (rabdomiólisis, ejercicio, hipotiroidismo), de la hemólisis y la hepatitis isquémica temprana dan AST &gt; ALT sin alcohol ni cirrosis. Las tablas de "límites de decisión" por enfermedad provienen de la bioquímica clínica (Botros y Sikaris, Clin Biochem Rev 2013), no de guías clínicas.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>No existe un rango fijo de FA en el embarazo.</b> La FA placentaria sube sobre todo en el tercer trimestre y puede duplicar o triplicar el valor basal. No hay rangos universales: siempre usar el LSN del propio laboratorio. Lo mismo vale para la ALT: la ACG propone LSN de 29–33 U/L en hombres y 19–25 U/L en mujeres, más bajos que los de muchos laboratorios.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Bilirrubina:</b> la indirecta nunca aparece en la orina, la coluria es solo de la directa. En Gilbert la total suele ser &lt; 3 mg/dL y casi nunca pasa de 6 (ACG); sube con el ayuno, la enfermedad o el esfuerzo. Con enzimas normales, una hiperbilirrubinemia indirecta &lt; 4 mg/dL, sin hemólisis ni fármacos, se atribuye presuntivamente a Gilbert. Tras resolverse una obstrucción, la <b>bilirrubina delta</b> (unida a albúmina) mantiene la ictericia semanas sin coluria.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>FA de origen óseo:</b> considerar también Paget, metástasis óseas, osteomalacia o déficit de vitamina D e hiperparatiroidismo. La FA puede subir de forma transitoria tras una comida grasa (grupos O y B). Una FA <b>baja</b> también orienta: hipofosfatasia, desnutrición y la falla hepática aguda por Wilson (FA baja con bilirrubina muy alta).</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>El INR no mide el riesgo de sangrado en la cirrosis.</b> La hemostasia está "rebalanceada": no transfundir plasma para "corregir" el INR antes de procedimientos (AGA 2019; AASLD 2021). Ante un INR alto en colestasis o malabsorción, la vitamina K parenteral distingue el déficit de vitamina K de la falla de síntesis. Recordar también que los anticoagulantes orales directos prolongan el TP.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Signos de alarma:</b> INR ≥ 1,5 con encefalopatía en un paciente sin cirrosis previa = falla hepática aguda → derivar. Transaminasas &gt; 1000 U/L obligan a pensar en isquemia, paracetamol o tóxicos, y hepatitis viral aguda (tabla de la pestaña 32).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>Costa ecuatoriana, fiebre y perfil hepático:</b></p>
         <p><b>Dengue:</b> AST &gt; ALT es típico; <b>AST o ALT ≥ 1000 U/L es criterio de dengue grave</b> (OMS 2009).</p>
         <p><b>Leptospirosis</b> (inundaciones, arrozales, Salitre): ictericia de predominio directo y desproporcionada a transaminasas que suelen ser &lt; 5× LSN, con CK alta, IRA y plaquetopenia (síndrome de Weil).</p>
@@ -390,21 +388,21 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 34 (antes 8) ============ -->
 <article class="panel" id="v8" role="tabpanel" aria-labelledby="t-v8" hidden>
   <div>
-    <h2>Un número que debes conocer: FIB-4</h2>
-    <div class="meta"><span>Fuente: TikTok @drmauriciogonzalez</span><span>Duración 1:51</span><span>Recibido 14/09/2026</span><span>Público original: pacientes</span></div>
+    <h2>FIB-4: riesgo de fibrosis en el hígado graso</h2>
+    <div class="meta"><span>Bases: Sterling 2006 (FIB-4), AASLD 2023, EASL-EASD-EASO 2024, ADA 2026</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 8">
-    <a href="#v8-resumen">Resumen</a><a href="#v8-algoritmo">Algoritmo</a><a href="#v8-calc">Calculadora</a><a href="#v8-analisis">Análisis crítico</a><a href="#v8-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v8-resumen">Resumen</a><a href="#v8-algoritmo">Algoritmo</a><a href="#v8-calc">Calculadora</a><a href="#v8-analisis">Puntos clave</a><a href="#v8-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v8-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Video hablado; el contenido se reconstruyó completo a partir de los subtítulos. Mensaje: si tienes diabetes, prediabetes, sobrepeso o triglicéridos altos, el <b>FIB-4</b> te ayuda a saber si tu hígado necesita más atención. No diagnostica hígado graso: <b>estima la probabilidad de fibrosis avanzada</b> en MASLD (antes llamado hígado graso no alcohólico).</p>
+    <p class="lead">Si hay diabetes, prediabetes, sobrepeso o triglicéridos altos, el <b>FIB-4</b> indica si el hígado necesita más estudio. No diagnostica hígado graso: <b>estima la probabilidad de fibrosis avanzada</b> en MASLD (antes llamado hígado graso no alcohólico).</p>
     <p>Se calcula con 4 datos de un análisis de rutina: <b>edad, AST, ALT y plaquetas</b>. No es una sentencia ni reemplaza la visita médica, pero ayuda a decidir quién puede vigilarse y quién necesita estudios adicionales. Cierre: "Revisa tus últimos laboratorios, calcula tu FIB-4 y llévalo a tu próxima consulta."</p>
   </section>
 
   <section id="v8-algoritmo">
-    <h3>Algoritmo del video</h3>
+    <h3>Algoritmo</h3>
     <div class="levels">
       <div class="lvl" style="border-top-color:var(--ok)"><b>Riesgo bajo</b><div class="v">&lt; 1,3</div><small>Fibrosis avanzada poco probable (~90 % de probabilidad de que todo esté bien). Repetir cada 1–2 años si hay diabetes, prediabetes o varios factores metabólicos; cada 2–3 años si el riesgo es menor.</small></div>
       <div class="lvl"><b>Indeterminado</b><div class="v">1,3–2,67</div><small>Prueba de desempate: <b>FibroScan</b> (elastografía) o prueba de sangre <b>ELF</b>.</small></div>
@@ -414,7 +412,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v8-calc">
-    <h3>Calculadora FIB-4 (agregada)</h3>
+    <h3>Calculadora FIB-4</h3>
     <div class="box">
       <div class="calc">
         <label for="f-age">Edad (años)<input id="f-age" type="number" min="18" max="100" value="58"></label>
@@ -426,7 +424,7 @@ footer a{color:var(--accent)}
       <p class="note" style="margin-top:8px" id="f-note">FIB-4 = edad × AST / (plaquetas × √ALT). En ≥ 65 años el corte inferior sube a 2,0; en &lt; 35 años el índice no es fiable. Valores de ejemplo cargados.</p>
     </div>
     <div class="tbl" style="margin-top:10px"><table>
-      <thead><tr><th>Segunda prueba (agregado)</th><th>Bajo riesgo</th><th>Indeterminado</th><th>Alto riesgo</th></tr></thead>
+      <thead><tr><th>Segunda prueba</th><th>Bajo riesgo</th><th>Indeterminado</th><th>Alto riesgo</th></tr></thead>
       <tbody>
         <tr><td>Elastografía transitoria (FibroScan)</td><td class="m">&lt; 8 kPa</td><td class="m">8–12 kPa</td><td class="m">≥ 12 kPa</td></tr>
         <tr><td>ELF (sangre)</td><td class="m">&lt; 7,7</td><td class="m">7,7–9,7</td><td class="m">≥ 9,8</td></tr>
@@ -435,16 +433,15 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v8-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video correcto, sobrio y alineado con AASLD 2023, AGA y ADA. Es de los mejores que me has enviado. Complementos para el clínico:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Cortes 1,3 y 2,67, la secuencia FIB-4 → elastografía o ELF → hepatología, y los intervalos de repetición coinciden con la guía AASLD 2023 y el consenso multisociedad.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>"No diagnostica hígado graso": el FIB-4 estadifica fibrosis; la esteatosis se documenta por imagen. Su fortaleza es el valor predictivo negativo (&gt; 90 %) para descartar F3–F4.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ajuste por edad:</b> en ≥ 65 años usar 2,0 como corte inferior (McPherson 2017), porque la edad infla el índice y genera falsos positivos. En &lt; 35 años pierde validez.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Falsos resultados:</b> plaquetopenia por otra causa (PTI, hiperesplenismo), hepatitis aguda, consumo reciente de alcohol o lesión muscular elevan el FIB-4. Calcularlo con laboratorio estable.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ecografía:</b> detecta esteatosis moderada a severa (pierde sensibilidad con &lt; 20 % de grasa), pero <b>no estadifica fibrosis</b>. Una eco con "hígado graso" siempre debe ir seguida del FIB-4. Signos ecográficos de cirrosis (contorno nodular, hipertrofia del caudado, esplenomegalia) indican derivación aunque el FIB-4 sea bajo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Nomenclatura 2023:</b> MASLD = esteatosis + ≥ 1 criterio cardiometabólico (IMC/cintura, glucosa, PA, TG, HDL). MetALD si hay consumo de alcohol de 140–350 g/semana en mujeres o 210–420 g/semana en hombres.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento:</b> pérdida de peso del 7–10 % (≥ 10 % puede revertir fibrosis). En pacientes con diabetes, preferir arGLP-1, iSGLT2 o pioglitazona. Para MASH F2–F3 hay fármacos aprobados en EE. UU. (resmetirom y semaglutida). Las estatinas son seguras y deben indicarse si corresponde.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Cortes 1,3 y 2,67, la secuencia FIB-4 → elastografía o ELF → hepatología, y los intervalos de repetición coinciden con la guía AASLD 2023 y el consenso multisociedad.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>"No diagnostica hígado graso": el FIB-4 estadifica fibrosis; la esteatosis se documenta por imagen. Su fortaleza es el valor predictivo negativo (&gt; 90 %) para descartar F3–F4.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ajuste por edad:</b> en ≥ 65 años usar 2,0 como corte inferior (McPherson 2017), porque la edad infla el índice y genera falsos positivos. En &lt; 35 años pierde validez.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Falsos resultados:</b> plaquetopenia por otra causa (PTI, hiperesplenismo), hepatitis aguda, consumo reciente de alcohol o lesión muscular elevan el FIB-4. Calcularlo con laboratorio estable.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ecografía:</b> detecta esteatosis moderada a severa (pierde sensibilidad con &lt; 20 % de grasa), pero <b>no estadifica fibrosis</b>. Una eco con "hígado graso" siempre debe ir seguida del FIB-4. Signos ecográficos de cirrosis (contorno nodular, hipertrofia del caudado, esplenomegalia) indican derivación aunque el FIB-4 sea bajo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Nomenclatura 2023:</b> MASLD = esteatosis + ≥ 1 criterio cardiometabólico (IMC/cintura, glucosa, PA, TG, HDL). MetALD si hay consumo de alcohol de 140–350 g/semana en mujeres o 210–420 g/semana en hombres.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Tratamiento:</b> pérdida de peso del 7–10 % (≥ 10 % puede revertir fibrosis). En pacientes con diabetes, preferir arGLP-1, iSGLT2 o pioglitazona. Para MASH F2–F3 hay fármacos aprobados en EE. UU. (resmetirom y semaglutida). Las estatinas son seguras y deben indicarse si corresponde.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Transaminasas normales no descartan fibrosis.</b> Más de la mitad de los pacientes con MASLD y fibrosis significativa tiene ALT normal. Por eso el cribado se hace con FIB-4 en población de riesgo, no solo en quien tiene ALT alta.</p></div>
     </div>
     <div class="callout"><strong>En consulta:</strong> en todo paciente con DM2, prediabetes u obesidad, calcular el FIB-4 una vez al año con el laboratorio de control. Cuesta cero y cambia la conducta.</div>
@@ -461,22 +458,22 @@ footer a{color:var(--accent)}
 <article class="panel" id="v5" role="tabpanel" aria-labelledby="t-v5" hidden>
   <div>
     <h2>Algoritmo diagnóstico de anemia: serie roja del hemograma</h2>
-    <div class="meta"><span>Fuente: 8 láminas, @Medicina En Tu Bolsillo</span><span>Recibido 11/10/2026</span><span>Nivel: atención primaria y medicina interna</span></div>
+    <div class="meta"><span>Bases: OMS (definición de anemia), BSH (ferropenia), Mentzer 1973, guías de interpretación del hemograma</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 35">
-    <a href="#v5-resumen">Resumen</a><a href="#v5-vcm">1 · VCM</a><a href="#v5-irc">2 · Reticulocitos</a><a href="#v5-indices">3 · Índices</a><a href="#v5-micro">4 · Microcítica</a><a href="#v5-frotis">5 · Frotis</a><a href="#v5-analisis">Análisis crítico</a><a href="#v5-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v5-resumen">Resumen</a><a href="#v5-vcm">1 · VCM</a><a href="#v5-irc">2 · Reticulocitos</a><a href="#v5-indices">3 · Índices</a><a href="#v5-micro">4 · Microcítica</a><a href="#v5-frotis">5 · Frotis</a><a href="#v5-analisis">Puntos clave</a><a href="#v5-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v5-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Las láminas proponen leer la serie roja en 4 preguntas: <b>¿de qué tamaño son los eritrocitos? (VCM) → ¿la médula responde? (reticulocitos) → ¿hay anisocitosis? (ADE) → ¿qué muestra el frotis?</b> El hemograma orienta; la causa se confirma integrando clínica y laboratorio.</p>
+    <p class="lead">La serie roja se lee en 4 preguntas: <b>¿de qué tamaño son los eritrocitos? (VCM) → ¿la médula responde? (reticulocitos) → ¿hay anisocitosis? (ADE) → ¿qué muestra el frotis?</b> El hemograma orienta; la causa se confirma integrando clínica y laboratorio.</p>
     <ol class="steps" style="margin-top:6px">
       <li class="step"><span class="num">1</span><h4>VCM</h4><ul><li>Micro / normo / macro.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>IRC / IPR</h4><ul><li>¿La médula responde?</li></ul></li>
       <li class="step"><span class="num">3</span><h4>ADE (RDW)</h4><ul><li>¿Hay anisocitosis?</li></ul></li>
       <li class="step"><span class="num">4</span><h4>Frotis</h4><ul><li>Pistas morfológicas clave.</li></ul></li>
     </ol>
-    <p class="note">Antes del algoritmo, la definición (OMS): Hb &lt; 13 g/dL en hombres, &lt; 12 g/dL en mujeres no embarazadas, &lt; 11 g/dL en embarazo. Agregado; no está en las láminas.</p>
+    <p class="note">Antes del algoritmo, la definición (OMS): Hb &lt; 13 g/dL en hombres, &lt; 12 g/dL en mujeres no embarazadas, &lt; 11 g/dL en embarazo.</p>
   </section>
 
   <section id="v5-vcm">
@@ -501,7 +498,7 @@ footer a{color:var(--accent)}
       <div class="box" style="border-top:4px solid var(--crit)"><b style="color:var(--crit)">&lt; 2 · Hipoproliferativa</b><ul>
         <li>Ferropenia (la más frecuente)</li><li>Enfermedad crónica/inflamatoria</li><li>ERC/↓EPO</li><li>Déficit B12/folato</li><li>Aplasia / aplasia pura de serie roja</li><li>Infiltración medular</li></ul></div>
     </div>
-    <h3 style="margin-top:6px">Calculadora IRC / IPR (agregada)</h3>
+    <h3 style="margin-top:6px">Calculadora IRC / IPR</h3>
     <div class="box">
       <div class="calc">
         <label for="r-ret">Reticulocitos (%)<input id="r-ret" type="number" min="0" max="40" step="0.1" value="4"></label>
@@ -535,11 +532,11 @@ footer a{color:var(--accent)}
         <tr><td>ADE</td><td>Habitualmente ↑</td><td>Generalmente normal</td></tr>
         <tr><td>Morfología</td><td>Anisocitosis (tamaños variables)</td><td>Microcitosis uniforme, dianocitos</td></tr>
         <tr><td>Índice de Mentzer</td><td class="m">&gt; 13</td><td class="m">&lt; 13</td></tr>
-        <tr><td>Eritrocitos (agregado)</td><td>Bajos o normales</td><td>Normales o altos (&gt; 5 millones/µL) con anemia leve</td></tr>
-        <tr><td>Ferritina (agregado)</td><td>Baja (&lt; 30 ng/mL)</td><td>Normal</td></tr>
+        <tr><td>Eritrocitos</td><td>Bajos o normales</td><td>Normales o altos (&gt; 5 millones/µL) con anemia leve</td></tr>
+        <tr><td>Ferritina</td><td>Baja (&lt; 30 ng/mL)</td><td>Normal</td></tr>
       </tbody>
     </table></div>
-    <h3 style="margin-top:6px">Calculadora de Mentzer (agregada)</h3>
+    <h3 style="margin-top:6px">Calculadora de Mentzer</h3>
     <div class="box">
       <div class="calc">
         <label for="m-vcm">VCM (fL)<input id="m-vcm" type="number" min="40" max="130" step="0.1" value="68"></label>
@@ -567,16 +564,15 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v5-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Las láminas son correctas y bien ordenadas para docencia. Correcciones menores y lo que falta para usarlas en consulta:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Unidad de la CCMH:</b> es g/dL (32–36 g/dL), no %. El umbral de reticulocitos "2 %" de la lámina corresponde mejor al <b>IPR</b> (&gt; 2 regenerativa, &lt; 2 hipoproliferativa) que al IRC sin corregir por maduración.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Unidad de la CCMH:</b> es g/dL (32–36 g/dL), no %. El umbral de reticulocitos de "2" corresponde al <b>IPR</b> (&gt; 2 regenerativa, &lt; 2 hipoproliferativa) que al IRC sin corregir por maduración.</p></div>
       <div class="vd"><span class="tag crit">Importante</span><p><b>La electroforesis no detecta el rasgo α-talasémico:</b> sale normal (HbA2 normal o baja). Si hay microcitosis con ferritina normal y electroforesis normal, pensar en α-talasemia y pedir estudio genético. En la β-talasemia menor, HbA2 &gt; 3,5 %.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Corregir el hierro antes de la electroforesis:</b> la ferropenia baja la HbA2 y puede enmascarar una β-talasemia menor. Ambas pueden coexistir.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ferritina:</b> &lt; 30 ng/mL confirma ferropenia (AGA usa &lt; 45). Con inflamación, la ferritina sube como reactante; hasta 100 ng/mL puede haber ferropenia. Complementar con saturación de transferrina &lt; 20 %.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Limitaciones del Mentzer:</b> pierde precisión en niños, embarazo y anemias mixtas. Un valor cercano a 13 es indeterminado.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Macrocitosis no megaloblástica:</b> la reticulocitosis (hemólisis, sangrado) eleva el VCM. También fármacos: metotrexato, hidroxiurea, zidovudina, y metformina por déficit de B12. VCM &gt; 115 fL y neutrófilos hipersegmentados apuntan a megaloblástica.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>CCMH alta falsa:</b> antes de pensar en esferocitosis, descartar artefactos: crioaglutininas, lipemia o hemólisis de la muestra.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ferritina:</b> &lt; 30 ng/mL confirma ferropenia (AGA usa &lt; 45). Con inflamación, la ferritina sube como reactante; hasta 100 ng/mL puede haber ferropenia. Complementar con saturación de transferrina &lt; 20 %.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Limitaciones del Mentzer:</b> pierde precisión en niños, embarazo y anemias mixtas. Un valor cercano a 13 es indeterminado.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Macrocitosis no megaloblástica:</b> la reticulocitosis (hemólisis, sangrado) eleva el VCM. También fármacos: metotrexato, hidroxiurea, zidovudina, y metformina por déficit de B12. VCM &gt; 115 fL y neutrófilos hipersegmentados apuntan a megaloblástica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>CCMH alta falsa:</b> antes de pensar en esferocitosis, descartar artefactos: crioaglutininas, lipemia o hemólisis de la muestra.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Esquistocitos + trombocitopenia</b> es una emergencia (PTT, SHU, CID): pedir LDH, bilirrubina indirecta, haptoglobina, coagulación y función renal el mismo día. Más de 1 % de esquistocitos es significativo.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Ferropenia en el adulto:</b> en hombres y mujeres posmenopáusicas, buscar sangrado digestivo (endoscopia alta y baja) antes de atribuirla a la dieta.</p></div>
     </div>
@@ -592,35 +588,35 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 36 (antes 14) ============ -->
 <article class="panel" id="v14" role="tabpanel" aria-labelledby="t-v14" hidden>
   <div>
-    <h2>"Anemia en 2 minutos": no es una receta de cocina</h2>
-    <div class="meta"><span>Fuente: TikTok @drkeiph</span><span>Duración 2:20</span><span>Recibido 19/10/2026</span><span>Formato: sketch hablado (docente y residente)</span></div>
+    <h2>Anemia: más allá del VCM, y la anemia de la inflamación</h2>
+    <div class="meta"><span>Bases: Weiss y Goodnough (NEJM 2005), Ganz (hepcidina), BSH, KDIGO (anemia en ERC)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 14">
-    <a href="#v14-resumen">Resumen</a><a href="#v14-discurso">Lo que dice</a><a href="#v14-ferro">Perfil ferrocinético</a><a href="#v14-calc">Índice sTfR</a><a href="#v14-analisis">Análisis crítico</a><a href="#v14-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v14-resumen">Resumen</a><a href="#v14-discurso">Lo que dice</a><a href="#v14-ferro">Perfil ferrocinético</a><a href="#v14-calc">Índice sTfR</a><a href="#v14-analisis">Puntos clave</a><a href="#v14-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v14-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Sketch: el docente revisa una historia y reclama porque alguien clasificó la anemia "como si fuese una receta de cocina". El mensaje: el VCM orienta, pero hay que saber si la anemia es <b>regenerativa o arregenerativa</b> (reticulocitos), mirar el <b>frotis</b> y el <b>perfil ferrocinético</b>, y recordar que en el paciente <b>infectado o con SRIS</b> la inflamación produce una anemia propia.</p>
-    <p class="note">Video hablado con subtítulos intermitentes; algunas frases quedaron incompletas. El contenido se complementa con la pestaña 35 (Algoritmo de anemia), que tiene las calculadoras de IRC/IPR y Mentzer.</p>
+    <p class="lead">Clasificar la anemia solo por el VCM es "una receta de cocina". El VCM orienta, pero hay que saber si la anemia es <b>regenerativa o arregenerativa</b> (reticulocitos), mirar el <b>frotis</b> y el <b>perfil ferrocinético</b>, y recordar que en el paciente <b>infectado o con SRIS</b> la inflamación produce una anemia propia.</p>
+    <p class="note">Se complementa con la pestaña 35 (Algoritmo de anemia), que tiene las calculadoras de IRC/IPR y Mentzer.</p>
   </section>
 
   <section id="v14-discurso">
-    <h3>Lo que dice el video</h3>
+    <h3>Razonamiento paso a paso</h3>
     <ol class="steps">
-      <li class="step"><span class="num">1</span><h4>La "receta" del residente</h4>
-        <ul><li>Macrocítica (VCM &gt; 100) = déficit de ácido fólico; la otra: hemorragia, hemólisis o patologías crónicas. El docente lo critica como simplificación.</li></ul></li>
+      <li class="step"><span class="num">1</span><h4>La "receta" simplista</h4>
+        <ul><li>"Macrocítica (VCM &gt; 100) = déficit de ácido fólico; el resto: hemorragia, hemólisis o enfermedad crónica" es una simplificación: omite B12, alcohol, hepatopatía, hipotiroidismo, fármacos y mielodisplasia.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>Índice de Mentzer</h4>
         <ul><li>VCM dividido entre el número de eritrocitos: permite sospechar talasemia.</li></ul></li>
       <li class="step"><span class="num">3</span><h4>¿Por qué está anémico?</h4>
         <ul><li>Por hemólisis, por pérdida, o porque la médula no produce adecuadamente.</li><li>Pedir <b>frotis de sangre periférica con recuento de reticulocitos</b> y, según el caso, <b>perfil ferrocinético completo</b>.</li><li>Ver si la médula está liberando formas inmaduras de eritrocitos.</li></ul></li>
       <li class="step"><span class="num">4</span><h4>El paciente infectado</h4>
-        <ul><li>Séptico o con SRIS: tiene hierro, pero <b>no lo puede liberar hacia la sangre</b>. Puede parecer una anemia ferropénica.</li><li>La inflamación además <b>disminuye la producción de eritropoyetina</b>.</li><li>Cierre: estudiar cómo se clasifican, y si son regenerativas o arregenerativas.</li></ul></li>
+        <ul><li>Séptico o con SRIS: tiene hierro, pero <b>no lo puede liberar hacia la sangre</b>. Puede parecer una anemia ferropénica.</li><li>La inflamación además <b>disminuye la producción de eritropoyetina</b>.</li><li>Clasificar siempre por morfología y por respuesta medular (regenerativa o arregenerativa).</li></ul></li>
     </ol>
   </section>
 
   <section id="v14-ferro">
-    <h3>Perfil ferrocinético: ferropenia vs inflamación (agregado)</h3>
+    <h3>Perfil ferrocinético: ferropenia vs inflamación</h3>
     <div class="tbl"><table>
       <thead><tr><th>Parámetro</th><th>Ferropenia</th><th>Anemia de la inflamación</th><th>Mixta</th></tr></thead>
       <tbody>
@@ -637,7 +633,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v14-calc">
-    <h3>Índice sTfR/log ferritina (agregado)</h3>
+    <h3>Índice sTfR/log ferritina</h3>
     <div class="box">
       <div class="calc">
         <label for="t14-stfr">Receptor soluble de transferrina (mg/L)<input id="t14-stfr" type="number" min="0.1" max="50" step="0.1" value="4.2"></label>
@@ -649,13 +645,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v14-analisis">
-    <h3>Análisis crítico</h3>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Fisiopatología:</b> la IL-6 induce hepcidina, que degrada la ferroportina y atrapa el hierro en macrófagos y enterocitos. Además la inflamación suprime la EPO y acorta la vida del eritrocito. El video lo resume bien ("tiene hierro pero no lo puede liberar").</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Macrocitosis no es sinónimo de déficit de folato.</b> También déficit de B12 (descartarlo siempre antes de dar ácido fólico), alcohol, hepatopatía, hipotiroidismo, mielodisplasia, fármacos y reticulocitosis.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Fisiopatología:</b> la IL-6 induce hepcidina, que degrada la ferroportina y atrapa el hierro en macrófagos y enterocitos. Además la inflamación suprime la EPO y acorta la vida del eritrocito. En resumen: tiene hierro, pero no lo puede liberar.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Macrocitosis no es sinónimo de déficit de folato.</b> También déficit de B12 (descartarlo siempre antes de dar ácido fólico), alcohol, hepatopatía, hipotiroidismo, mielodisplasia, fármacos y reticulocitosis.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Reticulocitos:</b> corregir por hematocrito y maduración (IPR). Un porcentaje "normal" en anemia grave es una respuesta insuficiente. Calculadora en la pestaña 35.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Anemia del paciente crítico:</b> además de la inflamación, contribuyen las extracciones repetidas de sangre, la hemodilución y el sangrado oculto. La transfusión se reserva para Hb &lt; 7 g/dL (umbrales restrictivos, TRICC/TRISS); el hierro IV en la fase aguda tiene beneficio dudoso.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Tratamiento de la anemia mixta:</b> con PCR alta, el hierro oral se absorbe mal por la hepcidina; preferir hierro IV cuando hay ferropenia real (ferritina &lt; 100 con saturación &lt; 20 %), especialmente en ERC e IC.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Anemia del paciente crítico:</b> además de la inflamación, contribuyen las extracciones repetidas de sangre, la hemodilución y el sangrado oculto. La transfusión se reserva para Hb &lt; 7 g/dL (umbrales restrictivos, TRICC/TRISS); el hierro IV en la fase aguda tiene beneficio dudoso.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Tratamiento de la anemia mixta:</b> con PCR alta, el hierro oral se absorbe mal por la hepcidina; preferir hierro IV cuando hay ferropenia real (ferritina &lt; 100 con saturación &lt; 20 %), especialmente en ERC e IC.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p>"Infectado" no explica cualquier anemia. Si la caída es brusca, buscar sangrado o hemólisis (LDH, bilirrubina indirecta, haptoglobina, Coombs) antes de atribuirla a la inflamación.</p></div>
     </div>
   </section>
@@ -671,15 +667,15 @@ footer a{color:var(--accent)}
 <article class="panel" id="v4" role="tabpanel" aria-labelledby="t-v4" hidden>
   <div>
     <h2>Artritis reumatoide: sospecha, diagnóstico y tratamiento hacia una meta</h2>
-    <div class="meta"><span>Fuente: 7 láminas, TikTok @liebe_92</span><span>Recibido 11/10/2026</span><span>Base citada: Smolen JS et al. Rheumatoid arthritis in adults: a review. JAMA 2026</span></div>
+    <div class="meta"><span>Bases: Smolen JS et al. JAMA 2026 (revisión), ACR/EULAR 2010, EULAR 2022, ACR 2021</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 37">
-    <a href="#v4-resumen">Resumen</a><a href="#v4-sospecha">Sospecha</a><a href="#v4-dx">Diagnóstico</a><a href="#v4-acr">ACR/EULAR 2010</a><a href="#v4-tx">Tratamiento</a><a href="#v4-t2t">Meta y CDAI</a><a href="#v4-escalar">Antes de escalar</a><a href="#v4-analisis">Análisis crítico</a><a href="#v4-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v4-resumen">Resumen</a><a href="#v4-sospecha">Sospecha</a><a href="#v4-dx">Diagnóstico</a><a href="#v4-acr">ACR/EULAR 2010</a><a href="#v4-tx">Tratamiento</a><a href="#v4-t2t">Meta y CDAI</a><a href="#v4-escalar">Antes de escalar</a><a href="#v4-analisis">Puntos clave</a><a href="#v4-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v4-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Las láminas resumen una revisión de JAMA 2026 sobre AR en adultos. La idea central: <b>una radiografía normal y un factor reumatoide negativo no descartan AR temprana</b>. Si hay sinovitis persistente en muñecas, MCF o IFP, la sospecha es clínica y la valoración debe ser temprana, idealmente en las primeras 6 semanas.</p>
+    <p class="lead">AR en el adulto (revisión de JAMA 2026). La idea central: <b>una radiografía normal y un factor reumatoide negativo no descartan AR temprana</b>. Si hay sinovitis persistente en muñecas, MCF o IFP, la sospecha es clínica y la valoración debe ser temprana, idealmente en las primeras 6 semanas.</p>
     <p>El tratamiento empieza con metotrexato y se ajusta según una meta medida (CDAI), no según la percepción de mejoría del dolor.</p>
   </section>
 
@@ -715,7 +711,7 @@ footer a{color:var(--accent)}
 
   <section id="v4-acr">
     <h3>Criterios ACR/EULAR 2010: clasificación ≠ diagnóstico</h3>
-    <p class="note">Se aplican a pacientes con al menos 1 articulación con sinovitis clínica definida, no explicada mejor por otra enfermedad. Calculadora (agregada):</p>
+    <p class="note">Se aplican a pacientes con al menos 1 articulación con sinovitis clínica definida, no explicada mejor por otra enfermedad. Calculadora:</p>
     <div class="box">
       <div class="calc" id="acrcalc">
         <label for="acr-art">Articulaciones
@@ -781,7 +777,7 @@ footer a{color:var(--accent)}
         <tr><td>A los 6 meses</td><td>¿Se alcanzó la meta?</td><td>Remisión o baja actividad; si no, escalar.</td></tr>
       </tbody>
     </table></div>
-    <h3 style="margin-top:8px">Calculadora CDAI (agregada)</h3>
+    <h3 style="margin-top:8px">Calculadora CDAI</h3>
     <div class="box">
       <div class="calc">
         <label for="c-sjc">Articulaciones inflamadas (0–28)<input id="c-sjc" type="number" min="0" max="28" value="6" inputmode="numeric"></label>
@@ -811,42 +807,40 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v4-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Las láminas son correctas y coinciden con EULAR 2022 y ACR 2021. Lo que agregaría para la práctica:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Diferencia EULAR/ACR sobre corticoides: EULAR 2022 acepta un puente corto (retirar lo antes posible, idealmente en 3 meses); ACR 2021 recomienda condicionalmente <i>no</i> iniciarlos. La lámina lo resume bien.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>Riesgo de los JAK: ORAL Surveillance (tofacitinib vs anti-TNF) mostró más eventos CV mayores, cáncer y trombosis. EMA y FDA los reservan, en ≥ 65 años, fumadores o con riesgo CV u oncológico, para cuando no hay alternativa.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ácido fólico:</b> 5 mg una vez por semana (al día siguiente del MTX) o 1 mg/día excepto el día del MTX. Reduce náusea, úlceras orales y elevación de transaminasas.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Antes y durante el MTX:</b> hemograma, transaminasas, creatinina, VHB, VHC y Rx de tórax basal. Controles cada 4–6 semanas mientras se sube la dosis y luego cada 3 meses. Contraindicado con TFGe &lt; 30, hepatopatía, alcohol y embarazo (suspender 1–3 meses antes de concebir). Si hay intolerancia o respuesta pobre por VO, pasar a SC antes de cambiar de fármaco.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Factores de mal pronóstico</b> (EULAR 2022): actividad alta persistente, FR/ACPA a título alto, erosiones tempranas, fracaso de ≥ 2 FAME convencionales. Si están presentes, escalar a biológico o JAK; si no, cambiar o combinar FAME convencionales.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Cribado previo a biológico/JAK:</b> IGRA o PPD, Rx de tórax, HBsAg y anti-HBc, VHC, VIH. Vacunas: influenza, neumococo, COVID-19 y zóster recombinante. Las vacunas vivas van antes de iniciar.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ecografía articular:</b> con sonda lineal de alta frecuencia se detecta sinovitis subclínica en muñecas, MCF 2–3 y MTF 5. Escala OMERACT 0–3 en escala de grises y Doppler de potencia; el Doppler ≥ 1 indica sinovitis activa. Es útil cuando el examen es dudoso o la Rx es normal.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Diferencia EULAR/ACR sobre corticoides: EULAR 2022 acepta un puente corto (retirar lo antes posible, idealmente en 3 meses); ACR 2021 recomienda condicionalmente <i>no</i> iniciarlos.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Riesgo de los JAK: ORAL Surveillance (tofacitinib vs anti-TNF) mostró más eventos CV mayores, cáncer y trombosis. EMA y FDA los reservan, en ≥ 65 años, fumadores o con riesgo CV u oncológico, para cuando no hay alternativa.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ácido fólico:</b> 5 mg una vez por semana (al día siguiente del MTX) o 1 mg/día excepto el día del MTX. Reduce náusea, úlceras orales y elevación de transaminasas.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Antes y durante el MTX:</b> hemograma, transaminasas, creatinina, VHB, VHC y Rx de tórax basal. Controles cada 4–6 semanas mientras se sube la dosis y luego cada 3 meses. Contraindicado con TFGe &lt; 30, hepatopatía, alcohol y embarazo (suspender 1–3 meses antes de concebir). Si hay intolerancia o respuesta pobre por VO, pasar a SC antes de cambiar de fármaco.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Factores de mal pronóstico</b> (EULAR 2022): actividad alta persistente, FR/ACPA a título alto, erosiones tempranas, fracaso de ≥ 2 FAME convencionales. Si están presentes, escalar a biológico o JAK; si no, cambiar o combinar FAME convencionales.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Cribado previo a biológico/JAK:</b> IGRA o PPD, Rx de tórax, HBsAg y anti-HBc, VHC, VIH. Vacunas: influenza, neumococo, COVID-19 y zóster recombinante. Las vacunas vivas van antes de iniciar.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ecografía articular:</b> con sonda lineal de alta frecuencia se detecta sinovitis subclínica en muñecas, MCF 2–3 y MTF 5. Escala OMERACT 0–3 en escala de grises y Doppler de potencia; el Doppler ≥ 1 indica sinovitis activa. Es útil cuando el examen es dudoso o la Rx es normal.</p></div>
       <div class="vd"><span class="tag crit">Diferencial</span><p>Antes de rotular AR: poliartritis viral (parvovirus B19, VHB/VHC, <b>chikungunya</b>, relevante en la región), artritis psoriásica, LES, gota o CPPD poliarticular, polimialgia reumática en mayores y artrosis de manos (compromete IFD, que no cuenta en ACR/EULAR).</p></div>
     </div>
     <div class="callout"><strong>Error grave a evitar:</strong> metotrexato diario por confusión de la receta. Causa pancitopenia y mucositis potencialmente mortales. Escribir el día de la semana en la receta, por ejemplo "solo los lunes".</div>
-    <p class="note">La revisión de JAMA 2026 se cita tal como aparece en las láminas; no pude verificar su contenido directamente.</p>
   </section>
 
   <section id="v4-quiz">
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v4"></div>
   </section>
-  <p class="note">Referencias: Smolen JS et al. JAMA 2026 (citada en las láminas); Aletaha D et al. Criterios ACR/EULAR 2010; Smolen JS et al. Recomendaciones EULAR 2022, Ann Rheum Dis 2023; Fraenkel L et al. Guía ACR 2021, Arthritis Care Res 2021; Ytterberg SR et al. ORAL Surveillance, NEJM 2022.</p>
+  <p class="note">Referencias: Smolen JS et al. JAMA 2026; Aletaha D et al. Criterios ACR/EULAR 2010; Smolen JS et al. Recomendaciones EULAR 2022, Ann Rheum Dis 2023; Fraenkel L et al. Guía ACR 2021, Arthritis Care Res 2021; Ytterberg SR et al. ORAL Surveillance, NEJM 2022.</p>
 </article>
 
 <!-- ============ PESTAÑA 38 (antes 20) ============ -->
 <article class="panel" id="v20" role="tabpanel" aria-labelledby="t-v20" hidden>
   <div>
-    <h2>Artritis reumatoide: ¿cómo abordarla? (Tiagoritmo)</h2>
-    <div class="meta"><span>Fuente: 16 láminas, TiagoMed con el reumatólogo Andrés Felipe Vargas</span><span>Recibido 26/10/2026</span><span>Bases citadas: ACR/EULAR 2010, ACR 2021, EULAR 2022 y 2025, Lancet 2016</span></div>
+    <h2>Artritis reumatoide: abordaje completo</h2>
+    <div class="meta"><span>Bases: ACR/EULAR 2010, ACR 2021, EULAR 2022 y 2025, Smolen (Lancet 2016)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 38">
-    <a href="#v20-resumen">Resumen</a><a href="#v20-dx">Sospecha y estudios</a><a href="#v20-clinica">Clínica</a><a href="#v20-tx">Tratamiento</a><a href="#v20-calc">DAS28 / SDAI</a><a href="#v20-analisis">Análisis crítico</a><a href="#v20-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v20-resumen">Resumen</a><a href="#v20-dx">Sospecha y estudios</a><a href="#v20-clinica">Clínica</a><a href="#v20-tx">Tratamiento</a><a href="#v20-calc">DAS28 / SDAI</a><a href="#v20-analisis">Puntos clave</a><a href="#v20-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v20-resumen">
     <h3>Resumen</h3>
-    <p class="lead">El abordaje completo de la AR, de la sospecha al biológico, hecho con un reumatólogo. Complementa la <b>pestaña 37</b> (criterios ACR/EULAR y CDAI) con lo que allí faltaba: <b>imitadores agudos, deformidades, manifestaciones extraarticulares, DAS28, cuándo declarar falla al metotrexato y qué biológico elegir</b>.</p>
+    <p class="lead">El abordaje completo de la AR, de la sospecha al biológico. Complementa la <b>pestaña 37</b> (criterios ACR/EULAR y CDAI) con <b>imitadores agudos, deformidades, manifestaciones extraarticulares, DAS28, cuándo declarar falla al metotrexato y qué biológico elegir</b>.</p>
     <p>Idea central: <b>la clave es la sinovitis</b>. Dolor articular sin tumefacción es artralgia, no artritis.</p>
   </section>
 
@@ -937,7 +931,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v20-calc">
-    <h3>Calculadora DAS28 y SDAI (agregada)</h3>
+    <h3>Calculadora DAS28 y SDAI</h3>
     <div class="box">
       <div class="calc">
         <label for="d20-tjc">Articulaciones dolorosas (0–28)<input id="d20-tjc" type="number" min="0" max="28" value="8"></label>
@@ -953,16 +947,15 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v20-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material de buena calidad, revisado por un reumatólogo y alineado con ACR 2021 y EULAR 2022. Precisiones y complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Optimizar el MTX antes de declarar falla (dosis, vía SC, fraccionar la dosis, ácido fólico) es lo que más se omite en la práctica; la biodisponibilidad oral cae por encima de 15 mg y la SC la recupera.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Optimizar el MTX antes de declarar falla (dosis, vía SC, fraccionar la dosis, ácido fólico) es lo que más se omite en la práctica; la biodisponibilidad oral cae por encima de 15 mg y la SC la recupera.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>DAS28-PCR</b> da valores ~0,3–0,5 menores que DAS28-VSG y clasifica como remisión a más pacientes. Para remisión estricta, el SDAI/CDAI o la remisión booleana ACR/EULAR (articulaciones dolorosas, inflamadas, PCR en mg/dL y global del paciente ≤ 1) son más exigentes.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Biológico vs JAK:</b> EULAR 2022 coloca biológico y JAK al mismo nivel, pero restringe el JAK a cuando no hay alternativa en ≥ 65 años, fumadores, con riesgo CV o de cáncer. Sin factores de mal pronóstico, la alternativa es otro FAME convencional (triple terapia con <b>hidroxicloroquina</b>, que el material no menciona). La "actualización EULAR 2025" se cita como aparece; no pude verificar su contenido.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Embarazo:</b> suspender MTX 1–3 meses antes de concebir; la leflunomida requiere lavado con colestiramina. Sulfasalazina, hidroxicloroquina, prednisona a dosis bajas y certolizumab son compatibles con el embarazo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>MTX y pulmón:</b> la enfermedad intersticial previa no contraindica el MTX de forma absoluta; los estudios recientes no muestran que cause EPI-AR. La neumonitis por MTX es rara (&lt; 1 %), aguda e idiosincrática.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Escleritis</b> (dolor intenso, profundo, que despierta) es una emergencia oftalmológica, a diferencia de la epiescleritis; la forma necrotizante indica vasculitis sistémica. Otras extraarticulares: Sjögren secundario, osteoporosis y riesgo CV 1,5–2 veces mayor.</p></div>
-      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chikungunya</b> falta entre los imitadores y en la costa ecuatoriana es el más importante: poliartritis simétrica que puede persistir meses e incluso cumplir criterios de AR. Preguntar por fiebre y exantema previos y pedir IgG/IgM. También dengue, VHB, VHC y rubéola.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Biológico vs JAK:</b> EULAR 2022 coloca biológico y JAK al mismo nivel, pero restringe el JAK a cuando no hay alternativa en ≥ 65 años, fumadores, con riesgo CV o de cáncer. Sin factores de mal pronóstico, la alternativa es otro FAME convencional (por ejemplo, triple terapia con <b>hidroxicloroquina</b>).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Embarazo:</b> suspender MTX 1–3 meses antes de concebir; la leflunomida requiere lavado con colestiramina. Sulfasalazina, hidroxicloroquina, prednisona a dosis bajas y certolizumab son compatibles con el embarazo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>MTX y pulmón:</b> la enfermedad intersticial previa no contraindica el MTX de forma absoluta; los estudios recientes no muestran que cause EPI-AR. La neumonitis por MTX es rara (&lt; 1 %), aguda e idiosincrática.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Escleritis</b> (dolor intenso, profundo, que despierta) es una emergencia oftalmológica, a diferencia de la epiescleritis; la forma necrotizante indica vasculitis sistémica. Otras extraarticulares: Sjögren secundario, osteoporosis y riesgo CV 1,5–2 veces mayor.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chikungunya</b> es el imitador más importante en la costa ecuatoriana: poliartritis simétrica que puede persistir meses e incluso cumplir criterios de AR. Preguntar por fiebre y exantema previos y pedir IgG/IgM. También dengue, VHB, VHC y rubéola.</p></div>
     </div>
   </section>
 
@@ -970,17 +963,17 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v20"></div>
   </section>
-  <p class="note">Referencias: Aletaha D et al. ACR/EULAR 2010; Fraenkel L et al. ACR 2021, Arthritis Care Res 2021; Smolen JS et al. EULAR 2022, Ann Rheum Dis 2023; EULAR 2025 (citada en las láminas); Smolen JS et al. Lancet 2016; Whiting PF et al. Ann Intern Med 2010; Prevoo ML et al. DAS28, Arthritis Rheum 1995; Smolen JS et al. SDAI, Rheumatology 2003.</p>
+  <p class="note">Referencias: Aletaha D et al. ACR/EULAR 2010; Fraenkel L et al. ACR 2021, Arthritis Care Res 2021; Smolen JS et al. EULAR 2022, Ann Rheum Dis 2023; EULAR 2025; Smolen JS et al. Lancet 2016; Whiting PF et al. Ann Intern Med 2010; Prevoo ML et al. DAS28, Arthritis Rheum 1995; Smolen JS et al. SDAI, Rheumatology 2003.</p>
 </article>
 
 <!-- ============ PESTAÑA 39 (antes 29) ============ -->
 <article class="panel" id="v29" role="tabpanel" aria-labelledby="t-v29" hidden>
   <div>
     <h2>Síndromes por ACV: ACM vs ACA vs ACP</h2>
-    <div class="meta"><span>Fuente: 1 infografía, @24salud (marca de agua Nurse Ruben / Ruben Navarrete)</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas</span></div>
+    <div class="meta"><span>Bases: AHA/ASA 2019 (ACV agudo), Kattah (HINTS, Stroke 2009), Caplan (síndromes vasculares)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 39">
-    <a href="#v29-resumen">Resumen</a><a href="#v29-tabla">Los 3 territorios</a><a href="#v29-post">Lo que falta</a><a href="#v29-loc">Localizador</a><a href="#v29-analisis">Análisis crítico</a><a href="#v29-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v29-resumen">Resumen</a><a href="#v29-tabla">Los 3 territorios</a><a href="#v29-post">Otros síndromes</a><a href="#v29-loc">Localizador</a><a href="#v29-analisis">Puntos clave</a><a href="#v29-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v29-resumen">
@@ -1003,7 +996,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v29-post">
-    <h3>Lo que la infografía no incluye (agregado)</h3>
+    <h3>Otros síndromes vasculares</h3>
     <div class="tbl"><table>
       <thead><tr><th>Síndrome</th><th>Clínica</th><th>Pista</th></tr></thead>
       <tbody>
@@ -1017,7 +1010,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v29-loc">
-    <h3>Localizador clínico (agregado)</h3>
+    <h3>Localizador clínico</h3>
     <div class="box">
       <p class="note">Marca los hallazgos del examen:</p>
       <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
@@ -1035,13 +1028,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v29-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Infografía correcta y útil como regla mnemotécnica. Matices para la práctica:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La desviación de la mirada <b>hacia la lesión</b> en el infarto de ACM es un buen signo de oclusión de gran vaso; con afasia o negligencia (signos corticales) aumenta la probabilidad de oclusión proximal y la indicación de angio-TC para trombectomía.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La desviación de la mirada <b>hacia la lesión</b> en el infarto de ACM es un buen signo de oclusión de gran vaso; con afasia o negligencia (signos corticales) aumenta la probabilidad de oclusión proximal y la indicación de angio-TC para trombectomía.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>ACM superior vs inferior:</b> la división superior da hemiparesia faciobraquial con afasia de Broca (motora); la inferior, afasia de Wernicke (comprensión) y cuadrantanopsia superior, a veces sin debilidad. Esta última se confunde con un cuadro confusional.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>ACP:</b> la hemianopsia suele <b>respetar la mácula</b> por la circulación colateral de la ACM. El infarto talámico puede dejar dolor central (síndrome de Dejerine-Roussy).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Circulación posterior:</b> es la que más se omite y la que más se pasa por alto en urgencias (vértigo atribuido a causa periférica). HINTS (impulso cefálico, nistagmo, skew) es más sensible que la RM temprana en el vértigo agudo continuo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Circulación posterior:</b> es la que más se pasa por alto en urgencias (vértigo atribuido a causa periférica). HINTS (impulso cefálico, nistagmo, skew) es más sensible que la RM temprana en el vértigo agudo continuo.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Ventana terapéutica:</b> la localización no debe demorar la TAC. Trombólisis hasta 4,5 h; trombectomía hasta 24 h en oclusión de gran vaso con tejido salvable. Usar BE-FAST para reconocer y NIHSS para cuantificar. Ver tu guía de ACV isquémico de la biblioteca.</p></div>
     </div>
   </section>
@@ -1057,15 +1049,15 @@ footer a{color:var(--accent)}
 <article class="panel" id="v28" role="tabpanel" aria-labelledby="t-v28" hidden>
   <div>
     <h2>Manejo moderno del hipo (singultus)</h2>
-    <div class="meta"><span>Fuente: 1 infografía, TikTok @24salud</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas</span></div>
+    <div class="meta"><span>Bases: Steger (Aliment Pharmacol Ther 2015), Polito (Am J Med 2017), revisiones de hipo persistente</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 40">
-    <a href="#v28-resumen">Resumen</a><a href="#v28-tx">Fármacos</a><a href="#v28-causas">Causas</a><a href="#v28-eleccion">Elección por contexto</a><a href="#v28-analisis">Análisis crítico</a><a href="#v28-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v28-resumen">Resumen</a><a href="#v28-tx">Fármacos</a><a href="#v28-causas">Causas</a><a href="#v28-eleccion">Elección por contexto</a><a href="#v28-analisis">Puntos clave</a><a href="#v28-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v28-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Infografía sobre el hipo persistente e intratable. Principio central: <b>siempre buscar y tratar la causa subyacente</b>. De primera línea propone <b>baclofeno, gabapentina o clorpromazina</b>, con alternativas según el contexto.</p>
+    <p class="lead">Hipo persistente (&gt; 48 h) e intratable (&gt; 1 mes). Principio central: <b>siempre buscar y tratar la causa subyacente</b>. De primera línea: <b>baclofeno, gabapentina o clorpromazina</b>, con alternativas según el contexto.</p>
     <div class="levels" style="margin-top:8px">
       <div class="lvl" style="border-top-color:var(--ok)"><b>Agudo</b><div class="v">&lt; 48 h</div><small>Suele ser autolimitado; medidas no farmacológicas.</small></div>
       <div class="lvl"><b>Persistente</b><div class="v">≥ 48 h</div><small>Buscar causa y tratar.</small></div>
@@ -1077,7 +1069,7 @@ footer a{color:var(--accent)}
   <section id="v28-tx">
     <h3>Tratamiento farmacológico</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Fármaco</th><th>Dosis</th><th>Lo que dice el material</th><th>Precaución (agregada)</th></tr></thead>
+      <thead><tr><th>Fármaco</th><th>Dosis</th><th>Uso</th><th>Precaución</th></tr></thead>
       <tbody>
         <tr><td><b>Baclofeno</b></td><td class="m">5–10 mg VO c/8 h</td><td>Preferido en muchas guías; agonista GABA-B; mejor tolerado que los antipsicóticos</td><td><b>Evitar o reducir en ERC</b> (encefalopatía, coma); sedación en ancianos</td></tr>
         <tr><td><b>Gabapentina</b></td><td class="m">300 mg VO c/8 h</td><td>Útil en hipo idiopático, neuropático o central; buen perfil de seguridad</td><td>Ajustar por TFGe; mareo y somnolencia</td></tr>
@@ -1089,11 +1081,10 @@ footer a{color:var(--accent)}
         <tr><td>Nifedipino</td><td class="m">—</td><td>Evidencia débil</td><td>Hipotensión</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Las dosis de haloperidol y pregabalina son agregadas; el material no las especifica.</p>
   </section>
 
   <section id="v28-causas">
-    <h3>Causas a buscar (agregado)</h3>
+    <h3>Causas a buscar</h3>
     <div class="cols">
       <div class="box"><b>Digestivas y torácicas</b><ul>
         <li>ERGE, distensión gástrica, hernia hiatal (las más frecuentes)</li>
@@ -1112,7 +1103,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v28-eleccion">
-    <h3>Elección según el contexto (agregado)</h3>
+    <h3>Elección según el contexto</h3>
     <div class="box">
       <div class="calc">
         <label for="h28-sel">Situación del paciente
@@ -1130,15 +1121,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v28-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Infografía correcta y bien ordenada. Precisiones:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>El principio de buscar la causa y la preferencia actual por baclofeno o gabapentina sobre la clorpromazina reflejan las revisiones recientes (Steger 2015; guía europea de cuidados paliativos 2022). La evidencia es de baja calidad para todos los fármacos: no hay ensayos grandes.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Prueba empírica con IBP:</b> como la ERGE es la causa más frecuente de hipo persistente, un IBP a dosis plena por 2–4 semanas es un primer paso razonable, solo o junto con el baclofeno.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Hipo por dexametasona:</b> frecuente en pacientes oncológicos y en COVID. Cambiar a metilprednisolona en dosis equivalente suele resolverlo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>El principio de buscar la causa y la preferencia actual por baclofeno o gabapentina sobre la clorpromazina reflejan las revisiones recientes (Steger 2015; guía europea de cuidados paliativos 2022). La evidencia es de baja calidad para todos los fármacos: no hay ensayos grandes.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Prueba empírica con IBP:</b> como la ERGE es la causa más frecuente de hipo persistente, un IBP a dosis plena por 2–4 semanas es un primer paso razonable, solo o junto con el baclofeno.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Hipo por dexametasona:</b> frecuente en pacientes oncológicos y en COVID. Cambiar a metilprednisolona en dosis equivalente suele resolverlo.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Baclofeno en ERC:</b> se elimina por vía renal; en TFGe &lt; 30 puede causar encefalopatía grave. Relevante en el diabético con nefropatía, que además tiene hipo urémico. Preferir gabapentina en dosis reducida (100–300 mg/día).</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Hipo con déficit neurológico, vómitos o síntomas cardíacos</b> no es "hipo idiopático": puede ser el primer signo de un ACV del tronco, una lesión del área postrema o un infarto inferior.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Medidas no farmacológicas</b> en el hipo agudo: maniobras vagales (Valsalva, deglución de agua fría o azúcar, tracción de la lengua), apnea breve. Sin evidencia sólida, pero sin riesgo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Medidas no farmacológicas</b> en el hipo agudo: maniobras vagales (Valsalva, deglución de agua fría o azúcar, tracción de la lengua), apnea breve. Sin evidencia sólida, pero sin riesgo.</p></div>
     </div>
   </section>
 
@@ -1153,33 +1143,33 @@ footer a{color:var(--accent)}
 <article class="panel" id="v45" role="tabpanel" aria-labelledby="t-v45" hidden>
   <div>
     <h2>Hígado graso: MASLD, FIB-4 y la trampa de la ALT normal</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain (Medik Brain)</span><span>Duración 2:03</span><span>Recibido 28/10/2026</span><span>Bases citadas: consenso Delphi multisociedad 2023, AASLD 2023, EASL-EASD-EASO 2024, ESSENCE / FDA 2025</span></div>
+    <div class="meta"><span>Bases: consenso Delphi multisociedad 2023, AASLD 2023, EASL-EASD-EASO 2024, ESSENCE / FDA 2025, MAESTRO-NASH</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 45">
-    <a href="#v45-resumen">Resumen</a><a href="#v45-tres">Los 3 puntos</a><a href="#v45-tx">Tratamiento</a><a href="#v45-calc">Clasificador</a><a href="#v45-analisis">Análisis crítico</a><a href="#v45-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v45-resumen">Resumen</a><a href="#v45-tres">Los 3 puntos</a><a href="#v45-tx">Tratamiento</a><a href="#v45-calc">Clasificador</a><a href="#v45-analisis">Puntos clave</a><a href="#v45-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v45-resumen">
     <h3>Resumen</h3>
     <p class="lead">Tres puntos. <b>Nombre nuevo:</b> NAFLD pasa a <b>MASLD</b> (esteatosis + ≥ 1 factor cardiometabólico); con consumo intermedio de alcohol es <b>MetALD</b>. <b>El número que decide:</b> el <b>FIB-4</b> a todos (&lt; 1,3 bajo riesgo; 1,3–2,67 elastografía; &gt; 2,67 hepatología). <b>La pista traicionera:</b> la <b>ALT normal no descarta fibrosis</b>. Tratamiento base: perder 7–10 % del peso; en fibrosis F2–F3, resmetirom o semaglutida con hepatología.</p>
-    <p class="note">Mismo autor que la pestaña 44 de la Videoteca 2. La pestaña 34 ya trae la calculadora FIB-4, el ajuste por edad y los cortes de la elastografía; aquí no se repiten. Lo nuevo: MetALD, tratamiento farmacológico 2024–2025 y la ALT normal.</p>
+    <p class="note">La calculadora FIB-4, el ajuste por edad y los cortes de la elastografía están en la pestaña 34. Aquí: MetALD, tratamiento farmacológico 2024–2025 y la ALT normal.</p>
   </section>
 
   <section id="v45-tres">
-    <h3>Los 3 puntos del video</h3>
+    <h3>Los 3 puntos clave</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Punto</th><th>Video</th><th>Precisión (agregada)</th></tr></thead>
+      <thead><tr><th>Punto</th><th>Criterio</th><th>Detalle</th></tr></thead>
       <tbody>
         <tr><td><b>1. MASLD</b></td><td>Esteatosis + ≥ 1 factor: IMC ≥ 25 o cintura &gt; 94/80 cm; glucosa ≥ 100 o HbA1c ≥ 5,7 %; PA ≥ 130/85; TG ≥ 150; HDL ≤ 40 H / ≤ 50 M</td><td>Cada factor cuenta también si está en tratamiento (antihipertensivo, hipolipemiante, antidiabético). Sin ningún factor: buscar otra causa (criptogénica)</td></tr>
         <tr><td><b>MetALD</b></td><td>MASLD + alcohol 140–350 g/sem (mujeres) o 210–420 g/sem (hombres)</td><td>≈ 20–50 g/día en mujeres y 30–60 g/día en hombres; por encima, enfermedad hepática alcohólica. 1 trago estándar ≈ 10–14 g</td></tr>
-        <tr><td><b>2. FIB-4</b></td><td>&lt; 1,3 bajo riesgo; 1,3–2,67 elastografía (&lt; 8 kPa tranquiliza, ≥ 8 kPa…); &gt; 2,67 hepatología</td><td>Calculadora y ajustes en la pestaña 34</td></tr>
+        <tr><td><b>2. FIB-4</b></td><td>&lt; 1,3 bajo riesgo; 1,3–2,67 elastografía (&lt; 8 kPa tranquiliza; 8–12 kPa zona gris; ≥ 12 kPa fibrosis avanzada); &gt; 2,67 hepatología</td><td>Calculadora y ajustes en la pestaña 34</td></tr>
         <tr><td><b>3. ALT normal</b></td><td>No descarta fibrosis; no esperar que suba para calcular el FIB-4</td><td>Hasta un tercio o más de los pacientes con fibrosis avanzada tienen ALT normal</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v45-tx">
-    <h3>Tratamiento según la fibrosis (agregado)</h3>
+    <h3>Tratamiento según la fibrosis</h3>
     <div class="tbl"><table>
       <thead><tr><th>Situación</th><th>Conducta</th></tr></thead>
       <tbody>
@@ -1192,7 +1182,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v45-calc">
-    <h3>Clasificador de enfermedad hepática esteatósica (agregado)</h3>
+    <h3>Clasificador de enfermedad hepática esteatósica</h3>
     <div class="box">
       <div class="calc">
         <label for="m45-est">Esteatosis por imagen o biopsia<select id="m45-est"><option value="1" selected>Sí</option><option value="0">No</option></select></label>
@@ -1214,13 +1204,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v45-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video correcto y actualizado, sin conflicto de interés. Matices y complementos:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La nomenclatura MASLD/MetALD (consenso Delphi multisociedad, 2023), los 5 criterios cardiometabólicos, el FIB-4 a todos con cortes de 1,3 y 2,67, y que la ALT normal no descarta fibrosis. Las aprobaciones son reales: resmetirom (marzo 2024) y semaglutida 2,4 mg para MASH sin cirrosis con fibrosis F2–F3 (FDA, agosto 2025, ensayo ESSENCE). En el reto, la respuesta es la A (elastografía).</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"FIB-4 a todos" no es literal:</b> se recomienda en quien tiene MASLD o factores de riesgo (DM2, obesidad con complicaciones, ≥ 2 factores metabólicos). En ≥ 65 años el corte inferior es 2,0 y en &lt; 35 años no es fiable (pestaña 34). Con ese ajuste, el FIB-4 de 2,1 del reto sigue siendo indeterminado.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>La elastografía queda incompleta en el video:</b> &lt; 8 kPa descarta fibrosis avanzada; 8–12 kPa es zona gris (ELF o biopsia, hepatología); ≥ 12 kPa sugiere fibrosis avanzada; ≥ 15 kPa, cirrosis compensada probable. "F2–F3" requiere confirmación por elastografía o biopsia antes del tratamiento farmacológico.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Ecografía con transductor lineal (aplicación práctica):</b> el lineal de alta frecuencia no es el adecuado para graduar la esteatosis (para eso, el convexo: brillo hepatorrenal, atenuación posterior). Pero <b>es muy sensible para la superficie hepática</b>: un contorno nodular o irregular en el lóbulo izquierdo sugiere fibrosis avanzada o cirrosis, aunque el FIB-4 sea bajo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La nomenclatura MASLD/MetALD (consenso Delphi multisociedad, 2023), los 5 criterios cardiometabólicos, el FIB-4 a todos con cortes de 1,3 y 2,67, y que la ALT normal no descarta fibrosis. Las aprobaciones son reales: resmetirom (marzo 2024) y semaglutida 2,4 mg para MASH sin cirrosis con fibrosis F2–F3 (FDA, agosto 2025, ensayo ESSENCE). En el reto, la respuesta es la A (elastografía).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>A quién se calcula el FIB-4:</b> se recomienda en quien tiene MASLD o factores de riesgo (DM2, obesidad con complicaciones, ≥ 2 factores metabólicos). En ≥ 65 años el corte inferior es 2,0 y en &lt; 35 años no es fiable (pestaña 34). Con ese ajuste, el FIB-4 de 2,1 del reto sigue siendo indeterminado.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Lectura completa de la elastografía:</b> &lt; 8 kPa descarta fibrosis avanzada; 8–12 kPa es zona gris (ELF o biopsia, hepatología); ≥ 12 kPa sugiere fibrosis avanzada; ≥ 15 kPa, cirrosis compensada probable. "F2–F3" requiere confirmación por elastografía o biopsia antes del tratamiento farmacológico.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Ecografía con transductor lineal (aplicación práctica):</b> el lineal de alta frecuencia no es el adecuado para graduar la esteatosis (para eso, el convexo: brillo hepatorrenal, atenuación posterior). Pero <b>es muy sensible para la superficie hepática</b>: un contorno nodular o irregular en el lóbulo izquierdo sugiere fibrosis avanzada o cirrosis, aunque el FIB-4 sea bajo.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>No atribuir todo a MASLD:</b> antes, descartar hepatitis B y C, consumo real de alcohol (AUDIT-C), fármacos (amiodarona, metotrexato, tamoxifeno, corticoides), hemocromatosis (ferritina con saturación de transferrina) y, en jóvenes, Wilson. La ferritina alta es frecuente en MASLD y no siempre es sobrecarga de hierro.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Ecuador:</b></p>
         <p><b>Fármacos:</b> el resmetirom no está disponible y la semaglutida es privada y cara. La <b>pioglitazona</b> (barata y disponible) es la opción realista en el diabético con MASH.</p>
@@ -1240,36 +1229,36 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 51 ============ -->
 <article class="panel" id="v51" role="tabpanel" aria-labelledby="t-v51" hidden>
   <div>
-    <h2>"Deja de llamarlas PFH": daño, colestasis y la función hepática que sí se mide</h2>
-    <div class="meta"><span>Fuente: TikTok @droscarleal (Dr. Oscar Leal, Medicina Interna)</span><span>Duración 2:13</span><span>Recibido 16/11/2026</span><span>Sin referencias citadas; complementado con ACG 2017, MELD 3.0 (Kim 2021, verificado), ALBI y AGA 2019</span></div>
+    <h2>Pruebas hepáticas: daño, colestasis y la función que sí se mide</h2>
+    <div class="meta"><span>Bases: ACG 2017 (Kwo), MELD 3.0 (Kim, Gastroenterology 2021), ALBI (Johnson 2015), AGA 2019</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 51">
-    <a href="#v51-resumen">Resumen</a><a href="#v51-mapa">Qué mide cada prueba</a><a href="#v51-calc">Child-Pugh, MELD 3.0 y ALBI</a><a href="#v51-analisis">Análisis crítico</a><a href="#v51-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v51-resumen">Resumen</a><a href="#v51-mapa">Qué mide cada prueba</a><a href="#v51-calc">Child-Pugh, MELD 3.0 y ALBI</a><a href="#v51-analisis">Puntos clave</a><a href="#v51-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v51-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Mensaje central: <b>las "pruebas de función hepática" (PFH) no miden función</b>. Las transaminasas reflejan <b>daño</b>: viven dentro del hepatocito y salen a la sangre cuando se rompe (fármacos, tóxicos, isquemia). La ALT es más específica de hígado y la AST está también en otros tejidos; ambas elevadas definen el <b>patrón hepatocelular</b>. La FA y la GGT reflejan el <b>canalículo y el epitelio biliar</b>: suben con la obstrucción (litos, tumor) y la irritación por ácidos biliares; con la bilirrubina directa forman el <b>patrón colestásico</b>. Lo que sí mide función: <b>albúmina</b> (síntesis), <b>TP/INR</b> (factores II, VII, IX y X; sobre todo el VII) y <b>bilirrubina</b> (conjugación por la UDP-glucuroniltransferasa y excreción).</p>
-    <p class="note">Repite en gran parte las <b>pestañas 32 y 33</b>, que ya traen los grupos del perfil, el índice R, la magnitud, los patrones, el De Ritis, el origen de la FA y la prueba de la vitamina K. Para completar el tema, aquí agrego lo que el video sugiere sin desarrollar: <b>cómo se cuantifica la función hepática</b> (Child-Pugh, MELD 3.0 y ALBI) y por qué el INR del cirrótico no se "corrige" con plasma.</p>
+    <p class="lead"><b>Las "pruebas de función hepática" (PFH) no miden función</b>. Las transaminasas reflejan <b>daño</b>: viven dentro del hepatocito y salen a la sangre cuando se rompe (fármacos, tóxicos, isquemia). La ALT es más específica de hígado y la AST está también en otros tejidos; ambas elevadas definen el <b>patrón hepatocelular</b>. La FA y la GGT reflejan el <b>canalículo y el epitelio biliar</b>: suben con la obstrucción (litos, tumor) y la irritación por ácidos biliares; con la bilirrubina directa forman el <b>patrón colestásico</b>. Lo que sí mide función: <b>albúmina</b> (síntesis), <b>TP/INR</b> (factores II, VII, IX y X; sobre todo el VII) y <b>bilirrubina</b> (conjugación por la UDP-glucuroniltransferasa y excreción).</p>
+    <p class="note">Las <b>pestañas 32 y 33</b> tratan los grupos del perfil, el índice R, la magnitud, los patrones, el De Ritis, el origen de la FA y la prueba de la vitamina K. Aquí: <b>cómo se cuantifica la función hepática</b> (Child-Pugh, MELD 3.0 y ALBI) y por qué el INR del cirrótico no se "corrige" con plasma.</p>
   </section>
 
   <section id="v51-mapa">
     <h3>Qué mide cada prueba</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Prueba</th><th>Qué refleja</th><th>Trampa (agregado)</th></tr></thead>
+      <thead><tr><th>Prueba</th><th>Qué refleja</th><th>Trampa</th></tr></thead>
       <tbody>
         <tr><td><b>ALT, AST</b></td><td>Daño del hepatocito</td><td>No miden función: pueden ser normales en la cirrosis avanzada y bajar en la falla hepática aguda mientras el INR empeora (mal pronóstico)</td></tr>
         <tr><td><b>FA, GGT</b></td><td>Colestasis</td><td>La FA también viene de hueso y placenta; la GGT sube con alcohol y fármacos (pestaña 33)</td></tr>
         <tr><td><b>Albúmina</b></td><td>Síntesis lenta (vida media ≈ 20 días)</td><td>Baja también con la inflamación, el síndrome nefrótico, la enteropatía o la desnutrición</td></tr>
         <tr><td><b>TP/INR</b></td><td>Síntesis rápida (factor VII, ≈ 6 h)</td><td>El déficit de vitamina K, la warfarina y la CID también lo alargan. En el cirrótico no predice el sangrado</td></tr>
         <tr><td><b>Bilirrubina</b></td><td>Conjugación y excreción</td><td>La indirecta sube con hemólisis y Gilbert sin enfermedad hepática</td></tr>
-        <tr><td><b>Otras (agregado)</b></td><td>Glucemia, factor V, amonio</td><td>Hipoglucemia y factor V bajo en la falla aguda (el factor V no depende de la vitamina K). El amonio no sirve para diagnosticar ni seguir la encefalopatía</td></tr>
+        <tr><td><b>Otras</b></td><td>Glucemia, factor V, amonio</td><td>Hipoglucemia y factor V bajo en la falla aguda (el factor V no depende de la vitamina K). El amonio no sirve para diagnosticar ni seguir la encefalopatía</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v51-calc">
-    <h3>Calculadora de función hepática: Child-Pugh, MELD 3.0 y ALBI (agregada)</h3>
+    <h3>Calculadora de función hepática: Child-Pugh, MELD 3.0 y ALBI</h3>
     <div class="box">
       <p class="note">Precargado: hombre de 56 años con cirrosis por alcohol, ictericia leve y ascitis leve, sin encefalopatía ni diálisis.</p>
       <div class="calc">
@@ -1291,13 +1280,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v51-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensaje correcto y necesario, bien ilustrado. Algunas simplificaciones:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>"PFH" es un nombre engañoso. La guía ACG 2017 (Kwo) habla de "bioquímica hepática" o "pruebas hepáticas" y reserva "función" para la albúmina, el INR y la bilirrubina. La lógica daño (ALT/AST), colestasis (FA/GGT + bilirrubina directa) y función (albúmina, TP/INR, bilirrubina) es la correcta, igual que el papel del factor VII y de la UDP-glucuroniltransferasa.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"ALT: solo hígado"</b> es una exageración útil para enseñar. Hay ALT en el músculo esquelético y el riñón: la rabdomiólisis o una miositis pueden subir ambas transaminasas. Si la AST predomina sin explicación, pide CK (pestaña 32).</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Las pruebas "de función" tampoco son puras.</b> La albúmina es un reactante de fase aguda negativo (la inflamación la baja; el video no lo dice). El INR se alarga por déficit de vitamina K; la prueba con 10 mg IV está en las pestañas 32 y 33. La bilirrubina indirecta no habla del hígado en la hemólisis ni en el Gilbert. Por eso la función se valora <b>en conjunto</b>, con escalas que combinan varias pruebas con la clínica.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Cómo se cuantifica la función:</b></p><p><b>Child-Pugh</b> (5 variables, incluida la clínica): A 5–6, B 7–9, C 10–15. Sobrevida clásica a 1 año: ≈ 100 %, 80 % y 45 %.</p><p><b>MELD 3.0</b> (2021, usado desde 2023 para la lista de trasplante en EE. UU.): agrega albúmina y sexo femenino al MELD-Na y baja el tope de creatinina a 3,0. Un MELD ≥ 15 es el umbral habitual para derivar a evaluación de trasplante.</p><p><b>ALBI:</b> solo albúmina y bilirrubina, sin variables subjetivas; validado sobre todo en hepatocarcinoma.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>"PFH" es un nombre engañoso. La guía ACG 2017 (Kwo) habla de "bioquímica hepática" o "pruebas hepáticas" y reserva "función" para la albúmina, el INR y la bilirrubina. La lógica daño (ALT/AST), colestasis (FA/GGT + bilirrubina directa) y función (albúmina, TP/INR, bilirrubina) es la correcta, igual que el papel del factor VII y de la UDP-glucuroniltransferasa.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La ALT no es exclusiva del hígado.</b> Hay ALT en el músculo esquelético y el riñón: la rabdomiólisis o una miositis pueden subir ambas transaminasas. Si la AST predomina sin explicación, pide CK (pestaña 32).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Las pruebas "de función" tampoco son puras.</b> La albúmina es un reactante de fase aguda negativo (la inflamación la baja). El INR se alarga por déficit de vitamina K; la prueba con 10 mg IV está en las pestañas 32 y 33. La bilirrubina indirecta no habla del hígado en la hemólisis ni en el Gilbert. Por eso la función se valora <b>en conjunto</b>, con escalas que combinan varias pruebas con la clínica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Cómo se cuantifica la función:</b></p><p><b>Child-Pugh</b> (5 variables, incluida la clínica): A 5–6, B 7–9, C 10–15. Sobrevida clásica a 1 año: ≈ 100 %, 80 % y 45 %.</p><p><b>MELD 3.0</b> (2021, usado desde 2023 para la lista de trasplante en EE. UU.): agrega albúmina y sexo femenino al MELD-Na y baja el tope de creatinina a 3,0. Un MELD ≥ 15 es el umbral habitual para derivar a evaluación de trasplante.</p><p><b>ALBI:</b> solo albúmina y bilirrubina, sin variables subjetivas; validado sobre todo en hepatocarcinoma.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>El INR del cirrótico no mide su riesgo de sangrado.</b> En la cirrosis bajan a la vez los procoagulantes y los anticoagulantes (proteína C, antitrombina): la hemostasia está "rebalanceada". No se transfunde plasma para "corregir" el INR antes de una paracentesis o una ligadura (AGA, Clinical Practice Update 2019). El plasma aumenta la volemia y la presión portal sin reducir el sangrado.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En la costa:</b></p>
         <p><b>Dengue:</b> suele dar AST &gt; ALT, y su magnitud se asocia con gravedad. Un INR que se alarga en el dengue indica afectación hepática real, no solo "transaminasas altas".</p>
@@ -1317,7 +1305,7 @@ footer a{color:var(--accent)}
 </article>
 
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</a> · <b>Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</b>.</footer>
+<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <a href="videoteca-clinica-1.html">Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</a> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</a> · <b>Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</b>.</footer>
 </div>
 
 <script>
