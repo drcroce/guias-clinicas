@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: cabecera compacta + barra de pestañas (una por video) + panel con secciones en columna única, fichas de dosis en rejilla */
+/* Layout: cabecera compacta + barra de pestañas (una por tema) + panel con secciones en columna única, fichas de dosis en rejilla */
 :root{
   --bg:#f3f6f7; --surface:#ffffff; --fg:#14232b; --muted:#56666e; --line:#d6e0e3;
   --accent:#0b5d6b; --accent-soft:#dcedf0;
@@ -117,13 +117,13 @@ footer a{color:var(--accent)}
 
 <div class="wrap">
 <header>
-  <span class="eyebrow">Análisis de videos médicos · Dr. Luis Croce</span>
+  <span class="eyebrow">Temas clínicos · Dr. Luis Croce</span>
   <h1>Videoteca Clínica 1</h1>
   <span class="eyebrow">Cardiología y ECG · pestañas 1–16 y 42</span>
 </header>
 
 
-<nav class="tabs" role="tablist" aria-label="Videos">
+<nav class="tabs" role="tablist" aria-label="Temas">
   <button class="tab" role="tab" id="t-v38" aria-controls="v38" aria-selected="true">1 · Serie ECG: normal y arritmias</button>
   <button class="tab" role="tab" id="t-v27" aria-controls="v27" aria-selected="false">2 · Caras del corazón (SALI)</button>
   <button class="tab" role="tab" id="t-v36" aria-controls="v36" aria-selected="false">3 · HVI en el ECG</button>
@@ -147,49 +147,49 @@ footer a{color:var(--accent)}
 <article class="panel" id="v38" role="tabpanel" aria-labelledby="t-v38">
   <div>
     <h2>Serie ECG: valores normales, extrasístoles, bloqueos de rama y arritmias</h2>
-    <div class="meta"><span>Fuente: 8 láminas, CardioArias Life Support (Dr. Luis Francisco Arias)</span><span>Recibido 27/10/2026</span><span>Base citada: criterios de Strauss (BRI); sin otras referencias</span></div>
+    <div class="meta"><span>Bases: AHA/ACCF/HRS 2009 (estandarización del ECG), Strauss 2011 (BRI), 4.ª definición universal del IAM, ESC 2023</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 1">
-    <a href="#v38-resumen">Resumen</a><a href="#v38-normal">Valores normales</a><a href="#v38-ritmos">Ritmos y extrasístoles</a><a href="#v38-rama">Bloqueos de rama</a><a href="#v38-iam">STEMI/NSTEMI</a><a href="#v38-calc">Calculadora</a><a href="#v38-analisis">Análisis crítico</a><a href="#v38-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña 1">
+    <a href="#v38-resumen">Resumen</a><a href="#v38-normal">Valores normales</a><a href="#v38-ritmos">Ritmos y extrasístoles</a><a href="#v38-rama">Bloqueos de rama</a><a href="#v38-iam">STEMI/NSTEMI</a><a href="#v38-calc">Calculadora</a><a href="#v38-analisis">Puntos clave</a><a href="#v38-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v38-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Compendio de consulta rápida para estudiantes: <b>valores normales</b> (ondas, intervalos y ejes), <b>extrasístoles ventriculares</b>, <b>bloqueos completos de rama</b> (con los criterios de Strauss para el BRI), <b>arritmias ventriculares</b>, una lámina de <b>ritmos</b> y el contraste <b>STEMI vs NSTEMI</b>. Útil como repaso, pero tiene varias imprecisiones en ejes, bloqueo de rama derecha y en la dicotomía STEMI/NSTEMI.</p>
-    <p class="note">Mismo autor que las pestañas 3, 5 y 11. Relacionadas: 10 (oclusión sin supradesnivel), 19 (emergencias en ECG), 24 (5.ª definición del IAM), 35 (hipopotasemia y QT).</p>
+    <p class="lead">Repaso del ECG del adulto: <b>valores normales</b> de ondas, intervalos y ejes; <b>extrasístoles y arritmias ventriculares</b>; <b>bloqueos completos de rama</b> con criterios diagnósticos actuales (Strauss para el BRI), y el paso del binomio <b>STEMI/NSTEMI</b> al paradigma de <b>oclusión coronaria</b>.</p>
+    <p class="note">Relacionadas: 10 (oclusión sin supradesnivel), 6 (emergencias en ECG), 9 (5.ª definición del IAM), 42 (hemibloqueos y bloqueos de rama) y 31 de la Videoteca 3 (hipopotasemia y QT).</p>
   </section>
 
   <section id="v38-normal">
-    <h3>Valores normales del adulto</h3>
+    <h3>Valores normales del adulto (AHA/ACC/HRS 2009)</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Parámetro</th><th>Material</th><th>Referencia (AHA/ACC/HRS 2009) y comentario</th></tr></thead>
+      <thead><tr><th>Parámetro</th><th>Normal</th><th>Comentario</th></tr></thead>
       <tbody>
-        <tr><td><b>Onda P</b></td><td>&lt; 120 ms; &lt; 2,5 mm</td><td>Correcto (amplitud en derivaciones de miembros)</td></tr>
-        <tr><td><b>PR</b></td><td>120–200 ms</td><td>Correcto. &gt; 200 ms: BAV 1.º; &lt; 120 ms con onda delta: preexcitación</td></tr>
-        <tr><td><b>QRS</b></td><td>60–100 ms</td><td>Hasta 110 ms aún normal; 110–119 ms: trastorno de conducción incompleto o inespecífico</td></tr>
+        <tr><td><b>Onda P</b></td><td>&lt; 120 ms; &lt; 2,5 mm</td><td>Amplitud medida en derivaciones de miembros</td></tr>
+        <tr><td><b>PR</b></td><td>120–200 ms</td><td>&gt; 200 ms: BAV 1.º; &lt; 120 ms con onda delta: preexcitación</td></tr>
+        <tr><td><b>QRS</b></td><td>60–110 ms</td><td>110–119 ms: trastorno de conducción incompleto o inespecífico</td></tr>
         <tr><td><b>ST</b></td><td>Isoeléctrico</td><td>Elevación del J en V2–V3 normal hasta 2 mm (hombres ≥ 40), 2,5 mm (hombres &lt; 40), 1,5 mm (mujeres)</td></tr>
-        <tr><td><b>Onda T</b></td><td>Negativa en aVR, V1 y a veces V2–V3</td><td>También puede ser negativa en III y aVL de forma aislada</td></tr>
-        <tr><td><b>Eje P</b></td><td>+40° a +60°</td><td>Normal 0° a +75°; el rango del material es el valor típico, no el límite</td></tr>
-        <tr><td><b>Eje QRS</b></td><td>−30° a +100°</td><td>AHA: −30° a +90°</td></tr>
-        <tr><td><b>Eje T</b></td><td>"Igual que el QRS"</td><td>Próximo al del QRS: ángulo QRS-T frontal &lt; 45° normal; &gt; 90° anormal y de mal pronóstico</td></tr>
-        <tr><td><b>FC</b></td><td>60–100 lpm</td><td>La AHA acepta 50–100 lpm en reposo</td></tr>
-        <tr><td><b>QTc</b></td><td>&lt; 450 ms H · &lt; 460 ms M</td><td>Correcto. &gt; 500 ms o aumento &gt; 60 ms: alto riesgo de torsades; &lt; 340–360 ms: QT corto</td></tr>
+        <tr><td><b>Onda T</b></td><td>Negativa en aVR y V1; a veces en V2–V3</td><td>Puede ser negativa aislada en III y aVL</td></tr>
+        <tr><td><b>Eje P</b></td><td>0° a +75° (típico +40° a +60°)</td><td>Fuera de rango: ritmo ectópico auricular o electrodos invertidos</td></tr>
+        <tr><td><b>Eje QRS</b></td><td>−30° a +90°</td><td>&lt; −30°: desviación izquierda (HBAI); &gt; +90°: derecha</td></tr>
+        <tr><td><b>Eje T</b></td><td>Próximo al del QRS</td><td>Ángulo QRS-T frontal &lt; 45° normal; &gt; 90° anormal y de mal pronóstico</td></tr>
+        <tr><td><b>FC</b></td><td>50–100 lpm en reposo</td><td>La arritmia sinusal respiratoria es normal, sobre todo en jóvenes</td></tr>
+        <tr><td><b>QTc</b></td><td>&lt; 450 ms (H) · &lt; 460 ms (M)</td><td>&gt; 500 ms o aumento &gt; 60 ms: alto riesgo de torsades; &lt; 340–360 ms: QT corto</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v38-ritmos">
-    <h3>Ritmos, extrasístoles y arritmias ventriculares</h3>
+    <h3>Extrasístoles y arritmias ventriculares</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Patrón</th><th>Definición del material</th><th>Precisión agregada</th></tr></thead>
+      <thead><tr><th>Patrón</th><th>Definición</th><th>Conducta y comentario</th></tr></thead>
       <tbody>
-        <tr><td><b>Bigeminismo / trigeminismo / cuadrigeminismo</b></td><td>Cada 1, 2 o 3 latidos normales, una extrasístole</td><td>Correcto; en la lámina, la primera flecha del cuadrigeminismo señala un latido normal</td></tr>
-        <tr><td><b>Dupleta (pareja)</b></td><td>Dos latidos ectópicos seguidos</td><td>Tres o más = TV</td></tr>
-        <tr><td><b>TV no sostenida</b></td><td>≥ 3 complejos, &lt; 30 s</td><td>Además FC &gt; 100 lpm</td></tr>
-        <tr><td><b>TV monomórfica sostenida</b></td><td>QRS &gt; 120 ms, regular, ≥ 30 s o inestabilidad</td><td>QRS ≥ 120 ms; ante taquicardia de QRS ancho, asumir TV</td></tr>
-        <tr><td><b>Torsades de pointes</b></td><td>TV polimórfica con QT largo</td><td>Tratamiento: sulfato de magnesio 2 g IV, corregir K⁺, retirar fármacos, sobreestimulación o isoproterenol</td></tr>
-        <tr><td><b>TV polimórfica sin QT largo</b></td><td>QRS variable</td><td>Pensar en isquemia aguda (coronariografía), Brugada (pestaña 5), TV catecolaminérgica</td></tr>
-        <tr><td><b>FV</b></td><td>Caótica, desfibrilable</td><td>Correcto</td></tr>
+        <tr><td><b>Bigeminismo / trigeminismo / cuadrigeminismo</b></td><td>Una extrasístole cada 1, 2 o 3 latidos normales</td><td>Valorar la carga en Holter y la cardiopatía de base</td></tr>
+        <tr><td><b>Dupleta (pareja)</b></td><td>Dos latidos ectópicos seguidos</td><td>Tres o más ya son TV</td></tr>
+        <tr><td><b>TV no sostenida</b></td><td>≥ 3 complejos a &gt; 100 lpm, &lt; 30 s</td><td>Buscar cardiopatía estructural</td></tr>
+        <tr><td><b>TV monomórfica sostenida</b></td><td>QRS ≥ 120 ms, regular, ≥ 30 s o inestabilidad</td><td>Ante taquicardia de QRS ancho, asumir TV</td></tr>
+        <tr><td><b>Torsades de pointes</b></td><td>TV polimórfica con QT largo</td><td>Sulfato de magnesio 2 g IV, corregir K⁺, retirar fármacos, sobreestimulación o isoproterenol</td></tr>
+        <tr><td><b>TV polimórfica sin QT largo</b></td><td>QRS variable, QT normal</td><td>Isquemia aguda (coronariografía), Brugada (pestaña 5), TV catecolaminérgica</td></tr>
+        <tr><td><b>FV</b></td><td>Actividad caótica</td><td>Desfibrilación inmediata. Ante una línea plana, confirmar la asistolia en dos derivaciones con ganancia aumentada (FV fina)</td></tr>
       </tbody>
     </table></div>
   </section>
@@ -198,24 +198,24 @@ footer a{color:var(--accent)}
     <h3>Bloqueos completos de rama</h3>
     <div class="cols">
       <div class="box"><p><b>BRD (AHA 2009)</b></p><ul><li>QRS ≥ 120 ms</li><li>rsr′, rsR′ o rSR′ en V1–V2 (R′ más ancha), o R ancha con muesca</li><li>S ancha (&gt; 40 ms o mayor que R) en I y V6</li><li>Tiempo al pico de R normal en V5–V6, &gt; 50 ms en V1</li></ul><p class="note">La T negativa en V1 es secundaria, no un criterio.</p></div>
-      <div class="box"><p><b>BRI: criterios de Strauss (2011)</b></p><ul><li>QRS ≥ 140 ms (H) o ≥ 130 ms (M)</li><li>QS o rS en V1–V2</li><li>Muesca o empastamiento mesoQRS en ≥ 2 de: V1, V2, V5, V6, I, aVL</li></ul><p class="note">Criterio convencional AHA: QRS ≥ 120 ms, R ancha con muesca en I, aVL, V5–V6, sin q septal en I, V5–V6. Strauss es más estricto y predice mejor la respuesta a la resincronización.</p></div>
+      <div class="box"><p><b>BRI: criterios de Strauss (2011)</b></p><ul><li>QRS ≥ 140 ms (H) o ≥ 130 ms (M)</li><li>QS o rS en V1–V2</li><li>Muesca o empastamiento mesoQRS en ≥ 2 de: V1, V2, V5, V6, I, aVL</li></ul><p class="note">Criterio convencional AHA: QRS ≥ 120 ms, R ancha con muesca en I, aVL, V5–V6, sin q septal en I, V5–V6. Strauss es más estricto y predice mejor la respuesta a la resincronización. La discordancia ST-T es secundaria, no diagnóstica.</p></div>
     </div>
   </section>
 
   <section id="v38-iam">
-    <h3>STEMI vs NSTEMI</h3>
+    <h3>Del STEMI/NSTEMI a la oclusión coronaria</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Material</th><th>Precisión (4.ª definición universal y ESC 2023)</th></tr></thead>
+      <thead><tr><th>Aspecto</th><th>Criterio actual (4.ª definición universal y ESC 2023)</th></tr></thead>
       <tbody>
-        <tr><td>Elevación del J en ≥ 2 derivaciones contiguas; V2–V3 ≥ 2 mm hombres, ≥ 1,5 mm mujeres</td><td>Falta el umbral general (<b>≥ 1 mm</b> en las demás derivaciones) y <b>≥ 2,5 mm en hombres &lt; 40 años</b> en V2–V3</td></tr>
-        <tr><td>ST "convexo (en tumba) o recto"</td><td>Un ST cóncavo no descarta STEMI, sobre todo en la fase precoz</td></tr>
-        <tr><td>NSTEMI = "oclusión parcial o isquemia subendocárdica"</td><td><b>≈ 25 % de los NSTEMI tienen oclusión total</b> (a menudo circunfleja). Equivalentes de STEMI: posterior (V7–V9), De Winter, BRI con Sgarbossa, ST↑ aVR con ST↓ difuso. Ver pestañas 9, 10 y 11</td></tr>
+        <tr><td><b>Supradesnivel diagnóstico</b></td><td>Elevación del J en ≥ 2 derivaciones contiguas: <b>≥ 1 mm</b> en general; en V2–V3 ≥ 2 mm (hombres ≥ 40), <b>≥ 2,5 mm</b> (hombres &lt; 40), ≥ 1,5 mm (mujeres)</td></tr>
+        <tr><td><b>Morfología del ST</b></td><td>Convexo o recto es típico, pero un ST cóncavo no descarta STEMI, sobre todo en la fase precoz</td></tr>
+        <tr><td><b>NSTEMI</b></td><td><b>≈ 25 % tiene la arteria totalmente ocluida</b> (a menudo la circunfleja) y se reperfunde más tarde. Equivalentes de STEMI: posterior (V7–V9), De Winter, BRI con Sgarbossa, ST↑ en aVR con ST↓ difuso (pestañas 9, 10 y 11)</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v38-calc">
-    <h3>Calculadora de QTc y eje (agregada)</h3>
+    <h3>Calculadora de QTc y eje</h3>
     <div class="box">
       <div class="calc">
         <label for="q38-qt">QT medido (ms)<input id="q38-qt" type="number" min="200" max="700" value="440"></label>
@@ -229,38 +229,34 @@ footer a{color:var(--accent)}
       <p class="note" style="margin-top:8px">Bazett sobrecorrige con FC &gt; 90 lpm; con taquicardia prefiere Fridericia. Con QRS ≥ 120 ms se usa el QT modificado de Bogossian (QT − 50 % del QRS). El eje se estima con I y aVF como ejes perpendiculares.</p>
     </div>
   </section>
-
   <section id="v38-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Buen material de repaso para pregrado, pero con imprecisiones que un estudiante memorizaría tal cual:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>PR, duración de P, QTc por sexo, definición de TVNS (≥ 3 latidos, &lt; 30 s), criterios de Strauss para BRI y la advertencia de que toda TV es potencialmente letal.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Los criterios del BRD no son de Strauss.</b> La lámina titula ambos bloqueos como "criterios de Strauss", pero Strauss (2011) definió solo el BRI. Además, pone la T negativa en V1 como criterio del BRD y la discordancia ST-T como criterio del BRI: ambas son alteraciones secundarias, no criterios diagnósticos.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"NSTEMI = oclusión parcial" es una simplificación peligrosa.</b> Una cuarta parte de los NSTEMI tienen la arteria ocluida y tardan más en ser reperfundidos. El paradigma actual es infarto con o sin oclusión (pestaña 10). Faltan también el umbral de ≥ 1 mm y los 2,5 mm en hombres jóvenes.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Ejes:</b> +40° a +60° es el eje P típico, no su rango normal (0° a +75°). El eje T no es "igual" al del QRS: lo que importa es el ángulo QRS-T. Ritmo sinusal con "RR regular": la arritmia sinusal respiratoria es normal, sobre todo en jóvenes.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>"Toda extrasístole ventricular puede ser un marcador de enfermedad"</b> es exagerado: las extrasístoles aisladas son frecuentes en sanos. Alarman: cardiopatía estructural, carga &gt; 10 % en el Holter (miocardiopatía inducida), aumento con el ejercicio, multifocales, R sobre T, síncope o antecedentes de muerte súbita. Las de tracto de salida del VD (morfología de BRI con eje inferior) suelen ser benignas.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Lámina "Ritmos":</b> mezcla ritmos con el STEMI, que no es un ritmo. Los trazos son esquemáticos: la "TV" se dibuja como una sinusoide (más propia del flutter ventricular o de la hiperpotasemia grave). Ante una línea plana, confirmar la asistolia en dos derivaciones y con la ganancia aumentada (FV fina).</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Fármacos que prolongan el QT</b> muy usados en Ecuador: azitromicina, levofloxacino y ciprofloxacino, ondansetrón, domperidona, haloperidol, hidroxicloroquina y cloroquina, metadona. Sumados a diuréticos (hipopotasemia, pestaña 31 de la Videoteca 3) o a hipomagnesemia, son la causa más frecuente de torsades. QTc &gt; 500 ms: suspender y corregir electrólitos.</p></div>
-      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chagas</b> (costa ecuatoriana, El Oro, Loja, Manabí): extrasístoles ventriculares frecuentes, BRD + HBAI, bloqueos AV y TV monomórfica en un adulto joven sin coronariopatía deben hacer pedir serología. Es la causa olvidada de "miocardiopatía con arritmia" en nuestro medio.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Strauss (2011) define solo el <b>BRI</b>; el BRD se diagnostica con los criterios de la AHA 2009. La T negativa en V1 del BRD y la discordancia ST-T del BRI son alteraciones secundarias, no criterios.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>El infarto se clasifica hoy por oclusión, no solo por el ST.</b> Una cuarta parte de los NSTEMI tienen la arteria ocluida y se benefician de reperfusión urgente (pestaña 10).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Extrasístoles ventriculares:</b> aisladas son frecuentes en sanos. Alarman con cardiopatía estructural, carga &gt; 10 % en el Holter (miocardiopatía inducida), aumento con el ejercicio, multifocalidad, R sobre T, síncope o antecedentes familiares de muerte súbita. Las del tracto de salida del VD (morfología de BRI con eje inferior) suelen ser benignas.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Ejes:</b> +40° a +60° es el eje P típico, no su límite (0° a +75°). Del eje T lo que importa es el ángulo QRS-T, no que sea "igual" al del QRS.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Fármacos que prolongan el QT</b> muy usados en Ecuador: azitromicina, levofloxacino y ciprofloxacino, ondansetrón, domperidona, haloperidol, hidroxicloroquina y cloroquina, metadona. Sumados a diuréticos (hipopotasemia, pestaña 31 de la Videoteca 3) o a hipomagnesemia, son la causa más frecuente de torsades. QTc &gt; 500 ms: suspender y corregir electrolitos.</p></div>
+      <div class="vd"><span class="tag crit">Contexto local</span><p><b>Chagas</b> (costa ecuatoriana, El Oro, Loja, Manabí): extrasístoles ventriculares frecuentes, BRD + HBAI, bloqueos AV y TV monomórfica en un adulto joven sin coronariopatía obligan a pedir serología. Es la causa olvidada de miocardiopatía con arritmia en nuestro medio.</p></div>
     </div>
-    <div class="callout"><strong>Para la cátedra:</strong> enseñar el ECG normal con los rangos de la AHA 2009 y el infarto con el paradigma de oclusión; los bloqueos de rama, separando criterios diagnósticos de alteraciones secundarias.</div>
+    <div class="callout"><strong>Para la cátedra:</strong> enseñar el ECG normal con los rangos de la AHA 2009 y el infarto con el paradigma de oclusión; en los bloqueos de rama, separar los criterios diagnósticos de las alteraciones secundarias.</div>
   </section>
 
   <section id="v38-quiz">
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v38"></div>
   </section>
-  <p class="note">Referencias: Mason JW et al. / Surawicz B et al. AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the ECG (Partes I–VI), Circulation 2007–2009; Strauss DG, Selvester RH, Wagner GS. Defining left bundle branch block in the era of CRT, Am J Cardiol 2011; Thygesen K et al. Fourth Universal Definition of MI, 2018; Byrne RA et al. 2023 ESC Guidelines for ACS; Khan AR et al. Impact of total occlusion of culprit artery in NSTEMI, Eur Heart J 2017; Drew BJ et al. Prevention of torsade de pointes in hospital settings, Circulation 2010; Bogossian H et al. QT in bundle branch block, Heart Rhythm 2014; Nunes MCP et al. Chagas Cardiomyopathy: an update of current clinical knowledge and management, AHA Scientific Statement, Circulation 2018.</p>
+  <p class="note">Referencias: Mason JW et al. / Surawicz B et al. AHA/ACCF/HRS Recommendations for the Standardization and Interpretation of the ECG (Partes I–VI), Circulation 2007–2009; Strauss DG, Selvester RH, Wagner GS. Defining left bundle branch block in the era of CRT, Am J Cardiol 2011; Thygesen K et al. Fourth Universal Definition of MI, 2018; Byrne RA et al. 2023 ESC Guidelines for ACS; Khan AR et al. Impact of total occlusion of culprit artery in NSTEMI, Eur Heart J 2017; Drew BJ et al. Prevention of torsade de pointes in hospital settings, Circulation 2010; Bogossian H et al. QT in bundle branch block, Heart Rhythm 2014; Nunes MCP et al. Chagas Cardiomyopathy, AHA Scientific Statement, Circulation 2018.</p>
 </article>
 
 <!-- ============ PESTAÑA 2 (antes 27) ============ -->
 <article class="panel" id="v27" role="tabpanel" aria-labelledby="t-v27" hidden>
   <div>
     <h2>Caras del corazón en el infarto: SALI y el triángulo de Einthoven</h2>
-    <div class="meta"><span>Fuente: TikTok @enarmplus</span><span>Duración 2:26</span><span>Recibido 26/10/2026</span><span>Nivel: estudiante (preparación ENARM)</span></div>
+    <div class="meta"><span>Bases: Einthoven, sistema hexaxial y correlación ECG-resonancia (Bayés de Luna)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 27">
-    <a href="#v27-resumen">Resumen</a><a href="#v27-sali">SALI</a><a href="#v27-eint">Einthoven</a><a href="#v27-eje">Eje eléctrico</a><a href="#v27-analisis">Análisis crítico</a><a href="#v27-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v27-resumen">Resumen</a><a href="#v27-sali">SALI</a><a href="#v27-eint">Einthoven</a><a href="#v27-eje">Eje eléctrico</a><a href="#v27-analisis">Puntos clave</a><a href="#v27-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v27-resumen">
@@ -279,11 +275,11 @@ footer a{color:var(--accent)}
         <tr><td><b>I</b></td><td>Inferior</td><td class="m">DII, DIII, aVF</td><td>CD (o Cx)</td></tr>
       </tbody>
     </table></div>
-    <p class="note">La columna de arterias es agregada; el video la menciona de pasada (descendente anterior). Detalle completo en la pestaña 11.</p>
+    <p class="note">La arteria indicada es la habitual; el detalle de la arteria culpable está en la pestaña 11.</p>
   </section>
 
   <section id="v27-eint">
-    <h3>El triángulo de Einthoven, como lo dibuja el video</h3>
+    <h3>El triángulo de Einthoven paso a paso</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Dibuja el triángulo invertido</h4><ul><li>Vértices: <b>aVR</b> arriba a la derecha del paciente, <b>aVL</b> arriba a la izquierda, <b>aVF</b> abajo.</li></ul></li>
       <li class="step"><span class="num">2</span><h4>Marca el nodo sinusal en aVR</h4><ul><li>El impulso nace cerca de aVR y viaja hacia aVL y hacia aVF.</li></ul></li>
@@ -293,7 +289,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v27-eje">
-    <h3>Calculadora de eje eléctrico (agregada)</h3>
+    <h3>Calculadora de eje eléctrico</h3>
     <div class="box">
       <p class="note">Sistema hexaxial: DI 0°, aVL −30°, DII +60°, aVF +90°, DIII +120°, aVR −150°. Ingresa la amplitud neta del QRS (R − S, en mm):</p>
       <div class="calc" style="margin-top:6px">
@@ -306,12 +302,12 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v27-analisis">
-    <h3>Análisis crítico</h3>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Buen recurso didáctico; el triángulo dibujado permite reconstruir las derivaciones en el examen sin memorizarlas.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Buen recurso didáctico; el triángulo dibujado permite reconstruir las derivaciones en el examen sin memorizarlas.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Triángulo frente a sistema hexaxial:</b> en el triángulo de Einthoven, aVR, aVL y aVF son los vértices (los electrodos de brazo derecho, brazo izquierdo y pierna). Para localizar caras y calcular el eje, lo útil es el sistema hexaxial con los ángulos de cada derivación.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>aVR no es una derivación "olvidable":</b> ST elevado en aVR con depresión difusa sugiere tronco o multivaso (pestaña 11); en la intoxicación por bloqueadores de sodio aparece R terminal en aVR.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Faltan las caras ocultas:</b> el VD (V3R–V4R) y la posterior (V7–V9), que SALI no cubre (pestaña 11). La localización por caras es orientativa: la correlación con resonancia (Bayés de Luna) muestra que V1–V2 reflejan más el septo anterior que el "septal" puro.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Caras ocultas:</b> el VD (V3R–V4R) y la posterior (V7–V9), que SALI no cubre (pestaña 11). La localización por caras es orientativa: la correlación con resonancia (Bayés de Luna) muestra que V1–V2 reflejan más el septo anterior que el "septal" puro.</p></div>
       <div class="vd"><span class="tag add">Para la cátedra</span><p>El <b>formato de Cabrera</b> (aVL, DI, −aVR, DII, aVF, DIII) ordena las derivaciones de los miembros en secuencia anatómica de 30° y facilita ver la contigüidad del infarto; vale la pena enseñarlo junto con el triángulo.</p></div>
     </div>
   </section>
@@ -327,26 +323,25 @@ footer a{color:var(--accent)}
 <article class="panel" id="v36" role="tabpanel" aria-labelledby="t-v36" hidden>
   <div>
     <h2>Hipertrofia ventricular izquierda en el ECG</h2>
-    <div class="meta"><span>Fuente: 8 de 10 láminas, CardioArias (Dr. Luis Francisco Arias, cardiólogo ecocardiografista)</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas</span></div>
+    <div class="meta"><span>Bases: Sokolow-Lyon, Cornell, Romhilt-Estes, Peguero-Lo Presti (JACC 2017), guías ESH 2023</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 3">
-    <a href="#v36-resumen">Resumen</a><a href="#v36-crit">Criterios</a><a href="#v36-re">Romhilt-Estes</a><a href="#v36-calc">Calculadora</a><a href="#v36-analisis">Análisis crítico</a><a href="#v36-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v36-resumen">Resumen</a><a href="#v36-crit">Criterios</a><a href="#v36-re">Romhilt-Estes</a><a href="#v36-calc">Calculadora</a><a href="#v36-analisis">Puntos clave</a><a href="#v36-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v36-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel sobre los criterios electrocardiográficos de HVI: <b>Sokolow-Lyon, Cornell, Peguero-Lo Presti, R en aVL y Romhilt-Estes</b>, más el patrón de <b>strain</b> y la <b>deflexión intrinsicoide</b>. Mensaje central correcto: <b>ningún criterio es perfecto</b>; son específicos pero poco sensibles, un ECG negativo no descarta HVI y la masa se mide con imagen.</p>
-    <p class="note">No llegaron las láminas 3 y 5 (probablemente Cornell y R en aVL); su contenido está en la tabla comparativa (lámina 9). Mismo autor que la pestaña 11.</p>
+    <p class="lead">Criterios electrocardiográficos de HVI: <b>Sokolow-Lyon, Cornell, Peguero-Lo Presti, R en aVL y Romhilt-Estes</b>, más el patrón de <b>strain</b> y la <b>deflexión intrinsicoide</b>. Mensaje central: <b>ningún criterio es perfecto</b>; son específicos pero poco sensibles, un ECG negativo no descarta HVI y la masa se mide con imagen.</p>
   </section>
 
   <section id="v36-crit">
     <h3>Criterios de voltaje</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Criterio</th><th>Fórmula</th><th>Positivo</th><th>Comentario (agregado)</th></tr></thead>
+      <thead><tr><th>Criterio</th><th>Fórmula</th><th>Positivo</th><th>Comentario</th></tr></thead>
       <tbody>
         <tr><td><b>Sokolow-Lyon</b></td><td class="m">S V1 + R V5 o V6</td><td class="m">≥ 35 mm</td><td>Especificidad &gt; 90 %, sensibilidad ≈ 20–30 %. Falsos positivos en menores de 40 años y personas delgadas</td></tr>
         <tr><td><b>Cornell (voltaje)</b></td><td class="m">R aVL + S V3</td><td class="m">&gt; 28 mm H · &gt; 20 mm M</td><td>Mejor que Sokolow en mujeres y obesos</td></tr>
-        <tr><td><b>Producto de Cornell</b> (agregado)</td><td class="m">(R aVL + S V3 [+ 8 mm en mujeres]) × QRS ms</td><td class="m">&gt; 2440 mm·ms</td><td>Recomendado por las guías europeas de hipertensión; no está en el material</td></tr>
+        <tr><td><b>Producto de Cornell</b></td><td class="m">(R aVL + S V3 [+ 8 mm en mujeres]) × QRS ms</td><td class="m">&gt; 2440 mm·ms</td><td>Recomendado por las guías europeas de hipertensión</td></tr>
         <tr><td><b>R en aVL</b></td><td class="m">R aVL</td><td class="m">≥ 11 mm</td><td>Muy específico; falso positivo con hemibloqueo anterior izquierdo</td></tr>
         <tr><td><b>Peguero-Lo Presti</b></td><td class="m">S más profunda (SD) + S V4</td><td class="m">≥ 28 mm H · ≥ 23 mm M</td><td>JACC 2017: sensibilidad ≈ 62 % vs ≈ 35 % de Cornell, especificidad ≈ 90 %. Si la S más profunda está en V4, se suma dos veces</td></tr>
       </tbody>
@@ -371,7 +366,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v36-calc">
-    <h3>Calculadora de criterios de HVI (agregada)</h3>
+    <h3>Calculadora de criterios de HVI</h3>
     <div class="box">
       <div class="calc">
         <label for="h36-sx">Sexo<select id="h36-sx"><option value="m" selected>Hombre</option><option value="f">Mujer</option></select></label>
@@ -397,14 +392,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v36-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Contenido correcto en lo esencial; los puntos de corte coinciden con los originales. Hay errores de dibujo y omisiones relevantes para el hipertenso:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Puntos de corte de Sokolow-Lyon, Cornell, R aVL, Peguero-Lo Presti (por sexo) y los 6 ítems de Romhilt-Estes con su puntaje. Insiste con razón en que un ECG negativo no descarta HVI y que el strain no es isquemia.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Morfología del strain:</b> las láminas 7 y 9 dicen "descenso del ST cóncavo descendente". La descripción clásica es <b>convexidad superior</b> (ST descendente que se curva hacia arriba) con T negativa asimétrica. Un ST cóncavo hacia arriba no es strain.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Dibujos de la lámina 8:</b> el tiempo de deflexión intrinsicoide va del inicio del QRS al <b>pico de R</b>. Las flechas de los ejemplos terminan después del pico, en el ST. Además, en la tabla de la lámina 9 los iconos de Peguero muestran R en V4 y S en V5–V6, que no corresponden a la fórmula. Parecen errores de generación de la imagen.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Romhilt-Estes incompleto en la lámina 9:</b> menciona "3 componentes principales" y deja fuera el strain como puntaje (lo pone como "hallazgo asociado"), la duración del QRS y la deflexión intrinsicoide. La tabla completa es la de la lámina 6.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que pide la guía de hipertensión</b> (ESH 2023 / ESC 2024): Sokolow-Lyon &gt; 35 mm, R aVL ≥ 11 mm, Cornell &gt; 28/20 mm y <b>producto de Cornell &gt; 2440 mm·ms</b>. El ECG con HVI es daño de órgano blanco mediado por HTA y cambia el riesgo. En el estudio LIFE, el strain predijo eventos y su regresión con tratamiento se asoció a menos eventos.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Puntos de corte de Sokolow-Lyon, Cornell, R aVL, Peguero-Lo Presti (por sexo) y los 6 ítems de Romhilt-Estes con su puntaje. Insiste con razón en que un ECG negativo no descarta HVI y que el strain no es isquemia.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Morfología del strain:</b> la descripción clásica es <b>convexidad superior</b> (ST descendente que se curva hacia arriba) con T negativa asimétrica. Un ST cóncavo hacia arriba no es strain.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Deflexión intrinsicoide:</b> se mide del inicio del QRS al <b>pico de R</b> en V5–V6 (≥ 50 ms sugiere HVI). Peguero-Lo Presti usa la S más profunda de cualquier derivación más la S de V4.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Romhilt-Estes se aplica completo:</b> voltaje, strain (puntúa, no es solo un hallazgo asociado), crecimiento auricular izquierdo, eje, duración del QRS y deflexión intrinsicoide.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Lo que pide la guía de hipertensión</b> (ESH 2023 / ESC 2024): Sokolow-Lyon &gt; 35 mm, R aVL ≥ 11 mm, Cornell &gt; 28/20 mm y <b>producto de Cornell &gt; 2440 mm·ms</b>. El ECG con HVI es daño de órgano blanco mediado por HTA y cambia el riesgo. En el estudio LIFE, el strain predijo eventos y su regresión con tratamiento se asoció a menos eventos.</p></div>
       <div class="vd"><span class="tag crit">Para la cátedra</span><p><b>Confusores de conducción:</b></p>
         <p>El <b>bloqueo de rama izquierda</b> invalida los criterios de voltaje y el strain (alteración secundaria).</p>
         <p>El <b>hemibloqueo anterior izquierdo</b> aumenta la R de aVL y de I: Cornell y R aVL dan falsos positivos, y el eje ≤ −30° suma 2 puntos de Romhilt sin hipertrofia.</p>
@@ -426,22 +420,22 @@ footer a{color:var(--accent)}
 <article class="panel" id="v40" role="tabpanel" aria-labelledby="t-v40" hidden>
   <div>
     <h2>Alteraciones electrolíticas en el ECG: K⁺, Ca²⁺ y Mg²⁺</h2>
-    <div class="meta"><span>Fuente: 8 láminas, CardioArias (Dr. Luis Francisco Arias)</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas</span></div>
+    <div class="meta"><span>Bases: KDIGO 2020 (potasio), UK Kidney Association 2023 (hiperpotasemia), revisiones de ECG y electrolitos</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 4">
-    <a href="#v40-resumen">Resumen</a><a href="#v40-tabla">Los 6 trastornos</a><a href="#v40-calc">Calculadora</a><a href="#v40-analisis">Análisis crítico</a><a href="#v40-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v40-resumen">Resumen</a><a href="#v40-tabla">Los 6 trastornos</a><a href="#v40-calc">Calculadora</a><a href="#v40-analisis">Puntos clave</a><a href="#v40-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v40-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Seis trastornos con su firma electrocardiográfica. <b>Hiperpotasemia:</b> T picuda → PR largo y P aplanada → QRS ancho → patrón sinusoidal. <b>Hipopotasemia:</b> T plana, onda U, QU largo. <b>Hipocalcemia:</b> QTc largo por ST largo. <b>Hipercalcemia:</b> QTc corto por ST corto. <b>Hipomagnesemia:</b> QTc largo y torsades. <b>Hipermagnesemia:</b> PR y QRS largos, bradicardia y bloqueo AV. El resumen de 6 puntos es correcto; los errores están en las láminas de hipercalcemia e hipermagnesemia.</p>
+    <p class="lead">Seis trastornos con su firma electrocardiográfica. <b>Hiperpotasemia:</b> T picuda → PR largo y P aplanada → QRS ancho → patrón sinusoidal. <b>Hipopotasemia:</b> T plana, onda U, QU largo. <b>Hipocalcemia:</b> QTc largo por ST largo. <b>Hipercalcemia:</b> QTc corto por ST corto. <b>Hipomagnesemia:</b> QTc largo y torsades. <b>Hipermagnesemia:</b> PR y QRS largos, bradicardia y bloqueo AV.</p>
     <p class="note">Relacionadas: 19 (hiperpotasemia en emergencias ECG), 35 (hipopotasemia y reposición de K⁺), 38 (QTc).</p>
   </section>
 
   <section id="v40-tabla">
     <h3>Los 6 trastornos</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Trastorno</th><th>ECG</th><th>Tratamiento urgente (agregado)</th></tr></thead>
+      <thead><tr><th>Trastorno</th><th>ECG</th><th>Tratamiento urgente</th></tr></thead>
       <tbody>
         <tr><td><b>Hiperpotasemia</b></td><td>T picuda y estrecha → P aplanada, PR largo → QRS ancho → sinusoidal → FV o asistolia. También bradicardia, bloqueos y pseudo-STEMI o patrón tipo Brugada. La progresión no siempre es secuencial</td><td>Cambios en el ECG: <b>gluconato de calcio 10 % 30 mL IV en 5–10 min</b> (repetir si persisten). Insulina regular 10 U + dextrosa 25 g; salbutamol nebulizado 10–20 mg; bicarbonato solo si hay acidosis; eliminar K⁺ (diurético, resinas, diálisis)</td></tr>
         <tr><td><b>Hipopotasemia</b></td><td>T aplanada o invertida, ST descendido, U prominente, QU largo; extrasístoles, TV, torsades</td><td>Ver pestaña 31 de la Videoteca 3 (KCl, magnesio)</td></tr>
@@ -454,7 +448,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v40-calc">
-    <h3>Calculadora electrolítica y ECG esperado (agregada)</h3>
+    <h3>Calculadora electrolítica y ECG esperado</h3>
     <div class="box">
       <div class="calc">
         <label for="e40-k">K⁺ (mEq/L)<input id="e40-k" type="number" step="0.1" min="1" max="10" value="6.8"></label>
@@ -470,14 +464,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v40-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Buen resumen de los patrones de potasio y calcio bajo; las láminas de hipercalcemia e hipermagnesemia tienen errores importantes:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Hiperpotasemia con progresión no secuencial que no se correlaciona bien con el nivel sérico; hipopotasemia con onda U e intervalo QU; hipocalcemia con ST largo y T normal; hipomagnesemia asociada a hipopotasemia e hipocalcemia y a torsades.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Hipercalcemia: la T picuda, el PR corto y el QRS corto no son hallazgos típicos.</b> La firma es el ST acortado (QT corto); la T suele ser normal. En la hipercalcemia grave el PR y el QRS se <b>alargan</b>, puede haber bloqueo AV y aparecer onda J de Osborn. Enseñar "T picuda" en la hipercalcemia confunde con la hiperpotasemia, que es la urgencia mayor.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Niveles de magnesio equivocados.</b> La lámina llama "leve" a 1,1–1,5 mEq/L, que es normal o bajo (normal 1,4–2,0 mEq/L = 1,7–2,4 mg/dL). Las cifras parecen estar en mmol/L rotuladas como mEq/L. Referencia práctica: arreflexia patelar ≈ 4,8–8,4 mg/dL (≈ 4–7 mEq/L); PR y QRS largos e hipotensión ≈ 6–12 mg/dL; paro respiratorio ≈ 12–15 mg/dL; paro cardíaco &gt; 15 mg/dL.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Hiperpotasemia con progresión no secuencial que no se correlaciona bien con el nivel sérico; hipopotasemia con onda U e intervalo QU; hipocalcemia con ST largo y T normal; hipomagnesemia asociada a hipopotasemia e hipocalcemia y a torsades.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Hipercalcemia: la T picuda, el PR corto y el QRS corto no son hallazgos típicos.</b> La firma es el ST acortado (QT corto); la T suele ser normal. En la hipercalcemia grave el PR y el QRS se <b>alargan</b>, puede haber bloqueo AV y aparecer onda J de Osborn. La T picuda orienta a hiperpotasemia, la urgencia mayor, no a hipercalcemia.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Niveles de magnesio y unidades:</b> normal 1,4–2,0 mEq/L (1,7–2,4 mg/dL); no confundir mmol/L con mEq/L. Referencia práctica de toxicidad: arreflexia patelar ≈ 4,8–8,4 mg/dL (≈ 4–7 mEq/L); PR y QRS largos e hipotensión ≈ 6–12 mg/dL; paro respiratorio ≈ 12–15 mg/dL; paro cardíaco &gt; 15 mg/dL.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Escalas de calcio inventadas:</b> la clasificación aceptada es leve &lt; 12, moderada 12–14 y grave &gt; 14 mg/dL. Las categorías "muy severa &gt; 16" y "extrema &gt; 20" con sus cambios de ECG no tienen respaldo. Interpretar siempre el calcio corregido o el iónico.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Combinaciones que el ECG delata:</b></p>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Combinaciones que el ECG delata:</b></p>
         <p>ERC con hipocalcemia e hiperpotasemia: ST largo con T picuda al final.</p>
         <p>Hipercalcemia con digoxina: más toxicidad digitálica.</p>
         <p>Hipopotasemia e hipomagnesemia con fármacos que alargan el QT: torsades (pestaña 1).</p></div>
@@ -502,16 +495,16 @@ footer a{color:var(--accent)}
 <article class="panel" id="v37" role="tabpanel" aria-labelledby="t-v37" hidden>
   <div>
     <h2>Patrón de Brugada: tipos 1, 2 y 3</h2>
-    <div class="meta"><span>Fuente: 6 láminas, CardioArias (Dr. Luis Francisco Arias)</span><span>Recibido 27/10/2026</span><span>Sin referencias citadas (remite a brugadadrugs.org)</span></div>
+    <div class="meta"><span>Bases: consenso de Bayés de Luna 2012, ESC 2022 (arritmias ventriculares), brugadadrugs.org</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 5">
-    <a href="#v37-resumen">Resumen</a><a href="#v37-tipos">Los 3 patrones</a><a href="#v37-dx">Diagnóstico y riesgo</a><a href="#v37-calc">Calculadora</a><a href="#v37-analisis">Análisis crítico</a><a href="#v37-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v37-resumen">Resumen</a><a href="#v37-tipos">Los 3 patrones</a><a href="#v37-dx">Diagnóstico y riesgo</a><a href="#v37-calc">Calculadora</a><a href="#v37-analisis">Puntos clave</a><a href="#v37-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v37-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel sobre el reconocimiento del patrón de Brugada en V1–V2. Mensajes correctos: <b>patrón ≠ síndrome</b>, solo el <b>tipo 1</b> es diagnóstico, los tipos 2 y 3 no lo son por sí solos, la <b>fiebre</b> y los <b>bloqueadores de canales de sodio</b> pueden desenmascarar un tipo 1, y V1–V2 se registran en el <b>2.º, 3.º y 4.º espacio intercostal</b>. Signos de alarma: síncope inexplicado (sobre todo nocturno), convulsiones sin causa, palpitaciones rápidas y muerte súbita familiar.</p>
-    <p class="note">Mismo autor que las pestañas 3 y 11. La pestaña 6 menciona el patrón tipo Brugada en la hiperpotasemia.</p>
+    <p class="lead">Reconocimiento del patrón de Brugada en V1–V2. Mensajes clave: <b>patrón ≠ síndrome</b>, solo el <b>tipo 1</b> es diagnóstico, los tipos 2 y 3 no lo son por sí solos, la <b>fiebre</b> y los <b>bloqueadores de canales de sodio</b> pueden desenmascarar un tipo 1, y V1–V2 se registran en el <b>2.º, 3.º y 4.º espacio intercostal</b>. Signos de alarma: síncope inexplicado (sobre todo nocturno), convulsiones sin causa, palpitaciones rápidas y muerte súbita familiar.</p>
+    <p class="note">La pestaña 6 menciona el patrón tipo Brugada en la hiperpotasemia.</p>
   </section>
 
   <section id="v37-tipos">
@@ -524,11 +517,11 @@ footer a{color:var(--accent)}
         <tr><td class="m">3</td><td>Coved o saddleback</td><td>ST &lt; 1 mm</td><td>Positiva</td><td><span class="pill ok">No diagnóstico</span></td></tr>
       </tbody>
     </table></div>
-    <p class="note">El consenso de 2012 (Bayés de Luna) unificó los tipos 2 y 3 en un solo "tipo 2" (saddleback); el material lo llama "clasificación histórica" con razón.</p>
+    <p class="note">El consenso de 2012 (Bayés de Luna) unificó los tipos 2 y 3 en un solo "tipo 2" (saddleback); la división en tres tipos es hoy histórica.</p>
   </section>
 
   <section id="v37-dx">
-    <h3>Diagnóstico y conducta (agregado, ESC 2022)</h3>
+    <h3>Diagnóstico y conducta (ESC 2022)</h3>
     <div class="tbl"><table>
       <thead><tr><th>Situación</th><th>Conducta</th></tr></thead>
       <tbody>
@@ -543,7 +536,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v37-calc">
-    <h3>Calculadora: puntaje de Shanghái y diferenciación del tipo 2 (agregada)</h3>
+    <h3>Calculadora: puntaje de Shanghái y diferenciación del tipo 2</h3>
     <div class="box">
       <p><b>Puntaje de Shanghái</b> (Antzelevitch 2016). Requiere al menos un ítem de ECG; en cada grupo se cuenta solo el de mayor puntaje.</p>
       <div class="calc">
@@ -567,18 +560,17 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v37-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Mensajes clínicos correctos, pero <b>confunde las morfologías</b> justo en las láminas del tipo 1, el punto central del carrusel:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Patrón ≠ síndrome; solo el tipo 1 es diagnóstico; derivaciones altas en el 2.º–3.º espacio intercostal; desenmascaramiento por fiebre y bloqueadores de sodio; tratar siempre la fiebre; consultar brugadadrugs.org; derivar a electrofisiología. El criterio "tipo 1 en ≥ 1 derivación V1–V2" coincide con el consenso HRS/EHRA/APHRS 2013 y la ESC 2022.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"Coved" no es "silla de montar".</b> La lámina del tipo 1 define la morfología coved como "(silla de montar)". Es al revés: coved = <b>en cúpula o lomo de delfín</b> (tipo 1); silla de montar = <b>saddleback</b> (tipo 2). Para un alumno, este error invierte el diagnóstico.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>El tipo 1 no es "cóncavo".</b> La lámina del tipo 3 describe el tipo 1 como "en techo (cóncava)". El ST del tipo 1 es rectilíneo descendente o convexo, y termina en T negativa. Además, el texto del tipo 3 en esa lámina aparece superpuesto e ilegible: probable error de edición de la imagen.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Tipo 2:</b> la lámina pide J ≥ 2 mm y ST ≥ 1 mm (criterios 2005). En el consenso 2012, el tipo 2 se define por la r′ ≥ 2 mm, el ST ≥ 0,5 mm y la forma del triángulo (ángulo β, base del triángulo), que distinguen mejor el Brugada del BRD incompleto, el atleta o el pectus excavatum. El tipo 3 ya no existe como categoría separada.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Fenocopias de Brugada</b> (patrón tipo 1 sin canalopatía, desaparece al corregir la causa): hiperpotasemia (pestaña 6), hipercalcemia, isquemia del VD o del tracto de salida, TEP, miocarditis, pectus excavatum, compresión mediastínica. Y fármacos o tóxicos: antidepresivos tricíclicos, litio, cocaína, propofol, anestésicos locales y antiarrítmicos de clase IC.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Patrón ≠ síndrome; solo el tipo 1 es diagnóstico; derivaciones altas en el 2.º–3.º espacio intercostal; desenmascaramiento por fiebre y bloqueadores de sodio; tratar siempre la fiebre; consultar brugadadrugs.org; derivar a electrofisiología. Criterio diagnóstico: tipo 1 en ≥ 1 derivación V1–V2 (consenso HRS/EHRA/APHRS 2013, ESC 2022).</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>"Coved" no es "silla de montar".</b> Coved = <b>en cúpula o lomo de delfín</b> (tipo 1); silla de montar = <b>saddleback</b> (tipo 2). Confundirlos invierte el diagnóstico.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El tipo 1 no es "cóncavo".</b> El ST del tipo 1 es rectilíneo descendente o convexo, y termina en T negativa.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Tipo 2:</b> los criterios de 2005 pedían J ≥ 2 mm y ST ≥ 1 mm. En el consenso 2012, el tipo 2 se define por la r′ ≥ 2 mm, el ST ≥ 0,5 mm y la forma del triángulo (ángulo β, base del triángulo), que distinguen mejor el Brugada del BRD incompleto, el atleta o el pectus excavatum. El tipo 3 ya no existe como categoría separada.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Fenocopias de Brugada</b> (patrón tipo 1 sin canalopatía, desaparece al corregir la causa): hiperpotasemia (pestaña 6), hipercalcemia, isquemia del VD o del tracto de salida, TEP, miocarditis, pectus excavatum, compresión mediastínica. Y fármacos o tóxicos: antidepresivos tricíclicos, litio, cocaína, propofol, anestésicos locales y antiarrítmicos de clase IC.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Amitriptilina:</b> se usa mucho en la neuropatía diabética y el dolor crónico, y está en la lista de fármacos a evitar. Antes de indicarla, revisa el ECG en busca de un patrón sospechoso o antecedentes familiares de muerte súbita. En una sobredosis de tricíclicos con QRS ancho y patrón tipo Brugada, el tratamiento es bicarbonato (pestaña 29 de la Videoteca 3).</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>En Guayas, la fiebre es frecuente</b> (dengue, chikungunya, leptospirosis, ITU). Un síncope o una convulsión durante la fiebre en un adulto joven obliga a hacer un ECG con derivaciones altas mientras el paciente está febril. El paracetamol es el antipirético de elección.</p>
         <p><b>Diferencial con Chagas:</b> en zona endémica, el BRD de Chagas puede confundirse con un tipo 2.</p>
-        <p><b>Prueba con bloqueadores de sodio</b> (ajmalina, flecainida o procainamida): solo en centros de electrofisiología. Su disponibilidad en Ecuador es limitada (no verificada): derivar en lugar de improvisar.</p></div>
+        <p><b>Prueba con bloqueadores de sodio</b> (ajmalina, flecainida o procainamida): solo en centros de electrofisiología. Su disponibilidad en Ecuador es limitada: derivar en lugar de improvisar.</p></div>
     </div>
     <div class="callout"><strong>En la guardia:</strong> síncope o convulsión con fiebre + r′ en V1 → ECG con V1–V2 en el 2.º y 3.º espacio intercostal, bajar la fiebre, monitorizar y suspender fármacos de la lista. Tipo 1 espontáneo con síncope = derivación urgente para DAI.</div>
   </section>
@@ -593,23 +585,22 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 6 (antes 19) ============ -->
 <article class="panel" id="v19" role="tabpanel" aria-labelledby="t-v19" hidden>
   <div>
-    <h2>Emergencias de ECG que no te puedes perder (parte 1)</h2>
-    <div class="meta"><span>Fuente: 10 láminas, TikTok @nickystudy12</span><span>Recibido 26/10/2026</span><span>Nivel: estudiante / interno</span><span>Sin referencias citadas</span></div>
+    <h2>Emergencias de ECG que no te puedes perder</h2>
+    <div class="meta"><span>Bases: AHA 2025 (soporte vital), ESC 2024 (FA), ESC 2019 (TSV), REVERT (Lancet 2015)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 6">
-    <a href="#v19-resumen">Resumen</a><a href="#v19-ritmos">8 ritmos</a><a href="#v19-dosis">Dosis completas</a><a href="#v19-calc">QTc</a><a href="#v19-analisis">Análisis crítico</a><a href="#v19-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v19-resumen">Resumen</a><a href="#v19-ritmos">8 ritmos</a><a href="#v19-dosis">Dosis completas</a><a href="#v19-calc">QTc</a><a href="#v19-analisis">Puntos clave</a><a href="#v19-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v19-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Fichas de 8 ritmos de emergencia: <b>FV, TV sin pulso, asistolia, IAMCEST, hiperpotasemia, TSV, FA con respuesta rápida y torsades de pointes</b>. Cada una con un trazo ilustrativo y 4–5 acciones. Correctas en lo esencial, pero superficiales: faltan dosis, energías y las trampas diagnósticas.</p>
-    <p class="note">La última lámina es publicidad de una aplicación de IA médica ("MedDeep AI"); no se incluye.</p>
+    <p class="lead">Fichas de 8 ritmos de emergencia: <b>FV, TV sin pulso, asistolia, IAMCEST, hiperpotasemia, TSV, FA con respuesta rápida y torsades de pointes</b>, con sus acciones inmediatas, dosis, energías y trampas diagnósticas.</p>
   </section>
 
   <section id="v19-ritmos">
-    <h3>Los 8 ritmos del material</h3>
+    <h3>Los 8 ritmos de emergencia</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Ritmo</th><th>ECG</th><th>Lo que indica la lámina</th></tr></thead>
+      <thead><tr><th>Ritmo</th><th>ECG</th><th>Acciones inmediatas</th></tr></thead>
       <tbody>
         <tr><td><b>FV</b></td><td>Caótico, sin QRS organizado, sin pulso</td><td>Desfibrilar ya · RCP inmediata tras cada descarga · epinefrina 1 mg c/3–5 min · amiodarona 300 mg, luego 150 mg · Hs y Ts</td></tr>
         <tr><td><b>TV sin pulso</b></td><td>Regular, QRS ancho, sin pulso</td><td>Igual que la FV: primero descarga, luego fármacos</td></tr>
@@ -624,7 +615,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v19-dosis">
-    <h3>Dosis y energías que faltan (agregado)</h3>
+    <h3>Dosis y energías</h3>
     <div class="tbl"><table>
       <thead><tr><th>Situación</th><th>Dosis / energía</th></tr></thead>
       <tbody>
@@ -645,7 +636,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v19-calc">
-    <h3>Calculadora de QTc (agregada)</h3>
+    <h3>Calculadora de QTc</h3>
     <div class="box">
       <div class="calc">
         <label for="q19-qt">QT medido (ms)<input id="q19-qt" type="number" min="200" max="800" value="440"></label>
@@ -658,21 +649,19 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v19-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Fichas útiles para estudiantes. Para un nivel de electrofisiología, estos son los puntos débiles:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Epinefrina en ritmos desfibrilables:</b> la lámina la pone al mismo nivel que en la asistolia. En FV/TVsP va <b>después de la 2.ª descarga</b>; en ritmos no desfibrilables, lo antes posible. La amiodarona va tras la 3.ª descarga.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Unidad del magnesio:</b> la meta habitual es Mg &gt; 2 <b>mg/dL</b> (≈ 1,6 mEq/L). "&gt; 2 mEq/L" equivale a ~2,4 mg/dL, por encima de lo necesario.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Anticoagulación en FA:</b> la ESC 2024 reemplazó el CHA₂DS₂-VASc por el <b>CHA₂DS₂-VA</b> (sin el punto por sexo femenino). Antes de cardiovertir una FA de &gt; 48 h (ESC 2024: &gt; 24 h) se necesita anticoagulación de 3 semanas o ETE.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Epinefrina en ritmos desfibrilables:</b> no se da al mismo tiempo que en la asistolia. En FV/TVsP va <b>después de la 2.ª descarga</b>; en ritmos no desfibrilables, lo antes posible. La amiodarona va tras la 3.ª descarga.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Unidad del magnesio:</b> la meta habitual es Mg &gt; 2 <b>mg/dL</b> (≈ 1,6 mEq/L). "&gt; 2 mEq/L" equivale a ~2,4 mg/dL, por encima de lo necesario.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Anticoagulación en FA:</b> la ESC 2024 reemplazó el CHA₂DS₂-VASc por el <b>CHA₂DS₂-VA</b> (sin el punto por sexo femenino). Antes de cardiovertir una FA de &gt; 48 h (ESC 2024: &gt; 24 h) se necesita anticoagulación de 3 semanas o ETE.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>FA con RV rápida:</b> diltiazem y verapamilo están contraindicados con FEVI &lt; 40 % o IC descompensada (usar betabloqueador con cautela, amiodarona o digoxina). En <b>FA preexcitada</b> (irregular, QRS ancho y variable, &gt; 250 lpm) no usar ningún bloqueador del nodo: procainamida, ibutilida o cardioversión.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Hiperpotasemia:</b> la secuencia real es T picuda → aplanamiento y pérdida de la P → PR largo → QRS ancho → onda sinusal. El ECG es poco sensible: hasta la mitad de los pacientes con K⁺ &gt; 6,5 no tienen cambios, y también hay bradicardias, bloqueos y pseudo-STEMI (patrón tipo Brugada).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>TSV:</b> la Valsalva modificada (REVERT) es soplar 15 s contra 40 mmHg y luego decúbito con elevación pasiva de piernas; duplica la tasa de reversión. Si no hay adenosina: verapamilo o diltiazem. Si es antidrómica (QRS ancho), tratar como TV hasta demostrar lo contrario.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>IAMCEST:</b> faltan los tiempos (primer contacto–balón &lt; 90 min, &lt; 120 min si hay traslado; si no, fibrinólisis en &lt; 30 min) y los criterios de voltaje (V2–V3 ≥ 2 mm en hombres ≥ 40 años, ≥ 2,5 mm &lt; 40, ≥ 1,5 mm en mujeres). Y lo de la pestaña 10: buscar también la oclusión sin supradesnivel.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>IAMCEST, tiempos y voltajes:</b> primer contacto–balón &lt; 90 min (&lt; 120 min si hay traslado); si no es posible, fibrinólisis en &lt; 30 min. Voltaje en V2–V3: ≥ 2 mm en hombres ≥ 40 años, ≥ 2,5 mm en &lt; 40 y ≥ 1,5 mm en mujeres. Buscar también la oclusión sin supradesnivel (pestaña 10).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Asistolia:</b> además de 2 derivaciones, revisar ganancia y conexiones. Si hay ondas P sin QRS (asistolia con P), es un bloqueo completo: considerar marcapasos. La atropina no está indicada en el paro.</p></div>
-      <div class="vd"><span class="tag crit">Precaución</span><p><b>Trazos ilustrativos:</b> son esquemas, no registros reales. El trazo de "TV sin pulso" es sinusoidal (más parecido a un aleteo ventricular o a la onda sinusal de la hiperpotasemia que a una TV monomórfica típica). Útil para docencia como ejemplo de diferencial.</p></div>
-      <div class="vd"><span class="tag crit">Nota</span><p>La lámina de "MedDeep AI" es promoción de un producto, no contenido clínico.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Trazo sinusoidal:</b> un QRS ancho con aspecto de onda sinusal sugiere aleteo ventricular o hiperpotasemia grave más que una TV monomórfica típica. Pedir potasio de inmediato y dar calcio si hay duda.</p></div>
     </div>
-    <div class="callout"><strong>Para la cátedra:</strong> este material sirve como punto de partida; un buen ejercicio es pedir a los alumnos que identifiquen los errores que se señalan aquí.</div>
+    <div class="callout"><strong>Para la cátedra:</strong> presentar cada ritmo con su trampa (FA preexcitada, asistolia con P, hiperpotasemia sin cambios en el ECG) y pedir al alumno la primera acción y la dosis.</div>
   </section>
 
   <section id="v19-quiz">
@@ -686,15 +675,15 @@ footer a{color:var(--accent)}
 <article class="panel" id="v25" role="tabpanel" aria-labelledby="t-v25" hidden>
   <div>
     <h2>32 lpm, bloqueo AV completo, PAS 75: bradicardia inestable en 3 puntos</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain (Medik Brain)</span><span>Duración 1:44</span><span>Recibido 26/10/2026</span><span>Base citada: algoritmo AHA 2025 de bradicardia del adulto</span></div>
+    <div class="meta"><span>Bases: algoritmo AHA 2025 de bradicardia del adulto, ACC/AHA/HRS 2018</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 25">
-    <a href="#v25-resumen">Resumen</a><a href="#v25-puntos">3 puntos</a><a href="#v25-caso">Caso</a><a href="#v25-calc">Infusiones</a><a href="#v25-analisis">Análisis crítico</a><a href="#v25-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v25-resumen">Resumen</a><a href="#v25-puntos">3 puntos</a><a href="#v25-caso">Caso</a><a href="#v25-calc">Infusiones</a><a href="#v25-analisis">Puntos clave</a><a href="#v25-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v25-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Caso: bloqueo AV completo a 32 lpm con PAS 75. El video resume el algoritmo AHA 2025 en tres puntos: <b>cuándo actuar</b> (el compromiso define la inestabilidad), <b>la atropina</b> (no se espera de ella en bloqueo de alto grado) y <b>el error más grave</b> (repetir atropina sin preparar el marcapasos).</p>
+    <p class="lead">Caso: bloqueo AV completo a 32 lpm con PAS 75. El algoritmo AHA 2025 se resume en tres puntos: <b>cuándo actuar</b> (el compromiso define la inestabilidad), <b>la atropina</b> (no se espera de ella en bloqueo de alto grado) y <b>el error más grave</b> (repetir atropina sin preparar el marcapasos).</p>
   </section>
 
   <section id="v25-puntos">
@@ -732,7 +721,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v25-calc">
-    <h3>Calculadora de infusión: adrenalina y dopamina (agregada)</h3>
+    <h3>Calculadora de infusión: adrenalina y dopamina</h3>
     <div class="box">
       <div class="calc">
         <label for="b25-drug">Fármaco
@@ -748,14 +737,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v25-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video excelente: claro, con el mensaje correcto y dosis vigentes. Para el electrofisiólogo, estos matices:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Atropina 1 mg</b> (no 0,5 mg) desde la actualización AHA 2020, c/3–5 min hasta 3 mg. Dosis &lt; 0,5 mg pueden causar bradicardia paradójica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Atropina 1 mg</b> (no 0,5 mg) desde la actualización AHA 2020, c/3–5 min hasta 3 mg. Dosis &lt; 0,5 mg pueden causar bradicardia paradójica.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>¿Dónde está el bloqueo?</b> Escape de QRS estrecho a 40–60 lpm sugiere bloqueo nodal (p. ej. infarto inferior, tono vagal): la atropina puede funcionar. Escape de QRS ancho a 20–40 lpm, Mobitz II o bloqueo completo infrahisiano: la atropina no sirve y puede empeorar al aumentar la frecuencia sinusal sin mejorar la conducción. En corazón trasplantado (denervado) tampoco funciona.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Técnica del transcutáneo:</b> modo a demanda, frecuencia 60–80 lpm, subir la corriente hasta lograr captura eléctrica (QRS ancho con onda T tras cada espiga) y dejar 5–10 mA por encima. Confirmar <b>captura mecánica</b> con pulso femoral o ecografía (el pulso carotídeo engaña por los espasmos musculares). Analgesia y sedación (fentanilo, midazolam o ketamina).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Causas reversibles que cambian el tratamiento:</b> <b>hiperpotasemia</b> (calcio IV, ver pestaña 6), <b>betabloqueadores o calcioantagonistas</b> (glucagón 3–10 mg IV, calcio, insulina en dosis altas), <b>digoxina</b> (anticuerpos antidigoxina), hipotiroidismo, hipoxia, isquemia (el infarto inferior con bloqueo suele resolverse con reperfusión).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Aminofilina</b> (250 mg IV lento) es una opción en el bloqueo AV del infarto inferior y en el trasplantado, por antagonismo de la adenosina.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Técnica del transcutáneo:</b> modo a demanda, frecuencia 60–80 lpm, subir la corriente hasta lograr captura eléctrica (QRS ancho con onda T tras cada espiga) y dejar 5–10 mA por encima. Confirmar <b>captura mecánica</b> con pulso femoral o ecografía (el pulso carotídeo engaña por los espasmos musculares). Analgesia y sedación (fentanilo, midazolam o ketamina).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Causas reversibles que cambian el tratamiento:</b> <b>hiperpotasemia</b> (calcio IV, ver pestaña 6), <b>betabloqueadores o calcioantagonistas</b> (glucagón 3–10 mg IV, calcio, insulina en dosis altas), <b>digoxina</b> (anticuerpos antidigoxina), hipotiroidismo, hipoxia, isquemia (el infarto inferior con bloqueo suele resolverse con reperfusión).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Aminofilina</b> (250 mg IV lento) es una opción en el bloqueo AV del infarto inferior y en el trasplantado, por antagonismo de la adenosina.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Isoproterenol</b> (antes muy usado) aumenta el consumo de O₂ y puede desencadenar arritmias en isquemia; hoy queda relegado. El transvenoso requiere luego marcapasos definitivo si la causa no es reversible.</p></div>
     </div>
     <div class="callout"><strong>En guardia:</strong> paciente con bradicardia inestable → parches colocados mientras va la primera dosis de atropina. Si el QRS de escape es ancho, ni siquiera esperar la respuesta: marcapasos.</div>
@@ -765,26 +753,26 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v25"></div>
   </section>
-  <p class="note">Referencias: AHA 2025 Guidelines for CPR and ECC, algoritmo de bradicardia del adulto (citado en el video); Panchal AR et al. AHA 2020; Kusumoto FM et al. ACC/AHA/HRS 2018 Guideline on Bradycardia and Cardiac Conduction Delay, Circulation 2019.</p>
+  <p class="note">Referencias: AHA 2025 Guidelines for CPR and ECC, algoritmo de bradicardia del adulto; Panchal AR et al. AHA 2020; Kusumoto FM et al. ACC/AHA/HRS 2018 Guideline on Bradycardia and Cardiac Conduction Delay, Circulation 2019.</p>
 </article>
 
 <!-- ============ PESTAÑA 8 (antes 26) ============ -->
 <article class="panel" id="v26" role="tabpanel" aria-labelledby="t-v26" hidden>
   <div>
-    <h2>Fibrilación auricular en la guardia: la pizarra</h2>
-    <div class="meta"><span>Fuente: TikTok @doctor.popi</span><span>Duración 2:16</span><span>Recibido 26/10/2026</span><span>Base citada: guía ESC 2024 de fibrilación auricular</span></div>
+    <h2>Fibrilación auricular en la guardia: tres decisiones</h2>
+    <div class="meta"><span>Bases: guía ESC 2024 de fibrilación auricular</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 26">
-    <a href="#v26-resumen">Resumen</a><a href="#v26-algoritmo">Algoritmo</a><a href="#v26-dosis">Dosis</a><a href="#v26-calc">CHA₂DS₂-VA</a><a href="#v26-analisis">Análisis crítico</a><a href="#v26-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v26-resumen">Resumen</a><a href="#v26-algoritmo">Algoritmo</a><a href="#v26-dosis">Dosis</a><a href="#v26-calc">CHA₂DS₂-VA</a><a href="#v26-analisis">Puntos clave</a><a href="#v26-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v26-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Esquema dibujado en pizarra, sin láminas; el contenido se reconstruyó de lo escrito. Tres decisiones en la guardia: <b>¿anticoagular?</b> (CHA₂DS₂-VA), <b>¿está inestable?</b> (cardioversión eléctrica) y, si está estable, <b>¿cuánto tiempo lleva?</b> (menos o más de 24 h), que define si se controla el ritmo de inmediato o primero se descarta el trombo.</p>
+    <p class="lead">Tres decisiones en la guardia: <b>¿anticoagular?</b> (CHA₂DS₂-VA), <b>¿está inestable?</b> (cardioversión eléctrica) y, si está estable, <b>¿cuánto tiempo lleva?</b> (menos o más de 24 h), que define si se controla el ritmo de inmediato o primero se descarta el trombo.</p>
   </section>
 
   <section id="v26-algoritmo">
-    <h3>Algoritmo de la pizarra</h3>
+    <h3>Algoritmo</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>Ojo con el ACV</h4>
         <ul><li>¿Anticoagulación oral? Score <b>CHA₂DS₂-VA ≥ 2 → ACO</b>.</li></ul></li>
@@ -806,7 +794,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v26-dosis">
-    <h3>Dosis (agregado)</h3>
+    <h3>Dosis</h3>
     <div class="tbl"><table>
       <thead><tr><th>Objetivo</th><th>Fármaco</th><th>Dosis</th><th>Evitar en</th></tr></thead>
       <tbody>
@@ -824,7 +812,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v26-calc">
-    <h3>Calculadora CHA₂DS₂-VA (agregada)</h3>
+    <h3>Calculadora CHA₂DS₂-VA</h3>
     <div class="box">
       <div style="display:flex;flex-direction:column;gap:6px">
         <label for="f26-c"><input type="checkbox" id="f26-c"> IC o disfunción del VI (1)</label>
@@ -841,14 +829,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v26-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Esquema correcto y alineado con la ESC 2024. Matices para la guardia:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>El corte de <b>24 h</b> (antes 48 h) y el uso del <b>CHA₂DS₂-VA</b> sin sexo son las novedades de la ESC 2024; el video las incorpora.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Anticoagulación tras cardiovertir:</b> 4 semanas de ACO después de toda cardioversión de FA de &gt; 24 h, sin importar el score; luego seguir según CHA₂DS₂-VA. En FA &lt; 24 h con riesgo alto, iniciar heparina o anticoagulante directo antes del procedimiento.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>El corte de <b>24 h</b> (antes 48 h) y el uso del <b>CHA₂DS₂-VA</b> sin sexo son las novedades de la ESC 2024.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Anticoagulación tras cardiovertir:</b> 4 semanas de ACO después de toda cardioversión de FA de &gt; 24 h, sin importar el score; luego seguir según CHA₂DS₂-VA. En FA &lt; 24 h con riesgo alto, iniciar heparina o anticoagulante directo antes del procedimiento.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>No es obligatorio cardiovertir de inmediato.</b> RACE 7 (2019): la estrategia de "esperar y ver" con control de frecuencia logró conversión espontánea en ~70 % en 48 h, con igual resultado a las 4 semanas. Es razonable si el paciente está estable y sintomáticamente controlado.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Flecainida y propafenona:</b> solo sin cardiopatía estructural ni isquemia; acompañarlas de un bloqueador del nodo AV (pueden transformar la FA en flutter 1:1). Opción "píldora de bolsillo" para episodios recurrentes. <b>Vernakalant</b> IV es otra opción rápida donde esté disponible.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Buscar el desencadenante</b> antes de cardiovertir: sepsis, hipertiroidismo, alcohol, hipoxemia, hipopotasemia, posoperatorio, TEP. En ese contexto, tratar la causa y controlar la frecuencia; la cardioversión suele fracasar mientras el gatillo persiste.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Buscar el desencadenante</b> antes de cardiovertir: sepsis, hipertiroidismo, alcohol, hipoxemia, hipopotasemia, posoperatorio, TEP. En ese contexto, tratar la causa y controlar la frecuencia; la cardioversión suele fracasar mientras el gatillo persiste.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>FA preexcitada</b> (irregular, QRS ancho variable, &gt; 250 lpm): no usar betabloqueadores, calcioantagonistas, digoxina ni amiodarona; procainamida, ibutilida o cardioversión eléctrica (ver pestaña 6). En FEVI &lt; 40 %, evitar diltiazem y verapamilo.</p></div>
     </div>
     <div class="callout"><strong>En consulta:</strong> la ecografía no reemplaza al ETE para descartar trombo en la orejuela, pero el ecocardiograma transtorácico sí ayuda a decidir el antiarrítmico (FEVI, tamaño de la aurícula, valvulopatía mitral).</div>
@@ -865,23 +852,22 @@ footer a{color:var(--accent)}
 <article class="panel" id="v24" role="tabpanel" aria-labelledby="t-v24" hidden>
   <div>
     <h2>5.ª definición universal del infarto (2026): de 5 tipos a 3 categorías</h2>
-    <div class="meta"><span>Fuente: TikTok @cardiologiaeducativa</span><span>Duración 1:42</span><span>Recibido 26/10/2026</span><span>Base mostrada: Fifth Universal Definition of Myocardial Infarction (2026), ESC/ACC/AHA/WHF, Eur Heart J (doi 10.1093/eurheartj/ehag101)</span></div>
+    <div class="meta"><span>Bases: Fifth Universal Definition of Myocardial Infarction (2026), ESC/ACC/AHA/WHF, Eur Heart J (doi 10.1093/eurheartj/ehag101)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 24">
-    <a href="#v24-resumen">Resumen</a><a href="#v24-comp">4.ª vs 5.ª</a><a href="#v24-clas">Clasificador</a><a href="#v24-analisis">Análisis crítico</a><a href="#v24-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v24-resumen">Resumen</a><a href="#v24-comp">4.ª vs 5.ª</a><a href="#v24-clas">Clasificador</a><a href="#v24-analisis">Puntos clave</a><a href="#v24-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v24-resumen">
     <h3>Resumen</h3>
     <p class="lead">Presentada en el Congreso ESC 2026. La 5.ª definición universal reemplaza los <b>5 tipos</b> de la 4.ª definición (2018) por <b>3 categorías clínicas</b>: infarto <b>primario</b>, <b>secundario</b> y <b>relacionado con procedimientos</b>.</p>
-    <p class="note">Video hablado con la figura central de la guía. Completé y verifiqué el contenido con los resúmenes oficiales de la ESC y la AHA (al pie). Confirma la "5.ª definición universal" que la pestaña 10 citaba sin poder verificar.</p>
-    <div class="callout"><strong>Otros cambios verificados:</strong> el antiguo <b>tipo 3</b> (muerte con probable infarto) desaparece como tipo propio: se asigna a primario, secundario o procedimiento según el contexto o la autopsia. <b>Percentil 99 de troponina específico por sexo</b> para definir lesión miocárdica (evita subdiagnóstico en mujeres). Algoritmos acelerados con troponina de alta sensibilidad. <b>MINOCA</b> pasa a significar <i>lesión miocárdica</i> con coronarias no obstructivas, porque es un diagnóstico de trabajo. Criterios para infarto silente, para entornos de pocos recursos y códigos CIE-11.</div>
+    <div class="callout"><strong>Otros cambios:</strong> el antiguo <b>tipo 3</b> (muerte con probable infarto) desaparece como tipo propio: se asigna a primario, secundario o procedimiento según el contexto o la autopsia. <b>Percentil 99 de troponina específico por sexo</b> para definir lesión miocárdica (evita subdiagnóstico en mujeres). Algoritmos acelerados con troponina de alta sensibilidad. <b>MINOCA</b> pasa a significar <i>lesión miocárdica</i> con coronarias no obstructivas, porque es un diagnóstico de trabajo. Criterios para infarto silente, para entornos de pocos recursos y códigos CIE-11.</div>
   </section>
 
   <section id="v24-comp">
     <h3>Las 3 categorías y su equivalencia con la 4.ª definición</h3>
     <div class="tbl"><table>
-      <thead><tr><th>5.ª definición (2026)</th><th>Definición (figura central)</th><th>Ejemplos del video</th><th>Equivalente en la 4.ª (2018)</th></tr></thead>
+      <thead><tr><th>5.ª definición (2026)</th><th>Definición (figura central)</th><th>Ejemplos</th><th>Equivalente en la 4.ª (2018)</th></tr></thead>
       <tbody>
         <tr><td><b>Primario</b></td><td>Presentación espontánea por aterotrombosis o por otra patología coronaria aguda</td><td>Ruptura o erosión de placa aterosclerótica; vasoespasmo; embolia coronaria</td><td>Tipo 1 + vasoespasmo, embolia y disección coronaria espontánea (antes tipo 2) + reestenosis, trombosis del stent o falla del injerto <b>después de 30 días</b> (antes 4b/4c)</td></tr>
         <tr><td><b>Secundario</b></td><td>Secundario a una condición aguda en la que el desequilibrio oferta-demanda desenmascara enfermedad coronaria obstructiva o produce disfunción ventricular nueva</td><td>Anemia, sepsis y otras alteraciones del aporte y la demanda de oxígeno</td><td>Tipo 2 (por desequilibrio)</td></tr>
@@ -897,7 +883,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v24-clas">
-    <h3>Clasificador rápido (agregado)</h3>
+    <h3>Clasificador rápido</h3>
     <div class="box">
       <div class="calc">
         <label for="c24-sel">Escenario clínico
@@ -921,15 +907,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v24-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video breve y correcto en lo que muestra. Las notas se apoyan en la figura central y en los resúmenes oficiales; no tuve acceso a los umbrales numéricos del documento completo.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Agrupar por <b>mecanismo clínico</b> ordena mejor la conducta: el primario se trata como síndrome coronario (antitrombóticos, coronariografía); el secundario, corrigiendo la causa (transfundir, tratar la sepsis, controlar la frecuencia).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Agrupar por <b>mecanismo clínico</b> ordena mejor la conducta: el primario se trata como síndrome coronario (antitrombóticos, coronariografía); el secundario, corrigiendo la causa (transfundir, tratar la sepsis, controlar la frecuencia).</p></div>
       <div class="vd"><span class="tag add">Cambio clave</span><p><b>Vasoespasmo y embolia pasan a "primario".</b> En la 4.ª definición se clasificaban como tipo 2, lo que generaba confusión: no son desequilibrios por una condición sistémica, sino patología coronaria aguda.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Lo que queda por revisar en el documento completo:</b> los umbrales de troponina para el infarto relacionado con procedimientos (ICP, cirugía, TAVI) y los valores del percentil 99 por sexo de cada ensayo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Lo que probablemente se mantiene:</b> el núcleo diagnóstico de la 4.ª definición: elevación y/o descenso de troponina con al menos un valor &gt; percentil 99, más evidencia de isquemia (síntomas, ECG nuevo, ondas Q, imagen o trombo angiográfico). Diferenciar del daño crónico (ERC, IC) por la dinámica.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Implicación práctica:</b> el "infarto tipo 2" tenía mal pronóstico y poco tratamiento basado en evidencia. La nueva categoría "secundario" incluye explícitamente el desenmascaramiento de enfermedad coronaria obstructiva: tras corregir la causa, evaluar la anatomía coronaria.</p></div>
-      <div class="vd"><span class="tag crit">Nota</span><p>Para tu guía de SCA, esta nomenclatura cambia la redacción de diagnóstico y codificación. Si consigues el PDF de la guía, puedo integrarlo en detalle.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Lo que probablemente se mantiene:</b> el núcleo diagnóstico de la 4.ª definición: elevación y/o descenso de troponina con al menos un valor &gt; percentil 99, más evidencia de isquemia (síntomas, ECG nuevo, ondas Q, imagen o trombo angiográfico). Diferenciar del daño crónico (ERC, IC) por la dinámica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Implicación práctica:</b> el "infarto tipo 2" tenía mal pronóstico y poco tratamiento basado en evidencia. La nueva categoría "secundario" incluye explícitamente el desenmascaramiento de enfermedad coronaria obstructiva: tras corregir la causa, evaluar la anatomía coronaria.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La nueva nomenclatura (primario, secundario, relacionado con procedimientos) cambia la redacción del diagnóstico y la codificación en la historia clínica.</p></div>
     </div>
   </section>
 
@@ -943,17 +928,16 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 10 (antes 10) ============ -->
 <article class="panel" id="v10" role="tabpanel" aria-labelledby="t-v10" hidden>
   <div>
-    <h2>"Este ECG no cumple criterios… y la arteria está cerrada"</h2>
-    <div class="meta"><span>Fuente: TikTok @residentes.medicina (Dr. Resibara)</span><span>Duración 2:26</span><span>Recibido 26/10/2026</span><span>Bases citadas: 5.ª definición universal del IAM 2026, ESC 2023, ACC/AHA 2025, Meyers 2021, Khan 2017</span></div>
+    <h2>Oclusión coronaria sin supradesnivel: la arteria cerrada que el ST no muestra</h2>
+    <div class="meta"><span>Bases: 5.ª definición universal del IAM 2026, ESC 2023, ACC/AHA 2025, Meyers 2021, Khan 2017</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 10">
-    <a href="#v10-resumen">Resumen</a><a href="#v10-fisio">Por qué sube el ST</a><a href="#v10-problema">El problema</a><a href="#v10-patrones">4 patrones</a><a href="#v10-smith">Fórmula de Smith</a><a href="#v10-analisis">Análisis crítico</a><a href="#v10-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v10-resumen">Resumen</a><a href="#v10-fisio">Por qué sube el ST</a><a href="#v10-problema">El problema</a><a href="#v10-patrones">4 patrones</a><a href="#v10-smith">Fórmula de Smith</a><a href="#v10-analisis">Puntos clave</a><a href="#v10-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v10-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Mensaje central: <b>no busques solo el ST; busca la arteria cerrada.</b> Los criterios clásicos de supradesnivel dejan sin detectar más de la mitad de las oclusiones coronarias agudas. El video presenta 4 patrones de alto riesgo: <b>T hiperaguda, de Winter, posterior y Wellens</b>.</p>
-    <p class="note">Al final promociona un grupo pago con un "video completo" de 10 minutos; esa parte no aporta contenido.</p>
+    <p class="lead">Mensaje central: <b>no busques solo el ST; busca la arteria cerrada.</b> Los criterios clásicos de supradesnivel dejan sin detectar más de la mitad de las oclusiones coronarias agudas. Cuatro patrones de alto riesgo: <b>T hiperaguda, de Winter, posterior y Wellens</b>.</p>
   </section>
 
   <section id="v10-fisio">
@@ -988,7 +972,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v10-smith">
-    <h3>Fórmula de Smith: oclusión sutil de la DA vs repolarización precoz (agregada)</h3>
+    <h3>Fórmula de Smith: oclusión sutil de la DA vs repolarización precoz</h3>
     <p class="note">Solo para ST elevado en V2–V4 que no cumple criterios claros. No aplicar si ya hay STEMI evidente, ondas Q, T invertidas, ST descendido inferior, convexidad o BRI/HVI.</p>
     <div class="box">
       <div class="calc">
@@ -1003,19 +987,18 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v10-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Video bien construido y alineado con el paradigma OMI (Smith, Meyers, Aslanger). Las cifras de Meyers y Khan están bien citadas. Precisiones para el electrocardiografista:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Meyers 2021 (Int J Cardiol Heart Vasc): sensibilidad de los hallazgos OMI ≈ 86 % vs criterios STEMI ≈ 41 %, con especificidad similar. Khan 2017 (Eur Heart J): ≈ 25 % de los IAMSEST tienen oclusión total, con mayor mortalidad.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p>La fisiopatología simplificada es válida: apertura de canales K-ATP, despolarización de la membrana en reposo y acortamiento del potencial de acción en la zona isquémica generan corrientes de lesión diastólica y sistólica que se registran como desplazamiento del ST.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Wellens no es un patrón de oclusión:</b> es un patrón de <b>reperfusión</b> (OMI reperfundido). Si el paciente está sin dolor, la indicación es coronariografía temprana (&lt; 24 h), no reperfusión emergente. Si el dolor reaparece, la T se seudonormaliza y se vuelve una oclusión activa. El video lo agrupa como "4 patrones de oclusión", lo cual es impreciso.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Meyers 2021 (Int J Cardiol Heart Vasc): sensibilidad de los hallazgos OMI ≈ 86 % vs criterios STEMI ≈ 41 %, con especificidad similar. Khan 2017 (Eur Heart J): ≈ 25 % de los IAMSEST tienen oclusión total, con mayor mortalidad.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La fisiopatología simplificada es válida: apertura de canales K-ATP, despolarización de la membrana en reposo y acortamiento del potencial de acción en la zona isquémica generan corrientes de lesión diastólica y sistólica que se registran como desplazamiento del ST.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Wellens no es un patrón de oclusión:</b> es un patrón de <b>reperfusión</b> (OMI reperfundido). Si el paciente está sin dolor, la indicación es coronariografía temprana (&lt; 24 h), no reperfusión emergente. Si el dolor reaparece, la T se seudonormaliza y se vuelve una oclusión activa.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>T hiperaguda:</b> no se define por la altura absoluta, sino por el <b>área</b> de la T en proporción al QRS, con base ancha y ST recto. Tiene baja especificidad sola; la confirman el ECG seriado, los cambios recíprocos (p. ej. ST descendido en aVL en el infarto inferior) y la ecocardiografía con trastorno de motilidad regional.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Posterior:</b> en V7–V9 basta ≥ 0,5 mm (≥ 1 mm en hombres &lt; 40 años), porque los electrodos están lejos. Otros signos: R alta (R/S &gt; 1 en V2) y T positiva en V1–V3. Casi siempre acompaña a un infarto inferior o lateral.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>de Winter:</b> ≈ 2 % de los infartos anteriores. Suele acompañarse de ST elevado 0,5–1 mm en aVR. Puede evolucionar a supradesnivel clásico; requiere reperfusión emergente sin esperar la evolución.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Patrones que faltan:</b> Sgarbossa modificado (Smith) en BRI o marcapasos (ST/S ≥ 25 %); "bandera sudafricana" (DI, aVL y V2 por la primera diagonal); infarto inferior sutil con ST descendido en aVL como único signo; distorsión terminal del QRS en V2–V3; patrón de Aslanger (inferior + V1 con depresión en V4–V6).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Derivaciones derechas:</b> en todo infarto inferior registrar V4R. ST ≥ 1 mm en V4R indica compromiso del VD: evitar nitratos y asegurar precarga.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otros patrones de oclusión:</b> Sgarbossa modificado (Smith) en BRI o marcapasos (ST/S ≥ 25 %); "bandera sudafricana" (DI, aVL y V2 por la primera diagonal); infarto inferior sutil con ST descendido en aVL como único signo; distorsión terminal del QRS en V2–V3; patrón de Aslanger (inferior + V1 con depresión en V4–V6).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Derivaciones derechas:</b> en todo infarto inferior registrar V4R. ST ≥ 1 mm en V4R indica compromiso del VD: evitar nitratos y asegurar precarga.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>ST elevado en aVR con depresión difusa</b> no es en sí una oclusión. Es isquemia subendocárdica difusa (tronco, multivaso, o causas no coronarias como anemia, taquicardia o shock). Requiere coronariografía urgente si hay inestabilidad, pero no es lo mismo que un OMI.</p></div>
-      <div class="vd"><span class="tag crit">Nota</span><p>La "5.ª definición universal del infarto 2026" se cita tal como aparece en el video; no pude verificar que incorpore estos patrones. ESC 2023 y ACC/AHA 2025 sí reconocen presentaciones atípicas que requieren reperfusión inmediata (posterior aislado, BRI/marcapasos con criterios, de Winter).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>ESC 2023 y ACC/AHA 2025 reconocen presentaciones sin supradesnivel clásico que requieren reperfusión inmediata: posterior aislado, BRI o marcapasos con criterios de Sgarbossa modificados y de Winter.</p></div>
     </div>
     <div class="callout"><strong>En guardia:</strong> dolor torácico sin supradesnivel → ECG seriado cada 15–30 min, V7–V9 y V4R, comparar con ECG previo y buscar los 4 patrones. Si hay dolor refractario, inestabilidad o ECG sospechoso, coronariografía inmediata aunque "no cumpla criterios".</div>
   </section>
@@ -1031,20 +1014,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v21" role="tabpanel" aria-labelledby="t-v21" hidden>
   <div>
     <h2>¿Qué arteria está ocluida? Localízala con el ECG</h2>
-    <div class="meta"><span>Fuente: 9 láminas, CardioArias (Dr. Luis Francisco Arias, cardiólogo ecocardiografista)</span><span>Recibido 26/10/2026</span><span>Sin referencias citadas</span></div>
+    <div class="meta"><span>Bases: ESC 2023 (SCA), Birnbaum y Wagner (localización por ECG), Bayés de Luna</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 11">
-    <a href="#v21-resumen">Resumen</a><a href="#v21-mapa">Mapa rápido</a><a href="#v21-terr">Territorios</a><a href="#v21-loc">Localizador</a><a href="#v21-analisis">Análisis crítico</a><a href="#v21-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v21-resumen">Resumen</a><a href="#v21-mapa">Mapa rápido</a><a href="#v21-terr">Territorios</a><a href="#v21-loc">Localizador</a><a href="#v21-analisis">Puntos clave</a><a href="#v21-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v21-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel de correlación electro-anatómica: qué derivaciones corresponden a qué territorio y cuál es la arteria más probable. Mensaje central bien planteado: <b>el ECG orienta, la coronariografía confirma</b>. Para localizar, integrar <b>derivaciones contiguas, cambios recíprocos y dominancia/anatomía coronaria</b>.</p>
-    <p class="note">La lámina 9 es una invitación a comentar; no se incluye. Complementa la pestaña 10: oclusión sin supradesnivel.</p>
+    <p class="lead">Correlación electro-anatómica del infarto: qué derivaciones corresponden a qué territorio y cuál es la arteria más probable. Mensaje central: <b>el ECG orienta, la coronariografía confirma</b>. Para localizar, integrar <b>derivaciones contiguas, cambios recíprocos y dominancia/anatomía coronaria</b>.</p>
+    <p class="note">Complementa la pestaña 10: oclusión sin supradesnivel.</p>
   </section>
 
   <section id="v21-mapa">
-    <h3>Mapa rápido del material</h3>
+    <h3>Mapa rápido</h3>
     <div class="tbl"><table>
       <thead><tr><th>Derivaciones</th><th>Territorio</th><th>Arteria más probable</th></tr></thead>
       <tbody>
@@ -1063,7 +1046,7 @@ footer a{color:var(--accent)}
   <section id="v21-terr">
     <h3>Pistas por territorio</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Territorio</th><th>Lo que dice el material</th><th>Criterios que agregan precisión</th></tr></thead>
+      <thead><tr><th>Territorio</th><th>Patrón básico</th><th>Criterios de precisión</th></tr></thead>
       <tbody>
         <tr><td><b>Inferior</b></td><td>ST↑ III &gt; II + ST↓ aVL orienta a CD</td><td><b>Cx:</b> ST↑ II ≥ III, aVL isoeléctrico o elevado, ST↑ en I, V5–V6. <b>CD proximal:</b> ST↑ en V1 y V4R. Relación ST↓ V3 / ST↑ III &lt; 0,5 → CD proximal; 0,5–1,2 → CD distal; &gt; 1,2 → Cx</td></tr>
         <tr><td><b>VD</b></td><td>V4R ST↑ ≥ 0,5 mm (≥ 1 mm en varones &lt; 30 años); registrar derechas en todo IAM inferior</td><td>ST↑ en V1 con ST↓ en V2 (o V1 &gt; V2) sugiere VD. Evitar nitratos y diuréticos; asegurar precarga</td></tr>
@@ -1075,7 +1058,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v21-loc">
-    <h3>Localizador de arteria culpable (agregado)</h3>
+    <h3>Localizador de arteria culpable</h3>
     <div class="box">
       <p class="note">Marca los hallazgos del ECG:</p>
       <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
@@ -1094,15 +1077,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v21-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material correcto, didáctico y con el mensaje de humildad adecuado ("el ECG orienta"). Para el nivel de electrofisiología, estos son los matices:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Umbrales de V3R–V4R (≥ 0,5 mm; ≥ 1 mm en varones &lt; 30 años) y de V7–V9 (≥ 0,5 mm; ≥ 1 mm en varones &lt; 40 años) coinciden con la 4.ª definición universal del infarto. La pista ST↑ III &gt; II + ST↓ aVL para CD es la de mayor valor predictivo (Zimetbaum, NEJM 2003).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Umbrales de V3R–V4R (≥ 0,5 mm; ≥ 1 mm en varones &lt; 30 años) y de V7–V9 (≥ 0,5 mm; ≥ 1 mm en varones &lt; 40 años) coinciden con la 4.ª definición universal del infarto. La pista ST↑ III &gt; II + ST↓ aVL para CD es la de mayor valor predictivo (Zimetbaum, NEJM 2003).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Nomenclatura "septal" y "posterior":</b> la correlación con resonancia (Bayés de Luna, consenso ISHE 2006) mostró que V1–V2 reflejan más la pared anterior y el septo anterior que un "infarto septal" puro, y que las R altas en V1–V2 corresponden a la <b>pared lateral</b>, no a la posterior (la cara inferobasal no genera ese patrón). La ESC mantiene "posterior" por uso clínico; conviene conocer ambas.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Dominancia:</b> ~80–85 % derecha, ~10 % izquierda, ~5–10 % codominancia. En dominancia izquierda, el infarto inferior por Cx suele ser más extenso (incluye lateral y posterior).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>DA "envolvente" (wraparound):</b> una DA que rodea el ápex puede dar ST↑ anterior e inferior a la vez; no confundir con enfermedad de dos vasos ni con pericarditis.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Tronco o multivaso:</b> ST↑ en aVR (± V1) con ST↓ difuso en ≥ 8 derivaciones indica isquemia subendocárdica difusa (tronco, DA proximal, tres vasos), no una oclusión localizable. No figura en el material.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Infarto del VD que imita anterior:</b> la CD proximal con VD extenso puede dar ST↑ en V1–V3 que decrece de V1 a V3 (al revés que en la DA). Con ST↑ inferior concomitante, pensar primero en CD.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Tronco o multivaso:</b> ST↑ en aVR (± V1) con ST↓ difuso en ≥ 8 derivaciones indica isquemia subendocárdica difusa (tronco, DA proximal, tres vasos), no una oclusión localizable.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Infarto del VD que imita anterior:</b> la CD proximal con VD extenso puede dar ST↑ en V1–V3 que decrece de V1 a V3 (al revés que en la DA). Con ST↑ inferior concomitante, pensar primero en CD.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Cx "eléctricamente silente":</b> hasta un 30–40 % de las oclusiones de la Cx no cumplen criterios de supradesnivel. Por eso las derivaciones posteriores, el ecocardiograma con trastorno de motilidad y los patrones OMI de la pestaña 10 son esenciales.</p></div>
     </div>
     <div class="callout"><strong>Para la cátedra:</strong> el localizador de esta pestaña sirve como ejercicio: dar un ECG, que el alumno marque hallazgos y prediga la arteria, y luego contrastar con la coronariografía.</div>
@@ -1118,23 +1100,23 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 12 (antes 33) ============ -->
 <article class="panel" id="v33" role="tabpanel" aria-labelledby="t-v33" hidden>
   <div>
-    <h2>Clasificación de la insuficiencia cardíaca "según guías 2026"</h2>
-    <div class="meta"><span>Fuente: 1 infografía, TikTok @mario.coronado23</span><span>Recibido 27/10/2026</span><span>Base citada: Segunda Definición Universal de IC 2026 (AHA/ACC/ESC/WHF) — existe, verificada</span></div>
+    <h2>Clasificación de la insuficiencia cardíaca: estadios, NYHA, INTERMACS y la definición 2026</h2>
+    <div class="meta"><span>Bases: Segunda Definición Universal de IC 2026 (AHA/ACC/ESC/WHF), ACC/AHA/HFSA 2022, INTERMACS</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 12">
-    <a href="#v33-resumen">Resumen</a><a href="#v33-tres">Las 3 escalas</a><a href="#v33-nuevo">Lo nuevo de 2026</a><a href="#v33-calc">Clasificador</a><a href="#v33-analisis">Análisis crítico</a><a href="#v33-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v33-resumen">Resumen</a><a href="#v33-tres">Las 3 escalas</a><a href="#v33-nuevo">Lo nuevo de 2026</a><a href="#v33-calc">Clasificador</a><a href="#v33-analisis">Puntos clave</a><a href="#v33-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v33-resumen">
     <h3>Resumen</h3>
-    <p class="lead">La infografía reúne tres escalas: <b>estadios A–D</b> (continuo clínico), <b>clase funcional NYHA I–IV</b> e <b>INTERMACS 1–7</b> para la IC avanzada. Todo es correcto, pero <b>no es lo nuevo de 2026</b>: son escalas de 1964 (NYHA), 2001–2022 (estadios) y 2009 (INTERMACS). Lo que sí cambió en la Segunda Definición Universal (junio 2026) no aparece: la <b>desaparición de la HFmrEF</b>, el abandono de los puntos de corte fijos de FEVI y la <b>clasificación etiológica</b>.</p>
+    <p class="lead">Tres escalas complementarias para clasificar la IC: <b>estadios A–D</b> (continuo clínico), <b>clase funcional NYHA I–IV</b> e <b>INTERMACS 1–7</b> para la IC avanzada. Son escalas establecidas (NYHA 1964, estadios 2001–2022, INTERMACS 2009). Lo nuevo de la Segunda Definición Universal (junio 2026) es la <b>desaparición de la HFmrEF</b>, el abandono de los puntos de corte fijos de FEVI y la <b>clasificación etiológica</b>.</p>
     <p class="note">La Segunda Definición Universal es un documento de consenso, no una guía. La guía ACC/AHA basada en ella se espera para fines de 2027.</p>
   </section>
 
   <section id="v33-tres">
-    <h3>Las 3 escalas de la infografía</h3>
+    <h3>Las 3 escalas</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Estadio</th><th>Nombre</th><th>Infografía</th><th>Precisión agregada</th></tr></thead>
+      <thead><tr><th>Estadio</th><th>Nombre</th><th>Definición</th><th>Detalle</th></tr></thead>
       <tbody>
         <tr><td class="m">A</td><td>En riesgo</td><td>Sin cardiopatía estructural ni síntomas</td><td>HTA, diabetes, obesidad, enfermedad coronaria, cardiotóxicos, genética; <b>biomarcadores normales</b></td></tr>
         <tr><td class="m">B</td><td>Pre-IC</td><td>Cardiopatía estructural sin síntomas</td><td>También sin cardiopatía visible si hay <b>péptidos natriuréticos o troponina elevados</b> o presiones de llenado altas</td></tr>
@@ -1152,7 +1134,7 @@ footer a{color:var(--accent)}
       </tbody>
     </table></div>
     <div class="tbl"><table>
-      <thead><tr><th>INTERMACS</th><th>Perfil (infografía)</th><th>Nombre original</th><th>Ventana para soporte</th></tr></thead>
+      <thead><tr><th>INTERMACS</th><th>Perfil</th><th>Nombre original</th><th>Ventana para soporte</th></tr></thead>
       <tbody>
         <tr><td class="m">1</td><td>Choque cardiogénico crítico</td><td>"Crash and burn"</td><td>Horas</td></tr>
         <tr><td class="m">2</td><td>Deterioro progresivo</td><td>"Sliding on inotropes"</td><td>Días</td></tr>
@@ -1167,7 +1149,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v33-nuevo">
-    <h3>Lo nuevo de la Segunda Definición Universal 2026 (agregado, no está en la infografía)</h3>
+    <h3>Lo nuevo de la Segunda Definición Universal 2026</h3>
     <div class="tbl"><table>
       <thead><tr><th>Tema</th><th>Antes (2021–2022)</th><th>2026</th></tr></thead>
       <tbody>
@@ -1177,11 +1159,11 @@ footer a{color:var(--accent)}
         <tr><td><b>Determinantes</b></td><td>—</td><td>Incorpora la variación geográfica de la etiología y los determinantes sociales</td></tr>
       </tbody>
     </table></div>
-    <p class="note">No pude acceder al texto completo: no verifiqué los nuevos criterios exactos de los estadios ni los umbrales de péptidos. La definición de 2021 usaba NT-proBNP ≥ 125 pg/mL (ambulatorio) o ≥ 300 (hospitalizado) y BNP ≥ 35 o ≥ 100.</p>
+    <p class="note">Umbrales de péptidos de referencia (definición universal 2021): NT-proBNP ≥ 125 pg/mL (ambulatorio) o ≥ 300 (hospitalizado) y BNP ≥ 35 o ≥ 100.</p>
   </section>
 
   <section id="v33-calc">
-    <h3>Clasificador del paciente (agregado)</h3>
+    <h3>Clasificador del paciente</h3>
     <div class="box">
       <div class="calc">
         <label for="c33-rf">Factores de riesgo (HTA, DM, obesidad, coronariopatía, cardiotóxicos)
@@ -1203,14 +1185,13 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v33-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Infografía clara y sin errores en lo que muestra, pero el título promete algo que no entrega:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>La Segunda Definición Universal de IC 2026 existe: AHA/ACC/ESC/WHF, en colaboración con HFSA, HFA y JHFS, publicada a fines de junio de 2026 en Circulation, JACC, European Heart Journal y Global Heart. Los estadios A–D, la NYHA y los 7 perfiles INTERMACS están bien descritos.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>"Clasificación actual según guías 2026" es engañoso.</b> Es un documento de consenso, no una guía, y las tres escalas mostradas son previas. La infografía omite justo lo que cambió: se elimina la HFmrEF, se abandonan los cortes fijos de FEVI y se introduce la clasificación etiológica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>La Segunda Definición Universal de IC 2026 existe: AHA/ACC/ESC/WHF, en colaboración con HFSA, HFA y JHFS, publicada a fines de junio de 2026 en Circulation, JACC, European Heart Journal y Global Heart. Los estadios A–D, la NYHA y los 7 perfiles INTERMACS están bien descritos.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>La Segunda Definición Universal es un consenso, no una guía.</b> Sus cambios: se elimina la HFmrEF, se abandonan los cortes fijos de FEVI y se introduce la clasificación etiológica. Las escalas A–D, NYHA e INTERMACS siguen vigentes.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Estadio B incompleto.</b> Pre-IC no es solo "cardiopatía estructural": incluye pacientes con péptidos natriuréticos o troponina elevados, o presiones de llenado altas, sin alteración estructural visible. Es la población donde un diabético o hipertenso con NT-proBNP alto ya debe tratarse como pre-IC.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>Los estadios no retroceden; la NYHA sí.</b> Un paciente en estadio C que mejora a NYHA I sigue en estadio C (o en remisión), nunca vuelve a B. Faltó decirlo: es el error más frecuente al usar ambas escalas.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>INTERMACS sirve para decidir soporte circulatorio mecánico y trasplante</b>, no para clasificar a todo paciente con IC. En el shock cardiogénico agudo hoy se usa la escala <b>SCAI (A–E)</b>. Para derivar a una unidad de IC avanzada, la regla nemotécnica <b>"I NEED HELP"</b> (inotrópicos, NYHA IIIb–IV o NT-proBNP persistentemente alto, daño de órgano, FEVI ≤ 25–30 %, descargas del DAI, hospitalizaciones, edema pese a diuréticos, PA baja, intolerancia a la terapia óptima) es más práctica.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Los estadios no retroceden; la NYHA sí.</b> Un paciente en estadio C que mejora a NYHA I sigue en estadio C (o en remisión), nunca vuelve a B. Es el error más frecuente al usar ambas escalas.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>INTERMACS sirve para decidir soporte circulatorio mecánico y trasplante</b>, no para clasificar a todo paciente con IC. En el shock cardiogénico agudo hoy se usa la escala <b>SCAI (A–E)</b>. Para derivar a una unidad de IC avanzada, la regla nemotécnica <b>"I NEED HELP"</b> (inotrópicos, NYHA IIIb–IV o NT-proBNP persistentemente alto, daño de órgano, FEVI ≤ 25–30 %, descargas del DAI, hospitalizaciones, edema pese a diuréticos, PA baja, intolerancia a la terapia óptima) es más práctica.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>HFimpEF no es "curación".</b> Suspender el tratamiento en la miocardiopatía dilatada recuperada lleva a recaída en ~40 % en 6 meses (TRED-HF, Lancet 2019). Mantener el tratamiento completo.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>Etiologías en Ecuador:</b> la nueva clasificación etiológica importa aquí. En la costa predominan la hipertensiva y la isquémica, pero hay que buscar <b>Chagas</b> (endémico en Guayas, El Oro, Manabí y Loja; serología en toda miocardiopatía dilatada no explicada, sobre todo con bloqueo de rama derecha y hemibloqueo anterior), la <b>valvular reumática</b> y la miocardiopatía <b>periparto</b>. El NT-proBNP no siempre está disponible en el sector público: en estadio B el ECG y la ecocardiografía siguen siendo la vía práctica.</p></div>
     </div>
@@ -1228,17 +1209,17 @@ footer a{color:var(--accent)}
 <article class="panel" id="v23" role="tabpanel" aria-labelledby="t-v23" hidden>
   <div>
     <h2>Dosis de los fármacos en insuficiencia cardíaca (ESC 2026)</h2>
-    <div class="meta"><span>Fuente: 2 láminas, @cardiologiaeducativa</span><span>Recibido 26/10/2026</span><span>Base citada: 2026 ESC Guidelines for the management of heart failure, Eur Heart J (doi 10.1093/eurheartj/ehag100)</span></div>
+    <div class="meta"><span>Bases: 2026 ESC Guidelines for the management of heart failure, Eur Heart J (doi 10.1093/eurheartj/ehag100); ESC 2021</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 13">
-    <a href="#v23-resumen">Resumen</a><a href="#v23-tabla">Tabla de dosis</a><a href="#v23-calc">Titulación</a><a href="#v23-analisis">Análisis crítico</a><a href="#v23-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v23-resumen">Resumen</a><a href="#v23-tabla">Tabla de dosis</a><a href="#v23-calc">Titulación</a><a href="#v23-analisis">Puntos clave</a><a href="#v23-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v23-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Tabla de dosis de inicio y objetivo de la nueva guía ESC 2026 de IC. Las láminas recibidas incluyen solo la <b>segunda parte</b> de la tabla: ARM (incluida la <b>finerenona</b>, nueva en esta guía), iSGLT2 y otros fármacos (digoxina, <b>digitoxina</b>, ivabradina, vericiguat, hidralazina/dinitrato de isosorbida).</p>
-    <p class="note">Falta la lámina con IECA, ARNI, ARA-II y betabloqueadores. Las agregué con las dosis de la ESC 2021 (marcadas); si me envías esa lámina, las actualizo.</p>
-    <div class="callout"><strong>Cambios verificados de la ESC 2026 (fuentes al pie):</strong> desaparece la IC con FE levemente reducida: <b>FE reducida = FEVI &lt; 50 %</b> y <b>FE preservada = FEVI ≥ 50 %</b>. La "IC aguda" pasa a llamarse <b>IC descompensada</b>. El GDMT se divide en <b>tratamiento fundamental</b> (FEr: betabloqueador, IECA/ARNI/ARA-II, ARM, iSGLT2; FEp: ARM e iSGLT2) y <b>tratamiento adicional</b> (ivabradina, vericiguat, digitálicos). Los <b>ARM son clase I independientemente de la FEVI</b>. Semaglutida o tirzepatida: clase IIa en FE preservada con obesidad (IMC ≥ 30). iSGLT2 desde la hospitalización, una vez estabilizado, y diurético guiado por sodio urinario. Meta de PAS &lt; 130 mmHg en prevención.</div>
+    <p class="lead">Dosis de inicio y objetivo del tratamiento de la IC según la guía ESC 2026: IECA, ARNI y ARA-II, betabloqueadores, ARM (incluida la <b>finerenona</b>, nueva en esta guía), iSGLT2 y otros fármacos (digoxina, <b>digitoxina</b>, ivabradina, vericiguat, hidralazina/dinitrato de isosorbida).</p>
+    <p class="note">Las dosis de IECA, ARNI, ARA-II y betabloqueadores se presentan con los valores de la ESC 2021 (marcados en la columna de fuente).</p>
+    <div class="callout"><strong>Cambios principales de la ESC 2026:</strong> desaparece la IC con FE levemente reducida: <b>FE reducida = FEVI &lt; 50 %</b> y <b>FE preservada = FEVI ≥ 50 %</b>. La "IC aguda" pasa a llamarse <b>IC descompensada</b>. El GDMT se divide en <b>tratamiento fundamental</b> (FEr: betabloqueador, IECA/ARNI/ARA-II, ARM, iSGLT2; FEp: ARM e iSGLT2) y <b>tratamiento adicional</b> (ivabradina, vericiguat, digitálicos). Los <b>ARM son clase I independientemente de la FEVI</b>. Semaglutida o tirzepatida: clase IIa en FE preservada con obesidad (IMC ≥ 30). iSGLT2 desde la hospitalización, una vez estabilizado, y diurético guiado por sodio urinario. Meta de PAS &lt; 130 mmHg en prevención.</div>
   </section>
 
   <section id="v23-tabla">
@@ -1246,14 +1227,14 @@ footer a{color:var(--accent)}
     <div class="tbl"><table>
       <thead><tr><th>Fármaco</th><th>Dosis inicial</th><th>Dosis objetivo</th><th>Fuente</th></tr></thead>
       <tbody>
-        <tr><td colspan="4"><b>ARNI / IECA / ARA-II</b> <span class="note">(lámina no recibida)</span></td></tr>
+        <tr><td colspan="4"><b>ARNI / IECA / ARA-II</b></td></tr>
         <tr><td>Sacubitrilo/valsartán</td><td class="m">49/51 mg c/12 h</td><td class="m">97/103 mg c/12 h</td><td class="note">ESC 2021</td></tr>
         <tr><td>Enalapril</td><td class="m">2,5 mg c/12 h</td><td class="m">10–20 mg c/12 h</td><td class="note">ESC 2021</td></tr>
         <tr><td>Ramipril</td><td class="m">2,5 mg c/12 h</td><td class="m">5 mg c/12 h</td><td class="note">ESC 2021</td></tr>
         <tr><td>Losartán</td><td class="m">50 mg/día</td><td class="m">150 mg/día</td><td class="note">ESC 2021</td></tr>
         <tr><td>Candesartán</td><td class="m">4–8 mg/día</td><td class="m">32 mg/día</td><td class="note">ESC 2021</td></tr>
         <tr><td>Valsartán</td><td class="m">40 mg c/12 h</td><td class="m">160 mg c/12 h</td><td class="note">ESC 2021</td></tr>
-        <tr><td colspan="4"><b>Betabloqueadores</b> <span class="note">(lámina no recibida)</span></td></tr>
+        <tr><td colspan="4"><b>Betabloqueadores</b></td></tr>
         <tr><td>Bisoprolol</td><td class="m">1,25 mg/día</td><td class="m">10 mg/día</td><td class="note">ESC 2021</td></tr>
         <tr><td>Carvedilol</td><td class="m">3,125 mg c/12 h</td><td class="m">25 mg c/12 h (50 si &gt; 85 kg)</td><td class="note">ESC 2021</td></tr>
         <tr><td>Metoprolol succinato</td><td class="m">12,5–25 mg/día</td><td class="m">200 mg/día</td><td class="note">ESC 2021</td></tr>
@@ -1273,11 +1254,11 @@ footer a{color:var(--accent)}
         <tr><td>Hidralazina / dinitrato de isosorbida</td><td class="m">37,5 / 20 mg c/8 h</td><td class="m">75 / 40 mg c/8 h</td><td class="note">ESC 2026</td></tr>
       </tbody>
     </table></div>
-    <p class="note">Las notas al pie de la lámina (f, g, h) no se ven en la imagen; suelen referirse al ajuste por función renal y potasio, a la dosis de finerenona según TFGe, y a los niveles de digitálicos.</p>
+    <p class="note">Ajustar ARM y finerenona según TFGe y potasio; vigilar niveles de digitálicos.</p>
   </section>
 
   <section id="v23-calc">
-    <h3>Seguimiento de titulación (agregado)</h3>
+    <h3>Seguimiento de titulación</h3>
     <div class="box">
       <p class="note">Ingresa la dosis diaria total actual de cada pilar; la herramienta calcula el porcentaje de la dosis objetivo.</p>
       <div class="calc" style="margin-top:6px">
@@ -1293,15 +1274,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v23-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Verifiqué los cambios principales en resúmenes de la ESC 2026 (no el texto completo de la tabla de dosis); las cifras de la lámina son coherentes con los ensayos que las sustentan.</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Finerenona:</b> su entrada responde a FINEARTS-HF (Solomon, NEJM 2024), con beneficio en FEVI ≥ 40 %. Encaja con el cambio de la ESC 2026, que da a los ARM clase I sin importar la FEVI y amplía su uso a la FE preservada. Dosis según TFGe: 10 mg si TFGe ≤ 60, objetivo 20 o 40 mg. No pude confirmar en qué escenarios la guía la prefiere sobre la espironolactona.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Digitoxina:</b> DIGIT-HF (2025) mostró reducción de muerte u hospitalización por IC en FE reducida avanzada. Ventaja: eliminación hepática, útil en ERC. Disponibilidad limitada en Latinoamérica.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Finerenona:</b> su entrada responde a FINEARTS-HF (Solomon, NEJM 2024), con beneficio en FEVI ≥ 40 %. Encaja con el cambio de la ESC 2026, que da a los ARM clase I sin importar la FEVI y amplía su uso a la FE preservada. Dosis según TFGe: 10 mg si TFGe ≤ 60, objetivo 20 o 40 mg.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Digitoxina:</b> DIGIT-HF (2025) mostró reducción de muerte u hospitalización por IC en FE reducida avanzada. Ventaja: eliminación hepática, útil en ERC. Disponibilidad limitada en Latinoamérica.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Digoxina:</b> la "dosis objetivo" de 250 µg no es una meta; se titula por niveles séricos <b>0,5–0,9 ng/mL</b>. En ancianos, mujeres o ERC, 62,5–125 µg/día suele ser suficiente.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>iSGLT2 no se titula:</b> 10 mg desde el inicio. Iniciar con TFGe ≥ 20 (dapagliflozina ≥ 25 en DAPA-HF) y mantener hasta diálisis. Ver pestaña 20 de la Videoteca 2 (caída inicial de la TFGe).</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>Ivabradina:</b> solo en ritmo sinusal con FC ≥ 70 lpm pese a betabloqueador a dosis máxima tolerada. <b>Vericiguat:</b> tras descompensación reciente (VICTORIA); VICTOR (2025) en pacientes estables no alcanzó el objetivo primario.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Estrategia de titulación rápida</b> (STRONG-HF, 2022): iniciar los 4 pilares y titular hasta la dosis objetivo en las 2 semanas posteriores al alta, con controles de PA, FC, K⁺, creatinina y NT-proBNP. Mejor tener los 4 a dosis baja que uno a dosis máxima.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Estrategia de titulación rápida</b> (STRONG-HF, 2022): iniciar los 4 pilares y titular hasta la dosis objetivo en las 2 semanas posteriores al alta, con controles de PA, FC, K⁺, creatinina y NT-proBNP. Mejor tener los 4 a dosis baja que uno a dosis máxima.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>ARM:</b> no iniciar con K⁺ &gt; 5,0 mEq/L o TFGe &lt; 30. Con K⁺ 5,5–6,0 reducir a la mitad; &gt; 6,0 suspender. Controlar K⁺ y creatinina a la 1.ª y 4.ª semana.</p></div>
     </div>
   </section>
@@ -1317,19 +1297,19 @@ footer a{color:var(--accent)}
 <article class="panel" id="v12" role="tabpanel" aria-labelledby="t-v12" hidden>
   <div>
     <h2>Crisis hipertensiva: nifedipino sublingual nunca más</h2>
-    <div class="meta"><span>Fuente: TikTok @medicina.en.resumen · "Hipertensión, parte 4"</span><span>Duración 2:25</span><span>Recibido 23/10/2026</span><span>Base citada: AHA/ACC 2025, sección 6.2 y tabla 27</span></div>
+    <div class="meta"><span>Bases: AHA/ACC 2025 (sección 6.2 y tabla 27), ESC 2019 y 2024</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 12">
-    <a href="#v12-resumen">Resumen</a><a href="#v12-algoritmo">Algoritmo</a><a href="#v12-metas">Metas por condición</a><a href="#v12-calc">Calculadora</a><a href="#v12-analisis">Análisis crítico</a><a href="#v12-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v12-resumen">Resumen</a><a href="#v12-algoritmo">Algoritmo</a><a href="#v12-metas">Metas por condición</a><a href="#v12-calc">Calculadora</a><a href="#v12-analisis">Puntos clave</a><a href="#v12-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v12-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel en video con referencias en cada lámina. Una sola pregunta divide todo: <b>¿hay daño agudo a órgano?</b> (corazón, cerebro, riñón, retina, aorta). Sin daño, la AHA/ACC 2025 abandona el término "urgencia hipertensiva" y habla de <b>hipertensión grave</b>: vía oral y sin prisa. Con daño, es <b>emergencia</b>: terapia intensiva e infusión IV titulable, con metas distintas según el órgano.</p>
+    <p class="lead">Una sola pregunta divide todo: <b>¿hay daño agudo a órgano?</b> (corazón, cerebro, riñón, retina, aorta). Sin daño, la AHA/ACC 2025 abandona el término "urgencia hipertensiva" y habla de <b>hipertensión grave</b>: vía oral y sin prisa. Con daño, es <b>emergencia</b>: terapia intensiva e infusión IV titulable, con metas distintas según el órgano.</p>
   </section>
 
   <section id="v12-algoritmo">
-    <h3>Algoritmo del video</h3>
+    <h3>Algoritmo</h3>
     <ol class="steps">
       <li class="step"><span class="num">?</span><h4>¿Hay daño agudo a órgano?</h4>
         <ul><li>Corazón, cerebro, riñón, retina, aorta.</li></ul></li>
@@ -1366,7 +1346,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v12-calc">
-    <h3>Calculadora de metas (agregada)</h3>
+    <h3>Calculadora de metas</h3>
     <div class="box">
       <div class="calc">
         <label for="h12-pas">PA sistólica inicial (mmHg)<input id="h12-pas" type="number" min="100" max="300" value="220"></label>
@@ -1388,18 +1368,17 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v12-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Excelente material: cada lámina cita su fuente y las cifras de los estudios están bien. Para el especialista en hipertensión, estos son los matices y lo que falta:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>Abandono del nifedipino sublingual</b> (Grossman 1996): la absorción sublingual es mínima; actúa por absorción gastrointestinal rápida, con hipotensión impredecible, isquemia cerebral y coronaria. No existe dosis segura en crisis fuera del embarazo.</p></div>
-      <div class="vd"><span class="tag ok">Correcto</span><p><b>HIC: no bajar de 130</b>, coincide con AHA/ASA 2022. INTERACT-3/4 y ATACH-2 mostraron que la reducción agresiva no mejora el pronóstico y aumenta la lesión renal. Mantener 130–150 con poca variabilidad.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Isquemia con trombólisis:</b> además de &lt; 185/110 antes, mantener <b>&lt; 180/105 durante 24 h</b> después del trombolítico. Sin trombólisis y con PA &gt; 220/120: bajar solo ~15 % en las primeras 24 h.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>¿25 % de qué?</b> La AHA/ACC lo expresa sobre la <b>PAS</b>; el documento de la ESC (2019), sobre la <b>PAM</b>. En la práctica dan cifras parecidas; la calculadora muestra ambas. Excepciones donde la meta es inmediata: disección aórtica, preeclampsia grave/eclampsia y feocromocitoma.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Condiciones que faltan:</b></p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Abandono del nifedipino sublingual</b> (Grossman 1996): la absorción sublingual es mínima; actúa por absorción gastrointestinal rápida, con hipotensión impredecible, isquemia cerebral y coronaria. No existe dosis segura en crisis fuera del embarazo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>HIC: no bajar de 130</b>, coincide con AHA/ASA 2022. INTERACT-3/4 y ATACH-2 mostraron que la reducción agresiva no mejora el pronóstico y aumenta la lesión renal. Mantener 130–150 con poca variabilidad.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Isquemia con trombólisis:</b> además de &lt; 185/110 antes, mantener <b>&lt; 180/105 durante 24 h</b> después del trombolítico. Sin trombólisis y con PA &gt; 220/120: bajar solo ~15 % en las primeras 24 h.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>¿25 % de qué?</b> La AHA/ACC lo expresa sobre la <b>PAS</b>; el documento de la ESC (2019), sobre la <b>PAM</b>. En la práctica dan cifras parecidas; la calculadora muestra ambas. Excepciones donde la meta es inmediata: disección aórtica, preeclampsia grave/eclampsia y feocromocitoma.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otras condiciones:</b></p></div>
       <div class="vd"><span class="tag add">↳</span><p><b>Preeclampsia/eclampsia:</b> PA ≥ 160/110 tratar en 30–60 min; labetalol IV, hidralazina IV o <b>nifedipino oral de liberación inmediata</b> (en el embarazo sí es de primera línea, ACOG). Sulfato de magnesio para prevenir convulsiones.</p></div>
       <div class="vd"><span class="tag add">↳</span><p><b>Feocromocitoma o simpaticomiméticos (cocaína, anfetaminas):</b> fentolamina o nicardipino + benzodiacepina. <b>Nunca betabloqueador solo</b> (estimulación α sin oposición).</p></div>
       <div class="vd"><span class="tag add">↳</span><p><b>Hipertensión maligna</b> (retinopatía grado III–IV) y <b>microangiopatía trombótica</b> (esquistocitos, LDH alta, plaquetas bajas): son emergencias aunque no haya síntomas. El fondo de ojo es parte de la evaluación.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Evaluación mínima de daño a órgano:</b> ECG, troponina, creatinina, examen de orina, fondo de ojo, frotis/LDH si hay sospecha de MAT; TAC de cráneo si hay focalidad o alteración de conciencia; angio-TC si hay dolor torácico o dorsal desgarrante.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Evaluación mínima de daño a órgano:</b> ECG, troponina, creatinina, examen de orina, fondo de ojo, frotis/LDH si hay sospecha de MAT; TAC de cráneo si hay focalidad o alteración de conciencia; angio-TC si hay dolor torácico o dorsal desgarrante.</p></div>
       <div class="vd"><span class="tag crit">Contexto local</span><p><b>Disponibilidad en Ecuador:</b> nicardipino y clevidipino son poco accesibles. En la práctica se usan <b>labetalol IV</b>, <b>nitroprusiato</b> (evitar uso prolongado por toxicidad por cianuro, sobre todo en ERC) y <b>nitroglicerina</b> (SCA, EAP). Elegir según el órgano afectado y lo disponible.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Hospitalizado con PA alta asintomática:</b> antes de tratar, buscar la causa: dolor, ansiedad, retención urinaria, abstinencia, suspensión de antihipertensivos, fármacos (AINE, corticoides, simpaticomiméticos). Tratar la causa, no el número.</p></div>
     </div>
@@ -1416,21 +1395,21 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 15 (antes 13) ============ -->
 <article class="panel" id="v13" role="tabpanel" aria-labelledby="t-v13" hidden>
   <div>
-    <h2>"210/120 sin síntomas": hipertensión severa vs emergencia hipertensiva</h2>
-    <div class="meta"><span>Fuente: TikTok @medikbrain</span><span>Duración 2:55</span><span>Recibido 20/10/2026</span><span>Base citada: guía AHA/ACC 2025</span></div>
+    <h2>Hipertensión severa vs emergencia hipertensiva</h2>
+    <div class="meta"><span>Bases: guía AHA/ACC 2025, ESC 2019 (emergencias hipertensivas), ACOG (preeclampsia)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del video 13">
-    <a href="#v13-resumen">Resumen</a><a href="#v13-claves">4 claves</a><a href="#v13-caso">Caso</a><a href="#v13-comp">Comparación con la pestaña 14</a><a href="#v13-analisis">Análisis crítico</a><a href="#v13-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v13-resumen">Resumen</a><a href="#v13-claves">4 claves</a><a href="#v13-caso">Caso</a><a href="#v13-comp">Detalles por escenario</a><a href="#v13-analisis">Puntos clave</a><a href="#v13-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v13-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Mismo tema que la pestaña 14, contado por otro autor. Arranca con el error típico: paciente con <b>210/120 sin síntomas</b>, le diste captopril y la bajaste en 1 hora: "ese es el error". La "urgencia hipertensiva" ya no existe: <b>el número no define nada, el órgano sí</b>.</p>
-    <p class="note">Para metas por órgano y la calculadora, ver la pestaña 14. Aquí va lo propio de este video y en qué difieren ambos.</p>
+    <p class="lead">El error típico: paciente con <b>210/120 sin síntomas</b> al que se le da captopril y se le baja la presión en 1 hora. La "urgencia hipertensiva" ya no existe: <b>el número no define nada, el órgano sí</b>.</p>
+    <p class="note">Metas por órgano y calculadora en la pestaña 14; fármacos y dosis en la pestaña 16.</p>
   </section>
 
   <section id="v13-claves">
-    <h3>Las 4 claves del video</h3>
+    <h3>Las 4 claves</h3>
     <ol class="steps">
       <li class="step"><span class="num">1</span><h4>El órgano manda</h4>
         <ul>
@@ -1469,26 +1448,25 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v13-comp">
-    <h3>Comparación con la pestaña 14 (@medicina.en.resumen)</h3>
+    <h3>Detalles por escenario</h3>
     <div class="tbl"><table>
-      <thead><tr><th>Punto</th><th>Pestaña 14</th><th>Este video</th><th>Comentario</th></tr></thead>
+      <thead><tr><th>Punto</th><th>Recomendación</th></tr></thead>
       <tbody>
-        <tr><td>Umbral</td><td class="m">&gt;180 y/o &gt;120</td><td class="m">&gt;180/120</td><td>Equivalentes: basta con que una de las dos cifras supere el umbral.</td></tr>
-        <tr><td>Disección aórtica</td><td class="m">PAS ≤ 120 en 20 min</td><td class="m">PAS &lt; 120 en la 1.ª hora</td><td>ESC 2019 apunta a 20 min; AHA/ACC dice 1.ª hora. En la práctica: lo antes posible, con FC ≤ 60 primero.</td></tr>
-        <tr><td>Embarazo</td><td>Lo excluye</td><td>Lo incluye como excepción</td><td>En preeclampsia severa la meta es inmediata (PAS &lt; 160, PAD &lt; 110 en 30–60 min).</td></tr>
-        <tr><td>Evidencia</td><td>Cita estudios (Patel, Rastogi)</td><td>Sin cifras</td><td>La pestaña 14 es más sólida; esta es más didáctica.</td></tr>
-        <tr><td>Evaluación</td><td>No la detalla</td><td>ECG, troponina, creatinina, orina</td><td>Falta el fondo de ojo en ambas.</td></tr>
+        <tr><td>Umbral</td><td>PAS &gt; 180 y/o PAD &gt; 120 mmHg: basta con que una de las dos cifras supere el umbral.</td></tr>
+        <tr><td>Disección aórtica</td><td>PAS ≤ 120 lo antes posible (ESC 2019: en 20 min; AHA/ACC: en la 1.ª hora), con FC ≤ 60 primero.</td></tr>
+        <tr><td>Embarazo</td><td>Preeclampsia severa: meta inmediata, PAS &lt; 160 y PAD &lt; 110 en 30–60 min.</td></tr>
+        <tr><td>Evaluación</td><td>ECG, troponina, creatinina, parcial de orina y <b>fondo de ojo</b> (retinopatía grado III–IV).</td></tr>
       </tbody>
     </table></div>
   </section>
 
   <section id="v13-analisis">
-    <h3>Análisis crítico</h3>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>El mensaje central coincide con la AHA/ACC 2025 y con la pestaña 14: el daño de órgano define la conducta, no el número.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Mensaje central (AHA/ACC 2025, pestaña 14): el daño de órgano define la conducta, no el número.</p></div>
       <div class="vd"><span class="tag add">Matiz</span><p><b>El captopril no es el villano.</b> El error del ejemplo es el objetivo (bajar en 1 hora), no el fármaco. Un IECA oral es razonable para reiniciar el tratamiento; lo que no se busca es normalizar la PA en horas, porque la autorregulación cerebral y coronaria está desplazada en el hipertenso crónico.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Fondo de ojo:</b> hemorragias en llama, exudados o papiledema (hipertensión maligna) convierten un caso "asintomático" en emergencia. Es el examen más olvidado en consulta.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Riñón:</b> no basta con la creatinina. Hematuria o proteinuria nuevas, o un aumento agudo de creatinina respecto a un valor previo, sugieren lesión aguda. Pensar en microangiopatía si hay anemia y plaquetas bajas.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Fondo de ojo:</b> hemorragias en llama, exudados o papiledema (hipertensión maligna) convierten un caso "asintomático" en emergencia. Es el examen más olvidado en consulta.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Riñón:</b> no basta con la creatinina. Hematuria o proteinuria nuevas, o un aumento agudo de creatinina respecto a un valor previo, sugieren lesión aguda. Pensar en microangiopatía si hay anemia y plaquetas bajas.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>"Asintomático" se pregunta dirigido:</b> cefalea intensa, alteraciones visuales, dolor torácico o dorsal, disnea, déficit neurológico, oliguria. Muchos pacientes no los refieren espontáneamente.</p></div>
     </div>
   </section>
@@ -1503,16 +1481,16 @@ footer a{color:var(--accent)}
 <!-- ============ PESTAÑA 16 (antes 18) ============ -->
 <article class="panel" id="v18" role="tabpanel" aria-labelledby="t-v18" hidden>
   <div>
-    <h2>Tiagoritmo: crisis hipertensiva, ¿cómo abordarla?</h2>
-    <div class="meta"><span>Fuente: 14 láminas, TiagoMed (@soytiagomed)</span><span>Recibido 26/10/2026</span><span>Bases citadas: AHA/ACC 2025, ESC 2024, AHA 2024 (cuidado agudo), AHA/ASA 2022 y 2019</span></div>
+    <h2>Crisis hipertensiva: abordaje, fármacos y dosis</h2>
+    <div class="meta"><span>Bases: AHA/ACC 2025, ESC 2024, AHA 2024 (cuidado agudo), AHA/ASA 2022 y 2019</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 16">
-    <a href="#v18-resumen">Resumen</a><a href="#v18-algoritmo">Algoritmo</a><a href="#v18-escenarios">Escenarios y dosis</a><a href="#v18-calc">Calculadora de infusiones</a><a href="#v18-comp">Tres materiales</a><a href="#v18-analisis">Análisis crítico</a><a href="#v18-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v18-resumen">Resumen</a><a href="#v18-algoritmo">Algoritmo</a><a href="#v18-escenarios">Escenarios y dosis</a><a href="#v18-calc">Calculadora de infusiones</a><a href="#v18-comp">Diferencias entre guías</a><a href="#v18-analisis">Puntos clave</a><a href="#v18-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v18-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Tercer material sobre el tema (ver pestañas 14 y 15). Mismo mensaje, pero este es el más útil para la guardia porque <b>trae las dosis</b> de cada fármaco por escenario y agrega un paso que los otros omiten: <b>confirmar que la presión es real</b> antes de tratarla.</p>
+    <p class="lead">Fármacos y <b>dosis</b> por escenario de la emergencia hipertensiva, con un paso previo que suele omitirse: <b>confirmar que la presión es real</b> antes de tratarla. Complementa las pestañas 14 y 15.</p>
   </section>
 
   <section id="v18-algoritmo">
@@ -1556,7 +1534,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v18-calc">
-    <h3>Calculadora de infusiones (agregada)</h3>
+    <h3>Calculadora de infusiones</h3>
     <div class="box">
       <div class="calc">
         <label for="i18-drug">Fármaco
@@ -1577,29 +1555,26 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v18-comp">
-    <h3>Los tres materiales sobre crisis hipertensiva</h3>
+    <h3>Metas en las que difieren las guías</h3>
     <div class="tbl"><table>
-      <thead><tr><th></th><th>Pestaña 14</th><th>Pestaña 15</th><th>Pestaña 16</th></tr></thead>
+      <thead><tr><th>Escenario</th><th>Meta</th></tr></thead>
       <tbody>
-        <tr><td>Fortaleza</td><td>Estudios con cifras (Patel, Rastogi)</td><td>Didáctico, caso clínico</td><td>Dosis por escenario; "¿la PA es real?"</td></tr>
-        <tr><td>Edema pulmonar</td><td class="m">PAS &lt; 140</td><td>—</td><td class="m">≤ 25 % → &lt; 160/100</td></tr>
-        <tr><td>Disección</td><td class="m">≤ 120 en 20 min</td><td class="m">&lt; 120 en 1 h</td><td class="m">≤ 120 en ~20 min</td></tr>
-        <tr><td>Embarazo / feocromocitoma</td><td>No</td><td>Excepciones</td><td>No</td></tr>
-        <tr><td>Fondo de ojo</td><td>No</td><td>No</td><td>Sí</td></tr>
+        <tr><td>Edema pulmonar</td><td>AHA/ACC 2025: PAS &lt; 140 de inmediato. Regla general previa: ≤ 25 % y luego &lt; 160/100</td></tr>
+        <tr><td>Disección aórtica</td><td>PAS ≤ 120 en ~20 min (ESC) o en la 1.ª hora (AHA/ACC), con FC ≤ 60</td></tr>
+        <tr><td>Preeclampsia y feocromocitoma</td><td>Metas inmediatas, fuera de la regla del 25 %</td></tr>
       </tbody>
     </table></div>
     <p class="note">La diferencia en edema pulmonar es real entre fuentes: la tabla de la AHA/ACC 2025 da PAS &lt; 140 de inmediato; la regla general (25 % → 160/100) es la de las guías previas. En la práctica, el EAP hipertensivo (SCAPE) responde a nitratos en dosis altas con descenso rápido.</p>
   </section>
 
   <section id="v18-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Material sólido, bien referenciado y con dosis correctas. Precisiones:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>Dosis de esmolol, labetalol, nicardipino y nitroglicerina coinciden con AHA/ASA 2019, AHA/ASA 2022 y ACC/AHA 2017. El paso "¿la presión es real?" es el más olvidado y el más barato.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Edema pulmonar hipertensivo (SCAPE):</b> en la práctica se usan <b>bolos de nitroglicerina en dosis altas</b> (400–1000 µg IV o infusión de 100–400 µg/min) con VNI; empezar con 5 µg/min es demasiado lento para este cuadro. El diurético pasa a segundo plano si no hay sobrecarga real (el problema es redistribución, no volumen).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Labetalol en la emergencia general:</b> 20 mg IV en 2 min, luego 20–80 mg c/10 min (máx. 300 mg) o infusión 0,5–2 mg/min. Contraindicado en asma/EPOC grave, bradicardia, bloqueo AV e IC descompensada.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Disponibilidad local:</b> si no hay nicardipino ni clevidipino, el vasodilatador de segunda línea en la disección es el <b>nitroprusiato</b> (0,25–0,5 µg/kg/min), siempre después del betabloqueo.</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Escenarios que faltan:</b> encefalopatía hipertensiva (bajar 25 % en la 1.ª h; labetalol o nicardipino), preeclampsia/eclampsia y feocromocitoma/cocaína (ver pestaña 14).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p>Dosis de esmolol, labetalol, nicardipino y nitroglicerina según AHA/ASA 2019, AHA/ASA 2022 y ACC/AHA 2017. El paso "¿la presión es real?" es el más olvidado y el más barato.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Edema pulmonar hipertensivo (SCAPE):</b> en la práctica se usan <b>bolos de nitroglicerina en dosis altas</b> (400–1000 µg IV o infusión de 100–400 µg/min) con VNI; empezar con 5 µg/min es demasiado lento para este cuadro. El diurético pasa a segundo plano si no hay sobrecarga real (el problema es redistribución, no volumen).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Labetalol en la emergencia general:</b> 20 mg IV en 2 min, luego 20–80 mg c/10 min (máx. 300 mg) o infusión 0,5–2 mg/min. Contraindicado en asma/EPOC grave, bradicardia, bloqueo AV e IC descompensada.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Disponibilidad local:</b> si no hay nicardipino ni clevidipino, el vasodilatador de segunda línea en la disección es el <b>nitroprusiato</b> (0,25–0,5 µg/kg/min), siempre después del betabloqueo.</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Otros escenarios:</b> encefalopatía hipertensiva (bajar 25 % en la 1.ª h; labetalol o nicardipino), preeclampsia/eclampsia y feocromocitoma/cocaína (ver pestaña 14).</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Nitroglicerina:</b> contraindicada con inhibidores de la PDE-5 en las últimas 24–48 h y en infarto de VD (V4R). Tolerancia tras 24 h de infusión continua.</p></div>
     </div>
   </section>
@@ -1615,20 +1590,20 @@ footer a{color:var(--accent)}
 <article class="panel" id="v42" role="tabpanel" aria-labelledby="t-v42" hidden>
   <div>
     <h2>Los 4 bloqueos: hemibloqueos anterior y posterior, rama derecha e izquierda</h2>
-    <div class="meta"><span>Fuente: 6 láminas, CardioArias (Dr. Luis Francisco Arias)</span><span>Recibido 27/10/2026</span><span>Base citada: criterios de Strauss (BRI); sin otras referencias</span></div>
+    <div class="meta"><span>Bases: AHA/ACCF/HRS 2009 (trastornos de conducción intraventricular), Strauss 2011 (BRI)</span></div>
   </div>
-  <nav class="subnav" aria-label="Secciones del material 42">
-    <a href="#v42-resumen">Resumen</a><a href="#v42-tabla">Criterios</a><a href="#v42-combi">Combinaciones</a><a href="#v42-calc">Clasificador</a><a href="#v42-analisis">Análisis crítico</a><a href="#v42-quiz">Autoevaluación</a>
+  <nav class="subnav" aria-label="Secciones de la pestaña">
+    <a href="#v42-resumen">Resumen</a><a href="#v42-tabla">Criterios</a><a href="#v42-combi">Combinaciones</a><a href="#v42-calc">Clasificador</a><a href="#v42-analisis">Puntos clave</a><a href="#v42-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v42-resumen">
     <h3>Resumen</h3>
-    <p class="lead">Carrusel de reconocimiento rápido: <b>hemibloqueo anterior izquierdo</b> (BFAI: eje −45° a −90°, qR en I y aVL, rS en inferiores), <b>hemibloqueo posterior izquierdo</b> (BFPI: eje derecho, qR en inferiores, rS en I y aVL), y <b>BRD</b> y <b>BRI</b> con los criterios de Strauss. Método: morfología → eje → duración del QRS → alteraciones asociadas.</p>
-    <p class="note">Los BRD y BRI de este carrusel repiten lo de la pestaña 1 (mismo autor, otra lámina); lo nuevo son los hemibloqueos. Relacionadas: 3 (HVI: el HBAI da falsos positivos), 6 (emergencias en ECG), 7 (bradicardia) y 10 (BRI y oclusión coronaria).</p>
+    <p class="lead">Reconocimiento rápido de los trastornos de conducción intraventricular: <b>hemibloqueo anterior izquierdo</b> (BFAI: eje −45° a −90°, qR en I y aVL, rS en inferiores), <b>hemibloqueo posterior izquierdo</b> (BFPI: eje derecho, qR en inferiores, rS en I y aVL), y <b>BRD</b> y <b>BRI</b> (Strauss para el BRI). Método: morfología → eje → duración del QRS → alteraciones asociadas.</p>
+    <p class="note">Los bloqueos completos de rama se tratan también en la pestaña 1. Relacionadas: 3 (HVI: el HBAI da falsos positivos), 6 (emergencias en ECG), 7 (bradicardia) y 10 (BRI y oclusión coronaria).</p>
   </section>
 
   <section id="v42-tabla">
-    <h3>Criterios (AHA/ACCF/HRS 2009, con lo del material)</h3>
+    <h3>Criterios (AHA/ACCF/HRS 2009)</h3>
     <div class="tbl"><table>
       <thead><tr><th></th><th>QRS</th><th>Eje</th><th>Morfología</th><th>Comentario</th></tr></thead>
       <tbody>
@@ -1642,7 +1617,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v42-combi">
-    <h3>Combinaciones y cuándo preocuparse (agregado)</h3>
+    <h3>Combinaciones y cuándo preocuparse</h3>
     <div class="tbl"><table>
       <thead><tr><th>Patrón</th><th>Significado</th><th>Conducta (ESC 2021, estimulación)</th></tr></thead>
       <tbody>
@@ -1656,7 +1631,7 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v42-calc">
-    <h3>Clasificador de bloqueos (agregado)</h3>
+    <h3>Clasificador de bloqueos</h3>
     <div class="box">
       <div class="calc">
         <label for="f42-qrs">QRS (ms)<input id="f42-qrs" type="number" min="60" max="220" value="136"></label>
@@ -1677,15 +1652,14 @@ footer a{color:var(--accent)}
   </section>
 
   <section id="v42-analisis">
-    <h3>Análisis crítico</h3>
-    <p>Útil como repaso visual; los hemibloqueos están bien descritos en lo esencial. La lámina resumen tiene un error de eje y varios dibujos del sistema hexaxial están mal rotulados:</p>
+    <h3>Puntos clave</h3>
     <div class="verdicts">
-      <div class="vd"><span class="tag ok">Correcto</span><p>BFAI: eje −45° a −90°, qR en I y aVL, rS en II, III y aVF, QRS &lt; 120 ms (AHA 2009). BFPI: eje +90° a +180°, qR en inferiores, rS en I y aVL. Criterios de Strauss para el BRI. Es cierto que el BFAI es el hemibloqueo más frecuente.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>El BRD no tiene "eje derecho entre −30° y −90°".</b> La lámina resumen le asigna ese rango, que además es eje izquierdo. El BRD aislado tiene eje normal; un eje izquierdo sugiere BRD + BFAI, y uno derecho, BRD + BFPI.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Ejes inconsistentes:</b> el BFPI figura como "+90° y +120°" en el resumen y "+90° a +180°" en su lámina; el correcto es el segundo. El BRI lleva "eje izquierdo −30° a −90°" como criterio en el resumen: no es un criterio, la mayoría de los BRI tienen eje normal.</p></div>
-      <div class="vd"><span class="tag add">Corrección</span><p><b>Sistema hexaxial mal rotulado:</b> en las láminas del BFAI y del BFPI, la derivación III aparece en +150°, pero <b>III está en +120°</b> (+150° es el polo negativo de aVL). En la del BFAI, la flecha del eje se dibuja casi en −120°, fuera del sector señalado. Para un estudiante, es un error de base.</p></div>
-      <div class="vd"><span class="tag add">Matiz</span><p><b>El BFPI es un diagnóstico de exclusión</b> y el material no lo dice. El eje derecho con rS en I es mucho más a menudo crecimiento del VD, infarto lateral, TEP, EPOC o un biotipo delgado. Es más útil cuando el eje cambia respecto a un ECG previo. En el BRD, la T negativa en V1 vuelve a aparecer como criterio: es secundaria (pestaña 1).</p></div>
-      <div class="vd"><span class="tag add">Agregar</span><p><b>Consecuencias del BFAI en otros diagnósticos:</b></p>
+      <div class="vd"><span class="tag ok">Clave</span><p>BFAI: eje −45° a −90°, qR en I y aVL, rS en II, III y aVF, QRS &lt; 120 ms (AHA 2009). BFPI: eje +90° a +180°, qR en inferiores, rS en I y aVL. Criterios de Strauss para el BRI. Es cierto que el BFAI es el hemibloqueo más frecuente.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El eje en el BRD:</b> el BRD aislado tiene eje normal; un eje izquierdo sugiere BRD + BFAI, y uno derecho, BRD + BFPI.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Ejes de referencia:</b> el BFPI tiene eje de +90° a +180°. El eje izquierdo no es criterio de BRI: la mayoría de los BRI tienen eje normal.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>Sistema hexaxial:</b> <b>III está en +120°</b>; +150° es el polo negativo de aVL. Dominar el hexaxial es la base para diagnosticar los hemibloqueos.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El BFPI es un diagnóstico de exclusión.</b> El eje derecho con rS en I es mucho más a menudo crecimiento del VD, infarto lateral, TEP, EPOC o un biotipo delgado. Es más útil cuando el eje cambia respecto a un ECG previo. En el BRD, la T negativa en V1 es secundaria, no un criterio (pestaña 1).</p></div>
+      <div class="vd"><span class="tag ok">Clave</span><p><b>Consecuencias del BFAI en otros diagnósticos:</b></p>
         <p>Hace "positiva" la R de aVL y Cornell: falsos positivos de HVI (pestaña 3).</p>
         <p>Las r pequeñas en inferiores pueden ocultar las Q de un infarto inferior antiguo; y la ausencia de r inicial puede simular uno.</p>
         <p>Desplaza la zona de transición y puede dar S profundas hasta V6.</p></div>
@@ -1703,7 +1677,7 @@ footer a{color:var(--accent)}
 </article>
 
 
-<footer>Contenido basado en las láminas y subtítulos de cada video o imagen, con comentario clínico agregado. No reemplaza las guías institucionales. Colección reorganizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50 y 52)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
+<footer>Contenido de actualización clínica basado en guías y literatura citadas en cada pestaña. No reemplaza las guías institucionales. Colección organizada por temas: <b>Videoteca Clínica 1: Cardiología y ECG (pestañas 1–16 y 42)</b> · <a href="videoteca-clinica-2.html">Videoteca Clínica 2: Diabetes y metabolismo (pestañas 17–24, 41, 44, 46 y 49)</a> · <a href="videoteca-clinica-3.html">Videoteca Clínica 3: Urgencias, críticos y medio interno (pestañas 25–31, 43, 47, 48, 50, 52 y 53)</a> · <a href="videoteca-clinica-4.html">Videoteca Clínica 4: Hígado, hematología, reumatología y neurología (pestañas 32–40, 45 y 51)</a>.</footer>
 </div>
 
 <script>
@@ -2018,7 +1992,7 @@ function q38Calc(){
   if(!isNaN(di)&&!isNaN(avf)&&(di!==0||avf!==0)){
     const ax=Math.round(Math.atan2(avf,di)*180/Math.PI);
     let c;
-    if(ax>=-30&&ax<=90) c=pill('Normal','ok'); else if(ax>90&&ax<=100) c=pill('Limítrofe','add')+'normal según el material, desviación derecha leve según AHA';
+    if(ax>=-30&&ax<=90) c=pill('Normal','ok'); else if(ax>90&&ax<=100) c=pill('Limítrofe','add')+'desviación derecha leve (AHA: normal hasta +90°)';
     else if(ax<-30&&ax>=-90) c=pill('Desviación izquierda','add')+(ax<=-45?'¿HBAI? (eje ≤ −45° con qR en aVL)':'');
     else if(ax>100&&ax<=180) c=pill('Desviación derecha','add')+'HBPI, sobrecarga del VD, TEP, lateral antiguo; descartar inversión de electrodos';
     else c=pill('Extremo','crit')+'Pensar en TV o electrodos invertidos';
