@@ -1683,7 +1683,7 @@ footer a{color:var(--accent)}
     <div class="meta"><span>Bases: consenso ACVC/HFA/EuSEM sobre insuficiencia cardíaca aguda en urgencias (Eur Heart J, 2026), guía ESC de insuficiencia cardíaca 2026, ESC 2021/2023, ensayos MIMO, ADVOR, CLOROTIC y PUSH-AHF</span></div>
   </div>
   <nav class="subnav" aria-label="Secciones de la pestaña 54">
-    <a href="#v54-resumen">Resumen</a><a href="#v54-dx">Diagnóstico</a><a href="#v54-tto">Tratamiento</a><a href="#v54-diur">Diurético</a><a href="#v54-calc">Calculadora</a><a href="#v54-alta">Destino</a><a href="#v54-analisis">Puntos clave</a><a href="#v54-quiz">Autoevaluación</a>
+    <a href="#v54-resumen">Resumen</a><a href="#v54-perfil">Presión y piel</a><a href="#v54-dx">Diagnóstico</a><a href="#v54-tto">Tratamiento</a><a href="#v54-diur">Diurético</a><a href="#v54-calc">Calculadora</a><a href="#v54-alta">Destino</a><a href="#v54-analisis">Puntos clave</a><a href="#v54-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v54-resumen">
@@ -1699,6 +1699,20 @@ footer a{color:var(--accent)}
         <tr><td><b>Choque cardiogénico</b></td><td>Hipoperfusión (lactato &gt; 2)</td><td>Noradrenalina, inotrópico, equipo de choque</td><td>Infarto y causa mecánica</td></tr>
       </tbody>
     </table></div>
+  </section>
+
+  <section id="v54-perfil">
+    <h3>Junto a la cama: presión y piel deciden en dos minutos</h3>
+    <p>El agua llega al alvéolo porque sube la presión hidrostática del capilar pulmonar: un capilar es como una manguera porosa que gotea más cuanto más se le empuja desde atrás (aurícula izquierda). Esa presión sube por <b>dos caminos opuestos</b>: un ventrículo que empuja contra una <b>poscarga muy alta</b> (el problema es la cuesta, no el agua: el volumen se desplaza de las venas al pulmón) o una <b>bomba que falla</b> y no vacía (el problema es el motor). Por eso el mismo pulmón blanco puede necesitar tratamientos contrarios, y el nitrato que salva a uno hunde al otro.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Perfil</th><th>Cómo se ve</th><th>Eje del tratamiento</th><th>Evitar</th></tr></thead>
+      <tbody>
+        <tr><td><b>Caliente con PA alta</b> (EAP hipertensivo)</td><td>PAS &gt; 140–160, piel caliente y sudorosa, inicio súbito, llenado capilar normal</td><td>Nitroglicerina en dosis altas + CPAP; diurético como complemento</td><td>Diurético solo como única medida; bajar la PA más del 25 % en la primera hora</td></tr>
+        <tr><td><b>Caliente con PA normal</b> (sobrecarga de volumen)</td><td>PAS 100–140, edemas, ingurgitación yugular, aumento de peso en días</td><td>Furosemida IV guiada por natriuresis; nitrato si PAS &gt; 110 y persiste la congestión</td><td>Retirar el tratamiento de fondo sin hipoperfusión</td></tr>
+        <tr><td><b>Frío con PA baja</b> (choque cardiogénico)</td><td>PAS &lt; 90, piel fría y moteada, confusión, oliguria, lactato &gt; 2</td><td>Noradrenalina para sostener la presión, inotrópico si persiste el bajo gasto, y tratar la causa (infarto → cateterismo urgente). Activar el equipo de choque (ESC 2026, clase I)</td><td><b>Nitratos</b> (hunden la poca presión) y <b>bolos de líquido</b> (inundan más el pulmón)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Piel fría con PA "normal" también es hipoperfusión: el consenso 2026 la incluye entre los criterios de alto riesgo. El lactato y el llenado capilar pesan más que la cifra de presión.</p>
   </section>
 
   <section id="v54-dx">
@@ -1755,6 +1769,7 @@ footer a{color:var(--accent)}
         <label for="e54-dosis">Dosis IV administrada (mg)<input id="e54-dosis" type="number" min="0" max="1000" value="40"></label>
         <label for="e54-na">Na⁺ urinario a las 2 h (mEq/L)<input id="e54-na" type="number" min="0" max="250" placeholder="vacío si no hay"></label>
         <label for="e54-diu">Diuresis media en 6 h (mL/h)<input id="e54-diu" type="number" min="0" max="1000" placeholder="vacío si no hay"></label>
+        <label for="e54-perf">Perfusión periférica<select id="e54-perf"><option value="cal" selected>Caliente (llenado normal)</option><option value="fria">Fría, moteada o lactato &gt; 2</option></select></label>
         <label for="e54-cong">¿Persiste congestión?<select id="e54-cong"><option value="si" selected>Sí</option><option value="no">No</option></select></label>
       </div>
       <div class="result"><span class="big" id="e54-dx">—</span><span id="e54-pill"></span></div>
@@ -2496,6 +2511,7 @@ function e54Calc(){
   const g=id=>{const x=document.getElementById(id).value;return x===''?NaN:parseFloat(x);};
   const pas=g('e54-pas'), pasa=g('e54-pasa'), oral=g('e54-oral'), tfg=g('e54-tfg'), dosis=g('e54-dosis'), na=g('e54-na'), diu=g('e54-diu');
   const cong=document.getElementById('e54-cong').value==='si';
+  const fria=document.getElementById('e54-perf').value==='fria';
   const dx=document.getElementById('e54-dx'), pe=document.getElementById('e54-pill'), out=document.getElementById('e54-out');
   const pill=(t,k)=>'<span class="pill '+k+'">'+t+'</span>';
   const rows=[];
@@ -2513,8 +2529,12 @@ function e54Calc(){
   else if(est==='ok'){t='Responde al diurético';k='ok';plan=cong?'Repetir la misma dosis cada 12 h. Si a las 24 h la diuresis es &lt; 3 L con congestión, escalar el día 2':'Descongestionado: pasar a dosis oral y planificar ARM + iSGLT2 antes del alta';}
   else if(est==='lim'){t='Respuesta límite';k='add';plan=cong?'Con congestión persistente, tratar como insuficiente: '+dob+' mg IV y reevaluar en 2–6 h':'Sin congestión clínica: mantener dosis y vigilar';}
   else {t='Respuesta insuficiente';k='crit';plan='Duplicar: '+dob+' mg IV y reevaluar en 2–6 h'+(d>=200?'. Ya con dosis altas: añadir acetazolamida 500 mg IV/día o hidroclorotiazida '+(isNaN(tfg)?'25–100':tfg>50?'25':tfg>=20?'50':'100')+' mg VO':'');}
+  if(fria) plan='Primero restaurar la perfusión (vasopresor/inotrópico); escalar el diurético solo cuando la presión y el lactato mejoren';
   rows.push(['Plan',plan]);
-  if(!isNaN(pas)){
+  if(fria){
+    rows.push(['Perfil','<b>Frío</b>'+(!isNaN(pas)&&pas<90?' con PA baja: choque cardiogénico':': hipoperfusión aunque la PA no sea baja (alto riesgo)')+'. Sin nitratos ni bolos de líquido. Noradrenalina si PAS &lt; 90 o PAM &lt; 65; inotrópico si persiste el bajo gasto; diurético cuando se recupere la perfusión; ECG y eco para buscar infarto o causa mecánica; UCI y equipo de choque']);
+  } else if(!isNaN(pas)) rows.push(['Perfil',pas>140?'<b>Caliente con PA alta</b>: el eje es el vasodilatador + VMNI':pas>=100?'<b>Caliente con PA normal</b>: el eje es el diurético':'<b>PA baja con piel caliente</b>: vigila perfusión y lactato; sin nitrato']);
+  if(!isNaN(pas)&&!fria){
     let n;
     if(pas<100) n='PAS &lt; 100: <b>sin nitrato</b>. Busca hipoperfusión (lactato, eco); valorar noradrenalina o inotrópico';
     else if(pas<=110) n='PAS 100–110: nitrato no indicado; furosemida y VMNI';
@@ -2531,10 +2551,11 @@ function e54Calc(){
       rows.push(['PA actual',m]);
     }
   }
-  dx.textContent=t; pe.innerHTML=pill(k==='ok'?'Respondedor':k==='crit'?'Escalar':'Vigilar',k);
+  if(fria){t='Hipoperfusión: tratar como choque';k='crit';}
+  dx.textContent=t; pe.innerHTML=pill(k==='ok'?'Respondedor':k==='crit'?(fria?'Choque':'Escalar'):'Vigilar',k);
   out.innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>').join('');
 }
-['e54-pas','e54-pasa','e54-oral','e54-tfg','e54-dosis','e54-na','e54-diu','e54-cong'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',e54Calc);e.addEventListener('change',e54Calc);});
+['e54-pas','e54-pasa','e54-oral','e54-tfg','e54-dosis','e54-na','e54-diu','e54-cong','e54-perf'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',e54Calc);e.addEventListener('change',e54Calc);});
 document.getElementById('e54-na').value='48';
 e54Calc();
 
