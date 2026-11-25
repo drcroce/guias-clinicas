@@ -321,7 +321,7 @@ tr:hover td{background:#f3efe8!important;}
 <button aria-selected="false" class="tab-btn" onclick="showTab('quiz',this)" role="tab">❓ Autoevaluación</button>
 </div>
 <div aria-label="Panel de progreso y acciones" class="ef-toolbar" role="region">
-<span class="ef-stat" id="efQuizProgress">Quiz: 0/13</span>
+<span class="ef-stat" id="efQuizProgress">Quiz: 0/15</span>
 <span class="ef-stat" id="efQuizScore">Aciertos: 0</span>
 <span class="ef-stat" id="efQuizPercent">Progreso: 0%</span>
 <button class="ef-action secondary" onclick="toggleFullscreen()" type="button">⛶ Pantalla completa</button>
@@ -667,7 +667,7 @@ tr:hover td{background:#f3efe8!important;}
 <div class="alert-green"><strong>✅ Criterio:</strong> CURB-65 0–1, SpO₂ ≥92%, sin complicaciones, tolera VO, soporte domiciliario adecuado</div>
 <div class="protocol-box">
 <h4>Esquemas Orales — NAC Leve (ATS/IDSA 2019 + ATS 2025)</h4>
-<div class="protocol-row"><span class="drug">Sin comorbilidades</span><span class="dose">Amoxicilina 1 g c/8h VO × 3–5 días*<br/>ALT: Azitromicina 500 mg/día × 3–5 días (si sospecha atípicos)</span></div>
+<div class="protocol-row"><span class="drug">Sin comorbilidades</span><span class="dose">Amoxicilina 1 g c/8h VO × 3–5 días*<br/>ALT: Doxiciclina 100 mg c/12h VO × 5 días<br/><small>Azitromicina sola solo si la resistencia local del neumococo a macrólidos es &lt;25% (ver Errores frecuentes)</small></span></div>
 <div class="protocol-row"><span class="drug">Con comorbilidades (DM, ERC, ICC, EPOC leve)</span><span class="dose">Amoxicilina-clavulánico 875/125 mg c/12h VO<br/>+ Azitromicina 500 mg/día — ambos × 5 días<br/>ALT: Levofloxacino 750 mg c/24h VO × 5 días</span></div>
 <div class="protocol-row"><span class="drug">Sospecha de atípicos (Mycoplasma)</span><span class="dose">Azitromicina 500 mg día 1, luego 250 mg c/24h × 4 días<br/>ALT: Doxiciclina 100 mg c/12h VO × 5 días</span></div>
 <div class="protocol-row"><span class="drug">Alergia a penicilina</span><span class="dose">Levofloxacino 750 mg/día VO × 5 días<br/>ALT: Moxifloxacino 400 mg/día VO × 5 días</span></div>
@@ -715,7 +715,7 @@ tr:hover td{background:#f3efe8!important;}
 <ul class="content-list">
 <li>EPOC grave (FEV1 &lt;30%) o bronquiectasias</li>
 <li>ATB de amplio espectro en últimas 4 semanas</li>
-<li>Hospitalización reciente (&lt;90 días)</li>
+<li>Hospitalización con antibiótico IV en los últimos 90 días</li>
 <li>Corticoides sistémicos crónicos</li>
 <li>Colonización conocida por Pseudomonas</li>
 </ul>
@@ -765,10 +765,23 @@ tr:hover td{background:#f3efe8!important;}
 <tr><td>Hospitalizado no grave + estabilidad</td><td><strong>&lt;5 días</strong> (mín. 3)</td></tr>
 <tr><td>NAC grave / UCI</td><td><strong>5–7 días</strong> según respuesta clínica + PCT</td></tr>
 <tr><td>Legionella</td><td><strong>10–14 días</strong></td></tr>
-<tr><td>S. aureus / MRSA</td><td><strong>14–21 días</strong></td></tr>
+<tr><td>MRSA o P. aeruginosa (sin complicaciones)</td><td><strong>7 días</strong> (ATS/IDSA 2019)</td></tr>
+<tr><td>Bacteriemia por S. aureus</td><td><strong>≥14 días</strong> (descartar endocarditis)</td></tr>
+<tr><td>Empiema, infección extrapulmonar profunda</td><td><strong>Más prolongado</strong> (según drenaje y foco)</td></tr>
 <tr><td>NAC necrotizante / absceso</td><td><strong>21–42 días</strong> (individualizar)</td></tr>
 </table></div>
-<div class="alert-amber"><strong>⚠️ Principio ATS 2025:</strong> La duración se determina por evaluación diaria de estabilidad clínica, NO por número fijo de días. Estabilidad: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal.</div>
+<div class="alert-amber"><strong>⚠️ Principio ATS 2025:</strong> La duración se determina por evaluación diaria de estabilidad clínica, NO por número fijo de días. Criterios de estabilidad (ATS/IDSA 2019), los 7 deben cumplirse: temperatura ≤37,8 °C, FC ≤100, FR ≤24, PAS ≥90 mmHg, SpO₂ ≥90% al aire ambiente, tolera la vía oral y estado mental normal. Si cumple los 7 y lleva al menos 3 días: suspender. Si falla uno: reevaluar al día siguiente.</div>
+<div class="alert-blue" style="margin-top:12px"><strong>📊 Evidencia de los 3 días — ensayo PTC (Dinh, Lancet 2021):</strong> 310 adultos hospitalizados en sala (no UCI) con NAC, estables tras 3 días de betalactámico, fueron aleatorizados a placebo o 5 días más de amoxicilina-clavulánico. Curación al día 15: 77% con 3 días frente a 68% con 8 días (no inferior), con eventos adversos similares. Excluyó NAC grave, inmunodeprimidos y neumonía asociada a cuidados de salud: el resultado no se extrapola a ellos.</div>
+<div class="alert-red" style="margin-top:12px"><strong>🚫 Errores frecuentes en la antibioticoterapia de la NAC</strong>
+<ul>
+<li><strong>Azitromicina sola:</strong> ATS/IDSA solo la acepta si la resistencia local del neumococo a macrólidos es &lt;25%. En varios países de Latinoamérica ya supera ese umbral (Perú hasta 37–70% en enfermedad invasora); sin datos locales confiables, preferir amoxicilina o doxiciclina, y usar el macrólido combinado con betalactámico.</li>
+<li><strong>Ciprofloxacino en monoterapia:</strong> no es una quinolona respiratoria y su actividad contra el neumococo es pobre. Las respiratorias son levofloxacino 750 mg y moxifloxacino 400 mg (descartar TB antes de usarlas).</li>
+<li><strong>Dar 7–14 días por costumbre:</strong> en la NAC no grave y estable, 3–5 días son suficientes.</li>
+<li><strong>Prolongar por la Rx o la PCR:</strong> el infiltrado tarda semanas en resolverse y la PCR no es criterio de estabilidad; decide la clínica. No se pide Rx de control de rutina si los síntomas resolvieron.</li>
+<li><strong>Cubrir Pseudomonas o MRSA sin factores de riesgo:</strong> aislamiento respiratorio previo, u hospitalización con antibiótico IV en los últimos 90 días (validado con la epidemiología local).</li>
+<li><strong>Tratar como NAC sin infiltrado:</strong> tos y fiebre sin infiltrado nuevo suele ser bronquitis aguda viral, que no lleva antibiótico.</li>
+<li><strong>Acortar a 3 días a quien no califica (el error más grave):</strong> NAC grave (vasopresor, ventilación mecánica o ≥3 criterios menores), empiema o absceso, infección extrapulmonar profunda, bacteriemia por S. aureus o paciente inestable.</li>
+</ul></div>
 </div>
 </div>
 <div class="card">
@@ -1257,7 +1270,7 @@ tr:hover td{background:#f3efe8!important;}
 <li>Reposo relativo los primeros 3–5 días</li>
 <li>Fisioterapia respiratoria si hay secreciones</li>
 <li>Control médico en 7 días post-alta</li>
-<li>Rx de tórax de control en 4–8 semanas</li>
+<li>Rx de tórax de control solo si persisten síntomas o signos, o en mayores de 50 años o fumadores (descartar neoplasia subyacente) a las 6–8 semanas; no de rutina si hubo resolución clínica</li>
 </ul>
 </div>
 <div>
@@ -1476,6 +1489,26 @@ tr:hover td{background:#f3efe8!important;}
 </div>
 <div class="feedback" id="fb13"></div>
 </div>
+<div class="quiz-q" id="q14">
+<div class="q-text">14. Paciente de 45 años, sin comorbilidades, con NAC leve ambulatoria en Guayaquil. ¿Cuál de estos esquemas es el MENOS adecuado?</div>
+<div class="quiz-opts">
+<button class="opt-btn" onclick="responder(this,'no',14)">A) Amoxicilina 1 g c/8h VO</button>
+<button class="opt-btn" onclick="responder(this,'no',14)">B) Doxiciclina 100 mg c/12h VO</button>
+<button class="opt-btn" onclick="responder(this,'ok',14)">C) Ciprofloxacino 500 mg c/12h VO</button>
+<button class="opt-btn" onclick="responder(this,'no',14)">D) Amoxicilina 1 g c/8h + azitromicina si se sospechan atípicos</button>
+</div>
+<div class="feedback" id="fb14"></div>
+</div>
+<div class="quiz-q" id="q15">
+<div class="q-text">15. NAC no grave hospitalizada en sala, tratada con ceftriaxona. Al día 3: afebril, FC 88, FR 18, PAS 120, SpO₂ 95% al aire, come bien y está orientado; la Rx persiste igual y la PCR sigue elevada. ¿Conducta?</div>
+<div class="quiz-opts">
+<button class="opt-btn" onclick="responder(this,'ok',15)">A) Suspender el antibiótico hoy y planificar el alta</button>
+<button class="opt-btn" onclick="responder(this,'no',15)">B) Completar 7 días</button>
+<button class="opt-btn" onclick="responder(this,'no',15)">C) Mantener hasta que mejore la Rx</button>
+<button class="opt-btn" onclick="responder(this,'no',15)">D) Mantener hasta que baje la PCR</button>
+</div>
+<div class="feedback" id="fb15"></div>
+</div>
 </div>
 </div>
 <section aria-label="Versión de la guía" class="croce-version-box">
@@ -1491,7 +1524,7 @@ tr:hover td{background:#f3efe8!important;}
 <script>
 /* === Framework Educativo Dr. Croce · Core interactivo reutilizable === */
 const APP_STORAGE_KEY='drCroce_NAC_quiz_v2';
-const TOTAL_QUESTIONS=13;
+const TOTAL_QUESTIONS=15;
 
 function showTab(id,btn){
   const target=document.getElementById(id);
@@ -1537,6 +1570,10 @@ const feedbacks={
    no:"❌ <strong>Incorrecto.</strong> pH 7.05, glucosa 38 y LDH 2.200 = empiema franco. El manejo es drenaje pleural urgente con tubo torácico 20–28 Fr, no solo cambio de ATB. Demorar el drenaje aumenta mortalidad y puede requerir cirugía mayor (decorticación)."},
   12:{ok:"✅ <strong>Correcto.</strong> NAC necrotizante post-influenza clásica por S. aureus MRSA: joven sana, post-viral, deterioro brusco, cavitación, hemoptisis. Tratamiento: vancomicina o linezolid + oseltamivir. Corticosteroides CONTRAINDICADOS en influenza confirmada (mayor mortalidad — ATS 2025). UCI inmediata.",
    no:"❌ <strong>Incorrecto.</strong> NAC necrotizante post-influenza por MRSA: joven + post-influenza + cavitación + hemoptisis + deterioro brusco. Tratar con vancomicina o linezolid + oseltamivir. Los corticosteroides están contraindicados en influenza confirmada según ATS 2025."},
+  14:{ok:"✅ <strong>Correcto.</strong> El ciprofloxacino no es quinolona respiratoria: su actividad contra el neumococo es pobre y no debe usarse solo en NAC. Si se necesita una quinolona, levofloxacino 750 mg o moxifloxacino 400 mg, tras descartar TB.",
+   no:"❌ <strong>Incorrecto.</strong> El esquema menos adecuado es el ciprofloxacino: no cubre bien al neumococo. Amoxicilina y doxiciclina son de primera línea en el ambulatorio sin comorbilidades; el macrólido se suma ante sospecha de atípicos."},
+  15:{ok:"✅ <strong>Correcto.</strong> Cumple los 7 criterios de estabilidad y lleva 3 días: puede suspenderse (ATS 2025, ensayo PTC: 3 días no inferiores a 8). La Rx tarda semanas en resolver y la PCR no es criterio de estabilidad.",
+   no:"❌ <strong>Incorrecto.</strong> Con los 7 criterios de estabilidad cumplidos al día 3, se suspende. No se alarga por la Rx ni por la PCR; en el ensayo PTC, 3 días fueron no inferiores a 8 (curación 77% vs 68%)."},
   13:{ok:"✅ <strong>Correcto.</strong> ATS 2025 define estabilidad clínica como: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal, evaluados DIARIAMENTE. Esta evaluación (no la Rx ni solo PCT) determina cuándo suspender ATB o dar alta. Concepto central: la duración no es número fijo.",
    no:"❌ <strong>Incorrecto.</strong> ATS 2025 define estabilidad clínica como: afebril + FC &lt;100 + FR &lt;24 + SpO₂ ≥90% + PA normal + estado mental normal. La Rx demora semanas en resolver. La PCT es apoyo, no criterio primario. La clave del ATS 2025 es evaluación clínica DIARIA, no duración fija."}
 };
