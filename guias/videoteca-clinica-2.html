@@ -375,10 +375,10 @@ footer a{color:var(--accent)}
 <article class="panel" id="v3" role="tabpanel" aria-labelledby="t-v3" hidden>
   <div>
     <h2>5 errores de prescripción en DM2 que se ven en cada guardia</h2>
-    <div class="meta"><span>Bases: ADA 2026, KDIGO 2022/2024, FDA 2016, EMPA-KIDNEY, RABBIT 2</span></div>
+    <div class="meta"><span>Bases: ADA 2026 (secciones 9 y 16), Endocrine Society 2022, KDIGO 2022/2024, FDA 2016, EMPA-KIDNEY, RABBIT 2 y RABBIT 2 Surgery</span></div>
   </div>
   <nav class="subnav" aria-label="Secciones de la pestaña">
-    <a href="#v3-resumen">Resumen</a><a href="#v3-errores">Los 5 errores</a><a href="#v3-tabla">Tabla rápida</a><a href="#v3-analisis">Puntos clave</a><a href="#v3-quiz">Autoevaluación</a>
+    <a href="#v3-resumen">Resumen</a><a href="#v3-errores">Los 5 errores</a><a href="#v3-tabla">Tabla rápida</a><a href="#v3-hosp">Insulina en 3 pasos</a><a href="#v3-analisis">Puntos clave</a><a href="#v3-quiz">Autoevaluación</a>
   </nav>
 
   <section id="v3-resumen">
@@ -436,6 +436,43 @@ footer a{color:var(--accent)}
     </table></div>
   </section>
 
+  <section id="v3-hosp">
+    <h3>Insulina en el hospitalizado no crítico: 3 pasos</h3>
+    <p>El esquema basal-bolo con dosis por peso viene de los ensayos RABBIT 2 (2007) y RABBIT 2 Surgery (2011) y lo recogen la ADA (sección 16, actualizada cada año) y la Endocrine Society (2022). No es una novedad de 2026: lo que se mantiene es la recomendación fuerte de no usar la escala de corrección como único esquema.</p>
+    <ol class="steps">
+      <li class="step"><span class="num">1</span><h4>Dosis total diaria (DTD) por peso</h4>
+        <ul><li><span class="dose">0,4 U/kg/día</span> si glucosa 140–200 mg/dL.</li><li><span class="dose">0,5 U/kg/día</span> si glucosa 201–400 mg/dL.</li><li><span class="dose">0,2–0,3 U/kg/día</span> si &gt; 70 años, TFGe &lt; 60 (o creatinina ≥ 2 mg/dL), bajo peso o riesgo de hipoglucemia.</li><li>Si ya usaba insulina en casa y estaba controlado: partir de su dosis, reducida 20–25% si comerá menos.</li></ul></li>
+      <li class="step"><span class="num">2</span><h4>Mitad basal, mitad prandial</h4>
+        <ul><li><b>50% basal</b> (glargina o detemir una vez al día a la misma hora; NPH en dos dosis si es lo disponible).</li><li><b>50% prandial</b> repartida en 3 comidas (rápida o regular antes de cada comida). <b>Si no come, no se pone</b> esa dosis.</li><li>Ingesta pobre o en ayuno: <b>solo basal + corrección</b> (basal-plus), con basal de 0,1–0,25 U/kg/día.</li></ul></li>
+      <li class="step"><span class="num">3</span><h4>Corrección y ajuste diario</h4>
+        <ul><li>Insulina rápida extra antes de las comidas según glucosa, sumada a la dosis prandial (en ayuno, cada 6 h).</li><li>Meta <b>140–180 mg/dL</b>. Iniciar o intensificar si ≥ 180 mg/dL en dos ocasiones en 24 h.</li><li>Ajuste diario: si la glucosa en ayunas o media &gt; 180 sin hipoglucemia, subir la DTD 10–20%; si hay glucosa &lt; 70 mg/dL, bajar 10–20% (más si &lt; 40) y buscar la causa.</li></ul></li>
+    </ol>
+    <div class="tbl"><table>
+      <thead><tr><th>Glucosa antes de comer (mg/dL)</th><th>Sensible (anciano, ERC, &lt; 0,4 U/kg)</th><th>Habitual</th><th>Resistente (obesidad, esteroides, &gt; 0,5 U/kg)</th></tr></thead>
+      <tbody>
+        <tr><td>141–180</td><td>2 U</td><td>4 U</td><td>6 U</td></tr>
+        <tr><td>181–220</td><td>4 U</td><td>6 U</td><td>8 U</td></tr>
+        <tr><td>221–260</td><td>6 U</td><td>8 U</td><td>10 U</td></tr>
+        <tr><td>261–300</td><td>8 U</td><td>10 U</td><td>12 U</td></tr>
+        <tr><td>301–350</td><td>10 U</td><td>12 U</td><td>14 U</td></tr>
+        <tr><td>351–400</td><td>12 U</td><td>14 U</td><td>16 U</td></tr>
+        <tr><td>&gt; 400</td><td colspan="3">Avisar al médico; descartar CAD o estado hiperosmolar (pestañas 24 y 44)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Escala tipo RABBIT 2; usa la de tu institución si existe. En el paciente que no come, la corrección se pone cada 6 h y con la columna sensible.</p>
+    <div class="box">
+      <p class="note">Precargado: hombre de 80 kg con DM2, hospitalizado por fractura, glucosa 280 mg/dL, come normal.</p>
+      <div class="calc">
+        <label for="i20-peso">Peso (kg)<input id="i20-peso" type="number" min="30" max="250" value="80"></label>
+        <label for="i20-glu">Glucosa al ingreso (mg/dL)<input id="i20-glu" type="number" min="60" max="600" value="280"></label>
+        <label for="i20-fr">Riesgo de hipoglucemia<select id="i20-fr"><option value="no" selected>No</option><option value="si">&gt; 70 años, TFGe &lt; 60, bajo peso</option></select></label>
+        <label for="i20-ing">Alimentación<select id="i20-ing"><option value="come" selected>Come normal</option><option value="poco">Come poco o ayuno</option></select></label>
+      </div>
+      <div class="result"><span class="big" id="i20-dx">—</span><span id="i20-pill"></span></div>
+      <div class="tbl" style="margin-top:12px"><table style="min-width:0"><tbody id="i20-out"></tbody></table></div>
+    </div>
+  </section>
+
   <section id="v3-analisis">
     <h3>Puntos clave</h3>
     <div class="verdicts">
@@ -448,6 +485,8 @@ footer a{color:var(--accent)}
       <div class="vd"><span class="tag add">Matiz</span><p><b>Glucosa como efecto:</b> con TFGe &lt; 45 el iSGLT2 baja poco la glucosa, pero mantiene el beneficio cardiorrenal. Se continúa por el riñón y el corazón, no por la HbA1c.</p></div>
       <div class="vd"><span class="tag ok">Clave</span><p><b>Otros signos de sobrebasalización:</b> diferencia glucosa de acostarse menos ayunas ≥ 50 mg/dL, hipoglucemias, alta variabilidad. Opciones: arGLP-1, combinación fija (glargina/lixisenatida, degludec/liraglutida) o basal-plus.</p></div>
       <div class="vd"><span class="tag ok">Clave</span><p><b>Ingesta pobre o en ayuno:</b> basal-bolo completo puede causar hipoglucemia. Usar <b>basal + corrección</b> (basal-plus), que tuvo control similar en RABBIT 2 Surgery y Basal Plus Trial.</p></div>
+      <div class="vd"><span class="tag add">Matiz</span><p><b>El caso de 80 kg con glucosa de 280:</b> DTD 0,5 × 80 = 40 U → 20 U de glargina y 7 U de rápida antes de cada comida (20 ÷ 3), más corrección. La glargina puede ir a cualquier hora, siempre la misma. Si el paciente pasa a ayuno por la cirugía de la fractura: mantener la glargina (o 80% de la dosis), suspender la prandial y dejar solo la corrección.</p></div>
+      <div class="vd"><span class="tag crit">Precaución</span><p><b>Esteroides:</b> la hiperglucemia es vespertina; la NPH matutina (0,1 U/kg por cada 10 mg de prednisona, hasta 0,4 U/kg) cubre mejor que subir la basal nocturna. Al retirar el esteroide, bajar la insulina el mismo día.</p></div>
       <div class="vd"><span class="tag crit">Precaución</span><p><b>Dosis inicial menor</b> (0,2–0,3 U/kg/día) en mayores de 70 años, TFGe &lt; 60 o bajo peso. La escala de corrección sigue siendo útil como complemento, no como único esquema.</p></div>
     </div>
     <div class="callout"><strong>Perla de turno:</strong> antes de firmar, tres preguntas: ¿la TFGe justifica lo que suspendo?, ¿la basal ya pasó 0,5 U/kg?, ¿hay algo más que la escala cubriendo las comidas?</div>
@@ -457,7 +496,7 @@ footer a{color:var(--accent)}
     <h3>Autoevaluación</h3>
     <div class="quiz" data-quiz="v3"></div>
   </section>
-  <p class="note">Referencias: KDIGO 2022 Diabetes in CKD; KDIGO 2024 CKD; FDA Drug Safety Communication 2016 (metformina); EMPA-KIDNEY, NEJM 2023; Umpierrez GE et al. RABBIT 2, Diabetes Care 2007; ADA Standards of Care, cap. Diabetes Care in the Hospital y Pharmacologic Approaches.</p>
+  <p class="note">Referencias: KDIGO 2022 Diabetes in CKD; KDIGO 2024 CKD; FDA Drug Safety Communication 2016 (metformina); EMPA-KIDNEY, NEJM 2023; Umpierrez GE et al. RABBIT 2, Diabetes Care 2007; Umpierrez GE et al. RABBIT 2 Surgery, Diabetes Care 2011; Korytkowski MT et al. Management of hyperglycemia in hospitalized adult patients in non-critical care settings, Endocrine Society, J Clin Endocrinol Metab 2022; ADA Standards of Care, cap. Diabetes Care in the Hospital y Pharmacologic Approaches.</p>
 </article>
 
 <!-- ============ PESTAÑA 21 (antes 6) ============ -->
@@ -1663,6 +1702,42 @@ function h49Calc(){
 }
 ['h49-edad','h49-peso','h49-tsh1','h49-tsh2','h49-t4','h49-tpo','h49-sx','h49-emb','h49-cv'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',h49Calc);e.addEventListener('change',h49Calc);});
 h49Calc();
+
+function i20Calc(){
+  const peso=+document.getElementById('i20-peso').value, glu=+document.getElementById('i20-glu').value, fr=document.getElementById('i20-fr').value, ing=document.getElementById('i20-ing').value;
+  const dx=document.getElementById('i20-dx'), pe=document.getElementById('i20-pill'), out=document.getElementById('i20-out');
+  if(!peso||!glu){dx.textContent='—';out.innerHTML='';pe.innerHTML='';return;}
+  let f, fl;
+  if(fr==='si'){f=0.25;fl='0,2–0,3 U/kg (riesgo de hipoglucemia)';}
+  else if(glu>200){f=0.5;fl='0,5 U/kg (glucosa > 200)';}
+  else {f=0.4;fl='0,4 U/kg (glucosa 140–200)';}
+  const r=[];
+  if(glu<140){dx.textContent='Sin insulina programada por ahora';pe.innerHTML='<span class="pill ok">Vigilar</span>';
+    r.push(['Conducta','Glucosa < 140: control capilar antes de comidas; iniciar si ≥ 180 mg/dL en dos ocasiones en 24 h']);}
+  else if(glu>400){dx.textContent='Descartar CAD / estado hiperosmolar';pe.innerHTML='<span class="pill crit">Urgente</span>';
+    r.push(['Conducta','Glucosa > 400: cetonas, gasometría y osmolaridad antes de indicar el esquema subcutáneo (pestañas 24 y 44)']);}
+  else {
+    const dtd=Math.round(f*peso);
+    if(ing==='come'){
+      const b=Math.round(dtd/2), pr=Math.round(dtd/2/3);
+      dx.textContent='DTD '+dtd+' U · basal '+b+' U · '+pr+' U por comida';pe.innerHTML='<span class="pill add">Basal-bolo</span>';
+      r.push(['Dosis total',fl+' × '+peso+' kg = '+dtd+' U/día']);
+      r.push(['Basal (50%)',b+' U de glargina 1 vez al día, misma hora']);
+      r.push(['Prandial (50%)',pr+' U de rápida antes de desayuno, almuerzo y cena; omitir si no come']);
+    } else {
+      const b=Math.round(Math.min(f*peso/2, 0.25*peso)*0.8);
+      dx.textContent='Basal '+b+' U + corrección';pe.innerHTML='<span class="pill add">Basal-plus</span>';
+      r.push(['Basal','≈ '+b+' U de glargina (mitad de la DTD reducida 20%; rango 0,1–0,25 U/kg)']);
+      r.push(['Prandial','No: come poco o está en ayuno']);
+    }
+    const col = fr==='si'||ing!=='come' ? 'sensible' : (f>=0.5 && peso>100 ? 'resistente' : 'habitual');
+    r.push(['Corrección','Escala '+col+' antes de comidas'+(ing!=='come'?' (o cada 6 h en ayuno)':'')+', sumada a la dosis prandial']);
+    r.push(['Meta y ajuste','140–180 mg/dL. Mayor de 180 sin hipoglucemias: subir DTD 10–20%. Menor de 70: bajar 10–20%']);
+  }
+  out.innerHTML=r.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td></tr>').join('');
+}
+['i20-peso','i20-glu','i20-fr','i20-ing'].forEach(id=>{const e=document.getElementById(id);e.addEventListener('input',i20Calc);e.addEventListener('change',i20Calc);});
+i20Calc();
 
 function renderQuiz(el){
   const items = QUIZ[el.dataset.quiz]; let score=0, done=0;
