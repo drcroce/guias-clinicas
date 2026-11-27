@@ -609,7 +609,7 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 </div>
 <!-- ===== PANEL 4: Descompensación Aguda ===== -->
 <div class="panel" id="panel-4">
-<p class="section-intro">Manejo de la IC Agudamente Descompensada (ICAD) en urgencias y hospitalización. ESC 2021/2023 · ACC 2024 Update.</p>
+<p class="section-intro">Manejo de la IC Agudamente Descompensada (ICAD) en urgencias y hospitalización. ESC 2021/2023 · ACC 2024 Update · diuréticos según ESC 2026.</p>
 <div class="card open">
 <div class="card-header" onclick="toggleCard(this)"><h3>🚨 Evaluación Inicial Urgente — Primeros 60 minutos</h3><span class="card-chevron">▾</span></div>
 <div class="card-body">
@@ -637,13 +637,23 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 <div class="card-header" onclick="toggleCard(this)"><h3>💧 Diuréticos — Pilar del Manejo Agudo</h3><span class="card-chevron">▾</span></div>
 <div class="card-body">
 <div class="box box-blue">
-<h4>📋 Furosemida IV — Dosis y Estrategia (ESC 2021)</h4>
+<h4>📋 Furosemida IV — Algoritmo ESC 2026 (sección 7.5.3, figura 15)<span class="tag-new">ACTUALIZADO 2026</span></h4>
+<p>Indicada en IC descompensada con sobrecarga de volumen (clase I, A).</p>
 <table>
-<tr><th>Situación</th><th>Dosis inicial IV</th><th>Estrategia</th></tr>
-<tr><td>Sin diurético previo</td><td>20–40 mg IV bolus</td><td>Ajustar a respuesta diurética</td></tr>
-<tr><td>Con furosemida oral previa</td><td>Dosis oral equivalente IV<br/>(al menos igual, preferir mayor)</td><td>Infusión continua o bolos c/6–8h</td></tr>
-<tr><td>Resistencia diurética</td><td>Incrementar a 80–160–240 mg/dosis</td><td>+ Tiazida (hidroclorotiazida 25–50 mg) o acetazolamida</td></tr>
+<tr><th>Paso</th><th>Conducta</th><th>Detalle</th></tr>
+<tr><td>1. Dosis inicial</td><td>Sin diurético previo: <strong>40 mg IV</strong><br/>Uso crónico: <strong>2 × la dosis oral diaria</strong>, por vía IV</td><td>Considerar dosis mayor si hay ERC</td></tr>
+<tr><td>2. Respuesta (2–6 h)</td><td><strong>Sodio urinario a las 2 h ≥ 70 mmol/L</strong> o <strong>diuresis ≥ 100 mL/h en las primeras 6 h</strong></td><td>Evaluar desde las primeras horas; no esperar al día siguiente</td></tr>
+<tr><td>3a. Buena respuesta</td><td>Repetir la misma dosis cada 12 h</td><td>Reevaluar diuresis total a las 24 h: si &lt; 3 L con congestión persistente, intensificar el día 2. Al descongestionar, pasar a vía oral</td></tr>
+<tr><td>3b. Mala respuesta</td><td><strong>Duplicar la dosis IV</strong> y reevaluar a las 2–6 h</td><td>Si ya usaba diurético de asa crónico, considerar agregar otro diurético</td></tr>
+<tr><td>4. Congestión persistente</td><td>Aumentar progresivamente: máximo habitual <strong>600 mg/día</strong>; hasta 1.000 mg/día en deterioro renal grave</td><td>Agregar diurético no de asa (abajo). Si fracasa el tratamiento diurético máximo: ultrafiltración</td></tr>
 </table>
+<h4 style="margin-top:12px">Combinación de diuréticos</h4>
+<table>
+<tr><th>Fármaco</th><th>Dosis</th></tr>
+<tr><td>Acetazolamida</td><td>500 mg IV cada 24 h</td></tr>
+<tr><td>Hidroclorotiazida VO según TFGe (mL/min/1,73 m²)</td><td>&gt; 50: 25 mg/día · 20–50: 50 mg/día · &lt; 20: 100 mg/día (CLOROTIC)</td></tr>
+</table>
+<p>Uso a corto plazo, con vigilancia estrecha de función renal, sodio, potasio y magnesio: la combinación con tiazida causa hipopotasemia e hiponatremia con frecuencia.</p>
 </div>
 <div class="box box-emerald">
 <h4>✦ Acetazolamida + Furosemida — ADVOR Trial 2022<span class="tag-new">NUEVO ESC 2023</span></h4>
@@ -651,16 +661,16 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 <li>Acetazolamida 500 mg IV/día + furosemida → mayor tasa de descongestión (64 vs 42%, p&lt;0.001)</li>
 <li><strong>N=519</strong> (NEJM 2022); alcanzó descongestión exitosa sin aumento de rehospitalizaciones</li>
 <li>ESC 2023: menciona los datos pero <strong>no emite recomendación formal</strong> (evidencia en outcomes a largo plazo insuficiente)</li>
-<li>Considerar en resistencia diurética o congestión persistente a las 24-48h</li>
+<li>Considerar en respuesta insuficiente o congestión persistente; más útil si hay alcalosis metabólica hipoclorémica</li>
 </ul>
 </div>
 <div class="box box-orange">
 <h4>⚠️ Monitoreo de Respuesta Diurética</h4>
 <ul>
-<li>Objetivo: diuresis 100–200 mL/h las primeras 6h; &gt;3.5 L/día total</li>
+<li>Respuesta adecuada: Na urinario ≥ 70 mmol/L a las 2 h o diuresis ≥ 100 mL/h en las primeras 6 h; a las 24 h, ≥ 3 L si persiste congestión</li>
 <li>Peso diario (objetivo: -0.5 a -1 kg/día)</li>
-<li>Electrolitos cada 24–48h (hipopotasemia, hipomagnesemia)</li>
-<li>Creatinina diaria: ↑ leve aceptable ("creatinina de estrés") si congestión mejora</li>
+<li>Creatinina y electrolitos al menos cada 24 h (hipopotasemia, hipomagnesemia); PA y signos de hipoperfusión; balance hídrico y signos de congestión</li>
+<li>Si se logra la descongestión, un aumento leve y transitorio de la creatinina no obliga por sí solo a suspender el diurético</li>
 <li>BNP/NT-proBNP: reducción &gt;30% al alta = mejor pronóstico</li>
 </ul>
 </div>
@@ -809,9 +819,9 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 <div class="step-content">
 <h4>Evaluación de respuesta a las 2–6 horas</h4>
 <ul>
-<li>Diuresis: objetivo 100–200 mL/h primeras 6h</li>
+<li>Respuesta diurética: Na urinario ≥ 70 mmol/L a las 2 h o diuresis ≥ 100 mL/h en las primeras 6 h</li>
 <li>SpO₂ mantenida, FR normalizada, PA estable</li>
-<li>Si sin respuesta diurética: doblar dosis furosemida o agregar tiazida/acetazolamida</li>
+<li>Si respuesta insuficiente: duplicar la dosis de furosemida IV y reevaluar en 2–6 h; si persiste, agregar acetazolamida o tiazida</li>
 <li>Decidir: hospitalización vs observación vs UCI</li>
 </ul>
 </div>
@@ -890,6 +900,14 @@ table{font-size:14px;border:1px solid var(--border);border-radius:10px;overflow:
 <option value="no">No</option>
 <option value="si">Sí (respuesta insuficiente previa)</option>
 </select>
+</div>
+<div class="calc-input-group">
+<label>Na urinario a las 2 h (mmol/L, opcional)</label>
+<input id="c1-una" max="250" min="0" placeholder="Ej: 55" type="number"/>
+</div>
+<div class="calc-input-group">
+<label>Diuresis media en 6 h (mL/h, opcional)</label>
+<input id="c1-diu" max="1000" min="0" placeholder="Ej: 80" type="number"/>
 </div>
 </div>
 </div>
@@ -1452,20 +1470,23 @@ function calcFurosemida(){
   var sev = document.getElementById("c1-severidad").value;
   var tfge = parseFloat(document.getElementById("c1-tfge").value)||60;
   var resist = document.getElementById("c1-resist").value;
-  var dosis, interp;
-  var base = Math.max(20, oral);
-  if(sev==="leve") base = Math.max(20, oral);
-  else if(sev==="moderada") base = Math.max(40, oral);
-  else base = Math.max(80, oral*1.5);
-  if(tfge<30) base = base*2;
-  else if(tfge<60) base = base*1.5;
-  base = Math.min(base, 400);
-  dosis = Math.round(base/20)*20;
-  interp = "Dosis inicial recomendada: "+dosis+"mg IV. ";
-  if(dosis<=40) interp += "Paciente sin diurético previo o leve: bolo IV + observación 1h.";
-  else if(dosis<=80) interp += "Titulación habitual. Evaluar respuesta diurética a la hora (objetivo 100-200mL/h). Si insuficiente: doblar dosis.";
-  else interp += "Dosis alta por TFGe reducida o resistencia. Considerar infusión continua: "+(dosis/24).toFixed(0)+"mg/h. Si sin respuesta en 2h: añadir hidroclorotiazida 25-50mg oral o acetazolamida 500mg IV (ADVOR).";
-  if(resist==="si") interp += " ⚠️ Resistencia diurética: añadir diurético tiazídico o acetazolamida. Verificar electrolitos.";
+  var una = parseFloat(document.getElementById("c1-una").value);
+  var diu = parseFloat(document.getElementById("c1-diu").value);
+  var base = oral>0 ? oral*2 : 40;
+  if(tfge<30) base = Math.max(base, 80);
+  if(sev==="severa" && oral===0) base = Math.max(base, 40);
+  var techo = tfge<30 ? 1000 : 600;
+  base = Math.min(base, techo/2);
+  var dosis = Math.round(base/20)*20;
+  var interp = "Dosis inicial (ESC 2026): "+dosis+" mg IV "+(oral>0?"(2 × dosis oral diaria). ":"(sin diurético previo). ");
+  if(tfge<30) interp += "Con TFGe <30 suele necesitarse más. ";
+  var resp = "nd";
+  if(!isNaN(una)) resp = una>=70 ? "ok" : "no";
+  else if(!isNaN(diu)) resp = diu>=100 ? "ok" : "no";
+  if(resp==="ok") interp += "Respuesta adecuada ("+(!isNaN(una)?"Na urinario "+una+" mmol/L":"diuresis "+diu+" mL/h")+"): repetir la misma dosis cada 12 h y medir diuresis a las 24 h; si <3 L con congestión, intensificar el día 2.";
+  else if(resp==="no"){var d2=Math.min(dosis*2,techo/2); interp += "Respuesta insuficiente ("+(!isNaN(una)?"Na urinario "+una+" <70 mmol/L":"diuresis "+diu+" <100 mL/h")+"): duplicar a "+d2+" mg IV y reevaluar en 2–6 h. Techo habitual "+techo+" mg/día.";}
+  else interp += "Medir Na urinario a las 2 h (meta ≥70 mmol/L) o diuresis horaria en 6 h (meta ≥100 mL/h).";
+  if(resist==="si" || resp==="no") interp += " Si ya usaba diurético de asa o persiste la congestión: acetazolamida 500 mg IV/día o hidroclorotiazida "+(tfge>50?"25":tfge>=20?"50":"100")+" mg/día VO (según TFGe). Vigilar K, Na y creatinina.";
   document.getElementById("c1-val").textContent = dosis+" mg IV";
   document.getElementById("c1-interp").textContent = interp;
   document.getElementById("c1-result").style.display="block";
@@ -1574,7 +1595,7 @@ window.onload = function(){
 <script src="../assets/croce.js"></script>
 <section aria-label="Versión de la guía" class="croce-version-box">
 <strong>Versión 1.0 Premium</strong>
-<span>Biblioteca Médica Personal Croce · Junio 2026</span>
+<span>Biblioteca Médica Personal Croce · Actualizado noviembre 2026</span>
 <span>Guía HTML independiente · diseño unificado · buscador global compatible</span>
 </section></body>
 </html>
